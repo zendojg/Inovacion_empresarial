@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="gob.pa.inovacion_empresarial">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/img_list"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/img_list"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Inovacion_empresarial">
+        <activity
+            android:name=".view.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.ViewPager"
+            android:configChanges="screenSize|orientation|screenLayout|navigation"
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".view.MainActivity"
+            android:configChanges="screenSize|orientation|screenLayout|navigation"
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

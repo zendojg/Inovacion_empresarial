@@ -1,0 +1,183 @@
+<resources>
+    <string name="app_name">Innovación en empresas</string>
+
+    <string name="distSelect">Seleccione un Distrito</string>
+    <string name="provSelect">Seleccione una Provincia</string>
+    <string name="correSelect">Seleccione un Corregimiento</string>
+
+    <string name="hint01"><b>1. Provincia:</b></string>
+    <string name="hint02"><b>2. Distrito:</b></string>
+    <string name="hint03"><b>3. Corregimiento:</b></string>
+    <string name="hint04"><b>4. Lugar Poblado:</b></string>
+
+    <string name="hint05"><b>5. Nombre comercial:</b></string>
+    <string name="hint06"><b>6. Razón Social:</b></string>
+    <string name="hint07"><b>7. RUC:</b></string>
+    <string name="hint08"><b>8. Dirección:</b></string>
+    <string name="hint091"><b>9. Teléfono 1:</b></string>
+    <string name="hint092"><b>9. Teléfono 2:</b></string>
+    <string name="hint10"><b>10. Celular:</b></string>
+    <string name="hint11"><b>11. Correo electrónico de la empresa:</b></string>
+    <string name="hint12"><b>12. Página web:</b></string>
+    <string name="hint13"><b>13. Número de clave:</b></string>
+    <string name="hint14"><b>14. Número de Locales que conforman la empresa:</b></string>
+    <string name="hint15"><b>15. De estos locales, ¿Cuántos se encuentran en la ciudad de Panamá:</b></string>
+
+    <string name="hint16"><b>16. Nombre del Informante:</b></string>
+    <string name="hint17"><b>17. Cargo:</b></string>
+    <string name="hint18"><b>18. Dirección:</b></string>
+    <string name="hint191"><b>19. Teléfono 1:</b></string>
+    <string name="hint192"><b>19. Teléfono 2:</b></string>
+    <string name="hint20"><b>20. Celular:</b></string>
+    <string name="hint21"><b>21. Correo electrónico del informante:</b></string>
+
+    <string name="hint22"><b>22. Año de Inicio de operaciones:</b></string>
+    <string name="hint26"><b>26. Nombre completo:</b></string>
+    <string name="hint27"><b>27. Nombre del País:</b></string>
+    <string name="hint28"><b>21. Correo electrónico del informante:</b></string>
+
+    <string name="hintDV"><b>DV</b></string>
+
+
+    <string name="hints061"><b>1. Hogares:</b></string>
+    <string name="hints062"><b>2. Empresas:</b></string>
+    <string name="hints063"><b>3. Gobierno:</b></string>
+    <string name="hints064"><b>4. Otros: (iglesias, ONG y otros)</b></string>
+
+
+    <string name="c01">Capítulo I.  Localización de la Empresa</string>
+    <string name="c02">Capítulo II.  Datos de la Empresa y del Informante</string>
+    <string name="c03">Capítulo III.  Organización de la Empresa</string>
+    <string name="c04">Capítulo IV.  Actividades Económicas de la Empresa</string>
+    <string name="c05">Capítulo V.  Ventas, Exportaciones y Recursos Humanos de la Empresa</string>
+    <string name="c06">Capítulo VI.  Innovación de productos, de procesos, organizacional y de Comercialización</string>
+    <string name="c07">Capítulo VII.  Actividades Innovativas, Gastos, factores y Dificultades para Innovar</string>
+    <string name="c08">Capítulo VIII.  Fuente de Financiamiento para las Actividades de Innovación</string>
+    <string name="c09">Capítulo IX.  Patentes, Derechos de Propiedad Intelectual, Marca y Normas de Calidad</string>
+    <string name="c10">Capítulo X.  Perspectivas de Innovaciones Futuras</string>
+
+    <string name="cap01">Capítulo I.</string>
+    <string name="cap02">Capítulo II.</string>
+    <string name="cap03">Capítulo III.</string>
+    <string name="cap04">Capítulo IV.</string>
+    <string name="cap05">Capítulo V.</string>
+    <string name="cap06">Capítulo VI.</string>
+    <string name="cap07">Capítulo VII.</string>
+    <string name="cap08">Capítulo VIII.</string>
+    <string name="cap09">Capítulo IX.</string>
+    <string name="cap10">Capítulo X.</string>
+    <string name="cap_test">CAPÍTULO 0.</string>
+
+    <string name="ctxt01">Localización de la Empresa</string>
+    <string name="ctxt02">Datos de la Empresa y del Informante</string>
+    <string name="ctxt03">Organización de la Empresa</string>
+    <string name="ctxt04">Actividades Económicas de la Empresa</string>
+    <string name="ctxt05">Ventas, Exportaciones y Recursos Humanos de la Empresa</string>
+    <string name="ctxt06">Innovación de productos, de procesos, organizacional y de Comercialización</string>
+    <string name="ctxt07">Actividades Innovativas, Gastos, factores y Dificultades para Innovar</string>
+    <string name="ctxt08">Fuente de Financiamiento para las Actividades de Innovación</string>
+    <string name="ctxt09">Patentes, Derechos de Propiedad Intelectual, Marca y Normas de Calidad</string>
+    <string name="ctxt10">Perspectivas de Innovaciones Futuras</string>
+    <string name="ctxt_test">Título del capítulo. mensaje de prueba .....</string>
+
+    <string name="subcap000" />
+    <string name="subcap001">Parte 1</string>
+    <string name="subcap002">Parte 2</string>
+    <string name="subcap003">Parte 3</string>
+    <string name="subcap021">1. Datos de la Empresa</string>
+    <string name="subcap022">2. Datos del Informante</string>
+    <string name="subcap051">1. Ventas y Exportaciones</string>
+    <string name="subcap052">2. Recursos Humanos de la Empresa</string>
+    <string name="subcap061">1. Innovación de Productos (Bienes y Servivios)</string>
+    <string name="subcap062">2. Innovación de Procesos</string>
+    <string name="subcap063">3. Innovación Organizacional</string>
+    <string name="subcap064">4. Innovación en la Comercialización</string>
+    <string name="subcap_test">Subtítulo del capítulo, mensaje de prueba</string>
+
+
+    <string name="encuestatitle">Encuesta de Innovación en Empresas 2021–22</string>
+    <string name="modulotitle">Módulo de Comercio Electrónico en la Empresa</string>
+
+
+    <string name="s01">Sección 1. Uso de Internet</string>
+    <string name="s02">Sección 2. Seguridad de la Empresa a travéz de las Tecnologías de la Información y las comunicacions (YIC)</string>
+    <string name="s03">Sección 3. Comercio Electrónico</string>
+    <string name="s04">Sección 4. Gastos Por Comercio Electrónico</string>
+    <string name="s05">OBSERVACIONES DEL MÓDULO DE COMERCIO ELECTRÓNICO</string>
+
+    <string name="secc01">Sección 1.</string>
+    <string name="secc02">Sección 2.</string>
+    <string name="secc03">Sección 3.</string>
+    <string name="secc04">Sección 4.</string>
+
+    <string name="stxt01">Uso de Internet</string>
+    <string name="stxt02">Seguridad de la Empresa, a travéz de las Tecnologías de la Información y las comunicacions (TIC)</string>
+    <string name="stxt03">Comercio Electrónico</string>
+    <string name="stxt04">Gastos Por Comercio Electrónico</string>
+
+    <string name="informe">INFORME</string>
+    <string name="informetxt">Datos del Formulario</string>
+
+
+    <string name="cap_example">Capitulo xxxxxxxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxx</string>
+    <string name="guardar">Guardar</string>
+    <string name="salir">Salir</string>
+    <string name="ncontrol">N° de control:</string>
+    <string name="_0">0</string>
+    <string name="decreto">La información solicitada esta amparada por el Decreto Estadistico y es Estrictamente Confidecial</string>
+    <string name="ley">Ley 10 de 22 de enero de 2009</string>
+    <string name="condici_n_de_la_encuesta">Condición de la encuesta</string>
+    <string name="condicion">Condicion</string>
+    <string name="_00000">00000</string>
+    <string name="n_de_control">N° de Control:</string>
+    <string name="e00_0000">E00-0000</string>
+    <string name="encuestador">Encuestador:</string>
+    <string name="obs">OBSERVACIONES</string>
+
+
+    <string-array name="arr_onetofive">
+        <item />
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="arr_hightolow">
+        <item />
+        <item>(1) Alta</item>
+        <item>(2) Media</item>
+        <item>(3) Baja</item>
+        <item>(4) Irrelevante</item>
+    </string-array>
+
+    <string-array name="arr_solicito">
+        <item />
+        <item>(1) No obtuvo, Sí solicitó </item>
+        <item>(2) Si obtuvo, Sí solicitó</item>
+        <item>(3) No solicitó apoyo</item>
+    </string-array>
+
+    <string-array name="arr_provincias">
+        <item>Panamá</item>
+        <item>Panamá Oeste</item>
+        <item>Coclé</item>
+        <item>Chiriquí</item>
+        <item>Colón</item>
+        <item>Los Santos</item>
+        <item>Veraguas</item>
+        <item>Herrera</item>
+        <item>Darién</item>
+        <item>Bocas del Toro</item>
+        <item>Emberá-Wounaan</item>
+        <item>Guna Yala</item>
+        <item>Naso Tjër Di</item>
+        <item>Ngöbe-Buglé</item>
+    </string-array>
+
+
+    <dimen name="toolsize">85dp</dimen>
+
+
+</resources>

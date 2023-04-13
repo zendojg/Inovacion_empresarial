@@ -1,0 +1,1355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_cap07_2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_dark"
+    tools:ignore="HardcodedText"
+    >
+
+    <ScrollView
+        android:id="@+id/scrollForm"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:orientation="vertical"
+        android:layout_margin="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:animateLayoutChanges="true"
+            android:background="@drawable/background_shadow_med"
+            android:orientation="vertical"
+            android:padding="2dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/background_shadow"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="53. "
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="En el 2021 y 2022, ¿cuál fue el promedio anual de empleados que laboraron en la empresa, según su origen?"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck,TooManyViews" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:background="@drawable/background_shadow_low" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:background="@drawable/background_shadow_low"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center"
+                            android:paddingTop="5dp"
+                            android:text="Valor en Balboas"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center"
+                            android:paddingBottom="5dp"
+                            android:text="(Omita los centésimos)" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/background_shadow_celpast"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:text="2021"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                tools:ignore="TextContrastCheck" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/background_shadow_celpast"
+                                android:fontFamily="sans-serif-condensed"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:text="2022"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="5dp"
+                        android:text="1. Total (suma de todas)"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_1_2021"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_1_2022"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_1_2022"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_a_2021"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="5dp"
+                        android:text="  a. Nacional"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_a_2021"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_a_2022"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_a_2022"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_b_2021"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="5dp"
+                        android:text="  b. Extrangero"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_b_2021"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_b_2022"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_b_2022"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_c_2021"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="5dp"
+                        android:text="  c. Extrangero"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_c_2021"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_c_2022"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_c_2022"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_d_2021"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="5dp"
+                        android:text="  d. Extrangero"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_d_2021"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_d_2022"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_d_2022"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_e_2021"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="5dp"
+                        android:text="  e. Extrangero"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_e_2021"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_e_2022"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_e_2022"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_f_2021"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.5"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="5dp"
+                        android:text="  f. Extrangero"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_f_2021"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_f_2022"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_f_2022"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_g_2021"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/background_shadow_low"
+                    android:orientation="horizontal">
+
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_g_otro"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:layout_weight="1.5"
+                        android:autofillHints="2021"
+                        android:fontFamily="sans-serif-condensed"
+                        android:hint="h. Otros: Especifique"
+                        android:inputType="text"
+                        android:lines="3"
+                        android:paddingHorizontal="15dp"
+                        android:scrollHorizontally="false"
+                        android:textColorHint="#666666"
+                        android:textSize="12sp"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_g_2021"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap7_53_g_2022"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap7_53_g_2022"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="000"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck,TextContrastCheck" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginVertical="7dp"
+                android:background="@drawable/background_shadow"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="54. "
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="En el 2022, ¿cuales fueron las razones por las que su empresa no desarrolló actividades de innovación?"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="25dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="LEA:"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_low"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center"
+                            android:paddingVertical="10dp"
+                            android:text="Enumere según orden de importancia"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1.5"
+                            android:background="@drawable/background_shadow"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center"
+                            android:paddingVertical="10dp"
+                            android:text="1 al 5"
+                            android:textColor="#666666"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_celpast"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="1 . "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="Innovar no es rentable."
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_celpast"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="2 . "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="El mercado no requiere o valora nuevos productos."
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_horizontal"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_celpast"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="3 . "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="No considera necesario innovar."
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_horizontal"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_celpast"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="4 . "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="Carencia de recusros financieros públicos para adelantar proyectos de innovación."
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_4"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_horizontal"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_celpast"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="5dp"
+                            tools:ignore="TooManyViews">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="5 . "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="Carencia de recursos financieros privados para adelantar proyectos de."
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_horizontal"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_celpast"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="6 . "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="Carencia de personal capacitado para realizar proyectos de innovación."
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_6"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_horizontal"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_celpast"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="7 . "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="Tamaño inadecuado del mercado."
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_7"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_horizontal"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_celpast"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="8 . "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="Desconocimiento de los apoyos gubernamentales para proyectos de innovación."
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_8"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_horizontal"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_celpast"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="9 . "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="Dificultad para acceder a apoyos gubernamentales."
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_9"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_horizontal"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_celpast"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="10. "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="Deficiencias, dificultades burocráticas, alto costoal sistema de protección a la propiedad intelectual."
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_10"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_horizontal"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_celpast"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="11. "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="Dificultades de acceso o costo excesivo del financiamiento a la innovación"
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_11"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_horizontal"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_celpast"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="12. "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="Insuficientes incentivos a la innovación en la actividad económica desarrollada por la empresa."
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_12"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_horizontal"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_celpast"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="13. "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="Insuficientes incentivos a la innovación por baja receptividad de la demanda."
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_13"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_horizontal"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:background="@drawable/background_shadow_celpast"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="14. "
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="Insuficientes incentivos a la innovación por deficiencia en las políticas públicas."
+                                tools:ignore="TextContrastCheck" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_14"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_horizontal"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:baselineAligned="false"
+                        android:orientation="horizontal">
+
+
+                        <EditText
+                            android:id="@+id/txtCap7_54_15_otro"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="6"
+                            android:autofillHints="15. Otra"
+                            android:ems="10"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|top"
+                            android:hint="15. Otra: especifique"
+                            android:inputType="text"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="4dp"
+                            android:textColorHint="#666666"
+                            android:textSize="14sp" />
+
+                        <Spinner
+                            android:id="@+id/txtCap7_54_15"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.5"
+                            android:entries="@array/arr_onetofive"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="center_horizontal"
+                            android:minHeight="48dp"
+                            android:paddingHorizontal="10dp" />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="25dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="10dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Marcar en escala de 1 a 5, siendo el 1 el de menor importancia y 5 con mayor importancia"
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:textStyle="italic" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+            </View>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

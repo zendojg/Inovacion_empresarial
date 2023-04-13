@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_background" />
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearpiemain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ScrollView
+            android:id="@+id/scrollMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <LinearLayout
+                android:id="@+id/linearFormMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lbtitle">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginVertical="5dp"
+                    android:animateLayoutChanges="true"
+                    android:background="@drawable/background_shadow_celmed"
+                    android:orientation="vertical"
+                    android:padding="2dp">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/btEncuestaMain"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="0dp"
+                            android:layout_height="55dp"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="@color/white"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:text="INICIAR - Encuesta de Innovación en Empresas"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            app:backgroundTint="#3C79BB"
+                            app:layout_constraintEnd_toStartOf="@+id/btEncuestaExpandMain"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Button
+                            android:id="@+id/btEncuestaExpandMain"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="48dp"
+                            android:layout_height="55dp"
+                            android:drawableEnd="@android:drawable/arrow_down_float"
+                            android:drawableTint="@color/white"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            app:backgroundTint="#3C79BB"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/linearEncuestaMain"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:visibility="gone"
+                        >
+
+                        <Button
+                            android:id="@+id/btcap01main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="@color/white"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:text="@string/c01"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            app:backgroundTint="#218CBF" />
+
+                        <Button
+                            android:id="@+id/btcap02main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="@color/white"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/c02"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            app:backgroundTint="#218CBF" />
+
+                        <Button
+                            android:id="@+id/btcap03main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="@color/white"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/c03"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            app:backgroundTint="#218CBF" />
+
+                        <Button
+                            android:id="@+id/btcap04main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="@color/white"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/c04"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            app:backgroundTint="#218CBF" />
+
+                        <Button
+                            android:id="@+id/btcap05main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="@color/white"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/c05"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            app:backgroundTint="#218CBF" />
+
+                        <Button
+                            android:id="@+id/btcap06main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="@color/white"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/c06"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            app:backgroundTint="#218CBF" />
+
+                        <Button
+                            android:id="@+id/btcap07main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="@color/white"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/c07"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            app:backgroundTint="#218CBF" />
+
+                        <Button
+                            android:id="@+id/btcap08main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="@color/white"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/c08"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            app:backgroundTint="#218CBF" />
+
+                        <Button
+                            android:id="@+id/btcap09main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="@color/white"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/c09"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            app:backgroundTint="#218CBF" />
+
+                        <Button
+                            android:id="@+id/btcap10main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="@color/white"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/c10"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            app:backgroundTint="#218CBF" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginVertical="5dp"
+                    android:animateLayoutChanges="true"
+                    android:background="@drawable/background_shadow_pastelowl"
+                    android:orientation="vertical"
+                    android:padding="2dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <Button
+                            android:id="@+id/btModuloMain"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="0dp"
+                            android:layout_height="55dp"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="@color/white"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:lines="1"
+                            android:text="INICIAR - Módulo de Comercio Electrónico en la Empresa"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            app:backgroundTint="#D8B18B"
+                            app:layout_constraintEnd_toStartOf="@+id/btModuloExpandMain"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Button
+                            android:id="@+id/btModuloExpandMain"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="48dp"
+                            android:layout_height="55dp"
+                            android:drawableEnd="@android:drawable/arrow_down_float"
+                            android:drawableTint="@color/white"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:textAllCaps="false"
+                            android:textStyle="bold"
+                            app:backgroundTint="#D8B18B"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearModuloMain"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="10dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:visibility="gone">
+
+                        <Button
+                            android:id="@+id/btsec01main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="#757575"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/s01"
+                            android:textAllCaps="false"
+                            android:textColor="#757575"
+                            android:textStyle="bold"
+                            app:backgroundTint="#E4D0AF" />
+
+                        <Button
+                            android:id="@+id/btsec02main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="#757575"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/s02"
+                            android:textAllCaps="false"
+                            android:textColor="#757575"
+                            android:textStyle="bold"
+                            app:backgroundTint="#E4D0AF" />
+
+                        <Button
+                            android:id="@+id/btsec03main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="#757575"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/s03"
+                            android:textAllCaps="false"
+                            android:textColor="#757575"
+                            android:textStyle="bold"
+                            app:backgroundTint="#E4D0AF" />
+
+                        <Button
+                            android:id="@+id/btsec04main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="#757575"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/s04"
+                            android:textAllCaps="false"
+                            android:textColor="#757575"
+                            android:textStyle="bold"
+                            app:backgroundTint="#E4D0AF" />
+
+                        <Button
+                            android:id="@+id/btsec05main"
+                            style="@style/Widget.AppCompat.Button.Colored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableEnd="@drawable/img_forward"
+                            android:drawableTint="#757575"
+                            android:ellipsize="end"
+                            android:fontFamily="sans-serif-condensed"
+                            android:gravity="start|center_vertical"
+                            android:maxLines="1"
+                            android:text="@string/obs"
+                            android:textAllCaps="false"
+                            android:textColor="#757575"
+                            android:textStyle="bold"
+                            app:backgroundTint="@color/teal_200" />
+
+
+                    </LinearLayout>
+
+                    <!-- #D8B18B -->
+
+                </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearpiemain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="4dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/background_shadow2"
+        >
+
+        <FrameLayout
+            android:id="@+id/frameLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginVertical="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginTop="3dp"
+                android:gravity="start"
+                android:text="@string/encuestador"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/txvencuestadormain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="22dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/e00_0000"
+                android:textColor="@color/cyanc"
+                android:textSize="13sp" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frameLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="4dp"
+            app:layout_constraintStart_toEndOf="@+id/frameLayout3"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start"
+                android:text="@string/n_de_control"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/txvncontrolmain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginTop="22dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/_00000"
+                android:textColor="@color/cyanc"
+                android:textSize="13sp" />
+        </FrameLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/condicion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/txtCondicion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="13sp"
+                android:inputType="none"
+                android:lines="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:text="@string/condici_n_de_la_encuesta"
+                tools:ignore="LabelFor" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/linearpiemain2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/logo_inec" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_margin="5dp"
+            android:paddingHorizontal="5dp"
+            android:text="@string/decreto"
+            android:textSize="12sp"
+            android:gravity="center"
+             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_margin="5dp"
+            android:paddingHorizontal="5dp"
+            android:text="@string/ley"
+            android:textSize="12sp"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
