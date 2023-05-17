@@ -95,8 +95,9 @@
     <string name="subcap_test">Subtítulo del capítulo, mensaje de prueba</string>
 
 
-    <string name="encuestatitle">Encuesta de Innovación en Empresas 2021–22</string>
+    <string name="encuestatitle">Encuesta de Innovación en Empresas</string>
     <string name="modulotitle">Módulo de Comercio Electrónico en la Empresa</string>
+    <string name="subtittle1Main">Instituto Nacional de Estadística y Censo</string>
 
 
     <string name="s01">Sección 1. Uso de Internet</string>
@@ -133,7 +134,13 @@
     <string name="e00_0000">E00-0000</string>
     <string name="encuestador">Encuestador:</string>
     <string name="obs">OBSERVACIONES</string>
-
+    <string name="version">versión 0.0</string>
+    <string name="senacyt">SENACYT</string>
+    <string name="backgroud">Backgroud</string>
+    <string name="btinitForm">INICIAR: Encuesta de Innovación en Empresas</string>
+    <string name="btinitmodule">Módulo de Comercio Electrónico en la Empresa</string>
+    <string name="subtittle2Main">La información solicitada está amparada por el decreto estadístico y es estrictamente confidencial</string>
+    <string name="subtittle3Main">LEY 10 DEL 22 DE ENERO DE 2009</string>
 
     <string-array name="arr_onetofive">
         <item />
@@ -178,6 +185,11 @@
 
 
     <dimen name="toolsize">85dp</dimen>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="tittle1Main">CONTRALORÍA GENERAL DE LA REPÚBLICA</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_ncontrol"><b>Número de Control:</b></string>
+    <string name="expand">Expand</string>
 
 
 </resources>

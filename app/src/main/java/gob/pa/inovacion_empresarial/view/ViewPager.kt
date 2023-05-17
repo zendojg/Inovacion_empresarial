@@ -28,34 +28,44 @@ import kotlinx.android.synthetic.main.activity_view_pager.*
 class ViewPager : AppCompatActivity() {
 
     private lateinit var pagerbinding: ActivityViewPagerBinding
-    private val encuesta = MainActivity.indice
+    private val encuesta = Mobject.indiceEnc
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pagerbinding = ActivityViewPagerBinding.inflate(layoutInflater)
         setContentView(pagerbinding.root)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        var toastMSG: Toast
-
-
         //------------------------------------------------------------------------------------------ Viewpager SLIP event
         val myAdapter = AdapterPager(supportFragmentManager, lifecycle)
         myAdapter.addListFragment(Mobject.arrEncuestas)
-        viewpager.adapter = myAdapter
-        viewpager.isUserInputEnabled = false
+        pagerbinding.viewpager.adapter = myAdapter
+        pagerbinding.viewpager.isUserInputEnabled = false
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        actions()
+    }
+
+    private fun actions() {
         if (encuesta!= 0) {
-            viewpager.setCurrentItem(encuesta, false)
+            pagerbinding.viewpager.setCurrentItem(encuesta, false)
             spinPager(encuesta)
         }
         pagerbinding.btnextpager.setOnClickListener {
-            if (viewpager.currentItem==22) { super.onBackPressed()
-            } else viewpager.setCurrentItem(viewpager.currentItem + 1,false)
+            if (pagerbinding.viewpager.currentItem==22) {
+                onBackPressedDispatcher.onBackPressed()
+            } else pagerbinding.viewpager.setCurrentItem(
+                pagerbinding.viewpager.currentItem + 1,false)
         }
         pagerbinding.btbackpager.setOnClickListener {
-            if (viewpager.currentItem==0) { super.onBackPressed()
+            if (viewpager.currentItem==0) {
+                onBackPressedDispatcher.onBackPressed()
             } else viewpager.setCurrentItem(viewpager.currentItem - 1,false) }
-        pagerbinding.btmenupager.setOnClickListener { super.onBackPressed() }
+        pagerbinding.btmenupager.setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
 
         viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -78,20 +88,13 @@ class ViewPager : AppCompatActivity() {
             observation(viewpager.currentItem)
         }
         pagerbinding.btsavepager.setOnClickListener {
-
-            toastMSG = Toast.makeText(applicationContext, "Formulario guardado", Toast.LENGTH_SHORT)
-            toastMSG.cancel()
-            toastMSG.show()
-
-
+            Toast.makeText(applicationContext, "Formulario guardado", Toast.LENGTH_SHORT).show()
         }
-
     }
 
 
-
     override fun onBackPressed() {
-        if (viewpager.currentItem == 0) { super.onBackPressed() }
+        if (viewpager.currentItem == 0) { onBackPressedDispatcher.onBackPressed() }
         else { viewpager.setCurrentItem(viewpager.currentItem - 1,true)  }
     }
 
@@ -140,7 +143,7 @@ class ViewPager : AppCompatActivity() {
         } else {
             color = ContextCompat.getColor(this, R.color.cream_pastel)
             txtobs.text = Mobject.obsModulo
-            encabezado.setBackgroundResource(R.drawable.background_shadow_pastelowl)
+            encabezado.setBackgroundResource(R.drawable.background_shadow_pastel)
         }
         btpositivo.backgroundTintList = ColorStateList.valueOf(color)
         btnegativo.backgroundTintList = ColorStateList.valueOf(color)
@@ -172,171 +175,171 @@ class ViewPager : AppCompatActivity() {
         val colorLetras : Int
         val colorFondo: Int
         val decorView: View = window.decorView
-
+        val ctx = this
+        with(pagerbinding){
             when {
-            position<18 -> {
-                Mobject.obsTittle = "Encuesta  de Innovación en Empresas"
-                pagerbinding.btobspager.visibility = View.VISIBLE
-                pagerbinding.btsavepager.visibility = View.VISIBLE
-                colorLetras = (Color.WHITE)
-                decorView.systemUiVisibility =
-                    decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
-                colorFondo = ContextCompat.getColor(this, R.color.holo_blue_dark)
-            }
-            position==22 -> {
-                pagerbinding.btobspager.visibility = View.INVISIBLE
-                pagerbinding.btsavepager.visibility = View.INVISIBLE
-                colorLetras = (Color.WHITE)
-                decorView.systemUiVisibility =
-                    decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
-                colorFondo = ContextCompat.getColor(this, R.color.teal_700)
-            }
-            else -> {
-                Mobject.obsTittle = "Módulo de Comercio Electrónico"
-                pagerbinding.btobspager.visibility = View.VISIBLE
-                pagerbinding.btsavepager.visibility = View.VISIBLE
-                decorView.systemUiVisibility =
-                    decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-                colorLetras = (Color.DKGRAY)
-                colorFondo = ContextCompat.getColor(this, R.color.cream_pastel)
+                position < 18 -> {
+                    Mobject.obsTittle = "Encuesta  de Innovación en Empresas"
+                    btobspager.visibility = View.VISIBLE
+                    btsavepager.visibility = View.VISIBLE
+                    colorLetras = (Color.WHITE)
+                    decorView.systemUiVisibility =
+                        decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+                    colorFondo = ContextCompat.getColor(ctx, R.color.holo_blue_dark)
+                }
+                position == 22 -> {
+                    btobspager.visibility = View.INVISIBLE
+                    btsavepager.visibility = View.INVISIBLE
+                    colorLetras = (Color.WHITE)
+                    decorView.systemUiVisibility =
+                        decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+                    colorFondo = ContextCompat.getColor(ctx, R.color.teal_700)
+                }
+                else -> {
+                    Mobject.obsTittle = "Módulo de Comercio Electrónico"
+                    btobspager.visibility = View.VISIBLE
+                    btsavepager.visibility = View.VISIBLE
+                    decorView.systemUiVisibility =
+                        decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                    colorLetras = (Color.DKGRAY)
+                    colorFondo = ContextCompat.getColor(ctx, R.color.cream_pastel)
+                }
+
             }
 
+            btsavepager.setColorFilter(colorLetras)
+            btobspager.setColorFilter(colorLetras)
+            btmenupager.setColorFilter(colorLetras)
+            btbackpager.setColorFilter(colorLetras)
+            btnextpager.setColorFilter(colorLetras)
+            bttoolresizepager.setColorFilter(colorLetras)
+
+            txvtitlepager.setTextColor(colorLetras)
+            txvtitlepager2.setTextColor(colorLetras)
+
+            window.statusBarColor = colorFondo
+            constraintpager.setBackgroundColor(colorFondo)
+            toolbarpager.setBackgroundColor(colorFondo)
+
+            when (position) {
+                0 -> { //--------------------------------------------------------------- capitulo 01
+                    txvtitlepager.text = getString(R.string.cap01)
+                    txvtitlepager2.text = getString(R.string.ctxt01)
+                    txvsubtitlepager.text = getString(R.string.subcap000)
+                }
+                1 -> { //--------------------------------------------------------------- capitulo 02
+                    txvtitlepager.text = getString(R.string.cap02)
+                    txvtitlepager2.text = getString(R.string.ctxt02)
+                    txvsubtitlepager.text = getString(R.string.subcap021)
+                }
+                2 -> { //--------------------------------------------------------------- capitulo 02
+                    txvtitlepager.text = getString(R.string.cap02)
+                    txvtitlepager2.text = getString(R.string.ctxt02)
+                    txvsubtitlepager.text = getString(R.string.subcap022)
+                }
+                3 -> { //--------------------------------------------------------------- capitulo 03
+                    txvtitlepager.text = getString(R.string.cap03)
+                    txvtitlepager2.text = getString(R.string.ctxt03)
+                    pagerbinding.txvsubtitlepager.text = getString(R.string.subcap000)
+                }
+                4 -> { //--------------------------------------------------------------- capitulo 04
+                    txvtitlepager.text = getString(R.string.cap04)
+                    txvtitlepager2.text = getString(R.string.ctxt04)
+                    txvsubtitlepager.text = getString(R.string.subcap000)
+                }
+                5 -> { //--------------------------------------------------------------- capitulo 05
+                    txvtitlepager.text = getString(R.string.cap05)
+                    txvtitlepager2.text = getString(R.string.ctxt05)
+                    txvsubtitlepager.text = getString(R.string.subcap051)
+                }
+                6 -> { //--------------------------------------------------------------- capitulo 05
+                    txvtitlepager.text = getString(R.string.cap05)
+                    txvtitlepager2.text = getString(R.string.ctxt05)
+                    txvsubtitlepager.text = getString(R.string.subcap052)
+                }
+                7 -> { //--------------------------------------------------------------- capitulo 06
+                    txvtitlepager.text = getString(R.string.cap06)
+                    txvtitlepager2.text = getString(R.string.ctxt06)
+                    txvsubtitlepager.text = getString(R.string.subcap061)
+                }
+                8 -> { //--------------------------------------------------------------- capitulo 06
+                    txvtitlepager.text = getString(R.string.cap06)
+                    txvtitlepager2.text = getString(R.string.ctxt06)
+                    txvsubtitlepager.text = getString(R.string.subcap062)
+                }
+                9 -> { //--------------------------------------------------------------- capitulo 06
+                    txvtitlepager.text = getString(R.string.cap06)
+                    txvtitlepager2.text = getString(R.string.ctxt06)
+                    txvsubtitlepager.text = getString(R.string.subcap063)
+                }
+                10 -> { //-------------------------------------------------------------- capitulo 06
+                    txvtitlepager.text = getString(R.string.cap06)
+                    txvtitlepager2.text = getString(R.string.ctxt06)
+                    txvsubtitlepager.text = getString(R.string.subcap064)
+                }
+                11 -> { //-------------------------------------------------------------- capitulo 07
+                    txvtitlepager.text = getString(R.string.cap07)
+                    txvtitlepager2.text = getString(R.string.ctxt07)
+                    txvsubtitlepager.text = getString(R.string.subcap001)
+                }
+                12 -> { //-------------------------------------------------------------- capitulo 07
+                    txvtitlepager.text = getString(R.string.cap07)
+                    txvtitlepager2.text = getString(R.string.ctxt07)
+                    txvsubtitlepager.text = getString(R.string.subcap002)
+                }
+                13 -> { //-------------------------------------------------------------- capitulo 07
+                    txvtitlepager.text = getString(R.string.cap07)
+                    txvtitlepager2.text = getString(R.string.ctxt07)
+                    txvsubtitlepager.text = getString(R.string.subcap003)
+                }
+                14 -> { //-------------------------------------------------------------- capitulo 08
+                    txvtitlepager.text = getString(R.string.cap08)
+                    txvtitlepager2.text = getString(R.string.ctxt08)
+                    txvsubtitlepager.text = getString(R.string.subcap000)
+                }
+                15 -> { //-------------------------------------------------------------- capitulo 09
+                    txvtitlepager.text = getString(R.string.cap09)
+                    txvtitlepager2.text = getString(R.string.ctxt09)
+                    txvsubtitlepager.text = getString(R.string.subcap001)
+                }
+                16 -> { //-------------------------------------------------------------- capitulo 09
+                    txvtitlepager.text = getString(R.string.cap09)
+                    txvtitlepager2.text = getString(R.string.ctxt09)
+                    txvsubtitlepager.text = getString(R.string.subcap002)
+                }
+                17 -> { //-------------------------------------------------------------- capitulo 10
+                    txvtitlepager.text = getString(R.string.cap10)
+                    txvtitlepager2.text = getString(R.string.ctxt10)
+                    txvsubtitlepager.text = getString(R.string.subcap000)
+                }
+                //----------------------------------------------------------------------------------
+                18 -> { //--------------------------------------------------------------- seccion 01
+                    txvtitlepager.text = getString(R.string.secc01)
+                    txvtitlepager2.text = getString(R.string.stxt01)
+                    txvsubtitlepager.text = getString(R.string.subcap000)
+                }
+                19 -> { //--------------------------------------------------------------- seccion 02
+                    txvtitlepager.text = getString(R.string.secc02)
+                    txvtitlepager2.text = getString(R.string.stxt02)
+                    txvsubtitlepager.text = getString(R.string.subcap000)
+                }
+                20 -> { //--------------------------------------------------------------- seccion 03
+                    txvtitlepager.text = getString(R.string.secc03)
+                    txvtitlepager2.text = getString(R.string.stxt03)
+                    txvsubtitlepager.text = getString(R.string.subcap000)
+                }
+                21 -> { //--------------------------------------------------------------- seccion 04
+                    txvtitlepager.text = getString(R.string.secc04)
+                    txvtitlepager2.text = getString(R.string.stxt04)
+                    txvsubtitlepager.text = getString(R.string.subcap000)
+                }
+                22 -> { //--------------------------------------------------------------- Informe
+                    txvtitlepager.text = getString(R.string.informe)
+                    txvtitlepager2.text = getString(R.string.informetxt)
+                    txvsubtitlepager.text = getString(R.string.subcap000)
+                }
+            }
         }
-
-        pagerbinding.btsavepager.setColorFilter(colorLetras)
-        pagerbinding.btobspager.setColorFilter(colorLetras)
-        pagerbinding.btmenupager.setColorFilter(colorLetras)
-        pagerbinding.btbackpager.setColorFilter(colorLetras)
-        pagerbinding.btnextpager.setColorFilter(colorLetras)
-        pagerbinding.bttoolresizepager.setColorFilter(colorLetras)
-
-        pagerbinding.txvtitlepager.setTextColor(colorLetras)
-        pagerbinding.txvtitlepager2.setTextColor(colorLetras)
-
-        window.statusBarColor = colorFondo
-        pagerbinding.constraintpager.setBackgroundColor(colorFondo)
-        pagerbinding.toolbarpager.setBackgroundColor(colorFondo)
-
-        when(position) {
-            0 -> { //--- capitulo 1
-                pagerbinding.txvtitlepager.text = getString(R.string.cap01)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt01)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap000)
-            }
-            1 -> { //--- capitulo 2
-                pagerbinding.txvtitlepager.text = getString(R.string.cap02)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt02)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap021)
-            }
-            2 -> { //--- capitulo 2
-                pagerbinding.txvtitlepager.text = getString(R.string.cap02)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt02)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap022)
-            }
-            3 -> { //--- capitulo 3
-                pagerbinding.txvtitlepager.text = getString(R.string.cap03)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt03)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap000)
-            }
-            4 -> { //--- capitulo 4
-                pagerbinding.txvtitlepager.text = getString(R.string.cap04)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt04)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap000)
-            }
-            5 -> { //--- capitulo 5
-                pagerbinding.txvtitlepager.text = getString(R.string.cap05)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt05)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap051)
-            }
-            6 -> { //--- capitulo 5
-                pagerbinding.txvtitlepager.text = getString(R.string.cap05)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt05)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap052)
-            }
-            7 -> { //--- capitulo 6
-                pagerbinding.txvtitlepager.text = getString(R.string.cap06)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt06)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap061)
-            }
-            8 -> { //--- capitulo 6
-                pagerbinding.txvtitlepager.text = getString(R.string.cap06)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt06)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap062)
-            }
-            9 -> { //--- capitulo 6
-                pagerbinding.txvtitlepager.text = getString(R.string.cap06)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt06)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap063)
-            }
-            10 -> { //--- capitulo 6
-                pagerbinding.txvtitlepager.text = getString(R.string.cap06)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt06)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap064)
-            }
-            11 -> { //--- capitulo 7
-                pagerbinding.txvtitlepager.text = getString(R.string.cap07)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt07)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap001)
-            }
-            12 -> { //--- capitulo 7
-                pagerbinding.txvtitlepager.text = getString(R.string.cap07)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt07)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap002)
-            }
-            13 -> { //--- capitulo 7
-                pagerbinding.txvtitlepager.text = getString(R.string.cap07)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt07)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap003)
-            }
-            14 -> { //--- capitulo 8
-                pagerbinding.txvtitlepager.text = getString(R.string.cap08)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt08)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap000)
-            }
-            15 -> { //--- capitulo 9
-                pagerbinding.txvtitlepager.text = getString(R.string.cap09)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt09)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap001)
-            }
-            16 -> { //--- capitulo 9
-                pagerbinding.txvtitlepager.text = getString(R.string.cap09)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt09)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap002)
-            }
-            17 -> { //--- capitulo 10
-                pagerbinding.txvtitlepager.text = getString(R.string.cap10)
-                pagerbinding.txvtitlepager2.text = getString(R.string.ctxt10)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap000)
-            }
-            //--------------------------------------------------------------------------------------
-            18 -> { //--- seccion 01
-                pagerbinding.txvtitlepager.text = getString(R.string.secc01)
-                pagerbinding.txvtitlepager2.text = getString(R.string.stxt01)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap000)
-            }
-            19 -> { //--- seccion 02
-                pagerbinding.txvtitlepager.text = getString(R.string.secc02)
-                pagerbinding.txvtitlepager2.text = getString(R.string.stxt02)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap000)
-            }
-            20 -> { //--- seccion 03
-                pagerbinding.txvtitlepager.text = getString(R.string.secc03)
-                pagerbinding.txvtitlepager2.text = getString(R.string.stxt03)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap000)
-            }
-            21 -> { //--- seccion 04
-                pagerbinding.txvtitlepager.text = getString(R.string.secc04)
-                pagerbinding.txvtitlepager2.text = getString(R.string.stxt04)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap000)
-            }
-            22 -> { //--- Informe
-                pagerbinding.txvtitlepager.text = getString(R.string.informe)
-                pagerbinding.txvtitlepager2.text = getString(R.string.informetxt)
-                pagerbinding.txvsubtitlepager.text = getString(R.string.subcap000)
-            }
-
-        }
-
     }
 
 }

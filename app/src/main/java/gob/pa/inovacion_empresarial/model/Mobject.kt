@@ -8,6 +8,11 @@ class Mobject {
     companion object {
 
         var arrBlank: Array<Fragment> = emptyArray()
+        var arrMain: Array<Fragment> = arrayOf(
+            MainFragmentLogin(),    //--00--c01
+            MainFragmentSearch(),   //--01--c02
+        )
+
         var arrEncuestas: Array<Fragment> = arrayOf(
             FragEncuestaCap01(),    //--00--c01
             FragEncuestaCap02o1(),  //--01--c02
@@ -33,10 +38,11 @@ class Mobject {
             FragModuloSecc04(),     //--21--s04
             FragTotalInforme()      //--22--Informe
         )
-
+        var indiceEnc = 0
         var obsEncuesta = ""
         var obsModulo = ""
         var obsTittle = ""
+        var version = ""
 
         var idprov = ""
         var iddist = ""

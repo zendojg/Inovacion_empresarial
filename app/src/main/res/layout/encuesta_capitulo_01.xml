@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_cap2_1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_dark"
@@ -40,7 +39,6 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="3dp"
                     android:hint="@string/hint01"
                     android:textColorHint="@color/black"
                     app:startIconContentDescription="Localización">
@@ -53,27 +51,24 @@
                         android:entries="@array/arr_provincias"
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="none"
+                        android:textSize="16sp"
                         tools:ignore="LabelFor"
-                        tools:text="Panamá" />
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:text="Provincia" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="match_parent"
+                <TextView
+                    android:id="@+id/txtCap1_1ID"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="end|center_vertical"
                     android:layout_marginHorizontal="5dp"
                     android:layout_marginVertical="10dp"
-                    android:background="@drawable/background_shadow"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/txtCap1_1ID"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="00"
-                        android:textSize="15sp" />
-                </LinearLayout>
+                    android:background="@color/white"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:text="00"
+                    android:textSize="15sp" />
 
             </FrameLayout>
 
@@ -87,7 +82,6 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="3dp"
                     android:hint="@string/hint02"
                     android:textColorHint="@color/black"
                     app:startIconContentDescription="Distrito">
@@ -99,28 +93,25 @@
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="none"
+                        android:textSize="16sp"
                         tools:ignore="LabelFor"
-                        tools:text="San Miguelito" />
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:text="Distritos" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="match_parent"
+                <TextView
+                    android:id="@+id/txtCap1_2ID"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="end|center_vertical"
                     android:layout_marginHorizontal="5dp"
                     android:layout_marginVertical="10dp"
-                    android:background="@drawable/background_shadow"
-                    android:gravity="center">
+                    android:background="@color/white"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:text="00"
+                    android:textSize="15sp" />
 
-                    <TextView
-                        android:id="@+id/txtCap1_2ID"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="00"
-                        android:textSize="15sp" />
-                </LinearLayout>
             </FrameLayout>
 
             <FrameLayout
@@ -133,7 +124,6 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="3dp"
                     android:hint="@string/hint03"
                     android:textColorHint="@color/black"
                     app:startIconContentDescription="Corregimiento">
@@ -145,27 +135,25 @@
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="none"
+                        android:textSize="16sp"
                         tools:ignore="LabelFor"
-                        tools:text="Omar Torrijos" />
+                        android:textColor="@android:color/holo_blue_dark"
+                        android:text="Corregimientos" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="match_parent"
+                <TextView
+                    android:id="@+id/txtCap1_3ID"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="end|center_vertical"
                     android:layout_marginHorizontal="5dp"
                     android:layout_marginVertical="10dp"
-                    android:background="@drawable/background_shadow"
-                    android:gravity="center">
+                    android:background="@color/white"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:text="00"
+                    android:textSize="15sp" />
 
-                    <TextView
-                        android:id="@+id/txtCap1_3ID"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="00"
-                        android:textSize="15sp" />
-                </LinearLayout>
             </FrameLayout>
 
             <FrameLayout
@@ -178,9 +166,9 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="3dp"
                     android:hint="@string/hint04"
                     android:textColorHint="@color/black"
+                    android:layout_marginTop="10dp"
                     app:startIconContentDescription="Corregimiento">
 
                     <AutoCompleteTextView
@@ -190,28 +178,24 @@
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="none"
+                        android:textSize="16sp"
                         tools:ignore="LabelFor"
                         tools:text="Lugar Poblado" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 
-                <LinearLayout
-                    android:layout_width="40dp"
-                    android:layout_height="match_parent"
+                <TextView
+                    android:id="@+id/txtCap1_4ID"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="end|center_vertical"
                     android:layout_marginHorizontal="5dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="@drawable/background_shadow"
-                    android:gravity="center">
-
-                    <TextView
-                        android:id="@+id/txtCap1_4ID"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="00"
-                        android:textSize="15sp" />
-                </LinearLayout>
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:text="00"
+                    android:textSize="15sp" />
 
             </FrameLayout>
 

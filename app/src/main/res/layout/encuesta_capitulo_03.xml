@@ -1,260 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_cap3"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
-    tools:ignore="HardcodedText"
-    >
-    <ScrollView
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_cap3"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:layout_margin="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_dark"
+        tools:ignore="HardcodedText">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:orientation="vertical"
             android:layout_margin="1dp"
-            android:padding="2dp"
-            android:animateLayoutChanges="true"
-            android:background="@drawable/background_shadow_med"
-            android:orientation="vertical">
-            <!-- 22. -->
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtcap3_22ly"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="5dp"
-                android:hint="@string/hint22"
-                android:textColorHint="@color/black">
-
-                <AutoCompleteTextView
-                    android:id="@+id/txtCap3_22"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:fontFamily="sans-serif-condensed"
-                    android:inputType="none"
-                    tools:ignore="LabelFor,TextContrastCheck,TouchTargetSizeCheck"
-                    tools:text="1900" />
-            </com.google.android.material.textfield.TextInputLayout>
-            <!-- 23. -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/background_shadow"
-                android:layout_marginVertical="7dp"
-                android:layout_marginHorizontal="2dp"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginVertical="8dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="23. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="¿Cúal es la naturaleza jurídica de la empresa?"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="30dp"
-                    android:orientation="vertical">
-
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="1. Individual o Natural"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="2. Sociedad Anónima"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="3. Sociedad Civil"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="4. Cooperativa"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="5. No lucrativa"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_6"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="6. Sociedad Colectiva"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_7"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="7. Sociedad Mercantil"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_8"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="8. Sociedad Limitada"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="9. Otra"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Especifique">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtCap3_23_9"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
-                            android:backgroundTint="@color/white"
-                            android:fontFamily="sans-serif-condensed"
-                            android:inputType="text"
-                            android:maxLength="32"
-                            android:textSize="14sp"
-                            android:visibility="gone"
-                            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck"
-                            tools:text="Especifique"
-                            tools:visibility="visible" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-            <!-- 24. -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/background_shadow"
-                android:layout_marginVertical="7dp"
-                android:layout_marginHorizontal="2dp"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="8dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="24. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="¿Su empresa pertenece a algún tipo de empresas organizadas formalmente?"
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <RadioGroup
-                    android:id="@+id/rgroupCap3_24"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="30dp"
-                    android:orientation="vertical"
-                    tools:ignore="UselessParent">
-
-                    <RadioButton
-                        android:id="@+id/rbtCap3_24_si"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="Sí      1. (Continuar con la pregunta 25)"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <RadioButton
-                        android:id="@+id/rbtCap3_24_no"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="No    2. (Pasar al Cap. IV, pregunta 28)"
-                        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
-                </RadioGroup>
-
-            </LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:id="@+id/linearCap3_24_continuar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                tools:visibility="visible">
-                <!-- 25. -->
+                android:layout_margin="1dp"
+                android:padding="2dp"
+                android:animateLayoutChanges="true"
+                android:background="@drawable/background_shadow_med"
+                android:orientation="vertical">
+                <!-- 22. -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtcap3_22ly"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="5dp"
+                    android:hint="@string/hint22"
+                    android:textColorHint="@color/black">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/txtCap3_22"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:inputType="none"
+                        tools:ignore="LabelFor,TextContrastCheck,TouchTargetSizeCheck"
+                        tools:text="1900" />
+                </com.google.android.material.textfield.TextInputLayout>
+                <!-- 23. -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -275,25 +75,158 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="25. "
+                            android:text="23. "
                             android:textColor="@color/black"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck" />
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="¿A qué tipo de empresa organizadas formalmente pertenece..."
+                            android:text="¿Cúal es la naturaleza jurídica de la empresa?"
                             android:textColor="@color/black"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck" />
+                            android:textStyle="bold" />
+
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="30dp"
+                        android:orientation="vertical">
 
+                        <CheckBox
+                            android:id="@+id/checkCap3_23_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="1. Individual o Natural"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <CheckBox
+                            android:id="@+id/checkCap3_23_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="2. Sociedad Anónima"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <CheckBox
+                            android:id="@+id/checkCap3_23_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="3. Sociedad Civil"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <CheckBox
+                            android:id="@+id/checkCap3_23_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="4. Cooperativa"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <CheckBox
+                            android:id="@+id/checkCap3_23_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="5. No lucrativa"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <CheckBox
+                            android:id="@+id/checkCap3_23_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="6. Sociedad Colectiva"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <CheckBox
+                            android:id="@+id/checkCap3_23_7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="7. Sociedad Mercantil"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <CheckBox
+                            android:id="@+id/checkCap3_23_8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="8. Sociedad Limitada"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <CheckBox
+                            android:id="@+id/checkCap3_23_9"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="9. Otra"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Especifique">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/txtCap3_23_9"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:backgroundTint="@color/white"
+                                android:fontFamily="sans-serif-condensed"
+                                android:inputType="text"
+                                android:maxLength="32"
+                                android:textSize="14sp"
+                                android:visibility="gone"
+                                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck"
+                                tools:text="Especifique"
+                                tools:visibility="visible" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!-- 24. -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_shadow"
+                    android:layout_marginVertical="7dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="24. "
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="¿Su empresa pertenece a algún tipo de empresas organizadas formalmente?"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
                     <RadioGroup
-                        android:id="@+id/rgroupCap3_25"
+                        android:id="@+id/rgroupCap3_24"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="30dp"
@@ -301,170 +234,239 @@
                         tools:ignore="UselessParent">
 
                         <RadioButton
-                            android:id="@+id/rbtCap3_25_1"
+                            android:id="@+id/rbtCap3_24_si"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="1. Grupo empresarial?"
+                            android:text="Sí      1. (Continuar con la pregunta 25)"
                             tools:ignore="TouchTargetSizeCheck" />
 
                         <RadioButton
-                            android:id="@+id/rbtCap3_25_2"
+                            android:id="@+id/rbtCap3_24_no"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="2. Holding?"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <RadioButton
-                            android:id="@+id/rbtCap3_25_3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="3. Filial?"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <RadioButton
-                            android:id="@+id/rbtCap3_25_4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="4. Subsidiadas?"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <RadioButton
-                            android:id="@+id/rbtCap3_25_5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="5. No sabe?"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <RadioButton
-                            android:id="@+id/rbtCap3_25_6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="Otra?"
-                            tools:ignore="TouchTargetSizeCheck" />
+                            android:text="No    2. (Pasar al Cap. IV, pregunta 28)"
+                            tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
                     </RadioGroup>
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="5dp"
-                        android:hint="Especifique">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtCap3_25_6"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
-                            android:backgroundTint="@color/white"
-                            android:fontFamily="sans-serif-condensed"
-                            android:inputType="text"
-                            android:maxLength="32"
-                            android:textSize="14sp"
-                            android:visibility="gone"
-                            tools:ignore="TextContrastCheck"
-                            tools:text="Especifique"
-                            tools:visibility="visible" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-
                 </LinearLayout>
 
-                <!-- 26. -->
                 <LinearLayout
+                    android:id="@+id/linearCap3_24_continuar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="3dp"
-                    android:layout_marginVertical="5dp"
-                    android:background="@drawable/background_shadow"
                     android:orientation="vertical"
-                    android:paddingBottom="5dp">
-
-                    <com.google.android.material.textfield.TextInputLayout
+                    tools:visibility="visible">
+                    <!-- 25. -->
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/hint26"
-                        android:textColorHint="@color/black"
-                        app:helperText="Si pertenece a uno de estos tipos de empresas organizadas, anote:"
-                        app:helperTextTextAppearance="@style/TextLabel1"
-                        app:helperTextTextColor="@android:color/holo_blue_dark">
+                        android:background="@drawable/background_shadow"
+                        android:layout_marginVertical="7dp"
+                        android:layout_marginHorizontal="2dp"
+                        android:orientation="vertical"
+                        android:padding="5dp">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtCap3_26"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/background_shadow"
-                            android:drawableTint="@android:color/holo_blue_dark"
-                            android:fontFamily="sans-serif-condensed"
-                            android:imeOptions="actionDone"
-                            android:lines="1"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            tools:ignore="TextContrastCheck"
-                            tools:text="Nombre de la Organización" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginVertical="8dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="25. "
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                tools:ignore="TextContrastCheck" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="¿A qué tipo de empresa organizadas formalmente pertenece..."
+                                android:textColor="@color/black"
+                                android:textStyle="bold"
+                                tools:ignore="TextContrastCheck" />
+                        </LinearLayout>
+
+
+                        <RadioGroup
+                            android:id="@+id/rgroupCap3_25"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="30dp"
+                            android:orientation="vertical"
+                            tools:ignore="UselessParent">
+
+                            <RadioButton
+                                android:id="@+id/rbtCap3_25_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="1. Grupo empresarial?"
+                                tools:ignore="TouchTargetSizeCheck" />
+
+                            <RadioButton
+                                android:id="@+id/rbtCap3_25_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="2. Holding?"
+                                tools:ignore="TouchTargetSizeCheck" />
+
+                            <RadioButton
+                                android:id="@+id/rbtCap3_25_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="3. Filial?"
+                                tools:ignore="TouchTargetSizeCheck" />
+
+                            <RadioButton
+                                android:id="@+id/rbtCap3_25_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="4. Subsidiadas?"
+                                tools:ignore="TouchTargetSizeCheck" />
+
+                            <RadioButton
+                                android:id="@+id/rbtCap3_25_5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="5. No sabe?"
+                                tools:ignore="TouchTargetSizeCheck" />
+
+                            <RadioButton
+                                android:id="@+id/rbtCap3_25_6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="sans-serif-condensed"
+                                android:text="Otra?"
+                                tools:ignore="TouchTargetSizeCheck" />
+                        </RadioGroup>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="5dp"
+                            android:hint="Especifique">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/txtCap3_25_6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:backgroundTint="@color/white"
+                                android:fontFamily="sans-serif-condensed"
+                                android:inputType="text"
+                                android:maxLength="32"
+                                android:textSize="14sp"
+                                android:visibility="gone"
+                                tools:ignore="TextContrastCheck"
+                                tools:text="Especifique"
+                                tools:visibility="visible" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+                    <!-- 26. -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="3dp"
+                        android:layout_marginVertical="5dp"
+                        android:background="@drawable/background_shadow"
+                        android:orientation="vertical"
+                        android:paddingBottom="5dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/hint26"
+                            android:textColorHint="@color/black"
+                            app:helperText="Si pertenece a uno de estos tipos de empresas organizadas, anote:"
+                            app:helperTextTextAppearance="@style/TextLabel1"
+                            app:helperTextTextColor="@android:color/holo_blue_dark">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/txtCap3_26"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/background_shadow"
+                                android:drawableTint="@android:color/holo_blue_dark"
+                                android:fontFamily="sans-serif-condensed"
+                                android:imeOptions="actionDone"
+                                android:lines="1"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                tools:ignore="TextContrastCheck"
+                                tools:text="Nombre de la Organización" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <!-- 27. -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="3dp"
+                        android:layout_marginVertical="5dp"
+                        android:background="@drawable/background_shadow"
+                        android:orientation="vertical"
+                        android:paddingBottom="5dp">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/hint27"
+                            android:textColorHint="@color/black"
+                            app:helperText="¿Cuál es el país de origen de la casa matriz de la empresa?:"
+                            app:helperTextTextAppearance="@style/TextLabel1"
+                            app:helperTextTextColor="@android:color/holo_blue_dark">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/txtCap3_27"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/background_shadow"
+                                android:drawableTint="@android:color/holo_blue_dark"
+                                android:fontFamily="sans-serif-condensed"
+                                android:imeOptions="actionDone"
+                                android:lines="1"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                tools:ignore="TextContrastCheck"
+                                tools:text="Nombre del país" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <!-- 27. -->
-                <LinearLayout
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="3dp"
-                    android:layout_marginVertical="5dp"
-                    android:background="@drawable/background_shadow"
-                    android:orientation="vertical"
-                    android:paddingBottom="5dp">
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/hint27"
-                        android:textColorHint="@color/black"
-                        app:helperText="¿Cuál es el país de origen de la casa matriz de la empresa?:"
-                        app:helperTextTextAppearance="@style/TextLabel1"
-                        app:helperTextTextColor="@android:color/holo_blue_dark">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtCap3_27"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/background_shadow"
-                            android:drawableTint="@android:color/holo_blue_dark"
-                            android:fontFamily="sans-serif-condensed"
-                            android:imeOptions="actionDone"
-                            android:lines="1"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            tools:ignore="TextContrastCheck"
-                            tools:text="Nombre del país" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
+                    android:layout_height="50dp" />
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-            </View>
-
-        </LinearLayout>
-
-    </ScrollView>
+        </ScrollView>
 
 
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

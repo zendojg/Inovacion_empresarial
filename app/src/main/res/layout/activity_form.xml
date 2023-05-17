@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:animateLayoutChanges="true"
+      android:background="@drawable/foreground_back"
+      tools:context=".view.FormActivity">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:contentDescription="@string/backgroud"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/foreground_city" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_marginTop="-20dp"
+        app:layout_constraintBottom_toTopOf="@+id/layoutpiemain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+      <ScrollView
+          android:id="@+id/scrollMain"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:id="@+id/linearFormMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbtitle">
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginHorizontal="2dp"
+              android:layout_marginBottom="5dp"
+              android:animateLayoutChanges="true"
+              android:background="@drawable/background_shadow_celmed"
+              android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btEncuestaMain"
+                  android:layout_width="0dp"
+                  android:layout_height="43dp"
+                  android:layout_marginHorizontal="2dp"
+                  android:layout_marginTop="2dp"
+                  android:layout_marginBottom="3dp"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="@color/white"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:insetTop="0dp"
+                  android:insetBottom="0dp"
+                  android:text="@string/btinitForm"
+                  android:textAllCaps="false"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:textSize="@dimen/text14"
+                  android:textStyle="bold"
+                  app:backgroundTint="#3C79BB"
+                  app:cornerRadius="5dp"
+                  app:iconPadding="10dp"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toStartOf="@+id/framebtExpandMain"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent"
+                  app:strokeColor="@color/blue_dark"
+                  app:strokeWidth="1dp"
+                  tools:ignore="TouchTargetSizeCheck" />
+
+              <androidx.constraintlayout.widget.ConstraintLayout
+                  android:id="@+id/framebtExpandMain"
+                  android:layout_width="35dp"
+                  android:layout_height="0dp"
+                  android:layout_marginTop="2dp"
+                  android:layout_marginBottom="3dp"
+                  android:layout_marginEnd="3dp"
+                  android:background="?selectableItemBackground"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/btEncuestaExpandMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/backgroundbutton"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@android:drawable/arrow_down_float"
+                    android:contentDescription="@string/expand" />
+
+              </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <LinearLayout
+                android:id="@+id/linearEncuestaMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="vertical"
+                android:paddingHorizontal="10dp"
+                android:paddingTop="5dp"
+                android:visibility="gone"
+                android:paddingBottom="5dp">
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btcap01main"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="@color/white"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/c01"
+                  android:textAllCaps="false"
+                  android:textStyle="bold"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  app:backgroundTint="#218CBF" />
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btcap02main"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="@color/white"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/c02"
+                  android:textAllCaps="false"
+                  android:textStyle="bold"
+                  app:backgroundTint="#218CBF" />
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btcap03main"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="@color/white"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/c03"
+                  android:textAllCaps="false"
+                  android:textStyle="bold"
+                  app:backgroundTint="#218CBF" />
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btcap04main"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="@color/white"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/c04"
+                  android:textAllCaps="false"
+                  android:textStyle="bold"
+                  app:backgroundTint="#218CBF" />
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btcap05main"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="@color/white"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/c05"
+                  android:textAllCaps="false"
+                  android:textStyle="bold"
+                  app:backgroundTint="#218CBF" />
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btcap06main"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="@color/white"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/c06"
+                  android:textAllCaps="false"
+                  android:textStyle="bold"
+                  app:backgroundTint="#218CBF" />
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btcap07main"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="@color/white"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/c07"
+                  android:textAllCaps="false"
+                  android:textStyle="bold"
+                  app:backgroundTint="#218CBF" />
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btcap08main"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="@color/white"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/c08"
+                  android:textAllCaps="false"
+                  android:textStyle="bold"
+                  app:backgroundTint="#218CBF" />
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btcap09main"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="@color/white"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/c09"
+                  android:textAllCaps="false"
+                  android:textStyle="bold"
+                  app:backgroundTint="#218CBF" />
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btcap10main"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="@color/white"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/c10"
+                  android:textAllCaps="false"
+                  android:textStyle="bold"
+                  app:backgroundTint="#218CBF" />
+
+            </LinearLayout>
+
+          </LinearLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginHorizontal="2dp"
+              android:layout_marginVertical="5dp"
+              android:animateLayoutChanges="true"
+              android:background="@drawable/background_shadow_pastelowl"
+              android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btModuloMain"
+                  android:layout_width="0dp"
+                  android:layout_height="43dp"
+                  android:layout_marginHorizontal="2dp"
+                  android:layout_marginTop="2dp"
+                  android:layout_marginBottom="3dp"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="@color/white"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:insetTop="0dp"
+                  android:insetBottom="0dp"
+                  android:text="@string/btinitForm"
+                  android:textAllCaps="false"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:textSize="@dimen/text14"
+                  android:textStyle="bold"
+                  app:strokeWidth="1dp"
+                  app:strokeColor="#C38832"
+                  app:backgroundTint="#D8B18B"
+                  app:cornerRadius="5dp"
+                  app:iconPadding="10dp"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toStartOf="@+id/framebtExpandMain2"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent"
+                  tools:ignore="TouchTargetSizeCheck" />
+
+              <androidx.constraintlayout.widget.ConstraintLayout
+                  android:id="@+id/framebtExpandMain2"
+                  android:layout_width="35dp"
+                  android:layout_height="0dp"
+                  android:layout_marginTop="2dp"
+                  android:layout_marginBottom="3dp"
+                  android:layout_marginEnd="3dp"
+                  android:background="?selectableItemBackground"
+                  app:layout_constraintBottom_toBottomOf="parent"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/btModuloExpandMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/backgroundbutton2"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@android:drawable/arrow_down_float"
+                    android:contentDescription="@string/expand" />
+
+              </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/linearModuloMain"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="5dp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:paddingHorizontal="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp">
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btsec01main"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="#757575"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/s01"
+                  android:textAllCaps="false"
+                  android:textColor="#757575"
+                  android:textStyle="bold"
+                  app:backgroundTint="#E4D0AF" />
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btsec02main"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="#757575"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/s02"
+                  android:textAllCaps="false"
+                  android:textColor="#757575"
+                  android:textStyle="bold"
+                  app:backgroundTint="#E4D0AF" />
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btsec03main"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="#757575"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/s03"
+                  android:textAllCaps="false"
+                  android:textColor="#757575"
+                  android:textStyle="bold"
+                  app:backgroundTint="#E4D0AF" />
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btsec04main"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="#757575"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/s04"
+                  android:textAllCaps="false"
+                  android:textColor="#757575"
+                  android:textStyle="bold"
+                  app:backgroundTint="#E4D0AF" />
+
+              <com.google.android.material.button.MaterialButton
+                  android:id="@+id/btsec05main"
+                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:drawableEnd="@drawable/img_forward"
+                  android:drawableTint="#757575"
+                  android:ellipsize="end"
+                  android:fontFamily="sans-serif-condensed"
+                  android:gravity="start|center_vertical"
+                  android:maxLines="1"
+                  android:text="@string/obs"
+                  android:textAllCaps="false"
+                  android:textColor="#757575"
+                  android:textStyle="bold"
+                  app:backgroundTint="@color/teal_200" />
+
+            </LinearLayout>
+            <!-- #D8B18B -->
+          </LinearLayout>
+
+        </LinearLayout>
+
+      </ScrollView>
+
+      <ProgressBar
+          android:id="@+id/barForm"
+          style="?android:attr/progressBarStyle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:visibility="gone"
+          tools:visibility="visible"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutpiemain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="30dp"
+        android:gravity="center"
+        android:animateLayoutChanges="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="UseCompoundDrawables">
+
+      <ImageView
+          android:id="@+id/imageView7"
+          android:layout_width="wrap_content"
+          android:layout_height="65dp"
+          app:srcCompat="@drawable/logo_senacyt"
+          android:contentDescription="@string/senacyt" />
+
+      <TextView
+          android:id="@+id/versionForm"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:fontFamily="sans-serif-condensed"
+          android:textSize="12sp"
+          android:textColor="@android:color/holo_blue_dark"
+          android:text="@string/version" />
+    </LinearLayout>
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
