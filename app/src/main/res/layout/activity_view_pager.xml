@@ -13,7 +13,7 @@
         android:background="@color/black"
         android:animateLayoutChanges="true"
         android:id="@+id/constraintpager"
-        tools:context=".view.ViewPager">
+        tools:context=".view.FormActivity">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarpager"
@@ -198,7 +198,7 @@
             android:layout_height="0dp"
             android:animateLayoutChanges="true"
             android:foregroundGravity="top"
-            app:layout_constraintBottom_toTopOf="@+id/frameLayout"
+            app:layout_constraintBottom_toTopOf="@+id/frameLayoutNav"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -208,7 +208,7 @@
         </androidx.viewpager2.widget.ViewPager2>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/frameLayout"
+            android:id="@+id/frameLayoutNav"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

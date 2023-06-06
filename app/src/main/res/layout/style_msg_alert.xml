@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingHorizontal="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="20dp"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:id="@+id/msgtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="sans-serif-condensed"
+            tools:text="Titulo XXXXXXXX" />
+
+        <TextView
+            android:id="@+id/msg1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="16sp"
+            tools:text="Mensaje xxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+
+        <TextView
+            android:id="@+id/msg2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-condensed"
+            tools:text="Mensaje xxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+
+        <TextView
+            android:id="@+id/msg3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="16sp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:text="Mensaje xxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+
+        <TextView
+            android:id="@+id/msg4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:fontFamily="sans-serif-condensed"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:text="Mensaje xxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+
+        <TextView
+            android:id="@+id/msg5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="16sp"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:text="Mensaje xxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/msg6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-condensed"
+        android:visibility="gone"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="5dp"
+        tools:visibility="visible"
+        tools:text="Mensaje xxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="8dp"
+        android:layout_gravity="center">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnegativo"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_gravity="start"
+            android:drawableTint="@color/white"
+            android:gravity="start|center_vertical"
+            app:cornerRadius="7dp"
+            app:iconPadding="7dp"
+            app:icon="@drawable/img_close"
+            app:backgroundTint="@android:color/holo_red_dark"
+            tools:text="Negativo" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btpositivo"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textAllCaps="false"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:textSize="12sp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_gravity="end"
+            android:drawableTint="@color/white"
+            android:gravity="start|center_vertical"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+            app:backgroundTint="@android:color/holo_blue_dark"
+            app:cornerRadius="7dp"
+            app:iconPadding="7dp"
+            app:icon="@drawable/img_done"
+            tools:text="Positivo" />
+
+    </LinearLayout>
+
+</LinearLayout>

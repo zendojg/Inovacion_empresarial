@@ -4,11 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.function.Functions.Companion.toEditable
-import gob.pa.inovacion_empresarial.model.Mobject
+import gob.pa.inovacion_empresarial.model.MVar
 import kotlinx.android.synthetic.main.modulo_total_info.view.*
 
 class FragTotalInforme: Fragment() {
@@ -40,10 +39,10 @@ class FragTotalInforme: Fragment() {
 
     override fun onResume() {
         super.onResume()
-        //Toast.makeText(activity, "id ${Mobject.idlugarp}", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(activity, "id ${MVar.idlugarp}", Toast.LENGTH_SHORT).show()
 
-        view?.txtInfoObsEncuesta?.text = Mobject.obsEncuesta.toEditable()
-        view?.txtInfoObsModulo?.text = Mobject.obsModulo.toEditable()
+        view?.txtInfoObsEncuesta?.text = MVar.obsEncuesta.toEditable()
+        view?.txtInfoObsModulo?.text = MVar.obsModulo.toEditable()
     }
 
 

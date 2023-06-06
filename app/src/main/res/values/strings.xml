@@ -1,5 +1,16 @@
 <resources>
     <string name="app_name">Innovación en empresas</string>
+    <string name="sharedPreferencesKey">UserConfig</string>
+
+    <string name="cancel">Cancelar</string>
+    <string name="msgSalir">¿Desea salir de la aplicación?</string>
+    <string name="cerrarAp">Cerrar App</string>
+    <string name="close">Cerrar</string>
+    <string name="closeApp">Cerrar Aplicación</string>
+
+    <string name="error">Error</string>
+    <string name="errorUser">Ingrese su usuario</string>
+    <string name="errorPass">Ingrese su contraseña</string>
 
     <string name="distSelect">Seleccione un Distrito</string>
     <string name="provSelect">Seleccione una Provincia</string>
@@ -131,7 +142,7 @@
     <string name="condicion">Condicion</string>
     <string name="_00000">00000</string>
     <string name="n_de_control">N° de Control:</string>
-    <string name="e00_0000">E00-0000</string>
+    <string name="e00_0000">E00–0000</string>
     <string name="encuestador">Encuestador:</string>
     <string name="obs">OBSERVACIONES</string>
     <string name="version">versión 0.0</string>
@@ -190,6 +201,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_ncontrol"><b>Número de Control:</b></string>
     <string name="expand">Expand</string>
+    <string name="hint_pass">Contraseña</string>
+    <string name="hint_user">Usuario</string>
 
+    <string name="hint_userx"><b>Usuario</b></string>
+    <string name="hint_passx"><b>Contraseña</b></string>
 
 </resources>
