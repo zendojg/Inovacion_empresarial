@@ -2,6 +2,8 @@ package gob.pa.inovacion_empresarial.view
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -23,6 +25,7 @@ import gob.pa.inovacion_empresarial.function.AppCache
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.MVar
 import gob.pa.inovacion_empresarial.service.room.FormDB
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.coroutines.launch
 import kotlin.system.exitProcess
 
@@ -32,35 +35,42 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainbinding: ActivityMainBinding
     private lateinit var pagerMain: ViewPager2
     private val dvmMain: DVModel by viewModels()
+    var dialog: AlertDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mainbinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView((mainbinding.root))
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-
-        MVar.version = ("Versión: "+ this.packageManager.getPackageInfo
-            (this.packageName,0).versionName)
-
+        MVar.version = ("Versión: " + this.packageManager.getPackageInfo
+            (this.packageName, 0).versionName)
         pagerMain = mainbinding.viewpagerMain
         pagerMain.isUserInputEnabled = false
-
-        val myAdapter = AdapterMain(MVar.arrMain, supportFragmentManager, lifecycle)
-
-        pagerMain.adapter = myAdapter
-        pagerMain.isUserInputEnabled = false
+        pagerMain.adapter = AdapterMain(MVar.arrMain, supportFragmentManager, lifecycle)
     }
 
     override fun onResume() {
         super.onResume()
-        MVar.authData = AppCache.loginGET(this)
-        if (MVar.authData?.result?.token.isNullOrEmpty()) {
+        mainbinding.barMain.visibility = View.VISIBLE
+        pagerMain.visibility = View.INVISIBLE
+        MVar.authData = AppCache.loginGET(this)             //----- CARGA TOKEM
+        if (MVar.authData?.result?.token.isNullOrEmpty()) {     //----- TOKEN VACIO IR A LOGIN
+            Handler(Looper.getMainLooper()).postDelayed({
+                pagerMain.setCurrentItem(0, false)
+                pagerMain.visibility = View.VISIBLE
+                mainbinding.barMain.visibility = View.GONE
+            }, (800).toLong())
+        } else {  //------------------------------------------- //------------------
+            val dataDown = AppCache.dataGET(this)
 
-            pagerMain.setCurrentItem(0, false)
-            Toast.makeText(this, "Bienvenido", Toast.LENGTH_LONG).show()
-        } else {
+
             lifecycleScope.launch {
-                download()
+
+
+
+                if (!dataDown)
+                    download()
+                pagerMain.setCurrentItem(1, false)
             }
         }
 
@@ -73,16 +83,15 @@ class MainActivity : AppCompatActivity() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 if (position == 1)
-                    lifecycleScope.launch {
-                        download()
-                    }
+                    download()
             }
         })
 
 
     }
+
     override fun onBackPressed() {
-        val mesagePregunta = AlertDialog.Builder(this)
+        val dialogBack = AlertDialog.Builder(this)
         val msg: View = layoutInflater.inflate(R.layout.style_msg_alert, null)
         val btpositivo: MaterialButton = msg.findViewById(R.id.btpositivo)
         val btnegativo: MaterialButton = msg.findViewById(R.id.btnegativo)
@@ -90,28 +99,24 @@ class MainActivity : AppCompatActivity() {
         val msg1: TextView = msg.findViewById(R.id.msg1)
         val msg2: TextView = msg.findViewById(R.id.msg2)
 
-        when {
-            pagerMain.currentItem == 4 -> {
-                pagerMain.setCurrentItem(1,false)
-            }
-            pagerMain.currentItem > 1 -> {
-                pagerMain.setCurrentItem(pagerMain.currentItem - 1,false)
-            }
+        when (pagerMain.currentItem){
+            3, 4 -> { pagerMain.setCurrentItem(1,false) }
+            2 -> { pagerMain.setCurrentItem(pagerMain.currentItem - 1,false) }
             else -> {
                 btpositivo.text = getString(R.string.cancel)
                 btnegativo.text = getString(R.string.cerrarAp)
                 msgT.text = getString(R.string.closeApp)
                 msg1.visibility = View.GONE
                 msg2.visibility = View.GONE
-                mesagePregunta.setView(msg)
+                dialogBack.setView(msg)
 
-                val dialog: AlertDialog = mesagePregunta.create()
-                dialog.show()
+                dialog = dialogBack.create()
+                dialog?.show()
                 btpositivo.icon = ContextCompat.getDrawable(this,R.drawable.img_back)
                 btnegativo.icon = ContextCompat.getDrawable(this,R.drawable.img_exit_app)
 
                 btpositivo.setOnClickListener {
-                    dialog.dismiss()
+                    dialog?.dismiss()
                 }
                 btnegativo.setOnClickListener {
                     moveTaskToBack(true)
@@ -123,24 +128,36 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    fun validate() {
+        lifecycleScope.launch {
+            val validate = dvmMain.getData()?.code()
+            //validate?.code()
+            if (validate == 401) {
+                pagerMain.setCurrentItem(0,false)
+            } else {
+                pagerMain.setCurrentItem(1,false)
+            }
 
-    suspend fun download() {
-        val result: MutableLiveData<Boolean>? = null
-        val roomDB = FormDB.buildDB(this)
+        }
 
-        val proRoom = roomDB.dbFormDao().getProvArray()
-        val distRoom = roomDB.dbFormDao().getDistVer()
-        val correRoom = roomDB.dbFormDao().getCorrVer()
-        val lugarRoom = roomDB.dbFormDao().getDistVer()
+    }
 
-        if (proRoom.isEmpty()) { roomDB.dbFormDao().insertProv(dvmMain.getProv()) }
-        if (distRoom.isEmpty()) { roomDB.dbFormDao().insertDist(dvmMain.getDist()) }
-        if (correRoom.isEmpty()) { roomDB.dbFormDao().insertCorre(dvmMain.getCorre()) }
-        if (lugarRoom.isEmpty()) { roomDB.dbFormDao().insertLugarP(dvmMain.getLugarP()) }
 
-        pagerMain.setCurrentItem(1, false)
-        result?.postValue(true)
 
+    fun download() {
+        val ctx = this
+        val roomDB = FormDB.buildDB(ctx)
+        lifecycleScope.launch {
+            val proRoom = roomDB.dbFormDao().getProvArray()
+            val distRoom = roomDB.dbFormDao().getDistVer()
+            val correRoom = roomDB.dbFormDao().getCorrVer()
+            val lugarRoom = roomDB.dbFormDao().getDistVer()
+            if (proRoom.isEmpty()) { roomDB.dbFormDao().insertProv(dvmMain.getProv()) }
+            if (distRoom.isEmpty()) { roomDB.dbFormDao().insertDist(dvmMain.getDist()) }
+            if (correRoom.isEmpty()) { roomDB.dbFormDao().insertCorre(dvmMain.getCorre()) }
+            if (lugarRoom.isEmpty()) { roomDB.dbFormDao().insertLugarP(dvmMain.getLugarP()) }
+            AppCache.dataSAVE(ctx,true)
+        }
     }
 
 

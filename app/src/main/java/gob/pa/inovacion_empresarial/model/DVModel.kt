@@ -70,6 +70,13 @@ class DVModel: ViewModel() {
             body = body)
     }
 
+    suspend fun getData(): Response<List<DBprovincia>>? { //----------------------------------------  CAMBIAR POR VERIFICADOR DE TOKEN
+        val respuesta = try {
+            ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getProv()
+        } catch (e: Exception) { null }
+        return respuesta
+    }
+
     suspend fun getProv(): List<DBprovincia> = withContext(Dispatchers.IO) {
         try {
             val respuesta: Response<List<DBprovincia>> =

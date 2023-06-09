@@ -11,7 +11,7 @@ import java.lang.reflect.Type
 
 class AppCache {
     companion object {
-        private var nameUSER = ""
+        private var dataDOWN = "DATAROOM"
         private var userAPP = "E001-0001"
         private var passAPP = "PassAPP"
         private var ruc = "0000-0000-0000"
@@ -23,54 +23,41 @@ class AppCache {
         private const val LOGINDATA = "tokenData"
 
 
-        //-----------------------------------------------------------------------------------------// Nombre del Encuestador
-        fun nameSAVE(ctx: Context, Valor: String) {
-            val vPrefe: SharedPreferences = ctx.getSharedPreferences(ctx.getString(R.string.sharedPreferencesKey), Context.MODE_PRIVATE)
+        //-----------------------------------------------------------------------------------------// VERIFICADOR DE ACTUALIZACION DE DATOS INTERNOS
+        fun dataSAVE(ctx: Context, Valor: Boolean) {
+            val vPrefe:SharedPreferences=ctx.getSharedPreferences(
+                ctx.getString(R.string.sharedPreferencesKey), Context.MODE_PRIVATE)
             val vEditor: SharedPreferences.Editor = vPrefe.edit()
-            vEditor.putString(nameUSER, Valor)
+            vEditor.putBoolean(dataDOWN, Valor)
             vEditor.apply()
         }
+        fun dataGET(ctx: Context): Boolean = ctx.getSharedPreferences(
+            ctx.getString(R.string.sharedPreferencesKey), Context.MODE_PRIVATE).
+        getBoolean(dataDOWN, false)
 
-        fun nameGET(ctx: Context): String {
-            return ctx.getSharedPreferences(
-                ctx.getString(R.string.sharedPreferencesKey),
-                Context.MODE_PRIVATE
-            ).getString(nameUSER, "").toString()
-        }
         //-----------------------------------------------------------------------------------------// User del Encuestador
         fun userSAVE(ctx: Context, Valor: String) {
-            val vPrefe: SharedPreferences = ctx.getSharedPreferences(
-                ctx.getString(R.string.sharedPreferencesKey),
-                Context.MODE_PRIVATE
-            )
+            val vPrefe: SharedPreferences = ctx.getSharedPreferences(ctx.getString(
+                R.string.sharedPreferencesKey), Context.MODE_PRIVATE)
             val vEditor: SharedPreferences.Editor = vPrefe.edit()
             vEditor.putString(userAPP, Valor)
             vEditor.apply()
         }
+        fun userGET(ctx: Context): String = ctx.getSharedPreferences(ctx.getString(R.string.sharedPreferencesKey),
+                Context.MODE_PRIVATE).getString(userAPP, "").toString()
 
-        fun userGET(ctx: Context): String {
-            return ctx.getSharedPreferences(
-                ctx.getString(R.string.sharedPreferencesKey),
-                Context.MODE_PRIVATE
-            ).getString(userAPP, "").toString()
-        }
         //-----------------------------------------------------------------------------------------// Password
         fun passSAVE(ctx: Context, Valor: String) {
-            val vPrefe: SharedPreferences = ctx.getSharedPreferences(
-                ctx.getString(R.string.sharedPreferencesKey),
-                Context.MODE_PRIVATE
-            )
+            val vPrefe: SharedPreferences = ctx.getSharedPreferences(ctx.getString(R.string.sharedPreferencesKey),
+                Context.MODE_PRIVATE)
             val vEditor: SharedPreferences.Editor = vPrefe.edit()
             vEditor.putString(passAPP, Valor)
             vEditor.apply()
         }
 
-        fun passGET(ctx: Context): String {
-            return ctx.getSharedPreferences(
-                ctx.getString(R.string.sharedPreferencesKey),
-                Context.MODE_PRIVATE
-            ).getString(passAPP, "").toString()
-        }
+        fun passGET(ctx: Context): String = ctx.getSharedPreferences(ctx.getString(R.string.sharedPreferencesKey),
+                Context.MODE_PRIVATE).getString(passAPP, "").toString()
+
         //-----------------------------------------------------------------------------------------// check de recordarme
         fun remSAVE(ctx: Context, Valor: Boolean) {
             val vPrefe: SharedPreferences = ctx.getSharedPreferences(ctx.getString(R.string.sharedPreferencesKey), Context.MODE_PRIVATE)
@@ -79,10 +66,9 @@ class AppCache {
             vEditor.apply()
         }
 
-        fun remGET(ctx: Context): Boolean {
-            return ctx.getSharedPreferences(ctx.getString(R.string.sharedPreferencesKey), Context.MODE_PRIVATE).getBoolean(
-                remeAPP.toString(), false)
-        }
+        fun remGET(ctx: Context): Boolean = ctx.getSharedPreferences(ctx.getString(R.string.sharedPreferencesKey),
+            Context.MODE_PRIVATE).getBoolean(remeAPP.toString(), false)
+
         //-----------------------------------------------------------------------------------------// RUC de busqueda
         fun rucSAVE(ctx: Context, Valor: String) {
             val vPrefe: SharedPreferences = ctx.getSharedPreferences(
