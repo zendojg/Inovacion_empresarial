@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
-import gob.pa.inovacion_empresarial.function.Functions.Companion.toEditable
-import gob.pa.inovacion_empresarial.model.MVar
+import gob.pa.inovacion_empresarial.function.Functions.toEditable
+import gob.pa.inovacion_empresarial.model.Mob
 import kotlinx.android.synthetic.main.modulo_total_info.view.*
 
 class FragTotalInforme: Fragment() {
@@ -39,10 +39,10 @@ class FragTotalInforme: Fragment() {
 
     override fun onResume() {
         super.onResume()
-        //Toast.makeText(activity, "id ${MVar.idlugarp}", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(activity, "id ${Mob.idlugarp}", Toast.LENGTH_SHORT).show()
 
-        view?.txtInfoObsEncuesta?.text = MVar.obsEncuesta.toEditable()
-        view?.txtInfoObsModulo?.text = MVar.obsModulo.toEditable()
+        view?.txtInfoObsEncuesta?.text = Mob.obsEncuesta.toEditable()
+        view?.txtInfoObsModulo?.text = Mob.obsModulo.toEditable()
     }
 
 

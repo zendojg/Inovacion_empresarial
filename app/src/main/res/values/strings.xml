@@ -15,6 +15,7 @@
     <string name="distSelect">Seleccione un Distrito</string>
     <string name="provSelect">Seleccione una Provincia</string>
     <string name="correSelect">Seleccione un Corregimiento</string>
+    <string name="rucHelper">Rollo/Tomo  -  Imagen/Folio  -  Ficha/Asiento</string>
 
     <string name="hint01"><b>1. Provincia:</b></string>
     <string name="hint02"><b>2. Distrito:</b></string>
@@ -22,7 +23,7 @@
     <string name="hint04"><b>4. Lugar Poblado:</b></string>
 
     <string name="hint05"><b>5. Nombre comercial:</b></string>
-    <string name="hint06"><b>6. Razón Social:</b></string>
+    <string name="hint06"><b>6. Razón social:</b></string>
     <string name="hint07"><b>7. RUC:</b></string>
     <string name="hint08"><b>8. Dirección:</b></string>
     <string name="hint091"><b>9. Teléfono 1:</b></string>
@@ -32,7 +33,7 @@
     <string name="hint12"><b>12. Página web:</b></string>
     <string name="hint13"><b>13. Número de clave:</b></string>
     <string name="hint14"><b>14. Número de Locales que conforman la empresa:</b></string>
-    <string name="hint15"><b>15. De estos locales, ¿Cuántos se encuentran en la ciudad de Panamá:</b></string>
+    <string name="hint15"><b>15. De estos locales, ¿Cuántos se encuentran en la ciudad de Panamá</b></string>
 
     <string name="hint16"><b>16. Nombre del Informante:</b></string>
     <string name="hint17"><b>17. Cargo:</b></string>
@@ -43,8 +44,8 @@
     <string name="hint21"><b>21. Correo electrónico del informante:</b></string>
 
     <string name="hint22"><b>22. Año de Inicio de operaciones:</b></string>
-    <string name="hint26"><b>26. Nombre completo:</b></string>
-    <string name="hint27"><b>27. Nombre del País:</b></string>
+    <string name="hint26">Nombre completo:</string>
+    <string name="hint27">Nombre del País:</string>
     <string name="hint28"><b>21. Correo electrónico del informante:</b></string>
 
     <string name="hintDV"><b>DV</b></string>
@@ -64,7 +65,7 @@
     <string name="c06">Capítulo VI.  Innovación de productos, de procesos, organizacional y de Comercialización</string>
     <string name="c07">Capítulo VII.  Actividades Innovativas, Gastos, factores y Dificultades para Innovar</string>
     <string name="c08">Capítulo VIII.  Fuente de Financiamiento para las Actividades de Innovación</string>
-    <string name="c09">Capítulo IX.  Patentes, Derechos de Propiedad Intelectual, Marca y Normas de Calidad</string>
+    <string name="c09">Capítulo IX.  Patentes, Derechos de Propiedad intelectual, Marca y Normas de Calidad</string>
     <string name="c10">Capítulo X.  Perspectivas de Innovaciones Futuras</string>
 
     <string name="cap01">Capítulo I.</string>
@@ -87,7 +88,7 @@
     <string name="ctxt06">Innovación de productos, de procesos, organizacional y de Comercialización</string>
     <string name="ctxt07">Actividades Innovativas, Gastos, factores y Dificultades para Innovar</string>
     <string name="ctxt08">Fuente de Financiamiento para las Actividades de Innovación</string>
-    <string name="ctxt09">Patentes, Derechos de Propiedad Intelectual, Marca y Normas de Calidad</string>
+    <string name="ctxt09">Patentes, Derechos de propiedad intelectual, marca y normas de calidad</string>
     <string name="ctxt10">Perspectivas de Innovaciones Futuras</string>
     <string name="ctxt_test">Título del capítulo. mensaje de prueba .....</string>
 
@@ -150,7 +151,7 @@
     <string name="backgroud">Backgroud</string>
     <string name="btinitForm">INICIAR: Encuesta de Innovación en Empresas</string>
     <string name="btinitmodule">Módulo de Comercio Electrónico en la Empresa</string>
-    <string name="subtittle2Main">La información solicitada está amparada por el decreto estadístico y es estrictamente confidencial</string>
+    <string name="subtittle2Main">La información solicitada está amparada por el secreto estadístico y es estrictamente confidencial</string>
     <string name="subtittle3Main">LEY 10 DEL 22 DE ENERO DE 2009</string>
 
     <string-array name="arr_onetofive">
@@ -163,7 +164,7 @@
     </string-array>
 
     <string-array name="arr_hightolow">
-        <item />
+        <item>Grado de importacia:</item>
         <item>(1) Alta</item>
         <item>(2) Media</item>
         <item>(3) Baja</item>
@@ -204,7 +205,195 @@
     <string name="hint_pass">Contraseña</string>
     <string name="hint_user">Usuario</string>
 
+    <string name="n1">1. </string>
+    <string name="n2">2. </string>
+    <string name="n3">3. </string>
+    <string name="n4">4. </string>
+    <string name="n5">5. </string>
+    <string name="n6">6. </string>
+    <string name="p23">23.  </string>
+    <string name="p24">24.  </string>
+    <string name="p25">25.  </string>
+    <string name="p26">26.  </string>
+    <string name="p27">27.  </string>
+    <string name="p28">28.  </string>
+    <string name="p29">29.  </string>
+    <string name="p30">30.  </string>
+    <string name="p31">31.  </string>
+    <string name="p32">32.  </string>
+    <string name="p33">33.  </string>
+    <string name="p34">34.  </string>
+    <string name="p35">35.  </string>
+    <string name="p36">36.  </string>
+    <string name="p37">37.  </string>
+    <string name="p38">38.  </string>
+    <string name="p39">39.  </string>
+    <string name="p40">40. </string>
+    <string name="p41">41. </string>
+    <string name="p42">42. </string>
+    <string name="n43">43. </string>
+    <string name="n44">44. </string>
+    <string name="n45">45. </string>
+    <string name="n46">46. </string>
+    <string name="n47">47. </string>
+    <string name="n48">48. </string>
+    <string name="n49">49. </string>
+    <string name="n50">50. </string>
     <string name="hint_userx"><b>Usuario</b></string>
     <string name="hint_passx"><b>Contraseña</b></string>
+    <string name="doublecero">00</string>
+    <string name="prov">Provincia</string>
+    <string name="dist">Distritos</string>
+    <string name="corre">Corregimientos</string>
+    <string name="hint_otheRef">1. Otras referencias:</string>
+    <string name="hint15_morelocal">y cuántos en otras provincias?</string>
+    <string name="p23txt">¿Cúal es la naturaleza jurídica de la empresa?</string>
+    <string name="check23_1">1. Individual o natural</string>
+    <string name="check23_2">2. Sociedad Anónima</string>
+    <string name="check23_3">3. Sociedad Civil</string>
+    <string name="check23_4">4. Cooperativa</string>
+    <string name="check23_5">5. No Lucrativa</string>
+    <string name="check23_6">6. Sociedad Colectiva</string>
+    <string name="check23_7">7. Sociedad Mercantil</string>
+    <string name="check23_8">8. Sociedad Limitada</string>
+    <string name="check23_9">9. Otra</string>
+    <string name="hint23_9">Especifique</string>
+    <string name="p24_si">Sí     <b><font color="black">1. (Continúe)</font></b></string>
+    <string name="p24_no">No    <b><font color="black">2. (Pase al Cap. IV, pregunta 28)</font></b></string>
+    <string name="p24txt">¿Su empresa pertenece a algún tipo de empresas organizadas formalmente?</string>
+    <string name="p25txt">¿A qué tipo de empresa organizadas formalmente pertenece…</string>
+    <string name="check25_1">1. Grupo empresarial?</string>
+    <string name="check25_2">2. Holding?</string>
+    <string name="check25_3">3. Filial?</string>
+    <string name="check25_4">4. Subsidiadas?</string>
+    <string name="check25_5">5. No sabe?</string>
+    <string name="check25_6">6. Otra?</string>
+    <string name="txt25_6">Especifique</string>
+    <string name="p26txt">Si pertenece a uno de estos tipos de empresas organizadas, anote:</string>
+    <string name="p27txt">¿Cuál es el país de origen de la casa matriz de la empresa?</string>
+    <string name="p28txt">En el <b><font color="#3C54BB">2022</font></b>, ¿cuál fue la <b><font color="#3C54BB">principal</font></b> actividad económica desarrollada por la empresa?</string>
+    <string name="hint28_act">Actividad económica</string>
+    <string name="p29txt">En el <b><font color="#3C54BB">2022</font></b>, ¿cuáles fueron las actividades económicas <b><font color="#3C54BB">secundarias</font></b> que desarrolló la empresa?</string>
+    <string name="txt28_desc">Describa de manera breve, pero lo suficientemente clara, la principal actividad económica de la empresa.</string>
+    <string name="hint_cinu">CINU Rev. 4.1</string>
+    <string name="hint_actsec">Actividad secundaria</string>
+    <string name="lb_30_2"><b>Ventas Netas</b>\n(Valor en balboas, omita los centésimos)</string>
+    <string name="p30txt">En el 2021 y 2022, ¿cuál fue el total de las <u>ventas netas de la empresa</u>\n\n<font color="#484848">(Considere las ventas nacionales más las exportaciones).</font></string>
+    <string name="lb_30_1">Detalle</string>
+    <string name="a2021">2021</string>
+    <string name="a2022">2022</string>
+    <string name="p2021">a. 2021?</string>
+    <string name="p2022">b. 2022?</string>
+    <string name="lb_30_3">1. Total (Suma de a + b)</string>
+    <string name="lb_30_4">a. Nacionales</string>
+    <string name="lb_30_5">b. Exportaciones</string>
+    <string name="txt_31_table">Intervalos de ingresos</string>
+    <string name="txt_31_a">a. Menos o igual a 150,000</string>
+    <string name="txt_31_b">b. 150,001 a 1,000,000</string>
+    <string name="txt_31_c">c. 1,000,001 a 2,500,000</string>
+    <string name="txt_31_d">d. 2,500,001 a 15,999,999</string>
+    <string name="txt_31_e">e. 16,000,000 y más</string>
+    <string name="txt32_si21"><b>Sí</b> (Pregunta 33, punto a.)</string>
+    <string name="txt32_no21"><b>No</b> (Continúe)</string>
+    <string name="txt32_si22"><b>Sí</b> (Pregunta 33, punto b.)</string>
+    <string name="txt32_no22"><b>No</b> (Pregunta 34)</string>
+    <string name="txt33_1a">Bien o servicio (1)</string>
+    <string name="txt33_2a">Bien o servicio (2)</string>
+    <string name="txt33_3a">Bien o servicio (3)</string>
+    <string name="p31txt">En el 2021 y 2022, ¿cuál fue el <u>ingreso bruto de la empresa</u>, según los siguientes intervalos?\n\n<b><font color="#ff0099cc">MARQUE SU RESPUESTA PARA CADA AÑO</font></b></string>
+    <string name="p32txt">¿Su empresa produjo bienes o servicios en…</string>
+    <string name="p33txt">¿Cuáles fueron los tres principales bienes y servicios que produjo la empresa?</string>
+    <string name="p34txt">En el 2021 y 2022, ¿cuál fue el principal destino de las ventas de la empresa?\n\n<b><font color="#ff0099cc">MARQUE SU RESPUESTA PARA CADA AÑO</font></b></string>
+    <string name="p34tabledesc">Destino de la venta</string>
+    <string name="p34_1">1. Local</string>
+    <string name="p34_2">2. Nacional</string>
+    <string name="p34_3">3. Exterior</string>
+    <string name="cero">0</string>
+    <string name="p35txt">En el 2022, ¿cuál fue el número de personas que trabajan en la empresa, según nivel de educacion, sexo y origen (nacional o extragero)?\n\n<b><font color="#ff0099cc">LEA:</font></b></string>
+    <string name="p36txt">En el 2021 y 2022, ¿cuál fue el <u>promedio anual de empleados</u> que laboraron en la empresa, según su origen?\n\n<b><font color="#ff0099cc">(Excluya personal subcontratado)</font></b></string>
+    <string name="tb53desct1">Nivel académico</string>
+    <string name="txtmen">Hombres</string>
+    <string name="txtwomen">Mujeres</string>
+    <string name="txtnac">Nacional</string>
+    <string name="txtext">Extranjero</string>
+    <string name="lb35t1">1. Total (suma total)</string>
+    <string name="lb35a">a. Primaria</string>
+    <string name="lb35b">b. Secundaria</string>
+    <string name="lb35c">c. Técnico</string>
+    <string name="lb35d">d. Licenciatura</string>
+    <string name="lb35e">e. Postgrado</string>
+    <string name="lb35f">f. Maestría</string>
+    <string name="lb35g">g. Doctorado</string>
+    <string name="lb35h">h. Otro: Especifique</string>
+    <string name="lb36desc">Empleados según origen</string>
+    <string name="lb36t1">1. Total (suma de a+b)</string>
+    <string name="lb36nac">a. Nacional</string>
+    <string name="lb36ext">b. Extrangero</string>
+    <string name="p37txt">¿En el 2022, ¿la empresa contaba con personal, oficina, sección, departamento o laboratorio para desarrollar labores de innovación?</string>
+    <string name="p37si"><b>Sí </b>  1.(Continue con la pregunta 38)</string>
+    <string name="p37no"><b>No </b> 2.(Pase al Cap. VI, pregunta 39)</string>
+    <string name="p38txt">¿Qué oficina, sección departamento o laboratorio de la empresa contaba con personal para desarrollar labores de innovación, anote la cantidad total…</string>
+    <string name="p38tbdesc"><b><font color="#ff0099cc">OPCIÓN MULTIPLE</font></b></string>
+    <string name="tb38desc1">1.Informacion y Sistema?</string>
+    <string name="tb38desc2">2.Investigación y Desarrollo?</string>
+    <string name="tb38desc3">3.ingenieria y diseño industrial?</string>
+    <string name="tb38desc4">4.Otro? Especifique.</string>
+    <string name="lb38txtdesc1">Respuesta</string>
+    <string name="lb38txtdesc2">Cantidad</string>
+    <string name="p38txtdesc2">Marque su respuesta con un check</string>
+    <string name="cap6tittle1">UNA <u>INNOVACIÓN DE PRODUCTOS</u> ES LA INTRODUCCIÓN EN EL MERCADO DE UN BIEN O UN SERVICIO NUEVO O SIGNIFICATIVAMENTE MEJORADO, EN CUANTO A SUS CARACTERÍSTICA O AL USO AL QUE SE DESTINA</string>
+    <string name="p39txt">¿Durante el 2021 y 2022, su empresa introdujo?\n\n<font color="#ff0099cc">MARQUE SU RESPUESTA PARA CADA AÑO</font></string>
+    <string name="p39tbdesc1">Bienes nuevos o significativamente mejorados <font color="black">(excluye la simple reventa de productos nuevos comprados a otras empresas y los cambios de carácter exclusivamente estéticos)</font>.</string>
+    <string name="yes">Sí (1)</string>
+    <string name="not">No (2)</string>
+    <string name="p39tbdesc2">Servicios nuevos o significativamente mejorados</string>
+    <string name="lb39_desclast">Sí respondió No a todas las opciones, pase a la pregunta 42</string>
+    <string name="p40txt">¿Como fue la innovación del producto…</string>
+    <string name="p40tb1">1. Nueva para su mercado?</string>
+    <string name="p40tb2">2. Solo nueva para la empresa?</string>
+    <string name="p41txt">¿Quién desarrolló esta innovación de producto?</string>
+    <string name="tb41desc1"><b>1.</b> Principalmente la empresa…</string>
+    <string name="tb41desc2"><b>2.</b> Principalmente la empresa en conjunto con otras empresas o instituciones.(a)…</string>
+    <string name="tb41desc3"><b>3.</b> Principalmente la empresa adoptando o modificando bienes o servicios originalmente desarrollados por otra empresa o instituciones.(a)…</string>
+    <string name="tb41desc4"><b>4.</b> Principalmente otras empresas o instituciones.(a)… </string>
+    <string name="p41descend"><b>(a)</b> Incluye empresas independientes, más otras que son parte de un grupo de empresas (subsidiarias, casa matriz, entre otros). \nInstituciones: Incluye a universidades, institutos de investigación, fundaciones sin fines de lucro, entre otras.</string>
+    <string name="cap6tittle2">UNA <u>INNOVACIÓN DE PROCESO</u> ES LA IMPLEMENTACIÓN DE UN NUEVO O SIGNIFICATIVAMENTE MEJORADO PROCESO DE PRODUCCIÓN, MÉTODODE DISTRIBUCIÓN O ACTIVIDAD DE SOPORTE PARA LOS BIENES O SERVICIOS</string>
+    <string name="p42txt">¿Durante los años 2021 y 2022, su empresa introdujo?\n\n<font color="#ff0099cc">MARQUE SU RESPUESTA PARA CADA AÑO</font></string>
+    <string name="p42tb1">Un nuevo o significativamente mejorado método de manufactura o producción de bienes o servicios.</string>
+    <string name="p42tb2">Un nuevo o significativamente mejorado método de logística, entrega o distribución para sus insumos, bienes o servicios.</string>
+    <string name="p42tb3">Una nueva o significativamente mejorada actividad de soporte para sus procesos, tales como: Sistema de mantenimiento y operaciones de compras, contabilidad o informática.</string>
+    <string name="lb42_desclast">Sí respondió No a todas las opciones, pase a la pregunta 46</string>
+    <string name="p43txt">¿Como fue la innovación de proceso…</string>
+    <string name="p44txt">¿Quién desarrolló esta innovación de proceso?</string>
+    <string name="p45txt">En el 2022, ¿cuán importante fueron cada uno de los siguientes efectos de la innovación de productos y procesos…</string>
+    <string name="p45desc1">Ampliación de la gama de los bienes y servicios?</string>
+    <string name="p45desc2">Ingresos a nuevos mercados o incrementos de la participación en el mercado actual?</string>
+    <string name="p45desc3">Mejora en la calidad de los bienes y servicios?</string>
+    <string name="p45desc4">Aumentar la capacidad y/o flexibilidad para la producción de bienes y servicios?</string>
+    <string name="p45desc5">Reducción de costos por unidad producida? <b>(Laboral, consumo de materiales y de energia, entre otros)</b>.</string>
+    <string name="p45desc6">Reducción de impacto medioambiental o mejora la sanidad y la seguridad?</string>
+    <string name="cap6tittle3">UNA <u>INNOVACIÓN ORGANIZACIONAL</u> ES LA INTRODUCCIÓN DE NUEVA METODOLOGÍA EN LA PRACTICA DEL NEGOCIO (INCLUYENDO ADMINISTRACIÓN DEL CONOCIMIENTO), LA ORGANIZACIÓN DEL LUGAR DE TRABAJO O LAS RELACIONES EXTERNAS QUE NO HAN SIDO USADAS EN LA EMPRESA ANTERIORENTE</string>
+    <string name="p46txt">¿Durante el 2021 y 2022, su empresa introdujo?\n\n<font color="#ff0099cc">MARQUE SU RESPUESTA PARA CADA AÑO</font></string>
+    <string name="p46desc1">Nuevas prácticas de negocios para la organización de procesos <font color="black">(administración de abastecimiento, reingeniería de procesos, gestión de calidad, entre otras)</font>.</string>
+    <string name="p46desc2">Nuevos métodos de la organización de responsabilidades y toma de decisiones <font color="black">(nuevo sistema de gestión de responsabilidades, reestructuraciones, sistemas de capacitación, entre otros)</font>.</string>
+    <string name="p46desc3">Nuevos métodos de la organización de las relaciones externas con otras empresas o instituciones públicas <font color="black">(primer uso de alianza, subcontrataciones, etc.)</font>.</string>
+    <string name="eachyear">MARQUE SU RESPUESTA PARA CADA AÑO</string>
+    <string name="lb46_desclast">Sí respondió No a todas las opciones, pase a la pregunta 48</string>
+    <string name="p47txt">En el 2022, ¿cuán importante fueron cada uno de los siguientes efectos de la innovación organizacional…</string>
+    <string name="p47desc1">Reducir el tiempo de respuesta en la necesidad del cliente y/o proovedor?</string>
+    <string name="p47desc2">Mejorar la habilidad para desarrollar nuevos productos y/o procesos?</string>
+    <string name="p47desc3">Mejorar la calidad por unidad producida?</string>
+    <string name="p47desc4">Reducir los costos por unidad producida?</string>
+    <string name="p47desc5">Mejorar la comunicación y/o participación de información dentro de su empresa y/o con otras empresas y/o instituciones?</string>
+    <string name="cap6tittle4">UNA <u>INNOVACIÓN EN LA COMERCIALIZACIÓN</u> ES LA IMPLEMENTACIÓN DE UN NUEVO CONCEPTO DE MARKETING O ESTRATEGIA QUE DIFIERE SIGNIFICATIVAMENTE DEL MÉTODO DE MARKETING EXISTENTE EN LA EMPRESA, EL CUAL NO HA SIDO UTILIZADO ANTES</string>
+    <string name="lb48_desclast">Sí respondió No a todas las opciones, pase a la pregunta 50</string>
+    <string name="p48tb1">Cambios significativos en el diseño, envase y ensamblaje de productos <font color="black">(bienes y servicios). Excluye cambios que alteran la funcionalidad o características de uso del producto (esto corresponde a la innovación de producto)</font>.</string>
+    <string name="p48tb2">Nuevos medios o técnicas para la promoción del producto <font color="black">(el primer uso de un nuevo medio de publicidad, nueva imagen de marca, entre otras)</font>.</string>
+    <string name="p48tb3">Nuevos métodos para los canales de distribucción del producto <font color="black">(el primer uso de franquicias o distribución de licencias, venta directa, nuevo concepto de presentación del producto, entre otras)</font>.</string>
+    <string name="p48tb4">Nuevos métodos de tarificación de bienes y servicios <font color="black">(el primer uso de variables de precio por demanda, sistema de descuentos, entre otras)</font>.</string>
+    <string name="p49txt">En el 2022, ¿cuán importante fueron cada uno de los siguientes efectos de la innovación en la comercialización…</string>
+    <string name="p49desc1">Incrementar o mantener la participación de mercado?</string>
+    <string name="p49desc2">Introducir productos para un nuevo segmento de mercado?</string>
+    <string name="p49desc3">Introducir productos para un mercado geográficamente nuevo?</string>
 
 </resources>

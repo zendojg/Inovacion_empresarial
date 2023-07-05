@@ -207,15 +207,6 @@
         app:srcCompat="@drawable/logo_inec"
         tools:ignore="ContentDescription" />
 
-    <ImageView
-        android:id="@+id/img_Alogin2"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:contentDescription="Contraloria General de la República"
-        app:layout_constraintBottom_toTopOf="@+id/img_Alogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/textView9"

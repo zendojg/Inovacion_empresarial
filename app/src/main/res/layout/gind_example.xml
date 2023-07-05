@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="5dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="15dp"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/background_shadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/lb49np"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/n49"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lb49txt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/p45txt"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lb49np"
+            app:layout_constraintTop_toTopOf="@+id/lb49np"
+            tools:ignore="TextContrastCheck" />
+
+        <TextView
+            android:id="@+id/txt49lbn1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/n1"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lb49txt" />
+
+        <TextView
+            android:id="@+id/txt49lbtxt1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:text="@string/p49desc1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt49lbn1"
+            app:layout_constraintTop_toTopOf="@+id/txt49lbn1"
+            tools:ignore="TextContrastCheck" />
+
+        <Spinner
+            android:id="@+id/spinCap6_49_1"
+            style="@style/Widget.AppCompat.DropDownItem.Spinner"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:entries="@array/arr_hightolow"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt49lbtxt1" />
+
+        <TextView
+            android:id="@+id/txt49lbn2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/n2"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinCap6_49_1" />
+
+        <TextView
+            android:id="@+id/txt49lbtxt2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:text="@string/p49desc2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt49lbn2"
+            app:layout_constraintTop_toTopOf="@+id/txt49lbn2"
+            tools:ignore="TextContrastCheck" />
+
+        <Spinner
+            android:id="@+id/spinCap6_49_2"
+            style="@style/Widget.AppCompat.DropDownItem.Spinner"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:entries="@array/arr_hightolow"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt49lbtxt2" />
+
+        <TextView
+            android:id="@+id/txt45lbn3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-condensed"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:text="@string/n3"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spinCap6_49_2" />
+
+        <TextView
+            android:id="@+id/txt49lbtxt3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:text="@string/p49desc3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txt45lbn3"
+            app:layout_constraintTop_toTopOf="@+id/txt45lbn3"
+            tools:ignore="TextContrastCheck" />
+
+        <Spinner
+            android:id="@+id/spinCap6_49_3"
+            style="@style/Widget.AppCompat.DropDownItem.Spinner"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="25dp"
+            android:entries="@array/arr_hightolow"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:minHeight="48dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt49lbtxt3" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

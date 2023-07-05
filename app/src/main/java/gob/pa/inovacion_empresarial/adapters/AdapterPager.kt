@@ -17,16 +17,8 @@ class AdapterPager(
     FragmentStateAdapter(fragmentManager, lifecycle) {
 
     private val fragmentList: ArrayList<Fragment> = ArrayList()
-    fun addFragment(fragment: Fragment) {
-        fragmentList.add(fragment)
-    }
-    fun addListFragment(list: Array<Fragment>) {
-        fragmentList.addAll(list)
-    }
-
-
-
-
+    fun addFragment(fragment: Fragment) { fragmentList.add(fragment) }
+    fun addListFragment(list: Array<Fragment>) { fragmentList.addAll(list) }
     override fun getItemCount(): Int = fragmentList.size
     override fun createFragment(position: Int): Fragment {
         return fragmentList[position]

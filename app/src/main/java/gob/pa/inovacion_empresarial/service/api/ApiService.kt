@@ -1,6 +1,6 @@
 package gob.pa.inovacion_empresarial.service.api
 
-import gob.pa.inovacion_empresarial.model.MVar
+import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelAuth
 import gob.pa.inovacion_empresarial.model.ModelForm
 import gob.pa.inovacion_empresarial.model.ModelLog
@@ -13,28 +13,26 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiService {
-    //-----------------------------------------------------------------------------------------------------------------
-    //----------------------------------------------------------------------------------------------  LOGIN
-    @POST (MVar.apiAut)
+    //--  LOGIN
+    @POST (Mob.APIAUTH)
     fun loginResp(@Body Form: ModelLog): Call<ModelAuth>
-    //----------------------------------------------------------------------------------------------  TOKEN
-    @GET (MVar.apiAut)
+    //--  TOKEN
+    @GET (Mob.APIAUTH)
     suspend fun loginToken(): Response<Void>
 
 
-    //----------------------------------------------------------------------------------------------  BUSCAR CUESTIONARIO
-    @GET ("${MVar.apiGetForm}{id}")//---------------------------------------------------------------  Formulario GET
+    @GET ("${Mob.APIGETFORM}{id}")//--  Formulario GET
     suspend fun getForm(@Path("id") id:String): Response<ModelForm>
 
 
     //----------------------------------------------------------------------------------------------  DESCARGA PARA DB
-    @GET (MVar.apiProv)//---------------------------------------------------------------------------  Provincia
+    @GET (Mob.APIPROV)//---------------------------------------------------------------------------  Provincia
     suspend fun getProv(): Response<List<DBprovincia>>
-    @GET (MVar.apiDist)//---------------------------------------------------------------------------  Distrito
+    @GET (Mob.APIDIST)//---------------------------------------------------------------------------  Distrito
     suspend fun getDistrito(): Response<List<DBdistritos>>
-    @GET (MVar.apiCorre) //-------------------------------------------------------------------------  Corregimiento
+    @GET (Mob.APICORRE) //-------------------------------------------------------------------------  Corregimiento
     suspend fun getCorre(): Response<List<DBcorregimiento>>
-    @GET (MVar.apiLugarP) //------------------------------------------------------------------------  Lugar Poblado
+    @GET (Mob.APILUGARP) //------------------------------------------------------------------------  Lugar Poblado
     suspend fun getLugarP(): Response<List<DBlugarP>>
 
 }

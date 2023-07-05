@@ -3,7 +3,7 @@ package gob.pa.inovacion_empresarial.model
 import com.google.gson.annotations.SerializedName
 
 
-//-------------------------------------------------------------------------------------------------- LOGIN
+//-- LOGIN
 data class ModelLog(
     @SerializedName("username")                 val user: String,
     @SerializedName("password")                 val pass: String,
@@ -24,8 +24,6 @@ data class ModelAuthResp(
     val resp: String?,
     val body: ModelAuth?)
 
-//--------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------------
 data class ModelFormGet(
     val code: Int?,
     val resp: String?,
@@ -37,7 +35,6 @@ data class ModelCap1(
     @SerializedName("dist")                     val v02disttxt: String?,
     @SerializedName("correg")                   val v03corretxt: String?,
     @SerializedName("lugarPob")                 val v04lugartxt: String?)
-//--------------------------------------------------------------------------------------------------
 data class ModelCap2(
     @SerializedName("id")                       val id: String?,//-------------
     @SerializedName("numControl")               val ncontrol: String?,//------
@@ -64,7 +61,6 @@ data class ModelCap2(
     @SerializedName("telfInfor2")               val v19tel2txt: String?,
     @SerializedName("telfInforCel")             val v20celtxt: String?,
     @SerializedName("correoInfor")              val v21emailtxt: String?)
-//--------------------------------------------------------------------------------------------------
 data class ModelCap3(
     @SerializedName("id")                       val id: String?,//-------------
     @SerializedName("numControl")               val ncontrol: String?,//------
@@ -76,7 +72,6 @@ data class ModelCap3(
     @SerializedName("tipoOrgFormalEspecif")     val v25typetxt: String?,
     @SerializedName("nombCompleto")             val v26nametxt: String?,
     @SerializedName("nombPaisOrig")             val v27countrytxt: String?)
-//--------------------------------------------------------------------------------------------------
 data class ModelCap4(
     @SerializedName("id")                       val id: String?,//-------------
     @SerializedName("numControl")               val ncontrol: String?,//------
@@ -90,7 +85,6 @@ data class ModelCap4(
     @SerializedName("secundCINU3")              val v29cinu3txt: String?,
     @SerializedName("secundActEconom4")         val v29act4txt: String?,
     @SerializedName("secundCINU4")              val v29cinu4txt: String?)
-//--------------------------------------------------------------------------------------------------
 data class ModelCap5(
     @SerializedName("id")                                       val id: String?,
     @SerializedName("numControl")                               val ncontrol: String?,
@@ -118,12 +112,12 @@ data class ModelCap5(
     @SerializedName("descDosProdBienServic2022")                val v33txt2s22: String?,
     @SerializedName("descTresProdBienServic2021")               val v33txt3s21: String?,
     @SerializedName("descTresProdBienServic2022")               val v33txt3s22: String?,
-    @SerializedName("destinVentLocal2021")                      val v34check1_21: Boolean?,
-    @SerializedName("destinVentLocal2022")                      val v34check1_22: Boolean?,
-    @SerializedName("destinVentNac2021")                        val v34check2_21: Boolean?,
-    @SerializedName("destinVentNac2022")                        val v34check2_22: Boolean?,
-    @SerializedName("destinVentExt2021")                        val v34check3_21: Boolean?,
-    @SerializedName("destinVentExt2022")                        val v34check3_22: Boolean?,
+    @SerializedName("destinVentLocal2021")                      val v34check1o21: Boolean?,
+    @SerializedName("destinVentLocal2022")                      val v34check1o22: Boolean?,
+    @SerializedName("destinVentNac2021")                        val v34check2o21: Boolean?,
+    @SerializedName("destinVentNac2022")                        val v34check2o22: Boolean?,
+    @SerializedName("destinVentExt2021")                        val v34check3o21: Boolean?,
+    @SerializedName("destinVentExt2022")                        val v34check3o22: Boolean?,
     @SerializedName("descOtro")                                 val v35txtOtro: String?,
     @SerializedName("homNacPrim")                               val v35txthomNaca: String?,
     @SerializedName("homExtPrim")                               val v35txthomExta: String?,
@@ -177,23 +171,22 @@ data class ModelCap5(
     @SerializedName("descPersLabInnov")                         val v38txt4desc: String?,
     @SerializedName("tienePersLabInnovOtro")                    val v38check4: Boolean?,
     @SerializedName("cantPersLabInnovOtro")                     val v38txt4: String?)
-//--------------------------------------------------------------------------------------------------
 data class ModelCap6(
     @SerializedName("id")                                                   val id: Int?,
     @SerializedName("numControl")                                           val ncontrol: Int?,
-    @SerializedName("empIntrodBienNuevos2021")                              val v39check21_1: Boolean?,
-    @SerializedName("empIntrodBienNuevos2022")                              val v39check22_1: Boolean?,
-    @SerializedName("empIntrodServicNuevos2021")                            val v39check21_2: Boolean?,
-    @SerializedName("empIntrodServicNuevos2022")                            val v39check22_2: Boolean?,
+    @SerializedName("empIntrodBienNuevos2021")                              val v39check21o1: Boolean?,
+    @SerializedName("empIntrodBienNuevos2022")                              val v39check22o1: Boolean?,
+    @SerializedName("empIntrodServicNuevos2021")                            val v39check21o2: Boolean?,
+    @SerializedName("empIntrodServicNuevos2022")                            val v39check22o2: Boolean?,
     @SerializedName("esInnovProdNuevaParaMercad")                           val v40check1: Boolean?,
     @SerializedName("esInnovProdNuevaParaEmp")                              val v40check2: Boolean?,
     @SerializedName("descDesarrInnovacProd")                                val v41check: String?,
-    @SerializedName("empIntrodNuevoMejoMetManufac2021")                     val v42check21_1: Boolean?,
-    @SerializedName("empIntrodNuevoMejoMetLogist2021")                      val v42check21_2: Boolean?,
-    @SerializedName("empIntrodNuevoMejoActSoport2021")                      val v42check21_3: Boolean?,
-    @SerializedName("empIntrodNuevoMejoMetManufac2022")                     val v42check22_1: Boolean?,
-    @SerializedName("empIntrodNuevoMejoMetLogist2022")                      val v42check22_2: Boolean?,
-    @SerializedName("empIntrodNuevoMejoActSoport2022")                      val v42check22_3: Boolean?,
+    @SerializedName("empIntrodNuevoMejoMetManufac2021")                     val v42check21o1: Boolean?,
+    @SerializedName("empIntrodNuevoMejoMetLogist2021")                      val v42check21o2: Boolean?,
+    @SerializedName("empIntrodNuevoMejoActSoport2021")                      val v42check21o3: Boolean?,
+    @SerializedName("empIntrodNuevoMejoMetManufac2022")                     val v42check22o1: Boolean?,
+    @SerializedName("empIntrodNuevoMejoMetLogist2022")                      val v42check22o2: Boolean?,
+    @SerializedName("empIntrodNuevoMejoActSoport2022")                      val v42check22o3: Boolean?,
     @SerializedName("esInnovProcesNuevaParaMercad")                         val v43check1: Boolean?,
     @SerializedName("esInnovProcesNuevaParaEmp")                            val v43check2: Boolean?,
     @SerializedName("descDesarrInnovacProces")                              val v44check: String?,
@@ -203,41 +196,40 @@ data class ModelCap6(
     @SerializedName("gradoImportEnAumentCapacidYFlexi")                     val v45txtGrado4: String?,
     @SerializedName("gradoImportEnReducCostosPorUnidadProd")                val v45txtGrado5: String?,
     @SerializedName("gradoImportEnReducImpactMedioAmbYMejoSanid")           val v45txtGrado6: String?,
-    @SerializedName("empIntrodNuevPractNegocOrganiz2021")                   val v46check21_1: Boolean?,
-    @SerializedName("empIntrodNuevoMetodOrganizRespYTomaDesic2021")         val v46check21_2: Boolean?,
-    @SerializedName("empIntrodNuevoMetodOrganizRelacExt2021")               val v46check21_3: Boolean?,
-    @SerializedName("empIntrodNuevPractNegocOrganiz2022")                   val v46check22_1: Boolean?,
-    @SerializedName("empIntrodNuevoMetodOrganizRespYTomaDesic2022")         val v46check22_2: Boolean?,
-    @SerializedName("empIntrodNuevoMetodOrganizRelacExt2022")               val v46check22_3: Boolean?,
+    @SerializedName("empIntrodNuevPractNegocOrganiz2021")                   val v46check21o1: Boolean?,
+    @SerializedName("empIntrodNuevoMetodOrganizRespYTomaDesic2021")         val v46check21o2: Boolean?,
+    @SerializedName("empIntrodNuevoMetodOrganizRelacExt2021")               val v46check21o3: Boolean?,
+    @SerializedName("empIntrodNuevPractNegocOrganiz2022")                   val v46check22o1: Boolean?,
+    @SerializedName("empIntrodNuevoMetodOrganizRespYTomaDesic2022")         val v46check22o2: Boolean?,
+    @SerializedName("empIntrodNuevoMetodOrganizRelacExt2022")               val v46check22o3: Boolean?,
     @SerializedName("gradoImportOrgEnReducTiempNecesClientYProve")          val v47txtGrado1: String?,
     @SerializedName("gradoImportOrgEnMejHabilidDesaNuevProdYProc")          val v47txtGrado2: String?,
     @SerializedName("gradoImportOrgEnMejCalidPorUnidProd")                  val v47txtGrado3: String?,
     @SerializedName("gradoImportOrgEnReducCostPorUnidProd")                 val v47txtGrado4: String?,
     @SerializedName("gradoImportOrgEnMejComunicYParticDeInformac")          val v47txtGrado5: String?,
-    @SerializedName("empIntrodCambEnDiseEnvYEmbalajComercializ2021")        val v48check21_1: Boolean?,
-    @SerializedName("empIntrodNuevTecPromoDelProdComercializ2021")          val v48check21_2: Boolean?,
-    @SerializedName("empIntrodNuevCanalDeDistribComercializ2021")           val v48check21_3: Boolean?,
-    @SerializedName("empIntrodNuevTarifDeBienesYServicComercializ2021")     val v48check21_4: Boolean?,
-    @SerializedName("empIntrodCambEnDiseEnvYEmbalajComercializ2022")        val v48check22_1: Boolean?,
-    @SerializedName("empIntrodNuevTecPromoDelProdComercializ2022")          val v48check22_2: Boolean?,
-    @SerializedName("empIntrodNuevCanalDeDistribComercializ2022")           val v48check22_3: Boolean?,
-    @SerializedName("empIntrodNuevTarifDeBienesYServicComercializ2022")     val v48check22_4: Boolean?,
+    @SerializedName("empIntrodCambEnDiseEnvYEmbalajComercializ2021")        val v48check21o1: Boolean?,
+    @SerializedName("empIntrodNuevTecPromoDelProdComercializ2021")          val v48check21o2: Boolean?,
+    @SerializedName("empIntrodNuevCanalDeDistribComercializ2021")           val v48check21o3: Boolean?,
+    @SerializedName("empIntrodNuevTarifDeBienesYServicComercializ2021")     val v48check21o4: Boolean?,
+    @SerializedName("empIntrodCambEnDiseEnvYEmbalajComercializ2022")        val v48check22o1: Boolean?,
+    @SerializedName("empIntrodNuevTecPromoDelProdComercializ2022")          val v48check22o2: Boolean?,
+    @SerializedName("empIntrodNuevCanalDeDistribComercializ2022")           val v48check22o3: Boolean?,
+    @SerializedName("empIntrodNuevTarifDeBienesYServicComercializ2022")     val v48check22o4: Boolean?,
     @SerializedName("gradoImportComercializEnIncreParticipMercad")          val v49txtGrado1: String?,
     @SerializedName("gradoImportComercializEnIntrodProdParaNuevoSegMercad") val v49txtGrado2: String?,
     @SerializedName("gradoImportComercializEnIntrodProdParaMercadGeogNuevo")val v49txtGrado3: String?)
-//--------------------------------------------------------------------------------------------------
 data class ModelCap7(
     @SerializedName("id")                                                   val id: Int?,
     @SerializedName("numControl")                                           val ncontrol: Int?,
     @SerializedName("tienePersonalOfiLabInvYDesarr")                        val v50check: Boolean?,
-    @SerializedName("empRealizoInvYDesEnEmpresa2021")                       val v51check21_1: Boolean?,
-    @SerializedName("empRealizoInvYDesEnFueraDeEmpresa2021")                val v51check21_2: Boolean?,
-    @SerializedName("porceInvertidoInvYDesEnEmpresa2021")                   val v51num21_1: Int?,
-    @SerializedName("porceInvertidoInvYDesFueraDeEmpresa2021")              val v51num21_2: Int?,
-    @SerializedName("empRealizoInvYDesEnEmpresa2022")                       val v51check22_1: Boolean?,
-    @SerializedName("empRealizoInvYDesEnFueraDeEmpresa2022")                val v51check22_2: Boolean?,
-    @SerializedName("porceInvertidoInvYDesEnEmpresa2022")                   val v51num22_1: Int?,
-    @SerializedName("porceInvertidoInvYDesFueraDeEmpresa2022")              val v51num22_2: Int?,
+    @SerializedName("empRealizoInvYDesEnEmpresa2021")                       val v51check21o1: Boolean?,
+    @SerializedName("empRealizoInvYDesEnFueraDeEmpresa2021")                val v51check21o2: Boolean?,
+    @SerializedName("porceInvertidoInvYDesEnEmpresa2021")                   val v51num21o1: Int?,
+    @SerializedName("porceInvertidoInvYDesFueraDeEmpresa2021")              val v51num21o2: Int?,
+    @SerializedName("empRealizoInvYDesEnEmpresa2022")                       val v51check22o1: Boolean?,
+    @SerializedName("empRealizoInvYDesEnFueraDeEmpresa2022")                val v51check22o2: Boolean?,
+    @SerializedName("porceInvertidoInvYDesEnEmpresa2022")                   val v51num22o1: Int?,
+    @SerializedName("porceInvertidoInvYDesFueraDeEmpresa2022")              val v51num22o2: Int?,
     @SerializedName("fuentesInformaEnIniciativaDelDepartDeInvestYDesa")     val v52txt01: String?,
     @SerializedName("fuentesInformaEnDeptoDeIngYProd")                      val v52txt02: String?,
     @SerializedName("fuentesInformaEnDeptoDeDiseno")                        val v52txt03: String?,
@@ -299,7 +291,6 @@ data class ModelCap7(
     @SerializedName("factNoNecesariPorInnovacPrevia")                       val v55txt4a: String?,
     @SerializedName("factNoNecesariPorFaltaDeDemandEnInnovac")              val v55txt4b: String?,
     @SerializedName("factPorDificultRegulatoria")                           val v55txt4c: String?)
-//--------------------------------------------------------------------------------------------------
 data class ModelCap8(
     @SerializedName("id")                                                               val id: Int?,
     @SerializedName("numControl")                                                       val ncontrol: Int?,
@@ -332,7 +323,6 @@ data class ModelCap8(
     @SerializedName("porOrigDeOrganisInternac")                                         val v58num4c: Int?,
     @SerializedName("porOrigDescripOtraFuente")                                         val v58desc4d: String?,
     @SerializedName("porOrigOtraFuente")                                                val v58num4d: Int?)
-//--------------------------------------------------------------------------------------------------
 data class ModelCap9(
     @SerializedName("id")                                       val id: Int?,
     @SerializedName("numControl")                               val ncontrol: Int?,
@@ -360,7 +350,6 @@ data class ModelCap9(
     @SerializedName("normaCalidadUnoAnio")                      val v65num1: Int?,
     @SerializedName("normaCalidadDos")                          val v65txt2: String?,
     @SerializedName("normaCalidadDosAnio")                      val v65num2: Int?)
-//--------------------------------------------------------------------------------------------------
 data class ModelCap10(
     @SerializedName("id")                                       val id: Int?,
     @SerializedName("numControl")                               val ncontrol: Int?,
@@ -368,7 +357,6 @@ data class ModelCap10(
     @SerializedName("procesos")                                 val v66check2: Boolean?,
     @SerializedName("organizacional")                           val v66check3: Boolean?,
     @SerializedName("comercializacion")                         val v66check4: Boolean?)
-//--------------------------------------------------------------------------------------------------
 data class ModelMod(
     @SerializedName("id")                                                       val id: Int?,
     @SerializedName("usoEmprInternetEnActivid")                                 val v1check: Boolean?,
@@ -380,40 +368,38 @@ data class ModelMod(
     @SerializedName("usoConexFijaDescripOtro")                                  val v2txtDesc1d: String?,
     @SerializedName("usoConexMovil")                                            val v2check2: Boolean?,
 //    @SerializedName("usoConexMovilDescrip")                                     val v2txtnull: String?,
-    @SerializedName("medidaSegPorAutenticacion")                                val medidaSegPorAutenticacion: Boolean?,
-    @SerializedName("medidaSegPorBackup")                                       val medidaSegPorBackup: Boolean?,
-    @SerializedName("medidaSegPorCtrolAccesoARed")                              val medidaSegPorCtrolAccesoARed: Boolean?,
-    @SerializedName("medidaSegOtraTIC")                                         val medidaSegOtraTIC: Boolean?,
-    @SerializedName("realizoVentaPorMedioElectr")                               val realizoVentaPorMedioElectr: Boolean?,
-    @SerializedName("realizoVentaPorPagWeb")                                    val realizoVentaPorPagWeb: Boolean?,
-    @SerializedName("procentVentaPorPagWeb")                                    val procentVentaPorPagWeb: Int?,
-    @SerializedName("realizoVentaPorCorreoElectron")                            val realizoVentaPorCorreoElectron: Boolean?,
-    @SerializedName("procentVentaPorCorreoElectron")                            val procentVentaPorCorreoElectron: Int?,
-    @SerializedName("realizoVentaPorRedSocial")                                 val realizoVentaPorRedSocial: Boolean?,
-    @SerializedName("procentVentaPorRedSocial")                                 val procentVentaPorRedSocial: Int?,
-    @SerializedName("realizoVentaPorAppPropia")                                 val realizoVentaPorAppPropia: Boolean?,
-    @SerializedName("procentVentaPorAppPropia")                                 val procentVentaPorAppPropia: Int?,
-    @SerializedName("realizoVentaPorOtroMedioElectron")                         val realizoVentaPorOtroMedioElectron: Boolean?,
-    @SerializedName("procentVentaPorOtroMedioElectron")                         val procentVentaPorOtroMedioElectron: Int?,
-    @SerializedName("descripVentaPorOtroMedioElectron")                         val descripVentaPorOtroMedioElectron: String?,
-    @SerializedName("totalEnVentasBienesYServicPorMedioElectron")               val totalEnVentasBienesYServicPorMedioElectron: String?,
-    @SerializedName("porcentEnVentPorHogar")                                    val porcentEnVentPorHogar: Int?,
-    @SerializedName("porcentEnVentPorEmpr")                                     val porcentEnVentPorEmpr: Int?,
-    @SerializedName("porcentEnVentPorGob")                                      val porcentEnVentPorGob: Int?,
-    @SerializedName("porcentEnVentOtro")                                        val porcentEnVentOtro: Int?,
-    @SerializedName("realizoPedidoOReservBienOServcPorMedioElectron")           val realizoPedidoOReservBienOServcPorMedioElectron: Boolean?,
-    @SerializedName("totalCostoOGastoPedidoOReservBienOServcPorMedioElectron")  val totalCostoOGastoPedidoOReservBienOServcPorMedioElectron: String?,
-    @SerializedName("realizoEmprCostoOGastoEnTIC")                              val realizoEmprCostoOGastoEnTIC: Boolean?,
-    @SerializedName("totalCostoOGastoEnTIC")                                    val totalCostoOGastoEnTIC: String?,
-    @SerializedName("porcentEnCostoOGastoHardware")                             val porcentEnCostoOGastoHardware: Int?,
-    @SerializedName("porcentEnCostoOGastoSoftware")                             val porcentEnCostoOGastoSoftware: Int?,
-    @SerializedName("porcentEnCostoOGastoConsultoriaTIC")                       val porcentEnCostoOGastoConsultoriaTIC: Int?,
-    @SerializedName("porcentEnCostoOGastoOtro")                                 val porcentEnCostoOGastoOtro: Int?,
+    @SerializedName("medidaSegPorAutenticacion")                                val v3check1: Boolean?,
+    @SerializedName("medidaSegPorBackup")                                       val v3check2: Boolean?,
+    @SerializedName("medidaSegPorCtrolAccesoARed")                              val v3check3: Boolean?,
+    @SerializedName("medidaSegOtraTIC")                                         val v3check4: Boolean?,
+    @SerializedName("realizoVentaPorMedioElectr")                               val v4check: Boolean?,
+    @SerializedName("realizoVentaPorPagWeb")                                    val v4check1a: Boolean?,
+    @SerializedName("procentVentaPorPagWeb")                                    val v4check1aPorcent: Int?,
+    @SerializedName("realizoVentaPorCorreoElectron")                            val v4check1b: Boolean?,
+    @SerializedName("procentVentaPorCorreoElectron")                            val v4check1bPorcent: Int?,
+    @SerializedName("realizoVentaPorRedSocial")                                 val v4check1c: Boolean?,
+    @SerializedName("procentVentaPorRedSocial")                                 val v4check1cPorcent: Int?,
+    @SerializedName("realizoVentaPorAppPropia")                                 val v4check1d: Boolean?,
+    @SerializedName("procentVentaPorAppPropia")                                 val v4check1dPorcent: Int?,
+    @SerializedName("realizoVentaPorOtroMedioElectron")                         val v4check1e: Boolean?,
+    @SerializedName("procentVentaPorOtroMedioElectron")                         val v4check1ePorcent: Int?,
+    @SerializedName("descripVentaPorOtroMedioElectron")                         val v4check1eOther: String?,
+    @SerializedName("totalEnVentasBienesYServicPorMedioElectron")               val v5txt: String?,
+    @SerializedName("porcentEnVentPorHogar")                                    val v6porcent1: Int?,
+    @SerializedName("porcentEnVentPorEmpr")                                     val v6porcent2: Int?,
+    @SerializedName("porcentEnVentPorGob")                                      val v6porcent3: Int?,
+    @SerializedName("porcentEnVentOtro")                                        val v6porcent4: Int?,
+    @SerializedName("realizoPedidoOReservBienOServcPorMedioElectron")           val v7check: Boolean?,
+    @SerializedName("totalCostoOGastoPedidoOReservBienOServcPorMedioElectron")  val v8txt: String?,
+    @SerializedName("realizoEmprCostoOGastoEnTIC")                              val v9check: Boolean?,
+    @SerializedName("totalCostoOGastoEnTIC")                                    val v9txt: String?,
+    @SerializedName("porcentEnCostoOGastoHardware")                             val v10porcent1: Int?,
+    @SerializedName("porcentEnCostoOGastoSoftware")                             val v10porcent2: Int?,
+    @SerializedName("porcentEnCostoOGastoConsultoriaTIC")                       val v10porcent3: Int?,
+    @SerializedName("porcentEnCostoOGastoOtro")                                 val v10porcent4: Int?,
     @SerializedName("observaciones")                                            val observaciones: String?,
     @SerializedName("numControl")                                               val numControl: Int?)
 
-//--------------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------------
 data class ModelForm(
     @SerializedName("numControl")                           val ncontrol: Int?,
     @SerializedName("observaciones")                        val obs: String?,

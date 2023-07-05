@@ -13,8 +13,7 @@ import androidx.viewpager2.widget.ViewPager2
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.MenuFragBinding
 import gob.pa.inovacion_empresarial.model.DVModel
-import gob.pa.inovacion_empresarial.model.MVar
-import gob.pa.inovacion_empresarial.model.ModelCap1
+import gob.pa.inovacion_empresarial.model.Mob
 
 class FragMenu : Fragment() {
 
@@ -34,7 +33,7 @@ class FragMenu : Fragment() {
         formbinding = MenuFragBinding.inflate(layoutInflater)
         ctx = requireContext()
 
-        formbinding.versionForm.text = MVar.version
+        formbinding.versionForm.text = Mob.version
 
         return formbinding.root
     }
@@ -105,7 +104,7 @@ class FragMenu : Fragment() {
     }
 
     private fun viewpager(pos: Int) {
-        MVar.indiceEnc = pos
+        Mob.indiceEnc = pos
         val pager = activity?.findViewById<ViewPager2>(R.id.viewpager)
         pager?.setCurrentItem(pos, false)
 

@@ -23,9 +23,8 @@ import gob.pa.inovacion_empresarial.adapters.AdapterMain
 import gob.pa.inovacion_empresarial.databinding.ActivityMainBinding
 import gob.pa.inovacion_empresarial.function.AppCache
 import gob.pa.inovacion_empresarial.model.DVModel
-import gob.pa.inovacion_empresarial.model.MVar
+import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.service.room.FormDB
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.coroutines.launch
 import kotlin.system.exitProcess
 
@@ -42,34 +41,27 @@ class MainActivity : AppCompatActivity() {
         mainbinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView((mainbinding.root))
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        MVar.version = ("Versión: " + this.packageManager.getPackageInfo
+        Mob.version = ("Versión: " + this.packageManager.getPackageInfo
             (this.packageName, 0).versionName)
         pagerMain = mainbinding.viewpagerMain
         pagerMain.isUserInputEnabled = false
-        pagerMain.adapter = AdapterMain(MVar.arrMain, supportFragmentManager, lifecycle)
+        pagerMain.adapter = AdapterMain(Mob.arrMain, supportFragmentManager, lifecycle)
     }
 
     override fun onResume() {
         super.onResume()
         mainbinding.barMain.visibility = View.VISIBLE
         pagerMain.visibility = View.INVISIBLE
-        MVar.authData = AppCache.loginGET(this)             //----- CARGA TOKEM
-        if (MVar.authData?.result?.token.isNullOrEmpty()) {     //----- TOKEN VACIO IR A LOGIN
+        Mob.authData = AppCache.loginGET(this)             //----- CARGA TOKEM
+        if (Mob.authData?.result?.token.isNullOrEmpty()) {     //----- TOKEN VACIO IR A LOGIN
             Handler(Looper.getMainLooper()).postDelayed({
-                pagerMain.setCurrentItem(0, false)
+                pagerMain.setCurrentItem(Mob.POS1, false)
                 pagerMain.visibility = View.VISIBLE
                 mainbinding.barMain.visibility = View.GONE
-            }, (800).toLong())
+            }, (Mob.TIME500MS).toLong())
         } else {  //------------------------------------------- //------------------
-            val dataDown = AppCache.dataGET(this)
-
-
             lifecycleScope.launch {
-
-
-
-                if (!dataDown)
-                    download()
+                download()
                 pagerMain.setCurrentItem(1, false)
             }
         }
@@ -99,9 +91,9 @@ class MainActivity : AppCompatActivity() {
         val msg1: TextView = msg.findViewById(R.id.msg1)
         val msg2: TextView = msg.findViewById(R.id.msg2)
 
-        when (pagerMain.currentItem){
-            3, 4 -> { pagerMain.setCurrentItem(1,false) }
-            2 -> { pagerMain.setCurrentItem(pagerMain.currentItem - 1,false) }
+        when (pagerMain.currentItem) {
+            Mob.POS4, Mob.POS5 -> { pagerMain.setCurrentItem(Mob.POS2,false) }
+            Mob.POS3 -> { pagerMain.setCurrentItem(pagerMain.currentItem - 1,false) }
             else -> {
                 btpositivo.text = getString(R.string.cancel)
                 btnegativo.text = getString(R.string.cerrarAp)
@@ -128,20 +120,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun validate() {
-        lifecycleScope.launch {
-            val validate = dvmMain.getData()?.code()
-            //validate?.code()
-            if (validate == 401) {
-                pagerMain.setCurrentItem(0,false)
-            } else {
-                pagerMain.setCurrentItem(1,false)
-            }
-
-        }
-
-    }
-
 
 
     fun download() {
@@ -156,7 +134,6 @@ class MainActivity : AppCompatActivity() {
             if (distRoom.isEmpty()) { roomDB.dbFormDao().insertDist(dvmMain.getDist()) }
             if (correRoom.isEmpty()) { roomDB.dbFormDao().insertCorre(dvmMain.getCorre()) }
             if (lugarRoom.isEmpty()) { roomDB.dbFormDao().insertLugarP(dvmMain.getLugarP()) }
-            AppCache.dataSAVE(ctx,true)
         }
     }
 
@@ -164,9 +141,9 @@ class MainActivity : AppCompatActivity() {
 
     fun validate(ctx: Context, dvModel: DVModel, pager: ViewPager2): LiveData<Boolean>? {
         val result: MutableLiveData<Boolean>? = null
-        MVar.authData = AppCache.loginGET(ctx)
+        Mob.authData = AppCache.loginGET(ctx)
 
-        if (MVar.authData?.result?.token.isNullOrEmpty()) {
+        if (Mob.authData?.result?.token.isNullOrEmpty()) {
             pager.setCurrentItem(0, false)
             Toast.makeText(ctx, "Bienvenido", Toast.LENGTH_LONG).show()
             result?.postValue(false)
@@ -186,7 +163,7 @@ class MainActivity : AppCompatActivity() {
                         contains("400") || contains("401") || contains("500") -> {
                             Toast.makeText(ctx, "Inicie Sesión nuevamente",
                                 Toast.LENGTH_SHORT).show()
-                            MVar.authData = null
+                            Mob.authData = null
                             AppCache.loginCLEAR(ctx)
                             pager.setCurrentItem(0, false)
                             result?.postValue(false)

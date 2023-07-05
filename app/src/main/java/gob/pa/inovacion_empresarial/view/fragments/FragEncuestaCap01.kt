@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo01Binding
 import gob.pa.inovacion_empresarial.model.DVModel
-import gob.pa.inovacion_empresarial.model.MVar
+import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap1
 
 class FragEncuestaCap01 : Fragment() {
@@ -50,8 +50,8 @@ class FragEncuestaCap01 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        if (MVar.recap1)
-            fillOut(MVar.formComp?.cap1)
+        if (Mob.recap1)
+            fillOut(Mob.formComp?.cap1)
         else actions()
     }
 
@@ -70,7 +70,7 @@ class FragEncuestaCap01 : Fragment() {
         fragCap1.txtCap13ID.text = idcorre
         fragCap1.txtCap14ID.text = idlugarp
 
-        MVar.recap1 = false
+        Mob.recap1 = false
         actions()
     }
 

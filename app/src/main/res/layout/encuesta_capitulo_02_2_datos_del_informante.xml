@@ -1,97 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_cap2_2"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
-    tools:ignore="HardcodedText"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
+    <data />
 
     <ScrollView
         android:id="@+id/scrollForm"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         android:orientation="vertical"
-        android:layout_margin="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:padding="2dp"
             android:animateLayoutChanges="true"
             android:background="@drawable/background_shadow_med"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <!-- 16. -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtCap2_16ly"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="2dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="2dp"
                 android:background="@color/white"
-                android:orientation="vertical">
+                android:hint="@string/hint16"
+                android:textColorHint="@color/black"
+                app:helperText="Anote: Nombre y apellidos"
+                app:helperTextTextAppearance="@style/TextLabel2"
+                app:helperTextTextColor="@android:color/holo_blue_dark"
+                app:layout_constraintWidth_max="488dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
 
-                <com.google.android.material.textfield.TextInputLayout
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtCap2_16"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint16"
-                    android:textColorHint="@color/black"
-                    app:helperText="Anote: Nombre y apellidos"
-                    app:helperTextTextAppearance="@style/TextLabel2"
-                    app:helperTextTextColor="@android:color/holo_blue_dark">
+                    android:background="@drawable/background_shadow"
+                    android:drawableTint="@android:color/holo_blue_dark"
+                    android:fontFamily="sans-serif-condensed"
+                    android:imeOptions="actionDone"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    tools:ignore="TextContrastCheck"
+                    tools:text="Nombre completo" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCap2_16"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_shadow"
-                        android:drawableTint="@android:color/holo_blue_dark"
-                        android:fontFamily="sans-serif-condensed"
-                        android:imeOptions="actionDone"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        tools:ignore="TextContrastCheck"
-                        tools:text="Nombre completo" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginVertical="3dp"
-                    android:layout_weight="6"
-                    android:hint="@string/hint17"
-                    android:textColorHint="@color/black">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCap2_17"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="textCapWords"
-                        tools:ignore="TouchTargetSizeCheck"
-                        tools:text="Trabajo o cargo" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
+            <!-- 17. -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtCap2_17ly"
                 android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginTop="7dp"
+                android:layout_weight="6"
+                android:hint="@string/hint17"
+                android:textColorHint="@color/black"
+                app:layout_constraintWidth_max="488dp"
+                app:layout_constraintTop_toBottomOf="@+id/txtCap2_16ly"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtCap2_17"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="textCapWords"
+                    tools:ignore="TouchTargetSizeCheck"
+                    tools:text="Trabajo o cargo" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- 18. -->
+            <LinearLayout
+                android:id="@+id/linearCap2_18"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
+                android:layout_marginTop="7dp"
                 android:layout_marginHorizontal="2dp"
                 android:background="@color/white"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_constraintWidth_max="488dp"
+                app:layout_constraintTop_toBottomOf="@+id/txtCap2_17ly"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -101,7 +103,6 @@
                     app:helperText="Orden a anotar: Mall o centro comercial, avenida, calle, edificio o casa y piso"
                     app:helperTextTextAppearance="@style/TextLabel2"
                     app:helperTextTextColor="@android:color/holo_blue_dark">
-
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtCap2_18"
                         android:layout_width="match_parent"
@@ -118,13 +119,14 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginVertical="3dp"
+                    android:layout_marginVertical="5dp"
                     android:layout_marginStart="20dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="6"
-                    android:hint="1. Otras Referencias:"
-                    android:textColorHint="@android:color/holo_blue_dark">
+                    android:hint="@string/hint_otheRef">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtCap2_18_1"
@@ -139,17 +141,21 @@
 
             </LinearLayout>
 
-
+            <!-- 19. -->
             <FrameLayout
                 android:id="@+id/frameCap2_19_tel1"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="2dp">
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintWidth_max="488dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearCap2_18"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:hint="@string/hint191"
                     android:textColorHint="@color/black">
 
@@ -183,11 +189,15 @@
 
             <FrameLayout
                 android:id="@+id/frameCap2_19_tel2"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
                 android:visibility="gone"
                 android:animateLayoutChanges="true"
+                app:layout_constraintWidth_max="488dp"
+                app:layout_constraintTop_toBottomOf="@+id/frameCap2_19_tel1"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 tools:visibility="visible">
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -224,15 +234,19 @@
                     tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
             </FrameLayout>
 
-
+            <!-- 20. -->
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+                android:id="@+id/txtCap2_20ly"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="7dp"
                 android:layout_marginHorizontal="2dp"
-                android:layout_marginBottom="5dp"
                 android:hint="@string/hint20"
-                android:textColorHint="@color/black">
+                android:textColorHint="@color/black"
+                app:layout_constraintWidth_max="488dp"
+                app:layout_constraintTop_toBottomOf="@+id/frameCap2_19_tel2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtCap2_20"
@@ -245,13 +259,19 @@
                     tools:text="0000-0000" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- 21. -->
             <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
+                android:id="@+id/txtCap2_21ly"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
+                android:layout_marginTop="7dp"
                 android:layout_marginHorizontal="2dp"
                 android:hint="@string/hint21"
-                android:textColorHint="@color/black">
+                android:textColorHint="@color/black"
+                app:layout_constraintWidth_max="488dp"
+                app:layout_constraintTop_toBottomOf="@+id/txtCap2_20ly"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtCap2_21"
@@ -264,17 +284,8 @@
                     tools:text="correo@email.com" />
             </com.google.android.material.textfield.TextInputLayout>
 
-
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
-
-
-
-
-
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

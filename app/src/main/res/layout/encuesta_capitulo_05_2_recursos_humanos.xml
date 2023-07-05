@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_cap5_2"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
-    tools:ignore="HardcodedText"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data />
 
     <ScrollView
         android:id="@+id/scrollForm"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         android:orientation="vertical"
-        android:layout_margin="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,1292 +19,1120 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
+            android:padding="2dp"
             android:animateLayoutChanges="true"
             android:background="@drawable/background_shadow_med"
-            android:orientation="vertical"
-            android:padding="2dp">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/background_shadow">
+
+                <TextView
+                    android:id="@+id/lb35np"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p35"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p35txt"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/lb35np"
+                    app:layout_constraintTop_toTopOf="@+id/lb35np"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    tools:ignore="TextContrastCheck" />
+
+                <GridLayout
+                    android:id="@+id/tb35"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:columnCount="5"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView14">
+
+                    <TextView
+                        android:layout_rowSpan="2"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_low"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:text="@string/tb53desct1"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_low"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:paddingVertical="5dp"
+                        android:text="@string/txtmen"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_low"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:paddingVertical="5dp"
+                        android:text="@string/txtwomen"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:textSize="12sp"
+                        android:text="@string/txtnac"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:textSize="12sp"
+                        android:text="@string/txtext"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:textSize="12sp"
+                        android:text="@string/txtnac" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:textSize="12sp"
+                        android:text="@string/txtext" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1.5"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:text="@string/lb35t1"
+                        android:textColor="#616161"
+                        android:textSize="@dimen/text12"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_1_HNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_1_HExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_1_HExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_1_MNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_1_MNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_1_MExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_1_MExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_a_HNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:paddingStart="25dp"
+                        android:paddingEnd="5dp"
+                        android:text="@string/lb35a"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_a_HNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_a_HExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_a_HExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_a_MNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_a_MNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_a_MExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_a_MExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_b_HNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:paddingStart="25dp"
+                        android:paddingEnd="5dp"
+                        android:text="@string/lb35b"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_b_HNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_b_HExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_b_HExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_b_MNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_b_MNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_b_MExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_b_MExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_c_HNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:paddingStart="25dp"
+                        android:paddingEnd="5dp"
+                        android:text="@string/lb35c"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_c_HNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_c_HExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_c_HExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_c_MNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_c_MNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_c_MExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_c_MExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_d_HNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:paddingStart="25dp"
+                        android:paddingEnd="5dp"
+                        android:text="@string/lb35d"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_d_HNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_d_HExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_d_HExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_d_MNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_d_MNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_d_MExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_d_MExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_e_HNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:paddingStart="25dp"
+                        android:paddingEnd="5dp"
+                        android:text="@string/lb35e"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_e_HNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_e_HExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_e_HExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_e_MNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_e_MNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_e_MExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_e_MExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_f_HNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:paddingStart="25dp"
+                        android:paddingEnd="5dp"
+                        android:text="@string/lb35f"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_f_HNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_f_HExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_f_HExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_f_MNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_f_MNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_f_MExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_f_MExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_g_HNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:paddingStart="25dp"
+                        android:paddingEnd="5dp"
+                        android:text="@string/lb35g"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_g_HNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_g_HExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_g_HExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_g_MNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_g_MNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_g_MExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_g_MExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_otro"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_otro"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:autofillHints="2021"
+                        android:background="@drawable/background_shadow_low"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/lb35h"
+                        android:inputType="text"
+                        android:lines="3"
+                        android:nextFocusDown="@+id/txtCap5_35_h_HNac"
+                        android:paddingHorizontal="10dp"
+                        android:scrollHorizontally="false"
+                        android:textColorHint="@color/black"
+                        android:textSize="12sp"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_h_HNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_h_HExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_h_HExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_h_MNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_h_MNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_h_MExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_h_MExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_36_1_2021"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+
+                </GridLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/background_shadow">
+
+                <TextView
+                    android:id="@+id/lb36np"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p36"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/lb36txtp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p36txt"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lb36np"
+                    app:layout_constraintTop_toTopOf="@+id/lb36np"
+                    tools:ignore="TextContrastCheck,TooManyViews" />
+
+                <GridLayout
+                    android:id="@+id/tb36"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginTop="10dp"
+                    android:columnCount="3"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb36txtp">
+
+                    <TextView
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/lb36desc"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
+
+                    <TextView
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/a2021"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
+
+                    <TextView
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/a2022"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck,TooManyViews" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="10dp"
+                        android:text="@string/lb36t1"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_36_1_2021"
+                        android:nextFocusDown="@+id/txtCap5_36_1_2022"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"/>
+
+                    <EditText
+                        android:id="@+id/txtCap5_36_1_2022"
+                        android:nextFocusDown="@+id/txtCap5_36_a_2021"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="5dp"
+                        android:text="@string/lb36nac"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_36_a_2021"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap5_36_a_2022"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+                        android:importantForAutofill="no" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_36_a_2022"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:nextFocusDown="@+id/txtCap5_36_b_2021"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+                        android:importantForAutofill="no" />
+
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="5dp"
+                        android:text="@string/lb36ext"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_36_b_2021"
+                        android:nextFocusDown="@+id/txtCap5_36_b_2022"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+                        android:importantForAutofill="no" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_36_b_2022"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:hint="@string/cero"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:imeOptions="actionDone"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+                        android:importantForAutofill="no" />
+
+
+
+
+                </GridLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="35. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="En el 2022, ¿cuál fue el número de personas que trabajan en la empresa, según nivel de educacion, sexo y origen (nacional o extragero)?"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-                </LinearLayout>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
+                    android:id="@+id/lb37np"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="32dp"
-                    android:layout_marginBottom="10dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="LEA:"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:padding="5dp"
-                            android:text="Nivel académico"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck" />
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_low"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="center"
-                                android:paddingVertical="5dp"
-                                android:text="Hombres"
-                                android:textStyle="bold" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:background="@drawable/background_shadow_celpast"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:gravity="center"
-                                    android:padding="5dp"
-                                    android:text="Nacional"
-                                    android:textSize="12sp"
-                                    android:textStyle="bold"
-                                    tools:ignore="TextContrastCheck" />
-
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:background="@drawable/background_shadow_celpast"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:gravity="center"
-                                    android:padding="5dp"
-                                    android:text="Extranjero"
-                                    android:textSize="12sp"
-                                    android:textStyle="bold"
-                                    tools:ignore="TextContrastCheck" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_low"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="center"
-                                android:paddingVertical="5dp"
-                                android:text="Mujeres"
-                                android:textStyle="bold" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:background="@drawable/background_shadow_celpast"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:gravity="center"
-                                    android:padding="5dp"
-                                    android:text="Nacional"
-                                    android:textSize="12sp"
-                                    android:textStyle="bold"
-                                    tools:ignore="TextContrastCheck" />
-
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:background="@drawable/background_shadow_celpast"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:gravity="center"
-                                    android:padding="5dp"
-                                    android:text="Extranjero"
-                                    android:textSize="12sp"
-                                    android:textStyle="bold"
-                                    tools:ignore="TextContrastCheck" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:padding="5dp"
-                            android:text="1. Total (suma de todo)"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_1_HNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_1_HExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_1_HExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_1_MNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_1_MNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_1_MExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_1_MExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_a_HNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:padding="5dp"
-                            android:text="   a. Primaria"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_a_HNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_a_HExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_a_HExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_a_MNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_a_MNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_a_MExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_a_MExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_b_HNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:padding="5dp"
-                            android:text="   b. Secundaria"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_b_HNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_b_HExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_b_HExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_b_MNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_b_MNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_b_MExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_b_MExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_c_HNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:padding="5dp"
-                            android:text="   c. Técnico"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_c_HNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_c_HExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_c_HExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_c_MNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_c_MNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_c_MExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_c_MExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_d_HNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:padding="5dp"
-                            android:text="   d. Licenciatura"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_d_HNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_d_HExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_d_HExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_d_MNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_d_MNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_d_MExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_d_MExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_e_HNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:padding="5dp"
-                            android:text="   e. Postgrado"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_e_HNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_e_HExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_e_HExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_e_MNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_e_MNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_e_MExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_e_MExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_f_HNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:padding="5dp"
-                            android:text="   f. Maestría"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_f_HNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_f_HExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_f_HExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_f_MNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_f_MNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_f_MExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_f_MExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_g_HNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:padding="5dp"
-                            android:text="   g. Doctorado"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_g_HNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_g_HExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_g_HExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_g_MNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_g_MNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_g_MExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_g_MExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_otro"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/background_shadow_low"
-                        android:orientation="horizontal">
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_otro"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:autofillHints="2021"
-                            android:fontFamily="sans-serif-condensed"
-                            android:hint="h. Otro: Especifique"
-                            android:inputType="text"
-                            android:lines="3"
-                            android:nextFocusDown="@+id/txtCap5_35_h_HNac"
-                            android:paddingHorizontal="10dp"
-                            android:scrollHorizontally="false"
-                            android:textColorHint="@color/black"
-                            android:textSize="14sp"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_h_HNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_h_HExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_h_HExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_h_MNac"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_h_MNac"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_35_h_MExt"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_35_h_MExt"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_36_1_2021"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="2dp"
-                android:layout_marginVertical="7dp"
-                android:background="@drawable/background_shadow"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="36. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="En el 2021 y 2022, ¿cuál fue el promedio anual de empleados que laboraron en la empresa, según su origen?"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck,TooManyViews" />
-                </LinearLayout>
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p37"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/textView15"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="32dp"
-                    android:layout_marginBottom="10dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="(Excluya personal subcontratado)"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1.5"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:padding="5dp"
-                            android:text="Empleados según origen"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck" />
-
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:padding="5dp"
-                            android:text="2021"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:padding="5dp"
-                            android:text="2022"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck,TooManyViews" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1.5"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:padding="10dp"
-                            android:text="1. Total (suma de a+b)"
-                            tools:ignore="TextContrastCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_36_1_2021"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_36_1_2022"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_36_1_2022"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_36_a_2021"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1.5"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:padding="5dp"
-                            android:text="      a. Nacional"
-                            tools:ignore="TextContrastCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_36_a_2021"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_36_a_2022"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_36_a_2022"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_36_b_2021"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1.5"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:padding="5dp"
-                            android:text="      b. Extrangero"
-                            tools:ignore="TextContrastCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_36_b_2021"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            android:nextFocusDown="@+id/txtCap5_36_b_2022"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_36_b_2022"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:imeOptions="actionDone"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="2dp"
-                android:layout_marginVertical="7dp"
-                android:background="@drawable/background_shadow"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="37. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="¿En el 2022, ¿la empresa contaba con personal, oficina, sección, departamento o laboratorio para desarrollar labores de innovación?"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-                </LinearLayout>
+                    android:text="@string/p37txt"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lb37np"
+                    app:layout_constraintTop_toTopOf="@+id/lb37np"
+                    tools:ignore="TextContrastCheck" />
 
                 <RadioGroup
                     android:id="@+id/rgroupCap5_37"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="30dp"
                     android:orientation="vertical"
-                    tools:ignore="UselessParent">
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView15"
+                    tools:ignore="TooManyViews,UselessParent">
 
                     <RadioButton
                         android:id="@+id/rbtCap5_37_si"
@@ -1317,7 +1140,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="Sí      1. (Continuar con la pregunta 38)"
+                        android:text="@string/p37si"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <RadioButton
@@ -1326,306 +1149,264 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="No    2. (Pasar al Cap. VI, pregunta 39)"
+                        android:text="@string/p37no"
                         tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
                 </RadioGroup>
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:id="@+id/linearCap5_38"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutCap5_38"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:padding="5dp"
                 android:layout_marginHorizontal="2dp"
-                android:layout_marginVertical="7dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
                 android:animateLayoutChanges="true"
                 android:background="@drawable/background_shadow"
-                android:orientation="vertical"
-                android:padding="5dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/lb38np"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p38"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/lb38txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p38txt"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lb38np"
+                    app:layout_constraintTop_toTopOf="@+id/lb38np"
+                    tools:ignore="TextContrastCheck,TooManyViews" />
+
+                <GridLayout
+                    android:id="@+id/tb38"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginTop="15dp"
+                    android:columnCount="3"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb38txt">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="38. "
-                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/p38tbdesc"
                         android:textStyle="bold"
                         tools:ignore="TextContrastCheck" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:layout_columnWeight="0.7"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="¿Qué oficina, sección departamento o laboratorio de la empresa contaba con personal para desarrollar labores de innovación, anote la cantidad total..."
-                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        tools:srcCompat="@drawable/img_check"
+                        android:contentDescription="@string/p38txtdesc2" />
+
+                    <TextView
+                        android:layout_columnWeight="0.8"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/lb38txtdesc2"
                         android:textStyle="bold"
                         tools:ignore="TextContrastCheck,TooManyViews" />
-                </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="32dp"
-                    android:layout_marginBottom="15dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="OPCIÓN MULTIPLE"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1.5"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="10dp"
+                        android:text="@string/tb38desc1"
+                        tools:ignore="TextContrastCheck" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2.5"
-                            android:background="@drawable/background_shadow_celpast" />
-
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:padding="5dp"
-                            android:text="Respuesta"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:padding="5dp"
-                            android:text="Cantidad"
-                            android:textStyle="bold"
-                            tools:ignore="TextContrastCheck,TooManyViews" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                    <CheckBox
+                        android:id="@+id/checkCap5_38_1"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
                         android:background="@drawable/background_shadow"
-                        android:orientation="horizontal">
+                        android:gravity="center"
+                        android:minHeight="48dp"
+                        tools:ignore="LabelFor,DuplicateSpeakableTextCheck" />
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2.5"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:padding="10dp"
-                            android:text="1. Informacion y Sistema?" />
-
-                        <CheckBox
-                            android:id="@+id/checkCap5_38_1"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:gravity="center"
-                            android:minHeight="40dp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_38_1"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:enabled="false"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:visibility="invisible"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                    <EditText
+                        android:id="@+id/txtCap5_38_1"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
                         android:background="@drawable/background_shadow"
-                        android:orientation="horizontal">
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:visibility="invisible"
+                        tools:ignore="LabelFor,DuplicateSpeakableTextCheck"
+                        tools:visibility="visible" />
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2.5"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:padding="10dp"
-                            android:text="2. Investigación y Desarrollo?" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1.5"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="10dp"
+                        android:text="@string/tb38desc2"
+                        tools:ignore="TextContrastCheck" />
 
-                        <CheckBox
-                            android:id="@+id/checkCap5_38_2"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:gravity="center"
-                            android:minHeight="40dp"
-                            tools:ignore="TouchTargetSizeCheck" />
-
-                        <EditText
-                            android:id="@+id/txtCap5_38_2"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:enabled="false"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:visibility="invisible"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                    <CheckBox
+                        android:id="@+id/checkCap5_38_2"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
                         android:background="@drawable/background_shadow"
-                        android:orientation="horizontal">
+                        android:gravity="center"
+                        android:minHeight="48dp"
+                        tools:ignore="LabelFor,DuplicateSpeakableTextCheck" />
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2.5"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:padding="10dp"
-                            android:text="3. ingenieria y diseñoindustrial?" />
+                    <EditText
+                        android:id="@+id/txtCap5_38_2"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:visibility="invisible"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+                        tools:visibility="visible" />
 
-                        <CheckBox
-                            android:id="@+id/checkCap5_38_3"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:gravity="center"
-                            android:minHeight="40dp"
-                            tools:ignore="TouchTargetSizeCheck" />
 
-                        <EditText
-                            android:id="@+id/txtCap5_38_3"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:enabled="false"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:visibility="invisible"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1.5"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="10dp"
+                        android:text="@string/tb38desc3"
+                        tools:ignore="TextContrastCheck" />
 
-                    </LinearLayout>
+                    <CheckBox
+                        android:id="@+id/checkCap5_38_3"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:gravity="center"
+                        android:minHeight="48dp"
+                        tools:ignore="LabelFor,DuplicateSpeakableTextCheck"/>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_shadow_low"
-                        android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/txtCap5_38_3"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:visibility="invisible"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+                        tools:visibility="visible" />
 
-                        <EditText
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                       android:layout_width="0dp"
+                        android:layout_columnWeight="1.5"
+                        android:layout_gravity="fill"
+                        android:hint="@string/tb38desc4">
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap5_38_4_otro"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2.5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/background_shadow_low"
                             android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:hint="  4. Otro? Especifique."
-                            android:importantForAutofill="no"
-                            android:inputType="text"
-                            android:enabled="false"
-                            android:paddingHorizontal="5dp"
+                            android:inputType="textMultiLine"
                             android:textSize="14sp"
-                            tools:ignore="TouchTargetSizeCheck" />
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:text="Otra especifique"/>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                        <CheckBox
-                            android:id="@+id/checkCap5_38_4"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:gravity="center"
-                            android:minHeight="40dp"
-                            tools:ignore="TouchTargetSizeCheck" />
+                    <CheckBox
+                        android:id="@+id/checkCap5_38_4"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:gravity="center"
+                        android:minHeight="48dp"
+                        tools:ignore="LabelFor,DuplicateSpeakableTextCheck" />
 
-                        <EditText
-                            android:id="@+id/txtCap5_38_4"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:autofillHints="2021"
-                            android:background="@drawable/background_shadow"
-                            android:ems="10"
-                            android:enabled="false"
-                            android:visibility="invisible"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:hint="000"
-                            android:inputType="number"
-                            android:maxLength="4"
-                            android:minHeight="40dp"
-                            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+                    <EditText
+                        android:id="@+id/txtCap5_38_4"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:enabled="false"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:visibility="invisible"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+                        tools:visibility="visible" />
 
-                    </LinearLayout>
 
-                </LinearLayout>
 
-            </LinearLayout>
+                </GridLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
-            </View>
+                android:layout_height="50dp" />
 
         </LinearLayout>
 
@@ -1633,5 +1414,4 @@
     </ScrollView>
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

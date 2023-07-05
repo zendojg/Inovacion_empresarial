@@ -7,14 +7,9 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
-import gob.pa.inovacion_empresarial.function.Functions.Companion.aString
-import gob.pa.inovacion_empresarial.function.Functions.Companion.hideKeyboard
-import gob.pa.inovacion_empresarial.function.Functions.Companion.myDate
-import gob.pa.inovacion_empresarial.function.Functions.Companion.yearArray
-import kotlinx.android.synthetic.main.encuesta_capitulo_01.view.*
+import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
+import gob.pa.inovacion_empresarial.function.Functions.yearArray
 import kotlinx.android.synthetic.main.encuesta_capitulo_03.view.*
-import kotlinx.android.synthetic.main.encuesta_capitulo_07_part1.view.*
-import java.util.*
 
 class FragEncuestaCap03 : Fragment() {
 

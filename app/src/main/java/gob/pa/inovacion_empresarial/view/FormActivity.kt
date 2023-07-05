@@ -20,26 +20,24 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.button.MaterialButton
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.adapters.AdapterPager
-import gob.pa.inovacion_empresarial.databinding.ActivityViewPagerBinding
-import gob.pa.inovacion_empresarial.function.Functions.Companion.hideKeyboard
-import gob.pa.inovacion_empresarial.model.MVar
-import kotlinx.android.synthetic.main.activity_view_pager.*
+import gob.pa.inovacion_empresarial.databinding.ActivityFormBinding
+import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
+import gob.pa.inovacion_empresarial.model.Mob
 
 
 class FormActivity : AppCompatActivity() {
 
-    private lateinit var pagerbinding: ActivityViewPagerBinding
-    private var encuesta = MVar.indiceEnc
+    private lateinit var pagerbinding: ActivityFormBinding
+    private var encuesta = Mob.indiceEnc
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pagerbinding = ActivityViewPagerBinding.inflate(layoutInflater)
+        pagerbinding = ActivityFormBinding.inflate(layoutInflater)
         setContentView(pagerbinding.root)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        //------------------------------------------------------------------------------------------ Viewpager SLIP event
         val myAdapter = AdapterPager(supportFragmentManager, lifecycle)
         if (myAdapter.itemCount == 0) {
-            myAdapter.addListFragment(MVar.arrEncuestas)
+            myAdapter.addListFragment(Mob.arrEncuestas)
             pagerbinding.viewpager.adapter = myAdapter
             pagerbinding.viewpager.isUserInputEnabled = false
         }
@@ -48,7 +46,7 @@ class FormActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        encuesta = MVar.indiceEnc
+        encuesta = Mob.indiceEnc
         actions()
     }
 
@@ -59,18 +57,18 @@ class FormActivity : AppCompatActivity() {
         }
         pagerbinding.btnextpager.setOnClickListener {
             if (pagerbinding.viewpager.currentItem==23) {
-                viewpager.setCurrentItem(0,false)
+                pagerbinding.viewpager.setCurrentItem(0,false)
             } else pagerbinding.viewpager.setCurrentItem(
                 pagerbinding.viewpager.currentItem + 1,false)
         }
         pagerbinding.btbackpager.setOnClickListener {
-            viewpager.setCurrentItem(viewpager.currentItem - 1,false)
+            pagerbinding.viewpager.setCurrentItem(pagerbinding.viewpager.currentItem - 1,false)
         }
         pagerbinding.btmenupager.setOnClickListener {
-            viewpager.setCurrentItem(0,false)
+            pagerbinding.viewpager.setCurrentItem(0,false)
         }
 
-        viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        pagerbinding.viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 if (position == 0) {
@@ -90,16 +88,13 @@ class FormActivity : AppCompatActivity() {
             }
         })
 
-
-        var tittleheight = 0 //--------------------------------------------------------------------- Buttons RESIZE
         pagerbinding.consttitlepager2.setOnClickListener { resizeTittle() }
         pagerbinding.bttoolresizepager.setOnClickListener { resizeTittle() }
         pagerbinding.linearsubtittlepager.setOnClickListener { resizeSubtittle() }
         pagerbinding.btsubtresizepager.setOnClickListener { resizeSubtittle() }
-        //------------------------------------------------------------------------------------------
 
         pagerbinding.btobspager.setOnClickListener {
-            observation(viewpager.currentItem)
+            observation(pagerbinding.viewpager.currentItem)
         }
         pagerbinding.btsavepager.setOnClickListener {
             Toast.makeText(applicationContext, "Formulario guardado", Toast.LENGTH_SHORT).show()
@@ -108,7 +103,7 @@ class FormActivity : AppCompatActivity() {
 
 
     override fun onBackPressed() {
-        if (viewpager.currentItem == 0) {
+        if (pagerbinding.viewpager.currentItem == 0) {
             val mesagePregunta = AlertDialog.Builder(this)
             val msg: View = layoutInflater.inflate(R.layout.style_msg_alert, null)
             val btpositivo: MaterialButton = msg.findViewById(R.id.btpositivo)
@@ -137,7 +132,8 @@ class FormActivity : AppCompatActivity() {
                 dialog.dismiss()
                 super.onBackPressed()
             }
-        } else viewpager.setCurrentItem(viewpager.currentItem - 1,true)
+        } else pagerbinding.viewpager.setCurrentItem(
+            pagerbinding.viewpager.currentItem - 1,true)
     }
 
     private fun resizeTittle() {
@@ -173,17 +169,17 @@ class FormActivity : AppCompatActivity() {
         val encabezado: LinearLayout = msg.findViewById(R.id.linearObs)
         val color: Int
 
-        lbobs.text = MVar.obsTittle
+        lbobs.text = Mob.obsTittle
         txtobs.imeOptions = EditorInfo.IME_ACTION_DONE;
         txtobs.setRawInputType(InputType.TYPE_CLASS_TEXT);
         if (position<19) {
             color = ContextCompat.getColor(this, R.color.holo_blue_dark)
-            txtobs.text = MVar.obsEncuesta
+            txtobs.text = Mob.obsEncuesta
             encabezado.setBackgroundResource(R.drawable.background_shadow_celpast)
 
         } else {
             color = ContextCompat.getColor(this, R.color.cream_pastel)
-            txtobs.text = MVar.obsModulo
+            txtobs.text = Mob.obsModulo
             encabezado.setBackgroundResource(R.drawable.background_shadow_pastel)
         }
         btpositivo.backgroundTintList = ColorStateList.valueOf(color)
@@ -197,8 +193,8 @@ class FormActivity : AppCompatActivity() {
 
 
         btpositivo.setOnClickListener {
-            if (viewpager.currentItem<19) { MVar.obsEncuesta = txtobs.text.toString() }
-            else { MVar.obsModulo = txtobs.text.toString() }
+            if (pagerbinding.viewpager.currentItem<19) { Mob.obsEncuesta = txtobs.text.toString() }
+            else { Mob.obsModulo = txtobs.text.toString() }
             dialog.dismiss()
             hideKeyboard()
         }
@@ -226,7 +222,7 @@ class FormActivity : AppCompatActivity() {
                     colorLetras = (Color.WHITE)
                 }
                 position < 19 -> {
-                    MVar.obsTittle = "Encuesta  de Innovación en Empresas"
+                    Mob.obsTittle = "Encuesta  de Innovación en Empresas"
                     btobspager.visibility = View.VISIBLE
                     btsavepager.visibility = View.VISIBLE
                     colorLetras = (Color.WHITE)
@@ -243,7 +239,7 @@ class FormActivity : AppCompatActivity() {
                     colorFondo = ContextCompat.getColor(ctx, R.color.teal_700)
                 }
                 else -> {
-                    MVar.obsTittle = "Módulo de Comercio Electrónico"
+                    Mob.obsTittle = "Módulo de Comercio Electrónico"
                     btobspager.visibility = View.VISIBLE
                     btsavepager.visibility = View.VISIBLE
                     decorView.systemUiVisibility =

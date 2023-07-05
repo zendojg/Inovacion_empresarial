@@ -1,44 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_cap4"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
-    tools:ignore="HardcodedText"
-    >
-
+    tools:ignore="DuplicateSpeakableTextCheck">
+    <data />
     <ScrollView
         android:id="@+id/scrollForm"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         android:orientation="vertical"
-        android:layout_margin="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:animateLayoutChanges="true"
             android:background="@drawable/background_shadow_med"
             android:orientation="vertical"
             android:padding="2dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/linearCap4_28"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
-                android:layout_marginBottom="10dp"
                 android:background="@drawable/background_shadow"
                 android:orientation="vertical"
-                android:padding="5dp">
+                android:padding="5dp"
+                app:layout_constraintWidth_max="488dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -51,7 +48,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="28. "
+                        android:text="@string/p28"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -59,7 +56,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="En el 2022, ¿Cuál fue la principal actividad económica desarrollada por la empresa?"
+                        android:text="@string/p28txt"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -74,13 +71,13 @@
                     android:background="@drawable/background_shadow"
                     android:drawableTint="@android:color/holo_blue_dark"
                     android:fontFamily="sans-serif-condensed"
+                    android:inputType="textImeMultiLine|textCapWords"
                     android:imeOptions="actionNext"
-                    android:inputType="text"
                     android:lines="3"
                     android:scrollHorizontally="false"
                     android:minHeight="48dp"
                     android:paddingHorizontal="15dp"
-                    android:hint="Actividad económica"
+                    android:hint="@string/hint28_act"
                     tools:ignore="LabelFor" />
 
                 <TextView
@@ -89,18 +86,17 @@
                     android:layout_marginHorizontal="25dp"
                     android:layout_marginVertical="5dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="Describa de manera breve, pero lo suficientemente clara, la principal actividad económica de la empresa"
-                    android:textColor="@android:color/holo_blue_dark"
+                    android:text="@string/txt28_desc"
                     android:textSize="12sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
                     android:layout_marginVertical="5dp"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="5dp"
-                    android:hint="CINU Rev. 4.1"
-                    android:textColorHint="@android:color/holo_blue_dark">
+                    android:hint="@string/hint_cinu">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtCap2_8_1"
@@ -108,25 +104,28 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
-                        android:inputType="number"
                         android:imeOptions="actionNext"
+                        android:inputType="number"
                         android:maxLength="4"
-                        tools:ignore="TouchTargetSizeCheck"
+                        tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
                         tools:text="0000" />
                 </com.google.android.material.textfield.TextInputLayout>
-
-
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:id="@+id/linearCap4_29"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_margin="2dp"
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="2dp"
                 android:background="@drawable/background_shadow"
                 android:orientation="vertical"
-                android:paddingHorizontal="2dp"
                 android:animateLayoutChanges="true"
-                android:paddingBottom="5dp">
+                app:layout_constraintWidth_max="488dp"
+                app:layout_constraintTop_toBottomOf="@id/linearCap4_28"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -139,7 +138,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="29. "
+                        android:text="@string/p29"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
@@ -147,7 +146,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="En el 2022, ¿Cuál fueron las actividades económicas secundarias que desarrolló la empresa?"
+                        android:text="@string/p29txt"
                         android:textColor="@color/black"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -165,7 +164,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="15dp"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="1. "
+                        android:text="@string/n1"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -174,17 +173,18 @@
                         android:id="@+id/txtCap4_29_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="25dp"
                         android:layout_marginEnd="5dp"
-                        android:minHeight="48dp"
-                        android:paddingHorizontal="15dp"
-                        android:autofillHints="Actividad económica"
+                        android:layout_marginStart="25dp"
                         android:background="@drawable/background_shadow"
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
+                        android:hint="@string/hint_actsec"
+                        android:importantForAutofill="no"
                         android:inputType="text"
                         android:lines="3"
-                        android:hint="Actividad secundaria"
+                        android:minHeight="48dp"
+                        android:paddingHorizontal="15dp"
+                        android:textColorHint="@color/holo_blue_dark"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="LabelFor" />
@@ -195,8 +195,7 @@
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginStart="25dp"
-                        android:hint="CINU Rev. 4.1"
-                        android:textColorHint="@android:color/holo_blue_dark"
+                        android:hint="@string/hint_cinu"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtCap4_29_1">
@@ -232,7 +231,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="15dp"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="2. "
+                        android:text="@string/n2"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -251,7 +250,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="text"
                         android:lines="3"
-                        android:hint="Actividad secundaria"
+                        android:hint="@string/hint_actsec"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="LabelFor" />
@@ -262,8 +261,7 @@
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginStart="25dp"
-                        android:hint="CINU Rev. 4.1"
-                        android:textColorHint="@android:color/holo_blue_dark"
+                        android:hint="@string/hint_cinu"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtCap4_29_2">
@@ -299,7 +297,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="15dp"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="3. "
+                        android:text="@string/n3"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -318,10 +316,10 @@
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="text"
                         android:lines="3"
-                        android:hint="Actividad secundaria"
+                        android:hint="@string/hint_actsec"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        tools:ignore="LabelFor"/>
+                        tools:ignore="LabelFor" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
@@ -329,8 +327,7 @@
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginStart="25dp"
-                        android:hint="CINU Rev. 4.1"
-                        android:textColorHint="@android:color/holo_blue_dark"
+                        android:hint="@string/hint_cinu"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtCap4_29_3">
@@ -366,7 +363,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="15dp"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="4. "
+                        android:text="@string/n4"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -385,7 +382,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="text"
                         android:lines="3"
-                        android:hint="Actividad secundaria"
+                        android:hint="@string/hint_actsec"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="LabelFor" />
@@ -396,8 +393,7 @@
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="5dp"
                         android:layout_marginStart="25dp"
-                        android:hint="CINU Rev. 4.1"
-                        android:textColorHint="@android:color/holo_blue_dark"
+                        android:hint="@string/hint_cinu"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtCap4_29_4">
@@ -428,7 +424,7 @@
                     android:visibility="gone"
                     tools:visibility="visible"
                     app:backgroundTint="@android:color/holo_blue_dark"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintButtonSize" />
 
                 <Button
                     android:id="@+id/btCap4_29_plus"
@@ -439,18 +435,20 @@
                     android:drawableTop="@drawable/img_plus"
                     android:drawableTint="@color/white"
                     app:backgroundTint="@android:color/holo_blue_dark"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintButtonSize" />
             </LinearLayout>
 
             <View
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-            </View>
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                app:layout_constraintWidth_max="488dp"
+                app:layout_constraintTop_toBottomOf="@id/linearCap4_29"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

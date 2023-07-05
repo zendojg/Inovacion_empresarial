@@ -24,9 +24,7 @@ class DVModel: ViewModel() {
             loginToken()
             resp = respuesta.code().toString()
             resp
-        } catch (e: Exception) {
-            e.toString()
-        }
+        } catch (e: Exception) { e.toString() }
     }
 
     //----------------------------------------------------------------------------------------------
@@ -70,7 +68,7 @@ class DVModel: ViewModel() {
             body = body)
     }
 
-    suspend fun getData(): Response<List<DBprovincia>>? { //----------------------------------------  CAMBIAR POR VERIFICADOR DE TOKEN
+    suspend fun getData(): Response<List<DBprovincia>>? { //--  CAMBIAR POR VERIFICADOR DE TOKEN
         val respuesta = try {
             ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getProv()
         } catch (e: Exception) { null }

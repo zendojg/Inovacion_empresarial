@@ -1,7 +1,7 @@
 package gob.pa.inovacion_empresarial.service.api
 
 
-import gob.pa.inovacion_empresarial.model.MVar
+import gob.pa.inovacion_empresarial.model.Mob
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 class ApiBuilder {
     object ServiceBuilder {
         private val getRetrofit = Retrofit.Builder()
-            .baseUrl(MVar.url)
+            .baseUrl(Mob.URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(getclient())
             .build()

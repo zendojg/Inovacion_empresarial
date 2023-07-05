@@ -1,7 +1,6 @@
 package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -22,10 +21,10 @@ import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.FragLoginMainBinding
 import gob.pa.inovacion_empresarial.function.AppCache
 import gob.pa.inovacion_empresarial.function.Functions
-import gob.pa.inovacion_empresarial.function.Functions.Companion.hideKeyboard
-import gob.pa.inovacion_empresarial.function.Functions.Companion.toEditable
+import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
+import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
-import gob.pa.inovacion_empresarial.model.MVar
+import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelLog
 import kotlinx.coroutines.launch
 
@@ -47,8 +46,9 @@ class MainFragmentLogin: Fragment() {
     override fun onResume() {
         super.onResume()
         val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
-        MVar.windNow = pager?.currentItem!!
-        fragLogin.lbversionLogin.text = MVar.version
+        if (pager?.currentItem != null)
+            Mob.windNow = pager.currentItem
+        fragLogin.lbversionLogin.text = Mob.version
         actions()
     }
 
@@ -69,13 +69,13 @@ class MainFragmentLogin: Fragment() {
         })
 
         fragLogin.txtuserLogin.setOnEditorActionListener { _, actionID, _ ->
-            if (actionID == EditorInfo.IME_ACTION_DONE) {
+            if (actionID == EditorInfo.IME_ACTION_DONE)  {
                 clickLister()
                 true
             } else false
         }
         fragLogin.txtpassLogin.setOnEditorActionListener { _, actionID, _ ->
-            if (actionID == EditorInfo.IME_ACTION_DONE) {
+            if (actionID == EditorInfo.IME_ACTION_DONE)  {
                 clickLister()
                 true
             } else false
@@ -128,8 +128,8 @@ class MainFragmentLogin: Fragment() {
             val resp = dvmLogin.loginCall(login)
             if (resp!=null) {
                 when (resp.code) {
-                    200 -> {
-                        MVar.authData = resp.body
+                    Mob.CODE200 -> {
+                        Mob.authData = resp.body
                         if (fragLogin.checkLogin.isChecked) {
                             AppCache.loginSAVE(ctx, resp.body)
                             AppCache.userSAVE(ctx, login.user)
@@ -139,7 +139,7 @@ class MainFragmentLogin: Fragment() {
                             fragLogin.txtpassLogin.text?.clear()
                             val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
                             pager?.setCurrentItem(1, true)
-                        }, (800).toLong())
+                        }, (Mob.TIME500MS).toLong())
                     }
                 }
                 Handler(Looper.getMainLooper()).postDelayed({
@@ -147,9 +147,9 @@ class MainFragmentLogin: Fragment() {
                         var errortxt = resp.resp
                         if (errortxt.contains("No se encontró datos para la credencial")) {
                             val alert = Functions.ballonRED(
-                                "Usuario o Contraseña inválida",220,ctx)
+                                "Usuario o Contraseña inválida" ,Mob.WIDTHBALLON160, ctx)
                             alert.showAlignBottom(fragLogin.txtpassLogin)
-                            alert.dismissWithDelay(2000L)
+                            alert.dismissWithDelay(Mob.TIMEBALLON2SEG)
                         } else {
                             errortxt = errortxt.replace("error", "")
                             errortxt = errortxt.replace(":", "")
@@ -159,12 +159,12 @@ class MainFragmentLogin: Fragment() {
                             Toast.makeText(ctx, errortxt, Toast.LENGTH_LONG).show()
                         }
                     }
-                }, (900).toLong())
+                }, (Mob.TIME800MS).toLong())
             }
             Handler(Looper.getMainLooper()).postDelayed({
                 screenBlack.dismiss()
                 fragLogin.barLogin.visibility = View.GONE
-            }, (1000).toLong())
+            }, (Mob.TIME1S).toLong())
         }
     }
 }

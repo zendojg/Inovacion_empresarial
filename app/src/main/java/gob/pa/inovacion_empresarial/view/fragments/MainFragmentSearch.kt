@@ -14,9 +14,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import gob.pa.inovacion_empresarial.databinding.FragSearchMainBinding
 import gob.pa.inovacion_empresarial.function.Functions
-import gob.pa.inovacion_empresarial.function.Functions.Companion.hideKeyboard
+import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.model.DVModel
-import gob.pa.inovacion_empresarial.model.MVar
+import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.view.FormActivity
 import kotlinx.coroutines.launch
 
@@ -38,7 +38,7 @@ class MainFragmentSearch: Fragment() {
 
     override fun onResume() {
         super.onResume()
-        fragSearch.versionForm.text = MVar.version
+        fragSearch.versionForm.text = Mob.version
         actions()
     }
 
@@ -82,8 +82,8 @@ class MainFragmentSearch: Fragment() {
             if (resp != null) {
                 when (resp.code) {
                     200 -> {
-                        MVar.formComp = resp.body
-                        MVar.indiceEnc = 1
+                        Mob.formComp = resp.body
+                        Mob.indiceEnc = 1
                         startActivity(Intent(ctx, FormActivity::class.java))
                     }
 

@@ -15,7 +15,6 @@
         android:layout_height="0dp"
         android:fillViewport="true"
         android:orientation="vertical"
-        android:layout_margin="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,758 +23,653 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:animateLayoutChanges="true"
             android:background="@drawable/background_shadow_med"
             android:orientation="vertical"
             android:padding="2dp">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
-                android:orientation="vertical"
-                android:padding="5dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txtCap6tittle3"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="15dp"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center"
-                    android:text="UNA INNOVACIÓN ORGANIZACIONAL ES LA NUEVA INTRODUCCIÓN DE NUEVA METODOLOGÍA EN LA PRACTICA DEL NEGOCIO (INCLUYENDO ADMINISTRACIÓN DEL CONOCIMIENTO), LAORGANIZACIÓN DEL LUGAR DE TRABAJO O LAS RELACIONES EXTERNAS QUE NO HAN SIDO USADAS EN LA EMPRESA ANTERIORENTE"
+                    android:text="@string/cap6tittle3"
                     android:textColor="@android:color/holo_blue_dark"
-                    android:textStyle="bold|italic" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="46. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="¿Durante los años 2021 y 2022, su empresa introdujo?"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-                </LinearLayout>
+                    android:textSize="@dimen/text14"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/lb46np"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="32dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="MARQUE SU RESPUESTA PARA CADA AÑO"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textStyle="bold" />
+                    android:text="@string/n46"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCap6tittle3" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/lb46txt"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6"
-                            android:background="@drawable/background_shadow_celpast" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_low"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="center"
-                                android:paddingVertical="5dp"
-                                android:text="2021"
-                                android:textStyle="bold" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="@drawable/background_shadow_celpast"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:gravity="center"
-                                    android:padding="5dp"
-                                    android:text="Sí (1)"
-                                    android:textSize="12sp"
-                                    android:textStyle="bold"
-                                    tools:ignore="TextContrastCheck" />
-
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="@drawable/background_shadow_celpast"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:gravity="center"
-                                    android:padding="5dp"
-                                    android:text="No (2)"
-                                    android:textSize="12sp"
-                                    android:textStyle="bold"
-                                    tools:ignore="TextContrastCheck" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_low"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="center"
-                                android:paddingVertical="5dp"
-                                android:text="2022"
-                                android:textStyle="bold" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="@drawable/background_shadow_celpast"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:gravity="center"
-                                    android:padding="5dp"
-                                    android:text="Sí (1)"
-                                    android:textSize="12sp"
-                                    android:textStyle="bold"
-                                    tools:ignore="TextContrastCheck" />
-
-                                <TextView
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1"
-                                    android:background="@drawable/background_shadow_celpast"
-                                    android:fontFamily="sans-serif-condensed"
-                                    android:gravity="center"
-                                    android:padding="5dp"
-                                    android:text="No (2)"
-                                    android:textSize="12sp"
-                                    android:textStyle="bold"
-                                    tools:ignore="TextContrastCheck" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p46txt"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lb46np"
+                    app:layout_constraintTop_toTopOf="@+id/lb46np"
+                    tools:ignore="TextContrastCheck" />
 
 
-                    </LinearLayout>
+                <GridLayout
+                    android:id="@+id/tb46"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:columnCount="5"
+                    android:orientation="horizontal"
+                    android:padding="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb46txt">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                    <TextView
+                        android:layout_rowSpan="4"
+                        android:layout_gravity="fill"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start"
+                        android:padding="5dp"
+                        android:background="#E7F0F7"
+                        android:text="@string/n1"
+                        android:textStyle="bold" />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:orientation="horizontal"
-                            android:padding="5dp">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="4"
+                        android:layout_columnSpan="4"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start"
+                        android:padding="5dp"
+                        android:textStyle="bold"
+                        android:text="@string/p46desc1" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="1. "
-                                android:textStyle="bold" />
+                    <TextView
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/a2021"
+                        android:textStyle="bold" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="Nuevas prácticas de negocios para la organización de procesos."
-                                tools:ignore="TextContrastCheck" />
+                    <TextView
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/a2022"
+                        android:textStyle="bold" />
 
-                        </LinearLayout>
+                    <RadioGroup
+                        android:id="@+id/rgroupCap6_46_1_2021"
+                        android:layout_columnSpan="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:padding="2dp">
 
-
-                        <RadioGroup
-                            android:id="@+id/rgroupCap6_46_1_2021"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_low"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal"
-                            android:padding="2dp">
-
-
-                            <RadioButton
-                                android:id="@+id/rbtCap6_46_1_si_2021"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-
-                            <RadioButton
-                                android:id="@+id/rbtCap6_46_1_no_2021"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-
-                        </RadioGroup>
-
-
-                        <RadioGroup
-                            android:id="@+id/rgroupCap6_46_1_2022"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_low"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal"
-                            android:padding="2dp">
-
-                            <RadioButton
-                                android:id="@+id/rbtCap6_46_1_si_2022"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-
-                            <RadioButton
-                                android:id="@+id/rbtCap6_46_1_no_2022"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-
-                        </RadioGroup>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:orientation="horizontal"
-                            android:padding="5dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="2. "
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="Nuevos métodos de la organización de responsabilidades y toma de decisiones ."
-                                tools:ignore="TextContrastCheck" />
-
-                        </LinearLayout>
-
-                        <RadioGroup
-                            android:id="@+id/rgroupCap6_46_2_2021"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_low"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal"
-                            android:padding="2dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent">
-
-                            <RadioButton
-                                android:id="@+id/rbtCap6_46_2_si_2021"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-
-                            <RadioButton
-                                android:id="@+id/rbtCap6_46_2_no_2021"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-
-                        </RadioGroup>
-
-                        <RadioGroup
-                            android:id="@+id/rgroupCap6_46_2_2022"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_low"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal"
-                            android:padding="2dp">
-
-                            <RadioButton
-                                android:id="@+id/rbtCap6_46_2_si_2022"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-
-                            <RadioButton
-                                android:id="@+id/rbtCap6_46_2_no_2022"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                tools:ignore="TouchTargetSizeCheck" />
-
-                        </RadioGroup>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
+                        <RadioButton
+                            android:id="@+id/rbtCap6_46_1_si_2021"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="6"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:orientation="horizontal"
-                            android:padding="5dp">
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/yes"
+                            tools:ignore="TouchTargetSizeCheck" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="3. "
-                                android:textStyle="bold" />
+                        <RadioButton
+                            android:id="@+id/rbtCap6_46_1_no_2021"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/not"
+                            tools:ignore="TouchTargetSizeCheck" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="Nuevos métodos de la organización de las relaciones externas con otras empresas o instituciones públicas."
-                                tools:ignore="TextContrastCheck" />
+                    </RadioGroup>
 
-                        </LinearLayout>
+                    <RadioGroup
+                        android:id="@+id/rgroupCap6_46_1_2022"
+                        android:layout_columnSpan="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:padding="2dp">
 
-                        <RadioGroup
-                            android:id="@+id/rgroupCap6_46_3_2021"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_low"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal"
-                            android:padding="2dp">
+                        <RadioButton
+                            android:id="@+id/rbtCap6_46_1_si_2022"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/yes"
+                            tools:ignore="TouchTargetSizeCheck" />
 
-                            <RadioButton
-                                android:id="@+id/rbtCap6_46_3_si_2021"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                        <RadioButton
+                            android:id="@+id/rbtCap6_46_1_no_2022"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/not"
+                            tools:ignore="TouchTargetSizeCheck" />
 
-                            <RadioButton
-                                android:id="@+id/rbtCap6_46_3_no_2021"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                    </RadioGroup>
 
-                        </RadioGroup>
+                    <View
+                        android:layout_columnSpan="4"
+                        android:layout_width="0dp"
+                        android:background="#E7F0F7"
+                        android:layout_height="25dp"
+                        android:layout_gravity="fill" />
 
-                        <RadioGroup
-                            android:id="@+id/rgroupCap6_46_3_2022"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:background="@drawable/background_shadow_low"
-                            android:gravity="center_horizontal"
-                            android:orientation="horizontal"
-                            android:padding="2dp">
+                    <TextView
+                        android:layout_rowSpan="4"
+                        android:layout_gravity="fill"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start"
+                        android:padding="5dp"
+                        android:background="#E7F0F7"
+                        android:text="@string/n2"
+                        android:textStyle="bold" />
 
-                            <RadioButton
-                                android:id="@+id/rbtCap6_46_3_si_2022"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="4"
+                        android:layout_columnSpan="4"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start"
+                        android:padding="5dp"
+                        android:textStyle="bold"
+                        android:text="@string/p46desc2" />
 
-                            <RadioButton
-                                android:id="@+id/rbtCap6_46_3_no_2022"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                tools:ignore="TouchTargetSizeCheck" />
+                    <TextView
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/a2021"
+                        android:textStyle="bold" />
 
-                        </RadioGroup>
+                    <TextView
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/a2022"
+                        android:textStyle="bold" />
 
-                    </LinearLayout>
+                    <RadioGroup
+                        android:id="@+id/rgroupCap6_46_2_2021"
+                        android:layout_columnSpan="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:padding="2dp">
+
+                        <RadioButton
+                            android:id="@+id/rbtCap6_46_2_si_2021"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/yes"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <RadioButton
+                            android:id="@+id/rbtCap6_46_2_no_2021"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/not"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                    </RadioGroup>
+
+                    <RadioGroup
+                        android:id="@+id/rgroupCap6_46_2_2022"
+                        android:layout_columnSpan="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:padding="2dp">
+
+                        <RadioButton
+                            android:id="@+id/rbtCap6_46_2_si_2022"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/yes"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <RadioButton
+                            android:id="@+id/rbtCap6_46_2_no_2022"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/not"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                    </RadioGroup>
+                    <View
+                        android:layout_columnSpan="4"
+                        android:layout_width="0dp"
+                        android:background="#E7F0F7"
+                        android:layout_height="25dp"
+                        android:layout_gravity="fill" />
+
+                    <TextView
+                        android:layout_rowSpan="3"
+                        android:layout_gravity="fill"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start"
+                        android:padding="5dp"
+                        android:background="#E7F0F7"
+                        android:text="@string/n3"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="4"
+                        android:layout_columnSpan="4"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start"
+                        android:padding="5dp"
+                        android:textStyle="bold"
+                        android:text="@string/p46desc3" />
+
+                    <TextView
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/a2021" />
+
+                    <TextView
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="@string/a2022"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/rgroupCap6_46_3_2021"
+                        android:layout_columnSpan="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:padding="2dp">
+
+                        <RadioButton
+                            android:id="@+id/rbtCap6_46_3_si_2021"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/yes"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <RadioButton
+                            android:id="@+id/rbtCap6_46_3_no_2021"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/not"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                    </RadioGroup>
+
+                    <RadioGroup
+                        android:id="@+id/rgroupCap6_42_3_2022"
+                        android:layout_columnSpan="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_border2"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:padding="2dp">
+
+                        <RadioButton
+                            android:id="@+id/rbtCap6_42_3_si_2022"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/yes"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                        <RadioButton
+                            android:id="@+id/rbtCap6_42_3_no_2022"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/not"
+                            tools:ignore="TouchTargetSizeCheck" />
+
+                    </RadioGroup>
+
+                </GridLayout>
 
 
-                </LinearLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:text="@string/lb46_desclast"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="@dimen/text14"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tb46" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
-                android:layout_marginVertical="7dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
-                android:orientation="vertical"
-                android:padding="5dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+
+                <TextView
+                    android:id="@+id/lb47np"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/n47"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="47. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="En el 2022, ¿Cuán importante fueron cada uno de los siguientes efectos de la innovación organizacional..."
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/lb47txt"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p47txt"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lb47np"
+                    app:layout_constraintTop_toTopOf="@+id/lb47np"
+                    tools:ignore="TextContrastCheck" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txt47lbn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/n1"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb47txt" />
 
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:gravity="center" />
+                <TextView
+                    android:id="@+id/txt47lbtxt1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"
+                    android:text="@string/p47desc1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt47lbn1"
+                    app:layout_constraintTop_toTopOf="@+id/txt47lbn1"
+                    tools:ignore="TextContrastCheck" />
 
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="center"
-                            android:layout_weight="3"
-                            android:background="@drawable/background_shadow_low"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:paddingVertical="8dp"
-                            android:text="Grado de importacia"
-                            android:textStyle="bold" />
+                <Spinner
+                    android:id="@+id/spinCap6_47_1"
+                    style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="25dp"
+                    android:entries="@array/arr_hightolow"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:minHeight="48dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt47lbtxt1" />
 
-                    </LinearLayout>
+                <TextView
+                    android:id="@+id/txt47lbn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/n2"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spinCap6_47_1" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_shadow"
-                        android:baselineAligned="false"
-                        android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txt47lbtxt2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"
+                    android:text="@string/p47desc2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt47lbn2"
+                    app:layout_constraintTop_toTopOf="@+id/txt47lbn2"
+                    tools:ignore="TextContrastCheck" />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:padding="5dp">
+                <Spinner
+                    android:id="@+id/spinCap6_47_2"
+                    style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="25dp"
+                    android:entries="@array/arr_hightolow"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:minHeight="48dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt47lbtxt2" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="1. "
-                                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/txt47lbn3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/n3"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spinCap6_47_2" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="Reducir el tiempo de respuesta en la necesidad del cliente y/o proovedor?"
-                                tools:ignore="TextContrastCheck" />
+                <TextView
+                    android:id="@+id/txt47lbtxt3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"
+                    android:text="@string/p47desc3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt47lbn3"
+                    app:layout_constraintTop_toTopOf="@+id/txt47lbn3"
+                    tools:ignore="TextContrastCheck" />
 
-                        </LinearLayout>
+                <Spinner
+                    android:id="@+id/spinCap6_47_3"
+                    style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="25dp"
+                    android:entries="@array/arr_hightolow"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:minHeight="48dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt47lbtxt3" />
 
-                        <Spinner
-                            android:id="@+id/txtCap6_47_1"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:entries="@array/arr_hightolow"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:minHeight="48dp"
-                            android:paddingHorizontal="4dp" />
+                <TextView
+                    android:id="@+id/txt47lbn4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/n4"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spinCap6_47_3" />
 
-                    </LinearLayout>
+                <TextView
+                    android:id="@+id/txt47lbtxt4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"
+                    android:text="@string/p47desc4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt47lbn4"
+                    app:layout_constraintTop_toTopOf="@+id/txt47lbn4"
+                    tools:ignore="TextContrastCheck" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_shadow"
-                        android:baselineAligned="false"
-                        android:orientation="horizontal">
+                <Spinner
+                    android:id="@+id/spinCap6_47_4"
+                    style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="25dp"
+                    android:entries="@array/arr_hightolow"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:minHeight="48dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt47lbtxt4" />
 
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:padding="5dp">
+                <TextView
+                    android:id="@+id/txt47lbn5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/n5"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spinCap6_47_4" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="2. "
-                                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/txt47lbtxt5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textStyle="bold"
+                    android:text="@string/p47desc5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txt47lbn5"
+                    app:layout_constraintTop_toTopOf="@+id/txt47lbn5"
+                    tools:ignore="TextContrastCheck" />
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="Mejorar la habilidad para desarrollar nuevos productos y/o procesos?"
-                                tools:ignore="TextContrastCheck" />
-                        </LinearLayout>
+                <Spinner
+                    android:id="@+id/spinCap6_47_5"
+                    style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="25dp"
+                    android:entries="@array/arr_hightolow"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:minHeight="48dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt47lbtxt5" />
 
-                        <Spinner
-                            android:id="@+id/txtCap6_47_2"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:entries="@array/arr_hightolow"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:minHeight="48dp"
-                            android:paddingHorizontal="4dp" />
 
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_shadow"
-                        android:baselineAligned="false"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:padding="5dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="3. "
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="Mejorar la calidad por unidad producida?"
-                                tools:ignore="TextContrastCheck" />
-
-                        </LinearLayout>
-
-                        <Spinner
-                            android:id="@+id/txtCap6_47_3"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:entries="@array/arr_hightolow"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:minHeight="48dp"
-                            android:paddingHorizontal="4dp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/background_shadow"
-                        android:baselineAligned="false"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="6"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:padding="5dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="4. "
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="Reducir los costos por unidad producida?"
-                                tools:ignore="TextContrastCheck" />
-
-                        </LinearLayout>
-
-                        <Spinner
-                            android:id="@+id/txtCap6_47_4"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="3"
-                            android:entries="@array/arr_hightolow"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="center"
-                            android:minHeight="48dp"
-                            android:paddingHorizontal="4dp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/background_shadow"
-                        android:baselineAligned="false"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="6"
-                            android:background="@drawable/background_shadow_celpast"
-                            android:gravity="center_vertical"
-                            android:orientation="horizontal"
-                            android:padding="5dp"
-                            tools:ignore="TooManyViews">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="5. "
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:fontFamily="sans-serif-condensed"
-                                android:text="Mejorar la comunicación y/o participación de información dentro de su empresa y/o con otras empresas y/o instituciones?"
-                                tools:ignore="TextContrastCheck" />
-
-                        </LinearLayout>
-
-                        <Spinner
-                            android:id="@+id/txtCap6_47_5"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="3"
-                            android:entries="@array/arr_hightolow"
-                            android:fontFamily="sans-serif-condensed"
-                            android:minHeight="48dp"
-                            android:paddingHorizontal="4dp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
-            </View>
+                android:layout_height="50dp" />
         </LinearLayout>
 
     </ScrollView>

@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
-import gob.pa.inovacion_empresarial.function.Functions.Companion.hideKeyboard
-import kotlinx.android.synthetic.main.encuesta_capitulo_03.view.*
+import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import kotlinx.android.synthetic.main.encuesta_capitulo_05_2_recursos_humanos.view.*
 
 class FragEncuestaCap05o2 : Fragment() {
@@ -22,10 +20,10 @@ class FragEncuestaCap05o2 : Fragment() {
         viewCap05o2.rgroupCap5_37.setOnCheckedChangeListener { _, id ->
             when (id) {
                 viewCap05o2.rbtCap5_37_si.id -> {
-                    viewCap05o2.linearCap5_38.visibility = View.VISIBLE }
+                    viewCap05o2.layoutCap5_38.visibility = View.VISIBLE }
                 viewCap05o2.rbtCap5_37_no.id -> {
                     hideKeyboard()
-                    viewCap05o2.linearCap5_38.visibility = View.GONE
+                    viewCap05o2.layoutCap5_38.visibility = View.GONE
                     viewCap05o2.checkCap5_38_1.isChecked = false
                     viewCap05o2.checkCap5_38_2.isChecked = false
                     viewCap05o2.checkCap5_38_3.isChecked = false
@@ -35,7 +33,7 @@ class FragEncuestaCap05o2 : Fragment() {
                     viewCap05o2.txtCap5_38_2.text.clear()
                     viewCap05o2.txtCap5_38_3.text.clear()
                     viewCap05o2.txtCap5_38_4.text.clear()
-                    viewCap05o2.txtCap5_38_4_otro.text.clear()
+                    viewCap05o2.txtCap5_38_4_otro.text?.clear()
 
                 }
             }
@@ -66,7 +64,7 @@ class FragEncuestaCap05o2 : Fragment() {
                 viewCap05o2.txtCap5_38_4.visibility = View.VISIBLE
             else {
                 viewCap05o2.txtCap5_38_4.visibility = View.INVISIBLE
-                viewCap05o2.txtCap5_38_4_otro.text.clear()
+                viewCap05o2.txtCap5_38_4_otro.text?.clear()
             }
         }
 
