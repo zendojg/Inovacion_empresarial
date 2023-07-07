@@ -28,52 +28,6 @@ class FragModuloSecc01 : Fragment() {
         val viewSecc01 = inflater.inflate(R.layout.modulo_seccion_01, container, false)
 
 
-        viewSecc01.rgroupSecc01_1.setOnCheckedChangeListener { _, id ->
-            when (id) {
-                viewSecc01.rbtSecc01_1_si.id -> {
-                    viewSecc01.linearSecc01_2.visibility = View.VISIBLE
-                }
-                viewSecc01.rbtSecc01_1_no.id -> {
-                    viewSecc01.linearSecc01_2.visibility = View.GONE
-                    viewSecc01.linearSecc01_2_1.visibility = View.GONE
-
-                    viewSecc01.rgroupSecc01_2_1.clearCheck()
-                    viewSecc01.checkSecc01_2_a.isChecked = false
-                    viewSecc01.checkSecc01_2_b.isChecked = false
-                    viewSecc01.checkSecc01_2_c.isChecked = false
-                    viewSecc01.checkSecc01_2_d.isChecked = false
-
-                    viewSecc01.txtSecc01_2_d_otra.text.clear()
-                    viewSecc01.checkSecc01_2_2.isChecked = false
-
-                }
-            }
-        }
-
-        viewSecc01.rgroupSecc01_2_1.setOnCheckedChangeListener { _, id ->
-            when (id) {
-                viewSecc01.rbtSecc01_2_si.id -> {
-                    viewSecc01.linearSecc01_2_1.visibility = View.VISIBLE
-                    viewSecc01.rgroupSecc01_2_2.visibility = View.GONE
-                    viewSecc01.checkSecc01_2_2.isChecked = false
-                }
-                viewSecc01.rbtSecc01_2_no.id -> {
-                    viewSecc01.linearSecc01_2_1.visibility = View.GONE
-                    viewSecc01.rgroupSecc01_2_2.visibility = View.VISIBLE
-
-                    viewSecc01.checkSecc01_2_a.isChecked = false
-                    viewSecc01.checkSecc01_2_b.isChecked = false
-                    viewSecc01.checkSecc01_2_c.isChecked = false
-                    viewSecc01.checkSecc01_2_d.isChecked = false
-
-                    viewSecc01.txtSecc01_2_d_otra.visibility = View.GONE
-                    viewSecc01.txtSecc01_2_d_otra.text.clear()
-                }
-            }
-        }
-        viewSecc01.checkSecc01_2_d.setOnClickListener {
-            viewSecc01.txtSecc01_2_d_otra.isVisible = viewSecc01.checkSecc01_2_d.isChecked
-        }
 
 
         return viewSecc01.rootView

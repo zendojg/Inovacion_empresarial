@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_secc02"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#D8B18B"
-    tools:ignore="HardcodedText"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data />
 
     <ScrollView
         android:id="@+id/scrollForm"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         android:orientation="vertical"
-        android:layout_margin="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +19,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:animateLayoutChanges="true"
             android:background="@drawable/background_shadow_med"
             android:orientation="vertical"
@@ -51,7 +45,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="3. "
+                        android:text="@string/n3"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         tools:ignore="TextContrastCheck" />
@@ -60,23 +54,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="¿Utiliza su empresa alguna de las siguientes medidas de seguridad TIC..."
+                        android:text="@string/p3txtm"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         tools:ignore="TextContrastCheck" />
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginBottom="15dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:gravity="start"
-                    android:text="OPCIÓN MULTIPLE"
-                    android:textColor="#D8B18C"
-                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:id="@+id/linearSecc1_2_1"
@@ -84,17 +66,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="2dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/background_shadow_low"
+                    android:background="@drawable/background_shadow"
                     android:orientation="vertical"
                     android:paddingHorizontal="10dp">
-
 
                     <CheckBox
                         android:id="@+id/checkSecc2_3_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="1. Autenticación mediante contraseña?"
+                        android:layoutDirection="rtl"
+                        android:text="@string/p3txtm1"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <CheckBox
@@ -102,7 +84,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="2. Copia de seguridad (backup) de datos en una ubicación separada (incluye copia de seguridad en la nube)?"
+                        android:layoutDirection="rtl"
+                        android:text="@string/p3txtm2"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <CheckBox
@@ -110,7 +93,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="3. Control de acceso a la red (gestión del acceso de disspositivos y usuarios a la red de la empresa)?"
+                        android:layoutDirection="rtl"
+                        android:text="@string/p3txtm3"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <CheckBox
@@ -118,7 +102,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="4. Otras medidas de segurudad TIC?"
+                        android:layoutDirection="rtl"
+                        android:text="@string/p3txtm4"
                         tools:ignore="TouchTargetSizeCheck" />
 
                 </LinearLayout>
@@ -127,14 +112,13 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="50dp"></View>
+                android:layout_height="50dp" />
 
         </LinearLayout>
 
     </ScrollView>
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 
 

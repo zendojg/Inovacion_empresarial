@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_cap09"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
-    tools:ignore="HardcodedText"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data />
 
     <ScrollView
         android:id="@+id/scrollForm"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         android:orientation="vertical"
-        android:layout_margin="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,784 +19,527 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:animateLayoutChanges="true"
             android:background="@drawable/background_shadow_med"
             android:orientation="vertical"
             android:padding="2dp">
 
-            <LinearLayout
-                android:id="@+id/linearCap9_59"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
-                android:orientation="vertical"
-                android:padding="5dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/txtCap9tittle"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="15dp"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center"
-                    android:text="ES UNA RAMA DEL DERECHO QUE BUSCA, POR UNA PARTE, FOMENTAR LA INNOVACIÓN, LA CREACIÓN Y LA TRANFERENCIA TECNOLÓGICA Y POR LA OTRA, ORDENAR LOS MERCADOS"
+                    android:text="@string/cap9tittle1"
                     android:textColor="@android:color/holo_blue_dark"
-                    android:textStyle="bold|italic" />
+                    android:textSize="@dimen/text14"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/lb59np"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/n59"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCap9tittle" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="59. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="En el 2021 y/o 2022, ¿la empresa obtuvo patentes en el país y/o exterior?"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-                </LinearLayout>
-
+                <TextView
+                    android:id="@+id/lb39txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p59txt"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lb59np"
+                    app:layout_constraintTop_toTopOf="@+id/lb59np"
+                    tools:ignore="TextContrastCheck" />
 
                 <RadioGroup
                     android:id="@+id/rgroupCap9_59"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="2dp"
-                    android:layout_marginBottom="10dp"
-                    android:paddingHorizontal="10dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="vertical">
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="@drawable/background_shadow"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb39txt">
 
                     <RadioButton
                         android:id="@+id/rbtCap9_59_si"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="Sí  (Continuar, pasar a la pregunta 60)"
+                        android:text="@string/check59si"
                         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
                     <RadioButton
                         android:id="@+id/rbtCap9_59_no"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="No (Pasar a la parte 2, pregunta 62)"
+                        android:text="@string/check59no"
                         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
                 </RadioGroup>
 
-            </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/linearCap9_60"
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
-                android:layout_marginVertical="7dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="60. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="¿En qué país fueron aprobadas las patentes?"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginVertical="2dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="10dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="9"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:text="1. Panamá"
-                        tools:ignore="TextContrastCheck" />
-
-
-                    <CheckBox
-                        android:id="@+id/checkCap9_60_1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="sans-serif-condensed"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="10dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="9"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:text="2. Centroamérica y el Caribe"
-                        tools:ignore="TextContrastCheck" />
-
-                    <CheckBox
-                        android:id="@+id/checkCap9_60_2"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="sans-serif-condensed"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="10dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="9"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:text="3. Estados Unidos"
-                        tools:ignore="TextContrastCheck" />
-
-                    <CheckBox
-                        android:id="@+id/checkCap9_60_3"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="sans-serif-condensed"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="10dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="9"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:text="4. Unión Europea"
-                        tools:ignore="TextContrastCheck" />
-
-                    <CheckBox
-                        android:id="@+id/checkCap9_60_4"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="sans-serif-condensed"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal"
-                    android:paddingHorizontal="10dp">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="9"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:text="5. Japón"
-                        tools:ignore="TextContrastCheck" />
-
-                    <CheckBox
-                        android:id="@+id/checkCap9_60_5"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="sans-serif-condensed"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal"
-                    android:layout_marginBottom="10dp"
-                    android:paddingHorizontal="10dp">
-
-                    <EditText
-                        android:id="@+id/txtCap9_60_6_otra"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="9"
-                        android:autofillHints="Otra"
-                        android:enabled="false"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center_vertical"
-                        android:hint="6. Otro: Especifique"
-                        android:inputType="textCapWords"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        android:textSize="14sp"
-                        tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
-
-                    <CheckBox
-                        android:id="@+id/checkCap9_60_6"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="sans-serif-condensed"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/linearCap9_61"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="2dp"
-                android:layout_marginVertical="7dp"
-                android:background="@drawable/background_shadow"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="61. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="En el 2021 y 2022, ¿cuáles fueron los métodos formales utilizados por las empresa para proteger sus innovaciones?"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-                </LinearLayout>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
+                    android:id="@+id/lb60np"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="32dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="LEA:"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textStyle="bold" />
+                    android:text="@string/n60"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/lb60txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p60txt"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lb60np"
+                    app:layout_constraintTop_toTopOf="@+id/lb60np"
+                    tools:ignore="TextContrastCheck" />
+
+                <CheckBox
+                    android:id="@+id/checkCap9_60_1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layoutDirection="rtl"
+                    android:layout_marginTop="20dp"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/background_shadow"
+                    android:text="@string/check60p1"
+                    android:fontFamily="sans-serif-condensed"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb60txt"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <CheckBox
+                    android:id="@+id/checkCap9_60_2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layoutDirection="rtl"
+                    android:background="@drawable/background_shadow"
+                    android:text="@string/check60p2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/checkCap9_60_1"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <CheckBox
+                    android:id="@+id/checkCap9_60_3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layoutDirection="rtl"
+                    android:background="@drawable/background_shadow"
+                    android:text="@string/check60p3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/checkCap9_60_2"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <CheckBox
+                    android:id="@+id/checkCap9_60_4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layoutDirection="rtl"
+                    android:background="@drawable/background_shadow"
+                    android:text="@string/check60p4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/checkCap9_60_3"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <CheckBox
+                    android:id="@+id/checkCap9_60_5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="10dp"
+                    android:paddingHorizontal="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layoutDirection="rtl"
+                    android:background="@drawable/background_shadow"
+                    android:text="@string/check60p5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/checkCap9_60_4"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <CheckBox
+                    android:id="@+id/checkCap9_60_6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_shadow"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layoutDirection="rtl"
+                    android:paddingHorizontal="10dp"
+                    android:text="@string/blank"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/checkCap9_60_5"
+                    tools:ignore="TouchTargetSizeCheck" />
+
+                <EditText
+                    android:id="@+id/txtCap9_60_6_otra"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:background="@drawable/background_shadow_celpast"
+                    android:layout_weight="9"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="60dp"
+                    android:paddingHorizontal="10dp"
+                    android:autofillHints="Otra"
+                    android:enabled="false"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_vertical"
+                    android:hint="@string/check60p6"
+                    android:inputType="textCapWords"
+                    android:minHeight="48dp"
                     android:orientation="horizontal"
-                    android:padding="8dp">
+                    android:padding="5dp"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/checkCap9_60_5"
+                    tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/background_shadow"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/lb61np"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/n61"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/lb61txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p61txt"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lb61np"
+                    app:layout_constraintTop_toTopOf="@+id/lb61np"
+                    tools:ignore="TextContrastCheck" />
+
+                <GridLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:columnCount="3"
+                    android:orientation="horizontal"
+                    android:background="@drawable/background_shadow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb61txt">
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="10"
+                        android:layout_columnWeight="4"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
                         android:fontFamily="sans-serif-condensed"
-                        android:paddingHorizontal="10dp"
-                        android:text=" "
-                        android:textStyle="bold"
-                        tools:ignore="SpeakableTextPresentCheck" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="  Si (1)"
+                        android:paddingVertical="10dp"
+                        android:paddingHorizontal="20dp"
+                        android:text="@string/txt61desc"
+                        android:textColor="@color/holo_blue_dark"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="  No(2)"
+                        android:gravity="center"
+                        android:text="@string/yes"
                         android:textStyle="bold" />
 
-                </LinearLayout>
-
-                <RadioGroup
-                    android:id="@+id/rgroupCap9_61_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="10"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp">
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:text="@string/not"
+                        android:textStyle="bold" />
 
-                        <TextView
+                    <RadioGroup
+                        android:id="@+id/rgroupCap5_31_2021"
+                        android:layout_width="0dp"
+                        android:layout_rowSpan="5"
+                        android:layout_columnSpan="2"
+                        android:layout_gravity="fill"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_1_si"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginHorizontal="15dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:layoutDirection="rtl"
+                            android:text="@string/p61yes1"
+                            tools:ignore="VisualLintButtonSize" />
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_2_si"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginHorizontal="15dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:layoutDirection="rtl"
+                            android:text="@string/p61yes2"
+                            tools:ignore="VisualLintButtonSize" />
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_3_si"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginHorizontal="15dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:layoutDirection="rtl"
+                            android:text="@string/p61yes3"
+                            tools:ignore="VisualLintButtonSize" />
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_4_si"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginHorizontal="15dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:layoutDirection="rtl"
+                            android:text="@string/p61yes4"
+                            tools:ignore="VisualLintButtonSize" />
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_5_si"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginHorizontal="15dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:layoutDirection="rtl"
+                            android:text="@string/p61yes5"
+                            tools:ignore="VisualLintButtonSize" />
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_6_si"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginHorizontal="15dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:layoutDirection="rtl"
+                            android:text="@string/p61yes6"
+                            tools:ignore="VisualLintButtonSize" />
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_7_si"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginHorizontal="15dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:layoutDirection="rtl"
+                            android:text="@string/p61yes7"
+                            tools:ignore="VisualLintButtonSize" />
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_8_si"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:layoutDirection="rtl"
+                            android:text="@string/p61yes8"
+                            tools:ignore="VisualLintButtonSize" />
+                    </RadioGroup>
+
+                    <RadioGroup
+                        android:id="@+id/rgroupCap5_31_2022"
+                        android:layout_width="0dp"
+                        android:layout_rowSpan="5"
+                        android:layout_columnWeight="1"
+                        android:layout_marginEnd="10dp"
+                        android:layout_gravity="fill"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_1_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="1. "
-                            android:textStyle="bold" />
+                            android:layoutDirection="rtl"
+                            tools:ignore="DuplicateSpeakableTextCheck" />
 
-                        <TextView
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_2_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="Marca"
-                            tools:ignore="TextContrastCheck" />
+                            android:layoutDirection="rtl"
+                            tools:ignore="DuplicateSpeakableTextCheck" />
 
-                    </LinearLayout>
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_1_si"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        tools:ignore="DuplicateSpeakableTextCheck" />
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_1_no"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
-
-                </RadioGroup>
-
-                <RadioGroup
-                    android:id="@+id/rgroupCap9_61_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="10"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp">
-
-                        <TextView
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_3_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="2. "
-                            android:textStyle="bold" />
+                            android:layoutDirection="rtl"
+                            tools:ignore="DuplicateSpeakableTextCheck" />
 
-                        <TextView
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_4_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="Patente"
-                            tools:ignore="TextContrastCheck" />
+                            android:layoutDirection="rtl"
+                            tools:ignore="DuplicateSpeakableTextCheck" />
 
-                    </LinearLayout>
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_2_si"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_2_no"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2" />
-
-                </RadioGroup>
-
-                <RadioGroup
-                    android:id="@+id/rgroupCap9_61_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="10"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp">
-
-                        <TextView
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_5_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="3. "
-                            android:textStyle="bold" />
+                            android:layoutDirection="rtl" />
 
-                        <TextView
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_6_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="Modelo de utilidad"
-                            tools:ignore="TextContrastCheck" />
+                            android:layoutDirection="rtl"
+                            tools:ignore="DuplicateSpeakableTextCheck" />
 
-                    </LinearLayout>
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_3_si"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_3_no"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
-
-                </RadioGroup>
-
-                <RadioGroup
-                    android:id="@+id/rgroupCap9_61_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="10"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp">
-
-                        <TextView
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_7_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="4. "
-                            android:textStyle="bold" />
+                            android:layoutDirection="rtl"
+                            tools:ignore="DuplicateSpeakableTextCheck" />
 
-                        <TextView
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_8_no"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="Diseño industrial"
-                            tools:ignore="TextContrastCheck" />
-
-                    </LinearLayout>
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_4_si"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_4_no"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
-
-                </RadioGroup>
-
-                <RadioGroup
-                    android:id="@+id/rgroupCap9_61_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="10"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        tools:ignore="TooManyViews">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="5. "
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="Derecho de autor"
-                            tools:ignore="TextContrastCheck" />
-
-                    </LinearLayout>
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_5_si"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_5_no"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
-
-                </RadioGroup>
-
-                <RadioGroup
-                    android:id="@+id/rgroupCap9_61_6"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="10"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        tools:ignore="TooManyViews">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="6. "
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="Denominación de origen"
-                            tools:ignore="TextContrastCheck" />
-
-                    </LinearLayout>
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_6_si"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_6_no"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
-
-                </RadioGroup>
-
-                <RadioGroup
-                    android:id="@+id/rgroupCap9_61_7"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="2dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="10"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        tools:ignore="TooManyViews">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="7. "
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="Cláusula de confidencialidad para los empleados"
-                            tools:ignore="TextContrastCheck" />
-
-                    </LinearLayout>
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_7_si"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_7_no"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
-
-                </RadioGroup>
-
-                <RadioGroup
-                    android:id="@+id/rgroupCap9_61_8"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginHorizontal="2dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="10"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp"
-                        tools:ignore="TooManyViews">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="8. "
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="Contratos de confidencialidad con poveedores y/o clientes"
-                            tools:ignore="TextContrastCheck" />
-
-                    </LinearLayout>
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_8_si"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
-
-                    <RadioButton
-                        android:id="@+id/rbtCap9_61_8_no"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2" />
-
-                </RadioGroup>
+                            android:layout_marginBottom="10dp"
+                            android:layoutDirection="rtl" />
+                    </RadioGroup>
 
 
-            </LinearLayout>
+                </GridLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
-            </View>
+                android:layout_height="50dp" />
 
         </LinearLayout>
 
     </ScrollView>
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 
 

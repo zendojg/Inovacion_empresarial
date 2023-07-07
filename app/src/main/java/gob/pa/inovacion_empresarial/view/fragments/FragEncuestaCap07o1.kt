@@ -22,7 +22,7 @@ class FragEncuestaCap07o1 : Fragment() {
             when (id) {
                 viewCap07o1.rbtCap7_50_si.id -> {
                     println("------------------")
-                    viewCap07o1.linearCap7o1_51.visibility = View.VISIBLE
+                    viewCap07o1.layoutCap7_51.visibility = View.VISIBLE
                 }
                 viewCap07o1.rbtCap7_50_no.id -> {
                     viewCap07o1.rbtCap7_51_1_no_2021.isChecked = true
@@ -33,7 +33,7 @@ class FragEncuestaCap07o1 : Fragment() {
                     viewCap07o1.rgroupCap7_51_1_2022.clearCheck()
                     viewCap07o1.rgroupCap7_51_2_2021.clearCheck()
                     viewCap07o1.rgroupCap7_51_2_2022.clearCheck()
-                    viewCap07o1.linearCap7o1_51.visibility = View.GONE
+                    viewCap07o1.layoutCap7_51.visibility = View.GONE
                 }
             }
         }
@@ -45,7 +45,7 @@ class FragEncuestaCap07o1 : Fragment() {
                     viewCap07o1.txtCap7_51_1_2021.visibility = View.VISIBLE }
                 viewCap07o1.rbtCap7_51_1_no_2021.id -> {
                     hideKeyboard()
-                    viewCap07o1.txtCap7_51_1_2021.text.clear()
+                    viewCap07o1.txtCap7_51_1_2021.text?.clear()
                     viewCap07o1.txtCap7_51_1_2021.visibility = View.GONE }
             }
         }
@@ -55,7 +55,7 @@ class FragEncuestaCap07o1 : Fragment() {
                     viewCap07o1.txtCap7_51_1_2022.visibility = View.VISIBLE }
                 viewCap07o1.rbtCap7_51_1_no_2022.id -> {
                     hideKeyboard()
-                    viewCap07o1.txtCap7_51_1_2022.text.clear()
+                    viewCap07o1.txtCap7_51_1_2022.text?.clear()
                     viewCap07o1.txtCap7_51_1_2022.visibility = View.GONE }
             }
         }
@@ -65,7 +65,7 @@ class FragEncuestaCap07o1 : Fragment() {
                     viewCap07o1.txtCap7_51_2_2021.visibility = View.VISIBLE }
                 viewCap07o1.rbtCap7_51_2_no_2021.id -> {
                     hideKeyboard()
-                    viewCap07o1.txtCap7_51_2_2021.text.clear()
+                    viewCap07o1.txtCap7_51_2_2021.text?.clear()
                     viewCap07o1.txtCap7_51_2_2021.visibility = View.GONE }
             }
         }
@@ -75,7 +75,7 @@ class FragEncuestaCap07o1 : Fragment() {
                     viewCap07o1.txtCap7_51_2_2022.visibility = View.VISIBLE }
                 viewCap07o1.rbtCap7_51_2_no_2022.id -> {
                     hideKeyboard()
-                    viewCap07o1.txtCap7_51_2_2022.text.clear()
+                    viewCap07o1.txtCap7_51_2_2022.text?.clear()
                     viewCap07o1.txtCap7_51_2_2022.visibility = View.GONE }
             }
         }

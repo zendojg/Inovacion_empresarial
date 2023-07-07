@@ -27,7 +27,9 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
@@ -67,6 +69,7 @@
                     android:layout_marginHorizontal="2dp"
                     android:columnCount="5"
                     android:orientation="horizontal"
+                    android:background="@drawable/background_shadow"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView14">
@@ -86,7 +89,7 @@
                         android:layout_columnSpan="2"
                         android:layout_columnWeight="2"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow_low"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:paddingVertical="5dp"
@@ -98,7 +101,7 @@
                         android:layout_columnSpan="2"
                         android:layout_columnWeight="2"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow_low"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:paddingVertical="5dp"
@@ -779,7 +782,7 @@
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill"
                         android:autofillHints="2021"
-                        android:background="@drawable/background_shadow_low"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:hint="@string/lb35h"
@@ -864,7 +867,9 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
@@ -911,7 +916,7 @@
                     <TextView
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow_celpast"
+                        android:background="@drawable/background_shadow_low"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:padding="5dp"
@@ -922,7 +927,7 @@
                     <TextView
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow_celpast"
+                        android:background="@drawable/background_shadow_low"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:padding="5dp"
@@ -933,7 +938,7 @@
                     <TextView
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow_celpast"
+                        android:background="@drawable/background_shadow_low"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:padding="5dp"
@@ -941,50 +946,6 @@
                         android:textStyle="bold"
                         tools:ignore="TextContrastCheck,TooManyViews" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow_celpast"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="start|center_vertical"
-                        android:padding="10dp"
-                        android:text="@string/lb36t1"
-                        tools:ignore="TextContrastCheck" />
-
-                    <EditText
-                        android:id="@+id/txtCap5_36_1_2021"
-                        android:nextFocusDown="@+id/txtCap5_36_1_2022"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow"
-                        android:ems="10"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:hint="@string/cero"
-                        android:importantForAutofill="no"
-                        android:inputType="number"
-                        android:maxLength="4"
-                        android:minHeight="40dp"
-                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"/>
-
-                    <EditText
-                        android:id="@+id/txtCap5_36_1_2022"
-                        android:nextFocusDown="@+id/txtCap5_36_a_2021"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow"
-                        android:ems="10"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:hint="@string/cero"
-                        android:importantForAutofill="no"
-                        android:inputType="number"
-                        android:maxLength="4"
-                        android:minHeight="40dp"
-                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -993,7 +954,8 @@
                         android:background="@drawable/background_shadow_celpast"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start|center_vertical"
-                        android:padding="5dp"
+                        android:paddingVertical="5dp"
+                        android:paddingHorizontal="20dp"
                         android:text="@string/lb36nac"
                         tools:ignore="TextContrastCheck" />
 
@@ -1031,8 +993,6 @@
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
                         android:importantForAutofill="no" />
 
-
-
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
@@ -1040,7 +1000,8 @@
                         android:background="@drawable/background_shadow_celpast"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start|center_vertical"
-                        android:padding="5dp"
+                        android:paddingVertical="5dp"
+                        android:paddingHorizontal="20dp"
                         android:text="@string/lb36ext"
                         tools:ignore="TextContrastCheck" />
 
@@ -1077,6 +1038,55 @@
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
                         android:importantForAutofill="no" />
 
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="10dp"
+                        android:text="@string/lb36t1"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_36_1_2021"
+                        android:nextFocusDown="@+id/txtCap5_36_1_2022"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:textColor="@color/holo_blue_dark"
+                        android:focusable="false"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"/>
+
+                    <EditText
+                        android:id="@+id/txtCap5_36_1_2022"
+                        android:nextFocusDown="@+id/txtCap5_36_a_2021"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:textColor="@color/holo_blue_dark"
+                        android:focusable="false"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
 
 
@@ -1087,7 +1097,9 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
@@ -1127,8 +1139,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:paddingHorizontal="20dp"
                     android:orientation="vertical"
+                    android:background="@drawable/background_shadow"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView15"
@@ -1159,7 +1173,9 @@
                 android:id="@+id/layoutCap5_38"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
@@ -1203,6 +1219,7 @@
                     android:layout_marginTop="15dp"
                     android:columnCount="3"
                     android:orientation="horizontal"
+                    android:background="@drawable/background_shadow"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lb38txt">
@@ -1220,11 +1237,12 @@
 
                     <ImageView
                         android:layout_columnWeight="0.7"
+                        android:minHeight="48dp"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow_celpast"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
-                        android:padding="5dp"
+                        android:paddingVertical="8dp"
                         tools:srcCompat="@drawable/img_check"
                         android:contentDescription="@string/p38txtdesc2" />
 
@@ -1243,7 +1261,7 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="1.5"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow_celpast"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start|center_vertical"
                         android:padding="10dp"
@@ -1280,7 +1298,7 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="1.5"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow_celpast"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start|center_vertical"
                         android:padding="10dp"
@@ -1318,7 +1336,7 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="1.5"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow_celpast"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start|center_vertical"
                         android:padding="10dp"

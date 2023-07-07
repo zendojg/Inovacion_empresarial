@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_cap08"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
-    tools:ignore="HardcodedText"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data />
 
     <ScrollView
         android:id="@+id/scrollForm"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         android:orientation="vertical"
-        android:layout_margin="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +19,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:animateLayoutChanges="true"
             android:background="@drawable/background_shadow_med"
             android:orientation="vertical"
@@ -44,14 +38,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="15dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="66. "
+                        android:text="@string/n66"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         tools:ignore="TextContrastCheck" />
@@ -60,7 +54,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="¿En los próximos dos años, piensa realizar alguna de las siguientes ennovaciones?"
+                        android:text="@string/p66txt"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         tools:ignore="TextContrastCheck" />
@@ -79,7 +73,7 @@
                         android:layout_weight="10"
                         android:fontFamily="sans-serif-condensed"
                         android:paddingHorizontal="10dp"
-                        android:text="Intervalos de ingresos"
+                        android:text="@string/tb66desc"
                         android:textStyle="bold" />
 
                     <TextView
@@ -87,7 +81,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="  si (1)"
+                        android:text="@string/yes"
                         android:textStyle="bold" />
 
                     <TextView
@@ -95,7 +89,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="  No (2)"
+                        android:text="@string/not"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -104,8 +98,8 @@
                     android:id="@+id/rgroupCap10_66_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
-                    android:background="@drawable/background_shadow_low"
+                    android:layout_marginHorizontal="2dp"
+                    android:background="@drawable/background_shadow"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -120,14 +114,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="1 . "
+                            android:text="@string/n1"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="Innovaciones de productos (bienes o servicios)."
+                            android:text="@string/tb66desc1"
                             tools:ignore="TextContrastCheck" />
 
                     </LinearLayout>
@@ -151,8 +145,8 @@
                     android:id="@+id/rgroupCap10_66_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
-                    android:background="@drawable/background_shadow_low"
+                    android:layout_marginHorizontal="2dp"
+                    android:background="@drawable/background_shadow"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -167,14 +161,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="2 . "
+                            android:text="@string/n2"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="Innovaciones de procesos."
+                            android:text="@string/tb66desc2"
                             tools:ignore="TextContrastCheck" />
 
                     </LinearLayout>
@@ -197,8 +191,8 @@
                     android:id="@+id/rgroupCap10_66_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="2dp"
-                    android:background="@drawable/background_shadow_low"
+                    android:layout_marginHorizontal="2dp"
+                    android:background="@drawable/background_shadow"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -213,14 +207,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="3 . "
+                            android:text="@string/n3"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="Innovaciones organizacionales"
+                            android:text="@string/tb66desc3"
                             tools:ignore="TextContrastCheck" />
 
                     </LinearLayout>
@@ -243,10 +237,9 @@
                     android:id="@+id/rgroupCap10_66_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
                     android:layout_marginHorizontal="2dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/background_shadow_low"
+                    android:background="@drawable/background_shadow"
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -261,14 +254,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="4 . "
+                            android:text="@string/n4"
                             android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="Innovaciones de comercialización."
+                            android:text="@string/tb66desc4"
                             tools:ignore="TextContrastCheck" />
 
                     </LinearLayout>
@@ -289,24 +282,14 @@
 
             </LinearLayout>
 
-
             <View
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
-            </View>
+                android:layout_height="50dp" />
         </LinearLayout>
 
     </ScrollView>
 
 
-
-
-
-
-
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 
 

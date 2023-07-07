@@ -89,12 +89,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/lb39txt">
 
                     <TextView
-                        android:layout_rowSpan="4"
+                        android:layout_rowSpan="3"
                         android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
-                        android:background="#E7F0F7"
                         android:text="@string/n1"
                         android:textStyle="bold" />
 
@@ -103,7 +103,7 @@
                         android:layout_columnWeight="4"
                         android:layout_columnSpan="4"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
@@ -114,7 +114,7 @@
                         android:layout_columnSpan="2"
                         android:layout_columnWeight="2"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:padding="5dp"
@@ -125,7 +125,7 @@
                         android:layout_columnSpan="2"
                         android:layout_columnWeight="2"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:padding="5dp"
@@ -136,10 +136,8 @@
                         android:id="@+id/rgroupCap6_39_1_2021"
                         android:layout_columnSpan="2"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:gravity="center_horizontal"
-                        android:orientation="horizontal"
-                        android:padding="2dp">
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/rbtCap6_39_1_si_2021"
@@ -147,6 +145,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="sans-serif-condensed"
+                            android:background="@drawable/background_shadow"
                             android:text="@string/yes"
                             tools:ignore="TouchTargetSizeCheck" />
 
@@ -156,6 +155,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="sans-serif-condensed"
+                            android:background="@drawable/background_shadow"
                             android:text="@string/not"
                             tools:ignore="TouchTargetSizeCheck" />
 
@@ -165,16 +165,15 @@
                         android:id="@+id/rgroupCap6_39_1_2022"
                         android:layout_columnSpan="2"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:gravity="center_horizontal"
-                        android:orientation="horizontal"
-                        android:padding="2dp">
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/rbtCap6_39_1_si_2022"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="@drawable/background_shadow"
                             android:fontFamily="sans-serif-condensed"
                             android:text="@string/yes"
                             tools:ignore="TouchTargetSizeCheck" />
@@ -184,6 +183,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="@drawable/background_shadow"
                             android:fontFamily="sans-serif-condensed"
                             android:text="@string/not"
                             tools:ignore="TouchTargetSizeCheck" />
@@ -191,10 +191,10 @@
                     </RadioGroup>
 
                     <View
-                        android:layout_columnSpan="4"
+                        android:layout_columnSpan="5"
                         android:layout_width="0dp"
                         android:background="#E7F0F7"
-                        android:layout_height="25dp"
+                        android:layout_height="10dp"
                         android:layout_gravity="fill" />
 
                     <TextView
@@ -202,8 +202,8 @@
                         android:layout_gravity="fill"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
+                        android:background="@drawable/background_shadow"
                         android:padding="5dp"
-                        android:background="#E7F0F7"
                         android:text="@string/n2"
                         android:textStyle="bold" />
 
@@ -212,7 +212,7 @@
                         android:layout_columnWeight="4"
                         android:layout_columnSpan="4"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
@@ -223,7 +223,7 @@
                         android:layout_columnSpan="2"
                         android:layout_columnWeight="2"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:padding="5dp"
@@ -234,7 +234,7 @@
                         android:layout_columnSpan="2"
                         android:layout_columnWeight="2"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:padding="5dp"
@@ -245,16 +245,15 @@
                         android:id="@+id/rgroupCap6_39_2_2021"
                         android:layout_columnSpan="2"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:gravity="center_horizontal"
-                        android:orientation="horizontal"
-                        android:padding="2dp">
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/rbtCap6_39_2_si_2021"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="@drawable/background_shadow"
                             android:fontFamily="sans-serif-condensed"
                             android:text="@string/yes"
                             tools:ignore="TouchTargetSizeCheck" />
@@ -264,6 +263,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="@drawable/background_shadow"
                             android:fontFamily="sans-serif-condensed"
                             android:text="@string/not"
                             tools:ignore="TouchTargetSizeCheck" />
@@ -274,16 +274,15 @@
                         android:id="@+id/rgroupCap6_39_2_2022"
                         android:layout_columnSpan="2"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:gravity="center_horizontal"
-                        android:orientation="horizontal"
-                        android:padding="2dp">
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/rbtCap6_39_2_si_2022"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="@drawable/background_shadow"
                             android:fontFamily="sans-serif-condensed"
                             android:text="@string/yes"
                             tools:ignore="TouchTargetSizeCheck" />
@@ -293,6 +292,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:background="@drawable/background_shadow"
                             android:fontFamily="sans-serif-condensed"
                             android:text="@string/not"
                             tools:ignore="TouchTargetSizeCheck" />
@@ -322,7 +322,9 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
@@ -362,8 +364,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:layout_marginHorizontal="10dp"
                     android:columnCount="2"
                     android:orientation="horizontal"
+                    android:background="@drawable/background_shadow"
                     android:padding="1dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -436,11 +440,7 @@
                             android:text="@string/not"
                             tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
                     </RadioGroup>
-
-
                 </GridLayout>
-
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -490,6 +490,7 @@
                     android:layout_marginHorizontal="10dp"
                     android:padding="5dp"
                     android:fontFamily="sans-serif-condensed"
+                    android:background="@drawable/background_shadow"
                     android:text="@string/tb41desc1"
                     android:layoutDirection="rtl"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -504,6 +505,7 @@
                     android:layout_marginHorizontal="10dp"
                     android:padding="5dp"
                     android:fontFamily="sans-serif-condensed"
+                    android:background="@drawable/background_shadow"
                     android:text="@string/tb41desc2"
                     android:layoutDirection="rtl"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -518,6 +520,7 @@
                     android:layout_marginHorizontal="10dp"
                     android:padding="5dp"
                     android:fontFamily="sans-serif-condensed"
+                    android:background="@drawable/background_shadow"
                     android:text="@string/tb41desc3"
                     android:layoutDirection="rtl"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -532,6 +535,7 @@
                     android:layout_marginHorizontal="10dp"
                     android:padding="5dp"
                     android:fontFamily="sans-serif-condensed"
+                    android:background="@drawable/background_shadow"
                     android:text="@string/tb41desc4"
                     android:layoutDirection="rtl"
                     app:layout_constraintEnd_toEndOf="parent"

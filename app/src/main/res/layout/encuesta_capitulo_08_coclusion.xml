@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data />
 
     <ScrollView
@@ -10,7 +11,6 @@
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:orientation="vertical"
-        android:layout_margin="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +19,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:animateLayoutChanges="true"
             android:background="@drawable/background_shadow_med"
             android:orientation="vertical"
@@ -37,34 +36,34 @@
                 tools:layout_editor_absoluteX="2dp">
 
                 <TextView
-                    android:id="@+id/lb55np"
+                    android:id="@+id/lb58np"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="@string/n55"
+                    android:text="@string/n58"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/lb55txt"
+                    android:id="@+id/lb58txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="@string/lb55txt"
+                    android:text="@string/lb58txt"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/lb55np"
-                    app:layout_constraintTop_toTopOf="@+id/lb55np"
+                    app:layout_constraintStart_toEndOf="@+id/lb58np"
+                    app:layout_constraintTop_toTopOf="@+id/lb58np"
                     tools:ignore="TextContrastCheck" />
 
                 <GridLayout
-                    android:id="@+id/tb55"
+                    android:id="@+id/tb58"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -74,7 +73,7 @@
                     android:background="@drawable/background_shadow"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lb55txt">
+                    app:layout_constraintTop_toBottomOf="@+id/lb58txt">
 
                     <TextView
                         android:layout_gravity="fill"
@@ -111,11 +110,11 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:paddingHorizontal="10dp"
-                        android:text="@string/tb55a1"
+                        android:text="@string/tb58a1"
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_1_a"
+                        android:id="@+id/txtCap8_58_1_a"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -140,11 +139,11 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:paddingHorizontal="10dp"
-                        android:text="@string/tb55b1"
+                        android:text="@string/tb58b1"
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_1_b"
+                        android:id="@+id/txtCap8_58_1_b"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -169,11 +168,11 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:paddingHorizontal="10dp"
-                        android:text="@string/tb55c1"
+                        android:text="@string/tb58c1"
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_1_c"
+                        android:id="@+id/txtCap8_58_1_c"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -206,7 +205,7 @@
                         android:gravity="start"
                         android:padding="5dp"
                         android:textColor="@color/black"
-                        android:text="@string/tb552"
+                        android:text="@string/tb582"
                         android:textStyle="bold" />
 
                     <TextView
@@ -224,11 +223,11 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:paddingHorizontal="10dp"
-                        android:text="@string/tb55a2"
+                        android:text="@string/tb58a2"
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_2_a"
+                        android:id="@+id/txtCap8_58_2_a"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -253,11 +252,11 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:paddingHorizontal="10dp"
-                        android:text="@string/tb55b2"
+                        android:text="@string/tb58b2"
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_2_b"
+                        android:id="@+id/txtCap8_58_2_b"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -282,11 +281,11 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:paddingHorizontal="10dp"
-                        android:text="@string/tb55c2"
+                        android:text="@string/tb58c2"
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_2_c"
+                        android:id="@+id/txtCap8_58_2_c"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -310,11 +309,11 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:paddingHorizontal="10dp"
-                        android:text="@string/tb55d2"
+                        android:text="@string/tb58d2"
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_2_d"
+                        android:id="@+id/txtCap8_58_2_d"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -347,7 +346,7 @@
                         android:gravity="start"
                         android:padding="5dp"
                         android:textColor="@color/black"
-                        android:text="@string/tb553"
+                        android:text="@string/tb583"
                         android:textStyle="bold" />
 
                     <TextView
@@ -365,11 +364,11 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:paddingHorizontal="10dp"
-                        android:text="@string/tb55a3"
+                        android:text="@string/tb58a3"
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_3_a"
+                        android:id="@+id/txtCap8_58_3_a"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -394,11 +393,11 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:paddingHorizontal="10dp"
-                        android:text="@string/tb55b3"
+                        android:text="@string/tb58b3"
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_3_b"
+                        android:id="@+id/txtCap8_58_3_b"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -432,7 +431,7 @@
                         android:gravity="start"
                         android:padding="5dp"
                         android:textColor="@color/black"
-                        android:text="@string/tb554"
+                        android:text="@string/tb584"
                         android:textStyle="bold" />
 
                     <TextView
@@ -450,11 +449,11 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:paddingHorizontal="10dp"
-                        android:text="@string/tb55a4"
+                        android:text="@string/tb58a4"
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_4_a"
+                        android:id="@+id/txtCap8_58_4_a"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -479,11 +478,11 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:paddingHorizontal="10dp"
-                        android:text="@string/tb55b4"
+                        android:text="@string/tb58b4"
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_4_b"
+                        android:id="@+id/txtCap8_58_4_b"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -508,11 +507,48 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:paddingHorizontal="10dp"
-                        android:text="@string/tb55c4"
+                        android:text="@string/tb58c4"
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_4_c"
+                        android:id="@+id/txtCap8_58_4_c"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:entries="@array/arr_hightolow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:minHeight="48dp"
+                        android:paddingHorizontal="9dp" />
+
+                    <TextView
+                        android:layout_rowSpan="3"
+                        android:layout_gravity="fill"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="end"
+                        android:paddingVertical="16dp"
+                        android:text="@string/d"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtCap8_58_4_d_otraly"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
+                        android:hint="@string/otra_especifique">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtCap8_58_4_d_otra"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:fontFamily="sans-serif-condensed"
+                            android:inputType="number"
+                            android:maxLength="2"
+                            android:minHeight="48dp"
+                            android:textSize="14sp"
+                            tools:ignore="TouchTargetSizeCheck"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Spinner
+                        android:id="@+id/txtCap8_58_4_d"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -528,10 +564,11 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
-
         </LinearLayout>
 
     </ScrollView>
 
 
 </layout>
+
+

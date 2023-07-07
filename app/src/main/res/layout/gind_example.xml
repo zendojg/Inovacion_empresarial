@@ -9,158 +9,173 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="2dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/background_shadow"
         android:paddingHorizontal="5dp"
         android:paddingTop="5dp"
         android:paddingBottom="15dp"
-        android:layout_marginHorizontal="2dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="7dp"
-        android:background="@drawable/background_shadow"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="75dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/txtSecc04_6p4ly"
+            app:layout_constraintEnd_toStartOf="@+id/lb6nm100"
+            app:layout_constraintTop_toTopOf="@+id/txtSecc04_6p1ly"
+            app:srcCompat="@drawable/img_corchete"
+            android:contentDescription="TODO" />
+
         <TextView
-            android:id="@+id/lb49np"
+            android:id="@+id/lb6nm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="sans-serif-condensed"
-            android:text="@string/n49"
+            android:text="@string/n6"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/lb49txt"
+            android:id="@+id/lb6txtm"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
-            android:text="@string/p45txt"
+            android:text="@string/p6txtm"
             android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/lb49np"
-            app:layout_constraintTop_toTopOf="@+id/lb49np"
+            app:layout_constraintStart_toEndOf="@+id/lb6nm"
+            app:layout_constraintTop_toTopOf="@+id/lb6nm"
             tools:ignore="TextContrastCheck" />
 
-        <TextView
-            android:id="@+id/txt49lbn1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:fontFamily="sans-serif-condensed"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="10dp"
-            android:text="@string/n1"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lb49txt" />
-
-        <TextView
-            android:id="@+id/txt49lbtxt1"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtSecc04_6p1ly"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:fontFamily="sans-serif-condensed"
-            android:textStyle="bold"
-            android:text="@string/p49desc1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txt49lbn1"
-            app:layout_constraintTop_toTopOf="@+id/txt49lbn1"
-            tools:ignore="TextContrastCheck" />
-
-        <Spinner
-            android:id="@+id/spinCap6_49_1"
-            style="@style/Widget.AppCompat.DropDownItem.Spinner"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:entries="@array/arr_hightolow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:minHeight="48dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt49lbtxt1" />
-
-        <TextView
-            android:id="@+id/txt49lbn2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:fontFamily="sans-serif-condensed"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:text="@string/n2"
-            android:textStyle="bold"
+            android:hint="@string/hints061"
+            android:textColorHint="@color/holo_blue_dark"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinCap6_49_1" />
+            app:layout_constraintTop_toBottomOf="@+id/lb6txtm">
 
-        <TextView
-            android:id="@+id/txt49lbtxt2"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtSecc04_6p1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:maxLength="11"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="00000000" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtSecc04_6p2ly"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:fontFamily="sans-serif-condensed"
-            android:textStyle="bold"
-            android:text="@string/p49desc2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txt49lbn2"
-            app:layout_constraintTop_toTopOf="@+id/txt49lbn2"
-            tools:ignore="TextContrastCheck" />
-
-        <Spinner
-            android:id="@+id/spinCap6_49_2"
-            style="@style/Widget.AppCompat.DropDownItem.Spinner"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:entries="@array/arr_hightolow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:minHeight="48dp"
+            android:layout_marginHorizontal="20dp"
+            android:hint="@string/hints062"
+            android:textColorHint="@color/holo_blue_dark"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt49lbtxt2" />
+            app:layout_constraintTop_toBottomOf="@+id/txtSecc04_6p1ly">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtSecc04_6p2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:maxLength="11"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="00000000" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtSecc04_6p3ly"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:hint="@string/hints063"
+            android:textColorHint="@color/holo_blue_dark"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtSecc04_6p2ly">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtSecc04_6p3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:maxLength="11"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="00000000" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtSecc04_6p4ly"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:hint="@string/hints064"
+            android:textColorHint="@color/holo_blue_dark"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtSecc04_6p3ly">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtSecc04_6p4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:maxLength="11"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="00000000" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/txt45lbn3"
+            android:id="@+id/lb6nm100"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:text="@string/n3"
+            android:text="@string/porc100"
+            android:layout_marginEnd="50dp"
+            android:textColor="@color/black"
+            android:textSize="26sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinCap6_49_2" />
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
 
         <TextView
-            android:id="@+id/txt49lbtxt3"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
             android:fontFamily="sans-serif-condensed"
+            android:text="@string/p6mdescend"
+            android:textColor="#D8B18B"
             android:textStyle="bold"
-            android:text="@string/p49desc3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/txt45lbn3"
-            app:layout_constraintTop_toTopOf="@+id/txt45lbn3"
+            app:layout_constraintStart_toStartOf="@+id/txtSecc04_6p4ly"
+            app:layout_constraintTop_toBottomOf="@+id/txtSecc04_6p4ly"
             tools:ignore="TextContrastCheck" />
-
-        <Spinner
-            android:id="@+id/spinCap6_49_3"
-            style="@style/Widget.AppCompat.DropDownItem.Spinner"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="25dp"
-            android:entries="@array/arr_hightolow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:minHeight="48dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt49lbtxt3" />
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

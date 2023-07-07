@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_cap09"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_dark"
-    tools:ignore="HardcodedText"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data />
 
     <ScrollView
         android:id="@+id/scrollForm"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         android:orientation="vertical"
-        android:layout_margin="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,68 +19,70 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:animateLayoutChanges="true"
             android:background="@drawable/background_shadow_med"
             android:orientation="vertical"
             android:padding="2dp">
 
-            <LinearLayout
-                android:id="@+id/linearCap9_62"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
-                android:orientation="vertical"
-                android:padding="5dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/lb62np"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/n62"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="62. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="En el 2021 y/o 2022, ¿la empresa contó con alguna certificación sobre normas de calidad?"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-                </LinearLayout>
-
+                <TextView
+                    android:id="@+id/lb62txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p62txt"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lb62np"
+                    app:layout_constraintTop_toTopOf="@+id/lb62np"
+                    tools:ignore="TextContrastCheck" />
 
                 <RadioGroup
                     android:id="@+id/rgroupCap9_62"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="2dp"
-                    android:layout_marginBottom="10dp"
-                    android:paddingHorizontal="10dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="vertical">
+                    android:paddingHorizontal="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:background="@drawable/background_shadow"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb62txt">
 
                     <RadioButton
                         android:id="@+id/rbtCap9_62_si"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="Sí  (Continuar, pasar a la pregunta 63)"
+                        android:text="@string/check62yes"
                         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
                     <RadioButton
@@ -93,663 +90,520 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="No (Pasar a pregunta 64)"
+                        android:text="@string/check62no"
                         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
                 </RadioGroup>
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:id="@+id/linearCap9_63"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="63. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="¿Qué tipo de certificación sobre normas?"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-                </LinearLayout>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
+                    android:id="@+id/lb63np"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="32dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="OPCIÓN MULTIPLE      LEA:"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textStyle="bold" />
+                    android:text="@string/n63"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/background_shadow_celpast"
-                    android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/lb63txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p63txt"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lb63np"
+                    app:layout_constraintTop_toTopOf="@+id/lb63np"
+                    tools:ignore="TextContrastCheck" />
+
+                <GridLayout
+                    android:id="@+id/tb63"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginTop="15dp"
+                    android:columnCount="3"
+                    android:orientation="horizontal"
+                    android:background="@drawable/background_shadow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb63txt">
 
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="5"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
                         android:background="@drawable/background_shadow_celpast"
                         android:fontFamily="sans-serif-condensed"
-                        android:paddingHorizontal="15dp"
-                        android:paddingVertical="8dp"
-                        android:text="Tipo de Certificación"
-                        android:textStyle="bold" />
-
+                        android:gravity="start|center_vertical"
+                        android:paddingVertical="10dp"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="0dp"
+                        android:text="@string/p63tbdesc"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck" />
 
                     <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="10dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_columnWeight="0.7"
+                        android:minHeight="40dp"
+                        android:layout_gravity="fill"
                         android:background="@drawable/background_shadow_celpast"
-                        android:paddingVertical="8dp"
-                        app:srcCompat="@drawable/img_check"
-                        tools:ignore="ContentDescription" />
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:paddingVertical="20dp"
+                        tools:srcCompat="@drawable/img_check"
+                        android:contentDescription="@string/p38txtdesc2" />
+
+                    <TextView
+                        android:layout_columnWeight="0.8"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_celpast"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:text="@string/tb63desc2"
+                        android:textStyle="bold"
+                        tools:ignore="TextContrastCheck,TooManyViews" />
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2"
-                        android:background="@drawable/background_shadow_celpast"
+                        android:layout_columnWeight="1.5"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:paddingVertical="8dp"
-                        android:text="N° Locales"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="2dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="5"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="1. "
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="ISO - 9001- Gestión de Calidad"
-                            tools:ignore="TextContrastCheck" />
-
-                    </LinearLayout>
+                        android:gravity="start|center_vertical"
+                        android:padding="10dp"
+                        android:text="@string/tb63p1"
+                        tools:ignore="TextContrastCheck" />
 
                     <CheckBox
-                        android:id="@+id/checkCap9_63_1"
-                        android:layout_width="10dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/background_shadow2"
-                        android:fontFamily="sans-serif-condensed"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <EditText
-                        android:id="@+id/txtCap9_63_1_nlocal"
+                        android:id="@+id/checkCap6_63_1"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:autofillHints="0"
-                        android:fontFamily="sans-serif-condensed"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
                         android:gravity="center"
-                        android:hint="000"
-                        android:inputType="number"
-                        android:enabled="false"
-                        android:maxLength="3"
-                        android:textSize="14sp"
-                        android:visibility="invisible"
-                        tools:visibility="visible"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="2dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="5"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="2. "
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="ISO - 14001 - Gestión Ambiental"
-                            tools:ignore="TextContrastCheck" />
-
-                    </LinearLayout>
-
-                    <CheckBox
-                        android:id="@+id/checkCap9_63_2"
-                        android:layout_width="10dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/background_shadow2"
-                        android:fontFamily="sans-serif-condensed"
-                        tools:ignore="TouchTargetSizeCheck" />
-
-                    <EditText
-                        android:id="@+id/txtCap9_63_2_nlocal"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:autofillHints="0"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:enabled="false"
-                        android:hint="000"
-                        android:inputType="number"
-                        android:maxLength="3"
                         android:minHeight="48dp"
-                        android:textSize="14sp"
-                        android:visibility="invisible"
-                        tools:visibility="visible"
-                        />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="2dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="5"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="3. "
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="ISO - IEC 17025 -  laboratorios de Ensayo y Calibración"
-                            tools:ignore="TextContrastCheck" />
-
-                    </LinearLayout>
-
-                    <CheckBox
-                        android:id="@+id/checkCap9_63_3"
-                        android:layout_width="10dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/background_shadow2"
-                        android:fontFamily="sans-serif-condensed"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        tools:ignore="LabelFor,DuplicateSpeakableTextCheck" />
 
                     <EditText
-                        android:id="@+id/txtCap9_63_3_nlocal"
+                        android:id="@+id/txtCap9_63_1"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:autofillHints="0"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
-                        android:enabled="false"
-                        android:hint="000"
+                        android:hint="@string/cero"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="3"
-                        android:textSize="14sp"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
                         android:visibility="invisible"
-                        tools:visibility="visible"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        tools:ignore="LabelFor,DuplicateSpeakableTextCheck"
+                        tools:visibility="visible" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="2dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="5"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="4. "
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="ISO - IEC 20000 -  Gestión de Seguridad y Riesgos"
-                            tools:ignore="TextContrastCheck" />
-
-                    </LinearLayout>
+                        android:layout_columnWeight="1.5"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="10dp"
+                        android:text="@string/tb63p2"
+                        tools:ignore="TextContrastCheck" />
 
                     <CheckBox
-                        android:id="@+id/checkCap9_63_4"
-                        android:layout_width="10dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/background_shadow2"
-                        android:fontFamily="sans-serif-condensed"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        android:id="@+id/checkCap6_63_2"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:gravity="center"
+                        android:minHeight="48dp"
+                        tools:ignore="LabelFor,DuplicateSpeakableTextCheck" />
 
                     <EditText
-                        android:id="@+id/txtCap9_63_4_nlocal"
+                        android:id="@+id/txtCap9_63_2"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:autofillHints="0"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
-                        android:enabled="false"
-                        android:hint="000"
+                        android:hint="@string/cero"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="3"
-                        android:textSize="14sp"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
                         android:visibility="invisible"
-                        tools:visibility="visible"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+                        tools:visibility="visible" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="5"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp">
+                        android:layout_columnWeight="1.5"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="10dp"
+                        android:text="@string/tb63p3"
+                        tools:ignore="TextContrastCheck" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="5. "
-                            android:textStyle="bold" />
+                    <CheckBox
+                        android:id="@+id/checkCap6_63_3"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:gravity="center"
+                        android:minHeight="48dp"
+                        tools:ignore="LabelFor,DuplicateSpeakableTextCheck" />
 
-                        <EditText
-                            android:id="@+id/txtCap9_63_5_otra"
+                    <EditText
+                        android:id="@+id/txtCap9_63_3"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:visibility="invisible"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+                        tools:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1.5"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="start|center_vertical"
+                        android:padding="10dp"
+                        android:text="@string/tb63p4"
+                        tools:ignore="TextContrastCheck" />
+
+                    <CheckBox
+                        android:id="@+id/checkCap6_63_4"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:gravity="center"
+                        android:minHeight="48dp"
+                        tools:ignore="LabelFor,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap9_63_4"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
+                        android:visibility="invisible"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+                        tools:visibility="visible" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1.5"
+                        android:layout_gravity="fill"
+                        android:hint="@string/tb63p5">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtCap5_38_4_otro"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:autofillHints="Otra"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/background_shadow_low"
                             android:fontFamily="sans-serif-condensed"
-                            android:hint="Otro: Especifique"
-                            android:enabled="false"
-                            android:inputType="textCapWords"
+                            android:inputType="textMultiLine"
                             android:textSize="14sp"
-                            tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
-
-                    </LinearLayout>
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:text="Otra especifique" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <CheckBox
-                        android:id="@+id/checkCap9_63_5"
-                        android:layout_width="10dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@drawable/background_shadow2"
-                        android:fontFamily="sans-serif-condensed"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        android:id="@+id/checkCap6_63_5"
+                        android:layout_width="0dp"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:gravity="center"
+                        android:minHeight="48dp"
+                        tools:ignore="LabelFor,DuplicateSpeakableTextCheck" />
 
                     <EditText
-                        android:id="@+id/txtCap9_63_5_nlocal"
+                        android:id="@+id/txtCap9_63_5"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:autofillHints="0"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow"
+                        android:ems="10"
+                        android:enabled="false"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
-                        android:enabled="false"
-                        android:hint="000"
+                        android:hint="@string/cero"
+                        android:imeOptions="actionDone"
+                        android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="3"
-                        android:textSize="14sp"
+                        android:maxLength="4"
+                        android:minHeight="40dp"
                         android:visibility="invisible"
-                        tools:visibility="visible"
-                        tools:ignore="TouchTargetSizeCheck" />
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
+                        tools:visibility="visible" />
 
-                </LinearLayout>
+                </GridLayout>
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:id="@+id/linearCap9_64"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
-                android:orientation="vertical"
-                android:padding="5dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/lb64np"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:orientation="horizontal">
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/n64"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="64. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="En el 2021 y/o 2022, ¿la empresa contó con productos certificados?"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-                </LinearLayout>
-
+                <TextView
+                    android:id="@+id/lb64txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p64txt"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lb64np"
+                    app:layout_constraintTop_toTopOf="@+id/lb64np"
+                    tools:ignore="TextContrastCheck" />
 
                 <RadioGroup
                     android:id="@+id/rgroupCap9_64"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="2dp"
-                    android:layout_marginBottom="10dp"
-                    android:paddingHorizontal="10dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="vertical">
+                    android:paddingHorizontal="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:background="@drawable/background_shadow"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb64txt">
 
                     <RadioButton
                         android:id="@+id/rbtCap9_64_si"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="Sí  (Continuar, pasar a la pregunta 65)"
-                        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck"/>
+                        android:text="@string/check62yes"
+                        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
                     <RadioButton
                         android:id="@+id/rbtCap9_64_no"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="No (Pasar al Capítulo X, pregunta 66)"
+                        android:text="@string/check64no"
                         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
                 </RadioGroup>
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
-                android:id="@+id/linearCap9_65"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
-                android:orientation="vertical"
-                android:padding="5dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/lb65np"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/n65"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/lb65txt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p65txt"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lb65np"
+                    app:layout_constraintTop_toTopOf="@+id/lb65np"
+                    tools:ignore="TextContrastCheck" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtCap9_65_1ly"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="horizontal">
+                    android:hint="@string/txt65n1"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb65txt">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtCap9_65_1"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="65. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
+                        android:imeOptions="actionDone"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        tools:ignore="TextContrastCheck"
+                        tools:text="Norma de Calidad" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtCap9_65_1_yearly"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:hint="@string/year_obt"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCap9_65_1ly"
+                    app:layout_constraintWidth_max="488dp">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/txtCap9_65_1_year"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="¿Qué tipo de certificación sobre normas?"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-                </LinearLayout>
+                        android:inputType="none"
+                        tools:ignore="LabelFor,TextContrastCheck,TouchTargetSizeCheck"
+                        tools:text="1900" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-
-                <LinearLayout
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtCap9_65_2ly"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/background_shadow_celpast"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/txt65n2"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCap9_65_1_yearly">
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="5"
-                        android:background="@drawable/background_shadow_celpast"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtCap9_65_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_shadow"
+                        android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:paddingHorizontal="15dp"
-                        android:paddingVertical="8dp"
-                        android:text="Normas de Calidad"
-                        android:textStyle="bold" />
+                        android:imeOptions="actionDone"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        tools:ignore="TextContrastCheck"
+                        tools:text="Norma de Calidad" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.5"
-                        android:background="@drawable/background_shadow_celpast"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtCap9_65_2_yearly"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
+                    android:hint="@string/year_obt"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCap9_65_2ly"
+                    app:layout_constraintWidth_max="488dp">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/txtCap9_65_2_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:paddingVertical="8dp"
-                        android:text="Año de\nobtención"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginVertical="2dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="5"
-                        android:background="@drawable/background_shadow_low"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="1. "
-                            android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/txtCap9_65_1"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:autofillHints="None"
-                            android:fontFamily="sans-serif-condensed"
-                            android:inputType="textCapWords"
-                            android:textSize="14sp"
-                            tools:ignore="TextContrastCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-                    </LinearLayout>
-
-                    <Spinner
-                        android:id="@+id/spinnerCap9_65_1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.5"
-                        android:entries="@array/arr_onetofive"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:minHeight="48dp"
-                        android:paddingHorizontal="10dp" />
-
-                </LinearLayout>
+                        android:inputType="none"
+                        tools:ignore="LabelFor,TextContrastCheck,TouchTargetSizeCheck"
+                        tools:text="1900" />
+                </com.google.android.material.textfield.TextInputLayout>
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="5"
-                        android:background="@drawable/background_shadow_low"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:padding="5dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="2. "
-                            android:textStyle="bold" />
-
-                        <EditText
-                            android:id="@+id/txtCap9_65_2"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:autofillHints="None"
-                            android:fontFamily="sans-serif-condensed"
-                            android:inputType="textCapWords"
-                            android:textSize="14sp"
-                            tools:ignore="TextContrastCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-
-                    </LinearLayout>
-
-                    <Spinner
-                        android:id="@+id/spinnerCap9_65_2"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1.5"
-                        android:entries="@array/arr_onetofive"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:minHeight="48dp"
-                        android:paddingHorizontal="10dp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
-            </View>
+                android:layout_height="50dp" />
         </LinearLayout>
 
     </ScrollView>
 
 
-
-
-
-
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 
 

@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_secc01"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#D8B18B"
-    tools:ignore="HardcodedText"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data />
 
     <ScrollView
         android:id="@+id/scrollForm"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:fillViewport="true"
         android:orientation="vertical"
-        android:layout_margin="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,79 +19,86 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="1dp"
             android:animateLayoutChanges="true"
             android:background="@drawable/background_shadow_med"
             android:orientation="vertical"
             android:padding="2dp">
 
-
-            <LinearLayout
-                android:id="@+id/linearSecc01_1"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
-                android:orientation="vertical"
-                android:padding="5dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
 
                 <TextView
+                    android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="5dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center"
-                    android:layout_gravity="center"
-                    android:text="PERÍODO DE REFERENCIA 2022"
+                    android:text="@string/moduloref"
                     android:textColor="#D8B18C"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/lb1nm"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/n1"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="1. "
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="En el 2022, ¿utilizo su empresa Internet para el desarrollo de sus actividades?"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        tools:ignore="TextContrastCheck" />
-                </LinearLayout>
-
+                <TextView
+                    android:id="@+id/lb1txtm"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p1txtm"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/lb1nm"
+                    app:layout_constraintTop_toTopOf="@+id/lb1nm"
+                    tools:ignore="TextContrastCheck" />
 
                 <RadioGroup
                     android:id="@+id/rgroupSecc01_1"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="2dp"
-                    android:layout_marginBottom="10dp"
-                    android:paddingHorizontal="10dp"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="vertical">
+                    android:layout_marginTop="10dp"
+                    android:paddingHorizontal="15dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:background="@drawable/background_shadow"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb1txtm">
 
                     <RadioButton
                         android:id="@+id/rbtSecc01_1_si"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="Sí  (Continuar)"
+                        android:text="@string/check62yes"
                         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
                     <RadioButton
@@ -104,12 +106,12 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="No (Finalizar la entrevista del módulo)"
+                        android:text="@string/noMod"
                         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
                 </RadioGroup>
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout
                 android:id="@+id/linearSecc01_2"
@@ -124,7 +126,6 @@
                 android:padding="5dp">
 
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -135,7 +136,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="2. "
+                        android:text="@string/n2"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         tools:ignore="TextContrastCheck" />
@@ -144,39 +145,39 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="¿Qué tipo de conexión utilizó para acceder a internet..."
+                        android:text="@string/p2txtm"
                         android:textColor="@color/black"
                         android:textStyle="bold"
                         tools:ignore="TextContrastCheck" />
                 </LinearLayout>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/p2txtm1"
+                    android:textColor="@color/black"
+                    tools:ignore="TextContrastCheck" />
 
                 <RadioGroup
                     android:id="@+id/rgroupSecc01_2_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="2dp"
-                    android:layout_marginBottom="10dp"
-                    android:paddingHorizontal="10dp"
-                    android:background="@drawable/background_shadow_low"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginVertical="5dp"
+                    android:paddingHorizontal="5dp"
+                    android:background="@drawable/background_shadow"
                     android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:layout_marginVertical="10dp"
-                        android:layout_marginStart="5dp"
-                        android:text="1. Fijo (cable y/o inalámbrico)?"
-                        android:textColor="@color/black"
-                        tools:ignore="TextContrastCheck" />
 
                     <RadioButton
                         android:id="@+id/rbtSecc01_2_si"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="Sí  (Continuar)"
+                        android:text="@string/check62yes"
                         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
                     <RadioButton
@@ -184,7 +185,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="No (Pasar al punto 2, de esta pregunta)"
+                        android:text="@string/nopoint2"
                         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
                 </RadioGroup>
@@ -193,47 +194,31 @@
                     android:id="@+id/linearSecc01_2_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginStart="20dp"
                     android:layout_marginBottom="10dp"
                     android:paddingHorizontal="10dp"
                     android:animateLayoutChanges="true"
-                    android:background="@drawable/background_shadow_low"
                     android:orientation="vertical"
                     android:visibility="gone"
                     tools:visibility="visible">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="1. "
-                            android:textColor="@color/black"
-                            tools:ignore="TextContrastCheck" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="a. seleccione el tipo de acceso a conexión:"
-                            android:textColor="@color/black"
-                            tools:ignore="TextContrastCheck" />
-                    </LinearLayout>
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/p2txtm1s1"
+                        android:textColor="@color/black"
+                        tools:ignore="TextContrastCheck" />
 
                     <CheckBox
                         android:id="@+id/checkSecc01_2_a"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
-                        android:layout_marginVertical="1dp"
-                        android:text="a. DSL (XDSL, ADSL y SDSL)"
+                        android:layoutDirection="rtl"
+                        android:text="@string/p2txtm1s1a"
                         android:fontFamily="sans-serif-condensed"
-                        android:background="@drawable/background_shadow"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <CheckBox
@@ -241,10 +226,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
-                        android:layout_marginVertical="1dp"
-                        android:text="b. Redes hibridas (fibra optica y/o cable)"
+                        android:layoutDirection="rtl"
+                        android:text="@string/p2txtm1s1b"
                         android:fontFamily="sans-serif-condensed"
-                        android:background="@drawable/background_shadow"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <CheckBox
@@ -252,10 +236,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
-                        android:layout_marginVertical="1dp"
-                        android:text="c. Satelital (WIMax, VSAT y otros)"
+                        android:layoutDirection="rtl"
+                        android:text="@string/p2txtm1s1c"
                         android:fontFamily="sans-serif-condensed"
-                        android:background="@drawable/background_shadow"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <CheckBox
@@ -263,10 +246,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
-                        android:layout_marginVertical="1dp"
-                        android:text="d. Otro tipo de acceso:"
+                        android:layoutDirection="rtl"
+                        android:text="@string/p2txtm1s1d"
                         android:fontFamily="sans-serif-condensed"
-                        android:background="@drawable/background_shadow"
+                        android:visibility="gone"
+                        tools:visibility="visible"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <EditText
@@ -278,60 +262,42 @@
                         android:layout_marginHorizontal="10dp"
                         android:paddingHorizontal="5dp"
                         android:enabled="false"
+                        android:animateLayoutChanges="true"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
-                        android:hint="Especifique"
+                        android:hint="@string/p2txtm1s1despec"
                         android:inputType="textCapWords"
                         android:visibility="gone"
                         tools:visibility="visible"
                         tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
                 </LinearLayout>
 
-                <RadioGroup
-                    android:id="@+id/rgroupSecc01_2_2"
-                    android:layout_width="match_parent"
+
+                <CheckBox
+                    android:id="@+id/checkSecc01_2_2"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginHorizontal="10dp"
                     android:layout_marginBottom="10dp"
                     android:paddingHorizontal="10dp"
                     android:animateLayoutChanges="true"
-                    android:background="@drawable/background_shadow_low"
-                    android:orientation="horizontal"
-                    android:visibility="gone"
-                    tools:visibility="visible"
-                    >
+                    android:layoutDirection="rtl"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p2txtm2"
+                    tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        android:layout_marginStart="5dp"
-                        android:text="2. Móviles (USB Módem, Wifi vía celular)?"
-                        android:textColor="@color/black"
-                        tools:ignore="TextContrastCheck" />
-
-                    <CheckBox
-                        android:id="@+id/checkSecc01_2_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-condensed"
-                        tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
-
-                </RadioGroup>
 
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="50dp">
-            </View>
+                android:layout_height="50dp" />
 
         </LinearLayout>
 
     </ScrollView>
 
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 
 
