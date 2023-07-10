@@ -31,33 +31,33 @@ import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var mainbinding: ActivityMainBinding
+    private lateinit var main: ActivityMainBinding
     private lateinit var pagerMain: ViewPager2
     private val dvmMain: DVModel by viewModels()
     var dialog: AlertDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mainbinding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView((mainbinding.root))
+        main = ActivityMainBinding.inflate(layoutInflater)
+        setContentView((main.root))
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         Mob.version = ("Versión: " + this.packageManager.getPackageInfo
             (this.packageName, 0).versionName)
-        pagerMain = mainbinding.viewpagerMain
+        pagerMain = main.viewpagerMain
         pagerMain.isUserInputEnabled = false
         pagerMain.adapter = AdapterMain(Mob.arrMain, supportFragmentManager, lifecycle)
     }
 
     override fun onResume() {
         super.onResume()
-        mainbinding.barMain.visibility = View.VISIBLE
+        main.barMain.visibility = View.VISIBLE
         pagerMain.visibility = View.INVISIBLE
         Mob.authData = AppCache.loginGET(this)             //----- CARGA TOKEM
         if (Mob.authData?.result?.token.isNullOrEmpty()) {     //----- TOKEN VACIO IR A LOGIN
             Handler(Looper.getMainLooper()).postDelayed({
-                pagerMain.setCurrentItem(Mob.POS1, false)
+                pagerMain.setCurrentItem(Mob.MENUP00, false)
                 pagerMain.visibility = View.VISIBLE
-                mainbinding.barMain.visibility = View.GONE
+                main.barMain.visibility = View.GONE
             }, (Mob.TIME500MS).toLong())
         } else {  //------------------------------------------- //------------------
             lifecycleScope.launch {
@@ -92,8 +92,8 @@ class MainActivity : AppCompatActivity() {
         val msg2: TextView = msg.findViewById(R.id.msg2)
 
         when (pagerMain.currentItem) {
-            Mob.POS4, Mob.POS5 -> { pagerMain.setCurrentItem(Mob.POS2,false) }
-            Mob.POS3 -> { pagerMain.setCurrentItem(pagerMain.currentItem - 1,false) }
+            Mob.CAP2P03, Mob.CAP3P04 -> { pagerMain.setCurrentItem(Mob.CAP1P01,false) }
+            Mob.CAP2P02 -> { pagerMain.setCurrentItem(pagerMain.currentItem - 1,false) }
             else -> {
                 btpositivo.text = getString(R.string.cancel)
                 btnegativo.text = getString(R.string.cerrarAp)

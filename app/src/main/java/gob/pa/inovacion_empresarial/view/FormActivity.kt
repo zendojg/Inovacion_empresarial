@@ -27,19 +27,20 @@ import gob.pa.inovacion_empresarial.model.Mob
 
 class FormActivity : AppCompatActivity() {
 
-    private lateinit var pagerbinding: ActivityFormBinding
+    private lateinit var form: ActivityFormBinding
+    private var dialog: AlertDialog? = null
     private var encuesta = Mob.indiceEnc
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pagerbinding = ActivityFormBinding.inflate(layoutInflater)
-        setContentView(pagerbinding.root)
+        form = ActivityFormBinding.inflate(layoutInflater)
+        setContentView(form.root)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         val myAdapter = AdapterPager(supportFragmentManager, lifecycle)
         if (myAdapter.itemCount == 0) {
             myAdapter.addListFragment(Mob.arrEncuestas)
-            pagerbinding.viewpager.adapter = myAdapter
-            pagerbinding.viewpager.isUserInputEnabled = false
+            form.viewpager.adapter = myAdapter
+            form.viewpager.isUserInputEnabled = false
         }
 
     }
@@ -50,37 +51,44 @@ class FormActivity : AppCompatActivity() {
         actions()
     }
 
+    override fun onPause() {
+        super.onPause()
+        if (dialog?.isShowing == true) {
+            dialog?.dismiss()
+        }
+    }
+
     private fun actions() {
         if (encuesta!= 0) {
-            pagerbinding.viewpager.setCurrentItem(encuesta, false)
+            form.viewpager.setCurrentItem(encuesta, false)
             spinPager(encuesta)
         }
-        pagerbinding.btnextpager.setOnClickListener {
-            if (pagerbinding.viewpager.currentItem==23) {
-                pagerbinding.viewpager.setCurrentItem(0,false)
-            } else pagerbinding.viewpager.setCurrentItem(
-                pagerbinding.viewpager.currentItem + 1,false)
+        form.btnextpager.setOnClickListener {
+            if (form.viewpager.currentItem == Mob.OBSP24) {
+                form.viewpager.setCurrentItem(0,false)
+            } else form.viewpager.setCurrentItem(
+                form.viewpager.currentItem + 1,false)
         }
-        pagerbinding.btbackpager.setOnClickListener {
-            pagerbinding.viewpager.setCurrentItem(pagerbinding.viewpager.currentItem - 1,false)
+        form.btbackpager.setOnClickListener {
+            form.viewpager.setCurrentItem(form.viewpager.currentItem - 1,false)
         }
-        pagerbinding.btmenupager.setOnClickListener {
-            pagerbinding.viewpager.setCurrentItem(0,false)
+        form.btmenupager.setOnClickListener {
+            form.viewpager.setCurrentItem(0,false)
         }
 
-        pagerbinding.viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        form.viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 if (position == 0) {
-                    pagerbinding.toolbarpager.visibility = View.GONE
-                    pagerbinding.consttitlepager2.visibility = View.GONE
-                    pagerbinding.linearsubtittlepager.visibility = View.GONE
-                    pagerbinding.frameLayoutNav.visibility = View.GONE
+                    form.toolbarpager.visibility = View.GONE
+                    form.txvtitlepager2.visibility = View.GONE
+                    form.txvsubtitlepager.visibility = View.GONE
+                    form.frameLayoutNav.visibility = View.GONE
                 } else {
-                    pagerbinding.toolbarpager.visibility = View.VISIBLE
-                    pagerbinding.consttitlepager2.visibility = View.VISIBLE
-                    pagerbinding.linearsubtittlepager.visibility = View.VISIBLE
-                    pagerbinding.frameLayoutNav.visibility = View.VISIBLE
+                    form.toolbarpager.visibility = View.VISIBLE
+                    form.txvtitlepager2.visibility = View.VISIBLE
+                    form.txvsubtitlepager.visibility = View.VISIBLE
+                    form.frameLayoutNav.visibility = View.VISIBLE
                 }
                 spinPager(position)
                 //(viewpager.get(0) as RecyclerView).findViewHolderForAdapterPosition(position)
@@ -88,22 +96,17 @@ class FormActivity : AppCompatActivity() {
             }
         })
 
-        pagerbinding.consttitlepager2.setOnClickListener { resizeTittle() }
-        pagerbinding.bttoolresizepager.setOnClickListener { resizeTittle() }
-        pagerbinding.linearsubtittlepager.setOnClickListener { resizeSubtittle() }
-        pagerbinding.btsubtresizepager.setOnClickListener { resizeSubtittle() }
-
-        pagerbinding.btobspager.setOnClickListener {
-            observation(pagerbinding.viewpager.currentItem)
+        form.btobspager.setOnClickListener {
+            observation(form.viewpager.currentItem)
         }
-        pagerbinding.btsavepager.setOnClickListener {
+        form.btsavepager.setOnClickListener {
             Toast.makeText(applicationContext, "Formulario guardado", Toast.LENGTH_SHORT).show()
         }
     }
 
 
     override fun onBackPressed() {
-        if (pagerbinding.viewpager.currentItem == 0) {
+        if (form.viewpager.currentItem == Mob.MENUP00) {
             val mesagePregunta = AlertDialog.Builder(this)
             val msg: View = layoutInflater.inflate(R.layout.style_msg_alert, null)
             val btpositivo: MaterialButton = msg.findViewById(R.id.btpositivo)
@@ -111,7 +114,6 @@ class FormActivity : AppCompatActivity() {
             val msgT: TextView = msg.findViewById(R.id.msgtitle)
             val msg1: TextView = msg.findViewById(R.id.msg1)
             val msg2: TextView = msg.findViewById(R.id.msg2)
-
 
             btpositivo.text = getString(R.string.cancel)
             btnegativo.text = getString(R.string.cerrarAp)
@@ -132,32 +134,11 @@ class FormActivity : AppCompatActivity() {
                 dialog.dismiss()
                 super.onBackPressed()
             }
-        } else pagerbinding.viewpager.setCurrentItem(
-            pagerbinding.viewpager.currentItem - 1,true)
+        } else form.viewpager.setCurrentItem(
+            form.viewpager.currentItem - 1,true)
     }
 
-    private fun resizeTittle() {
-        //var tittleheight = 0
-        if (pagerbinding.txvtitlepager2.isVisible) {
-            pagerbinding.bttoolresizepager.setImageResource(R.drawable.img_expand_more)
-            pagerbinding.txvtitlepager2.visibility = View.GONE
-            //pagerbinding.consttitlepager2.height.also { tittleheight = it }
-            //pagerbinding.consttitlepager2.layoutParams.height = 35
-        } else {
-            pagerbinding.bttoolresizepager.setImageResource(R.drawable.img_expand_less)
-            pagerbinding.txvtitlepager2.visibility = View.VISIBLE
-            //pagerbinding.consttitlepager2.layoutParams.height = tittleheight
-        }
-    }
-    private fun resizeSubtittle() {
-        if (pagerbinding.txvsubtitlepager.isVisible) {
-            pagerbinding.btsubtresizepager.setImageResource(R.drawable.img_expand_more)
-            pagerbinding.txvsubtitlepager.visibility = View.GONE
-        } else {
-            pagerbinding.btsubtresizepager.setImageResource(R.drawable.img_expand_less)
-            pagerbinding.txvsubtitlepager.visibility = View.VISIBLE
-        }
-    }
+
 
     private fun observation(position: Int) {
         val mesagePregunta = AlertDialog.Builder(this)
@@ -172,7 +153,7 @@ class FormActivity : AppCompatActivity() {
         lbobs.text = Mob.obsTittle
         txtobs.imeOptions = EditorInfo.IME_ACTION_DONE;
         txtobs.setRawInputType(InputType.TYPE_CLASS_TEXT);
-        if (position<19) {
+        if (position < Mob.SEC1P20) {
             color = ContextCompat.getColor(this, R.color.holo_blue_dark)
             txtobs.text = Mob.obsEncuesta
             encabezado.setBackgroundResource(R.drawable.background_shadow_celpast)
@@ -193,7 +174,7 @@ class FormActivity : AppCompatActivity() {
 
 
         btpositivo.setOnClickListener {
-            if (pagerbinding.viewpager.currentItem<19) { Mob.obsEncuesta = txtobs.text.toString() }
+            if (form.viewpager.currentItem < Mob.SEC1P20) { Mob.obsEncuesta = txtobs.text.toString() }
             else { Mob.obsModulo = txtobs.text.toString() }
             dialog.dismiss()
             hideKeyboard()
@@ -213,15 +194,15 @@ class FormActivity : AppCompatActivity() {
         val colorFondo: Int
         val decorView: View = window.decorView
         val ctx = this
-        with(pagerbinding){
+        with(form){
             when {
-                position == 0 -> {
+                position == Mob.MENUP00 -> {
                     decorView.systemUiVisibility =
                         decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
                     colorFondo = ContextCompat.getColor(ctx, R.color.celeste)
                     colorLetras = (Color.WHITE)
                 }
-                position < 19 -> {
+                position < Mob.SEC1P20 -> {
                     Mob.obsTittle = "Encuesta  de Innovación en Empresas"
                     btobspager.visibility = View.VISIBLE
                     btsavepager.visibility = View.VISIBLE
@@ -230,7 +211,7 @@ class FormActivity : AppCompatActivity() {
                         decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
                     colorFondo = ContextCompat.getColor(ctx, R.color.holo_blue_dark)
                 }
-                position == 23 -> {
+                position == Mob.OBSP24 -> {
                     btobspager.visibility = View.INVISIBLE
                     btsavepager.visibility = View.INVISIBLE
                     colorLetras = (Color.WHITE)
@@ -247,7 +228,6 @@ class FormActivity : AppCompatActivity() {
                     colorLetras = (Color.DKGRAY)
                     colorFondo = ContextCompat.getColor(ctx, R.color.cream_pastel)
                 }
-
             }
 
             btsavepager.setColorFilter(colorLetras)
@@ -255,128 +235,120 @@ class FormActivity : AppCompatActivity() {
             btmenupager.setColorFilter(colorLetras)
             btbackpager.setColorFilter(colorLetras)
             btnextpager.setColorFilter(colorLetras)
-            bttoolresizepager.setColorFilter(colorLetras)
-
             txvtitlepager.setTextColor(colorLetras)
             txvtitlepager2.setTextColor(colorLetras)
 
             window.statusBarColor = colorFondo
             constraintpager.setBackgroundColor(colorFondo)
             toolbarpager.setBackgroundColor(colorFondo)
-
+        }
+        encuestaTittle(position)
+    }
+    private fun encuestaTittle(position: Int) {
+        with(form){
             when (position) {
-                1 -> { //--------------------------------------------------------------- capitulo 01
+                Mob.MENUP00  -> { }
+                //----------------
+                // --- capitulo 01
+                Mob.CAP1P01 -> {
                     txvtitlepager.text = getString(R.string.cap01)
                     txvtitlepager2.text = getString(R.string.ctxt01)
                     txvsubtitlepager.text = getString(R.string.subcap000)
                 }
-                2 -> { //--------------------------------------------------------------- capitulo 02
+                // --- capitulo 02
+                Mob.CAP2P02, Mob.CAP2P03 -> {
                     txvtitlepager.text = getString(R.string.cap02)
                     txvtitlepager2.text = getString(R.string.ctxt02)
-                    txvsubtitlepager.text = getString(R.string.subcap021)
+                    txvsubtitlepager.text = if(position == Mob.CAP2P02)
+                        getString(R.string.subcap021) else  getString(R.string.subcap022)
                 }
-                3 -> { //--------------------------------------------------------------- capitulo 02
-                    txvtitlepager.text = getString(R.string.cap02)
-                    txvtitlepager2.text = getString(R.string.ctxt02)
-                    txvsubtitlepager.text = getString(R.string.subcap022)
-                }
-                4 -> { //--------------------------------------------------------------- capitulo 03
+                // --- capitulo 03
+                Mob.CAP3P04 -> {
                     txvtitlepager.text = getString(R.string.cap03)
                     txvtitlepager2.text = getString(R.string.ctxt03)
-                    pagerbinding.txvsubtitlepager.text = getString(R.string.subcap000)
+                    form.txvsubtitlepager.text = getString(R.string.subcap000)
                 }
-                5 -> { //--------------------------------------------------------------- capitulo 04
+                // --- capitulo 04
+                Mob.CAP4P05 -> {
                     txvtitlepager.text = getString(R.string.cap04)
                     txvtitlepager2.text = getString(R.string.ctxt04)
                     txvsubtitlepager.text = getString(R.string.subcap000)
                 }
-                6 -> { //--------------------------------------------------------------- capitulo 05
+                // --- capitulo 05
+                Mob.CAP5P06, Mob.CAP5P07 -> {
                     txvtitlepager.text = getString(R.string.cap05)
                     txvtitlepager2.text = getString(R.string.ctxt05)
-                    txvsubtitlepager.text = getString(R.string.subcap051)
+                    txvsubtitlepager.text = if (position == Mob.CAP5P06)
+                        getString(R.string.subcap051) else getString(R.string.subcap052)
                 }
-                7 -> { //--------------------------------------------------------------- capitulo 05
-                    txvtitlepager.text = getString(R.string.cap05)
-                    txvtitlepager2.text = getString(R.string.ctxt05)
-                    txvsubtitlepager.text = getString(R.string.subcap052)
-                }
-                8 -> { //--------------------------------------------------------------- capitulo 06
+                // ---- capitulo 06
+                Mob.CAP6P08, Mob.CAP6P09, Mob.CAP6P10, Mob.CAP6P11 -> {
                     txvtitlepager.text = getString(R.string.cap06)
                     txvtitlepager2.text = getString(R.string.ctxt06)
-                    txvsubtitlepager.text = getString(R.string.subcap061)
+                    txvsubtitlepager.text = when (position) {
+                        Mob.CAP6P08 -> getString(R.string.subcap061)
+                        Mob.CAP6P09 -> getString(R.string.subcap062)
+                        Mob.CAP6P10 -> getString(R.string.subcap063)
+                        else -> getString(R.string.subcap064)
+                    }
                 }
-                9 -> { //--------------------------------------------------------------- capitulo 06
-                    txvtitlepager.text = getString(R.string.cap06)
-                    txvtitlepager2.text = getString(R.string.ctxt06)
-                    txvsubtitlepager.text = getString(R.string.subcap062)
-                }
-                10 -> { //--------------------------------------------------------------- capitulo 06
-                    txvtitlepager.text = getString(R.string.cap06)
-                    txvtitlepager2.text = getString(R.string.ctxt06)
-                    txvsubtitlepager.text = getString(R.string.subcap063)
-                }
-                11 -> { //-------------------------------------------------------------- capitulo 06
-                    txvtitlepager.text = getString(R.string.cap06)
-                    txvtitlepager2.text = getString(R.string.ctxt06)
-                    txvsubtitlepager.text = getString(R.string.subcap064)
-                }
-                12 -> { //-------------------------------------------------------------- capitulo 07
+                // ---- capitulo 07
+                Mob.CAP7P12, Mob.CAP7P13, Mob.CAP7P14 -> {
                     txvtitlepager.text = getString(R.string.cap07)
                     txvtitlepager2.text = getString(R.string.ctxt07)
-                    txvsubtitlepager.text = getString(R.string.subcap001)
+                    txvsubtitlepager.text = when (position) {
+                        Mob.CAP7P12 -> getString(R.string.subcap001)
+                        Mob.CAP7P13 -> getString(R.string.subcap002)
+                        else -> getString(R.string.subcap003)
+                    }
                 }
-                13 -> { //-------------------------------------------------------------- capitulo 07
-                    txvtitlepager.text = getString(R.string.cap07)
-                    txvtitlepager2.text = getString(R.string.ctxt07)
-                    txvsubtitlepager.text = getString(R.string.subcap002)
-                }
-                14 -> { //-------------------------------------------------------------- capitulo 07
-                    txvtitlepager.text = getString(R.string.cap07)
-                    txvtitlepager2.text = getString(R.string.ctxt07)
-                    txvsubtitlepager.text = getString(R.string.subcap003)
-                }
-                15 -> { //-------------------------------------------------------------- capitulo 08
+                // ---- capitulo 08
+                Mob.CAP8P15, Mob.CAP8P16 -> {
                     txvtitlepager.text = getString(R.string.cap08)
                     txvtitlepager2.text = getString(R.string.ctxt08)
-                    txvsubtitlepager.text = getString(R.string.subcap000)
+                    txvsubtitlepager.text = if (position == Mob.CAP8P15)
+                        getString(R.string.subcap001) else getString(R.string.subcap002)
                 }
-                16 -> { //-------------------------------------------------------------- capitulo 09
+                // ---- capitulo 09
+                Mob.CAP9P17, Mob.CAP9P18 -> {
                     txvtitlepager.text = getString(R.string.cap09)
                     txvtitlepager2.text = getString(R.string.ctxt09)
-                    txvsubtitlepager.text = getString(R.string.subcap001)
+                    txvsubtitlepager.text = if(position == Mob.CAP9P17)
+                        getString(R.string.subcap001) else getString(R.string.subcap002)
                 }
-                17 -> { //-------------------------------------------------------------- capitulo 09
-                    txvtitlepager.text = getString(R.string.cap09)
-                    txvtitlepager2.text = getString(R.string.ctxt09)
-                    txvsubtitlepager.text = getString(R.string.subcap002)
-                }
-                18 -> { //-------------------------------------------------------------- capitulo 10
+                // ---- capitulo 10
+                Mob.CAPXP19 -> {
                     txvtitlepager.text = getString(R.string.cap10)
                     txvtitlepager2.text = getString(R.string.ctxt10)
                     txvsubtitlepager.text = getString(R.string.subcap000)
                 }
-                //----------------------------------------------------------------------------------
-                19 -> { //--------------------------------------------------------------- seccion 01
+                //---------------------
+                // ---- seccion 01 ----
+                Mob.SEC1P20 -> {
                     txvtitlepager.text = getString(R.string.secc01)
                     txvtitlepager2.text = getString(R.string.stxt01)
                     txvsubtitlepager.text = getString(R.string.subcap000)
                 }
-                20 -> { //--------------------------------------------------------------- seccion 02
+                // ---- seccion 02
+                Mob.SEC2P21 -> {
                     txvtitlepager.text = getString(R.string.secc02)
                     txvtitlepager2.text = getString(R.string.stxt02)
                     txvsubtitlepager.text = getString(R.string.subcap000)
                 }
-                21 -> { //--------------------------------------------------------------- seccion 03
+                // ---- seccion 03
+                Mob.SEC3P22 -> {
                     txvtitlepager.text = getString(R.string.secc03)
                     txvtitlepager2.text = getString(R.string.stxt03)
                     txvsubtitlepager.text = getString(R.string.subcap000)
                 }
-                22 -> { //--------------------------------------------------------------- seccion 04
+                // ---- seccion 04
+                Mob.SEC4P23 -> {
                     txvtitlepager.text = getString(R.string.secc04)
                     txvtitlepager2.text = getString(R.string.stxt04)
                     txvsubtitlepager.text = getString(R.string.subcap000)
                 }
-                23 -> { //--------------------------------------------------------------- Informe
+                // ---- Informe
+                Mob.OBSP24 -> {
                     txvtitlepager.text = getString(R.string.informe)
                     txvtitlepager2.text = getString(R.string.informetxt)
                     txvsubtitlepager.text = getString(R.string.subcap000)
@@ -384,5 +356,4 @@ class FormActivity : AppCompatActivity() {
             }
         }
     }
-
 }

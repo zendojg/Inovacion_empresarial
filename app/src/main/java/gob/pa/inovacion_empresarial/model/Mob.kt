@@ -11,7 +11,6 @@ object Mob {
     const val APIDIST = "api/Catalogo/dist"
     const val APICORRE = "api/Catalogo/corr"
     const val APILUGARP = "api/Catalogo/lug"
-
     const val APIGETFORM = "api/Cuestionario/full/"
 
     const val DATEFORMAT = "yyyy-MM-dd HH:mm:ss a"
@@ -26,19 +25,72 @@ object Mob {
     const val TIME1S:Int = 1000
     const val TIME2S:Int = 2000
 
-    const val POS1:Int = 0
-    const val POS2:Int = 1
-    const val POS3:Int = 2
-    const val POS4:Int = 3
-    const val POS5:Int = 4
-    const val POS6:Int = 5
-
     const val CODE200:Int = 200
     const val CODE400:Int = 400
     const val CODE401:Int = 401
     const val CODE404:Int = 404
     const val CODE500:Int = 500
 
+    const val MENUP00:Int = 0
+    const val CAP1P01:Int = 1
+    const val CAP2P02:Int = 2
+    const val CAP2P03:Int = 3
+    const val CAP3P04:Int = 4
+    const val CAP4P05:Int = 5
+    const val CAP5P06:Int = 6
+    const val CAP5P07:Int = 7
+    const val CAP6P08:Int = 8
+    const val CAP6P09:Int = 9
+    const val CAP6P10:Int = 10
+    const val CAP6P11:Int = 11
+    const val CAP7P12:Int = 12
+    const val CAP7P13:Int = 13
+    const val CAP7P14:Int = 14
+    const val CAP8P15:Int = 15
+    const val CAP8P16:Int = 16
+    const val CAP9P17:Int = 17
+    const val CAP9P18:Int = 18
+    const val CAPXP19:Int = 19
+    const val SEC1P20:Int = 20
+    const val SEC2P21:Int = 21
+    const val SEC3P22:Int = 22
+    const val SEC4P23:Int = 23
+    const val OBSP24:Int = 24
+
+    var arrEncuestas: Array<Fragment> = arrayOf(    //----Contenedor de los Fragment del Form
+        FragMenu(),             //--00--Menu
+        FragEncuestaCap01(),    //--01--c01 --- Encuesta
+        FragEncuestaCap02o1(),  //--02--c02
+        FragEncuestaCap02o2(),  //--03
+        FragEncuestaCap03(),    //--04--c03
+        FragEncuestaCap04(),    //--05--c04
+        FragEncuestaCap05o1(),  //--06--c05
+        FragEncuestaCap05o2(),  //--07
+        FragEncuestaCap06o1(),  //--08--c06
+        FragEncuestaCap06o2(),  //--09
+        FragEncuestaCap06o3(),  //--10
+        FragEncuestaCap06o4(),  //--11
+        FragEncuestaCap07o1(),  //--12--c07
+        FragEncuestaCap07o2(),  //--13
+        FragEncuestaCap07o3(),  //--14
+        FragEncuestaCap08(),    //--15--c08
+        FragEncuestaCap08end(), //--16
+        FragEncuestaCap09o1(),  //--17--c09
+        FragEncuestaCap09o2(),  //--18
+        FragEncuestaCap10(),    //--19--c10 --- Encuesta
+        FragModuloSecc01(),     //--20--s01 --- Modulo
+        FragModuloSecc02(),     //--21--s02
+        FragModuloSecc03(),     //--22--s03
+        FragModuloSecc04(),     //--23--s04 --- Modulo
+        FragTotalInforme()      //--24--Informe
+    )
+
+    var arrBlank: Array<Fragment> = emptyArray()
+    var arrMain: Array<Fragment> = arrayOf(
+        //----Contenedor de los Fragment del Main
+        MainFragmentLogin(),    //--00--c01
+        MainFragmentSearch(),   //--01--c02
+    )
 
     var windNow = 1
     var windPrev = 0
@@ -81,39 +133,9 @@ object Mob {
         body = null
     )
 
-    var arrBlank: Array<Fragment> = emptyArray()
-    var arrMain: Array<Fragment> = arrayOf(
-        //----Contenedor de los Fragment del Main
-        MainFragmentLogin(),    //--00--c01
-        MainFragmentSearch(),   //--01--c02
-    )
 
-    var arrEncuestas: Array<Fragment> = arrayOf(    //----Contenedor de los Fragment del Form
-        FragMenu(),             //--00--Menu
-        FragEncuestaCap01(),    //--01--c01
-        FragEncuestaCap02o1(),  //--02--c02
-        FragEncuestaCap02o2(),  //--03
-        FragEncuestaCap03(),    //--04--c03
-        FragEncuestaCap04(),    //--05--c04
-        FragEncuestaCap05o1(),  //--06--c05
-        FragEncuestaCap05o2(),  //--07
-        FragEncuestaCap06o1(),  //--08--c06
-        FragEncuestaCap06o2(),  //--09
-        FragEncuestaCap06o3(),  //--10
-        FragEncuestaCap06o4(),  //--11
-        FragEncuestaCap07o1(),  //--12--c07
-        FragEncuestaCap07o2(),  //--13
-        FragEncuestaCap07o3(),  //--14
-        FragEncuestaCap08(),    //--15--c08
-        FragEncuestaCap09o1(),  //--16--c09
-        FragEncuestaCap09o2(),  //--17
-        FragEncuestaCap10(),    //--18--c10
-        FragModuloSecc01(),     //--19--s01
-        FragModuloSecc02(),     //--20--s02
-        FragModuloSecc03(),     //--21--s03
-        FragModuloSecc04(),     //--22--s04
-        FragTotalInforme()      //--23--Informe
-    )
+
+
 
     //--  FORMULARIO
     var cap1: ModelCap1? = null

@@ -1,209 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layout_secc03"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/teal_700"
-    tools:ignore="HardcodedText"
-    >
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView
-        android:id="@+id/scrollForm"
+    <data></data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_secc03"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="1dp"
-        android:fillViewport="true"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_height="match_parent"
+        android:background="@color/teal_700"
+        tools:ignore="HardcodedText">
 
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/scrollForm"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_margin="1dp"
-            android:animateLayoutChanges="true"
-            android:background="@drawable/background_shadow_med"
+            android:fillViewport="true"
             android:orientation="vertical"
-            android:padding="2dp">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
-                android:id="@+id/linearSecc04_6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="2dp"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="7dp"
-                android:background="@drawable/background_shadow"
+                android:layout_margin="1dp"
+                android:animateLayoutChanges="true"
+                android:background="@drawable/background_shadow_med"
                 android:orientation="vertical"
-                android:padding="5dp">
+                android:padding="2dp">
 
                 <LinearLayout
+                    android:id="@+id/linearSecc04_6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:orientation="horizontal">
+                    android:layout_marginHorizontal="2dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/background_shadow"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_weight="1.5"
+                            android:hint="@string/ncontrol">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/txtInfoNcontrol"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/white"
+                                android:fontFamily="sans-serif-condensed"
+                                android:inputType="number"
+                                android:maxLength="5"
+                                android:text="00000" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputLayout"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="10dp"
+                            android:layout_weight="3"
+                            android:hint="Condicion">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/txtCondicion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/white"
+                                android:fontFamily="sans-serif-condensed"
+                                android:inputType="none"
+                                android:lines="1"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text="Condición de la encuesta"
+                                tools:ignore="LabelFor" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="25dp"
+                        android:layout_marginVertical="10dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="OBSERVACIONES:"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
                         android:layout_marginBottom="5dp"
-                        android:layout_weight="1.5"
-                        android:hint="@string/ncontrol">
+                        android:hint="Encuesta de Innovación de Empresas:">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtInfoNcontrol"
+                            android:id="@+id/txtInfoObsEncuesta"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="number"
-                            android:maxLength="5"
-                            android:text="00000" />
+                            android:inputType="textMultiLine"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:text="xxxxxxxxxxxx" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/textInputLayout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="10dp"
-                        android:layout_weight="3"
-                        android:hint="Condicion">
+                        android:layout_marginBottom="5dp"
+                        android:hint="Módulo de Comercio Electrónico:">
 
-                        <AutoCompleteTextView
-                            android:id="@+id/txtCondicion"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtInfoObsModulo"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="none"
-                            android:lines="1"
-                            android:maxLines="1"
-                            android:singleLine="true"
-                            android:text="Condición de la encuesta"
-                            tools:ignore="LabelFor" />
+                            android:inputType="textMultiLine"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:text="xxxxxxxxxxxx" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
+
+                <Button
+                    android:id="@+id/btSendObs"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="25dp"
-                    android:layout_marginVertical="10dp"
+                    android:layout_marginHorizontal="2dp"
+                    android:drawableTint="@color/white"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="OBSERVACIONES:"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:gravity="start|center_vertical"
+                    android:text="  Finalizar Empadronamiento"
+                    android:textStyle="bold"
+                    app:icon="@drawable/img_send"
+                    app:layout_constraintEnd_toStartOf="@+id/btEncuestaExpandMain"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputLayout
+                <Button
+                    android:id="@+id/btSaveObs"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:hint="Encuesta de Innovación de Empresas:">
+                    android:layout_marginHorizontal="2dp"
+                    android:drawableTint="@color/white"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="start|center_vertical"
+                    android:text="  Guardar Encuesta"
+                    android:textStyle="bold"
+                    app:backgroundTint="#4C6CC4"
+                    app:icon="@drawable/img_save_black"
+                    app:layout_constraintEnd_toStartOf="@+id/btEncuestaExpandMain"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtInfoObsEncuesta"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="textMultiLine"
-                        tools:ignore="TouchTargetSizeCheck"
-                        tools:text="xxxxxxxxxxxx" />
-                </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+                <Button
+                    android:id="@+id/btViewObs"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:hint="Módulo de Comercio Electrónico:">
+                    android:layout_marginHorizontal="2dp"
+                    android:drawableTint="@color/white"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="start|center_vertical"
+                    android:text="  Revisar Encuesta"
+                    android:textStyle="bold"
+                    app:backgroundTint="#47B0BF"
+                    app:icon="@drawable/img_manage_search"
+                    app:layout_constraintEnd_toStartOf="@+id/btEncuestaExpandMain"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtInfoObsModulo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="textMultiLine"
-                        tools:ignore="TouchTargetSizeCheck"
-                        tools:text="xxxxxxxxxxxx" />
-                </com.google.android.material.textfield.TextInputLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+
+                </View>
 
             </LinearLayout>
 
-
-            <Button
-                android:id="@+id/btSendObs"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="2dp"
-                android:drawableTint="@color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="start|center_vertical"
-                android:text="  Finalizar Empadronamiento"
-                android:textStyle="bold"
-                app:icon="@drawable/img_send"
-                app:layout_constraintEnd_toStartOf="@+id/btEncuestaExpandMain"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/btSaveObs"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="2dp"
-                android:drawableTint="@color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="start|center_vertical"
-                android:text="  Guardar Encuesta"
-                android:textStyle="bold"
-                app:backgroundTint="#4C6CC4"
-                app:icon="@drawable/img_save_black"
-                app:layout_constraintEnd_toStartOf="@+id/btEncuestaExpandMain"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        </ScrollView>
 
 
-            <Button
-                android:id="@+id/btViewObs"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="2dp"
-                android:drawableTint="@color/white"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="start|center_vertical"
-                android:text="  Revisar Encuesta"
-                android:textStyle="bold"
-                app:backgroundTint="#47B0BF"
-                app:icon="@drawable/img_manage_search"
-                app:layout_constraintEnd_toStartOf="@+id/btEncuestaExpandMain"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="50dp">
-
-
-            </View>
-
-        </LinearLayout>
-
-    </ScrollView>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 
 

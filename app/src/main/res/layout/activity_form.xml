@@ -101,88 +101,37 @@
 
         </androidx.appcompat.widget.Toolbar>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/consttitlepager2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/txvtitlepager2"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="18dp"
             android:animateLayoutChanges="true"
-            android:background="?selectableItemBackground"
+            android:fontFamily="sans-serif-condensed"
+            android:textAllCaps="true"
+            android:text="@string/ctxt_test"
+            android:textSize="14sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarpager">
+            app:layout_constraintTop_toBottomOf="@+id/toolbarpager" />
 
-            <TextView
-                android:id="@+id/txvtitlepager2"
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:layout_marginStart="18dp"
-                android:layout_marginEnd="45dp"
-                android:animateLayoutChanges="true"
-                android:fontFamily="sans-serif-condensed"
-                android:textAllCaps="true"
-                android:text="@string/ctxt_test"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/bttoolresizepager"
-                android:layout_width="55dp"
-                android:layout_height="15dp"
-                android:layout_gravity="center"
-                android:layout_marginHorizontal="5dp"
-                android:layout_marginEnd="2dp"
-                android:clickable="true"
-                android:contentDescription="redimencionar"
-                android:focusable="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/img_expand_less"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        <FrameLayout
-            android:id="@+id/linearsubtittlepager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="2dp"
+        <TextView
+            android:id="@+id/txvsubtitlepager"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginHorizontal="1dp"
             android:animateLayoutChanges="true"
-            android:background="@drawable/background_shadow_low"
+            android:background="@drawable/background_shadow"
             android:fontFamily="sans-serif-condensed"
-            app:layout_constraintTop_toBottomOf="@+id/consttitlepager2">
-
-            <TextView
-                android:id="@+id/txvsubtitlepager"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:padding="5dp"
-                android:animateLayoutChanges="true"
-                android:background="?selectableItemBackground"
-                android:text="@string/subcap_test"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/btsubtresizepager"
-                android:layout_width="55dp"
-                android:layout_height="15dp"
-                android:layout_gravity="end|center_vertical"
-                android:clickable="true"
-                android:animateLayoutChanges="true"
-                android:contentDescription="redimencionar"
-                android:focusable="true"
-                app:srcCompat="@drawable/img_expand_less"
-                app:tint="@color/gray"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-        </FrameLayout>
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@string/subcap_test"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txvtitlepager2" />
 
 
         <androidx.viewpager2.widget.ViewPager2
@@ -192,11 +141,12 @@
             android:layout_margin="2dp"
             android:animateLayoutChanges="true"
             android:foregroundGravity="top"
+            tools:background="@color/gray"
             app:layout_constraintBottom_toTopOf="@+id/frameLayoutNav"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearsubtittlepager"
+            app:layout_constraintTop_toBottomOf="@+id/txvsubtitlepager"
             app:layout_constraintVertical_bias="0.0">
 
         </androidx.viewpager2.widget.ViewPager2>
@@ -207,26 +157,21 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:background="@drawable/background_shadow1"
-            android:paddingHorizontal="5dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
             android:gravity="top"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-
             <ImageView
                 android:id="@+id/btbackpager"
                 android:layout_width="0dp"
-                android:layout_height="35dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginHorizontal="1dp"
                 android:background="?selectableItemBackground"
                 android:clickable="true"
                 android:contentDescription="Previo"
                 android:focusable="true"
-                android:padding="3dp"
+                android:padding="6dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btnextpager"
                 app:layout_constraintStart_toStartOf="parent"
@@ -238,14 +183,13 @@
             <ImageView
                 android:id="@+id/btnextpager"
                 android:layout_width="0dp"
-                android:layout_height="35dp"
-                android:layout_marginHorizontal="1dp"
+                android:layout_height="wrap_content"
                 android:background="?selectableItemBackground"
                 android:clickable="true"
                 android:contentDescription="Siguiente"
                 android:focusable="true"
                 android:gravity="end"
-                android:padding="3dp"
+                android:padding="6dp"
                 app:layout_constraintStart_toEndOf="@+id/btbackpager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
