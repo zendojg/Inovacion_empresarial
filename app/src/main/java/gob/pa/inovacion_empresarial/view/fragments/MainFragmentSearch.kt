@@ -21,6 +21,7 @@ import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.FragSearchMainBinding
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
+import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.view.FormActivity
@@ -145,8 +146,23 @@ class MainFragmentSearch: Fragment() {
         fragSearch.imgSenacytsearch.isVisible = !check
 
         if (check) {
-            fragSearch.txtlocal.text = 
-                
+            with(Mob) {
+                val blank = "".toEditable()
+                fragSearch.txtLocalSearch.text = cap2?.v05nameLtxt?.toEditable() ?: blank
+                fragSearch.txtrazonSearch.text = cap2?.v06razontxt?.toEditable() ?: blank
+                fragSearch.txtRUCsearch.text = cap2?.v07ructxt?.toEditable() ?: blank
+                fragSearch.txtdirSearch.text = cap2?.v08dirtxt?.toEditable() ?: blank
+                fragSearch.txttel1Search.text = cap2?.v09tel1txt?.toEditable() ?: blank
+                fragSearch.txttel2Search.text = cap2?.v09tel2txt?.toEditable() ?: blank
+            }
+
+        } else {
+            fragSearch.txtLocalSearch.text?.clear()
+            fragSearch.txtrazonSearch.text?.clear()
+            fragSearch.txtRUCsearch.text?.clear()
+            fragSearch.txtdirSearch.text?.clear()
+            fragSearch.txttel1Search.text?.clear()
+            fragSearch.txttel2Search.text?.clear()
         }
         
         

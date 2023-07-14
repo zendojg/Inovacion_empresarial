@@ -110,7 +110,7 @@
                 tools:visibility="visible">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txtlocally"
+                    android:id="@+id/txtLocalSearchly"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="3dp"
@@ -124,7 +124,7 @@
                     app:startIconTint="#306F90">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtlocal"
+                        android:id="@+id/txtLocalSearch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_border2"
@@ -135,20 +135,20 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txtrazonly"
+                    android:id="@+id/txtrazonSearchly"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="3dp"
                     android:hint="Razón social:"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtlocally"
+                    app:layout_constraintTop_toBottomOf="@+id/txtLocalSearchly"
                     app:startIconContentDescription="Razón social"
                     app:startIconDrawable="@drawable/img_razon"
                     app:startIconTint="#306F90">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtrazon"
+                        android:id="@+id/txtrazonSearch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_border2"
@@ -159,20 +159,20 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txt3styleFly"
+                    android:id="@+id/txtRUCsearchly"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="3dp"
                     android:hint="RUC:"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtrazonly"
+                    app:layout_constraintTop_toBottomOf="@+id/txtrazonSearchly"
                     app:startIconContentDescription="RUC"
                     app:startIconDrawable="@drawable/img_idcheck"
                     app:startIconTint="#306F90">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txt3styleF"
+                        android:id="@+id/txtRUCsearch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_border2"
@@ -183,20 +183,20 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txt4styleFly"
+                    android:id="@+id/txtdirSearchly"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="3dp"
                     android:hint="Dirección:"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt3styleFly"
+                    app:layout_constraintTop_toBottomOf="@+id/txtRUCsearchly"
                     app:startIconContentDescription="Dirección"
                     app:startIconDrawable="@drawable/img_gps1"
                     app:startIconTint="#306F90">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txt4styleF"
+                        android:id="@+id/txtdirSearch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_border2"
@@ -207,20 +207,20 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txt5styleFly"
+                    android:id="@+id/txttel1Searchly"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="3dp"
                     android:hint="Teléfono:"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt4styleFly"
+                    app:layout_constraintTop_toBottomOf="@+id/txtdirSearchly"
                     app:startIconContentDescription="Teléfono"
                     app:startIconDrawable="@drawable/img_tel"
                     app:startIconTint="#306F90">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txt5styleF"
+                        android:id="@+id/txttel1Search"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_border2"
@@ -231,20 +231,20 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txt6styleFly"
+                    android:id="@+id/txttel2Searchly"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="3dp"
                     android:hint="Teléfono:"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt5styleFly"
+                    app:layout_constraintTop_toBottomOf="@+id/txttel1Searchly"
                     app:startIconContentDescription="Teléfono"
                     app:startIconDrawable="@drawable/img_tel"
                     app:startIconTint="#306F90">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txt6styleF"
+                        android:id="@+id/txttel2Search"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_border2"
@@ -284,7 +284,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/btinitSearch"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txt6styleFly" />
+                    app:layout_constraintTop_toBottomOf="@+id/txttel2Searchly" />
 
 
                 <com.google.android.material.button.MaterialButton
@@ -317,7 +317,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/btcancelSearch"
-                    app:layout_constraintTop_toBottomOf="@+id/txt6styleFly" />
+                    app:layout_constraintTop_toBottomOf="@+id/txttel2Searchly" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -331,6 +331,7 @@
             android:layout_height="55dp"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp"
+            android:animateLayoutChanges="true"
             android:ellipsize="end"
             android:fontFamily="sans-serif-condensed"
             android:gravity="start|center_vertical"
@@ -352,6 +353,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginHorizontal="10dp"
+            android:animateLayoutChanges="true"
             android:ellipsize="end"
             android:fontFamily="sans-serif-condensed"
             android:gravity="start|center_vertical"
@@ -373,6 +375,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginHorizontal="10dp"
+            android:animateLayoutChanges="true"
             android:ellipsize="end"
             android:fontFamily="sans-serif-condensed"
             android:gravity="start|center_vertical"
@@ -405,6 +408,7 @@
             android:id="@+id/img_senacytsearch"
             android:layout_width="wrap_content"
             android:layout_height="65dp"
+            android:animateLayoutChanges="true"
             android:contentDescription="@string/senacyt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -415,6 +419,7 @@
             android:id="@+id/versionsearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
             android:fontFamily="sans-serif-condensed"
             android:text="@string/version"
             android:textColor="@android:color/holo_blue_dark"
