@@ -22,9 +22,11 @@ import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.adapters.AdapterMain
 import gob.pa.inovacion_empresarial.databinding.ActivityMainBinding
 import gob.pa.inovacion_empresarial.function.AppCache
+import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.service.room.FormDB
+import gob.pa.inovacion_empresarial.service.room.RoomView
 import kotlinx.coroutines.launch
 import kotlin.system.exitProcess
 
@@ -32,9 +34,9 @@ import kotlin.system.exitProcess
 class MainActivity : AppCompatActivity() {
 
     private lateinit var main: ActivityMainBinding
-    private lateinit var pagerMain: ViewPager2
+    lateinit var pagerMain: ViewPager2
     private val dvmMain: DVModel by viewModels()
-    var dialog: AlertDialog? = null
+    var aDialog: AlertDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,40 +48,55 @@ class MainActivity : AppCompatActivity() {
         pagerMain = main.viewpagerMain
         pagerMain.isUserInputEnabled = false
         pagerMain.adapter = AdapterMain(Mob.arrMain, supportFragmentManager, lifecycle)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        main.barMain.visibility = View.VISIBLE
-        pagerMain.visibility = View.INVISIBLE
-        Mob.authData = AppCache.loginGET(this)             //----- CARGA TOKEM
-        if (Mob.authData?.result?.token.isNullOrEmpty()) {     //----- TOKEN VACIO IR A LOGIN
-            Handler(Looper.getMainLooper()).postDelayed({
-                pagerMain.setCurrentItem(Mob.MENUP00, false)
-                pagerMain.visibility = View.VISIBLE
-                main.barMain.visibility = View.GONE
-            }, (Mob.TIME500MS).toLong())
-        } else {  //------------------------------------------- //------------------
-            lifecycleScope.launch {
-                download()
-                pagerMain.setCurrentItem(1, false)
-            }
-        }
 
         val decorView: View = window.decorView
         decorView.systemUiVisibility =
             decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
         window.statusBarColor = ContextCompat.getColor(this, R.color.celeste)
+    }
+    override fun onPause() {
+        super.onPause()
+        if (aDialog?.isShowing == true){
+            aDialog?.dismiss()
+        }
+    }
 
+    override fun onResume() {
+        super.onResume()
+        pagerMain.visibility = View.INVISIBLE
+        main.barMain.visibility = View.VISIBLE
+        if (AppCache.remGET(this)) {
+            Mob.authData = AppCache.loginGET(this)             //----- CARGA TOKEM
+            if (Mob.authData?.result?.token.isNullOrEmpty()) {     //----- TOKEN VACIO IR A LOGIN
+                Handler(Looper.getMainLooper()).postDelayed({
+                    pagerMain.setCurrentItem(Mob.LOGIN0, false)
+                    pagerMain.visibility = View.VISIBLE
+                    main.barMain.visibility = View.GONE
+                }, (Mob.TIME500MS).toLong())
+            } else {
+                lifecycleScope.launch {
+                    validate()
+                    pagerMain.setCurrentItem(Mob.INIT01, false)
+                    RoomView(dvmMain, this@MainActivity).viewRoom()
+                }
+            }
+        } else {
+            pagerMain.visibility = View.VISIBLE
+            main.barMain.visibility = View.GONE
+            pagerMain.setCurrentItem(Mob.LOGIN0, false)
+        }
         pagerMain.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                if (position == 1)
-                    download()
+                if (position != Mob.LOGIN0) validate() //--- CAMBIAR VERIFICADOR A PUNTOS CLAVES ---
+                if (position == Mob.INIT01) {
+                    lifecycleScope.launch {
+                        RoomView(dvmMain, this@MainActivity).viewRoom()
+                    }
+                }
             }
         })
-
-
+        main.btMainTest.setOnClickListener { validate() }
     }
 
     override fun onBackPressed() {
@@ -92,91 +109,60 @@ class MainActivity : AppCompatActivity() {
         val msg2: TextView = msg.findViewById(R.id.msg2)
 
         when (pagerMain.currentItem) {
-            Mob.CAP2P03, Mob.CAP3P04 -> { pagerMain.setCurrentItem(Mob.CAP1P01,false) }
-            Mob.CAP2P02 -> { pagerMain.setCurrentItem(pagerMain.currentItem - 1,false) }
+            Mob.PAGE02, Mob.PAGE03, Mob.PAGE04 -> {
+                pagerMain.setCurrentItem(Mob.INIT01,false) }
             else -> {
-                btpositivo.text = getString(R.string.cancel)
-                btnegativo.text = getString(R.string.cerrarAp)
+                btpositivo.text = getString(R.string.proceed)
+                btnegativo.text = getString(R.string.close)
                 msgT.text = getString(R.string.closeApp)
                 msg1.visibility = View.GONE
                 msg2.visibility = View.GONE
                 dialogBack.setView(msg)
 
-                dialog = dialogBack.create()
-                dialog?.show()
+                aDialog = dialogBack.create()
+                aDialog?.show()
                 btpositivo.icon = ContextCompat.getDrawable(this,R.drawable.img_back)
                 btnegativo.icon = ContextCompat.getDrawable(this,R.drawable.img_exit_app)
 
                 btpositivo.setOnClickListener {
-                    dialog?.dismiss()
+                    aDialog?.dismiss()
                 }
                 btnegativo.setOnClickListener {
-                    moveTaskToBack(true)
                     finishAffinity()
+                    this.finish()
                     exitProcess(-1)
                 }
             }
         }
     }
 
-
-
-
-    fun download() {
-        val ctx = this
-        val roomDB = FormDB.buildDB(ctx)
+    fun validate() { //-------- Validador de TOKEN
         lifecycleScope.launch {
-            val proRoom = roomDB.dbFormDao().getProvArray()
-            val distRoom = roomDB.dbFormDao().getDistVer()
-            val correRoom = roomDB.dbFormDao().getCorrVer()
-            val lugarRoom = roomDB.dbFormDao().getDistVer()
-            if (proRoom.isEmpty()) { roomDB.dbFormDao().insertProv(dvmMain.getProv()) }
-            if (distRoom.isEmpty()) { roomDB.dbFormDao().insertDist(dvmMain.getDist()) }
-            if (correRoom.isEmpty()) { roomDB.dbFormDao().insertCorre(dvmMain.getCorre()) }
-            if (lugarRoom.isEmpty()) { roomDB.dbFormDao().insertLugarP(dvmMain.getLugarP()) }
-        }
-    }
-
-
-
-    fun validate(ctx: Context, dvModel: DVModel, pager: ViewPager2): LiveData<Boolean>? {
-        val result: MutableLiveData<Boolean>? = null
-        Mob.authData = AppCache.loginGET(ctx)
-
-        if (Mob.authData?.result?.token.isNullOrEmpty()) {
-            pager.setCurrentItem(0, false)
-            Toast.makeText(ctx, "Bienvenido", Toast.LENGTH_LONG).show()
-            result?.postValue(false)
-        } else {
-            lifecycleScope.launch {
-                val response = dvModel.loginToken()
-                with(response) {
-                    when {
-                        contains("java.net.UnknownHostException:") ||
-                                contains("java.net.ConnectException:") ||
-                                contains("java.net.SocketTimeoutException:") -> {
-                            Toast.makeText(ctx, "No se pudo conectar al servidor",
-                                Toast.LENGTH_LONG).show()
-                            result?.postValue(false)
-                        }
-                        contains("200") -> { result?.postValue(true) }
-                        contains("400") || contains("401") || contains("500") -> {
-                            Toast.makeText(ctx, "Inicie Sesión nuevamente",
-                                Toast.LENGTH_SHORT).show()
-                            Mob.authData = null
-                            AppCache.loginCLEAR(ctx)
-                            pager.setCurrentItem(0, false)
-                            result?.postValue(false)
-                        }
-                        else -> {
-                            Log.i("----ERROR: ", "-$response-")
-                            Toast.makeText(ctx, "Error de conexión", Toast.LENGTH_LONG).show()
-                            result?.postValue(false)
-                        }
+            val resp = dvmMain.seeToken()
+            Handler(Looper.getMainLooper()).postDelayed({
+                when (resp?.code) {
+                    Mob.CODE200 -> {
+                        pagerMain.visibility = View.VISIBLE
+                        main.barMain.visibility = View.GONE
+                    }
+                    Mob.CODE401 -> {
+                        pagerMain.visibility = View.VISIBLE
+                        main.barMain.visibility = View.GONE
+                        pagerMain.setCurrentItem(Mob.LOGIN0, false)
+                        val alert = Functions.msgBallom(
+                            "Sesión expirada", Mob.WIDTHBALLON160, this@MainActivity)
+                        alert.showAlignBottom(main.btMainTest)
+                        alert.dismissWithDelay(Mob.TIMEBALLON4SEG)
+                    }
+                    else -> {
+                        pagerMain.visibility = View.VISIBLE
+                        main.barMain.visibility = View.GONE
                     }
                 }
-            }
+            }, (Mob.TIME500MS).toLong())
+            Log.i("RESP:","\n--------CODE: ${resp?.code}\n--------MSG: ${resp?.msg}\n")
+
         }
-        return result
     }
+
 }

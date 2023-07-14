@@ -1,60 +1,4 @@
 <resources>
-    <string name="app_name">Innovación en empresas</string>
-    <string name="sharedPreferencesKey">UserConfig</string>
-
-    <string name="cancel">Cancelar</string>
-    <string name="msgSalir">¿Desea salir de la aplicación?</string>
-    <string name="cerrarAp">Cerrar App</string>
-    <string name="close">Cerrar</string>
-    <string name="closeApp">Cerrar Aplicación</string>
-
-    <string name="error">Error</string>
-    <string name="errorUser">Ingrese su usuario</string>
-    <string name="errorPass">Ingrese su contraseña</string>
-
-    <string name="distSelect">Seleccione un Distrito</string>
-    <string name="provSelect">Seleccione una Provincia</string>
-    <string name="correSelect">Seleccione un Corregimiento</string>
-    <string name="rucHelper">Rollo/Tomo  -  Imagen/Folio  -  Ficha/Asiento</string>
-
-    <string name="hint01"><b>1. Provincia:</b></string>
-    <string name="hint02"><b>2. Distrito:</b></string>
-    <string name="hint03"><b>3. Corregimiento:</b></string>
-    <string name="hint04"><b>4. Lugar Poblado:</b></string>
-
-    <string name="hint05"><b>5. Nombre comercial:</b></string>
-    <string name="hint06"><b>6. Razón social:</b></string>
-    <string name="hint07"><b>7. RUC:</b></string>
-    <string name="hint08"><b>8. Dirección:</b></string>
-    <string name="hint091"><b>9. Teléfono 1:</b></string>
-    <string name="hint092"><b>9. Teléfono 2:</b></string>
-    <string name="hint10"><b>10. Celular:</b></string>
-    <string name="hint11"><b>11. Correo electrónico de la empresa:</b></string>
-    <string name="hint12"><b>12. Página web:</b></string>
-    <string name="hint13"><b>13. Número de clave:</b></string>
-    <string name="hint14"><b>14. Número de Locales que conforman la empresa:</b></string>
-    <string name="hint15"><b>15. De estos locales, ¿Cuántos se encuentran en la ciudad de Panamá</b></string>
-
-    <string name="hint16"><b>16. Nombre del Informante:</b></string>
-    <string name="hint17"><b>17. Cargo:</b></string>
-    <string name="hint18"><b>18. Dirección:</b></string>
-    <string name="hint191"><b>19. Teléfono 1:</b></string>
-    <string name="hint192"><b>19. Teléfono 2:</b></string>
-    <string name="hint20"><b>20. Celular:</b></string>
-    <string name="hint21"><b>21. Correo electrónico del informante:</b></string>
-
-    <string name="hint22"><b>22. Año de Inicio de operaciones:</b></string>
-    <string name="hint26">Nombre completo:</string>
-    <string name="hint27">Nombre del País:</string>
-    <string name="hint28"><b>21. Correo electrónico del informante:</b></string>
-
-    <string name="hintDV"><b>DV</b></string>
-
-
-    <string name="hints061"><b> 1. Hogares </b></string>
-    <string name="hints062"><b> 2. Empresas </b></string>
-    <string name="hints063"><b> 3. Gobierno </b></string>
-    <string name="hints064"><b> 4. Otros (iglesias, ONG y otros) </b></string>
 
 
     <string name="c01">Capítulo I.  Localización de la Empresa</string>
@@ -106,11 +50,10 @@
     <string name="subcap064">4. Innovación en la Comercialización</string>
     <string name="subcap_test">Subtítulo del capítulo, mensaje de prueba</string>
 
-
-    <string name="encuestatitle">Encuesta de Innovación en Empresas</string>
-    <string name="modulotitle">Módulo de Comercio Electrónico en la Empresa</string>
-    <string name="subtittle1Main">Instituto Nacional de Estadística y Censo</string>
-
+    <string name="secc01">Sección 1.</string>
+    <string name="secc02">Sección 2.</string>
+    <string name="secc03">Sección 3.</string>
+    <string name="secc04">Sección 4.</string>
 
     <string name="s01">Sección 1. Uso de Internet</string>
     <string name="s02">Sección 2. Seguridad de la Empresa a travéz de las Tecnologías de la Información y las comunicacions (YIC)</string>
@@ -118,41 +61,19 @@
     <string name="s04">Sección 4. Gastos Por Comercio Electrónico</string>
     <string name="s05">OBSERVACIONES DEL MÓDULO DE COMERCIO ELECTRÓNICO</string>
 
-    <string name="secc01">Sección 1.</string>
-    <string name="secc02">Sección 2.</string>
-    <string name="secc03">Sección 3.</string>
-    <string name="secc04">Sección 4.</string>
-
     <string name="stxt01">Uso de Internet</string>
     <string name="stxt02">Seguridad de la Empresa, a travéz de las Tecnologías de la Información y las comunicacions (TIC)</string>
     <string name="stxt03">Comercio Electrónico</string>
     <string name="stxt04">Gastos Por Comercio Electrónico</string>
 
+    <string name="encuestatitle">Encuesta de Innovación en Empresas</string>
+    <string name="modulotitle">Módulo de Comercio Electrónico en la Empresa</string>
+    <string name="subtittle1Main">Instituto Nacional de Estadística y Censo</string>
+
+
     <string name="informe">INFORME</string>
     <string name="informetxt">Datos del Formulario</string>
 
-
-    <string name="cap_example">Capitulo xxxxxxxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxx</string>
-    <string name="guardar">Guardar</string>
-    <string name="salir">Salir</string>
-    <string name="ncontrol">N° de control:</string>
-    <string name="_0">0</string>
-    <string name="decreto">La información solicitada esta amparada por el Decreto Estadistico y es Estrictamente Confidecial</string>
-    <string name="ley">Ley 10 de 22 de enero de 2009</string>
-    <string name="condici_n_de_la_encuesta">Condición de la encuesta</string>
-    <string name="condicion">Condicion</string>
-    <string name="_00000">00000</string>
-    <string name="n_de_control">N° de Control:</string>
-    <string name="e00_0000">E00–0000</string>
-    <string name="encuestador">Encuestador:</string>
-    <string name="obs">OBSERVACIONES</string>
-    <string name="version">versión 0.0</string>
-    <string name="senacyt">SENACYT</string>
-    <string name="backgroud">Backgroud</string>
-    <string name="btinitForm">INICIAR: Encuesta de Innovación en Empresas</string>
-    <string name="btinitmodule">Módulo de Comercio Electrónico en la Empresa</string>
-    <string name="subtittle2Main">La información solicitada está amparada por el secreto estadístico y es estrictamente confidencial</string>
-    <string name="subtittle3Main">LEY 10 DEL 22 DE ENERO DE 2009</string>
 
     <string-array name="arr_onetofive">
         <item />
@@ -195,9 +116,29 @@
         <item>Ngöbe-Buglé</item>
     </string-array>
 
+    <string name="cap_example">Capitulo xxxxxxxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxx</string>
+    <string name="guardar">Guardar</string>
+    <string name="salir">Salir</string>
+    <string name="ncontrol">N° de control:</string>
+    <string name="_0">0</string>
+    <string name="decreto">La información solicitada esta amparada por el Decreto Estadistico y es Estrictamente Confidecial</string>
+    <string name="ley">Ley 10 de 22 de enero de 2009</string>
+    <string name="condici_n_de_la_encuesta">Condición de la encuesta</string>
+    <string name="condicion">Condicion</string>
+    <string name="_00000">00000</string>
+    <string name="n_de_control">N° de Control:</string>
+    <string name="e00_0000">E00–0000</string>
+    <string name="encuestador">Encuestador:</string>
+    <string name="obs">OBSERVACIONES</string>
+    <string name="version">versión 0.0</string>
+    <string name="senacyt">SENACYT</string>
+    <string name="backgroud">Backgroud</string>
+    <string name="btinitForm">INICIAR: Encuesta de Innovación en Empresas</string>
+    <string name="btinitmodule">Módulo de Comercio Electrónico en la Empresa</string>
+    <string name="subtittle2Main">La información solicitada está amparada por el secreto estadístico y es estrictamente confidencial</string>
+    <string name="subtittle3Main">LEY 10 DEL 22 DE ENERO DE 2009</string>
 
     <dimen name="toolsize">85dp</dimen>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="tittle1Main">CONTRALORÍA GENERAL DE LA REPÚBLICA</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_ncontrol"><b>Número de Control:</b></string>
@@ -206,6 +147,7 @@
     <string name="hint_user">Usuario</string>
 
     <string name="blank"> </string>
+    <string name="point3">…</string>
     <string name="a">a.</string>
     <string name="b">b.</string>
     <string name="c">c.</string>
@@ -226,6 +168,10 @@
     <string name="n10">10. </string>
     <string name="n11">11. </string>
     <string name="n12">12. </string>
+    <string name="n13">13. </string>
+    <string name="n14">14. </string>
+    <string name="n15">15. </string>
+    <string name="n22">22.  </string>
     <string name="p23">23.  </string>
     <string name="p24">24.  </string>
     <string name="p25">25.  </string>
@@ -274,12 +220,72 @@
     <string name="n68">68. </string>
     <string name="n69">69. </string>
     <string name="n70">70. </string>
+
+    <string name="app_name">Innovación en empresas</string>
+    <string name="sharedPreferencesKey">UserConfig</string>
+
+    <string name="cancel">Cancelar</string>
+    <string name="msgSalir">¿Desea salir de la aplicación?</string>
+    <string name="cerrarAp">Cerrar App</string>
+    <string name="close">Cerrar</string>
+    <string name="proceed">Continuar</string>
+    <string name="closeApp">Cerrar Aplicación</string>
+
+    <string name="error">Error</string>
+    <string name="errorUser">Ingrese su usuario</string>
+    <string name="errorPass">Ingrese su contraseña</string>
+
+    <string name="distSelect">Seleccione un Distrito</string>
+    <string name="provSelect">Seleccione una Provincia</string>
+    <string name="correSelect">Seleccione un Corregimiento</string>
+    <string name="rucHelper">Rollo/Tomo  -  Imagen/Folio  -  Ficha/Asiento</string>
+
+    <string name="hintDV"><b>DV:</b></string>
+
+    <string name="hints061"> 1. Hogares </string>
+    <string name="hints062"> 2. Empresas </string>
+    <string name="hints063"> 3. Gobierno </string>
+    <string name="hints064"> 4. Otros (iglesias, ONG y otros) </string>
+
     <string name="hint_userx"><b>Usuario</b></string>
     <string name="hint_passx"><b>Contraseña</b></string>
     <string name="doublecero">00</string>
     <string name="prov">Provincia</string>
     <string name="dist">Distritos</string>
     <string name="corre">Corregimientos</string>
+    <string name="hint01"><b>1. Provincia:</b></string>
+    <string name="hint02"><b>2. Distrito:</b></string>
+    <string name="hint03"><b>3. Corregimiento:</b></string>
+    <string name="hint04"><b>4. Lugar Poblado o barrio:</b></string>
+
+    <string name="hint05"><b>5. Nombre comercial:</b></string>
+    <string name="hint06"><b>6. Razón social:</b></string>
+    <string name="hint07"><b>7. RUC:</b></string>
+    <string name="hint08"><b>8. Dirección:</b></string>
+    <string name="hint091"><b>9. Teléfono 1:</b></string>
+    <string name="hint092"><b>9. Teléfono 2:</b></string>
+    <string name="hint10"><b>10. Celular:</b></string>
+    <string name="hint11"><b>11. Correo electrónico de la empresa:</b></string>
+    <string name="hint12"><b>12. Página web:</b></string>
+    <string name="hint13"><b>13. Número de clave:</b></string>
+    <string name="hint14"><b>14. Número de Locales que conforman la empresa:</b></string>
+    <string name="p15"><b>15. De estos locales</b></string>
+    <string name="hint15"><b> ¿Cuántos se encuentran en la ciudad de Panamá </b></string>
+
+    <string name="hint16"><b>16. Nombre del Informante:</b></string>
+    <string name="hint17"><b>17. Cargo:</b></string>
+    <string name="hint18"><b>18. Dirección:</b></string>
+    <string name="hint191"><b>19. Teléfono 1:</b></string>
+    <string name="hint192"><b>19. Teléfono 2:</b></string>
+    <string name="hint20"><b>20. Celular:</b></string>
+    <string name="hint21"><b>21. Correo electrónico del informante:</b></string>
+
+    <string name="hint22"><b>Año de Inicio de operaciones:</b></string>
+    <string name="hint26">Nombre completo:</string>
+    <string name="hint27">Nombre del País:</string>
+    <string name="hint28"><b>21. Correo electrónico del informante:</b></string>
+
+    <string name="p22txt">¿En qué año inicio operaciones la empresa en nuestro país?</string>
     <string name="hint_otheRef">1. Otras referencias:</string>
     <string name="hint15_morelocal">y cuántos en otras provincias?</string>
     <string name="p23txt">¿Cúal es la naturaleza jurídica de la empresa?</string>
@@ -296,7 +302,7 @@
     <string name="p24_si">Sí     <b><font color="black">1. (Continúe)</font></b></string>
     <string name="p24_no">No    <b><font color="black">2. (Pase al Cap. IV, pregunta 28)</font></b></string>
     <string name="p24txt">¿Su empresa pertenece a algún tipo de empresas organizadas formalmente?</string>
-    <string name="p25txt">¿A qué tipo de empresa organizadas formalmente pertenece…</string>
+    <string name="p25txt">¿A qué tipo de empresa organizadas formalmente pertenece…\n\n<b><font color="#ff0099cc">MARQUE UNA SOLA RESPUESTA</font></b></string>
     <string name="check25_1">1. Grupo empresarial?</string>
     <string name="check25_2">2. Holding?</string>
     <string name="check25_3">3. Filial?</string>
@@ -313,7 +319,7 @@
     <string name="hint_cinu">CINU Rev. 4.1</string>
     <string name="hint_actsec">Actividad secundaria</string>
     <string name="lb_30_2"><b>Ventas Netas</b>\n(Valor en balboas, omita los centésimos)</string>
-    <string name="p30txt">En el 2021 y 2022, ¿cuál fue el total de las <u>ventas netas de la empresa</u>\n\n<font color="#484848">(Considere las ventas nacionales más las exportaciones).</font></string>
+    <string name="p30txt">En el 2021 y 2022, ¿cuál fue el total de las <u>ventas netas de la empresa</u>\n\n<b><font color="#3C54BB">(Considere las ventas nacionales más las exportaciones).</font></b></string>
     <string name="lb_30_1">Detalle</string>
     <string name="a2021">2021</string>
     <string name="a2022">2022</string>
@@ -344,8 +350,8 @@
     <string name="p34_2">2. Nacional</string>
     <string name="p34_3">3. Exterior</string>
     <string name="cero">0</string>
-    <string name="p35txt">En el 2022, ¿cuál fue el número de personas que trabajan en la empresa, según nivel de educacion, sexo y origen (nacional o extragero)?\n\n<b><font color="#ff0099cc">LEA:</font></b></string>
-    <string name="p36txt">En el 2021 y 2022, ¿cuál fue el <u>promedio anual de empleados</u> que laboraron en la empresa, según su origen?\n\n<b><font color="#ff0099cc">(Excluya personal subcontratado)</font></b></string>
+    <string name="p35txt">En el 2022, ¿cuál fue el número de personas que trabajan en la empresa, según nivel de educacion, sexo y origen <b><font color="#3C54BB">(nacional o extragero)</font></b>?\n\n<b><font color="#ff0099cc">LEA:</font></b></string>
+    <string name="p36txt">En el 2021 y 2022, ¿cuál fue el <u>promedio anual de empleados</u> que laboraron en la empresa, según su origen?\n<b><font color="#3C54BB">(Excluya personal subcontratado)</font></b></string>
     <string name="tb53desct1">Nivel académico</string>
     <string name="txtmen">Hombres</string>
     <string name="txtwomen">Mujeres</string>
@@ -367,10 +373,10 @@
     <string name="p37txt">¿En el 2022, ¿la empresa contaba con personal, oficina, sección, departamento o laboratorio para desarrollar labores de innovación?</string>
     <string name="p37si"><b>Sí </b>  1.(Continúe)</string>
     <string name="p37no"><b>No </b> 2.(Pase al Cap. VI, pregunta 39)</string>
-    <string name="p38txt">¿Qué oficina, sección departamento o laboratorio de la empresa contaba con personal para desarrollar labores de innovación, anote la cantidad total…</string>
+    <string name="p38txt">¿Qué oficina, sección, departamento o laboratorio de la empresa contaba con personal para desarrollar labores de innovación, anote la cantidad total…</string>
     <string name="p38tbdesc"><b><font color="#ff0099cc">OPCIÓN MULTIPLE</font></b></string>
-    <string name="tb38desc1">1.Informacion y Sistema?</string>
-    <string name="tb38desc2">2.Investigación y Desarrollo?</string>
+    <string name="tb38desc1">1.Información y Sistema?</string>
+    <string name="tb38desc2">2.Investigación y Desarrollo? (I+D)</string>
     <string name="tb38desc3">3.ingenieria y diseño industrial?</string>
     <string name="tb38desc4">4.Otro? Especifique.</string>
     <string name="lb38txtdesc1">Respuesta</string>
@@ -378,11 +384,11 @@
     <string name="p38txtdesc2">Marque su respuesta con un check</string>
     <string name="cap6tittle1">UNA <u>INNOVACIÓN DE PRODUCTOS</u> ES LA INTRODUCCIÓN EN EL MERCADO DE UN BIEN O UN SERVICIO NUEVO O SIGNIFICATIVAMENTE MEJORADO, EN CUANTO A SUS CARACTERÍSTICA O AL USO AL QUE SE DESTINA</string>
     <string name="p39txt">¿Durante el 2021 y 2022, su empresa introdujo?\n\n<font color="#ff0099cc">MARQUE SU RESPUESTA PARA CADA AÑO</font></string>
-    <string name="p39tbdesc1">Bienes nuevos o significativamente mejorados <font color="black">(excluye la simple reventa de productos nuevos comprados a otras empresas y los cambios de carácter exclusivamente estéticos)</font>.</string>
+    <string name="p39tbdesc1">Bienes nuevos o significativamente mejorados <font color="#3C54BB">(excluye la simple reventa de productos nuevos comprados a otras empresas y los cambios de carácter exclusivamente estéticos)</font>.</string>
     <string name="yes">Sí (1)</string>
     <string name="not">No (2)</string>
     <string name="not3">No (3)</string>
-    <string name="p39tbdesc2">Servicios nuevos o significativamente mejorados</string>
+    <string name="p39tbdesc2">Servicios nuevos o significativamente mejorados.</string>
     <string name="lb39_desclast">Sí respondió No a todas las opciones, pase a la pregunta 42</string>
     <string name="p40txt">¿Como fue la innovación del producto…</string>
     <string name="p40tb1">1. Nueva para su mercado?</string>
@@ -392,8 +398,8 @@
     <string name="tb41desc2"><b>2.</b> Principalmente la empresa en conjunto con otras empresas o instituciones.(a)…</string>
     <string name="tb41desc3"><b>3.</b> Principalmente la empresa adoptando o modificando bienes o servicios originalmente desarrollados por otra empresa o instituciones.(a)…</string>
     <string name="tb41desc4"><b>4.</b> Principalmente otras empresas o instituciones.(a)… </string>
-    <string name="p41descend"><b>(a)</b> Incluye empresas independientes, más otras que son parte de un grupo de empresas (subsidiarias, casa matriz, entre otros). \nInstituciones: Incluye a universidades, institutos de investigación, fundaciones sin fines de lucro, entre otras.</string>
-    <string name="cap6tittle2">UNA <u>INNOVACIÓN DE PROCESO</u> ES LA IMPLEMENTACIÓN DE UN NUEVO O SIGNIFICATIVAMENTE MEJORADO PROCESO DE PRODUCCIÓN, MÉTODODE DISTRIBUCIÓN O ACTIVIDAD DE SOPORTE PARA LOS BIENES O SERVICIOS</string>
+    <string name="p41descend"><b>(a)</b> Incluye empresas independientes, más otras que son parte de un grupo de empresas (subsidiarias, casa matriz, entre otros). \nInstituciones: Incluye a universidades, institutos de investigación, fundaciones sin fines de lucro, entre otros.</string>
+    <string name="cap6tittle2">UNA <u>INNOVACIÓN DE PROCESO</u> ES LA IMPLEMENTACIÓN DE UN NUEVO O SIGNIFICATIVAMENTE MEJORADO PROCESO DE PRODUCCIÓN, MÉTODO DE DISTRIBUCIÓN O ACTIVIDAD DE SOPORTE PARA LOS BIENES O SERVICIOS</string>
     <string name="p42txt">¿Durante los años 2021 y 2022, su empresa introdujo?\n\n<font color="#ff0099cc">MARQUE SU RESPUESTA PARA CADA AÑO</font></string>
     <string name="p42tb1">Un nuevo o significativamente mejorado método de manufactura o producción de bienes o servicios.</string>
     <string name="p42tb2">Un nuevo o significativamente mejorado método de logística, entrega o distribución para sus insumos, bienes o servicios.</string>
@@ -572,6 +578,7 @@
     <string name="tb66desc2">Innovaciones de procesos.</string>
     <string name="tb66desc3">Innovaciones organizacionales</string>
     <string name="tb66desc4">Innovaciones de comercialización.</string>
+
     <string name="p1txtm">En el 2022, ¿utilizo su empresa Internet para el desarrollo de sus actividades?</string>
     <string name="noMod"><b>No</b>  2.(Finalizar la entrevista del módulo)</string>
     <string name="moduloref">PERÍODO DE REFERENCIA 2022</string>
@@ -594,7 +601,7 @@
     <string name="nosecc4">No (Pasar a la sección 4)</string>
     <string name="porcentaje">porcentaje %</string>
     <string name="porcent">%</string>
-    <string name="p4m1">¿Cómo <u>realizo las ventas</u> de bienes y/o servicios (pedidos y/o reservas) e indique el porcentaje de las ventas</string>
+    <string name="p4m1">¿Cómo <u>realizo las ventas</u> de bienes y/o servicios (pedidos y/o reservas) e indique el <u>porcentaje</u> de las ventas</string>
     <string name="p4m1a">a. Pagina Web</string>
     <string name="p4m1b">b. Correo electrónico?</string>
     <string name="p4m1c">c. Redes sociales <font color="black">(WhatsApp, Instagram y Facebook)</font>?</string>
@@ -616,5 +623,7 @@
     <string name="lb10m2"><b>2.</b> Software <b>(sistema operativo,aplicaciones, navegadores web, juegos, programas, licencias y otros)</b>?</string>
     <string name="lb10m3"><b>3.</b> Servicios de consultoria de TIC?</string>
     <string name="lb10m4"><b>4.</b> Otros gastos TIC <b>(alquiler de equipo TIC, personal de la empresa dedicada a la producción de software para uso propio no para la venta)</b>?</string>
+    <string name="helpdirdesc">Anote la dirección en el siguiente orden: Mall o centro comercial, avenida, calle, edificio o casa, piso</string>
+    <string name="init">Iniciar</string>
 
 </resources>

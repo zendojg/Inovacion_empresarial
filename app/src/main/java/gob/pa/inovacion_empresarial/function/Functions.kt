@@ -20,7 +20,7 @@ import java.util.Date as fecha
 
 
 object Functions {
-    fun ballonRED(msg: String, width: Int, ctx: Context): Balloon {
+    fun msgMark(msg: String, width: Int, ctx: Context): Balloon {
         return Balloon.Builder(ctx)
             //.setLayout(R.layout.style_balloon)
             .setArrowSize(10)
@@ -28,6 +28,20 @@ object Functions {
             .setArrowPosition(0.5f)
             .setWidth(width)
             .setHeight(50)
+            .setCornerRadius(4f)
+            .setText(msg)
+            .setBackgroundColor(ContextCompat.getColor(ctx, R.color.dark_red))
+            .setBalloonAnimation(BalloonAnimation.ELASTIC)
+            .build()
+    }
+
+    fun msgBallom(msg: String, width: Int, ctx: Context): Balloon {
+        return Balloon.Builder(ctx)
+            //.setLayout(R.layout.style_balloon)
+            .setArrowSize(0)
+            .setArrowOrientation(ArrowOrientation.BOTTOM)
+            .setWidth(width)
+            .setHeight(28)
             .setCornerRadius(4f)
             .setText(msg)
             .setBackgroundColor(ContextCompat.getColor(ctx, R.color.dark_red))

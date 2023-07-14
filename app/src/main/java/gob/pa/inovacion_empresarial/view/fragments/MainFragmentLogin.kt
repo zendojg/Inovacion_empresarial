@@ -53,14 +53,14 @@ class MainFragmentLogin: Fragment() {
     }
 
     private fun actions() {
-        fragLogin.checkLogin.isChecked = AppCache.remGET(ctx)
+        fragLogin.checkLogin.isChecked = AppCache.remGET(ctx) //----  REMEMBER ACTION
         if (fragLogin.checkLogin.isChecked) {
             fragLogin.txtuserLogin.text = AppCache.userGET(ctx).toEditable()
         }
         fragLogin.checkLogin.setOnClickListener {
             AppCache.remSAVE(ctx, fragLogin.checkLogin.isChecked)
         }
-        fragLogin.txtpassLogin.addTextChangedListener(object: TextWatcher {
+        fragLogin.txtpassLogin.addTextChangedListener(object: TextWatcher { // -- ADD PASSWATCHER
             override fun afterTextChanged(s: Editable?) {}
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 fragLogin.txtpasslyLogin.endIconMode = TextInputLayout.END_ICON_PASSWORD_TOGGLE
@@ -68,19 +68,19 @@ class MainFragmentLogin: Fragment() {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
         })
 
-        fragLogin.txtuserLogin.setOnEditorActionListener { _, actionID, _ ->
+        fragLogin.txtuserLogin.setOnEditorActionListener { _, actionID, _ -> //--- LOGIN KEYDONE
             if (actionID == EditorInfo.IME_ACTION_DONE)  {
                 clickLister()
                 true
             } else false
         }
-        fragLogin.txtpassLogin.setOnEditorActionListener { _, actionID, _ ->
+        fragLogin.txtpassLogin.setOnEditorActionListener { _, actionID, _ -> //--- LOGIN KEYDONE
             if (actionID == EditorInfo.IME_ACTION_DONE)  {
                 clickLister()
                 true
             } else false
         }
-        fragLogin.btLogin.setOnClickListener { clickLister() }
+        fragLogin.btLogin.setOnClickListener { clickLister() }  //--- LOGIN BUTTON
 
     }
 
@@ -126,29 +126,14 @@ class MainFragmentLogin: Fragment() {
 
         lifecycleScope.launch {
             val resp = dvmLogin.loginCall(login)
-            if (resp!=null) {
-                when (resp.code) {
-                    Mob.CODE200 -> {
-                        Mob.authData = resp.body
-                        if (fragLogin.checkLogin.isChecked) {
-                            AppCache.loginSAVE(ctx, resp.body)
-                            AppCache.userSAVE(ctx, login.user)
-                        }
-                        Handler(Looper.getMainLooper()).postDelayed({
-                            fragLogin.txtuserLogin.text?.clear()
-                            fragLogin.txtpassLogin.text?.clear()
-                            val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
-                            pager?.setCurrentItem(1, true)
-                        }, (Mob.TIME500MS).toLong())
-                    }
-                }
-                Handler(Looper.getMainLooper()).postDelayed({
-                    if (!resp.resp.isNullOrEmpty()) {
-                        var errortxt = resp.resp
+            if (resp != null) {
+                if (!resp.msg.isNullOrEmpty()) {
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        var errortxt = resp.msg
                         if (errortxt.contains("No se encontró datos para la credencial")) {
-                            val alert = Functions.ballonRED(
-                                "Usuario o Contraseña inválida" ,Mob.WIDTHBALLON160, ctx)
-                            alert.showAlignBottom(fragLogin.txtpassLogin)
+                            val alert = Functions.msgBallom(
+                                "Usuario o Contraseña inválida", Mob.WIDTHBALLON160, ctx)
+                            alert.showAlignBottom(fragLogin.btLogin)
                             alert.dismissWithDelay(Mob.TIMEBALLON2SEG)
                         } else {
                             errortxt = errortxt.replace("error", "")
@@ -158,8 +143,29 @@ class MainFragmentLogin: Fragment() {
                             errortxt = errortxt.replace("\"", "")
                             Toast.makeText(ctx, errortxt, Toast.LENGTH_LONG).show()
                         }
+                    }, (Mob.TIME800MS).toLong())
+                } else {
+                    when (resp.code) {
+                        Mob.CODE200 -> { // --- LOGIN OK
+                            Mob.authData = resp.body
+                            if (fragLogin.checkLogin.isChecked) {
+                                AppCache.loginSAVE(ctx, resp.body)
+                                AppCache.userSAVE(ctx, login.user)
+                            }
+                            Handler(Looper.getMainLooper()).postDelayed({
+                                fragLogin.txtuserLogin.text?.clear()
+                                fragLogin.txtpassLogin.text?.clear()
+                                val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
+                                pager?.setCurrentItem(1, true)
+                            }, (Mob.TIME500MS).toLong())
+                        }
+                        Mob.CODE401 -> {}
+                        Mob.CODE403 -> {}
+                        Mob.CODE404 -> {}
+                        Mob.CODE500 -> {}
+                        //----- ADD MORE ERRORS
                     }
-                }, (Mob.TIME800MS).toLong())
+                }
             }
             Handler(Looper.getMainLooper()).postDelayed({
                 screenBlack.dismiss()

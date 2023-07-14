@@ -33,7 +33,7 @@ class FragMenu : Fragment() {
         formbinding = MenuFragBinding.inflate(layoutInflater)
         ctx = requireContext()
 
-        formbinding.versionForm.text = Mob.version
+        formbinding.versionsearch.text = Mob.version
 
         return formbinding.root
     }

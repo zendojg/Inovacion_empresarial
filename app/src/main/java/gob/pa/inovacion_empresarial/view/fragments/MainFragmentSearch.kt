@@ -7,17 +7,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.google.android.material.button.MaterialButton
+import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.FragSearchMainBinding
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.view.FormActivity
+import gob.pa.inovacion_empresarial.view.MainActivity
 import kotlinx.coroutines.launch
 
 class MainFragmentSearch: Fragment() {
@@ -25,7 +32,7 @@ class MainFragmentSearch: Fragment() {
     private lateinit var fragSearch: FragSearchMainBinding
     private lateinit var ctx: Context
     private val dvmSearch: DVModel by viewModels()
-    private var dialog: AlertDialog? = null
+    private var aDialog: AlertDialog? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,10 +42,15 @@ class MainFragmentSearch: Fragment() {
     ctx = requireContext()
     return fragSearch.root
     }
-
+    override fun onPause() {
+        super.onPause()
+        if (aDialog?.isShowing == true){
+            aDialog?.dismiss()
+        }
+    }
     override fun onResume() {
         super.onResume()
-        fragSearch.versionForm.text = Mob.version
+        fragSearch.versionsearch.text = Mob.version
         actions()
     }
 
@@ -46,27 +58,28 @@ class MainFragmentSearch: Fragment() {
     private fun actions() {
         fragSearch.txtNControlSearch.setOnEditorActionListener { _, actionID, _ ->
             if (actionID == EditorInfo.IME_ACTION_DONE) {
-                validate()
+                controlTxt()
                 true
             } else false
         }
-        fragSearch.bt1main.setOnClickListener { validate() }
+        fragSearch.btSearch.setOnClickListener { controlTxt() }
+        fragSearch.btcancelSearch.setOnClickListener { viewFind(false) }
 
     }
 
-    private fun validate() {
+    private fun controlTxt() {
         hideKeyboard()
         if (fragSearch.txtNControlSearch.text.isNullOrEmpty()) {
-            val alert = Functions.ballonRED("Ingrese un N° de Control",180,ctx)
+            val alert = Functions.msgMark("Ingrese un N° de Control",Mob.WIDTHBALLON180,ctx)
             alert.showAlignBottom(fragSearch.txtNControlSearch)
-            alert.dismissWithDelay(2000L)
+            alert.dismissWithDelay(Mob.TIMEBALLON2SEG)
         } else {
             val ncont: Int = try { fragSearch.txtNControlSearch.text.toString().toInt() }
             catch (e: Exception) { 0 }
             if (ncont<=0) {
-                val alert = Functions.ballonRED("N° de Control inválido",180,ctx)
+                val alert = Functions.msgMark("N° de Control inválido",Mob.WIDTHBALLON180,ctx)
                 alert.showAlignBottom(fragSearch.txtNControlSearch)
-                alert.dismissWithDelay(2000L)
+                alert.dismissWithDelay(Mob.TIMEBALLON2SEG)
             } else { getForm(ncont.toString()) }
         }
     }
@@ -74,20 +87,40 @@ class MainFragmentSearch: Fragment() {
     private fun getForm(ncont: String) {
         val win = AlertDialog.Builder(ctx)
 
-        dialog = win.create()
-        dialog?.setCancelable(false)
-
+        aDialog = win.create()
+        aDialog?.setCancelable(false)
+        fragSearch.barSearch.visibility = View.VISIBLE
         lifecycleScope.launch {
             val resp = dvmSearch.formGet(ncont)
             if (resp != null) {
+                fragSearch.barSearch.visibility = View.GONE
                 when (resp.code) {
-                    200 -> {
+                    Mob.CODE200 -> {
                         Mob.formComp = resp.body
-                        Mob.indiceEnc = 1
-                        startActivity(Intent(ctx, FormActivity::class.java))
+                        Mob.cap1 = resp.body?.cap1
+                        Mob.cap2 = resp.body?.cap2
+                        Mob.cap3 = resp.body?.cap3
+                        Mob.cap4 = resp.body?.cap4
+                        Mob.cap5 = resp.body?.cap5
+                        Mob.cap6 = resp.body?.cap6
+                        Mob.cap7 = resp.body?.cap7
+                        Mob.cap8 = resp.body?.cap8
+                        Mob.cap9 = resp.body?.cap9
+                        Mob.capx = resp.body?.capx
+
+                        println("\n---------CAP1:${Mob.cap1}" +
+                                "\n---------CAP2:${Mob.cap2}" +
+                                "\n---------CAP3:${Mob.cap3}" +
+                                "\n---------CAP4:${Mob.cap4}" +
+                                "\n---------CAP5:${Mob.cap5}")
+                        viewFind(true)
                     }
-
-
+                    Mob.CODE401 -> {
+                        val bttest = MainActivity().findViewById<Button>(R.id.btMainTest)
+                        val waitBar = MainActivity().findViewById<ProgressBar>(R.id.barMain)
+                        waitBar.visibility = View.VISIBLE
+                        bttest.callOnClick()
+                    }
                 }
                 if (!resp.resp.isNullOrEmpty()) {
                     var errortxt = resp.resp
@@ -96,10 +129,30 @@ class MainFragmentSearch: Fragment() {
                     errortxt = errortxt.replace("{", "")
                     errortxt = errortxt.replace("}", "")
                     errortxt = errortxt.replace("\"", "")
-                    Toast.makeText(ctx, errortxt, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(ctx, errortxt, Toast.LENGTH_LONG).show()
                 }
             }
         }
+    }
+
+    private fun viewFind(check: Boolean) {
+
+        fragSearch.lyContainer.isVisible = check
+        fragSearch.btSearch.isVisible = !check
+        fragSearch.btdataSearch.isVisible = !check
+        fragSearch.btuserSearch.isVisible = !check
+        fragSearch.versionsearch.isVisible = !check
+        fragSearch.imgSenacytsearch.isVisible = !check
+
+        if (check) {
+            fragSearch.txtlocal.text = 
+                
+        }
+        
+        
+//            Mob.indiceEnc = 1
+//            activity?.finish()
+//            startActivity(Intent(ctx, FormActivity::class.java))
     }
 
 }

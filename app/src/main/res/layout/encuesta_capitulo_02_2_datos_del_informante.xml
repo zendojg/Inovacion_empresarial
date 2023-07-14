@@ -33,10 +33,9 @@
                 android:background="@color/white"
                 android:hint="@string/hint16"
                 android:textColorHint="@color/black"
-                app:helperText="Anote: Nombre y apellidos"
+                app:helperText="Anote: Nombres y apellidos"
                 app:helperTextTextAppearance="@style/TextLabel2"
                 app:helperTextTextColor="@android:color/holo_blue_dark"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -66,7 +65,6 @@
                 android:layout_weight="6"
                 android:hint="@string/hint17"
                 android:textColorHint="@color/black"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/txtCap2_16ly"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -90,7 +88,6 @@
                 android:layout_marginHorizontal="2dp"
                 android:background="@color/white"
                 android:orientation="vertical"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/txtCap2_17ly"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -98,9 +95,10 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
                     android:hint="@string/hint18"
                     android:textColorHint="@color/black"
-                    app:helperText="Orden a anotar: Mall o centro comercial, avenida, calle, edificio o casa y piso"
+                    app:helperText="@string/helpdirdesc"
                     app:helperTextTextAppearance="@style/TextLabel2"
                     app:helperTextTextColor="@android:color/holo_blue_dark">
                     <com.google.android.material.textfield.TextInputEditText
@@ -148,7 +146,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="7dp"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/linearCap2_18"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -194,7 +191,6 @@
                 android:layout_marginHorizontal="2dp"
                 android:visibility="gone"
                 android:animateLayoutChanges="true"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/frameCap2_19_tel1"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -243,7 +239,6 @@
                 android:layout_marginHorizontal="2dp"
                 android:hint="@string/hint20"
                 android:textColorHint="@color/black"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/frameCap2_19_tel2"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -268,7 +263,6 @@
                 android:layout_marginHorizontal="2dp"
                 android:hint="@string/hint21"
                 android:textColorHint="@color/black"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/txtCap2_20ly"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">

@@ -16,9 +16,12 @@ object Mob {
     const val DATEFORMAT = "yyyy-MM-dd HH:mm:ss a"
 
     const val WIDTHBALLON160:Int = 160
+    const val WIDTHBALLON180:Int = 180
     const val WIDTHBALLON220:Int = 220
+
     const val TIMEBALLON2SEG:Long = 2000L
     const val TIMEBALLON4SEG:Long = 4000L
+    const val TIMEBALLON6SEG:Long = 6000L
 
     const val TIME500MS:Int = 500
     const val TIME800MS:Int = 800
@@ -28,8 +31,15 @@ object Mob {
     const val CODE200:Int = 200
     const val CODE400:Int = 400
     const val CODE401:Int = 401
+    const val CODE403:Int = 403
     const val CODE404:Int = 404
     const val CODE500:Int = 500
+
+    const val LOGIN0:Int = 0
+    const val INIT01:Int = 1
+    const val PAGE02:Int = 2
+    const val PAGE03:Int = 3
+    const val PAGE04:Int = 4
 
     const val MENUP00:Int = 0
     const val CAP1P01:Int = 1
@@ -129,7 +139,7 @@ object Mob {
 
     var authResp: ModelAuthResp? = ModelAuthResp(
         code = null,
-        resp = null,
+        msg = null,
         body = null
     )
 
@@ -147,7 +157,7 @@ object Mob {
     var cap7: ModelCap7? = null
     var cap8: ModelCap8? = null
     var cap9: ModelCap9? = null
-    var cap10: ModelCap10? = null
+    var capx: ModelCap10? = null
     var capMod: ModelMod? = null
 
     var formComp: ModelForm? = ModelForm(
@@ -171,7 +181,7 @@ object Mob {
         cap7 = cap7,
         cap8 = cap8,
         cap9 = cap9,
-        cap10 = cap10,
+        capx = capx,
         capMod = capMod
     )
 

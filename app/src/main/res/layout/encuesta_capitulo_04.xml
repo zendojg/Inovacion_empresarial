@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="DuplicateSpeakableTextCheck">
+
     <data />
+
     <ScrollView
         android:id="@+id/scrollForm"
         android:layout_width="match_parent"
@@ -32,10 +34,9 @@
                 android:background="@drawable/background_shadow"
                 android:orientation="vertical"
                 android:padding="5dp"
-                app:layout_constraintWidth_max="488dp"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent">
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -71,13 +72,13 @@
                     android:background="@drawable/background_shadow"
                     android:drawableTint="@android:color/holo_blue_dark"
                     android:fontFamily="sans-serif-condensed"
-                    android:inputType="textImeMultiLine|textCapWords"
+                    android:hint="@string/hint28_act"
                     android:imeOptions="actionNext"
+                    android:inputType="textImeMultiLine|textCapWords"
                     android:lines="3"
-                    android:scrollHorizontally="false"
                     android:minHeight="48dp"
                     android:paddingHorizontal="15dp"
-                    android:hint="@string/hint28_act"
+                    android:scrollHorizontally="false"
                     tools:ignore="LabelFor" />
 
                 <TextView
@@ -87,16 +88,17 @@
                     android:layout_marginVertical="5dp"
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/txt28_desc"
+                    android:textColor="@color/holo_blue_dark"
                     android:textSize="12sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="5dp"
                     android:layout_marginVertical="5dp"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="5dp"
-                    android:hint="@string/hint_cinu">
+                    android:hint="@string/hint_cinu"
+                    android:paddingTop="5dp">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtCap2_8_1"
@@ -118,14 +120,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="10dp"
-                android:paddingHorizontal="2dp"
+                android:animateLayoutChanges="true"
                 android:background="@drawable/background_shadow"
                 android:orientation="vertical"
-                android:animateLayoutChanges="true"
-                app:layout_constraintWidth_max="488dp"
-                app:layout_constraintTop_toBottomOf="@id/linearCap4_28"
+                android:paddingHorizontal="2dp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent">
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linearCap4_28">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -173,8 +174,8 @@
                         android:id="@+id/txtCap4_29_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
                         android:layout_marginStart="25dp"
+                        android:layout_marginEnd="5dp"
                         android:background="@drawable/background_shadow"
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
@@ -184,7 +185,6 @@
                         android:lines="3"
                         android:minHeight="48dp"
                         android:paddingHorizontal="15dp"
-                        android:textColorHint="@color/holo_blue_dark"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="LabelFor" />
@@ -192,10 +192,11 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="5dp"
-                        android:layout_marginStart="25dp"
                         android:hint="@string/hint_cinu"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtCap4_29_1">
@@ -206,8 +207,8 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="number"
                             android:imeOptions="actionDone"
+                            android:inputType="number"
                             android:maxLength="4"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="0000" />
@@ -219,9 +220,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:animateLayoutChanges="true"
                     android:background="@drawable/background_shadow_holoblue2"
                     android:padding="2dp"
-                    android:animateLayoutChanges="true"
                     android:visibility="gone"
                     tools:visibility="visible">
 
@@ -240,17 +241,17 @@
                         android:id="@+id/txtCap4_29_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="5dp"
                         android:layout_marginStart="25dp"
-                        android:minHeight="48dp"
-                        android:paddingHorizontal="15dp"
+                        android:layout_marginEnd="5dp"
                         android:autofillHints="Actividad económica"
                         android:background="@drawable/background_shadow"
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
+                        android:hint="@string/hint_actsec"
                         android:inputType="text"
                         android:lines="3"
-                        android:hint="@string/hint_actsec"
+                        android:minHeight="48dp"
+                        android:paddingHorizontal="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="LabelFor" />
@@ -258,10 +259,11 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="5dp"
-                        android:layout_marginStart="25dp"
                         android:hint="@string/hint_cinu"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtCap4_29_2">
@@ -272,8 +274,8 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="number"
                             android:imeOptions="actionDone"
+                            android:inputType="number"
                             android:maxLength="4"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="0000" />
@@ -285,9 +287,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:animateLayoutChanges="true"
                     android:background="@drawable/background_shadow_holoblue2"
                     android:padding="2dp"
-                    android:animateLayoutChanges="true"
                     android:visibility="gone"
                     tools:visibility="visible">
 
@@ -308,15 +310,15 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
                         android:layout_marginEnd="5dp"
-                        android:minHeight="48dp"
-                        android:paddingHorizontal="15dp"
                         android:autofillHints="Actividad económica"
                         android:background="@drawable/background_shadow"
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
+                        android:hint="@string/hint_actsec"
                         android:inputType="text"
                         android:lines="3"
-                        android:hint="@string/hint_actsec"
+                        android:minHeight="48dp"
+                        android:paddingHorizontal="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="LabelFor" />
@@ -324,10 +326,11 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="5dp"
-                        android:layout_marginStart="25dp"
                         android:hint="@string/hint_cinu"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtCap4_29_3">
@@ -338,9 +341,9 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
+                            android:imeOptions="actionDone"
                             android:inputType="number"
                             android:maxLength="4"
-                            android:imeOptions="actionDone"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="0000" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -351,9 +354,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:animateLayoutChanges="true"
                     android:background="@drawable/background_shadow_holoblue2"
                     android:padding="2dp"
-                    android:animateLayoutChanges="true"
                     android:visibility="gone"
                     tools:visibility="visible">
 
@@ -374,15 +377,15 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
                         android:layout_marginEnd="5dp"
-                        android:minHeight="48dp"
-                        android:paddingHorizontal="15dp"
                         android:autofillHints="Actividad económica"
                         android:background="@drawable/background_shadow"
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
+                        android:hint="@string/hint_actsec"
                         android:inputType="text"
                         android:lines="3"
-                        android:hint="@string/hint_actsec"
+                        android:minHeight="48dp"
+                        android:paddingHorizontal="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="LabelFor" />
@@ -390,10 +393,11 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="5dp"
-                        android:layout_marginStart="25dp"
                         android:hint="@string/hint_cinu"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtCap4_29_4">
@@ -404,9 +408,9 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
+                            android:imeOptions="actionDone"
                             android:inputType="number"
                             android:maxLength="4"
-                            android:imeOptions="actionDone"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="0000" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -422,9 +426,9 @@
                     android:drawableTop="@drawable/img_minus"
                     android:drawableTint="@color/white"
                     android:visibility="gone"
-                    tools:visibility="visible"
                     app:backgroundTint="@android:color/holo_blue_dark"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintButtonSize" />
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintButtonSize"
+                    tools:visibility="visible" />
 
                 <Button
                     android:id="@+id/btCap4_29_plus"
@@ -432,6 +436,7 @@
                     android:layout_height="45dp"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="5dp"
                     android:drawableTop="@drawable/img_plus"
                     android:drawableTint="@color/white"
                     app:backgroundTint="@android:color/holo_blue_dark"
@@ -441,10 +446,9 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                app:layout_constraintWidth_max="488dp"
-                app:layout_constraintTop_toBottomOf="@id/linearCap4_29"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent" />
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linearCap4_29" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

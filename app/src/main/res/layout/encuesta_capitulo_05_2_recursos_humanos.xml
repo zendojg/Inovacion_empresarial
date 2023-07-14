@@ -152,81 +152,6 @@
                         android:textSize="12sp"
                         android:text="@string/txtext" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1.5"
-                        android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow_celpast"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:text="@string/lb35t1"
-                        android:textColor="#616161"
-                        android:textSize="@dimen/text12"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/txtCap5_35_1_HNac"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:hint="@string/cero"
-                        android:importantForAutofill="no"
-                        android:inputType="number"
-                        android:maxLength="4"
-                        android:minHeight="48dp"
-                        android:nextFocusDown="@+id/txtCap5_35_1_HExt"
-                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    <EditText
-                        android:id="@+id/txtCap5_35_1_HExt"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:hint="@string/cero"
-                        android:importantForAutofill="no"
-                        android:inputType="number"
-                        android:maxLength="4"
-                        android:minHeight="48dp"
-                        android:nextFocusDown="@+id/txtCap5_35_1_MNac"
-                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    <EditText
-                        android:id="@+id/txtCap5_35_1_MNac"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:hint="@string/cero"
-                        android:importantForAutofill="no"
-                        android:inputType="number"
-                        android:maxLength="4"
-                        android:minHeight="48dp"
-                        android:nextFocusDown="@+id/txtCap5_35_1_MExt"
-                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-                    <EditText
-                        android:id="@+id/txtCap5_35_1_MExt"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:hint="@string/cero"
-                        android:importantForAutofill="no"
-                        android:inputType="number"
-                        android:maxLength="4"
-                        android:minHeight="48dp"
-                        android:nextFocusDown="@+id/txtCap5_35_a_HNac"
-                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -860,6 +785,94 @@
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
 
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1.5"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_low"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:text="@string/lb35t1"
+                        android:textColor="#616161"
+                        android:textSize="@dimen/text12"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_1_HNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_low"
+                        android:textColor="@color/holo_blue_dark"
+                        android:textColorHint="@color/holo_blue_dark"
+                        android:focusable="false"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_1_HExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_1_HExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_low"
+                        android:textColor="@color/holo_blue_dark"
+                        android:textColorHint="@color/holo_blue_dark"
+                        android:focusable="false"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_1_MNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_1_MNac"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_low"
+                        android:textColor="@color/holo_blue_dark"
+                        android:textColorHint="@color/holo_blue_dark"
+                        android:focusable="false"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_1_MExt"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_35_1_MExt"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_low"
+                        android:textColor="@color/holo_blue_dark"
+                        android:textColorHint="@color/holo_blue_dark"
+                        android:focusable="false"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_35_a_HNac"
+                        tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
+
                 </GridLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -906,7 +919,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="2dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="15dp"
                     android:columnCount="3"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -1056,14 +1069,14 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow"
-                        android:ems="10"
+                        android:background="@drawable/background_shadow_low"
+                        android:textColor="@color/holo_blue_dark"
+                        android:textColorHint="@color/holo_blue_dark"
+                        android:focusable="false"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:hint="@string/cero"
                         android:importantForAutofill="no"
-                        android:textColor="@color/holo_blue_dark"
-                        android:focusable="false"
                         android:inputType="number"
                         android:maxLength="4"
                         android:minHeight="40dp"
@@ -1075,12 +1088,12 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow"
-                        android:ems="10"
+                        android:background="@drawable/background_shadow_low"
+                        android:textColor="@color/holo_blue_dark"
+                        android:textColorHint="@color/holo_blue_dark"
+                        android:focusable="false"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
-                        android:textColor="@color/holo_blue_dark"
-                        android:focusable="false"
                         android:hint="@string/cero"
                         android:importantForAutofill="no"
                         android:inputType="number"
@@ -1237,12 +1250,9 @@
 
                     <ImageView
                         android:layout_columnWeight="0.7"
-                        android:minHeight="48dp"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow_celpast"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:paddingVertical="8dp"
+                        android:paddingVertical="10dp"
                         tools:srcCompat="@drawable/img_check"
                         android:contentDescription="@string/p38txtdesc2" />
 

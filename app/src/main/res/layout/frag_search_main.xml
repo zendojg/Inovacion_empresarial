@@ -3,13 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
+    <data />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
         android:background="@drawable/foreground_back">
 
         <LinearLayout
@@ -40,24 +39,29 @@
                 android:fontFamily="sans-serif-condensed"
                 android:text="@string/tittle1Main"
                 android:textColor="@color/white"
-                android:textSize="@dimen/text12" />
+                android:textSize="@dimen/text12"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
-                android:visibility="gone"
                 android:text="@string/subtittle1Main"
-                android:textSize="@dimen/text12" />
+                android:textColor="@color/white"
+                android:textSize="@dimen/text12"
+                android:textStyle="bold"
+                android:visibility="gone" />
         </LinearLayout>
 
-        <FrameLayout
-            android:id="@+id/layoutRUCSearch"
+        <LinearLayout
+            android:id="@+id/layoutSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="50dp"
+            android:animateLayoutChanges="true"
             android:background="@drawable/background_shadow_holoblue2"
+            android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layoutTitleSearch">
@@ -76,54 +80,275 @@
                 app:helperText="Búsqueda del número de control"
                 app:helperTextTextAppearance="@style/TextLabel1"
                 app:helperTextTextColor="@color/white"
-                app:startIconContentDescription="Rollo/Tomo">
+                app:startIconContentDescription="Número de Control"
+                app:startIconDrawable="@drawable/img_find"
+                app:startIconTint="#306F90">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtNControlSearch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
-                    android:drawableEnd="@drawable/img_find"
                     android:drawableTint="@android:color/darker_gray"
                     android:fontFamily="sans-serif-condensed"
                     android:inputType="number"
                     android:lines="1"
                     android:longClickable="false"
-                    android:maxLength="34"
+                    android:maxLength="6"
                     android:maxLines="1"
                     android:singleLine="true"
                     android:textSize="@dimen/text20"
                     tools:text="0000000000000" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lyContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                tools:visibility="visible">
 
-        </FrameLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtlocally"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="3dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Nombre comercial:"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:startIconContentDescription="Establecimiento"
+                    app:startIconDrawable="@drawable/img_local"
+                    app:startIconTint="#306F90">
 
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtlocal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_border2"
+                        android:focusable="false"
+                        android:fontFamily="sans-serif-condensed"
+                        tools:ignore="TouchTargetSizeCheck"
+                        tools:text="Nombre de la Empresa" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtrazonly"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="3dp"
+                    android:hint="Razón social:"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtlocally"
+                    app:startIconContentDescription="Razón social"
+                    app:startIconDrawable="@drawable/img_razon"
+                    app:startIconTint="#306F90">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtrazon"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_border2"
+                        android:focusable="false"
+                        android:fontFamily="sans-serif-condensed"
+                        tools:ignore="TouchTargetSizeCheck"
+                        tools:text="Razón social" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt3styleFly"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="3dp"
+                    android:hint="RUC:"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtrazonly"
+                    app:startIconContentDescription="RUC"
+                    app:startIconDrawable="@drawable/img_idcheck"
+                    app:startIconTint="#306F90">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt3styleF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_border2"
+                        android:focusable="false"
+                        android:fontFamily="sans-serif-condensed"
+                        tools:ignore="TouchTargetSizeCheck"
+                        tools:text="0000-00000-00000" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt4styleFly"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="3dp"
+                    android:hint="Dirección:"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt3styleFly"
+                    app:startIconContentDescription="Dirección"
+                    app:startIconDrawable="@drawable/img_gps1"
+                    app:startIconTint="#306F90">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt4styleF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_border2"
+                        android:focusable="false"
+                        android:fontFamily="sans-serif-condensed"
+                        tools:ignore="TouchTargetSizeCheck"
+                        tools:text="Dirección completa" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt5styleFly"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="3dp"
+                    android:hint="Teléfono:"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt4styleFly"
+                    app:startIconContentDescription="Teléfono"
+                    app:startIconDrawable="@drawable/img_tel"
+                    app:startIconTint="#306F90">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt5styleF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_border2"
+                        android:focusable="false"
+                        android:fontFamily="sans-serif-condensed"
+                        tools:ignore="TouchTargetSizeCheck"
+                        tools:text="0000000" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txt6styleFly"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="3dp"
+                    android:hint="Teléfono:"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt5styleFly"
+                    app:startIconContentDescription="Teléfono"
+                    app:startIconDrawable="@drawable/img_tel"
+                    app:startIconTint="#306F90">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txt6styleF"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_border2"
+                        android:focusable="false"
+                        android:fontFamily="sans-serif-condensed"
+                        tools:ignore="TouchTargetSizeCheck"
+                        tools:text="0000000" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btcancelSearch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="0.5dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="start|center_vertical"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:maxLines="1"
+                    android:text="@string/cancel"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                    android:textColor="#666666"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/celeste"
+                    app:icon="@drawable/img_close"
+                    app:iconPadding="7dp"
+                    app:iconTint="#666666"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btinitSearch"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt6styleFly" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btinitSearch"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="0.5dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="start|center_vertical"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:maxLines="1"
+                    android:text="Iniciar Encuesta"
+                    android:textAllCaps="false"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                    android:textColor="#666666"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/celeste"
+                    app:icon="@drawable/img_start"
+                    app:iconPadding="7dp"
+                    app:iconTint="#666666"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btcancelSearch"
+                    app:layout_constraintTop_toBottomOf="@+id/txt6styleFly" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt1main"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+            android:id="@+id/btSearch"
             android:layout_width="match_parent"
             android:layout_height="55dp"
-            android:layout_marginTop="50dp"
             android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
             android:ellipsize="end"
             android:fontFamily="sans-serif-condensed"
             android:gravity="start|center_vertical"
             android:maxLines="1"
-            android:text=" Iniciar Encuesta"
+            android:text=" Buscar Encuesta"
             android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
             android:textStyle="bold"
-            app:strokeColor="@color/blue_dark"
-            app:strokeWidth="1dp"
             app:backgroundTint="@android:color/holo_blue_dark"
-            app:icon="@drawable/img_formedit"
-            app:layout_constraintTop_toBottomOf="@+id/layoutRUCSearch" />
+            app:icon="@drawable/img_find"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutSearch"
+            app:strokeColor="@color/blue_dark"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt2main"
-            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+            android:id="@+id/btdataSearch"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginHorizontal="10dp"
@@ -133,15 +358,18 @@
             android:maxLines="1"
             android:text=" Agregar Datos"
             android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
             android:textStyle="bold"
-            app:strokeColor="@color/blue_dark"
-            app:strokeWidth="1dp"
             app:backgroundTint="@android:color/holo_blue_dark"
             app:icon="@drawable/img_add_page"
-            app:layout_constraintTop_toBottomOf="@+id/bt1main" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btSearch"
+            app:strokeColor="@color/blue_dark"
+            app:strokeWidth="1dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/bt3main"
+            android:id="@+id/btuserSearch"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginHorizontal="10dp"
@@ -154,58 +382,47 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
             android:textStyle="bold"
             app:backgroundTint="@android:color/holo_blue_dark"
-            app:icon="@drawable/img_find"
-            app:layout_constraintTop_toBottomOf="@+id/bt2main"
-            app:strokeColor="@color/blue_dark"
-            app:strokeWidth="1dp"
-            tools:layout_editor_absoluteX="20dp" />
-
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layoutpiemain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:animateLayoutChanges="true"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:icon="@drawable/img_formedit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="UseCompoundDrawables">
-
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/foreground_city" />
-
-            <ImageView
-                android:id="@+id/img_senacytMain"
-                android:layout_width="wrap_content"
-                android:layout_height="65dp"
-                android:contentDescription="@string/senacyt"
-                app:layout_constraintBottom_toTopOf="@+id/imageView9"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo_senacyt" />
-
-            <TextView
-                android:id="@+id/versionForm"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:text="@string/version"
-                android:textColor="@android:color/holo_blue_dark"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_senacytMain" />
+            app:layout_constraintTop_toBottomOf="@+id/btdataSearch"
+            app:strokeColor="@color/blue_dark"
+            app:strokeWidth="1dp" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/imgCITYsearch"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:contentDescription="CITY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/foreground_city" />
+
+        <ImageView
+            android:id="@+id/img_senacytsearch"
+            android:layout_width="wrap_content"
+            android:layout_height="65dp"
+            android:contentDescription="@string/senacyt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guidelineSearch"
+            app:srcCompat="@drawable/logo_senacyt" />
+
+        <TextView
+            android:id="@+id/versionsearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/version"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_senacytsearch" />
+
 
         <ProgressBar
             android:id="@+id/barSearch"
@@ -214,10 +431,17 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:visibility="gone"
-            tools:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bt3main" />
+            app:layout_constraintTop_toBottomOf="@+id/btuserSearch"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="200dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

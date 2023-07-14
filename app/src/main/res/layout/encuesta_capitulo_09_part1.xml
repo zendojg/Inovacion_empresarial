@@ -245,7 +245,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:layoutDirection="rtl"
                     android:paddingHorizontal="10dp"
-                    android:text="@string/blank"
+                    android:text="@string/point3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/checkCap9_60_5"

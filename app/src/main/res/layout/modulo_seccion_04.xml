@@ -29,6 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
                 android:paddingHorizontal="5dp"
                 android:paddingTop="5dp"
@@ -38,16 +39,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="75dp"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="5dp"
-                    app:srcCompat="@drawable/img_corchete"
+                <TextView
+                    android:id="@+id/txtBranch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="220sp"
+                    android:layout_marginBottom="35dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="}"
                     app:layout_constraintBottom_toBottomOf="@+id/txtSecc04_6p4ly"
                     app:layout_constraintEnd_toStartOf="@+id/lb6nm100"
-                    app:layout_constraintTop_toTopOf="@+id/txtSecc04_6p1ly"
-                    tools:ignore="ContentDescription" />
+                    app:layout_constraintTop_toTopOf="@+id/txtSecc04_6p1ly" />
 
 
 
@@ -85,7 +87,7 @@
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginTop="10dp"
                     android:hint="@string/hints061"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView"
+                    app:layout_constraintEnd_toStartOf="@+id/txtBranch"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lb6txtm">
 
@@ -109,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
                     android:hint="@string/hints062"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView"
+                    app:layout_constraintEnd_toStartOf="@+id/txtBranch"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtSecc04_6p1ly">
 
@@ -132,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
                     android:hint="@string/hints063"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView"
+                    app:layout_constraintEnd_toStartOf="@+id/txtBranch"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtSecc04_6p2ly">
 
@@ -155,7 +157,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
                     android:hint="@string/hints064"
-                    app:layout_constraintEnd_toStartOf="@+id/imageView"
+                    app:layout_constraintEnd_toStartOf="@+id/txtBranch"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/txtSecc04_6p3ly">
 
@@ -175,15 +177,14 @@
                     android:id="@+id/lb6nm100"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/porc100"
-                    android:layout_marginEnd="20dp"
-                    android:textColor="@color/black"
                     android:textSize="22sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtSecc04_6p4ly"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/imageView" />
+                    app:layout_constraintTop_toTopOf="@+id/txtSecc04_6p1ly" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -205,6 +206,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
                 android:paddingHorizontal="5dp"
                 android:paddingTop="5dp"
@@ -278,6 +280,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
                 android:paddingHorizontal="5dp"
                 android:paddingTop="5dp"
@@ -344,6 +347,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
+                android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
                 android:paddingHorizontal="5dp"
                 android:paddingTop="5dp"
@@ -517,9 +521,8 @@
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
                         android:imeOptions="actionDone"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:singleLine="true"
+                        android:inputType="number"
+                        android:maxLength="3"
                         tools:ignore="TextContrastCheck"
                         tools:text="100" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -564,9 +567,8 @@
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
                         android:imeOptions="actionDone"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:singleLine="true"
+                        android:inputType="number"
+                        android:maxLength="3"
                         tools:ignore="TextContrastCheck"
                         tools:text="100" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -612,9 +614,8 @@
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
                         android:imeOptions="actionDone"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:singleLine="true"
+                        android:inputType="number"
+                        android:maxLength="3"
                         tools:ignore="TextContrastCheck"
                         tools:text="100" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -658,9 +659,8 @@
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
                         android:imeOptions="actionDone"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:singleLine="true"
+                        android:inputType="number"
+                        android:maxLength="3"
                         tools:ignore="TextContrastCheck"
                         tools:text="100" />
                 </com.google.android.material.textfield.TextInputLayout>

@@ -21,8 +21,13 @@ data class ModelAuth(
 
 data class ModelAuthResp(
     val code: Int?,
-    val resp: String?,
+    val msg: String?,
     val body: ModelAuth?)
+
+
+data class ModelResp(
+    val code: Int?,
+    val msg: String?)
 
 data class ModelFormGet(
     val code: Int?,
@@ -421,5 +426,5 @@ data class ModelForm(
     @SerializedName("cap7ActividadesInnovativas")               val cap7: ModelCap7?,
     @SerializedName("cap8FuenteFinanciamiento")                 val cap8: ModelCap8?,
     @SerializedName("cap9Patentes")                             val cap9: ModelCap9?,
-    @SerializedName("cap10PerspectivasInnovacionesFuturas")     val cap10: ModelCap10?,
+    @SerializedName("cap10PerspectivasInnovacionesFuturas")     val capx: ModelCap10?,
     @SerializedName("comercioElectronico")                      val capMod: ModelMod?, )

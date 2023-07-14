@@ -32,7 +32,6 @@
                 android:layout_marginTop="2dp"
                 android:hint="@string/hint05"
                 android:textColorHint="@color/black"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -57,7 +56,6 @@
                 android:layout_marginHorizontal="2dp"
                 android:hint="@string/hint06"
                 android:textColorHint="@color/black"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/txtCap2_5ly"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -66,7 +64,6 @@
                     android:id="@+id/txtCap2_6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxWidth="488dp"
                     android:backgroundTint="@color/white"
                     android:fontFamily="sans-serif-condensed"
                     android:inputType="textCapWords"
@@ -81,10 +78,10 @@
                 android:layout_height="wrap_content"
                 android:baselineAligned="false"
                 android:layout_marginVertical="7dp"
-                android:background="@color/white"
+                android:paddingBottom="2dp"
+                android:background="@drawable/background_shadow"
                 android:layout_marginHorizontal="2dp"
                 android:orientation="horizontal"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/txtCap2_6ly"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -143,9 +140,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="7dp"
                 android:layout_marginHorizontal="2dp"
-                android:background="@color/white"
+                android:background="@drawable/background_shadow"
                 android:orientation="vertical"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/linearCap2_7"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -155,9 +151,9 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/hint08"
                     android:textColorHint="@color/black"
-                    android:paddingBottom="5dp"
+                    android:paddingBottom="10dp"
                     app:errorEnabled="true"
-                    app:helperText="Orden a anotar: Mall o centro comercial, avenida, calle, edificio o casa y piso"
+                    app:helperText="@string/helpdirdesc"
                     app:helperTextTextAppearance="@style/TextLabel2"
                     app:helperTextTextColor="@android:color/holo_blue_dark">
 
@@ -179,12 +175,12 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginVertical="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="5dp"
                     android:layout_weight="6"
                     android:hint="@string/hint_otheRef">
-
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtCap2_8_1"
                         android:layout_width="match_parent"
@@ -193,7 +189,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="textCapWords"
                         tools:ignore="TouchTargetSizeCheck"
-                        tools:text="Otra referencia" />
+                        tools:text="Otras referencias" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -207,7 +203,6 @@
                 android:animateLayoutChanges="true"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="7dp"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/linearCap2_8"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -217,7 +212,6 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/hint091"
                     android:textColorHint="@color/black">
-
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtCap2_9_1"
                         android:layout_width="match_parent"
@@ -254,7 +248,6 @@
                 android:layout_marginHorizontal="2dp"
                 android:visibility="gone"
                 android:animateLayoutChanges="true"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/frameCap2_9_tel1"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -305,7 +298,6 @@
                 android:layout_marginHorizontal="2dp"
                 android:hint="@string/hint10"
                 android:textColorHint="@color/black"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/frameCap2_9_tel2"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -330,7 +322,6 @@
                 android:layout_marginHorizontal="2dp"
                 android:hint="@string/hint11"
                 android:textColorHint="@color/black"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/txtCap2_10ly"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -355,7 +346,6 @@
                 android:layout_marginHorizontal="2dp"
                 android:hint="@string/hint12"
                 android:textColorHint="@color/black"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/txtCap2_11ly"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -385,7 +375,6 @@
                 app:helperText="(Solo para empresas de Zona Libre de Cólon)"
                 app:helperTextTextAppearance="@style/TextLabel2"
                 app:helperTextTextColor="@android:color/holo_blue_dark"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/txtCap2_12ly"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -408,11 +397,10 @@
                 android:id="@+id/txtCap2_14ly"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
+                android:layout_marginVertical="7dp"
                 android:layout_marginHorizontal="2dp"
                 android:hint="@string/hint14"
                 android:textColorHint="@color/black"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/txtCap2_13ly"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
@@ -433,21 +421,31 @@
                 android:id="@+id/linearCap2_15"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="5dp"
+                android:layout_marginVertical="7dp"
                 android:layout_marginHorizontal="2dp"
-                android:background="@color/white"
+                android:background="@drawable/background_shadow"
                 android:orientation="vertical"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/txtCap2_14ly"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p15"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginVertical="10dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
                 <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="3dp"
-                    android:hint="@string/hint15"
-                    android:textColorHint="@color/black">
+                    android:layout_marginHorizontal="5dp"
+                    android:hint="@string/hint15">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtCap2_15"
                         android:layout_width="match_parent"
@@ -491,7 +489,6 @@
             <View
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                app:layout_constraintWidth_max="488dp"
                 app:layout_constraintTop_toBottomOf="@+id/linearCap2_15"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
