@@ -29,10 +29,6 @@ data class ModelResp(
     val code: Int?,
     val msg: String?)
 
-data class ModelFormGet(
-    val code: Int?,
-    val resp: String?,
-    val body: ModelForm?)
 data class ModelCap1(
     @SerializedName("id")                       val id: String?,//-------------
     @SerializedName("numControl")               val ncontrol: String?,//------
@@ -428,3 +424,7 @@ data class ModelForm(
     @SerializedName("cap9Patentes")                             val cap9: ModelCap9?,
     @SerializedName("cap10PerspectivasInnovacionesFuturas")     val capx: ModelCap10?,
     @SerializedName("comercioElectronico")                      val capMod: ModelMod?, )
+data class ModelFormGet(
+    val code: Int?,
+    val resp: String?,
+    val body: ModelForm?)

@@ -66,11 +66,10 @@ class FormActivity : AppCompatActivity() {
         form.btnextpager.setOnClickListener {
             if (form.viewpager.currentItem == Mob.OBSP24) {
                 form.viewpager.setCurrentItem(0,false)
-            } else form.viewpager.setCurrentItem(
-                form.viewpager.currentItem + 1,false)
+            } else seeCaps(true)
         }
         form.btbackpager.setOnClickListener {
-            form.viewpager.setCurrentItem(form.viewpager.currentItem - 1,false)
+            seeCaps(false)
         }
         form.btmenupager.setOnClickListener {
             form.viewpager.setCurrentItem(0,false)
@@ -104,7 +103,6 @@ class FormActivity : AppCompatActivity() {
         }
     }
 
-
     override fun onBackPressed() {
         if (form.viewpager.currentItem == Mob.MENUP00) {
             val mesagePregunta = AlertDialog.Builder(this)
@@ -137,8 +135,6 @@ class FormActivity : AppCompatActivity() {
         } else form.viewpager.setCurrentItem(
             form.viewpager.currentItem - 1,true)
     }
-
-
 
     private fun observation(position: Int) {
         val mesagePregunta = AlertDialog.Builder(this)
@@ -187,6 +183,15 @@ class FormActivity : AppCompatActivity() {
 
 
 
+    fun seeCaps(move: Boolean) {
+
+
+
+        form.viewpager.setCurrentItem(
+            form.viewpager.currentItem + 1,false)
+
+        form.viewpager.setCurrentItem(form.viewpager.currentItem - 1,false)
+    }
 
 
     fun spinPager(position: Int) {

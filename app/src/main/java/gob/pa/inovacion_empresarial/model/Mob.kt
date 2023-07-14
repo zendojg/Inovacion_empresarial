@@ -95,7 +95,7 @@ object Mob {
         FragTotalInforme()      //--24--Informe
     )
 
-    var arrBlank: Array<Fragment> = emptyArray()
+    var empArr: Array<Fragment> = emptyArray()
     var arrMain: Array<Fragment> = arrayOf(
         //----Contenedor de los Fragment del Main
         MainFragmentLogin(),    //--00--c01
@@ -110,17 +110,17 @@ object Mob {
     var obsTittle = ""              //-----Guarda si es Encuesta o Módulo
     var version = "0.0"
 
-    var recap1 = true
-    var recap2 = true
-    var recap3 = true
-    var recap4 = true
-    var recap5 = true
-    var recap6 = true
-    var recap7 = true
-    var recap8 = true
-    var recap9 = true
-    var recap10 = true
-    var recapMod = true
+    var seecap1 = true
+    var seecap2 = true
+    var seecap3 = true
+    var seecap4 = true
+    var seecap5 = true
+    var seecap6 = true
+    var seecap7 = true
+    var seecap8 = true
+    var seecap9 = true
+    var seecap10 = true
+    var seecapMod = true
 
 
     private var authInfo: ModelAuthTokenInfo? = ModelAuthTokenInfo(

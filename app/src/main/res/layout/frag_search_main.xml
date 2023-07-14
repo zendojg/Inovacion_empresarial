@@ -122,7 +122,6 @@
                     app:startIconContentDescription="Establecimiento"
                     app:startIconDrawable="@drawable/img_local"
                     app:startIconTint="#306F90">
-
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtLocalSearch"
                         android:layout_width="match_parent"
@@ -331,7 +330,6 @@
             android:layout_height="55dp"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp"
-            android:animateLayoutChanges="true"
             android:ellipsize="end"
             android:fontFamily="sans-serif-condensed"
             android:gravity="start|center_vertical"
@@ -353,7 +351,6 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginHorizontal="10dp"
-            android:animateLayoutChanges="true"
             android:ellipsize="end"
             android:fontFamily="sans-serif-condensed"
             android:gravity="start|center_vertical"
@@ -375,7 +372,6 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginHorizontal="10dp"
-            android:animateLayoutChanges="true"
             android:ellipsize="end"
             android:fontFamily="sans-serif-condensed"
             android:gravity="start|center_vertical"
@@ -396,11 +392,11 @@
         <ImageView
             android:id="@+id/imgCITYsearch"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:contentDescription="CITY"
+            android:scaleType="fitEnd"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_percent="0.18"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/foreground_city" />
 
@@ -408,7 +404,7 @@
             android:id="@+id/img_senacytsearch"
             android:layout_width="wrap_content"
             android:layout_height="65dp"
-            android:animateLayoutChanges="true"
+            android:layout_marginTop="50dp"
             android:contentDescription="@string/senacyt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -419,7 +415,6 @@
             android:id="@+id/versionsearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:animateLayoutChanges="true"
             android:fontFamily="sans-serif-condensed"
             android:text="@string/version"
             android:textColor="@android:color/holo_blue_dark"
@@ -446,7 +441,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_end="200dp" />
+            app:layout_constraintGuide_end="250dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

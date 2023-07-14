@@ -57,15 +57,18 @@ class MainFragmentSearch: Fragment() {
 
 
     private fun actions() {
+
         fragSearch.txtNControlSearch.setOnEditorActionListener { _, actionID, _ ->
             if (actionID == EditorInfo.IME_ACTION_DONE) {
                 controlTxt()
                 true
             } else false
         }
+        fragSearch.txtNControllySearch.setStartIconOnClickListener {
+            if (!fragSearch.lyContainer.isVisible) controlTxt()
+        }
         fragSearch.btSearch.setOnClickListener { controlTxt() }
-        fragSearch.btcancelSearch.setOnClickListener { viewFind(false) }
-
+        fragSearch.btcancelSearch.setOnClickListener { viewFind(true) }
     }
 
     private fun controlTxt() {
@@ -108,19 +111,20 @@ class MainFragmentSearch: Fragment() {
                         Mob.cap8 = resp.body?.cap8
                         Mob.cap9 = resp.body?.cap9
                         Mob.capx = resp.body?.capx
+                        Mob.capMod = resp.body?.capMod
 
                         println("\n---------CAP1:${Mob.cap1}" +
                                 "\n---------CAP2:${Mob.cap2}" +
                                 "\n---------CAP3:${Mob.cap3}" +
                                 "\n---------CAP4:${Mob.cap4}" +
                                 "\n---------CAP5:${Mob.cap5}")
-                        viewFind(true)
+                        viewFind(false)
                     }
                     Mob.CODE401 -> {
-                        val bttest = MainActivity().findViewById<Button>(R.id.btMainTest)
-                        val waitBar = MainActivity().findViewById<ProgressBar>(R.id.barMain)
-                        waitBar.visibility = View.VISIBLE
-                        bttest.callOnClick()
+                        val bttest = activity?.findViewById<Button>(R.id.btMainTest)
+                        val waitBar = activity?.findViewById<ProgressBar>(R.id.barMain)
+                        waitBar?.visibility = View.VISIBLE
+                        bttest?.callOnClick()
                     }
                 }
                 if (!resp.resp.isNullOrEmpty()) {
@@ -130,45 +134,49 @@ class MainFragmentSearch: Fragment() {
                     errortxt = errortxt.replace("{", "")
                     errortxt = errortxt.replace("}", "")
                     errortxt = errortxt.replace("\"", "")
-                    Toast.makeText(ctx, errortxt, Toast.LENGTH_LONG).show()
+                    val widthtxt = (errortxt.length * 7)
+                    val alert = Functions.msgBallom(errortxt, widthtxt, ctx)
+                    alert.showAlignBottom(fragSearch.versionsearch)
+                    alert.dismissWithDelay(Mob.TIMEBALLON4SEG)
                 }
             }
         }
     }
 
     private fun viewFind(check: Boolean) {
+        hideKeyboard()
+        fragSearch.lyContainer.isVisible = !check
+        fragSearch.btSearch.isVisible = check
+        fragSearch.btdataSearch.isVisible = check
+        fragSearch.btuserSearch.isVisible = check
+        fragSearch.versionsearch.isVisible = check
+        fragSearch.imgSenacytsearch.isVisible = check
+        fragSearch.txtNControlSearch.isEnabled = check
 
-        fragSearch.lyContainer.isVisible = check
-        fragSearch.btSearch.isVisible = !check
-        fragSearch.btdataSearch.isVisible = !check
-        fragSearch.btuserSearch.isVisible = !check
-        fragSearch.versionsearch.isVisible = !check
-        fragSearch.imgSenacytsearch.isVisible = !check
-
-        if (check) {
+        if (!check) {
             with(Mob) {
                 val blank = "".toEditable()
                 fragSearch.txtLocalSearch.text = cap2?.v05nameLtxt?.toEditable() ?: blank
                 fragSearch.txtrazonSearch.text = cap2?.v06razontxt?.toEditable() ?: blank
-                fragSearch.txtRUCsearch.text = cap2?.v07ructxt?.toEditable() ?: blank
-                fragSearch.txtdirSearch.text = cap2?.v08dirtxt?.toEditable() ?: blank
                 fragSearch.txttel1Search.text = cap2?.v09tel1txt?.toEditable() ?: blank
                 fragSearch.txttel2Search.text = cap2?.v09tel2txt?.toEditable() ?: blank
+                fragSearch.txtRUCsearch.text = cap2?.v07ructxt?.toEditable() ?: blank
+                fragSearch.txtdirSearch.text = cap2?.v08dirtxt?.toEditable() ?: blank
             }
-
         } else {
+            fragSearch.txtNControlSearch.requestFocus()
             fragSearch.txtLocalSearch.text?.clear()
             fragSearch.txtrazonSearch.text?.clear()
-            fragSearch.txtRUCsearch.text?.clear()
-            fragSearch.txtdirSearch.text?.clear()
             fragSearch.txttel1Search.text?.clear()
             fragSearch.txttel2Search.text?.clear()
+            fragSearch.txtRUCsearch.text?.clear()
+            fragSearch.txtdirSearch.text?.clear()
         }
-        
-        
-//            Mob.indiceEnc = 1
-//            activity?.finish()
-//            startActivity(Intent(ctx, FormActivity::class.java))
+        fragSearch.btinitSearch.setOnClickListener {
+            Mob.indiceEnc = 1
+            activity?.finish()
+            startActivity(Intent(ctx, FormActivity::class.java))
+        }
     }
 
 }

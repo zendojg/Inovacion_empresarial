@@ -74,6 +74,7 @@
     <string name="informe">INFORME</string>
     <string name="informetxt">Datos del Formulario</string>
 
+    <string-array name="emptyArr" />
 
     <string-array name="arr_onetofive">
         <item />

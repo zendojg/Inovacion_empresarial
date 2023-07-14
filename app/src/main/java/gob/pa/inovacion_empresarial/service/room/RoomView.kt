@@ -21,26 +21,60 @@ class RoomView(dvmModel: DVModel, context: Context) {
         val correRoom = roomDB.dbFormDao().getCorrVer()
         val lugarRoom = roomDB.dbFormDao().getDistVer()
 
-         if (proRoom.isEmpty()) { dvmProv()
+         if (proRoom.isEmpty()) {
+             CoroutineScope(Dispatchers.IO).launch { roomDB.dbFormDao().insertProv(dvm.getProv()) }
              println("---------- DOWNLOAD PROVINCIAS")}
-         if (distRoom.isEmpty()) { dvmDist()
+         if (distRoom.isEmpty()) {
+             CoroutineScope(Dispatchers.IO).launch { roomDB.dbFormDao().insertDist(dvm.getDist()) }
              println("---------- DOWNLOAD DISTRITOS")}
-         if (correRoom.isEmpty()) { dvmCorre()
+         if (correRoom.isEmpty()) {
+             CoroutineScope(Dispatchers.IO).launch { roomDB.dbFormDao().insertCorre(dvm.getCorre()) }
              println("---------- DOWNLOAD CORREGIMIENTOS")}
-         if (lugarRoom.isEmpty()) { dvmLugarP()
+         if (lugarRoom.isEmpty()) {
+             CoroutineScope(Dispatchers.IO).launch { roomDB.dbFormDao().insertLugarP(dvm.getLugarP()) }
              println("---------- DOWNLOAD LUGAR POBLADO")}
     }
 
-    private fun dvmProv() {
-        CoroutineScope(Dispatchers.IO).launch { roomDB.dbFormDao().insertProv(dvm.getProv()) }
+
+    suspend fun getProv(): Array<String> {
+        return roomDB.dbFormDao().getProvArray()
     }
-    private fun dvmDist() {
-        CoroutineScope(Dispatchers.IO).launch { roomDB.dbFormDao().insertDist(dvm.getDist()) }
+    suspend fun getProvID(prov: String): String {
+        return roomDB.dbFormDao().getProvID(prov)
     }
-    private fun dvmCorre() {
-        CoroutineScope(Dispatchers.IO).launch { roomDB.dbFormDao().insertCorre(dvm.getCorre()) }
+    suspend fun getProvName(idprov: String): String {
+        return roomDB.dbFormDao().getProvName(idprov)
     }
-    private fun dvmLugarP() {
-        CoroutineScope(Dispatchers.IO).launch { roomDB.dbFormDao().insertLugarP(dvm.getLugarP()) }
+
+    suspend fun getDist(idprov: String): Array<String> {
+        return roomDB.dbFormDao().getDistArrayByID(idprov)
+    }
+    suspend fun getDistID(idprov: String, dist: String): String {
+        return roomDB.dbFormDao().getDistID(idprov, dist)
+    }
+    suspend fun getDistName(idprov: String, iddist: String): String {
+        return roomDB.dbFormDao().getDistName(idprov, iddist)
+    }
+
+    suspend fun getCorre(idprov: String, iddist: String): Array<String> {
+        return roomDB.dbFormDao().getCorreArrayByID(idprov, iddist)
+    }
+    suspend fun getCorreID(idprov: String, iddist: String, corre: String): String {
+        return roomDB.dbFormDao().getCorreID(idprov, iddist, corre)
+    }
+    suspend fun getCorreName(idprov: String, iddist: String, idcorre: String): String {
+        return roomDB.dbFormDao().getCorreName(idprov, iddist, idcorre)
+    }
+
+    suspend fun getLugarP(idprov: String, iddist: String, idcorre: String): Array<String> {
+        return roomDB.dbFormDao().getLugarPArrayByID(idprov,iddist,idcorre)
+    }
+    suspend fun getLPID(idprov: String, iddist: String, idcorre: String, lugar:String):
+            String {
+        return roomDB.dbFormDao().getLugarPID(idprov, iddist, idcorre, lugar)
+    }
+    suspend fun getLPName(idprov: String, iddist: String, idcorre: String, idlugar:String):
+            String {
+        return roomDB.dbFormDao().getLugarPName(idprov, iddist, idcorre, idlugar)
     }
 }
