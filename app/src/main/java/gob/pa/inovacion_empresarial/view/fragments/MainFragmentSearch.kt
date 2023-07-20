@@ -9,14 +9,11 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.ProgressBar
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import com.google.android.material.button.MaterialButton
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.FragSearchMainBinding
 import gob.pa.inovacion_empresarial.function.Functions
@@ -25,10 +22,9 @@ import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.view.FormActivity
-import gob.pa.inovacion_empresarial.view.MainActivity
 import kotlinx.coroutines.launch
 
-class MainFragmentSearch: Fragment() {
+class MainFragmentSearch : Fragment() {
 
     private lateinit var fragSearch: FragSearchMainBinding
     private lateinit var ctx: Context
@@ -38,26 +34,28 @@ class MainFragmentSearch: Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?): View {
-    fragSearch = FragSearchMainBinding.inflate(layoutInflater)
-    ctx = requireContext()
-    return fragSearch.root
+        savedInstanceState: Bundle?
+    ): View {
+        fragSearch = FragSearchMainBinding.inflate(layoutInflater)
+        ctx = requireContext()
+        return fragSearch.root
     }
+
     override fun onPause() {
         super.onPause()
-        if (aDialog?.isShowing == true){
+        if (aDialog?.isShowing == true) {
             aDialog?.dismiss()
         }
     }
+
     override fun onResume() {
         super.onResume()
         fragSearch.versionsearch.text = Mob.version
-        actions()
+        onAction()
     }
 
 
-    private fun actions() {
-
+    private fun onAction() {
         fragSearch.txtNControlSearch.setOnEditorActionListener { _, actionID, _ ->
             if (actionID == EditorInfo.IME_ACTION_DONE) {
                 controlTxt()
@@ -74,17 +72,22 @@ class MainFragmentSearch: Fragment() {
     private fun controlTxt() {
         hideKeyboard()
         if (fragSearch.txtNControlSearch.text.isNullOrEmpty()) {
-            val alert = Functions.msgMark("Ingrese un N° de Control",Mob.WIDTHBALLON180,ctx)
+            val alert = Functions.msgMark("Ingrese un N° de Control", Mob.WIDTH180DP, ctx)
             alert.showAlignBottom(fragSearch.txtNControlSearch)
-            alert.dismissWithDelay(Mob.TIMEBALLON2SEG)
+            alert.dismissWithDelay(Mob.TIMELONG2SEG)
         } else {
-            val ncont: Int = try { fragSearch.txtNControlSearch.text.toString().toInt() }
-            catch (e: Exception) { 0 }
-            if (ncont<=0) {
-                val alert = Functions.msgMark("N° de Control inválido",Mob.WIDTHBALLON180,ctx)
+            val ncont: Int = try {
+                fragSearch.txtNControlSearch.text.toString().toInt()
+            } catch (e: java.lang.NumberFormatException) {
+                0
+            }
+            if (ncont <= 0) {
+                val alert = Functions.msgMark("N° de Control inválido", Mob.WIDTH180DP, ctx)
                 alert.showAlignBottom(fragSearch.txtNControlSearch)
-                alert.dismissWithDelay(Mob.TIMEBALLON2SEG)
-            } else { getForm(ncont.toString()) }
+                alert.dismissWithDelay(Mob.TIMELONG2SEG)
+            } else {
+                getForm(ncont.toString())
+            }
         }
     }
 
@@ -113,11 +116,6 @@ class MainFragmentSearch: Fragment() {
                         Mob.capx = resp.body?.capx
                         Mob.capMod = resp.body?.capMod
 
-                        println("\n---------CAP1:${Mob.cap1}" +
-                                "\n---------CAP2:${Mob.cap2}" +
-                                "\n---------CAP3:${Mob.cap3}" +
-                                "\n---------CAP4:${Mob.cap4}" +
-                                "\n---------CAP5:${Mob.cap5}")
                         viewFind(false)
                     }
                     Mob.CODE401 -> {
@@ -126,6 +124,9 @@ class MainFragmentSearch: Fragment() {
                         waitBar?.visibility = View.VISIBLE
                         bttest?.callOnClick()
                     }
+                    Mob.CODE403 -> {}
+                    Mob.CODE404 -> {}
+                    Mob.CODE500 -> {}
                 }
                 if (!resp.resp.isNullOrEmpty()) {
                     var errortxt = resp.resp
@@ -137,7 +138,7 @@ class MainFragmentSearch: Fragment() {
                     val widthtxt = (errortxt.length * 7)
                     val alert = Functions.msgBallom(errortxt, widthtxt, ctx)
                     alert.showAlignBottom(fragSearch.versionsearch)
-                    alert.dismissWithDelay(Mob.TIMEBALLON4SEG)
+                    alert.dismissWithDelay(Mob.TIMELONG4SEG)
                 }
             }
         }

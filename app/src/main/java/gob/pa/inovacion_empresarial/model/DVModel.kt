@@ -1,19 +1,18 @@
 package gob.pa.inovacion_empresarial.model
 
-import android.content.Context
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import gob.pa.inovacion_empresarial.service.api.ApiBuilder
 import gob.pa.inovacion_empresarial.service.api.ApiService
-import gob.pa.inovacion_empresarial.service.room.*
-import kotlinx.coroutines.CoroutineScope
+import gob.pa.inovacion_empresarial.service.room.DBcorregimiento
+import gob.pa.inovacion_empresarial.service.room.DBdistritos
+import gob.pa.inovacion_empresarial.service.room.DBlugarP
+import gob.pa.inovacion_empresarial.service.room.DBprovincia
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 import retrofit2.awaitResponse
-
+import java.io.IOException
 
 class DVModel: ViewModel() {
 
@@ -24,8 +23,8 @@ class DVModel: ViewModel() {
 
         val response = try {
             retrofit.getProv()
-        } catch (t: Throwable) {
-            Log.e("-- Response error: ", t.message.toString())
+        } catch (e: IOException) {
+            Log.e("-- Response error: ", e.message.toString())
             return null
         }
         msg = if (response.errorBody() != null)
@@ -43,8 +42,8 @@ class DVModel: ViewModel() {
 
         val response = try {
             retrofit.loginResp(login).awaitResponse()
-        } catch (t: Throwable) {
-            Log.e("-- Response error: ", t.message.toString())
+        } catch (e: IOException) {
+            Log.e("-- Response error: ", e.message.toString())
             return null
         }
         resp = if (response.errorBody() != null)
@@ -68,7 +67,7 @@ class DVModel: ViewModel() {
             else null
             code = resp.code()
             resp.body()
-        } catch (e: Exception) {
+        } catch (e: IOException) {
             Log.e("-- Response error: ", e.message.toString())
             return null
         }

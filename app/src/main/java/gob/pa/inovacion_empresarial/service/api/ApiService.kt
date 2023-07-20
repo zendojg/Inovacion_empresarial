@@ -10,14 +10,17 @@ import gob.pa.inovacion_empresarial.service.room.DBlugarP
 import gob.pa.inovacion_empresarial.service.room.DBprovincia
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface ApiService {
     //--  LOGIN
-    @POST (Mob.APIAUTH)
-    fun loginResp(@Body Form: ModelLog): Call<ModelAuth>
+    @POST(Mob.APIAUTH)
+    fun loginResp(@Body bodyLog: ModelLog): Call<ModelAuth>
     //--  TOKEN
-    @GET (Mob.APIAUTH)
+    @GET(Mob.APIAUTH)
     suspend fun loginToken(): Response<Void>
 
 

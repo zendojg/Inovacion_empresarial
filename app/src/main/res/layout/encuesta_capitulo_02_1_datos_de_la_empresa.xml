@@ -487,8 +487,10 @@
             </LinearLayout>
 
             <View
+                android:id="@+id/lowCap2o1"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:visibility="invisible"
                 app:layout_constraintTop_toBottomOf="@+id/linearCap2_15"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>

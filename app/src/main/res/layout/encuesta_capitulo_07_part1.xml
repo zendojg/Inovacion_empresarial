@@ -166,6 +166,7 @@
                     android:layout_marginTop="15dp"
                     android:columnCount="5"
                     android:orientation="horizontal"
+                    android:animateLayoutChanges="true"
                     android:padding="1dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -178,6 +179,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
+                        android:layout_marginBottom="1dp"
                         android:text="@string/n1"
                         android:textStyle="bold" />
 
@@ -277,7 +279,9 @@
                         android:id="@+id/txtCap7_51_1_2021ly"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
+                        android:animateLayoutChanges="true"
                         android:layout_columnSpan="2"
+                        android:layout_marginBottom="1dp"
                         android:layout_gravity="fill"
                         android:hint="@string/invertido2">
 
@@ -300,6 +304,8 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_columnSpan="2"
+                        android:layout_marginBottom="1dp"
+                        android:animateLayoutChanges="true"
                         android:layout_gravity="fill"
                         android:hint="@string/invertido2">
 
@@ -329,6 +335,7 @@
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
+                        android:layout_marginBottom="1dp"
                         android:gravity="start"
                         android:padding="5dp"
                         android:text="@string/n2"
@@ -431,7 +438,9 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_columnSpan="2"
+                        android:layout_marginBottom="1dp"
                         android:layout_gravity="fill"
+                        android:animateLayoutChanges="true"
                         android:hint="@string/invertido2">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -453,7 +462,9 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="0dp"
                         android:layout_columnSpan="2"
+                        android:layout_marginBottom="1dp"
                         android:layout_gravity="fill"
+                        android:animateLayoutChanges="true"
                         android:hint="@string/invertido2">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -542,7 +553,7 @@
 
                     <TextView
                         android:layout_columnSpan="2"
-                        android:layout_columnWeight="2"
+                        android:layout_columnWeight="1"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow_low"
                         android:fontFamily="sans-serif-condensed"
@@ -555,7 +566,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_columnWeight="10"
+                        android:layout_columnWeight="9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:fontFamily="sans-serif-condensed"
@@ -565,7 +576,8 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_1"
+                        android:id="@+id/spinCap7_52_1"
+                        android:layout_height="50dp"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -578,7 +590,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_columnWeight="10"
+                        android:layout_columnWeight="9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:fontFamily="sans-serif-condensed"
@@ -588,7 +600,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_2"
+                        android:id="@+id/spinCap7_52_2"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -601,7 +613,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_columnWeight="10"
+                        android:layout_columnWeight="9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:fontFamily="sans-serif-condensed"
@@ -611,7 +623,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_3"
+                        android:id="@+id/spinCap7_52_3"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -624,7 +636,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_columnWeight="10"
+                        android:layout_columnWeight="9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:fontFamily="sans-serif-condensed"
@@ -634,7 +646,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_4"
+                        android:id="@+id/spinCap7_52_4"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -647,7 +659,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_columnWeight="10"
+                        android:layout_columnWeight="9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:fontFamily="sans-serif-condensed"
@@ -657,7 +669,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_5"
+                        android:id="@+id/spinCap7_52_5"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -670,7 +682,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_columnWeight="10"
+                        android:layout_columnWeight="9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:fontFamily="sans-serif-condensed"
@@ -680,7 +692,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_6"
+                        android:id="@+id/spinCap7_52_6"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -693,7 +705,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_columnWeight="10"
+                        android:layout_columnWeight="9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:fontFamily="sans-serif-condensed"
@@ -703,7 +715,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_7"
+                        android:id="@+id/spinCap7_52_7"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -716,7 +728,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_columnWeight="10"
+                        android:layout_columnWeight="9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:fontFamily="sans-serif-condensed"
@@ -726,7 +738,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_8"
+                        android:id="@+id/spinCap7_52_8"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -739,7 +751,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_columnWeight="10"
+                        android:layout_columnWeight="9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:fontFamily="sans-serif-condensed"
@@ -749,7 +761,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_9"
+                        android:id="@+id/spinCap7_52_9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -762,7 +774,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_columnWeight="10"
+                        android:layout_columnWeight="9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:fontFamily="sans-serif-condensed"
@@ -772,7 +784,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_10"
+                        android:id="@+id/spinCap7_52_10"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -785,7 +797,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_columnWeight="10"
+                        android:layout_columnWeight="9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:fontFamily="sans-serif-condensed"
@@ -795,7 +807,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_11"
+                        android:id="@+id/spinCap7_52_11"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -808,7 +820,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_columnWeight="10"
+                        android:layout_columnWeight="9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:fontFamily="sans-serif-condensed"
@@ -818,7 +830,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_12"
+                        android:id="@+id/spinCap7_52_12"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -831,7 +843,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_columnWeight="10"
+                        android:layout_columnWeight="9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:fontFamily="sans-serif-condensed"
@@ -841,7 +853,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_13"
+                        android:id="@+id/spinCap7_52_13"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -854,7 +866,7 @@
 
                     <TextView
                         android:layout_width="0dp"
-                        android:layout_columnWeight="10"
+                        android:layout_columnWeight="9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:fontFamily="sans-serif-condensed"
@@ -864,7 +876,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_14"
+                        android:id="@+id/spinCap7_52_14"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -890,7 +902,7 @@
                         android:textSize="14sp" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_52_15"
+                        android:id="@+id/spinCap7_52_15"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -920,6 +932,8 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
+                android:id="@+id/lowCap7o1"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
         </LinearLayout>

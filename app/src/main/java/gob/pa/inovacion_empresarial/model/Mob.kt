@@ -15,18 +15,21 @@ object Mob {
 
     const val DATEFORMAT = "yyyy-MM-dd HH:mm:ss a"
 
-    const val WIDTHBALLON160:Int = 160
-    const val WIDTHBALLON180:Int = 180
-    const val WIDTHBALLON220:Int = 220
+    const val WIDTH160DP:Int = 160
+    const val WIDTH180DP:Int = 180
+    const val WIDTH220DP:Int = 220
 
-    const val TIMEBALLON2SEG:Long = 2000L
-    const val TIMEBALLON4SEG:Long = 4000L
-    const val TIMEBALLON6SEG:Long = 6000L
+    const val TIMELONG2SEG:Long = 2000L
+    const val TIMELONG4SEG:Long = 4000L
+    const val TIMELONG6SEG:Long = 6000L
 
-    const val TIME500MS:Int = 500
-    const val TIME800MS:Int = 800
-    const val TIME1S:Int = 1000
-    const val TIME2S:Int = 2000
+    const val TIME10MS:Long = 10
+    const val TIME360MS:Long = 360
+    const val TIME500MS:Long = 500
+    const val TIME800MS:Long = 800
+    const val TIME1S:Long = 1000
+    const val TIME2S:Long = 2000
+
 
     const val CODE200:Int = 200
     const val CODE400:Int = 400
@@ -66,6 +69,7 @@ object Mob {
     const val SEC3P22:Int = 22
     const val SEC4P23:Int = 23
     const val OBSP24:Int = 24
+
 
     var arrEncuestas: Array<Fragment> = arrayOf(    //----Contenedor de los Fragment del Form
         FragMenu(),             //--00--Menu
@@ -109,18 +113,6 @@ object Mob {
     var obsModulo = ""              //-----Observaciones del Módulo
     var obsTittle = ""              //-----Guarda si es Encuesta o Módulo
     var version = "0.0"
-
-    var seecap1 = true
-    var seecap2 = true
-    var seecap3 = true
-    var seecap4 = true
-    var seecap5 = true
-    var seecap6 = true
-    var seecap7 = true
-    var seecap8 = true
-    var seecap9 = true
-    var seecap10 = true
-    var seecapMod = true
 
 
     private var authInfo: ModelAuthTokenInfo? = ModelAuthTokenInfo(

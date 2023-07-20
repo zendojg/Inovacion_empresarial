@@ -77,7 +77,7 @@
     <string-array name="emptyArr" />
 
     <string-array name="arr_onetofive">
-        <item />
+        <item>*</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -300,8 +300,8 @@
     <string name="check23_8">8. Sociedad Limitada</string>
     <string name="check23_9">9. Otra</string>
     <string name="hint23_9">Especifique</string>
-    <string name="p24_si">Sí     <b><font color="black">1. (Continúe)</font></b></string>
-    <string name="p24_no">No    <b><font color="black">2. (Pase al Cap. IV, pregunta 28)</font></b></string>
+    <string name="p24_si">Sí......<b><font color="black">1. (Continúe)</font></b></string>
+    <string name="p24_no">No.....<b><font color="black">2. (Pase al Cap. IV, pregunta 28)</font></b></string>
     <string name="p24txt">¿Su empresa pertenece a algún tipo de empresas organizadas formalmente?</string>
     <string name="p25txt">¿A qué tipo de empresa organizadas formalmente pertenece…\n\n<b><font color="#ff0099cc">MARQUE UNA SOLA RESPUESTA</font></b></string>
     <string name="check25_1">1. Grupo empresarial?</string>
@@ -359,6 +359,7 @@
     <string name="txtnac">Nacional</string>
     <string name="txtext">Extranjero</string>
     <string name="lb35t1">1. Total (suma total)</string>
+    <string name="lb35t1all">1. Total: suma de\n    a+b+c+d+e+f+g+h</string>
     <string name="lb35a">a. Primaria</string>
     <string name="lb35b">b. Secundaria</string>
     <string name="lb35c">c. Técnico</string>
@@ -417,9 +418,9 @@
     <string name="p45desc6">Reducción de impacto medioambiental o mejora la sanidad y la seguridad?</string>
     <string name="cap6tittle3">UNA <u>INNOVACIÓN ORGANIZACIONAL</u> ES LA INTRODUCCIÓN DE NUEVA METODOLOGÍA EN LA PRACTICA DEL NEGOCIO (INCLUYENDO ADMINISTRACIÓN DEL CONOCIMIENTO), LA ORGANIZACIÓN DEL LUGAR DE TRABAJO O LAS RELACIONES EXTERNAS QUE NO HAN SIDO USADAS EN LA EMPRESA ANTERIORENTE</string>
     <string name="p46txt">¿Durante el 2021 y 2022, su empresa introdujo?\n\n<font color="#ff0099cc">MARQUE SU RESPUESTA PARA CADA AÑO</font></string>
-    <string name="p46desc1">Nuevas prácticas de negocios para la organización de procesos <font color="black">(administración de abastecimiento, reingeniería de procesos, gestión de calidad, entre otras)</font>.</string>
-    <string name="p46desc2">Nuevos métodos de la organización de responsabilidades y toma de decisiones <font color="black">(nuevo sistema de gestión de responsabilidades, reestructuraciones, sistemas de capacitación, entre otros)</font>.</string>
-    <string name="p46desc3">Nuevos métodos de la organización de las relaciones externas con otras empresas o instituciones públicas <font color="black">(primer uso de alianza, subcontrataciones, etc.)</font>.</string>
+    <string name="p46desc1">Nuevas prácticas de negocios para la organización de procesos <font color="#3C54BB">(administración de abastecimiento, reingeniería de procesos, gestión de calidad, entre otras)</font>.</string>
+    <string name="p46desc2">Nuevos métodos de la organización de responsabilidades y toma de decisiones <font color="#3C54BB">(nuevo sistema de gestión de responsabilidades, reestructuraciones, sistemas de capacitación, entre otros)</font>.</string>
+    <string name="p46desc3">Nuevos métodos de la organización de las relaciones externas con otras empresas o instituciones públicas <font color="#3C54BB">(primer uso de alianza, subcontrataciones, etc.)</font>.</string>
     <string name="eachyear">MARQUE SU RESPUESTA PARA CADA AÑO</string>
     <string name="lb46_desclast">Sí respondió No a todas las opciones, pase a la pregunta 48</string>
     <string name="p47txt">En el 2022, ¿cuán importante fueron cada uno de los siguientes efectos de la innovación organizacional…</string>
@@ -430,24 +431,24 @@
     <string name="p47desc5">Mejorar la comunicación y/o participación de información dentro de su empresa y/o con otras empresas y/o instituciones?</string>
     <string name="cap6tittle4">UNA <u>INNOVACIÓN EN LA COMERCIALIZACIÓN</u> ES LA IMPLEMENTACIÓN DE UN NUEVO CONCEPTO DE MARKETING O ESTRATEGIA QUE DIFIERE SIGNIFICATIVAMENTE DEL MÉTODO DE MARKETING EXISTENTE EN LA EMPRESA, EL CUAL NO HA SIDO UTILIZADO ANTES</string>
     <string name="lb48_desclast">Sí respondió No a todas las opciones, pase a la pregunta 50</string>
-    <string name="p48tb1">Cambios significativos en el diseño, envase y ensamblaje de productos <font color="black">(bienes y servicios). Excluye cambios que alteran la funcionalidad o características de uso del producto (esto corresponde a la innovación de producto)</font>.</string>
-    <string name="p48tb2">Nuevos medios o técnicas para la promoción del producto <font color="black">(el primer uso de un nuevo medio de publicidad, nueva imagen de marca, entre otras)</font>.</string>
-    <string name="p48tb3">Nuevos métodos para los canales de distribucción del producto <font color="black">(el primer uso de franquicias o distribución de licencias, venta directa, nuevo concepto de presentación del producto, entre otras)</font>.</string>
-    <string name="p48tb4">Nuevos métodos de tarificación de bienes y servicios <font color="black">(el primer uso de variables de precio por demanda, sistema de descuentos, entre otras)</font>.</string>
+    <string name="p48tb1">Cambios significativos en el diseño, envase y ensamblaje de productos <font color="#3C54BB">(bienes y servicios). Excluye cambios que alteran la funcionalidad o características de uso del producto (esto corresponde a la innovación de producto)</font>.</string>
+    <string name="p48tb2">Nuevos medios o técnicas para la promoción del producto <font color="#3C54BB">(el primer uso de un nuevo medio de publicidad, nueva imagen de marca, entre otras)</font>.</string>
+    <string name="p48tb3">Nuevos métodos para los canales de distribucción del producto <font color="#3C54BB">(el primer uso de franquicias o distribución de licencias, venta directa, nuevo concepto de presentación del producto, entre otras)</font>.</string>
+    <string name="p48tb4">Nuevos métodos de tarificación de bienes y servicios <font color="#3C54BB">(el primer uso de variables de precio por demanda, sistema de descuentos, entre otras)</font>.</string>
     <string name="p49txt">En el 2022, ¿cuán importante fueron cada uno de los siguientes efectos de la innovación en la comercialización…</string>
     <string name="p49desc1">Incrementar o mantener la participación de mercado?</string>
     <string name="p49desc2">Introducir productos para un nuevo segmento de mercado?</string>
     <string name="p49desc3">Introducir productos para un mercado geográficamente nuevo?</string>
     <string name="p50txt">¿La empresa tiene personal, oficinas, sección, departamento o laboratorio de investigación y desarrorrlo (I+D)?</string>
-    <string name="p59check1"><b>Sí</b> 1.  (Continuar)</string>
-    <string name="p59check2"><b>No</b> 2. (Pase a la pregunta 52)</string>
+    <string name="p59check1"><b>Sí</b>.....1.  (Continuar)</string>
+    <string name="p59check2"><b>No</b>....2. (Pase a la pregunta 52)</string>
     <string name="cap7tittle1">LAS ACTIVIDADES INNOVATIVAS SON TODAS LAS OPERACIONES CIENTÍFICAS, TECNOLÓGICAS, ORGANIZATIVAS, FINANCIERAS Y COMERCIALES QUE CONDUCEN A LA INTRODUCCIÓN DE INNOVACIÓN, Y A PESAR DE QUE NO SE HAYA CONCRETADO LA INNOVACIÓN, LAS ACTIVIDADES INNOVATIVAS FUERON EFECTUADAS</string>
     <string name="p51txt">¿En el 2021 y 2022, su empresa realizó alguna de las siguientes actividades de <u>Investigación y Desarrollo</u> (I+D)?\n\n<font color="#ff0099cc">MARQUE SU RESPUESTA PARA CADA AÑO Y EL PORCENTAJE INVERTIDO O GASTADO</font></string>
     <string name="invertido2">% Invertido (2)</string>
-    <string name="p51tb1">Investigación y desarrollo en la empresa <font color="black">(trabajo creativo llevado a cabo dentro de la empresa para incrementar el volumen de conocimiento y el uso de éste para crear nuevas aplicaciones, ejemplo desarrollo de software)</font>.</string>
-    <string name="p51tb2">Investigación y desarrollo fuera de la empresa <font color="black">(considera la misma actividad descrita anteriormente, pero realizada por otras empresas incluyendo otras empresas subsidiarias dentro del grupo, institutos de investigación públicos y privados y/o universidades, que son subcontratadas por la empresa para dicho fin)</font>.</string>
+    <string name="p51tb1">Investigación y desarrollo en la empresa <font color="#3C54BB">(trabajo creativo llevado a cabo dentro de la empresa para incrementar el volumen de conocimiento y el uso de éste para crear nuevas aplicaciones, ejemplo desarrollo de software)</font>.</string>
+    <string name="p51tb2">Investigación y desarrollo fuera de la empresa <font color="#3C54BB">(considera la misma actividad descrita anteriormente, pero realizada por otras empresas incluyendo otras empresas subsidiarias dentro del grupo, institutos de investigación públicos y privados y/o universidades, que son subcontratadas por la empresa para dicho fin)</font>.</string>
     <string name="p52txt">En el 2022, ¿cúales fueron las <u>fuentes de información</u> que utilizó la empresa para el desarrollo de las actividades de innovación?</string>
-    <string name="tb52desc">Enumere según orden de importancia (*)</string>
+    <string name="tb52desc">Enumere según orden de importancia (<font color="#ff0099cc">*</font>)</string>
     <string name="tb52desc1">1. Iniciativas del Departamento de Investigación y Desarrollo.</string>
     <string name="tb52desc2">2. Departamento de ingeniería o producción.</string>
     <string name="tb52desc3">3. Departamento de comercialización.</string>
@@ -626,5 +627,7 @@
     <string name="lb10m4"><b>4.</b> Otros gastos TIC <b>(alquiler de equipo TIC, personal de la empresa dedicada a la producción de software para uso propio no para la venta)</b>?</string>
     <string name="helpdirdesc">Anote la dirección en el siguiente orden: Mall o centro comercial, avenida, calle, edificio o casa, piso</string>
     <string name="init">Iniciar</string>
+    <string name="back">Regresar</string>
+    <string name="menu">Menu</string>
 
 </resources>

@@ -1,31 +1,26 @@
 package gob.pa.inovacion_empresarial.view
 
-import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.button.MaterialButton
 import gob.pa.inovacion_empresarial.R
-import gob.pa.inovacion_empresarial.adapters.AdapterMain
+import gob.pa.inovacion_empresarial.adapters.AdapterMainPager
 import gob.pa.inovacion_empresarial.databinding.ActivityMainBinding
 import gob.pa.inovacion_empresarial.function.AppCache
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
-import gob.pa.inovacion_empresarial.service.room.FormDB
 import gob.pa.inovacion_empresarial.service.room.RoomView
 import kotlinx.coroutines.launch
 import kotlin.system.exitProcess
@@ -47,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             (this.packageName, 0).versionName)
         pagerMain = main.viewpagerMain
         pagerMain.isUserInputEnabled = false
-        pagerMain.adapter = AdapterMain(Mob.arrMain, supportFragmentManager, lifecycle)
+        pagerMain.adapter = AdapterMainPager(Mob.arrMain, supportFragmentManager, lifecycle)
 
         val decorView: View = window.decorView
         decorView.systemUiVisibility =
@@ -72,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                     pagerMain.setCurrentItem(Mob.LOGIN0, false)
                     pagerMain.visibility = View.VISIBLE
                     main.barMain.visibility = View.GONE
-                }, (Mob.TIME500MS).toLong())
+                }, (Mob.TIME500MS))
             } else {
                 lifecycleScope.launch {
                     validate()
@@ -150,16 +145,16 @@ class MainActivity : AppCompatActivity() {
                         main.barMain.visibility = View.GONE
                         pagerMain.setCurrentItem(Mob.LOGIN0, false)
                         val alert = Functions.msgBallom(
-                            "Sesión expirada", Mob.WIDTHBALLON160, this@MainActivity)
+                            "Sesión expirada", Mob.WIDTH160DP, this@MainActivity)
                         alert.showAlignBottom(main.btMainTest)
-                        alert.dismissWithDelay(Mob.TIMEBALLON4SEG)
+                        alert.dismissWithDelay(Mob.TIMELONG4SEG)
                     }
                     else -> {
                         pagerMain.visibility = View.VISIBLE
                         main.barMain.visibility = View.GONE
                     }
                 }
-            }, (Mob.TIME500MS).toLong())
+            }, (Mob.TIME500MS))
             Log.i("RESP:","\n--------CODE: ${resp?.code}\n--------MSG: ${resp?.msg}\n")
 
         }

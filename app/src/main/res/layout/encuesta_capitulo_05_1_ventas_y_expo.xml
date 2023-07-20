@@ -31,18 +31,18 @@
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
+                android:background="@drawable/background_shadow"
                 android:paddingHorizontal="5dp"
                 android:paddingTop="5dp"
-                android:paddingBottom="15dp"
-                android:background="@drawable/background_shadow">
+                android:paddingBottom="15dp">
 
                 <TextView
                     android:id="@+id/lb30np"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-condensed"
                     android:text="@string/p30"
                     android:textColor="@color/black"
                     android:textStyle="bold"
@@ -79,7 +79,7 @@
                         android:layout_rowSpan="2"
                         android:layout_columnWeight="1.5"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow_low"
+                        android:background="@drawable/background_shadow_celpast"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:text="@string/lb_30_1"
@@ -90,7 +90,7 @@
                         android:layout_columnSpan="2"
                         android:layout_columnWeight="2"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow"
+                        android:background="@drawable/background_shadow_low"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:paddingVertical="5dp"
@@ -102,8 +102,8 @@
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow_celpast"
                         android:fontFamily="sans-serif-condensed"
-                        android:padding="5dp"
                         android:gravity="center"
+                        android:padding="5dp"
                         android:text="@string/a2021"
                         android:textStyle="bold" />
 
@@ -113,54 +113,10 @@
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow_celpast"
                         android:fontFamily="sans-serif-condensed"
-                        android:padding="5dp"
                         android:gravity="center"
+                        android:padding="5dp"
                         android:text="@string/a2022"
                         android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="1.5"
-                        android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow_celpast"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:text="@string/lb_30_3"
-                        android:textColor="#616161"
-                        android:textSize="@dimen/text12"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/txtCap5_30_1_2021"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="2"
-                        android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:hint="@string/cero"
-                        android:importantForAutofill="no"
-                        android:inputType="number"
-                        android:maxLength="10"
-                        android:minHeight="48dp"
-                        android:nextFocusDown="@+id/txtCap5_30_1_2022"
-                        tools:ignore="DuplicateSpeakableTextCheck" />
-
-                    <EditText
-                        android:id="@+id/txtCap5_30_1_2022"
-                        android:layout_width="0dp"
-                        android:layout_columnWeight="2"
-                        android:layout_gravity="fill"
-                        android:background="@drawable/background_shadow"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:hint="@string/cero"
-                        android:importantForAutofill="no"
-                        android:inputType="number"
-                        android:maxLength="10"
-                        android:minHeight="48dp"
-                        android:nextFocusDown="@+id/txtCap5_30_a_2021"
-                        tools:ignore="DuplicateSpeakableTextCheck" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -253,6 +209,56 @@
                         android:minHeight="48dp"
                         tools:ignore="DuplicateSpeakableTextCheck" />
 
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="1.5"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_low"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:text="@string/lb_30_3"
+                        android:textColor="#616161"
+                        android:textSize="@dimen/text12"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_30_1_2021"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_low"
+                        android:focusable="false"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_30_1_2022"
+                        android:textColor="@color/holo_blue_dark"
+                        android:textColorHint="@color/holo_blue_dark"
+                        tools:ignore="DuplicateSpeakableTextCheck" />
+
+                    <EditText
+                        android:id="@+id/txtCap5_30_1_2022"
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:background="@drawable/background_shadow_low"
+                        android:focusable="false"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:hint="@string/cero"
+                        android:importantForAutofill="no"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:minHeight="48dp"
+                        android:nextFocusDown="@+id/txtCap5_30_a_2021"
+                        android:textColor="@color/holo_blue_dark"
+                        android:textColorHint="@color/holo_blue_dark"
+                        tools:ignore="DuplicateSpeakableTextCheck" />
+
                 </GridLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -263,10 +269,10 @@
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
+                android:background="@drawable/background_shadow"
                 android:paddingHorizontal="5dp"
                 android:paddingTop="5dp"
-                android:paddingBottom="15dp"
-                android:background="@drawable/background_shadow">
+                android:paddingBottom="15dp">
 
                 <TextView
                     android:id="@+id/lb32p"
@@ -300,9 +306,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
+                    android:background="@drawable/background_shadow"
                     android:columnCount="3"
                     android:orientation="horizontal"
-                    android:background="@drawable/background_shadow"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView7">
@@ -418,8 +424,8 @@
                         android:layout_width="0dp"
                         android:layout_rowSpan="5"
                         android:layout_columnWeight="1"
-                        android:layout_marginEnd="10dp"
                         android:layout_gravity="fill"
+                        android:layout_marginEnd="10dp"
                         android:gravity="center"
                         android:orientation="vertical">
 
@@ -469,10 +475,10 @@
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
+                android:background="@drawable/background_shadow"
                 android:paddingHorizontal="5dp"
                 android:paddingTop="5dp"
-                android:paddingBottom="15dp"
-                android:background="@drawable/background_shadow">
+                android:paddingBottom="15dp">
 
                 <TextView
                     android:id="@+id/lb32np"
@@ -504,9 +510,9 @@
                 <GridLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginHorizontal="5dp"
                     android:layout_gravity="center"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginTop="15dp"
                     android:background="@drawable/background_shadow"
                     android:columnCount="3"
                     android:orientation="horizontal"
@@ -606,10 +612,11 @@
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
+                android:animateLayoutChanges="true"
+                android:background="@drawable/background_shadow"
                 android:paddingHorizontal="5dp"
                 android:paddingTop="5dp"
-                android:paddingBottom="15dp"
-                android:background="@drawable/background_shadow">
+                android:paddingBottom="15dp">
 
                 <TextView
                     android:id="@+id/lb33np"
@@ -632,95 +639,103 @@
                     android:text="@string/p33txt"
                     android:textColor="@color/black"
                     android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/lb33np"
-                    app:layout_constraintTop_toTopOf="@+id/lb33np"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintTop_toTopOf="@+id/lb33np" />
 
                 <TextView
                     android:id="@+id/lb33_2021"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:layout_weight="1"
                     android:background="@drawable/background_shadow_celpast"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="start|center_vertical"
                     android:paddingHorizontal="20dp"
                     android:paddingVertical="5dp"
-                    android:layout_marginTop="15dp"
                     android:text="@string/p2021"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lb33txt" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:id="@+id/txtCap5_33_1_2021ly"
+                <LinearLayout
+                    android:id="@+id/layoutCap5_33_2021"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
                     android:paddingVertical="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lb33_2021"
-                    android:hint="@string/txt33_1a">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCap5_33_1_2021"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="textMultiLine"
-                        tools:ignore="TouchTargetSizeCheck"
-                        tools:text="Bien o servicio" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/lb33_2021">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:id="@+id/txtCap5_33_2_2021ly"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingVertical="5dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtCap5_33_1_2021ly"
-                    android:hint="@string/txt33_2a">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCap5_33_2_2021"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtCap5_33_1_2021ly"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="textMultiLine"
-                        tools:ignore="TouchTargetSizeCheck"
-                        tools:text="Bien o servicio" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_weight="1"
+                        android:hint="@string/txt33_1a"
+                        android:paddingVertical="5dp">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:id="@+id/txtCap5_33_3_2021ly"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingVertical="5dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtCap5_33_2_2021ly"
-                    android:hint="@string/txt33_3a">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCap5_33_3_2021"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtCap5_33_1_2021"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:fontFamily="sans-serif-condensed"
+                            android:inputType="textMultiLine|textCapCharacters"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:text="Bien o servicio" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtCap5_33_2_2021ly"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="textMultiLine"
-                        tools:ignore="TouchTargetSizeCheck"
-                        tools:text="Bien o servicio" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_weight="1"
+                        android:hint="@string/txt33_2a"
+                        android:paddingVertical="5dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtCap5_33_2_2021"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:fontFamily="sans-serif-condensed"
+                            android:inputType="textMultiLine"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:text="Bien o servicio" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtCap5_33_3_2021ly"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/txt33_3a"
+                        android:paddingVertical="5dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtCap5_33_3_2021"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:fontFamily="sans-serif-condensed"
+                            android:inputType="textMultiLine"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:text="Bien o servicio" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/textView11"
+                    android:id="@+id/lb33_2022"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -734,73 +749,85 @@
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtCap5_33_3_2021ly"/>
+                    app:layout_constraintTop_toBottomOf="@+id/layoutCap5_33_2021" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:id="@+id/txtCap5_33_1_2022ly"
+                <LinearLayout
+                    android:id="@+id/layoutCap5_33_2022"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical"
                     android:paddingVertical="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView11"
-                    android:hint="@string/txt33_1a">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCap5_33_1_2022"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="textMultiLine"
-                        tools:ignore="TouchTargetSizeCheck"
-                        tools:text="Bien o servicio" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    app:layout_constraintTop_toBottomOf="@+id/lb33_2022">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:id="@+id/txtCap5_33_2_2022ly"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingVertical="5dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtCap5_33_1_2022ly"
-                    android:hint="@string/txt33_2a">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCap5_33_2_2022"
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtCap5_33_1_2022ly"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="textMultiLine"
-                        tools:ignore="TouchTargetSizeCheck"
-                        tools:text="Bien o servicio" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_weight="1"
+                        android:hint="@string/txt33_1a"
+                        android:paddingVertical="5dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lb33_2022">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:id="@+id/txtCap5_33_3_2022ly"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:paddingVertical="5dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtCap5_33_2_2022ly"
-                    android:hint="@string/txt33_3a">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCap5_33_3_2022"
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtCap5_33_1_2022"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:fontFamily="sans-serif-condensed"
+                            android:inputType="textMultiLine"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:text="Bien o servicio" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtCap5_33_2_2022ly"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="textMultiLine"
-                        tools:ignore="TouchTargetSizeCheck"
-                        tools:text="Bien o servicio" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_weight="1"
+                        android:hint="@string/txt33_2a"
+                        android:paddingVertical="5dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtCap5_33_2_2022"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:fontFamily="sans-serif-condensed"
+                            android:inputType="textMultiLine"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:text="Bien o servicio" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtCap5_33_3_2022ly"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/txt33_3a"
+                        android:paddingVertical="5dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtCap5_33_3_2022"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:fontFamily="sans-serif-condensed"
+                            android:inputType="textMultiLine"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:text="Bien o servicio" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -810,10 +837,10 @@
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
+                android:background="@drawable/background_shadow"
                 android:paddingHorizontal="5dp"
                 android:paddingTop="5dp"
-                android:paddingBottom="15dp"
-                android:background="@drawable/background_shadow">
+                android:paddingBottom="15dp">
 
                 <TextView
                     android:id="@+id/lb34np"
@@ -845,11 +872,11 @@
                     android:id="@+id/gridLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/background_shadow"
                     android:columnCount="3"
                     android:orientation="horizontal"
-                    android:background="@drawable/background_shadow"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView12">
@@ -970,6 +997,8 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
+                android:id="@+id/lowCap5o1"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
         </LinearLayout>

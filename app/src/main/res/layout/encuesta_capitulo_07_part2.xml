@@ -587,12 +587,12 @@
                         android:layout_columnSpan="1"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill"
+                        android:textColorHint="@android:color/holo_blue_dark"
                         android:hint="@string/a2021">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap7_53_t2021"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
@@ -609,12 +609,12 @@
                         android:layout_columnSpan="1"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill"
+                        android:textColorHint="@android:color/holo_blue_dark"
                         android:hint="@string/a2022">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap7_53_t2022"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
@@ -719,7 +719,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_1"
+                        android:id="@+id/spinCap7_54_1"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -742,7 +742,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_2"
+                        android:id="@+id/spinCap7_54_2"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -765,7 +765,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_3"
+                        android:id="@+id/spinCap7_54_3"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -788,7 +788,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_4"
+                        android:id="@+id/spinCap7_54_4"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -811,7 +811,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_5"
+                        android:id="@+id/spinCap7_54_5"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -834,7 +834,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_6"
+                        android:id="@+id/spinCap7_54_6"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -857,7 +857,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_7"
+                        android:id="@+id/spinCap7_54_7"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -880,7 +880,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_8"
+                        android:id="@+id/spinCap7_54_8"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -903,7 +903,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_9"
+                        android:id="@+id/spinCap7_54_9"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -926,7 +926,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_10"
+                        android:id="@+id/spinCap7_54_10"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -949,7 +949,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_11"
+                        android:id="@+id/spinCap7_54_11"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -972,7 +972,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_12"
+                        android:id="@+id/spinCap7_54_12"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -995,7 +995,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_13"
+                        android:id="@+id/spinCap7_54_13"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -1018,7 +1018,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_14"
+                        android:id="@+id/spinCap7_54_14"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -1045,7 +1045,7 @@
                         android:textSize="14sp" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_54_15"
+                        android:id="@+id/spinCap7_54_15"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
@@ -1074,6 +1074,8 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
+                android:id="@+id/lowCap7o2"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
         </LinearLayout>

@@ -278,6 +278,16 @@
                     tools:text="correo@email.com" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <View
+                android:id="@+id/lowCap2o2"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:visibility="invisible"
+                app:layout_constraintTop_toBottomOf="@+id/txtCap2_21ly"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

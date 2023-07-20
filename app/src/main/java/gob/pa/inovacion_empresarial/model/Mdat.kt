@@ -2,7 +2,6 @@ package gob.pa.inovacion_empresarial.model
 
 import com.google.gson.annotations.SerializedName
 
-
 //-- LOGIN
 data class ModelLog(
     @SerializedName("username")                 val user: String,

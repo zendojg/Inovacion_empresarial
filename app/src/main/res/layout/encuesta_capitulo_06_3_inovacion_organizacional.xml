@@ -383,14 +383,14 @@
                     </RadioGroup>
 
                     <RadioGroup
-                        android:id="@+id/rgroupCap6_42_3_2022"
+                        android:id="@+id/rgroupCap6_46_3_2022"
                         android:layout_columnSpan="2"
                         android:layout_gravity="fill"
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
 
                         <RadioButton
-                            android:id="@+id/rbtCap6_42_3_si_2022"
+                            android:id="@+id/rbtCap6_46_3_si_2022"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -400,7 +400,7 @@
                             tools:ignore="TouchTargetSizeCheck" />
 
                         <RadioButton
-                            android:id="@+id/rbtCap6_42_3_no_2022"
+                            android:id="@+id/rbtCap6_46_3_no_2022"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -666,6 +666,8 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
+                android:id="@+id/lowCap6o3"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
         </LinearLayout>

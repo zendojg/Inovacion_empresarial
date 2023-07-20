@@ -76,6 +76,7 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView6">
+
                     <AutoCompleteTextView
                         android:id="@+id/txtCap3_22"
                         android:layout_width="match_parent"
@@ -129,78 +130,79 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout
+                <RadioGroup
+                    android:id="@+id/rgroupCap3_23"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
                     android:orientation="vertical">
 
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_1"
+                    <RadioButton
+                        android:id="@+id/rbtCap3_23_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/check23_1"
                         tools:ignore="TouchTargetSizeCheck" />
 
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_2"
+                    <RadioButton
+                        android:id="@+id/rbtCap3_23_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/check23_2"
                         tools:ignore="TouchTargetSizeCheck" />
 
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_3"
+                    <RadioButton
+                        android:id="@+id/rbtCap3_23_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/check23_3"
                         tools:ignore="TouchTargetSizeCheck" />
 
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_4"
+                    <RadioButton
+                        android:id="@+id/rbtCap3_23_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/check23_4"
                         tools:ignore="TouchTargetSizeCheck" />
 
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_5"
+                    <RadioButton
+                        android:id="@+id/rbtCap3_23_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/check23_5"
                         tools:ignore="TouchTargetSizeCheck" />
 
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_6"
+                    <RadioButton
+                        android:id="@+id/rbtCap3_23_6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/check23_6"
                         tools:ignore="TouchTargetSizeCheck" />
 
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_7"
+                    <RadioButton
+                        android:id="@+id/rbtCap3_23_7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/check23_7"
                         tools:ignore="TouchTargetSizeCheck" />
 
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_8"
+                    <RadioButton
+                        android:id="@+id/rbtCap3_23_8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/check23_8"
                         tools:ignore="TouchTargetSizeCheck" />
 
-                    <CheckBox
-                        android:id="@+id/checkCap3_23_9"
+                    <RadioButton
+                        android:id="@+id/rbtCap3_23_9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
@@ -211,7 +213,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/hint23_9">
-
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap3_23_9"
                             android:layout_width="match_parent"
@@ -228,7 +229,7 @@
                             tools:visibility="visible" />
                     </com.google.android.material.textfield.TextInputLayout>
 
-                </LinearLayout>
+                </RadioGroup>
 
             </LinearLayout>
 
@@ -275,6 +276,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="vertical"
                     tools:ignore="UselessParent">
 
@@ -304,6 +306,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:animateLayoutChanges="true"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearCap3_24"
@@ -473,6 +476,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
                         android:hint="@string/hint26"
                         android:textColorHint="@color/black">
 
@@ -533,6 +537,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
                         android:hint="@string/hint27"
                         android:textColorHint="@color/black">
 
@@ -556,8 +561,10 @@
             </LinearLayout>
 
             <View
+                android:id="@+id/lowCap3"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:visibility="invisible"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearCap3_24_continuar" />

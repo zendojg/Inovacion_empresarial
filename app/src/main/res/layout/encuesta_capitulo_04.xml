@@ -62,24 +62,27 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <EditText
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/txtCap4_28"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="5dp"
-                    android:autofillHints="Actividad económica"
                     android:background="@drawable/background_shadow"
-                    android:drawableTint="@android:color/holo_blue_dark"
                     android:fontFamily="sans-serif-condensed"
+                    android:gravity="start|center_vertical"
                     android:hint="@string/hint28_act"
-                    android:imeOptions="actionNext"
-                    android:inputType="textImeMultiLine|textCapWords"
+                    android:importantForAutofill="no"
+                    android:inputType="textMultiLine|textCapCharacters"
                     android:lines="3"
+                    android:maxLength="200"
                     android:minHeight="48dp"
+                    android:overScrollMode="always"
                     android:paddingHorizontal="15dp"
-                    android:scrollHorizontally="false"
-                    tools:ignore="LabelFor" />
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbars="vertical"
+                    tools:ignore="LabelFor,SpeakableTextPresentCheck" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -101,7 +104,7 @@
                     android:paddingTop="5dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtCap2_8_1"
+                        android:id="@+id/txtCap4_28_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
@@ -163,10 +166,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="15dp"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/n1"
                         android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -181,10 +184,13 @@
                         android:fontFamily="sans-serif-condensed"
                         android:hint="@string/hint_actsec"
                         android:importantForAutofill="no"
-                        android:inputType="text"
+                        android:inputType="textMultiLine|textCapCharacters"
                         android:lines="3"
                         android:minHeight="48dp"
+                        android:overScrollMode="always"
                         android:paddingHorizontal="15dp"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollbars="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="LabelFor" />
@@ -230,10 +236,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="15dp"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/n2"
                         android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -248,10 +254,13 @@
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
                         android:hint="@string/hint_actsec"
-                        android:inputType="text"
+                        android:inputType="textMultiLine|textCapCharacters"
                         android:lines="3"
                         android:minHeight="48dp"
+                        android:overScrollMode="always"
                         android:paddingHorizontal="15dp"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollbars="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="LabelFor" />
@@ -297,10 +306,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="15dp"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/n3"
                         android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -315,10 +324,13 @@
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
                         android:hint="@string/hint_actsec"
-                        android:inputType="text"
+                        android:inputType="textMultiLine|textCapCharacters"
                         android:lines="3"
                         android:minHeight="48dp"
+                        android:overScrollMode="always"
                         android:paddingHorizontal="15dp"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollbars="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="LabelFor" />
@@ -364,10 +376,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
-                        android:layout_marginTop="15dp"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/n4"
                         android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -382,10 +394,13 @@
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
                         android:hint="@string/hint_actsec"
-                        android:inputType="text"
+                        android:inputType="textMultiLine|textCapCharacters"
                         android:lines="3"
                         android:minHeight="48dp"
+                        android:overScrollMode="always"
                         android:paddingHorizontal="15dp"
+                        android:scrollbarStyle="insideInset"
+                        android:scrollbars="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:ignore="LabelFor" />
@@ -444,8 +459,10 @@
             </LinearLayout>
 
             <View
+                android:id="@+id/lowCap4"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
+                android:visibility="invisible"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/linearCap4_29" />

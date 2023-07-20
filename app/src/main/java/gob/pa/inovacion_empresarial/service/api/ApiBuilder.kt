@@ -20,8 +20,8 @@ class ApiBuilder {
             val logging = HttpLoggingInterceptor()
             logging.level = HttpLoggingInterceptor.Level.BODY //<-----------------------  LOG
             return OkHttpClient.Builder()
-                .callTimeout(360,TimeUnit.SECONDS)
-                .connectTimeout(10,TimeUnit.SECONDS)
+                .callTimeout(Mob.TIME360MS,TimeUnit.SECONDS)
+                .connectTimeout(Mob.TIME10MS,TimeUnit.SECONDS)
                 .addInterceptor(ApiHeader())
                 .addInterceptor(logging)
                 .build()

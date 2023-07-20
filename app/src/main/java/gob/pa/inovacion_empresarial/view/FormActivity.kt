@@ -15,11 +15,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.button.MaterialButton
 import gob.pa.inovacion_empresarial.R
-import gob.pa.inovacion_empresarial.adapters.AdapterPager
+import gob.pa.inovacion_empresarial.adapters.AdapterFormPager
 import gob.pa.inovacion_empresarial.databinding.ActivityFormBinding
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.model.Mob
@@ -29,14 +28,13 @@ class FormActivity : AppCompatActivity() {
 
     private lateinit var form: ActivityFormBinding
     private var dialog: AlertDialog? = null
-    private var encuesta = Mob.indiceEnc
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         form = ActivityFormBinding.inflate(layoutInflater)
         setContentView(form.root)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        val myAdapter = AdapterPager(supportFragmentManager, lifecycle)
+        val myAdapter = AdapterFormPager(supportFragmentManager, lifecycle)
         if (myAdapter.itemCount == 0) {
             myAdapter.addListFragment(Mob.arrEncuestas)
             form.viewpager.adapter = myAdapter
@@ -47,8 +45,7 @@ class FormActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        encuesta = Mob.indiceEnc
-        actions()
+        onAction()
     }
 
     override fun onPause() {
@@ -58,10 +55,10 @@ class FormActivity : AppCompatActivity() {
         }
     }
 
-    private fun actions() {
-        if (encuesta!= 0) {
-            form.viewpager.setCurrentItem(encuesta, false)
-            spinPager(encuesta)
+    private fun onAction() {
+        if (Mob.indiceEnc != 0) {
+            form.viewpager.setCurrentItem(Mob.indiceEnc, false)
+            spinPager(Mob.indiceEnc)
         }
         form.btnextpager.setOnClickListener {
             if (form.viewpager.currentItem == Mob.OBSP24) {
@@ -183,14 +180,12 @@ class FormActivity : AppCompatActivity() {
 
 
 
-    fun seeCaps(move: Boolean) {
+    private fun seeCaps(move: Boolean) {
+        if (move)
+            form.viewpager.setCurrentItem(form.viewpager.currentItem + 1,false)
+        else
+            form.viewpager.setCurrentItem(form.viewpager.currentItem - 1,false)
 
-
-
-        form.viewpager.setCurrentItem(
-            form.viewpager.currentItem + 1,false)
-
-        form.viewpager.setCurrentItem(form.viewpager.currentItem - 1,false)
     }
 
 

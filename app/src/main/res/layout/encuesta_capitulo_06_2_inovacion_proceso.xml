@@ -595,66 +595,77 @@
                     app:layout_constraintTop_toTopOf="@+id/lb44np"
                     tools:ignore="TextContrastCheck" />
 
-                <CheckBox
-                    android:id="@+id/rbtCap6_44_1"
-                    android:layout_width="0dp"
+                <RadioGroup
+                    android:id="@+id/rgroupCap6_44"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:padding="5dp"
-                    android:background="@drawable/background_shadow"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/tb41desc1"
-                    android:layoutDirection="rtl"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lb44txt"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    app:layout_constraintTop_toBottomOf="@+id/lb44txt">
 
-                <CheckBox
-                    android:id="@+id/rbtCap6_44_2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:padding="5dp"
-                    android:background="@drawable/background_shadow"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/tb41desc2"
-                    android:layoutDirection="rtl"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rbtCap6_44_1"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <RadioButton
+                        android:id="@+id/rbtCap6_44_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:padding="5dp"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/tb41desc1"
+                        android:layoutDirection="rtl"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lb44txt"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <CheckBox
-                    android:id="@+id/rbtCap6_44_3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:padding="5dp"
-                    android:background="@drawable/background_shadow"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/tb41desc3"
-                    android:layoutDirection="rtl"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rbtCap6_44_2"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <RadioButton
+                        android:id="@+id/rbtCap6_44_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:padding="5dp"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/tb41desc2"
+                        android:layoutDirection="rtl"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rbtCap6_44_1"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <CheckBox
-                    android:id="@+id/rbtCap6_44_4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:padding="5dp"
-                    android:background="@drawable/background_shadow"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/tb41desc4"
-                    android:layoutDirection="rtl"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rbtCap6_44_3"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <RadioButton
+                        android:id="@+id/rbtCap6_44_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:padding="5dp"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/tb41desc3"
+                        android:layoutDirection="rtl"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rbtCap6_44_2"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:id="@+id/rbtCap6_44_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:padding="5dp"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/tb41desc4"
+                        android:layoutDirection="rtl"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rbtCap6_44_3"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                </RadioGroup>
+
 
                 <TextView
                     android:layout_width="0dp"
@@ -668,7 +679,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rbtCap6_44_4"
+                    app:layout_constraintTop_toBottomOf="@+id/rgroupCap6_44"
                     tools:ignore="TextContrastCheck" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -946,6 +957,8 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
+                android:id="@+id/lowCap6o2"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 

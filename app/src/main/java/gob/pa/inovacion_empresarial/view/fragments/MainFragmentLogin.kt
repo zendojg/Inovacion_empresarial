@@ -49,10 +49,10 @@ class MainFragmentLogin: Fragment() {
         if (pager?.currentItem != null)
             Mob.windNow = pager.currentItem
         fragLogin.lbversionLogin.text = Mob.version
-        actions()
+        onAction()
     }
 
-    private fun actions() {
+    private fun onAction() {
         fragLogin.checkLogin.isChecked = AppCache.remGET(ctx) //----  REMEMBER ACTION
         if (fragLogin.checkLogin.isChecked) {
             fragLogin.txtuserLogin.text = AppCache.userGET(ctx).toEditable()
@@ -68,13 +68,13 @@ class MainFragmentLogin: Fragment() {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
         })
 
-        fragLogin.txtuserLogin.setOnEditorActionListener { _, actionID, _ -> //--- LOGIN KEYDONE
+        fragLogin.txtuserLogin.setOnEditorActionListener { _, actionID, _ -> //- LOGIN KEYDONE USER
             if (actionID == EditorInfo.IME_ACTION_DONE)  {
                 clickLister()
                 true
             } else false
         }
-        fragLogin.txtpassLogin.setOnEditorActionListener { _, actionID, _ -> //--- LOGIN KEYDONE
+        fragLogin.txtpassLogin.setOnEditorActionListener { _, actionID, _ -> //- LOGIN KEYDONE PASS
             if (actionID == EditorInfo.IME_ACTION_DONE)  {
                 clickLister()
                 true
@@ -132,9 +132,9 @@ class MainFragmentLogin: Fragment() {
                         var errortxt = resp.msg
                         if (errortxt.contains("No se encontró datos para la credencial")) {
                             val alert = Functions.msgBallom(
-                                "Usuario o Contraseña inválida", Mob.WIDTHBALLON160, ctx)
+                                "Usuario o Contraseña inválida", Mob.WIDTH180DP, ctx)
                             alert.showAlignBottom(fragLogin.btLogin)
-                            alert.dismissWithDelay(Mob.TIMEBALLON2SEG)
+                            alert.dismissWithDelay(Mob.TIMELONG2SEG)
                         } else {
                             errortxt = errortxt.replace("error", "")
                             errortxt = errortxt.replace(":", "")
@@ -143,7 +143,7 @@ class MainFragmentLogin: Fragment() {
                             errortxt = errortxt.replace("\"", "")
                             Toast.makeText(ctx, errortxt, Toast.LENGTH_LONG).show()
                         }
-                    }, (Mob.TIME800MS).toLong())
+                    }, (Mob.TIME800MS))
                 } else {
                     when (resp.code) {
                         Mob.CODE200 -> { // --- LOGIN OK
@@ -157,7 +157,7 @@ class MainFragmentLogin: Fragment() {
                                 fragLogin.txtpassLogin.text?.clear()
                                 val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
                                 pager?.setCurrentItem(1, true)
-                            }, (Mob.TIME500MS).toLong())
+                            }, (Mob.TIME500MS))
                         }
                         Mob.CODE401 -> {}
                         Mob.CODE403 -> {}
@@ -170,7 +170,7 @@ class MainFragmentLogin: Fragment() {
             Handler(Looper.getMainLooper()).postDelayed({
                 screenBlack.dismiss()
                 fragLogin.barLogin.visibility = View.GONE
-            }, (Mob.TIME1S).toLong())
+            }, (Mob.TIME1S))
         }
     }
 }

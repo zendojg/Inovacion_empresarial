@@ -209,7 +209,7 @@
             </FrameLayout>
 
             <View
-                android:id="@+id/viewCap1"
+                android:id="@+id/lowCap1"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:visibility="invisible"
