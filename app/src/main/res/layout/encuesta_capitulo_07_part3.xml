@@ -115,8 +115,8 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_1_a"
-                        android:layout_width="0dp"
+                        android:id="@+id/spinCap7_55_1_a"
+                        android:layout_width="210dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
                         android:entries="@array/arr_hightolow"
@@ -144,7 +144,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_1_b"
+                        android:id="@+id/spinCap7_55_1_b"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -173,7 +173,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_1_c"
+                        android:id="@+id/spinCap7_55_1_c"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -228,7 +228,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_2_a"
+                        android:id="@+id/spinCap7_55_2_a"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -257,7 +257,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_2_b"
+                        android:id="@+id/spinCap7_55_2_b"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -286,7 +286,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_2_c"
+                        android:id="@+id/spinCap7_55_2_c"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -314,7 +314,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_2_d"
+                        android:id="@+id/spinCap7_55_2_d"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -369,7 +369,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_3_a"
+                        android:id="@+id/spinCap7_55_3_a"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -398,7 +398,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_3_b"
+                        android:id="@+id/spinCap7_55_3_b"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -454,7 +454,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_4_a"
+                        android:id="@+id/spinCap7_55_4_a"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -483,7 +483,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_4_b"
+                        android:id="@+id/spinCap7_55_4_b"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -512,7 +512,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap7_55_4_c"
+                        android:id="@+id/spinCap7_55_4_c"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -526,6 +526,8 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
+                android:id="@+id/lowCap7o3"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 

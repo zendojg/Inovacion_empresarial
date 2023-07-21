@@ -28,8 +28,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
-                android:background="@drawable/background_shadow"
                 android:layout_marginBottom="7dp"
+                android:background="@drawable/background_shadow"
                 android:paddingHorizontal="5dp"
                 android:paddingTop="5dp"
                 android:paddingBottom="15dp">
@@ -65,8 +65,8 @@
                     android:id="@+id/rgroupCap8_56"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/background_shadow"
                     android:orientation="vertical"
                     android:paddingHorizontal="10dp"
@@ -140,10 +140,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:background="@drawable/background_shadow"
                     android:columnCount="2"
                     android:orientation="horizontal"
                     android:padding="1dp"
-                    android:background="@drawable/background_shadow"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lb57txt">
@@ -153,8 +153,8 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
-                        android:textColor="@color/black"
                         android:text="@string/n1"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -164,8 +164,8 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
-                        android:textColor="@color/black"
                         android:text="@string/tb571"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -187,21 +187,25 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_57_1_a"
+                        android:id="@+id/spinCap8_57_1_a"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_solicito"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minHeight="48dp"
-                        android:paddingHorizontal="10dp" />
+                        android:paddingHorizontal="5dp" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/txtCap8_57_1_a_montoly"
                         android:layout_width="0dp"
-                        android:layout_marginBottom="20dp"
                         android:layout_gravity="fill"
-                        android:hint="@string/monto">
+                        android:layout_marginBottom="20dp"
+                        android:animateLayoutChanges="true"
+                        android:hint="@string/monto"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap8_57_1_a_monto"
                             android:layout_width="match_parent"
@@ -211,9 +215,9 @@
                             android:inputType="number"
                             android:maxLength="9"
                             android:minHeight="48dp"
-                            android:enabled="false"
                             android:textSize="14sp"
-                            tools:ignore="TouchTargetSizeCheck"/>
+                            android:textStyle="bold"
+                            tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
@@ -235,21 +239,25 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_57_1_b"
+                        android:id="@+id/spinCap8_57_1_b"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_solicito"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minHeight="48dp"
-                        android:paddingHorizontal="9dp" />
+                        android:paddingHorizontal="5dp" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/txtCap8_57_1_b_montoly"
                         android:layout_width="0dp"
-                        android:layout_marginBottom="20dp"
                         android:layout_gravity="fill"
-                        android:hint="@string/monto">
+                        android:layout_marginBottom="20dp"
+                        android:animateLayoutChanges="true"
+                        android:hint="@string/monto"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap8_57_1_b_monto"
                             android:layout_width="match_parent"
@@ -259,9 +267,9 @@
                             android:inputType="number"
                             android:maxLength="9"
                             android:minHeight="48dp"
-                            android:enabled="false"
                             android:textSize="14sp"
-                            tools:ignore="TouchTargetSizeCheck"/>
+                            android:textStyle="bold"
+                            tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
@@ -278,34 +286,38 @@
                         android:layout_width="0dp"
                         android:layout_gravity="fill"
                         android:hint="@string/otra_especifique">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap8_57_1_c_otra"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="number"
-                            android:maxLength="2"
+                            android:inputType="text"
                             android:minHeight="48dp"
                             android:textSize="14sp"
-                            tools:ignore="TouchTargetSizeCheck"/>
+                            tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Spinner
-                        android:id="@+id/txtCap8_57_1_c"
+                        android:id="@+id/spinCap8_57_1_c"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_solicito"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minHeight="48dp"
-                        android:paddingHorizontal="9dp" />
+                        android:paddingHorizontal="5dp" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/txtCap8_57_1_c_montoly"
                         android:layout_width="0dp"
                         android:layout_gravity="fill"
-                        android:hint="@string/monto">
+                        android:animateLayoutChanges="true"
+                        android:hint="@string/monto"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap8_57_1_c_monto"
                             android:layout_width="match_parent"
@@ -315,38 +327,38 @@
                             android:inputType="number"
                             android:maxLength="9"
                             android:minHeight="48dp"
-                            android:enabled="false"
                             android:textSize="14sp"
-                            tools:ignore="TouchTargetSizeCheck"/>
+                            android:textStyle="bold"
+                            tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <View
-                        android:layout_columnSpan="2"
                         android:layout_width="0dp"
+                        android:layout_height="5dp"
+                        android:layout_columnSpan="2"
                         android:layout_gravity="fill"
-                        android:background="#E7F0F7"
-                        android:layout_height="5dp" />
+                        android:background="#E7F0F7" />
 
                     <TextView
                         android:layout_gravity="fill"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
-                        android:layout_marginTop="10dp"
                         android:padding="5dp"
-                        android:textColor="@color/black"
                         android:text="@string/n2"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="2"
                         android:layout_gravity="fill"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
-                        android:layout_marginTop="10dp"
                         android:padding="5dp"
-                        android:textColor="@color/black"
                         android:text="@string/tb572"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -368,21 +380,25 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_57_2_a"
+                        android:id="@+id/spinCap8_57_2_a"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_solicito"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minHeight="48dp"
-                        android:paddingHorizontal="9dp" />
+                        android:paddingHorizontal="5dp" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/txtCap8_57_2_a_montoly"
                         android:layout_width="0dp"
-                        android:layout_marginBottom="20dp"
                         android:layout_gravity="fill"
-                        android:hint="@string/monto">
+                        android:layout_marginBottom="20dp"
+                        android:animateLayoutChanges="true"
+                        android:hint="@string/monto"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap8_57_2_a_monto"
                             android:layout_width="match_parent"
@@ -392,9 +408,9 @@
                             android:inputType="number"
                             android:maxLength="9"
                             android:minHeight="48dp"
-                            android:enabled="false"
                             android:textSize="14sp"
-                            tools:ignore="TouchTargetSizeCheck"/>
+                            android:textStyle="bold"
+                            tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
@@ -416,21 +432,25 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_57_2_b"
+                        android:id="@+id/spinCap8_57_2_b"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_solicito"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minHeight="48dp"
-                        android:paddingHorizontal="9dp" />
+                        android:paddingHorizontal="5dp" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/txtCap8_57_2_b_montoly"
                         android:layout_width="0dp"
-                        android:layout_marginBottom="20dp"
                         android:layout_gravity="fill"
-                        android:hint="@string/monto">
+                        android:layout_marginBottom="20dp"
+                        android:animateLayoutChanges="true"
+                        android:hint="@string/monto"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap8_57_2_b_monto"
                             android:layout_width="match_parent"
@@ -440,9 +460,9 @@
                             android:inputType="number"
                             android:maxLength="9"
                             android:minHeight="48dp"
-                            android:enabled="false"
                             android:textSize="14sp"
-                            tools:ignore="TouchTargetSizeCheck"/>
+                            android:textStyle="bold"
+                            tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
@@ -459,35 +479,39 @@
                         android:layout_width="0dp"
                         android:layout_gravity="fill"
                         android:hint="@string/otra_especifique">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap8_57_2_c_otra"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="number"
-                            android:maxLength="2"
+                            android:inputType="text"
                             android:minHeight="48dp"
                             android:textSize="14sp"
-                            tools:ignore="TouchTargetSizeCheck"/>
+                            tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Spinner
-                        android:id="@+id/txtCap7_57_2_c"
+                        android:id="@+id/spinCap8_57_2_c"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_solicito"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minHeight="48dp"
-                        android:paddingHorizontal="9dp" />
+                        android:paddingHorizontal="5dp" />
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/txtCap8_57_2_c_montoly"
                         android:layout_width="0dp"
-                        android:layout_marginBottom="20dp"
                         android:layout_gravity="fill"
-                        android:hint="@string/monto">
+                        android:layout_marginBottom="20dp"
+                        android:animateLayoutChanges="true"
+                        android:hint="@string/monto"
+                        android:visibility="gone"
+                        tools:visibility="visible">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap8_57_2_c_monto"
                             android:layout_width="match_parent"
@@ -495,11 +519,11 @@
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
+                            android:textStyle="bold"
                             android:maxLength="9"
                             android:minHeight="48dp"
-                            android:enabled="false"
                             android:textSize="14sp"
-                            tools:ignore="TouchTargetSizeCheck"/>
+                            tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -508,12 +532,13 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
+                android:id="@+id/lowCap8o1"
                 android:layout_width="match_parent"
-                android:layout_height="50dp" />
+                android:layout_height="50dp"
+                android:visibility="invisible" />
         </LinearLayout>
 
     </ScrollView>
-
 
 </layout>
 

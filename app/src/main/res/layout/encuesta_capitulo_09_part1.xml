@@ -115,6 +115,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutCap9_60"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="5dp"
@@ -154,110 +155,105 @@
                     app:layout_constraintTop_toTopOf="@+id/lb60np"
                     tools:ignore="TextContrastCheck" />
 
-                <CheckBox
-                    android:id="@+id/checkCap9_60_1"
+                <RadioGroup
+                    android:id="@+id/rgroupCap9_60"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layoutDirection="rtl"
                     android:layout_marginTop="20dp"
-                    android:paddingHorizontal="10dp"
                     android:layout_marginHorizontal="10dp"
-                    android:background="@drawable/background_shadow"
                     android:text="@string/check60p1"
                     android:fontFamily="sans-serif-condensed"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lb60txt"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    app:layout_constraintTop_toBottomOf="@+id/lb60txt">
 
-                <CheckBox
-                    android:id="@+id/checkCap9_60_2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="10dp"
-                    android:paddingHorizontal="10dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:layoutDirection="rtl"
-                    android:background="@drawable/background_shadow"
-                    android:text="@string/check60p2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/checkCap9_60_1"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <RadioButton
+                        android:id="@+id/rbtCap9_60_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layoutDirection="rtl"
+                        android:paddingHorizontal="10dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/background_shadow"
+                        android:text="@string/check60p1"
+                        android:fontFamily="sans-serif-condensed"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <CheckBox
-                    android:id="@+id/checkCap9_60_3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="10dp"
-                    android:paddingHorizontal="10dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:layoutDirection="rtl"
-                    android:background="@drawable/background_shadow"
-                    android:text="@string/check60p3"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/checkCap9_60_2"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <RadioButton
+                        android:id="@+id/rbtCap9_60_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="10dp"
+                        android:paddingHorizontal="10dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:layoutDirection="rtl"
+                        android:background="@drawable/background_shadow"
+                        android:text="@string/check60p2"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <CheckBox
-                    android:id="@+id/checkCap9_60_4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="10dp"
-                    android:paddingHorizontal="10dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:layoutDirection="rtl"
-                    android:background="@drawable/background_shadow"
-                    android:text="@string/check60p4"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/checkCap9_60_3"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <RadioButton
+                        android:id="@+id/rbtCap9_60_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="10dp"
+                        android:paddingHorizontal="10dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:layoutDirection="rtl"
+                        android:background="@drawable/background_shadow"
+                        android:text="@string/check60p3"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <CheckBox
-                    android:id="@+id/checkCap9_60_5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginHorizontal="10dp"
-                    android:paddingHorizontal="10dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:layoutDirection="rtl"
-                    android:background="@drawable/background_shadow"
-                    android:text="@string/check60p5"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/checkCap9_60_4"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <RadioButton
+                        android:id="@+id/rbtCap9_60_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="10dp"
+                        android:paddingHorizontal="10dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:layoutDirection="rtl"
+                        android:background="@drawable/background_shadow"
+                        android:text="@string/check60p4"
+                        tools:ignore="TouchTargetSizeCheck" />
 
-                <CheckBox
-                    android:id="@+id/checkCap9_60_6"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/background_shadow"
-                    android:fontFamily="sans-serif-condensed"
-                    android:layoutDirection="rtl"
-                    android:paddingHorizontal="10dp"
-                    android:text="@string/point3"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/checkCap9_60_5"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    <RadioButton
+                        android:id="@+id/rbtCap9_60_5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginHorizontal="10dp"
+                        android:paddingHorizontal="10dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:layoutDirection="rtl"
+                        android:background="@drawable/background_shadow"
+                        android:text="@string/check60p5"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <RadioButton
+                        android:id="@+id/rbtCap9_60_6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
+                        android:layoutDirection="rtl"
+                        android:paddingHorizontal="10dp"
+                        android:text="@string/point3"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                </RadioGroup>
 
                 <EditText
                     android:id="@+id/txtCap9_60_6_otra"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="9"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="60dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="40dp"
                     android:paddingHorizontal="10dp"
                     android:autofillHints="Otra"
                     android:enabled="false"
@@ -267,17 +263,17 @@
                     android:inputType="textCapWords"
                     android:minHeight="48dp"
                     android:orientation="horizontal"
-                    android:padding="5dp"
                     android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/checkCap9_60_5"
+                    app:layout_constraintBottom_toBottomOf="@+id/rgroupCap9_60"
+                    app:layout_constraintEnd_toEndOf="@+id/rgroupCap9_60"
+                    app:layout_constraintStart_toStartOf="@+id/rgroupCap9_60"
                     tools:ignore="TextContrastCheck,TouchTargetSizeCheck" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutCap9_61"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="5dp"
@@ -321,10 +317,11 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_marginTop="15dp"
+                    android:background="@drawable/background_shadow"
                     android:columnCount="3"
                     android:orientation="horizontal"
-                    android:background="@drawable/background_shadow"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lb61txt">
@@ -361,169 +358,319 @@
                         android:text="@string/not"
                         android:textStyle="bold" />
 
-                    <RadioGroup
-                        android:id="@+id/rgroupCap5_31_2021"
+
+                    <TextView
                         android:layout_width="0dp"
-                        android:layout_rowSpan="5"
-                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="4"
                         android:layout_gravity="fill"
-                        android:gravity="center"
-                        android:orientation="vertical">
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/p61yes1"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/rgroupCap9_61_1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/rbtCap9_61_1_si"
-                            android:layout_width="match_parent"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginHorizontal="15dp"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
                             android:fontFamily="sans-serif-condensed"
-                            android:layoutDirection="rtl"
-                            android:text="@string/p61yes1"
+                            android:textSize="12sp"
                             tools:ignore="VisualLintButtonSize" />
-
-                        <RadioButton
-                            android:id="@+id/rbtCap9_61_2_si"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginHorizontal="15dp"
-                            android:fontFamily="sans-serif-condensed"
-                            android:layoutDirection="rtl"
-                            android:text="@string/p61yes2"
-                            tools:ignore="VisualLintButtonSize" />
-
-                        <RadioButton
-                            android:id="@+id/rbtCap9_61_3_si"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginHorizontal="15dp"
-                            android:fontFamily="sans-serif-condensed"
-                            android:layoutDirection="rtl"
-                            android:text="@string/p61yes3"
-                            tools:ignore="VisualLintButtonSize" />
-
-                        <RadioButton
-                            android:id="@+id/rbtCap9_61_4_si"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginHorizontal="15dp"
-                            android:fontFamily="sans-serif-condensed"
-                            android:layoutDirection="rtl"
-                            android:text="@string/p61yes4"
-                            tools:ignore="VisualLintButtonSize" />
-
-                        <RadioButton
-                            android:id="@+id/rbtCap9_61_5_si"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginHorizontal="15dp"
-                            android:fontFamily="sans-serif-condensed"
-                            android:layoutDirection="rtl"
-                            android:text="@string/p61yes5"
-                            tools:ignore="VisualLintButtonSize" />
-
-                        <RadioButton
-                            android:id="@+id/rbtCap9_61_6_si"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginHorizontal="15dp"
-                            android:fontFamily="sans-serif-condensed"
-                            android:layoutDirection="rtl"
-                            android:text="@string/p61yes6"
-                            tools:ignore="VisualLintButtonSize" />
-
-                        <RadioButton
-                            android:id="@+id/rbtCap9_61_7_si"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginHorizontal="15dp"
-                            android:fontFamily="sans-serif-condensed"
-                            android:layoutDirection="rtl"
-                            android:text="@string/p61yes7"
-                            tools:ignore="VisualLintButtonSize" />
-
-                        <RadioButton
-                            android:id="@+id/rbtCap9_61_8_si"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start"
-                            android:layout_marginHorizontal="15dp"
-                            android:layout_marginBottom="10dp"
-                            android:fontFamily="sans-serif-condensed"
-                            android:layoutDirection="rtl"
-                            android:text="@string/p61yes8"
-                            tools:ignore="VisualLintButtonSize" />
-                    </RadioGroup>
-
-                    <RadioGroup
-                        android:id="@+id/rgroupCap5_31_2022"
-                        android:layout_width="0dp"
-                        android:layout_rowSpan="5"
-                        android:layout_columnWeight="1"
-                        android:layout_marginEnd="10dp"
-                        android:layout_gravity="fill"
-                        android:gravity="center"
-                        android:orientation="vertical">
 
                         <RadioButton
                             android:id="@+id/rbtCap9_61_1_no"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layoutDirection="rtl"
-                            tools:ignore="DuplicateSpeakableTextCheck" />
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="4"
+                        android:layout_gravity="fill"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/p61yes2"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/rgroupCap9_61_2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_2_si"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
 
                         <RadioButton
                             android:id="@+id/rbtCap9_61_2_no"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layoutDirection="rtl"
-                            tools:ignore="DuplicateSpeakableTextCheck" />
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="4"
+                        android:layout_gravity="fill"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/p61yes3"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/rgroupCap9_61_3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_3_si"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
 
                         <RadioButton
                             android:id="@+id/rbtCap9_61_3_no"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layoutDirection="rtl"
-                            tools:ignore="DuplicateSpeakableTextCheck" />
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="4"
+                        android:layout_gravity="fill"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/p61yes4"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/rgroupCap9_61_4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_4_si"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
 
                         <RadioButton
                             android:id="@+id/rbtCap9_61_4_no"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layoutDirection="rtl"
-                            tools:ignore="DuplicateSpeakableTextCheck" />
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
+                    </RadioGroup>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="4"
+                        android:layout_gravity="fill"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/p61yes5"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/rgroupCap9_61_5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_5_si"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
 
                         <RadioButton
                             android:id="@+id/rbtCap9_61_5_no"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layoutDirection="rtl" />
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="4"
+                        android:layout_gravity="fill"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/p61yes6"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/rgroupCap9_61_6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_6_si"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
 
                         <RadioButton
                             android:id="@+id/rbtCap9_61_6_no"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layoutDirection="rtl"
-                            tools:ignore="DuplicateSpeakableTextCheck" />
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
+                    </RadioGroup>
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="4"
+                        android:layout_gravity="fill"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/p61yes7"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/rgroupCap9_61_7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_7_si"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
 
                         <RadioButton
                             android:id="@+id/rbtCap9_61_7_no"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layoutDirection="rtl"
-                            tools:ignore="DuplicateSpeakableTextCheck" />
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_columnWeight="4"
+                        android:layout_gravity="fill"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:text="@string/p61yes8"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/rgroupCap9_61_8"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnSpan="2"
+                        android:layout_columnWeight="2"
+                        android:layout_gravity="fill"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rbtCap9_61_8_si"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="10dp"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
 
                         <RadioButton
                             android:id="@+id/rbtCap9_61_8_no"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:layoutDirection="rtl" />
+                            android:layout_weight="1"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="12sp"
+                            tools:ignore="VisualLintButtonSize" />
                     </RadioGroup>
 
 
@@ -532,6 +679,8 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
+                android:id="@+id/lowCap9o1"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 

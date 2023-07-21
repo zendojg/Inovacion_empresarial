@@ -283,6 +283,8 @@
             </LinearLayout>
 
             <View
+                android:id="@+id/lowCap10"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
         </LinearLayout>

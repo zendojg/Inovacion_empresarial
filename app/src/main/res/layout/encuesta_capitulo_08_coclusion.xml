@@ -25,6 +25,7 @@
             android:padding="2dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutCap8_58"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
@@ -67,10 +68,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:background="@drawable/background_shadow"
                     android:columnCount="2"
                     android:orientation="horizontal"
                     android:padding="1dp"
-                    android:background="@drawable/background_shadow"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lb58txt">
@@ -80,8 +81,8 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
-                        android:textColor="@color/black"
                         android:text="@string/n1"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -91,8 +92,8 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
-                        android:textColor="@color/black"
                         android:text="@string/tb551"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -114,7 +115,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_58_1_a"
+                        android:id="@+id/spinCap8_58_1_a"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -143,7 +144,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_58_1_b"
+                        android:id="@+id/spinCap8_58_1_b"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -172,7 +173,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_58_1_c"
+                        android:id="@+id/spinCap8_58_1_c"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -182,19 +183,19 @@
                         android:paddingHorizontal="9dp" />
 
                     <View
-                        android:layout_columnSpan="2"
                         android:layout_width="0dp"
+                        android:layout_height="5dp"
+                        android:layout_columnSpan="2"
                         android:layout_gravity="fill"
-                        android:background="#E7F0F7"
-                        android:layout_height="5dp" />
+                        android:background="#E7F0F7" />
 
                     <TextView
                         android:layout_gravity="fill"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
-                        android:textColor="@color/black"
                         android:text="@string/n2"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -204,8 +205,8 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
-                        android:textColor="@color/black"
                         android:text="@string/tb582"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -227,7 +228,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_58_2_a"
+                        android:id="@+id/spinCap8_58_2_a"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -256,7 +257,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_58_2_b"
+                        android:id="@+id/spinCap8_58_2_b"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -285,7 +286,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_58_2_c"
+                        android:id="@+id/spinCap8_58_2_c"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -313,7 +314,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_58_2_d"
+                        android:id="@+id/spinCap8_58_2_d"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -323,19 +324,19 @@
                         android:paddingHorizontal="9dp" />
 
                     <View
-                        android:layout_columnSpan="2"
                         android:layout_width="0dp"
+                        android:layout_height="5dp"
+                        android:layout_columnSpan="2"
                         android:layout_gravity="fill"
-                        android:background="#E7F0F7"
-                        android:layout_height="5dp" />
+                        android:background="#E7F0F7" />
 
                     <TextView
                         android:layout_gravity="fill"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
-                        android:textColor="@color/black"
                         android:text="@string/n3"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -345,8 +346,8 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
-                        android:textColor="@color/black"
                         android:text="@string/tb583"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -368,7 +369,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_58_3_a"
+                        android:id="@+id/spinCap8_58_3_a"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -397,7 +398,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_58_3_b"
+                        android:id="@+id/spinCap8_58_3_b"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -408,19 +409,19 @@
                         android:paddingHorizontal="9dp" />
 
                     <View
-                        android:layout_columnSpan="2"
                         android:layout_width="0dp"
+                        android:layout_height="5dp"
+                        android:layout_columnSpan="2"
                         android:layout_gravity="fill"
-                        android:background="#E7F0F7"
-                        android:layout_height="5dp" />
+                        android:background="#E7F0F7" />
 
                     <TextView
                         android:layout_gravity="fill"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
-                        android:textColor="@color/black"
                         android:text="@string/n4"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -430,8 +431,8 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
-                        android:textColor="@color/black"
                         android:text="@string/tb584"
+                        android:textColor="@color/black"
                         android:textStyle="bold" />
 
                     <TextView
@@ -453,7 +454,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_58_4_a"
+                        android:id="@+id/spinCap8_58_4_a"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -482,7 +483,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_58_4_b"
+                        android:id="@+id/spinCap8_58_4_b"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -511,7 +512,7 @@
                         android:textStyle="bold" />
 
                     <Spinner
-                        android:id="@+id/txtCap8_58_4_c"
+                        android:id="@+id/spinCap8_58_4_c"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -534,21 +535,20 @@
                         android:layout_width="0dp"
                         android:layout_gravity="fill"
                         android:hint="@string/otra_especifique">
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap8_58_4_d_otra"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="number"
-                            android:maxLength="2"
                             android:minHeight="48dp"
                             android:textSize="14sp"
-                            tools:ignore="TouchTargetSizeCheck"/>
+                            tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <Spinner
-                        android:id="@+id/txtCap8_58_4_d"
+                        android:id="@+id/spinCap8_58_4_d"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -562,8 +562,10 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
+                android:id="@+id/lowCap8o2"
                 android:layout_width="match_parent"
-                android:layout_height="50dp" />
+                android:layout_height="50dp"
+                android:visibility="invisible" />
         </LinearLayout>
 
     </ScrollView>

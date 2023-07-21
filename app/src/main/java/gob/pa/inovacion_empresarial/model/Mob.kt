@@ -30,7 +30,6 @@ object Mob {
     const val TIME1S:Long = 1000
     const val TIME2S:Long = 2000
 
-
     const val CODE200:Int = 200
     const val CODE400:Int = 400
     const val CODE401:Int = 401
@@ -99,19 +98,40 @@ object Mob {
         FragTotalInforme()      //--24--Informe
     )
 
-    var empArr: Array<Fragment> = emptyArray()
-    var arrMain: Array<Fragment> = arrayOf(
-        //----Contenedor de los Fragment del Main
+    var arrMain: Array<Fragment> = arrayOf( //----Contenedor de los Fragment del Main
         MainFragmentLogin(),    //--00--c01
         MainFragmentSearch(),   //--01--c02
     )
+
+    var empArr: Array<Fragment> = emptyArray()
+
+    const val GRADENOTSELECT:Int = 0
+    val arrGrade: Array<String> = arrayOf(
+        "Grado de importancia",
+        "(1) Alta",
+        "(2) Media",
+        "(3) Baja",
+        "(4) Irrelevante"
+    )
+    const val SOLICITUDNOTSELECT:Int = 0
+    const val SOLICSI2:Int = 2
+    val arrOBT: Array<String> = arrayOf(
+        "Solicitó apoyo?",
+        "(1) Sí solicitó, pero no obtuvo",
+        "(2) Sí solicitó, si lo obtuvo",
+        "(3) No solicitó apoyo"
+    )
+    const val IMPORTANCIANOTSELECT:Int = 0
+    val arrImp: Array<String> = arrayOf("*","1","2","3","4","5")
+
+    var p56stat: Boolean? = null
 
     var windNow = 1
     var windPrev = 0
     var indiceEnc = 0               //-----Indice de la encuesta dado desde el Menú
     var obsEncuesta = ""            //-----Observaciones de la encuesta
     var obsModulo = ""              //-----Observaciones del Módulo
-    var obsTittle = ""              //-----Guarda si es Encuesta o Módulo
+    var obsTittle = ""              //-----Muestra el título si es Encuesta o Módulo
     var version = "0.0"
 
 
@@ -134,9 +154,6 @@ object Mob {
         msg = null,
         body = null
     )
-
-
-
 
 
     //--  FORMULARIO

@@ -5,878 +5,368 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/lb35np"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:fontFamily="sans-serif-condensed"
-        android:text="@string/p35"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:text="@string/p35txt"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/lb35np"
-        app:layout_constraintTop_toTopOf="@+id/lb35np"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="TextContrastCheck" />
-
     <GridLayout
-        android:id="@+id/tb35tittle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:columnCount="5"
-        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="5dp"
         android:background="@drawable/background_shadow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14">
-
-    <TextView
-        android:layout_rowSpan="2"
-        android:layout_columnWeight="1"
-        android:layout_gravity="fill"
-        android:background="@drawable/background_shadow_low"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center"
-        android:text="@string/tb53desct1"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_columnSpan="2"
-        android:layout_columnWeight="2"
-        android:layout_gravity="fill"
-        android:background="@drawable/background_shadow"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center"
-        android:paddingVertical="5dp"
-        android:text="@string/txtmen"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_columnSpan="2"
-        android:layout_columnWeight="2"
-        android:layout_gravity="fill"
-        android:background="@drawable/background_shadow"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center"
-        android:paddingVertical="5dp"
-        android:text="@string/txtwomen"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_columnWeight="2"
-        android:layout_gravity="fill"
-        android:background="@drawable/background_shadow_celpast"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center"
-        android:padding="5dp"
-        android:textSize="12sp"
-        android:text="@string/txtnac"/>
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_columnWeight="2"
-        android:layout_gravity="fill"
-        android:background="@drawable/background_shadow_celpast"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center"
-        android:padding="5dp"
-        android:textSize="12sp"
-        android:text="@string/txtext"/>
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_columnWeight="2"
-        android:layout_gravity="fill"
-        android:background="@drawable/background_shadow_celpast"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center"
-        android:padding="5dp"
-        android:textSize="12sp"
-        android:text="@string/txtnac" />
-
-    <TextView
-        android:layout_width="0dp"
-        android:layout_columnWeight="2"
-        android:layout_gravity="fill"
-        android:background="@drawable/background_shadow_celpast"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="center"
-        android:padding="5dp"
-        android:textSize="12sp"
-        android:text="@string/txtext" />
-
-    </GridLayout>
-
-    <GridLayout
-        android:id="@+id/tb35"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="2dp"
-        app:layout_constraintHorizontal_weight="3"
-        android:background="@drawable/background_shadow"
-        android:columnCount="4"
+        android:columnCount="3"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tb35lb"
-        app:layout_constraintTop_toBottomOf="@+id/tb35tittle">
-
-        <EditText
-            android:id="@+id/txtCap5_35_a_HNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_a_HExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_a_HExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_a_MNac"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-
-        <EditText
-            android:id="@+id/txtCap5_35_a_MNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_a_MExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_a_MExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_b_HNac"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_b_HNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_b_HExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_b_HExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_b_MNac"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_b_MNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_b_MExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_b_MExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_c_HNac"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_c_HNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_c_HExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_c_HExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_c_MNac"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_c_MNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_c_MExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_c_MExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_d_HNac"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_d_HNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_d_HExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_d_HExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_d_MNac"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_d_MNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_d_MExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_d_MExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_e_HNac"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_e_HNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_e_HExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_e_HExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_e_MNac"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_e_MNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_e_MExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_e_MExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_f_HNac"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_f_HNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_f_HExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_f_HExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_f_MNac"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_f_MNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_f_MExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_f_MExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_g_HNac"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_g_HNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_g_HExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_g_HExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_g_MNac"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_g_MNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_g_MExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_g_MExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_otro"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_h_HNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_h_HExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_h_HExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_h_MNac"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_h_MNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_h_MExt"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_h_MExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_36_1_2021"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-
-        <EditText
-            android:id="@+id/txtCap5_35_1_HNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow_low"
-            android:focusable="false"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_1_HExt"
-            android:textColor="@color/holo_blue_dark"
-            android:textColorHint="@color/holo_blue_dark"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_1_HExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow_low"
-            android:focusable="false"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_1_MNac"
-            android:textColor="@color/holo_blue_dark"
-            android:textColorHint="@color/holo_blue_dark"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_1_MNac"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow_low"
-            android:focusable="false"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_1_MExt"
-            android:textColor="@color/holo_blue_dark"
-            android:textColorHint="@color/holo_blue_dark"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_1_MExt"
-            android:layout_width="0dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow_low"
-            android:focusable="false"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/cero"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            android:maxLength="4"
-            android:minHeight="48dp"
-            android:nextFocusDown="@+id/txtCap5_35_a_HNac"
-            android:textColor="@color/holo_blue_dark"
-            android:textColorHint="@color/holo_blue_dark"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-    </GridLayout>
-
-    <GridLayout
-        android:id="@+id/tb35lb"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_weight="1.4"
-        android:background="@drawable/background_shadow"
-        android:columnCount="1"
-        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tb35"
-        app:layout_constraintTop_toTopOf="@+id/tb35">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_columnWeight="4"
             android:layout_gravity="fill"
             android:background="@drawable/background_shadow_celpast"
             android:fontFamily="sans-serif-condensed"
-            android:gravity="start|center_vertical"
-            android:paddingStart="25dp"
-            android:paddingEnd="5dp"
-            android:text="@string/lb35a"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow_celpast"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="start|center_vertical"
-            android:paddingStart="25dp"
-            android:paddingEnd="5dp"
-            android:text="@string/lb35b"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow_celpast"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="start|center_vertical"
-            android:paddingStart="25dp"
-            android:paddingEnd="5dp"
-            android:text="@string/lb35c"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow_celpast"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="start|center_vertical"
-            android:paddingStart="25dp"
-            android:paddingEnd="5dp"
-            android:text="@string/lb35d"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow_celpast"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="start|center_vertical"
-            android:paddingStart="25dp"
-            android:paddingEnd="5dp"
-            android:text="@string/lb35e"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow_celpast"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="start|center_vertical"
-            android:paddingStart="25dp"
-            android:paddingEnd="5dp"
-            android:text="@string/lb35f"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow_celpast"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="start|center_vertical"
-            android:paddingStart="25dp"
-            android:paddingEnd="5dp"
-            android:text="@string/lb35g"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
-
-        <EditText
-            android:id="@+id/txtCap5_35_otro"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill"
-            android:autofillHints="2021"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:hint="@string/lb35h"
-            android:inputType="text"
-            android:lines="3"
-            android:nextFocusDown="@+id/txtCap5_35_h_HNac"
-            android:paddingHorizontal="10dp"
-            android:scrollHorizontally="false"
-            android:textColorHint="@color/black"
-            android:textSize="12sp"
-            tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
-
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_columnWeight="1.5"
-            android:layout_gravity="fill"
-            android:background="@drawable/background_shadow_low"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:text="@string/lb35t1"
-            android:textColor="#616161"
-            android:textSize="@dimen/text12"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:text="@string/txt61desc"
+            android:textColor="@color/holo_blue_dark"
             android:textStyle="bold" />
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="@drawable/background_shadow_celpast"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:text="@string/yes"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:background="@drawable/background_shadow_celpast"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:text="@string/not"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="4"
+            android:layout_gravity="fill"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:text="@string/p61yes1"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rgroupCap9_61_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:layout_gravity="fill"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_1_si"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_1_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="4"
+            android:layout_gravity="fill"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:text="@string/p61yes2"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rgroupCap9_61_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:layout_gravity="fill"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_2_si"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_2_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="4"
+            android:layout_gravity="fill"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:text="@string/p61yes3"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rgroupCap9_61_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:layout_gravity="fill"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_3_si"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_3_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="4"
+            android:layout_gravity="fill"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:text="@string/p61yes4"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rgroupCap9_61_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:layout_gravity="fill"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_4_si"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_4_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+        </RadioGroup>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="4"
+            android:layout_gravity="fill"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:text="@string/p61yes5"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rgroupCap9_61_5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:layout_gravity="fill"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_5_si"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_5_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="4"
+            android:layout_gravity="fill"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:text="@string/p61yes6"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rgroupCap9_61_6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:layout_gravity="fill"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_6_si"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_6_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+        </RadioGroup>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="4"
+            android:layout_gravity="fill"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:text="@string/p61yes7"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rgroupCap9_61_7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:layout_gravity="fill"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_7_si"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_7_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="4"
+            android:layout_gravity="fill"
+            android:layout_marginStart="10dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:text="@string/p61yes8"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/rgroupCap9_61_8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:layout_columnWeight="2"
+            android:layout_gravity="fill"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_8_si"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+
+            <RadioButton
+                android:id="@+id/rbtCap9_61_8_no"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="12sp"
+                tools:ignore="VisualLintButtonSize" />
+        </RadioGroup>
+
+
     </GridLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,22 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo07Part2Binding
-import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap7
-import kotlinx.android.synthetic.main.encuesta_capitulo_07_part1.*
 
 class FragEncuestaCap07o2 : Fragment() {
 
     private lateinit var bindingcap7o2: EncuestaCapitulo07Part2Binding
     private lateinit var ctx: Context
-    private lateinit var imp54Adp: ArrayAdapter<String>
-    private var imp54: Array<String> = emptyArray()
     private var seecap = true
 
     private var indice01 = 0
@@ -60,8 +55,8 @@ class FragEncuestaCap07o2 : Fragment() {
         with(bindingcap7o2) {
             lowCap7o2.setOnClickListener { saveCap() }
 
-            if (imp54.isEmpty()) imp54 = ctx.resources.getStringArray(R.array.arr_onetofive)
-            imp54Adp = ArrayAdapter(ctx, R.layout.style_box, imp54)
+
+            val imp54Adp = ArrayAdapter(ctx, R.layout.style_box, Mob.arrImp)
             imp54Adp.setDropDownViewResource(R.layout.style_list)
 
             spinCap7541.adapter = imp54Adp

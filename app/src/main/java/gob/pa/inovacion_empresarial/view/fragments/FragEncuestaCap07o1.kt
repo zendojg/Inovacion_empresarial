@@ -20,8 +20,6 @@ class FragEncuestaCap07o1 : Fragment() {
 
     private lateinit var bindingcap7o1: EncuestaCapitulo07Part1Binding
     private lateinit var ctx: Context
-    private lateinit var imp52Adp: ArrayAdapter<String>
-    private var imp52: Array<String> = emptyArray()
     private var seecap = true
 
     private var indice01 = 0
@@ -103,8 +101,7 @@ class FragEncuestaCap07o1 : Fragment() {
                 }
             }
 
-            if (imp52.isEmpty()) imp52 = ctx.resources.getStringArray(R.array.arr_onetofive)
-            imp52Adp = ArrayAdapter(ctx, R.layout.style_box, imp52)
+            val imp52Adp = ArrayAdapter(ctx, R.layout.style_box, Mob.arrImp)
             imp52Adp.setDropDownViewResource(R.layout.style_list)
 
             spinCap7521.adapter = imp52Adp
@@ -292,7 +289,7 @@ class FragEncuestaCap07o1 : Fragment() {
         when (cap7?.v50check) {
             true -> bindingcap7o1.rbtCap750Si.isChecked = true
             false -> bindingcap7o1.rbtCap750No.isChecked = true
-            else ->  bindingcap7o1.rgroupCap750.clearCheck()
+            else -> bindingcap7o1.rgroupCap750.clearCheck()
         }
 
         fillOut51(cap7)
@@ -400,10 +397,10 @@ class FragEncuestaCap07o1 : Fragment() {
                 false -> rbtCap7512No2022.isChecked = true
                 else -> rgroupCap75122022.clearCheck()
             }
-            txtCap75112021.text  = cap7?.v51num21o1?.toString()?.toEditable() ?: blank
-            txtCap75112022.text  = cap7?.v51num22o1?.toString()?.toEditable() ?: blank
-            txtCap75122021.text  = cap7?.v51num21o2?.toString()?.toEditable() ?: blank
-            txtCap75122022.text  = cap7?.v51num22o2?.toString()?.toEditable() ?: blank
+            txtCap75112021.text = cap7?.v51num21o1?.toString()?.toEditable() ?: blank
+            txtCap75112022.text = cap7?.v51num22o1?.toString()?.toEditable() ?: blank
+            txtCap75122021.text = cap7?.v51num21o2?.toString()?.toEditable() ?: blank
+            txtCap75122022.text = cap7?.v51num22o2?.toString()?.toEditable() ?: blank
         }
     }
 

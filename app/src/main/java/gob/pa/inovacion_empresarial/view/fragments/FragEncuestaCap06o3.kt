@@ -17,8 +17,6 @@ class FragEncuestaCap06o3 : Fragment() {
 
     private lateinit var bindingcap6o3: EncuestaCapitulo063InovacionOrganizacionalBinding
     private lateinit var ctx: Context
-    private lateinit var gr47Adp: ArrayAdapter<String>
-    private var gr47Arr: Array<String> = emptyArray()
     private var seecap = true
 
     private var indice01 = 0
@@ -45,8 +43,7 @@ class FragEncuestaCap06o3 : Fragment() {
 
     private fun onAction() {
 
-        if (gr47Arr.isEmpty()) gr47Arr = ctx.resources.getStringArray(R.array.arr_hightolow)
-        gr47Adp = ArrayAdapter(ctx, R.layout.style_box, gr47Arr)
+        val gr47Adp = ArrayAdapter(ctx, R.layout.style_box, Mob.arrGrade)
         gr47Adp.setDropDownViewResource(R.layout.style_list)
 
         with(bindingcap6o3) {

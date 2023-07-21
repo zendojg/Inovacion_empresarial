@@ -16,8 +16,6 @@ import gob.pa.inovacion_empresarial.model.ModelCap6
 class FragEncuestaCap06o4 : Fragment() {
     private lateinit var bindingcap6o4: EncuestaCapitulo064InovacionComercializacionBinding
     private lateinit var ctx: Context
-    private lateinit var gr49Adp: ArrayAdapter<String>
-    private var gr49Arr: Array<String> = emptyArray()
     private var seecap = true
 
     private var indice01 = 0
@@ -45,8 +43,7 @@ class FragEncuestaCap06o4 : Fragment() {
         with(bindingcap6o4) {
             lowCap6o4.setOnClickListener { saveCap() }
 
-            gr49Arr = ctx.resources.getStringArray(R.array.arr_hightolow)
-            gr49Adp = ArrayAdapter(ctx, R.layout.style_box, gr49Arr)
+            val gr49Adp = ArrayAdapter(ctx, R.layout.style_box, Mob.arrGrade)
             gr49Adp.setDropDownViewResource(R.layout.style_list)
 
             spinCap6491.adapter = gr49Adp

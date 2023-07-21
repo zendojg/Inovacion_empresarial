@@ -329,7 +329,7 @@ data class ModelCap9(
     @SerializedName("obtuvoEnPaisOExterior")                    val v59check: Boolean?,
     @SerializedName("cantEnPaisOExterior")                      val v59num: Int?,
     @SerializedName("paisDeAprobacion")                         val v60num: String?,
-    @SerializedName("paisDeAprobacionOtroDescrip")              val v60txtdesc: String?,
+    @SerializedName("paisDeAprobacionOtroDescrip")              val v60txtotro: String?,
     @SerializedName("porMarca")                                 val v61check1: Boolean?,
     @SerializedName("porPatente")                               val v61check2: Boolean?,
     @SerializedName("porModeloUtilidad")                        val v61check3: Boolean?,
