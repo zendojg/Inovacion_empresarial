@@ -10,8 +10,8 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo03Binding
+import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
-import gob.pa.inovacion_empresarial.function.Functions.yearArray
 import gob.pa.inovacion_empresarial.model.Mob
 
 class FragEncuestaCap03 : Fragment() {
@@ -36,17 +36,15 @@ class FragEncuestaCap03 : Fragment() {
     }
 
     private fun onAction() {
+        val year22 = ArrayAdapter(ctx, R.layout.style_box, Functions.yearArray().reversed())
+        year22.setDropDownViewResource(R.layout.style_list)
+
         with(bindingcap3) {
             txtCap3239.isVisible = rbtCap3239.isChecked
             txtCap3256.isVisible = rbtCap3256.isChecked
             linearCap324Continuar.isVisible = rbtCap324Si.isChecked
 
-            txtCap322.setAdapter(
-                ArrayAdapter(
-                    requireContext(), R.layout.style_list,
-                    yearArray().reversed()
-                )
-            )
+            txtCap322.setAdapter(year22)
             rgroupCap323.setOnCheckedChangeListener { _, id ->
                 txtCap3239.isVisible = rbtCap3239.id == id
             }

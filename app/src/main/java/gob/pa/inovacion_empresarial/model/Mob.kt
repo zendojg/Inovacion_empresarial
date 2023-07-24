@@ -126,6 +126,8 @@ object Mob {
 
     var p56stat: Boolean? = null
 
+    var moduleContinue: Boolean? = null
+
     var windNow = 1
     var windPrev = 0
     var indiceEnc = 0               //-----Indice de la encuesta dado desde el Menú

@@ -27,13 +27,13 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="5dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -57,8 +57,8 @@
                     android:id="@+id/lb59np"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
                     android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/n59"
                     android:textColor="@color/black"
@@ -83,17 +83,18 @@
                     android:id="@+id/rgroupCap9_59"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/background_shadow"
                     android:orientation="vertical"
+                    android:paddingVertical="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lb39txt">
 
                     <RadioButton
                         android:id="@+id/rbtCap9_59_si"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:fontFamily="sans-serif-condensed"
@@ -102,15 +103,40 @@
 
                     <RadioButton
                         android:id="@+id/rbtCap9_59_no"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/check59no"
                         tools:ignore="TextContrastCheck,DuplicateSpeakableTextCheck" />
-
                 </RadioGroup>
 
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtCap9_59ly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:hint="@string/desc59yes"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/rgroupCap9_59"
+                    app:layout_constraintTop_toTopOf="@+id/rgroupCap9_59"
+                    tools:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtCap9_59"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="sans-serif-condensed"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:minWidth="100dp"
+                        android:textSize="14sp"
+                        tools:ignore="TouchTargetSizeCheck"
+                        tools:text="000" />
+                </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -118,13 +144,13 @@
                 android:id="@+id/layoutCap9_60"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="5dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -159,11 +185,11 @@
                     android:id="@+id/rgroupCap9_60"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginTop="20dp"
                     android:layout_marginHorizontal="10dp"
-                    android:text="@string/check60p1"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
                     android:fontFamily="sans-serif-condensed"
+                    android:text="@string/check60p1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lb60txt">
@@ -172,25 +198,25 @@
                         android:id="@+id/rbtCap9_60_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="10dp"
                         android:layout_weight="1"
+                        android:background="@drawable/background_shadow"
+                        android:fontFamily="sans-serif-condensed"
                         android:layoutDirection="rtl"
                         android:paddingHorizontal="10dp"
-                        android:layout_marginHorizontal="10dp"
-                        android:background="@drawable/background_shadow"
                         android:text="@string/check60p1"
-                        android:fontFamily="sans-serif-condensed"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <RadioButton
                         android:id="@+id/rbtCap9_60_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginHorizontal="10dp"
-                        android:paddingHorizontal="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:layoutDirection="rtl"
-                        android:background="@drawable/background_shadow"
+                        android:paddingHorizontal="10dp"
                         android:text="@string/check60p2"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -198,12 +224,12 @@
                         android:id="@+id/rbtCap9_60_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginHorizontal="10dp"
-                        android:paddingHorizontal="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:layoutDirection="rtl"
-                        android:background="@drawable/background_shadow"
+                        android:paddingHorizontal="10dp"
                         android:text="@string/check60p3"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -211,12 +237,12 @@
                         android:id="@+id/rbtCap9_60_4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginHorizontal="10dp"
-                        android:paddingHorizontal="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:layoutDirection="rtl"
-                        android:background="@drawable/background_shadow"
+                        android:paddingHorizontal="10dp"
                         android:text="@string/check60p4"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -224,12 +250,12 @@
                         android:id="@+id/rbtCap9_60_5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_marginHorizontal="10dp"
-                        android:paddingHorizontal="10dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:layoutDirection="rtl"
-                        android:background="@drawable/background_shadow"
+                        android:paddingHorizontal="10dp"
                         android:text="@string/check60p5"
                         tools:ignore="TouchTargetSizeCheck" />
 
@@ -254,7 +280,6 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="40dp"
-                    android:paddingHorizontal="10dp"
                     android:autofillHints="Otra"
                     android:enabled="false"
                     android:fontFamily="sans-serif-condensed"
@@ -263,6 +288,7 @@
                     android:inputType="textCapWords"
                     android:minHeight="48dp"
                     android:orientation="horizontal"
+                    android:paddingHorizontal="10dp"
                     android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="@+id/rgroupCap9_60"
                     app:layout_constraintEnd_toEndOf="@+id/rgroupCap9_60"
@@ -276,13 +302,13 @@
                 android:id="@+id/layoutCap9_61"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="5dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="15dp"
                 android:layout_marginHorizontal="2dp"
                 android:layout_marginTop="1dp"
                 android:layout_marginBottom="7dp"
                 android:background="@drawable/background_shadow"
+                android:paddingHorizontal="5dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="15dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -332,8 +358,8 @@
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow_celpast"
                         android:fontFamily="sans-serif-condensed"
-                        android:paddingVertical="10dp"
                         android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
                         android:text="@string/txt61desc"
                         android:textColor="@color/holo_blue_dark"
                         android:textStyle="bold" />
@@ -363,9 +389,9 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="4"
                         android:layout_gravity="fill"
+                        android:layout_marginStart="10dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
-                        android:layout_marginStart="10dp"
                         android:text="@string/p61yes1"
                         android:textStyle="bold" />
 
@@ -382,8 +408,8 @@
                             android:id="@+id/rbtCap9_61_1_si"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginStart="10dp"
+                            android:layout_weight="1"
                             android:fontFamily="sans-serif-condensed"
                             android:textSize="12sp"
                             tools:ignore="VisualLintButtonSize" />
@@ -402,9 +428,9 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="4"
                         android:layout_gravity="fill"
+                        android:layout_marginStart="10dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
-                        android:layout_marginStart="10dp"
                         android:text="@string/p61yes2"
                         android:textStyle="bold" />
 
@@ -421,8 +447,8 @@
                             android:id="@+id/rbtCap9_61_2_si"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginStart="10dp"
+                            android:layout_weight="1"
                             android:fontFamily="sans-serif-condensed"
                             android:textSize="12sp"
                             tools:ignore="VisualLintButtonSize" />
@@ -441,9 +467,9 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="4"
                         android:layout_gravity="fill"
+                        android:layout_marginStart="10dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
-                        android:layout_marginStart="10dp"
                         android:text="@string/p61yes3"
                         android:textStyle="bold" />
 
@@ -460,8 +486,8 @@
                             android:id="@+id/rbtCap9_61_3_si"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginStart="10dp"
+                            android:layout_weight="1"
                             android:fontFamily="sans-serif-condensed"
                             android:textSize="12sp"
                             tools:ignore="VisualLintButtonSize" />
@@ -480,9 +506,9 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="4"
                         android:layout_gravity="fill"
+                        android:layout_marginStart="10dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
-                        android:layout_marginStart="10dp"
                         android:text="@string/p61yes4"
                         android:textStyle="bold" />
 
@@ -499,8 +525,8 @@
                             android:id="@+id/rbtCap9_61_4_si"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginStart="10dp"
+                            android:layout_weight="1"
                             android:fontFamily="sans-serif-condensed"
                             android:textSize="12sp"
                             tools:ignore="VisualLintButtonSize" />
@@ -520,9 +546,9 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="4"
                         android:layout_gravity="fill"
+                        android:layout_marginStart="10dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
-                        android:layout_marginStart="10dp"
                         android:text="@string/p61yes5"
                         android:textStyle="bold" />
 
@@ -539,8 +565,8 @@
                             android:id="@+id/rbtCap9_61_5_si"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginStart="10dp"
+                            android:layout_weight="1"
                             android:fontFamily="sans-serif-condensed"
                             android:textSize="12sp"
                             tools:ignore="VisualLintButtonSize" />
@@ -559,9 +585,9 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="4"
                         android:layout_gravity="fill"
+                        android:layout_marginStart="10dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
-                        android:layout_marginStart="10dp"
                         android:text="@string/p61yes6"
                         android:textStyle="bold" />
 
@@ -578,8 +604,8 @@
                             android:id="@+id/rbtCap9_61_6_si"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginStart="10dp"
+                            android:layout_weight="1"
                             android:fontFamily="sans-serif-condensed"
                             android:textSize="12sp"
                             tools:ignore="VisualLintButtonSize" />
@@ -599,9 +625,9 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="4"
                         android:layout_gravity="fill"
+                        android:layout_marginStart="10dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
-                        android:layout_marginStart="10dp"
                         android:text="@string/p61yes7"
                         android:textStyle="bold" />
 
@@ -618,8 +644,8 @@
                             android:id="@+id/rbtCap9_61_7_si"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginStart="10dp"
+                            android:layout_weight="1"
                             android:fontFamily="sans-serif-condensed"
                             android:textSize="12sp"
                             tools:ignore="VisualLintButtonSize" />
@@ -638,9 +664,9 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="4"
                         android:layout_gravity="fill"
+                        android:layout_marginStart="10dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
-                        android:layout_marginStart="10dp"
                         android:text="@string/p61yes8"
                         android:textStyle="bold" />
 
@@ -657,8 +683,8 @@
                             android:id="@+id/rbtCap9_61_8_si"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:layout_marginStart="10dp"
+                            android:layout_weight="1"
                             android:fontFamily="sans-serif-condensed"
                             android:textSize="12sp"
                             tools:ignore="VisualLintButtonSize" />
@@ -680,9 +706,9 @@
 
             <View
                 android:id="@+id/lowCap9o1"
-                android:visibility="invisible"
                 android:layout_width="match_parent"
-                android:layout_height="50dp" />
+                android:layout_height="50dp"
+                android:visibility="invisible" />
 
         </LinearLayout>
 

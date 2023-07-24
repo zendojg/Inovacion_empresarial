@@ -335,10 +335,10 @@
     <string name="txt_31_c">c. 1,000,001 a 2,500,000</string>
     <string name="txt_31_d">d. 2,500,001 a 15,999,999</string>
     <string name="txt_31_e">e. 16,000,000 y más</string>
-    <string name="txt32_si21"><b>Sí</b> (Pregunta 33, punto a.)</string>
-    <string name="txt32_no21"><b>No</b> (Continúe)</string>
-    <string name="txt32_si22"><b>Sí</b> (Pregunta 33, punto b.)</string>
-    <string name="txt32_no22"><b>No</b> (Pregunta 34)</string>
+    <string name="txt32_si21">Sí <b>(Pregunta 33, punto a)</b></string>
+    <string name="txt32_no21">No <b>(Continúe)</b></string>
+    <string name="txt32_si22">Sí <b>(Pregunta 33, punto b)</b></string>
+    <string name="txt32_no22">No <b>(Pregunta 34)</b></string>
     <string name="txt33_1a">Bien o servicio (1)</string>
     <string name="txt33_2a">Bien o servicio (2)</string>
     <string name="txt33_3a">Bien o servicio (3)</string>
@@ -373,8 +373,8 @@
     <string name="lb36nac">a. Nacional</string>
     <string name="lb36ext">b. Extrangero</string>
     <string name="p37txt">¿En el 2022, ¿la empresa contaba con personal, oficina, sección, departamento o laboratorio para desarrollar labores de innovación?</string>
-    <string name="p37si"><b>Sí </b>  1.(Continúe)</string>
-    <string name="p37no"><b>No </b> 2.(Pase al Cap. VI, pregunta 39)</string>
+    <string name="p37si">Sí.....<b>1.(Continúe)</b></string>
+    <string name="p37no">No....<b>2.(Pase al Cap. VI, pregunta 39)</b></string>
     <string name="p38txt">¿Qué oficina, sección, departamento o laboratorio de la empresa contaba con personal para desarrollar labores de innovación, anote la cantidad total…</string>
     <string name="p38tbdesc"><b><font color="#ff0099cc">OPCIÓN MULTIPLE</font></b></string>
     <string name="tb38desc1">1.Información y Sistema?</string>
@@ -440,8 +440,8 @@
     <string name="p49desc2">Introducir productos para un nuevo segmento de mercado?</string>
     <string name="p49desc3">Introducir productos para un mercado geográficamente nuevo?</string>
     <string name="p50txt">¿La empresa tiene personal, oficinas, sección, departamento o laboratorio de investigación y desarrorrlo (I+D)?</string>
-    <string name="p59check1"><b>Sí</b>.....1.  (Continuar)</string>
-    <string name="p59check2"><b>No</b>....2. (Pase a la pregunta 52)</string>
+    <string name="p59check1">Sí.....<b>1.(Continúe)</b></string>
+    <string name="p59check2">No....<b>2.(Pase a la pregunta 52)</b></string>
     <string name="cap7tittle1">LAS ACTIVIDADES INNOVATIVAS SON TODAS LAS OPERACIONES CIENTÍFICAS, TECNOLÓGICAS, ORGANIZATIVAS, FINANCIERAS Y COMERCIALES QUE CONDUCEN A LA INTRODUCCIÓN DE INNOVACIÓN, Y A PESAR DE QUE NO SE HAYA CONCRETADO LA INNOVACIÓN, LAS ACTIVIDADES INNOVATIVAS FUERON EFECTUADAS</string>
     <string name="p51txt">¿En el 2021 y 2022, su empresa realizó alguna de las siguientes actividades de <u>Investigación y Desarrollo</u> (I+D)?\n\n<font color="#ff0099cc">MARQUE SU RESPUESTA PARA CADA AÑO Y EL PORCENTAJE INVERTIDO O GASTADO</font></string>
     <string name="invertido2">% Invertido (2)</string>
@@ -509,8 +509,8 @@
     <string name="tb55b4">No es necesario por la falta de demanda de innovaciones</string>
     <string name="tb55c4">Dificultad regulatoria</string>
     <string name="lb56txt">¿Conoce la empresa que existen instituciones públicas, privadas y organismos internacionales que prestan apoyo para realizar actividades de innovación?</string>
-    <string name="check56si">Sí (Continuar)</string>
-    <string name="check56no">No (Pasar al capítulo IX, pregunta 59)</string>
+    <string name="check56si">Sí.....<b>1.(Continúe)</b></string>
+    <string name="check56no">No....<b>2.(Pase al capítulo IX, pregunta 59)</b></string>
     <string name="lb57txt">En el 2022, ¿la empresa solicitó subsidios, créditos o beneficios para financiar actividades de innovación a instituciones nacionales o inernacionales?</string>
     <string name="monto">(4) Monto obtenido en balboas</string>
     <string name="tb571">Instituciones nacionales:</string>
@@ -538,8 +538,9 @@
     <string name="tb58c4">Organismos internacionales (BID, Banco Mundial, unión Europea)</string>
     <string name="cap9tittle1">ES UNA RAMA DEL DERECHO QUE BUSCA, POR UNA PARTE, FOMENTAR LA INNOVACIÓN, LA CREACIÓN Y LA TRANFERENCIA TECNOLÓGICA Y POR LA OTRA, ORDENAR LOS MERCADOS</string>
     <string name="p59txt">En el 2021 y/o 2022, ¿la empresa obtuvo patentes en el país y/o exterior?</string>
-    <string name="check59si">Sí (Continuar)</string>
-    <string name="check59no">No (Pasar a la parte 2, pregunta 62)</string>
+    <string name="desc59yes"><b>¿Cuántas?</b></string>
+    <string name="check59si">Sí.....<b>1.(Continúe)</b></string>
+    <string name="check59no">No....<b>2.(Pase a la parte 2, pregunta 62)</b></string>
     <string name="p60txt">¿En qué país fueron aprobadas las patentes?</string>
     <string name="check60p1">1. Panamá</string>
     <string name="check60p2">2. Centroamérica y el Caribe</string>
@@ -558,8 +559,8 @@
     <string name="p61yes8">8. Contratos de confidencialidad con poveedores y/o clientes</string>
     <string name="txt61desc">LEA:</string>
     <string name="p62txt">En el 2021 y/o 2022, ¿la empresa contó con <u>alguna certificación sobre normas de calidad</u>?</string>
-    <string name="check62yes">Sí (Continuar)</string>
-    <string name="check62no">No (Pasar a pregunta 64)</string>
+    <string name="check62yes">Sí......<b>1.(Continúe)</b></string>
+    <string name="check62no">No....<b>2.(Pase a pregunta 64)</b></string>
     <string name="p63tbdesc">Tipo de Certificación\n\n<b><font color="#ff0099cc">LEA:</font></b></string>
     <string name="p63txt">¿Qué tipo de certificación sobre normas?\n\n<font color="#ff0099cc">OPCIÓN MÚLTIPLE</font></string>
     <string name="tb63desc2">Cantidad\nde locales</string>
@@ -569,7 +570,7 @@
     <string name="tb63p4">4. ISO - IEC 20000 - Gestión de Seguridad y Riesgos</string>
     <string name="tb63p5">5. Otro: Especifique</string>
     <string name="p64txt">En el 2021 y/o 2022, ¿la empresa contó con <u>productos certificados</u>?</string>
-    <string name="check64no">No (Pasar al Capítulo X, pregunta 66)</string>
+    <string name="check64no">No....<b>2.(Pase al Capítulo X, pregunta 66)</b></string>
     <string name="p65txt">¿Mencione las dos normas de calidad más importantes y su año de obtención?</string>
     <string name="txt65n1">1. Norma de calidad:</string>
     <string name="txt65n2">2. Norma de calidad:</string>
@@ -582,11 +583,11 @@
     <string name="tb66desc4">Innovaciones de comercialización.</string>
 
     <string name="p1txtm">En el 2022, ¿utilizo su empresa Internet para el desarrollo de sus actividades?</string>
-    <string name="noMod"><b>No</b>  2.(Finalizar la entrevista del módulo)</string>
+    <string name="noMod">No....<b>2.(Finalizar la entrevista del módulo)</b></string>
     <string name="moduloref">PERÍODO DE REFERENCIA 2022</string>
     <string name="p2txtm">¿Qué tipo de conexión utilizó para acceder a internet…</string>
     <string name="p2txtm1">1. Fijo (cable y/o inalámbrico)?</string>
-    <string name="nopoint2">No (Pasar al punto 2, de esta pregunta)</string>
+    <string name="nopoint2">No....<b>2.(Pase al punto 2, de esta pregunta)</b></string>
     <string name="p2txtm1s1">1. a. seleccione el tipo de acceso a conexión:</string>
     <string name="p2txtm1s1a">a. DSL (XDSL, ADSL y SDSL)</string>
     <string name="p2txtm1s1b">b. Redes hibridas (fibra optica y/o cable)</string>
@@ -600,7 +601,7 @@
     <string name="p3txtm3">3. Control de acceso a la red (gestión del acceso de disspositivos y usuarios a la red de la empresa)?</string>
     <string name="p3txtm4">4. Otras medidas de segurudad TIC?</string>
     <string name="p4txtm">¿Realizó su empresa ventas de bienes y/o servicios, a tráves de medios electrónicos?</string>
-    <string name="nosecc4">No (Pasar a la sección 4)</string>
+    <string name="nosecc4">No....<b>2.(Pase a la sección 4)</b></string>
     <string name="porcentaje">porcentaje %</string>
     <string name="porcent">%</string>
     <string name="p4m1">¿Cómo <u>realizo las ventas</u> de bienes y/o servicios (pedidos y/o reservas) e indique el <u>porcentaje</u> de las ventas</string>
@@ -619,7 +620,7 @@
     <string name="p8txtm">¿Cúal fue el total de las ventas de bienes y/o servicios realizadas a tráves de medios electrónicos?</string>
     <string name="p8hintm">Valor en Balboas, omita los centésimos</string>
     <string name="p9txtm">En el 2022, ¿utilizo su empresa Internet para el desarrollo de sus actividades?</string>
-    <string name="p9mno"><b>No</b> 2.(Finalizar la entrevista)</string>
+    <string name="p9mno">No....<b>2.(Finalizar la entrevista)</b></string>
     <string name="p10txtm">De estos costos y gastos realizados por la empresa, en TIC, indique según porcentaje, ¿cúales corresponden a…</string>
     <string name="lb10m1"><b>1.</b> Hardware <b>(CPU, monitor, teclado, ratón, impresora, disco, CD, DVD, motherboard, RAM y otros)</b>?</string>
     <string name="lb10m2"><b>2.</b> Software <b>(sistema operativo,aplicaciones, navegadores web, juegos, programas, licencias y otros)</b>?</string>

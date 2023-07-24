@@ -98,6 +98,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutCap9_63"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="5dp"
@@ -164,7 +165,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <ImageView
-                        android:layout_columnWeight="0.7"
+                        android:layout_columnWeight="1"
                         android:minHeight="40dp"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow_celpast"
@@ -196,7 +197,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <CheckBox
-                        android:id="@+id/checkCap6_63_1"
+                        android:id="@+id/checkCap9_63_1"
                         android:layout_width="0dp"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow"
@@ -215,7 +216,7 @@
                         android:imeOptions="actionDone"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="4"
+                        android:maxLength="2"
                         android:minHeight="40dp"
                         android:visibility="invisible"
                         tools:ignore="LabelFor,DuplicateSpeakableTextCheck"
@@ -233,7 +234,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <CheckBox
-                        android:id="@+id/checkCap6_63_2"
+                        android:id="@+id/checkCap9_63_2"
                         android:layout_width="0dp"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow"
@@ -252,7 +253,7 @@
                         android:imeOptions="actionDone"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="4"
+                        android:maxLength="2"
                         android:minHeight="40dp"
                         android:visibility="invisible"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
@@ -270,7 +271,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <CheckBox
-                        android:id="@+id/checkCap6_63_3"
+                        android:id="@+id/checkCap9_63_3"
                         android:layout_width="0dp"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow"
@@ -289,7 +290,7 @@
                         android:imeOptions="actionDone"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="4"
+                        android:maxLength="2"
                         android:minHeight="40dp"
                         android:visibility="invisible"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
@@ -307,7 +308,7 @@
                         tools:ignore="TextContrastCheck" />
 
                     <CheckBox
-                        android:id="@+id/checkCap6_63_4"
+                        android:id="@+id/checkCap9_63_4"
                         android:layout_width="0dp"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow"
@@ -326,7 +327,7 @@
                         android:imeOptions="actionDone"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="4"
+                        android:maxLength="2"
                         android:minHeight="40dp"
                         android:visibility="invisible"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
@@ -339,7 +340,7 @@
                         android:hint="@string/tb63p5">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtCap5_38_4_otro"
+                            android:id="@+id/txtCap9_63_5_otro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/background_shadow_low"
@@ -351,7 +352,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <CheckBox
-                        android:id="@+id/checkCap6_63_5"
+                        android:id="@+id/checkCap9_63_5"
                         android:layout_width="0dp"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow"
@@ -372,7 +373,7 @@
                         android:imeOptions="actionDone"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="4"
+                        android:maxLength="2"
                         android:minHeight="40dp"
                         android:visibility="invisible"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
@@ -456,6 +457,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutCap9_65"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingHorizontal="5dp"
@@ -592,6 +594,8 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
+                android:id="@+id/lowCap9o2"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
         </LinearLayout>
