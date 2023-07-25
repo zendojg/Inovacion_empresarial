@@ -101,6 +101,7 @@ class MainFragmentSearch : Fragment() {
             val resp = dvmSearch.formGet(ncont)
             if (resp != null) {
                 fragSearch.barSearch.visibility = View.GONE
+
                 when (resp.code) {
                     Mob.CODE200 -> {
                         Mob.formComp = resp.body
@@ -115,6 +116,9 @@ class MainFragmentSearch : Fragment() {
                         Mob.cap9 = resp.body?.cap9
                         Mob.capx = resp.body?.capx
                         Mob.capMod = resp.body?.capMod
+
+                        Mob.obsEncuesta = resp.body?.obs ?: ""
+                        Mob.obsModulo = resp.body?.capMod?.observaciones ?: ""
 
                         viewFind(false)
                     }

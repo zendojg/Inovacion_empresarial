@@ -44,9 +44,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="220sp"
-                    android:layout_marginBottom="35dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="}"
+                    android:layout_marginBottom="40dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/leftBranch"
                     app:layout_constraintBottom_toBottomOf="@+id/txtSecc04_6p4ly"
                     app:layout_constraintEnd_toStartOf="@+id/lb6nm100"
                     app:layout_constraintTop_toTopOf="@+id/txtSecc04_6p1ly" />
@@ -175,12 +175,27 @@
 
                 <TextView
                     android:id="@+id/lb6nm100"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/porc100"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtSecc04_6p4ly"
+                    app:layout_constraintEnd_toStartOf="@+id/lb6nmporcent"
+                    app:layout_constraintTop_toTopOf="@+id/txtSecc04_6p1ly" />
+
+                <TextView
+                    android:id="@+id/lb6nmporcent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="10dp"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="@string/porc100"
-                    android:textSize="22sp"
+                    android:text="@string/porcent"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/txtSecc04_6p4ly"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -256,7 +271,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/lb7txtm">
 
                     <RadioButton
-                        android:id="@+id/rbtCapSecc04_7_si"
+                        android:id="@+id/rbtSecc04_7_si"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
@@ -276,6 +291,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutSecc4_8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
@@ -343,6 +359,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutSecc4_10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
@@ -397,7 +414,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/lb9txtm">
 
                     <RadioButton
-                        android:id="@+id/rbtCapSecc04_9_si"
+                        android:id="@+id/rbtSecc04_9_si"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="sans-serif-condensed"
@@ -415,7 +432,7 @@
                 </RadioGroup>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/textInputLayout2"
+                    android:id="@+id/txtSecc04_9ly"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"
@@ -490,6 +507,7 @@
                     android:gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="1dp"
+                    android:textStyle="bold"
                     android:padding="1dp"
                     android:text="@string/lb10m1"
                     app:layout_constraintBottom_toBottomOf="@+id/rbtSecc04_10_1ly"
@@ -514,7 +532,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/lb10txtm">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/rbtSecc04_10_1"
+                        android:id="@+id/txtSecc04_10_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_shadow"
@@ -536,6 +554,7 @@
                     android:gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="1dp"
+                    android:textStyle="bold"
                     android:padding="1dp"
                     android:text="@string/lb10m2"
                     app:layout_constraintBottom_toBottomOf="@+id/rbtSecc04_10_2ly"
@@ -560,7 +579,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/rbtSecc04_10_1ly">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/rbtSecc04_10_2"
+                        android:id="@+id/txtSecc04_10_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_shadow"
@@ -583,6 +602,7 @@
                     android:gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="1dp"
+                    android:textStyle="bold"
                     android:padding="1dp"
                     android:text="@string/lb10m3"
                     app:layout_constraintBottom_toBottomOf="@+id/rbtSecc04_10_3ly"
@@ -607,7 +627,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/rbtSecc04_10_2ly">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/rbtSecc04_10_3"
+                        android:id="@+id/txtSecc04_10_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_shadow"
@@ -629,6 +649,7 @@
                     android:gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="1dp"
+                    android:textStyle="bold"
                     android:padding="1dp"
                     android:text="@string/lb10m4"
                     app:layout_constraintBottom_toBottomOf="@+id/rbtSecc04_10_4ly"
@@ -652,7 +673,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/rbtSecc04_10_3ly">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/rbtSecc04_10_4"
+                        android:id="@+id/txtSecc04_10_4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/background_shadow"
@@ -668,6 +689,8 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <View
+                android:id="@+id/lowMod4"
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="50dp" />
 

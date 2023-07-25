@@ -15,6 +15,8 @@ object Mob {
 
     const val DATEFORMAT = "yyyy-MM-dd HH:mm:ss a"
 
+    const val PORCENT100:Int = 100
+
     const val WIDTH160DP:Int = 160
     const val WIDTH180DP:Int = 180
     const val WIDTH220DP:Int = 220

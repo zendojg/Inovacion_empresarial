@@ -2,15 +2,14 @@ package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.EditText
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import gob.pa.inovacion_empresarial.R
-import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo051VentasYExpoBinding
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo052RecursosHumanosBinding
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
@@ -23,6 +22,32 @@ class FragEncuestaCap05o2 : Fragment() {
     private lateinit var bindingcap5o2: EncuestaCapitulo052RecursosHumanosBinding
     private lateinit var ctx: Context
     private var seecap = true
+
+    private var empA21 = 0
+    private var empA22 = 0
+    private var empB21 = 0
+    private var empB22 = 0
+    private var emp21 = 0
+    private var emp22 = 0
+
+    private var hombNacA = 0
+    private var hombNacB = 0
+    private var hombNacC = 0
+    private var hombNacD = 0
+    private var hombNacE = 0
+    private var hombNacF = 0
+    private var hombNacG = 0
+    private var hombNacH = 0
+
+    private var hombExtcA = 0
+    private var hombExtB = 0
+    private var hombExtC = 0
+    private var hombExtD = 0
+    private var hombExtE = 0
+    private var hombExtF = 0
+    private var hombExtG = 0
+    private var hombExtH = 0
+
 
     //private val dvmCap4: DVModel by viewModels()
     override fun onCreateView(
@@ -85,10 +110,127 @@ class FragEncuestaCap05o2 : Fragment() {
                     txtCap5384Otro.text?.clear()
                 }
             }
+
+            txtCap536A2021.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) {
+                    if (txtCap536A2021.text.toString() == "0") txtCap536A2021.text?.clear()
+                    actionTxtSum36(txtCap536A2021)
+                } else if (txtCap536A2021.text.isNullOrEmpty()) {
+                    txtCap536A2021.text = "0".toEditable()
+                }
+            }
+            txtCap536A2022.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) {
+                    if (txtCap536A2022.text.toString() == "0") txtCap536A2022.text?.clear()
+                    actionTxtSum36(txtCap536A2022)
+                } else if (txtCap536A2022.text.isNullOrEmpty()) {
+                    txtCap536A2022.text = "0".toEditable()
+                }
+            }
+            txtCap536B2021.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) {
+                    if (txtCap536B2021.text.toString() == "0") txtCap536B2021.text?.clear()
+                    actionTxtSum36(txtCap536B2021)
+                } else if (txtCap536B2021.text.isNullOrEmpty()) {
+                    txtCap536B2021.text = "0".toEditable()
+                }
+            }
+            txtCap536B2022.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) {
+                    if (txtCap536B2022.text.toString() == "0") txtCap536B2022.text?.clear()
+                    actionTxtSum36(txtCap536B2022)
+                } else if (txtCap536B2022.text.isNullOrEmpty()) {
+                    txtCap536B2022.text = "0".toEditable()
+                }
+            }
             lowCap5o2.setOnClickListener { saveCap() }
         }
     }
 
+    private fun actionTxtSum35(txt: EditText) {
+        with (bindingcap5o2) {
+            txt.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, st: Int, c: Int, a: Int) {}
+                override fun onTextChanged(s: CharSequence, st: Int, b: Int, c: Int) {}
+                override fun afterTextChanged(s: Editable?) {
+                    if (!s.isNullOrEmpty()) {
+                        when (txt) {
+                            txtCap536A2021 -> {
+                                empA21 = try { txt.text.toString().toInt() }
+                                catch (e: java.lang.NumberFormatException) { 0 }}
+                            txtCap536A2022 -> {
+                                empA22 = try { txt.text.toString().toInt() }
+                                catch (e: java.lang.NumberFormatException) { 0 }}
+                            txtCap536B2021 -> {
+                                empB21 = try { txt.text.toString().toInt() }
+                                catch (e: java.lang.NumberFormatException) { 0 }}
+                            txtCap536B2022 -> {
+                                empB22 = try { txt.text.toString().toInt() }
+                                catch (e: java.lang.NumberFormatException) { 0 }}
+                        }
+                        emp21 = empA21 + empB21
+                        emp22 = empA22 + empB22
+                        txtCap53612021.text = emp21.toString().toEditable()
+                        txtCap53612022.text = emp22.toString().toEditable()
+
+                    } else {
+                        when (txt) {
+                            txtCap536A2021 -> empA21 = 0
+                            txtCap536A2022 -> empA22 = 0
+                            txtCap536B2021 -> empB21 = 0
+                            txtCap536B2022 -> empB22 = 0
+                        }
+                        emp21 = empA21 + empB21
+                        emp22 = empA22 + empB22
+                        txtCap53612021.text = emp21.toString().toEditable()
+                        txtCap53612022.text = emp22.toString().toEditable()
+                    }
+                }
+            })
+        }
+    }
+    private fun actionTxtSum36(txt: EditText) {
+        with (bindingcap5o2) {
+            txt.addTextChangedListener(object : TextWatcher {
+                override fun beforeTextChanged(s: CharSequence?, st: Int, c: Int, a: Int) {}
+                override fun onTextChanged(s: CharSequence, st: Int, b: Int, c: Int) {}
+                override fun afterTextChanged(s: Editable?) {
+                    if (!s.isNullOrEmpty()) {
+                        when (txt) {
+                            txtCap536A2021 -> {
+                                empA21 = try { txt.text.toString().toInt() }
+                                catch (e: java.lang.NumberFormatException) { 0 }}
+                            txtCap536A2022 -> {
+                                empA22 = try { txt.text.toString().toInt() }
+                                catch (e: java.lang.NumberFormatException) { 0 }}
+                            txtCap536B2021 -> {
+                                empB21 = try { txt.text.toString().toInt() }
+                                catch (e: java.lang.NumberFormatException) { 0 }}
+                            txtCap536B2022 -> {
+                                empB22 = try { txt.text.toString().toInt() }
+                                catch (e: java.lang.NumberFormatException) { 0 }}
+                        }
+                        emp21 = empA21 + empB21
+                        emp22 = empA22 + empB22
+                        txtCap53612021.text = emp21.toString().toEditable()
+                        txtCap53612022.text = emp22.toString().toEditable()
+
+                    } else {
+                        when (txt) {
+                            txtCap536A2021 -> empA21 = 0
+                            txtCap536A2022 -> empA22 = 0
+                            txtCap536B2021 -> empB21 = 0
+                            txtCap536B2022 -> empB22 = 0
+                        }
+                        emp21 = empA21 + empB21
+                        emp22 = empA22 + empB22
+                        txtCap53612021.text = emp21.toString().toEditable()
+                        txtCap53612022.text = emp22.toString().toEditable()
+                    }
+                }
+            })
+        }
+    }
 
     private fun fillOut() {
         val cap5 = Mob.formComp?.cap5

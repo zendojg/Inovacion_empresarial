@@ -143,7 +143,7 @@
                         android:hint="@string/cero"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="10"
+                        android:maxLength="9"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_30_a_2022"
                         tools:ignore="DuplicateSpeakableTextCheck" />
@@ -159,7 +159,7 @@
                         android:hint="@string/cero"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="10"
+                        android:maxLength="9"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_30_b_2021"
                         tools:ignore="DuplicateSpeakableTextCheck" />
@@ -189,7 +189,7 @@
                         android:hint="@string/cero"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="10"
+                        android:maxLength="9"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_30_b_2022"
                         tools:ignore="DuplicateSpeakableTextCheck" />
@@ -205,7 +205,7 @@
                         android:hint="@string/cero"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="10"
+                        android:maxLength="9"
                         android:minHeight="48dp"
                         tools:ignore="DuplicateSpeakableTextCheck" />
 

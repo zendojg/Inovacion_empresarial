@@ -1,8 +1,11 @@
 package gob.pa.inovacion_empresarial.view
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.InputType
 import android.view.Gravity
 import android.view.View
@@ -127,7 +130,10 @@ class FormActivity : AppCompatActivity() {
             }
             btnegativo.setOnClickListener {
                 dialog.dismiss()
-                super.onBackPressed()
+                startActivity(Intent(this, MainActivity::class.java))
+                Handler(Looper.getMainLooper()).postDelayed({
+                    finish()
+                }, (Mob.TIME500MS))
             }
         } else form.viewpager.setCurrentItem(
             form.viewpager.currentItem - 1,true)

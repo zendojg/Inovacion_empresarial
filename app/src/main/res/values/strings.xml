@@ -604,31 +604,32 @@
     <string name="nosecc4">No....<b>2.(Pase a la sección 4)</b></string>
     <string name="porcentaje">porcentaje %</string>
     <string name="porcent">%</string>
-    <string name="p4m1">¿Cómo <u>realizo las ventas</u> de bienes y/o servicios (pedidos y/o reservas) e indique el <u>porcentaje</u> de las ventas</string>
-    <string name="p4m1a">a. Pagina Web</string>
+    <string name="p4m1">¿Cómo <u>realizo las ventas</u> de bienes y/o servicios (pedidos y/o reservas) e indique el <u>porcentaje</u> de las ventas…</string>
+    <string name="p4m1a">a. Pagina Web <font color="black">(carrito de compra)</font>?</string>
     <string name="p4m1b">b. Correo electrónico?</string>
     <string name="p4m1c">c. Redes sociales <font color="black">(WhatsApp, Instagram y Facebook)</font>?</string>
     <string name="p4m1d">d. App <font color="black">(propia)</font>?</string>
     <string name="p4m1e">e. Otro medio utilizado para realizar ventas en línea</string>
     <string name="p5txtm">¿Cúal fue el total de las ventas de bienes y/o servicios realizadas a tráves de medios electrónicos?</string>
     <string name="p5txtmdesc">Valor en Balboas, omita los centésimos</string>
-    <string name="p6txtm">¿Realizó su empresa ventas de bienes y/o servicios, a tráves de medios electrónicos?</string>
-    <string name="porc100">100%</string>
-    <string name="p6mdescend">La suma de los 4 debe ser igual al 100%</string>
-    <string name="p67no">No 2.(Pase a la pregunta 9)</string>
-    <string name="p7txtm">En el 2022, ¿utilizo su empresa Internet para el desarrollo de sus actividades?</string>
+    <string name="p6txtm">De este total de las ventas de bienes y/o servicios realizadas, a través de medios electrónicos, ¿cúal es el porcentaje, según tipo de clientes?</string>
+    <string name="porc100">100</string>
+    <string name="p6mdescend">La suma de todos los campos debe ser igual al 100%</string>
+    <string name="p67no">No....<b>2.(Pase a la pregunta 9)</b></string>
+    <string name="p7txtm">¿Realizó su empresa ventas de bienes y/o servicios, a tráves de medios electrónicos?\n<font color="#705727">(Los mencionados en la Sección 3, pregunta 4.1)</font></string>
     <string name="p8txtm">¿Cúal fue el total de las ventas de bienes y/o servicios realizadas a tráves de medios electrónicos?</string>
     <string name="p8hintm">Valor en Balboas, omita los centésimos</string>
     <string name="p9txtm">En el 2022, ¿utilizo su empresa Internet para el desarrollo de sus actividades?</string>
     <string name="p9mno">No....<b>2.(Finalizar la entrevista)</b></string>
     <string name="p10txtm">De estos costos y gastos realizados por la empresa, en TIC, indique según porcentaje, ¿cúales corresponden a…</string>
-    <string name="lb10m1"><b>1.</b> Hardware <b>(CPU, monitor, teclado, ratón, impresora, disco, CD, DVD, motherboard, RAM y otros)</b>?</string>
-    <string name="lb10m2"><b>2.</b> Software <b>(sistema operativo,aplicaciones, navegadores web, juegos, programas, licencias y otros)</b>?</string>
-    <string name="lb10m3"><b>3.</b> Servicios de consultoria de TIC?</string>
-    <string name="lb10m4"><b>4.</b> Otros gastos TIC <b>(alquiler de equipo TIC, personal de la empresa dedicada a la producción de software para uso propio no para la venta)</b>?</string>
+    <string name="lb10m1">1. Hardware <font color="#705727">(CPU, monitor, teclado, ratón, impresora, disco, CD, DVD, motherboard, RAM y otros)</font>?</string>
+    <string name="lb10m2">2. Software <font color="#705727">(sistema operativo,aplicaciones, navegadores web, juegos, programas, licencias y otros)</font>?</string>
+    <string name="lb10m3">3. Servicios de consultoria de TIC?</string>
+    <string name="lb10m4">4. Otros gastos TIC <font color="#705727">(alquiler de equipo TIC, personal de la empresa dedicada a la producción de software para uso propio no para la venta)</font>?</string>
     <string name="helpdirdesc">Anote la dirección en el siguiente orden: Mall o centro comercial, avenida, calle, edificio o casa, piso</string>
     <string name="init">Iniciar</string>
     <string name="back">Regresar</string>
     <string name="menu">Menu</string>
+    <string name="leftBranch">}</string>
 
 </resources>
