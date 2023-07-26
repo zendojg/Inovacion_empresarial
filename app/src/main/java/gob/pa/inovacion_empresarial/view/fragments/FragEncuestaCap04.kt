@@ -84,7 +84,7 @@ class FragEncuestaCap04 : Fragment() {
                     }
                 }
             }
-            lowCap4.setOnClickListener { savedCap() }
+            lowCap4.setOnClickListener { saveCap() }
         }
     }
 
@@ -107,6 +107,6 @@ class FragEncuestaCap04 : Fragment() {
         onAction()
     }
 
-    private fun savedCap() { }
+    fun saveCap() { }
 
 }

@@ -58,7 +58,7 @@ class FragEncuestaCap03 : Fragment() {
                 txtCap3256.isVisible = rbtCap3256.id == id
             }
 
-            lowCap3.setOnClickListener { savedCap() }
+            lowCap3.setOnClickListener { saveCap() }
         }
     }
 
@@ -115,5 +115,5 @@ class FragEncuestaCap03 : Fragment() {
     }
 
 
-    private fun savedCap() {}
+    fun saveCap() {}
 }

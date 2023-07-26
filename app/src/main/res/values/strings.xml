@@ -74,6 +74,8 @@
     <string name="informe">INFORME</string>
     <string name="informetxt">Datos del Formulario</string>
 
+
+    <string name="emailCharacters">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz._@0123456789</string>
     <string-array name="emptyArr" />
 
     <string-array name="arr_onetofive">

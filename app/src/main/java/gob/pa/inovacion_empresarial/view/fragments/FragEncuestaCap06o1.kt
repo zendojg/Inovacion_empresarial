@@ -95,7 +95,7 @@ class FragEncuestaCap06o1 : Fragment() {
 
 
 
-    private fun saveCap() {
+    fun saveCap() {
         TODO("Not yet implemented")
     }
 }

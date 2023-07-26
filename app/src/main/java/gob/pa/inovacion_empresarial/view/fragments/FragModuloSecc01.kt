@@ -69,7 +69,7 @@ class FragModuloSecc01 : Fragment() {
                 txtSecc012DOtra.isVisible = checkSecc012D.isChecked
             }
 
-            lowMod1.setOnClickListener { savedCap() }
+            lowMod1.setOnClickListener { saveCap() }
         }
     }
 
@@ -104,7 +104,7 @@ class FragModuloSecc01 : Fragment() {
 
 
 
-    private fun savedCap() {}
+    fun saveCap() {}
 
 
 }

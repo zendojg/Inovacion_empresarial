@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo022DatosDelInformanteBinding
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
+import gob.pa.inovacion_empresarial.model.ModelCap2
 
 class FragEncuestaCap02o2 : Fragment() {
 
@@ -51,7 +52,7 @@ class FragEncuestaCap02o2 : Fragment() {
                 btCap219tel1.isEnabled = true
                 frameview = false
             }
-            lowCap2o2.setOnClickListener { savedCap() }
+            lowCap2o2.setOnClickListener { saveCap() }
         }
     }
 
@@ -73,6 +74,37 @@ class FragEncuestaCap02o2 : Fragment() {
         onAction()
     }
 
-    private fun savedCap() { }
+    fun saveCap() {
+        with (bindingcap2o2) {
+            Mob.cap2 = ModelCap2(
+                Mob.cap2?.id,
+                Mob.cap2?.ncontrol,
+                Mob.cap2?.v05nameLtxt,
+                Mob.cap2?.v06razontxt,
+                Mob.cap2?.v07ructxt,
+                Mob.cap2?.v07dvtxt,
+                Mob.cap2?.v08dirtxt,
+                Mob.cap2?.v08dirreftxt,
+                Mob.cap2?.v09tel1txt,
+                Mob.cap2?.v09tel2txt,
+                Mob.cap2?.v10celtxt,
+                Mob.cap2?.v11emailtxt,
+                Mob.cap2?.v12webtxt,
+                Mob.cap2?.v13nclavetxt,
+                Mob.cap2?.v14nlNum,
+                Mob.cap2?.v15nlNum,
+                Mob.cap2?.v15nldescNum,
+                txtCap216.text.toString(),
+                txtCap217.text.toString(),
+                txtCap218.text.toString(),
+                txtCap2181.text.toString(),
+                txtCap2191.text.toString(),
+                txtCap2192.text.toString(),
+                txtCap220.text.toString(),
+                txtCap221.text.toString()
+            )
+            println("------------${Mob.cap2}")
+        }
+    }
 
 }

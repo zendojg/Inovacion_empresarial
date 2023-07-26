@@ -108,7 +108,7 @@ class FragModuloSecc03 : Fragment() {
 
             if (rbtSecc034ANo.isChecked) layoutSecc35.isVisible = false
 
-            lowMod3.setOnClickListener { savedCap() }
+            lowMod3.setOnClickListener { saveCap() }
         }
     }
 
@@ -161,5 +161,5 @@ class FragModuloSecc03 : Fragment() {
         onAction()
     }
 
-    private fun savedCap() {}
+    fun saveCap() {}
 }

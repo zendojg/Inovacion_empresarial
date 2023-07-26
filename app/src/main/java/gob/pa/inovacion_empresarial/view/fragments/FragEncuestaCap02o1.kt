@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo021DatosDeLaEmpresaBinding
@@ -33,6 +34,7 @@ class FragEncuestaCap02o1 : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        Mob.encuestaFrag = this
         Mob.indiceEnc = Mob.CAP2P02
         if (seecap) fillOut()
         else onAction()
@@ -52,7 +54,7 @@ class FragEncuestaCap02o1 : Fragment() {
                 frameview = false
                 btCap29Tel1.isEnabled = true
             }
-            lowCap2o1.setOnClickListener { savedCap() }
+            lowCap2o1.setOnClickListener { saveCap() }
         }
     }
 
@@ -82,6 +84,37 @@ class FragEncuestaCap02o1 : Fragment() {
         onAction()
     }
 
-    private fun savedCap() { }
+    fun saveCap() {
+        with (bindingcap2o1) {
+            Mob.cap2 = ModelCap2(
+                Mob.cap2?.id,
+                Mob.cap2?.ncontrol,
+                txtCap25.text.toString(),
+                txtCap26.text.toString(),
+                txtCap27.text.toString(),
+                txtCap27DV.text.toString(),
+                txtCap28.text.toString(),
+                txtCap281.text.toString(),
+                txtCap291.text.toString(),
+                txtCap292.text.toString(),
+                txtCap210.text.toString(),
+                txtCap211.text.toString(),
+                txtCap212.text.toString(),
+                txtCap213.text.toString(),
+                txtCap214.text.toString(),
+                txtCap215.text.toString(),
+                txtCap2151.text.toString(),
+                Mob.cap2?.v16infonametxt,
+                Mob.cap2?.v17cargotxt,
+                Mob.cap2?.v18dirtxt,
+                Mob.cap2?.v18dirreftxt,
+                Mob.cap2?.v19tel1txt,
+                Mob.cap2?.v19tel2txt,
+                Mob.cap2?.v20celtxt,
+                Mob.cap2?.v21emailtxt
+            )
+            println("------------${Mob.cap2}")
+        }
+    }
 
 }

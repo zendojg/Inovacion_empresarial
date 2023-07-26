@@ -15,7 +15,7 @@ import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap5
-import kotlinx.android.synthetic.main.encuesta_capitulo_05_2_recursos_humanos.view.*
+
 
 class FragEncuestaCap05o2 : Fragment() {
 
@@ -111,6 +111,9 @@ class FragEncuestaCap05o2 : Fragment() {
                 }
             }
 
+
+
+
             txtCap536A2021.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
                 if (hasFocus) {
                     if (txtCap536A2021.text.toString() == "0") txtCap536A2021.text?.clear()
@@ -135,17 +138,24 @@ class FragEncuestaCap05o2 : Fragment() {
                     txtCap536B2021.text = "0".toEditable()
                 }
             }
+
+
+
+
             txtCap536B2022.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
                 if (hasFocus) {
                     if (txtCap536B2022.text.toString() == "0") txtCap536B2022.text?.clear()
                     actionTxtSum36(txtCap536B2022)
                 } else if (txtCap536B2022.text.isNullOrEmpty()) {
                     txtCap536B2022.text = "0".toEditable()
+                    txtCap536B2022.addTextChangedListener(null)
                 }
             }
+
             lowCap5o2.setOnClickListener { saveCap() }
         }
     }
+
 
     private fun actionTxtSum35(txt: EditText) {
         with (bindingcap5o2) {
@@ -319,7 +329,7 @@ class FragEncuestaCap05o2 : Fragment() {
     }
 
 
-    private fun saveCap() {
+    fun saveCap() {
         TODO("Not yet implemented")
     }
 }

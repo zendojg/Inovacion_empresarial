@@ -71,7 +71,7 @@ object Mob {
     const val SEC4P23:Int = 23
     const val OBSP24:Int = 24
 
-
+    lateinit var encuestaFrag: Fragment
     var arrEncuestas: Array<Fragment> = arrayOf(    //----Contenedor de los Fragment del Form
         FragMenu(),             //--00--Menu
         FragEncuestaCap01(),    //--01--c01 --- Encuesta
@@ -158,7 +158,6 @@ object Mob {
         msg = null,
         body = null
     )
-
 
     //--  FORMULARIO
     var cap1: ModelCap1? = null

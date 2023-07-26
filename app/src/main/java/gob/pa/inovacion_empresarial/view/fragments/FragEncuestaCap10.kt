@@ -33,7 +33,7 @@ class FragEncuestaCap10 : Fragment() {
     private fun onAction() {
         with(bindingcap10) {
 
-            lowCap10.setOnClickListener { savedCap() }
+            lowCap10.setOnClickListener { saveCap() }
         }
     }
 
@@ -66,5 +66,5 @@ class FragEncuestaCap10 : Fragment() {
         onAction()
     }
 
-    private fun savedCap() {}
+    fun saveCap() {}
 }

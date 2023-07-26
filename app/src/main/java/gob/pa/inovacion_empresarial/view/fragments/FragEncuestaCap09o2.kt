@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
-import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo09Part1Binding
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo09Part2Binding
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
@@ -81,7 +80,7 @@ class FragEncuestaCap09o2 : Fragment() {
             txtCap9651Year.setAdapter(year65)
             txtCap9652Year.setAdapter(year65)
 
-            lowCap9o2.setOnClickListener { savedCap() }
+            lowCap9o2.setOnClickListener { saveCap() }
         }
     }
 
@@ -152,6 +151,6 @@ class FragEncuestaCap09o2 : Fragment() {
 
 
 
-    private fun savedCap() {}
+    fun saveCap() {}
 
 }

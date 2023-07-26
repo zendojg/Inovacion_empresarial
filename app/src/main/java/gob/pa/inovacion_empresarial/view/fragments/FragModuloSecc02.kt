@@ -33,7 +33,7 @@ class FragModuloSecc02 : Fragment() {
     private fun onAction() {
         with(bindingmod2) {
 
-            lowMod2.setOnClickListener { savedCap() }
+            lowMod2.setOnClickListener { saveCap() }
         }
     }
 
@@ -50,5 +50,5 @@ class FragModuloSecc02 : Fragment() {
         onAction()
     }
 
-    private fun savedCap() {}
+    fun saveCap() {}
 }

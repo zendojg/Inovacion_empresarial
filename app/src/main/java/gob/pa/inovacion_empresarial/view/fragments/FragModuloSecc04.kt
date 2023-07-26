@@ -90,7 +90,7 @@ class FragModuloSecc04: Fragment() {
                 }
             }
             actionPorcent()
-            lowMod4.setOnClickListener { savedCap() }
+            lowMod4.setOnClickListener { saveCap() }
         }
     }
 
@@ -207,5 +207,5 @@ class FragModuloSecc04: Fragment() {
         onAction()
     }
 
-    private fun savedCap() {}
+    fun saveCap() {}
 }

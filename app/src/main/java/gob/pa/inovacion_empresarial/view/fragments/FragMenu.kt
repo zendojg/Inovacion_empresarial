@@ -82,24 +82,24 @@ class FragMenu : Fragment() {
             }
             //--------------------------------------------------------------------------------------
             //-------------------------------------------------------------------------------------- Comenzar Encuesta
-            btEncuestaMain.setOnClickListener { viewpager(1) }
-            btcap01main.setOnClickListener { viewpager(1) }
-            btcap02main.setOnClickListener { viewpager(1) }
-            btcap03main.setOnClickListener { viewpager(4) }
-            btcap04main.setOnClickListener { viewpager(5) }
-            btcap05main.setOnClickListener { viewpager(6) }
-            btcap06main.setOnClickListener { viewpager(8) }
-            btcap07main.setOnClickListener { viewpager(12) }
-            btcap08main.setOnClickListener { viewpager(15) }
-            btcap09main.setOnClickListener { viewpager(16) }
-            btcap10main.setOnClickListener { viewpager(18) }
+            btEncuestaMain.setOnClickListener { viewpager(Mob.CAP1P01) }
+            btcap01main.setOnClickListener { viewpager(Mob.CAP1P01) }
+            btcap02main.setOnClickListener { viewpager(Mob.CAP2P02) }
+            btcap03main.setOnClickListener { viewpager(Mob.CAP3P04) }
+            btcap04main.setOnClickListener { viewpager(Mob.CAP4P05) }
+            btcap05main.setOnClickListener { viewpager(Mob.CAP5P07) }
+            btcap06main.setOnClickListener { viewpager(Mob.CAP6P08) }
+            btcap07main.setOnClickListener { viewpager(Mob.CAP7P12) }
+            btcap08main.setOnClickListener { viewpager(Mob.CAP8P15) }
+            btcap09main.setOnClickListener { viewpager(Mob.CAP9P17) }
+            btcap10main.setOnClickListener { viewpager(Mob.CAPXP19) }
             //-------------------------------------------------------------------------------------- Comenzar Modulo
-            btModuloMain.setOnClickListener { viewpager(19) }
-            btsec01main.setOnClickListener { viewpager(19) }
-            btsec02main.setOnClickListener { viewpager(20) }
-            btsec03main.setOnClickListener { viewpager(21) }
-            btsec04main.setOnClickListener { viewpager(22) }
-            btsec05main.setOnClickListener { viewpager(23) }
+            btModuloMain.setOnClickListener { viewpager(Mob.SEC1P20) }
+            btsec01main.setOnClickListener { viewpager(Mob.SEC1P20) }
+            btsec02main.setOnClickListener { viewpager(Mob.SEC2P21) }
+            btsec03main.setOnClickListener { viewpager(Mob.SEC3P22) }
+            btsec04main.setOnClickListener { viewpager(Mob.SEC4P23) }
+            btsec05main.setOnClickListener { viewpager(Mob.OBSP24) }
         }
     }
 

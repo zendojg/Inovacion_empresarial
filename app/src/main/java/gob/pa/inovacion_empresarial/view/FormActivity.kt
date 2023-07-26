@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.button.MaterialButton
 import gob.pa.inovacion_empresarial.R
@@ -25,6 +26,7 @@ import gob.pa.inovacion_empresarial.adapters.AdapterFormPager
 import gob.pa.inovacion_empresarial.databinding.ActivityFormBinding
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.model.Mob
+import gob.pa.inovacion_empresarial.view.fragments.*
 
 
 class FormActivity : AppCompatActivity() {
@@ -187,6 +189,78 @@ class FormActivity : AppCompatActivity() {
 
 
     private fun seeCaps(move: Boolean) {
+        val fm: FragmentManager = supportFragmentManager
+        when (val page = fm.fragments.find { it.isVisible }) {
+            is FragEncuestaCap01 -> {
+                page.savedCap()
+            }
+            is FragEncuestaCap02o1 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap02o2 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap03 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap04 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap05o1 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap05o2 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap06o1 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap06o2 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap06o3 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap06o4 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap07o1 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap07o2 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap07o3 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap08 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap08end -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap09o1 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap09o2 -> {
+                page.saveCap()
+            }
+            is FragEncuestaCap10 -> {
+                page.saveCap()
+            }
+            is FragModuloSecc01 -> {
+                page.saveCap()
+            }
+            is FragModuloSecc02 -> {
+                page.saveCap()
+            }
+            is FragModuloSecc03 -> {
+                page.saveCap()
+            }
+            is FragModuloSecc04 -> {
+                page.saveCap()
+            }
+        }
         if (move)
             form.viewpager.setCurrentItem(form.viewpager.currentItem + 1,false)
         else

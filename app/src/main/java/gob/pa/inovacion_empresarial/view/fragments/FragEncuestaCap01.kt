@@ -16,6 +16,7 @@ import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap1
 import gob.pa.inovacion_empresarial.service.room.RoomView
+import kotlinx.android.synthetic.main.encuesta_capitulo_01.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -49,6 +50,7 @@ class FragEncuestaCap01 : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        Mob.encuestaFrag = this
         Mob.indiceEnc = Mob.CAP1P01
         if (seecap) fillOut()
         else onAction()
@@ -209,8 +211,16 @@ class FragEncuestaCap01 : Fragment() {
     }
 
 
-    private fun savedCap() {
-        Toast.makeText(ctx, "Saved", Toast.LENGTH_SHORT).show()
+    fun savedCap() {
+        Mob.cap1 = ModelCap1(
+            Mob.cap1?.id,
+            Mob.cap1?.ncontrol,
+            txtCap1_1ID.text.toString(),
+            txtCap1_2ID.text.toString(),
+            txtCap1_3ID.text.toString(),
+            txtCap1_4ID.text.toString(),
+        )
+        println("----------${Mob.cap1}")
     }
 
 }

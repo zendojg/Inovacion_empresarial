@@ -19,6 +19,7 @@ class FragEncuestaCap05o1 : Fragment() {
 
     private lateinit var bindingcap5o1: EncuestaCapitulo051VentasYExpoBinding
     private lateinit var ctx: Context
+    private lateinit var textWatcher: TextWatcher
     private var seecap = true
     private var ventaA21 = 0
     private var ventaA22 = 0
@@ -41,6 +42,19 @@ class FragEncuestaCap05o1 : Fragment() {
         Mob.indiceEnc = Mob.CAP5P06
         if (seecap) fillOut()
         else onAction()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        with (bindingcap5o1) {
+
+            txtCap530A2021.onFocusChangeListener = null
+            txtCap530A2022.onFocusChangeListener = null
+            txtCap530B2021.onFocusChangeListener = null
+            txtCap530B2022.onFocusChangeListener = null
+
+        }
+
     }
 
     private fun onAction() {
@@ -94,35 +108,29 @@ class FragEncuestaCap05o1 : Fragment() {
                 }
             }
 
-            lowCap5o1.setOnClickListener { savedCap() }
+            lowCap5o1.setOnClickListener { saveCap() }
         }
     }
 
     private fun actionTxtSum(txt: EditText) {
         txt.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, st: Int, c: Int, a: Int) {}
-            override fun onTextChanged(s: CharSequence, st: Int, b: Int, c: Int) {}
-            override fun afterTextChanged(s: Editable?) {
-                if (!s.isNullOrEmpty()) {
+            override fun onTextChanged(s: CharSequence, st: Int, b: Int, c: Int) {
+                if (s.isNotEmpty()) {
                     when (txt) {
                         bindingcap5o1.txtCap530A2021 -> {
-                            ventaA21 = try { txt.text.toString().toInt() }
+                            ventaA21 = try { s.toString().toInt() }
                             catch (e: java.lang.NumberFormatException) { 0 }}
                         bindingcap5o1.txtCap530A2022 -> {
-                            ventaA22 = try { txt.text.toString().toInt() }
+                            ventaA22 = try { s.toString().toInt() }
                             catch (e: java.lang.NumberFormatException) { 0 }}
                         bindingcap5o1.txtCap530B2021 -> {
-                            ventaB21 = try { txt.text.toString().toInt() }
+                            ventaB21 = try { s.toString().toInt() }
                             catch (e: java.lang.NumberFormatException) { 0 }}
                         bindingcap5o1.txtCap530B2022 -> {
-                            ventaB22 = try { txt.text.toString().toInt() }
+                            ventaB22 = try { s.toString().toInt() }
                             catch (e: java.lang.NumberFormatException) { 0 }}
                     }
-                    venta21 = ventaA21 + ventaB21
-                    venta22 = ventaA22 + ventaB22
-                    bindingcap5o1.txtCap53012021.text = venta21.toString().toEditable()
-                    bindingcap5o1.txtCap53012022.text = venta22.toString().toEditable()
-
                 } else {
                     when (txt) {
                         bindingcap5o1.txtCap530A2021 -> ventaA21 = 0
@@ -130,11 +138,14 @@ class FragEncuestaCap05o1 : Fragment() {
                         bindingcap5o1.txtCap530B2021 -> ventaB21 = 0
                         bindingcap5o1.txtCap530B2022 -> ventaB22 = 0
                     }
-                    venta21 = ventaA21 + ventaB21
-                    venta22 = ventaA22 + ventaB22
-                    bindingcap5o1.txtCap53012021.text = venta21.toString().toEditable()
-                    bindingcap5o1.txtCap53012022.text = venta22.toString().toEditable()
                 }
+            }
+            override fun afterTextChanged(s: Editable?) {
+                venta21 = ventaA21 + ventaB21
+                venta22 = ventaA22 + ventaB22
+                bindingcap5o1.txtCap53012021.text = venta21.toString().toEditable()
+                bindingcap5o1.txtCap53012022.text = venta22.toString().toEditable()
+                textWatcher = this
             }
         })
     }
@@ -143,12 +154,27 @@ class FragEncuestaCap05o1 : Fragment() {
         val cap5 = Mob.formComp?.cap5
         val blank = "".toEditable()
         with(bindingcap5o1) {
-            txtCap53012021.text = cap5?.v30txt21T?.toEditable() ?: blank
-            txtCap53012022.text = cap5?.v30txt22T?.toEditable() ?: blank
-            txtCap530A2021.text = cap5?.v30txt21a?.toEditable() ?: blank
-            txtCap530A2022.text = cap5?.v30txt22a?.toEditable() ?: blank
-            txtCap530B2021.text = cap5?.v30txt21b?.toEditable() ?: blank
-            txtCap530B2022.text = cap5?.v30txt22b?.toEditable() ?: blank
+            val a21: Int? = try { cap5?.v30txt21a?.toDouble()?.toInt()
+            } catch (e:java.lang.NumberFormatException) { 0 }
+            val a22: Int? = try { cap5?.v30txt22a?.toDouble()?.toInt()
+            } catch (e:java.lang.NumberFormatException) { 0 }
+
+            val b21: Int? = try { cap5?.v30txt21b?.toDouble()?.toInt()
+            } catch (e:java.lang.NumberFormatException) { 0 }
+            val b22: Int? = try { cap5?.v30txt22b?.toDouble()?.toInt()
+            } catch (e:java.lang.NumberFormatException) { 0 }
+
+            val t21: Int? = try { cap5?.v30txt21T?.toDouble()?.toInt()
+            } catch (e:java.lang.NumberFormatException) { 0 }
+            val t22: Int? = try { cap5?.v30txt22T?.toDouble()?.toInt()
+            } catch (e:java.lang.NumberFormatException) { 0 }
+
+            txtCap53012021.text = t21?.toString()?.toEditable() ?: blank
+            txtCap53012022.text = t22?.toString()?.toEditable() ?: blank
+            txtCap530A2021.text = a21?.toString()?.toEditable() ?: blank
+            txtCap530A2022.text = a22?.toString()?.toEditable() ?: blank
+            txtCap530B2021.text = b21?.toString()?.toEditable() ?: blank
+            txtCap530B2022.text = b22?.toString()?.toEditable() ?: blank
             fillOut31(cap5)
             fillOut32(cap5)
 
@@ -217,5 +243,5 @@ class FragEncuestaCap05o1 : Fragment() {
         }
     }
 
-    private fun savedCap() { }
+    fun saveCap() { }
 }

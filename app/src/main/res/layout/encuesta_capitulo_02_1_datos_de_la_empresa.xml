@@ -332,6 +332,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:fontFamily="sans-serif-condensed"
+                    android:digits="@string/emailCharacters"
                     android:inputType="textEmailAddress"
                     tools:ignore="TouchTargetSizeCheck"
                     tools:text="correo@email.com" />
