@@ -346,8 +346,87 @@ class FragEncuestaCap07o2 : Fragment() {
     }
 
 
-    fun saveCap() {
 
+    fun saveCap() {
+        with (bindingcap7o2) {
+            Mob.cap7 = ModelCap7(
+
+                Mob.cap7?.id,
+                Mob.cap7?.ncontrol,
+                Mob.cap7?.v50check,
+                Mob.cap7?.v51check21o1,
+                Mob.cap7?.v51check21o2,
+                Mob.cap7?.v51num21o1,
+                Mob.cap7?.v51num21o2,
+                Mob.cap7?.v51check22o1,
+                Mob.cap7?.v51check22o2,
+                Mob.cap7?.v51num22o1,
+                Mob.cap7?.v51num22o2,
+                Mob.cap7?.v52txt01,
+                Mob.cap7?.v52txt02,
+                Mob.cap7?.v52txt03,
+                Mob.cap7?.v52txt04,
+                Mob.cap7?.v52txt05,
+                Mob.cap7?.v52txt06,
+                Mob.cap7?.v52txt07,
+                Mob.cap7?.v52txt08,
+                Mob.cap7?.v52txt09,
+                Mob.cap7?.v52txt10,
+                Mob.cap7?.v52txt11,
+                Mob.cap7?.v52txt12,
+                Mob.cap7?.v52txt13,
+                Mob.cap7?.v52txt14,
+                Mob.cap7?.v52txt15desc,
+                Mob.cap7?.v52txt15,
+                Mob.cap7?.v53num21a,
+                Mob.cap7?.v53num21b,
+                Mob.cap7?.v53num21c,
+                Mob.cap7?.v53num21d,
+                Mob.cap7?.v53num21e,
+                Mob.cap7?.v53num21f,
+                Mob.cap7?.v53num21g,
+                Mob.cap7?.v53num1T21,
+                Mob.cap7?.v53num22a,
+                Mob.cap7?.v53num22b,
+                Mob.cap7?.v53num22c,
+                Mob.cap7?.v53num22d,
+                Mob.cap7?.v53num22e,
+                Mob.cap7?.v53num22f,
+                Mob.cap7?.v53num22g,
+                Mob.cap7?.v53num1T22,
+                Mob.cap7?.v53txtgdesc,
+                Mob.cap7?.v54txt01,
+                Mob.cap7?.v54txt02,
+                Mob.cap7?.v54txt03,
+                Mob.cap7?.v54txt04,
+                Mob.cap7?.v54txt05,
+                Mob.cap7?.v54txt06,
+                Mob.cap7?.v54txt07,
+                Mob.cap7?.v54txt08,
+                Mob.cap7?.v54txt09,
+                Mob.cap7?.v54txt10,
+                Mob.cap7?.v54txt11,
+                Mob.cap7?.v54txt12,
+                Mob.cap7?.v54txt13,
+                Mob.cap7?.v54txt14,
+                Mob.cap7?.v54txt15,
+                Mob.cap7?.v54txt15desc,
+                Mob.cap7?.v55txt1a,
+                Mob.cap7?.v55txt1b,
+                Mob.cap7?.v55txt1c,
+                Mob.cap7?.v55txt2a,
+                Mob.cap7?.v55txt2b,
+                Mob.cap7?.v55txt2c,
+                Mob.cap7?.v55txt2d,
+                Mob.cap7?.v55txt3a,
+                Mob.cap7?.v55txt3b,
+                Mob.cap7?.v55txt4a,
+                Mob.cap7?.v55txt4b,
+                Mob.cap7?.v55txt4c,
+
+                )
+        }
+        println("----------${Mob.cap7}")
     }
 
 }

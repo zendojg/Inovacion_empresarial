@@ -428,6 +428,7 @@
                             android:maxLength="32"
                             android:textSize="14sp"
                             android:visibility="gone"
+                            android:animateLayoutChanges="true"
                             tools:ignore="TextContrastCheck"
                             tools:text="Especifique"
                             tools:visibility="visible" />

@@ -163,7 +163,65 @@ class FragEncuestaCap06o4 : Fragment() {
 
 
     fun saveCap() {
-        TODO("Not yet implemented")
+        with (bindingcap6o4) {
+            Mob.cap6 = ModelCap6(
+                Mob.cap6?.id,
+                Mob.cap6?.ncontrol,
+                Mob.cap6?.v39check21o1,
+                Mob.cap6?.v39check22o1,
+                Mob.cap6?.v39check21o2,
+                Mob.cap6?.v39check22o2,
+                Mob.cap6?.v40check1,
+                Mob.cap6?.v40check2,
+                Mob.cap6?.v41check,
+                Mob.cap6?.v42check21o1,
+                Mob.cap6?.v42check21o2,
+                Mob.cap6?.v42check21o3,
+                Mob.cap6?.v42check22o1,
+                Mob.cap6?.v42check22o2,
+                Mob.cap6?.v42check22o3,
+                Mob.cap6?.v43check1,
+                Mob.cap6?.v43check2,
+                Mob.cap6?.v44check,
+                Mob.cap6?.v45txtGrado1,
+                Mob.cap6?.v45txtGrado2,
+                Mob.cap6?.v45txtGrado3,
+                Mob.cap6?.v45txtGrado4,
+                Mob.cap6?.v45txtGrado5,
+                Mob.cap6?.v45txtGrado6,
+                Mob.cap6?.v46check21o1,
+                Mob.cap6?.v46check21o2,
+                Mob.cap6?.v46check21o3,
+                Mob.cap6?.v46check22o1,
+                Mob.cap6?.v46check22o2,
+                Mob.cap6?.v46check22o3,
+                Mob.cap6?.v47txtGrado1,
+                Mob.cap6?.v47txtGrado2,
+                Mob.cap6?.v47txtGrado3,
+                Mob.cap6?.v47txtGrado4,
+                Mob.cap6?.v47txtGrado5,
+                if (rbtCap6481Si2021.isChecked) true else
+                    if (rbtCap6481No2021.isChecked) false else null,
+                if (rbtCap6482Si2021.isChecked) true else
+                    if (rbtCap6482No2021.isChecked) false else null,
+                if (rbtCap6483Si2021.isChecked) true else
+                    if (rbtCap6483No2021.isChecked) false else null,
+                if (rbtCap6484Si2021.isChecked) true else
+                    if (rbtCap6484No2021.isChecked) false else null,
+                if (rbtCap6481Si2022.isChecked) true else
+                    if (rbtCap6481No2022.isChecked) false else null,
+                if (rbtCap6482Si2022.isChecked) true else
+                    if (rbtCap6482No2022.isChecked) false else null,
+                if (rbtCap6483Si2022.isChecked) true else
+                    if (rbtCap6483No2022.isChecked) false else null,
+                if (rbtCap6484Si2022.isChecked) true else
+                    if (rbtCap6484No2022.isChecked) false else null,
+                if (indice01 == 0) null else indice01.toString(),
+                if (indice02 == 0) null else indice02.toString(),
+                if (indice03 == 0) null else indice03.toString()
+            )
+        }
+        println("----------${Mob.cap6}")
     }
 
 }

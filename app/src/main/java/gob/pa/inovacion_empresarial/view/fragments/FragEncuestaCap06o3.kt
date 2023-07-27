@@ -189,7 +189,63 @@ class FragEncuestaCap06o3 : Fragment() {
 
 
     fun saveCap() {
-        TODO("Not yet implemented")
+        with (bindingcap6o3) {
+            Mob.cap6 = ModelCap6(
+                Mob.cap6?.id,
+                Mob.cap6?.ncontrol,
+                Mob.cap6?.v39check21o1,
+                Mob.cap6?.v39check22o1,
+                Mob.cap6?.v39check21o2,
+                Mob.cap6?.v39check22o2,
+                Mob.cap6?.v40check1,
+                Mob.cap6?.v40check2,
+                Mob.cap6?.v41check,
+                Mob.cap6?.v42check21o1,
+                Mob.cap6?.v42check21o2,
+                Mob.cap6?.v42check21o3,
+                Mob.cap6?.v42check22o1,
+                Mob.cap6?.v42check22o2,
+                Mob.cap6?.v42check22o3,
+                Mob.cap6?.v43check1,
+                Mob.cap6?.v43check2,
+                Mob.cap6?.v44check,
+                Mob.cap6?.v45txtGrado1,
+                Mob.cap6?.v45txtGrado2,
+                Mob.cap6?.v45txtGrado3,
+                Mob.cap6?.v45txtGrado4,
+                Mob.cap6?.v45txtGrado5,
+                Mob.cap6?.v45txtGrado6,
+                if (rbtCap6461Si2021.isChecked) true else
+                    if (rbtCap6461No2021.isChecked) false else null,
+                if (rbtCap6462Si2021.isChecked) true else
+                    if (rbtCap6462No2021.isChecked) false else null,
+                if (rbtCap6463Si2021.isChecked) true else
+                    if (rbtCap6463No2021.isChecked) false else null,
+                if (rbtCap6461Si2022.isChecked) true else
+                    if (rbtCap6461No2022.isChecked) false else null,
+                if (rbtCap6462Si2022.isChecked) true else
+                    if (rbtCap6462No2022.isChecked) false else null,
+                if (rbtCap6463Si2022.isChecked) true else
+                    if (rbtCap6463No2022.isChecked) false else null,
+                if (indice01 == 0) null else indice01.toString(),
+                if (indice02 == 0) null else indice02.toString(),
+                if (indice03 == 0) null else indice03.toString(),
+                if (indice04 == 0) null else indice04.toString(),
+                if (indice05 == 0) null else indice05.toString(),
+                Mob.cap6?.v48check21o1,
+                Mob.cap6?.v48check21o2,
+                Mob.cap6?.v48check21o3,
+                Mob.cap6?.v48check21o4,
+                Mob.cap6?.v48check22o1,
+                Mob.cap6?.v48check22o2,
+                Mob.cap6?.v48check22o3,
+                Mob.cap6?.v48check22o4,
+                Mob.cap6?.v49txtGrado1,
+                Mob.cap6?.v49txtGrado2,
+                Mob.cap6?.v49txtGrado3
+            )
+        }
+        println("----------${Mob.cap6}")
     }
 
 }

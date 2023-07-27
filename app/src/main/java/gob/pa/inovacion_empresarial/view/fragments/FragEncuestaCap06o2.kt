@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo062InovacionProcesoBinding
@@ -19,6 +20,7 @@ class FragEncuestaCap06o2 : Fragment() {
     private lateinit var ctx: Context
     private var seecap = true
 
+    private var check44: String? = ""
     private var indice01 = 0
     private var indice02 = 0
     private var indice03 = 0
@@ -45,7 +47,15 @@ class FragEncuestaCap06o2 : Fragment() {
     private fun onAction() {
         with(bindingcap6o2) {
             lowCap6o2.setOnClickListener { saveCap() }
-
+            rgroupCap644.setOnCheckedChangeListener { _, id ->
+                check44 = when (id) {
+                    rbtCap6441.id -> "1"
+                    rbtCap6442.id -> "2"
+                    rbtCap6443.id -> "3"
+                    rbtCap6444.id -> "4"
+                    else -> null
+                }
+            }
             val gr45Adp = ArrayAdapter(ctx, R.layout.style_box, Mob.arrGrade)
             gr45Adp.setDropDownViewResource(R.layout.style_list)
 
@@ -141,6 +151,7 @@ class FragEncuestaCap06o2 : Fragment() {
                 false -> rbtCap6432No.isChecked = true
                 else -> rgroupCap6432.clearCheck()
             }
+            check44 = cap6?.v44check
             when (cap6?.v44check) {
                 "1" -> rbtCap6441.isChecked = true
                 "2" -> rbtCap6442.isChecked = true
@@ -222,6 +233,66 @@ class FragEncuestaCap06o2 : Fragment() {
 
 
     fun saveCap() {
-        TODO("Not yet implemented")
+        with (bindingcap6o2) {
+            Mob.cap6 = ModelCap6(
+                Mob.cap6?.id,
+                Mob.cap6?.ncontrol,
+                Mob.cap6?.v39check21o1,
+                Mob.cap6?.v39check22o1,
+                Mob.cap6?.v39check21o2,
+                Mob.cap6?.v39check22o2,
+                Mob.cap6?.v40check1,
+                Mob.cap6?.v40check2,
+                Mob.cap6?.v41check,
+                if (rbtCap6421Si2021.isChecked) true else
+                    if (rbtCap6421No2021.isChecked) false else null,
+                if (rbtCap6422Si2021.isChecked) true else
+                    if (rbtCap6422No2021.isChecked) false else null,
+                if (rbtCap6423Si2021.isChecked) true else
+                    if (rbtCap6423No2021.isChecked) false else null,
+                if (rbtCap6421Si2022.isChecked) true else
+                    if (rbtCap6421No2022.isChecked) false else null,
+                if (rbtCap6422Si2022.isChecked) true else
+                    if (rbtCap6422No2022.isChecked) false else null,
+                if (rbtCap6423Si2022.isChecked) true else
+                    if (rbtCap6423No2022.isChecked) false else null,
+                if (rbtCap6431Si.isChecked) true else
+                    if (rbtCap6431No.isChecked) false else null,
+                if (rbtCap6432Si.isChecked) true else
+                    if (rbtCap6432No.isChecked) false else null,
+                check44,
+                if (indice01 == 0) null else indice01.toString(),
+                if (indice02 == 0) null else indice02.toString(),
+                if (indice03 == 0) null else indice03.toString(),
+                if (indice04 == 0) null else indice04.toString(),
+                if (indice05 == 0) null else indice05.toString(),
+                if (indice06 == 0) null else indice06.toString(),
+                //if (indice06 == 0) null else spinCap6456.selectedItemPosition.toString(),
+                Mob.cap6?.v46check21o1,//
+                Mob.cap6?.v46check21o2,
+                Mob.cap6?.v46check21o3,
+                Mob.cap6?.v46check22o1,
+                Mob.cap6?.v46check22o2,
+                Mob.cap6?.v46check22o3,
+                Mob.cap6?.v47txtGrado1,
+                Mob.cap6?.v47txtGrado2,
+                Mob.cap6?.v47txtGrado3,
+                Mob.cap6?.v47txtGrado4,
+                Mob.cap6?.v47txtGrado5,
+                Mob.cap6?.v48check21o1,
+                Mob.cap6?.v48check21o2,
+                Mob.cap6?.v48check21o3,
+                Mob.cap6?.v48check21o4,
+                Mob.cap6?.v48check22o1,
+                Mob.cap6?.v48check22o2,
+                Mob.cap6?.v48check22o3,
+                Mob.cap6?.v48check22o4,
+                Mob.cap6?.v49txtGrado1,
+                Mob.cap6?.v49txtGrado2,
+                Mob.cap6?.v49txtGrado3
+            )
+        }
+
+        println("----------${Mob.cap6}")
     }
 }

@@ -16,7 +16,6 @@ import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap1
 import gob.pa.inovacion_empresarial.service.room.RoomView
-import kotlinx.android.synthetic.main.encuesta_capitulo_01.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -212,14 +211,16 @@ class FragEncuestaCap01 : Fragment() {
 
 
     fun savedCap() {
-        Mob.cap1 = ModelCap1(
-            Mob.cap1?.id,
-            Mob.cap1?.ncontrol,
-            txtCap1_1ID.text.toString(),
-            txtCap1_2ID.text.toString(),
-            txtCap1_3ID.text.toString(),
-            txtCap1_4ID.text.toString(),
-        )
+        with(bindingcap1) {
+            Mob.cap1 = ModelCap1(
+                Mob.cap1?.id,
+                Mob.cap1?.ncontrol,
+                txtCap11ID.text.toString().ifEmpty { null },
+                txtCap12ID.text.toString().ifEmpty { null },
+                txtCap13ID.text.toString().ifEmpty { null },
+                txtCap14ID.text.toString().ifEmpty { null },
+            )
+        }
         println("----------${Mob.cap1}")
     }
 

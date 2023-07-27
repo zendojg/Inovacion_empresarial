@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo04Binding
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
+import gob.pa.inovacion_empresarial.model.ModelCap4
 
 class FragEncuestaCap04 : Fragment() {
 
@@ -99,6 +100,11 @@ class FragEncuestaCap04 : Fragment() {
             txtCap4293.text = cap4?.v29act3txt?.toEditable() ?: blank
             txtCap4294.text = cap4?.v29act4txt?.toEditable() ?: blank
 
+            txtCap429Cinu1.text = cap4?.v29cinu1txt?.toEditable() ?: blank
+            txtCap429Cinu2.text = cap4?.v29cinu2txt?.toEditable() ?: blank
+            txtCap429Cinu3.text = cap4?.v29cinu3txt?.toEditable() ?: blank
+            txtCap429Cinu4.text = cap4?.v29cinu4txt?.toEditable() ?: blank
+
             frameview2 = !txtCap4292.text.isNullOrEmpty()
             frameview3 = !txtCap4293.text.isNullOrEmpty()
             frameview4 = !txtCap4294.text.isNullOrEmpty()
@@ -107,6 +113,25 @@ class FragEncuestaCap04 : Fragment() {
         onAction()
     }
 
-    fun saveCap() { }
+    fun saveCap() {
+        with (bindingcap4) {
+            Mob.cap4 = ModelCap4(
+                Mob.cap4?.id,
+                Mob.cap4?.ncontrol,
+                txtCap428.text.toString().ifEmpty { null },
+                txtCap4281.text.toString().ifEmpty { null },
+                txtCap4291.text.toString().ifEmpty { null },
+                txtCap429Cinu1.text.toString().ifEmpty { null },
+                txtCap4292.text.toString().ifEmpty { null },
+                txtCap429Cinu2.text.toString().ifEmpty { null },
+                txtCap4293.text.toString().ifEmpty { null },
+                txtCap429Cinu3.text.toString().ifEmpty { null },
+                txtCap4294.text.toString().ifEmpty { null },
+                txtCap429Cinu4.text.toString().ifEmpty { null },
+            )
+        }
+
+        println("------------${Mob.cap4}")
+    }
 
 }

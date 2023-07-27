@@ -87,7 +87,7 @@ class FragMenu : Fragment() {
             btcap02main.setOnClickListener { viewpager(Mob.CAP2P02) }
             btcap03main.setOnClickListener { viewpager(Mob.CAP3P04) }
             btcap04main.setOnClickListener { viewpager(Mob.CAP4P05) }
-            btcap05main.setOnClickListener { viewpager(Mob.CAP5P07) }
+            btcap05main.setOnClickListener { viewpager(Mob.CAP5P06) }
             btcap06main.setOnClickListener { viewpager(Mob.CAP6P08) }
             btcap07main.setOnClickListener { viewpager(Mob.CAP7P12) }
             btcap08main.setOnClickListener { viewpager(Mob.CAP8P15) }

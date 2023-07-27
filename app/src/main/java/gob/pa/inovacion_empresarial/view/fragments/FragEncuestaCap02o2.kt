@@ -94,14 +94,14 @@ class FragEncuestaCap02o2 : Fragment() {
                 Mob.cap2?.v14nlNum,
                 Mob.cap2?.v15nlNum,
                 Mob.cap2?.v15nldescNum,
-                txtCap216.text.toString(),
-                txtCap217.text.toString(),
-                txtCap218.text.toString(),
-                txtCap2181.text.toString(),
-                txtCap2191.text.toString(),
-                txtCap2192.text.toString(),
-                txtCap220.text.toString(),
-                txtCap221.text.toString()
+                txtCap216.text.toString().ifEmpty { null },
+                txtCap217.text.toString().ifEmpty { null },
+                txtCap218.text.toString().ifEmpty { null },
+                txtCap2181.text.toString().ifEmpty { null },
+                txtCap2191.text.toString().ifEmpty { null },
+                txtCap2192.text.toString().ifEmpty { null },
+                txtCap220.text.toString().ifEmpty { null },
+                txtCap221.text.toString().ifEmpty { null }
             )
             println("------------${Mob.cap2}")
         }

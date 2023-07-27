@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.google.gson.annotations.SerializedName
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo051VentasYExpoBinding
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
@@ -19,7 +20,7 @@ class FragEncuestaCap05o1 : Fragment() {
 
     private lateinit var bindingcap5o1: EncuestaCapitulo051VentasYExpoBinding
     private lateinit var ctx: Context
-    private lateinit var textWatcher: TextWatcher
+    private lateinit var textWatcher: Array<TextWatcher>
     private var seecap = true
     private var ventaA21 = 0
     private var ventaA22 = 0
@@ -145,7 +146,7 @@ class FragEncuestaCap05o1 : Fragment() {
                 venta22 = ventaA22 + ventaB22
                 bindingcap5o1.txtCap53012021.text = venta21.toString().toEditable()
                 bindingcap5o1.txtCap53012022.text = venta22.toString().toEditable()
-                textWatcher = this
+                textWatcher += this
             }
         })
     }
@@ -232,16 +233,113 @@ class FragEncuestaCap05o1 : Fragment() {
                 cap5?.v34check1o21 == true -> rbtCap53412021.isChecked = true
                 cap5?.v34check2o21 == true -> rbtCap53422021.isChecked = true
                 cap5?.v34check3o21 == true -> rbtCap53432021.isChecked = true
-                else -> { rgroupCap5342021.clearCheck() }
+                else ->  rgroupCap5342021.clearCheck()
             }
             when {
                 cap5?.v34check1o22 == true -> rbtCap53412022.isChecked = true
                 cap5?.v34check2o22 == true -> rbtCap53422022.isChecked = true
                 cap5?.v34check3o22 == true -> rbtCap53432022.isChecked = true
-                else -> { rgroupCap5342022.clearCheck() }
+                else ->  rgroupCap5342022.clearCheck()
             }
         }
     }
 
-    fun saveCap() { }
+    fun saveCap() {
+        with(bindingcap5o1) {
+            Mob.cap5 = ModelCap5(
+                Mob.cap5?.id,
+                Mob.cap5?.ncontrol,
+                txtCap530A2021.text.toString().ifEmpty { null },
+                txtCap530B2021.text.toString().ifEmpty { null },
+                txtCap53012021.text.toString().ifEmpty { null },
+                txtCap530A2022.text.toString().ifEmpty { null },
+                txtCap530B2022.text.toString().ifEmpty { null },
+                txtCap53012022.text.toString().ifEmpty { null },
+                if (rbtCap531A2021.isChecked) true else null,
+                if (rbtCap531A2022.isChecked) true else null,
+                if (rbtCap531B2021.isChecked) true else null,
+                if (rbtCap531B2022.isChecked) true else null,
+                if (rbtCap531C2021.isChecked) true else null,
+                if (rbtCap531C2022.isChecked) true else null,
+                if (rbtCap531D2021.isChecked) true else null,
+                if (rbtCap531D2022.isChecked) true else null,
+                if (rbtCap531E2021.isChecked) true else null,
+                if (rbtCap531E2022.isChecked) true else null,
+                if (rbtCap532ASi.isChecked) true else if (rbtCap532ANo.isChecked) false else null,
+                if (rbtCap532BSi.isChecked) true else if (rbtCap532BNo.isChecked) false else null,
+                if (rbtCap532ASi.isChecked) txtCap53312021.text.toString()
+                    .ifEmpty { null } else null,
+                if (rbtCap532BSi.isChecked) txtCap53312022.text.toString()
+                    .ifEmpty { null } else null,
+                if (rbtCap532ASi.isChecked) txtCap53322021.text.toString()
+                    .ifEmpty { null } else null,
+                if (rbtCap532BSi.isChecked) txtCap53322022.text.toString()
+                    .ifEmpty { null } else null,
+                if (rbtCap532ASi.isChecked) txtCap53332021.text.toString()
+                    .ifEmpty { null } else null,
+                if (rbtCap532BSi.isChecked) txtCap53332022.text.toString()
+                    .ifEmpty { null } else null,
+                if (rbtCap53412021.isChecked) true else null,
+                if (rbtCap53412022.isChecked) true else null,
+                if (rbtCap53422021.isChecked) true else null,
+                if (rbtCap53422022.isChecked) true else null,
+                if (rbtCap53432021.isChecked) true else null,
+                if (rbtCap53432022.isChecked) true else null,
+                Mob.cap5?.v35txtOtro,
+                Mob.cap5?.v35txthomNaca,
+                Mob.cap5?.v35txthomExta,
+                Mob.cap5?.v35txthomNacb,
+                Mob.cap5?.v35txthomExtb,
+                Mob.cap5?.v35txthomNacc,
+                Mob.cap5?.v35txthomExtc,
+                Mob.cap5?.v35txthomNacd,
+                Mob.cap5?.v35txthomExtd,
+                Mob.cap5?.v35txthomNace,
+                Mob.cap5?.v35txthomExte,
+                Mob.cap5?.v35txthomNacf,
+                Mob.cap5?.v35txthomExtf,
+                Mob.cap5?.v35txthomNacg,
+                Mob.cap5?.v35txthomExtg,
+                Mob.cap5?.v35txthomNach,
+                Mob.cap5?.v35txthomExth,
+                Mob.cap5?.v35txthomNacT,
+                Mob.cap5?.v35txthomExtT,
+                Mob.cap5?.v35txtmujNaca,
+                Mob.cap5?.v35txtmujExta,
+                Mob.cap5?.v35txtmujNacb,
+                Mob.cap5?.v35txtmujExtb,
+                Mob.cap5?.v35txtmujNacc,
+                Mob.cap5?.v35txtmujExtc,
+                Mob.cap5?.v35txtmujNacd,
+                Mob.cap5?.v35txtmujExtd,
+                Mob.cap5?.v35txtmujNace,
+                Mob.cap5?.v35txtmujExte,
+                Mob.cap5?.v35txtmujNacf,
+                Mob.cap5?.v35txtmujExtf,
+                Mob.cap5?.v35txtmujNacg,
+                Mob.cap5?.v35txtmujExtg,
+                Mob.cap5?.v35txtmujNach,
+                Mob.cap5?.v35txtmujExth,
+                Mob.cap5?.v35txtmujNacT,
+                Mob.cap5?.v35txtmujExtT,
+                Mob.cap5?.v36txtempNac21,
+                Mob.cap5?.v36txtempNac22,
+                Mob.cap5?.v36txtempExt21,
+                Mob.cap5?.v36txtempExt22,
+                Mob.cap5?.v36txtempT21,
+                Mob.cap5?.v36txtempT22,
+                Mob.cap5?.v37check,
+                Mob.cap5?.v38check1,
+                Mob.cap5?.v38txt1,
+                Mob.cap5?.v38check2,
+                Mob.cap5?.v38txt2,
+                Mob.cap5?.v38check3,
+                Mob.cap5?.v38txt3,
+                Mob.cap5?.v38txt4desc,
+                Mob.cap5?.v38check4,
+                Mob.cap5?.v38txt4,
+            )
+        }
+        println("----------${Mob.cap5}")
+    }
 }
