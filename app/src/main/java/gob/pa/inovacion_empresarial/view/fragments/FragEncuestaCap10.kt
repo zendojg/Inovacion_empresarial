@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.gson.annotations.SerializedName
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo10Binding
 import gob.pa.inovacion_empresarial.model.Mob
+import gob.pa.inovacion_empresarial.model.ModelCap10
 
 class FragEncuestaCap10 : Fragment() {
 
@@ -66,5 +68,17 @@ class FragEncuestaCap10 : Fragment() {
         onAction()
     }
 
-    fun saveCap() {}
+    fun saveCap() {
+        with(bindingcap10) {
+            Mob.capx = ModelCap10(
+                Mob.capx?.id,
+                Mob.capx?.ncontrol,
+                if (rbtCap10661Si.isChecked) true else if (rbtCap10661No.isChecked) false else null,
+                if (rbtCap10662Si.isChecked) true else if (rbtCap10662No.isChecked) false else null,
+                if (rbtCap10663Si.isChecked) true else if (rbtCap10663No.isChecked) false else null,
+                if (rbtCap10664Si.isChecked) true else if (rbtCap10664No.isChecked) false else null,
+            )
+        }
+        println("----------${Mob.capx}")
+    }
 }

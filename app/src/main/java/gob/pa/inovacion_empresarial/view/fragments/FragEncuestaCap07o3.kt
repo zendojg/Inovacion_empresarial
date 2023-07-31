@@ -92,108 +92,84 @@ class FragEncuestaCap07o3 : Fragment() {
                     indice1a = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap7551B.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice1b = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap7551C.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice1c = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap7552A.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice2a = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap7552B.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice2b = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap7552C.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice2c = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap7552D.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice2d = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap7553A.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice3a = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap7553B.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice3b = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap7554A.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice4a = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap7554B.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice4b = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap7554C.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice4c = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
         }
     }
@@ -202,66 +178,30 @@ class FragEncuestaCap07o3 : Fragment() {
     private fun fillOut() {
         val cap7 = Mob.formComp?.cap7
 
-        indice1a = try {
-            cap7?.v55txt1a?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice1b = try {
-            cap7?.v55txt1b?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice1c = try {
-            cap7?.v55txt1c?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice2a = try {
-            cap7?.v55txt2a?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice2b = try {
-            cap7?.v55txt2b?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice2c = try {
-            cap7?.v55txt2c?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice2d = try {
-            cap7?.v55txt2d?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice3a = try {
-            cap7?.v55txt3a?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice3b = try {
-            cap7?.v55txt3b?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice4a = try {
-            cap7?.v55txt4a?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice4b = try {
-            cap7?.v55txt4b?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice4c = try {
-            cap7?.v55txt4c?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
+        indice1a = try { cap7?.v55txt1a?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice1b = try { cap7?.v55txt1b?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice1c = try { cap7?.v55txt1c?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice2a = try { cap7?.v55txt2a?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice2b = try { cap7?.v55txt2b?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice2c = try { cap7?.v55txt2c?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice2d = try { cap7?.v55txt2d?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice3a = try { cap7?.v55txt3a?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice3b = try { cap7?.v55txt3b?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice4a = try { cap7?.v55txt4a?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice4b = try { cap7?.v55txt4b?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice4c = try { cap7?.v55txt4c?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
 
         seecap = false
         onAction()
@@ -270,84 +210,81 @@ class FragEncuestaCap07o3 : Fragment() {
 
 
     fun saveCap() {
-        with (bindingcap7o3) {
-            Mob.cap7 = ModelCap7(
+        Mob.cap7 = ModelCap7(
+            Mob.cap7?.id,
+            Mob.cap7?.ncontrol,
+            Mob.cap7?.v50check,
+            Mob.cap7?.v51check21o1,
+            Mob.cap7?.v51check21o2,
+            Mob.cap7?.v51num21o1,
+            Mob.cap7?.v51num21o2,
+            Mob.cap7?.v51check22o1,
+            Mob.cap7?.v51check22o2,
+            Mob.cap7?.v51num22o1,
+            Mob.cap7?.v51num22o2,
+            Mob.cap7?.v52txt01,
+            Mob.cap7?.v52txt02,
+            Mob.cap7?.v52txt03,
+            Mob.cap7?.v52txt04,
+            Mob.cap7?.v52txt05,
+            Mob.cap7?.v52txt06,
+            Mob.cap7?.v52txt07,
+            Mob.cap7?.v52txt08,
+            Mob.cap7?.v52txt09,
+            Mob.cap7?.v52txt10,
+            Mob.cap7?.v52txt11,
+            Mob.cap7?.v52txt12,
+            Mob.cap7?.v52txt13,
+            Mob.cap7?.v52txt14,
+            Mob.cap7?.v52txt15desc,
+            Mob.cap7?.v52txt15,
+            Mob.cap7?.v53num21a,
+            Mob.cap7?.v53num21b,
+            Mob.cap7?.v53num21c,
+            Mob.cap7?.v53num21d,
+            Mob.cap7?.v53num21e,
+            Mob.cap7?.v53num21f,
+            Mob.cap7?.v53num21g,
+            Mob.cap7?.v53num1T21,
+            Mob.cap7?.v53num22a,
+            Mob.cap7?.v53num22b,
+            Mob.cap7?.v53num22c,
+            Mob.cap7?.v53num22d,
+            Mob.cap7?.v53num22e,
+            Mob.cap7?.v53num22f,
+            Mob.cap7?.v53num22g,
+            Mob.cap7?.v53num1T22,
+            Mob.cap7?.v53txtgdesc,
+            Mob.cap7?.v54txt01,
+            Mob.cap7?.v54txt02,
+            Mob.cap7?.v54txt03,
+            Mob.cap7?.v54txt04,
+            Mob.cap7?.v54txt05,
+            Mob.cap7?.v54txt06,
+            Mob.cap7?.v54txt07,
+            Mob.cap7?.v54txt08,
+            Mob.cap7?.v54txt09,
+            Mob.cap7?.v54txt10,
+            Mob.cap7?.v54txt11,
+            Mob.cap7?.v54txt12,
+            Mob.cap7?.v54txt13,
+            Mob.cap7?.v54txt14,
+            Mob.cap7?.v54txt15,
+            Mob.cap7?.v54txt15desc,//
+            if (indice1a == 0) null else indice1a.toString(),
+            if (indice1b == 0) null else indice1b.toString(),
+            if (indice1c == 0) null else indice1c.toString(),
+            if (indice2a == 0) null else indice2a.toString(),
+            if (indice2b == 0) null else indice2b.toString(),
+            if (indice2c == 0) null else indice2c.toString(),
+            if (indice2d == 0) null else indice2d.toString(),
+            if (indice3a == 0) null else indice3a.toString(),
+            if (indice3b == 0) null else indice3b.toString(),
+            if (indice4a == 0) null else indice4a.toString(),
+            if (indice4b == 0) null else indice4b.toString(),
+            if (indice4c == 0) null else indice4c.toString(),
+            )
 
-                Mob.cap7?.id,
-                Mob.cap7?.ncontrol,
-                Mob.cap7?.v50check,
-                Mob.cap7?.v51check21o1,
-                Mob.cap7?.v51check21o2,
-                Mob.cap7?.v51num21o1,
-                Mob.cap7?.v51num21o2,
-                Mob.cap7?.v51check22o1,
-                Mob.cap7?.v51check22o2,
-                Mob.cap7?.v51num22o1,
-                Mob.cap7?.v51num22o2,
-                Mob.cap7?.v52txt01,
-                Mob.cap7?.v52txt02,
-                Mob.cap7?.v52txt03,
-                Mob.cap7?.v52txt04,
-                Mob.cap7?.v52txt05,
-                Mob.cap7?.v52txt06,
-                Mob.cap7?.v52txt07,
-                Mob.cap7?.v52txt08,
-                Mob.cap7?.v52txt09,
-                Mob.cap7?.v52txt10,
-                Mob.cap7?.v52txt11,
-                Mob.cap7?.v52txt12,
-                Mob.cap7?.v52txt13,
-                Mob.cap7?.v52txt14,
-                Mob.cap7?.v52txt15desc,
-                Mob.cap7?.v52txt15,
-                Mob.cap7?.v53num21a,
-                Mob.cap7?.v53num21b,
-                Mob.cap7?.v53num21c,
-                Mob.cap7?.v53num21d,
-                Mob.cap7?.v53num21e,
-                Mob.cap7?.v53num21f,
-                Mob.cap7?.v53num21g,
-                Mob.cap7?.v53num1T21,
-                Mob.cap7?.v53num22a,
-                Mob.cap7?.v53num22b,
-                Mob.cap7?.v53num22c,
-                Mob.cap7?.v53num22d,
-                Mob.cap7?.v53num22e,
-                Mob.cap7?.v53num22f,
-                Mob.cap7?.v53num22g,
-                Mob.cap7?.v53num1T22,
-                Mob.cap7?.v53txtgdesc,
-                Mob.cap7?.v54txt01,
-                Mob.cap7?.v54txt02,
-                Mob.cap7?.v54txt03,
-                Mob.cap7?.v54txt04,
-                Mob.cap7?.v54txt05,
-                Mob.cap7?.v54txt06,
-                Mob.cap7?.v54txt07,
-                Mob.cap7?.v54txt08,
-                Mob.cap7?.v54txt09,
-                Mob.cap7?.v54txt10,
-                Mob.cap7?.v54txt11,
-                Mob.cap7?.v54txt12,
-                Mob.cap7?.v54txt13,
-                Mob.cap7?.v54txt14,
-                Mob.cap7?.v54txt15,
-                Mob.cap7?.v54txt15desc,
-                Mob.cap7?.v55txt1a,
-                Mob.cap7?.v55txt1b,
-                Mob.cap7?.v55txt1c,
-                Mob.cap7?.v55txt2a,
-                Mob.cap7?.v55txt2b,
-                Mob.cap7?.v55txt2c,
-                Mob.cap7?.v55txt2d,
-                Mob.cap7?.v55txt3a,
-                Mob.cap7?.v55txt3b,
-                Mob.cap7?.v55txt4a,
-                Mob.cap7?.v55txt4b,
-                Mob.cap7?.v55txt4c,
-
-                )
-        }
         println("----------${Mob.cap7}")
     }
 

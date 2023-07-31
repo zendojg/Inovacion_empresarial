@@ -11,6 +11,7 @@ import gob.pa.inovacion_empresarial.databinding.ModuloSeccion03Binding
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
+import gob.pa.inovacion_empresarial.model.ModelMod
 
 class FragModuloSecc03 : Fragment() {
 
@@ -161,5 +162,60 @@ class FragModuloSecc03 : Fragment() {
         onAction()
     }
 
-    fun saveCap() {}
+    fun saveCap() {
+        with (bindingmod3) {
+            val p4check = (Mob.seccON != false && rbtSecc034Si.isChecked)
+
+            Mob.capMod = ModelMod(
+                Mob.capMod?.id,
+                Mob.capMod?.v1check,
+                Mob.capMod?.v2check1,
+                Mob.capMod?.v2check1a,
+                Mob.capMod?.v2check1b,
+                Mob.capMod?.v2check1c,
+                Mob.capMod?.v2check1d,
+                Mob.capMod?.v2txtDesc1d,
+                Mob.capMod?.v2check2,
+                //Mob.capMod?.v2txtnull: String?,
+                Mob.capMod?.v3check1,
+                Mob.capMod?.v3check2,
+                Mob.capMod?.v3check3,
+                Mob.capMod?.v3check4,//---------
+                if (p4check) true else if (Mob.seccON != false && rbtSecc034No.isChecked)
+                    false else null,
+                if (p4check && rbtSecc034ASi.isChecked) true else
+                    if (p4check && rbtSecc034ANo.isChecked) false else null,
+                if (p4check && rbtSecc034ASi.isChecked) txtSecc034A.text.toString() else null,
+                if (p4check && rbtSecc034BSi.isChecked) true else
+                    if (p4check && rbtSecc034BNo.isChecked) false else null,
+                if (p4check && rbtSecc034BSi.isChecked) txtSecc034B.text.toString() else null,
+                if (p4check && rbtSecc034CSi.isChecked) true else
+                    if (p4check && rbtSecc034CNo.isChecked) false else null,
+                if (p4check && rbtSecc034CSi.isChecked) txtSecc034C.text.toString() else null,
+                if (p4check && rbtSecc034DSi.isChecked) true else
+                    if (p4check && rbtSecc034DNo.isChecked) false else null,
+                if (p4check && rbtSecc034DSi.isChecked) txtSecc034D.text.toString() else null,
+                if (p4check && rbtSecc034ESi.isChecked) true else
+                    if (p4check && rbtSecc034ENo.isChecked) false else null,
+                if (p4check && rbtSecc034ESi.isChecked) txtSecc034E.text.toString() else null,
+                if (p4check && rbtSecc034ESi.isChecked) txtSecc034EOtro.text.toString() else null,
+                if (p4check) txtSecc035.text.toString().ifEmpty { null } else null,
+                Mob.capMod?.v6porcent1,//-----------
+                Mob.capMod?.v6porcent2,
+                Mob.capMod?.v6porcent3,
+                Mob.capMod?.v6porcent4,
+                Mob.capMod?.v7check,
+                Mob.capMod?.v8txt,
+                Mob.capMod?.v9check,
+                Mob.capMod?.v9txt,
+                Mob.capMod?.v10porcent1,
+                Mob.capMod?.v10porcent2,
+                Mob.capMod?.v10porcent3,
+                Mob.capMod?.v10porcent4,
+                Mob.capMod?.observaciones,
+                Mob.capMod?.numControl
+            )
+        }
+        println("----------${Mob.capMod}")
+    }
 }

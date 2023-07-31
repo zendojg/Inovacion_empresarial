@@ -102,6 +102,7 @@ class FormActivity : AppCompatActivity() {
         }
         form.btsavepager.setOnClickListener {
             Toast.makeText(applicationContext, "Formulario guardado", Toast.LENGTH_SHORT).show()
+            seeCaps(null)
         }
     }
 
@@ -188,7 +189,7 @@ class FormActivity : AppCompatActivity() {
 
 
 
-    private fun seeCaps(move: Boolean) {
+    private fun seeCaps(move: Boolean?) {
         val fm: FragmentManager = supportFragmentManager
         when (val page = fm.fragments.find { it.isVisible }) {
             is FragEncuestaCap01 -> {
@@ -261,10 +262,18 @@ class FormActivity : AppCompatActivity() {
                 page.saveCap()
             }
         }
-        if (move)
-            form.viewpager.setCurrentItem(form.viewpager.currentItem + 1,false)
-        else
-            form.viewpager.setCurrentItem(form.viewpager.currentItem - 1,false)
+        if (move == true) {
+            if (form.viewpager.currentItem == Mob.CAP8P15 && Mob.p56stat == false) {
+                form.viewpager.setCurrentItem(form.viewpager.currentItem + 2, false)
+            } else
+                form.viewpager.setCurrentItem(form.viewpager.currentItem + 1, false)
+        }
+        else if (move == false)
+            if (form.viewpager.currentItem == Mob.CAP9P17 && Mob.p56stat == false) {
+                form.viewpager.setCurrentItem(form.viewpager.currentItem - 2,false)
+            }
+            else
+                form.viewpager.setCurrentItem(form.viewpager.currentItem - 1,false)
 
     }
 

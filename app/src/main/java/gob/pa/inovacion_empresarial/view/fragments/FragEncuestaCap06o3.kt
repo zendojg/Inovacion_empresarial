@@ -120,31 +120,16 @@ class FragEncuestaCap06o3 : Fragment() {
 
         fillOut46(cap6)
 
-        indice01 = try {
-            cap6?.v47txtGrado1?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice02 = try {
-            cap6?.v47txtGrado2?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice03 = try {
-            cap6?.v47txtGrado3?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice04 = try {
-            cap6?.v47txtGrado4?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice05 = try {
-            cap6?.v47txtGrado5?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
+        indice01 = try { cap6?.v47txtGrado1?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice02 = try { cap6?.v47txtGrado2?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice03 = try { cap6?.v47txtGrado3?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice04 = try { cap6?.v47txtGrado4?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice05 = try { cap6?.v47txtGrado5?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
 
         seecap = false
         onAction()

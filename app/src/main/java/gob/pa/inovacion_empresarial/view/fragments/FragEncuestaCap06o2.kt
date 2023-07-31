@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo062InovacionProcesoBinding
@@ -84,35 +83,28 @@ class FragEncuestaCap06o2 : Fragment() {
                     indice01 = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap6452.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice02 = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap6453.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice03 = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap6454.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice04 = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection")
                 }
             }
             spinCap6455.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -120,18 +112,14 @@ class FragEncuestaCap06o2 : Fragment() {
                     indice05 = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap6456.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice06 = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
         }
     }
@@ -157,38 +145,23 @@ class FragEncuestaCap06o2 : Fragment() {
                 "2" -> rbtCap6442.isChecked = true
                 "3" -> rbtCap6443.isChecked = true
                 "4" -> rbtCap6444.isChecked = true
-                else -> rgroupCap644.clearCheck()
+                else -> {
+                    check44 = null
+                    rgroupCap644.clearCheck()
+                }
             }
-            indice01 = try {
-                cap6?.v45txtGrado1?.toInt() ?: 0
-            } catch (e: java.lang.NumberFormatException) {
-                0
-            }
-            indice02 = try {
-                cap6?.v45txtGrado2?.toInt() ?: 0
-            } catch (e: java.lang.NumberFormatException) {
-                0
-            }
-            indice03 = try {
-                cap6?.v45txtGrado3?.toInt() ?: 0
-            } catch (e: java.lang.NumberFormatException) {
-                0
-            }
-            indice04 = try {
-                cap6?.v45txtGrado4?.toInt() ?: 0
-            } catch (e: java.lang.NumberFormatException) {
-                0
-            }
-            indice05 = try {
-                cap6?.v45txtGrado5?.toInt() ?: 0
-            } catch (e: java.lang.NumberFormatException) {
-                0
-            }
-            indice06 = try {
-                cap6?.v45txtGrado6?.toInt() ?: 0
-            } catch (e: java.lang.NumberFormatException) {
-                0
-            }
+            indice01 = try { cap6?.v45txtGrado1?.toInt() ?: 0 }
+            catch (e: java.lang.NumberFormatException) { 0 }
+            indice02 = try { cap6?.v45txtGrado2?.toInt() ?: 0 }
+            catch (e: java.lang.NumberFormatException) { 0 }
+            indice03 = try { cap6?.v45txtGrado3?.toInt() ?: 0 }
+            catch (e: java.lang.NumberFormatException) { 0 }
+            indice04 = try { cap6?.v45txtGrado4?.toInt() ?: 0 }
+            catch (e: java.lang.NumberFormatException) { 0 }
+            indice05 = try { cap6?.v45txtGrado5?.toInt() ?: 0 }
+            catch (e: java.lang.NumberFormatException) { 0 }
+            indice06 = try { cap6?.v45txtGrado6?.toInt() ?: 0 }
+            catch (e: java.lang.NumberFormatException) { 0 }
         }
         seecap = false
         onAction()

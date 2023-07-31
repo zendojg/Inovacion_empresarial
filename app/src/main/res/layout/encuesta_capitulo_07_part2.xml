@@ -504,7 +504,7 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="number"
+                            android:inputType="textMultiLine"
                             android:maxLength="2"
                             android:gravity="start"
                             android:minHeight="48dp"

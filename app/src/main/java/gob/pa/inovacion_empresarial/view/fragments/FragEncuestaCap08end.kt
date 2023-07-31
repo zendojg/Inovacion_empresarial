@@ -13,6 +13,7 @@ import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo08CoclusionBinding
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
+import gob.pa.inovacion_empresarial.model.ModelCap8
 
 class FragEncuestaCap08end : Fragment() {
 
@@ -55,6 +56,8 @@ class FragEncuestaCap08end : Fragment() {
 
     private fun onAction() {
         with(bindingcap8o2) {
+            scrollForm.isVisible = Mob.p56stat != false
+
             lowCap8o2.setOnClickListener { saveCap() }
             if (Mob.p56stat == true) tb58.isVisible = true
             else if (Mob.p56stat == false) tb58.isVisible = false
@@ -90,7 +93,7 @@ class FragEncuestaCap08end : Fragment() {
             spinCap8584C.setSelection(indice4c)
             spinCap8584D.setSelection(indice4d)
 
-            //txtCap8571AMontoly.isVisible = spinCap8571A.selectedItem.toString() == Mob.arrOBT[Mob.SOLICSI2]
+            //txtCap8571AMontoly.isVisible = spinCap8571A.selectedItem.toString() == Mob.arrOBT[Mob.SOLICITUDYES2]
             spinsAction()
         }
     }
@@ -103,117 +106,91 @@ class FragEncuestaCap08end : Fragment() {
                     indice1a = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---${adp}") }
             }
             spinCap8581B.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice1b = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---${adp}") }
             }
             spinCap8581C.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice1c = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---${adp}") }
             }
             spinCap8582A.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice2a = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---${adp}") }
             }
             spinCap8582B.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice2b = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---${adp}") }
             }
             spinCap8582C.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice2c = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---${adp}") }
             }
             spinCap8582D.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice2d = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---${adp}") }
             }
             spinCap8583A.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice3a = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---${adp}") }
             }
             spinCap8583B.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice3b = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---${adp}") }
             }
             spinCap8582A.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice4a = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---${adp}") }
             }
             spinCap8582B.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice4b = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---${adp}") }
             }
             spinCap8582C.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice4c = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---${adp}") }
             }
             spinCap8582D.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice4d = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---${adp}") }
             }
         }
     }
@@ -243,6 +220,44 @@ class FragEncuestaCap08end : Fragment() {
 
 
     fun saveCap() {
+        with(bindingcap8o2) {
+            Mob.cap8 = ModelCap8(
+                Mob.cap8?.id,
+                Mob.cap8?.ncontrol,
+                Mob.cap8?.v56check,
+                Mob.cap8?.v57num1a,
+                Mob.cap8?.v57monto1a,
+                Mob.cap8?.v57num1b,
+                Mob.cap8?.v57monto1b,
+                Mob.cap8?.v57desc1c,
+                Mob.cap8?.v57num1c,
+                Mob.cap8?.v57monto1c,
+                Mob.cap8?.v57num2a,
+                Mob.cap8?.v57monto2a,
+                Mob.cap8?.v57num2b,
+                Mob.cap8?.v57monto2b,
+                Mob.cap8?.v57desc2c,
+                Mob.cap8?.v57num2c,
+                Mob.cap8?.v57monto2c,//
+                if (indice1a == 0 || Mob.p56stat == false) null else indice1a,
+                if (indice1b == 0 || Mob.p56stat == false) null else indice1b,
+                if (indice1c == 0 || Mob.p56stat == false) null else indice1c,
+                if (indice2a == 0 || Mob.p56stat == false) null else indice2a,
+                if (indice2b == 0 || Mob.p56stat == false) null else indice2b,
+                if (indice2c == 0 || Mob.p56stat == false) null else indice2c,
+                if (indice2d == 0 || Mob.p56stat == false) null else indice2d,
+                if (indice3a == 0 || Mob.p56stat == false) null else indice3a,
+                if (indice3b == 0 || Mob.p56stat == false) null else indice3b,
+                if (indice4a == 0 || Mob.p56stat == false) null else indice4a,
+                if (indice4b == 0 || Mob.p56stat == false) null else indice4b,
+                if (indice4c == 0 || Mob.p56stat == false) null else indice4c,
+                if (Mob.p56stat == false) null else txtCap8584DOtra.text.toString()
+                    .ifEmpty { null },
+                if (indice4d == 0) null else indice4d,
+            )
+        }
+
+        println("----------${Mob.cap8}")
     }
 
 }

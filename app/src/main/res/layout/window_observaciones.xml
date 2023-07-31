@@ -69,12 +69,16 @@
                 android:id="@+id/txtobs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 android:minHeight="48dp"
+                android:paddingHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="5dp"
                 android:fontFamily="sans-serif-condensed"
                 android:inputType="textMultiLine"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:text="xxxxxxxxxxxxxxx\nxxxxxxxxxxxxxxxx\nxxxxxxxxxxxxxxxxxx"
+                tools:ignore="LabelFor,SpeakableTextPresentCheck"
+                android:importantForAutofill="no" />
 
         </ScrollView>
 
@@ -90,10 +94,11 @@
                 android:id="@+id/btexitobs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="5dp"
+                android:layout_marginHorizontal="15dp"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="start|center_vertical"
-                android:text="@string/salir"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                android:text="@string/close"
                 android:textAllCaps="false"
                 android:textStyle="bold"
                 android:drawableEnd="@drawable/img_close"
@@ -106,6 +111,7 @@
                 android:layout_marginHorizontal="5dp"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="start|center_vertical"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
                 android:text="@string/guardar"
                 android:textAllCaps="false"
                 android:textStyle="bold"

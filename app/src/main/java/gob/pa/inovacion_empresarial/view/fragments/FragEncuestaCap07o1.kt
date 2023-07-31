@@ -9,7 +9,6 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.google.gson.annotations.SerializedName
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo07Part1Binding
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
@@ -408,48 +407,47 @@ class FragEncuestaCap07o1 : Fragment() {
 
     fun saveCap() {
         with (bindingcap7o1) {
-            val p51o1yes22 = (rbtCap7511Si2022.isChecked && rbtCap750Si.isChecked)
-            val p51o1not22 = (rbtCap7511No2022.isChecked && rbtCap750Si.isChecked)
-
 
             Mob.cap7 = ModelCap7(
 
                 Mob.cap7?.id,
                 Mob.cap7?.ncontrol,
-                if (rbtCap750Si.isChecked) true else if (rbtCap750No.isChecked) false else null,
+                if (rbtCap750Si.isChecked) true else if (rbtCap750No.isChecked) false else null,    //--50
 
                 if (rbtCap7511Si2021.isChecked && rbtCap750Si.isChecked) true else
-                    if (rbtCap7511No2021.isChecked && rbtCap750Si.isChecked) false else null,
+                    if (rbtCap7511No2021.isChecked && rbtCap750Si.isChecked) false else null,       //--51-1-2021
                 if (rbtCap7512Si2021.isChecked && rbtCap750Si.isChecked) true else
-                    if (rbtCap7512No2021.isChecked && rbtCap750Si.isChecked) false else null,
-
-                if (rbtCap7511Si2021.isChecked && rbtCap750Si.isChecked) txtCap75112021.text.toString()
-                else null,
-                Mob.cap7?.v51num21o2,
-
-                if (p51o1yes22) true else if (p51o1not22) false else null,
+                    if (rbtCap7512No2021.isChecked && rbtCap750Si.isChecked) false else null,       //--51-2-2021
+                if (rbtCap7511Si2021.isChecked && rbtCap750Si.isChecked)
+                    txtCap75112021.text.toString() else null,           //--51-1-2021 %
+                if (rbtCap7512Si2021.isChecked && rbtCap750Si.isChecked)
+                    txtCap75122021.text.toString() else null,           //--51-2-2021 %
+                if (rbtCap7511Si2022.isChecked && rbtCap750Si.isChecked) true else
+                    if (rbtCap7511No2022.isChecked && rbtCap750Si.isChecked) false else null,       //--51-1-2022
                 if (rbtCap7512Si2022.isChecked && rbtCap750Si.isChecked) true else
-                    if (rbtCap7512No2022.isChecked && rbtCap750Si.isChecked) false else null,
+                    if (rbtCap7512No2022.isChecked && rbtCap750Si.isChecked) false else null,       //--51-2-2022
+                if (rbtCap7511Si2022.isChecked && rbtCap750Si.isChecked)
+                    txtCap75112021.text.toString() else null,           //--51-1-2022 %
+                if (rbtCap7512Si2022.isChecked && rbtCap750Si.isChecked)
+                    txtCap75122021.text.toString() else null,           //--51-2-2022 %
 
-                Mob.cap7?.v51num22o1,
-                Mob.cap7?.v51num22o2,
-
-                Mob.cap7?.v52txt01,
-                Mob.cap7?.v52txt02,
-                Mob.cap7?.v52txt03,
-                Mob.cap7?.v52txt04,
-                Mob.cap7?.v52txt05,
-                Mob.cap7?.v52txt06,
-                Mob.cap7?.v52txt07,
-                Mob.cap7?.v52txt08,
-                Mob.cap7?.v52txt09,
-                Mob.cap7?.v52txt10,
-                Mob.cap7?.v52txt11,
-                Mob.cap7?.v52txt12,
-                Mob.cap7?.v52txt13,
-                Mob.cap7?.v52txt14,
-                Mob.cap7?.v52txt15desc,
-                Mob.cap7?.v52txt15,
+                if (indice01 == 0) null else indice01.toString(),
+                if (indice02 == 0) null else indice02.toString(),
+                if (indice03 == 0) null else indice03.toString(),
+                if (indice04 == 0) null else indice04.toString(),
+                if (indice05 == 0) null else indice05.toString(),
+                if (indice06 == 0) null else indice06.toString(),
+                if (indice07 == 0) null else indice07.toString(),
+                if (indice08 == 0) null else indice08.toString(),
+                if (indice09 == 0) null else indice09.toString(),
+                if (indice10 == 0) null else indice10.toString(),
+                if (indice11 == 0) null else indice11.toString(),
+                if (indice12 == 0) null else indice12.toString(),
+                if (indice13 == 0) null else indice13.toString(),
+                if (indice14 == 0) null else indice14.toString(),
+                if (txtCap75215Otro.text.isNullOrEmpty()) null
+                     else txtCap75215Otro.text.toString(),
+                indice15.toString(),
                 Mob.cap7?.v53num21a,//----
                 Mob.cap7?.v53num21b,
                 Mob.cap7?.v53num21c,

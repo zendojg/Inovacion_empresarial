@@ -131,7 +131,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:inputType="number"
-                        android:maxLength="3"
+                        android:maxLength="2"
                         android:minWidth="100dp"
                         android:textSize="14sp"
                         tools:ignore="TouchTargetSizeCheck"

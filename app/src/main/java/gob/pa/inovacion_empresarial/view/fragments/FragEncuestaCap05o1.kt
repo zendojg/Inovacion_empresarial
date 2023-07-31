@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.google.gson.annotations.SerializedName
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo051VentasYExpoBinding
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob

@@ -249,8 +249,6 @@
                         android:layoutDirection="rtl"
                         android:text="@string/p2txtm1s1d"
                         android:fontFamily="sans-serif-condensed"
-                        android:visibility="gone"
-                        tools:visibility="visible"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <EditText

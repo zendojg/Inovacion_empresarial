@@ -14,13 +14,13 @@ import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo08Binding
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
+import gob.pa.inovacion_empresarial.model.ModelCap8
 
 class FragEncuestaCap08 : Fragment() {
 
     private lateinit var bindingcap8o1: EncuestaCapitulo08Binding
     private lateinit var ctx: Context
     private var seecap = true
-
     private var indice1a = 0
     private var indice1b = 0
     private var indice1c = 0
@@ -48,8 +48,14 @@ class FragEncuestaCap08 : Fragment() {
         with(bindingcap8o1) {
             lowCap8o1.setOnClickListener { saveCap() }
 
-            if (rbtCap856Si.isChecked) layoutCap857.isVisible = rbtCap856Si.isChecked
-            else if (rbtCap856No.isChecked) layoutCap857.isVisible = false
+            if (rbtCap856Si.isChecked) {
+                Mob.p56stat = true
+                layoutCap857.isVisible = true
+            }
+            else if (rbtCap856No.isChecked) {
+                Mob.p56stat = false
+                layoutCap857.isVisible = false
+            }
 
             rgroupCap856.setOnCheckedChangeListener { _, id ->
                 hideKeyboard()
@@ -83,7 +89,7 @@ class FragEncuestaCap08 : Fragment() {
             spinCap8572B.setSelection(indice2b)
             spinCap8572C.setSelection(indice2c)
 
-            //txtCap8571AMontoly.isVisible = spinCap8571A.selectedItem.toString() == Mob.arrOBT[Mob.SOLICSI2]
+            //txtCap8571AMontoly.isVisible = spinCap8571A.selectedItem.toString() == Mob.arrOBT[Mob.SOLICITUDYES2]
             spinsAction()
         }
     }
@@ -94,67 +100,55 @@ class FragEncuestaCap08 : Fragment() {
             spinCap8571A.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice1a = pos
-                    txtCap8571AMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICSI2]
-                    txtCap8571AMonto.requestFocus()
+                    txtCap8571AMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICITUDYES2]
+                    //txtCap8571AMonto.requestFocus()
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap8571B.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice1b = pos
-                    txtCap8571BMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICSI2]
-                    txtCap8571BMonto.requestFocus()
+                    txtCap8571BMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICITUDYES2]
+                    //txtCap8571BMonto.requestFocus()
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap8571C.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice1c = pos
-                    txtCap8571CMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICSI2]
-                    txtCap8571CMonto.requestFocus()
+                    txtCap8571CMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICITUDYES2]
+                    //txtCap8571CMonto.requestFocus()
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap8572A.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice2a = pos
-                    txtCap8572AMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICSI2]
-                    txtCap8572AMonto.requestFocus()
+                    txtCap8572AMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICITUDYES2]
+                    //txtCap8572AMonto.requestFocus()
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap8572B.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice2b = pos
-                    txtCap8572BMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICSI2]
+                    txtCap8572BMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICITUDYES2]
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
             spinCap8572C.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice2c = pos
-                    txtCap8572CMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICSI2]
-                    txtCap8572CMonto.requestFocus()
+                    txtCap8572CMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICITUDYES2]
+                    //txtCap8572CMonto.requestFocus()
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
             }
         }
     }
@@ -202,6 +196,58 @@ class FragEncuestaCap08 : Fragment() {
 
 
     fun saveCap() {
+        with(bindingcap8o1) {
+            Mob.cap8 = ModelCap8(
+                Mob.cap8?.id,
+                Mob.cap8?.ncontrol,
+                if (rbtCap856Si.isChecked) true else if (rbtCap856No.isChecked) false else null,
+
+                if (rbtCap856Si.isChecked && indice1a != 0) indice1a else null,
+                if (rbtCap856Si.isChecked && indice1a == 2)
+                    txtCap8571AMonto.text.toString().ifEmpty { null } else null,
+
+                if (rbtCap856Si.isChecked && indice1b != 0) indice1b else null,
+                if (rbtCap856Si.isChecked && indice1b == 2)
+                    txtCap8571BMonto.text.toString().ifEmpty { null } else null,
+
+                if (rbtCap856Si.isChecked && txtCap8571COtra.text.toString().isNotEmpty())
+                    txtCap8571COtra.text.toString() else null,
+                if (rbtCap856Si.isChecked && indice1c != 0) indice1c else null,
+                if (rbtCap856Si.isChecked && indice1c == 2)
+                    txtCap8571CMonto.text.toString().ifEmpty { null } else null,
+
+                if (rbtCap856Si.isChecked && indice2a != 0) indice2a else null,
+                if (rbtCap856Si.isChecked && indice2a == 2)
+                    txtCap8572AMonto.text.toString().ifEmpty { null } else null,
+
+                if (rbtCap856Si.isChecked && indice2b != 0) indice2b else null,
+                if (rbtCap856Si.isChecked && indice2b == 2)
+                    txtCap8572BMonto.text.toString().ifEmpty { null } else null,
+
+                if (rbtCap856Si.isChecked && txtCap8572COtra.text.toString().isNotEmpty())
+                    txtCap8572COtra.text.toString() else null,
+                if (rbtCap856Si.isChecked && indice2c != 0) indice2c else null,
+                if (rbtCap856Si.isChecked && indice2c == 2)
+                    txtCap8572CMonto.text.toString().ifEmpty { null } else null,
+
+                Mob.cap8?.v58num1a,//
+                Mob.cap8?.v58num1b,
+                Mob.cap8?.v58num1c,
+                Mob.cap8?.v58num2a,
+                Mob.cap8?.v58num2b,
+                Mob.cap8?.v58num2c,
+                Mob.cap8?.v58num2d,
+                Mob.cap8?.v58num3a,
+                Mob.cap8?.v58num3b,
+                Mob.cap8?.v58num4a,
+                Mob.cap8?.v58num4b,
+                Mob.cap8?.v58num4c,
+                Mob.cap8?.v58desc4d,
+                Mob.cap8?.v58num4d
+            )
+        }
+
+        println("----------${Mob.cap8}")
     }
 
 }

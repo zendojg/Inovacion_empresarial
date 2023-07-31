@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.ModuloSeccion02Binding
 import gob.pa.inovacion_empresarial.model.Mob
+import gob.pa.inovacion_empresarial.model.ModelMod
 
 class FragModuloSecc02 : Fragment() {
 
@@ -50,5 +51,52 @@ class FragModuloSecc02 : Fragment() {
         onAction()
     }
 
-    fun saveCap() {}
+    fun saveCap() {
+        with (bindingmod2) {
+            Mob.capMod = ModelMod(
+                Mob.capMod?.id,
+                Mob.capMod?.v1check,
+                Mob.capMod?.v2check1,
+                Mob.capMod?.v2check1a,
+                Mob.capMod?.v2check1b,
+                Mob.capMod?.v2check1c,
+                Mob.capMod?.v2check1d,
+                Mob.capMod?.v2txtDesc1d,
+                Mob.capMod?.v2check2,
+                //Mob.capMod?.v2txtnull: String?, //---------
+                if (Mob.seccON != false && checkSecc231.isChecked) true else null,
+                if (Mob.seccON != false && checkSecc232.isChecked) true else null,
+                if (Mob.seccON != false && checkSecc233.isChecked) true else null,
+                if (Mob.seccON != false && checkSecc234.isChecked) true else null,
+                Mob.capMod?.v4check,//----------
+                Mob.capMod?.v4check1a,
+                Mob.capMod?.v4check1aPorcent,
+                Mob.capMod?.v4check1b,
+                Mob.capMod?.v4check1bPorcent,
+                Mob.capMod?.v4check1c,
+                Mob.capMod?.v4check1cPorcent,
+                Mob.capMod?.v4check1d,
+                Mob.capMod?.v4check1dPorcent,
+                Mob.capMod?.v4check1e,
+                Mob.capMod?.v4check1ePorcent,
+                Mob.capMod?.v4check1eOther,
+                Mob.capMod?.v5txt,
+                Mob.capMod?.v6porcent1,
+                Mob.capMod?.v6porcent2,
+                Mob.capMod?.v6porcent3,
+                Mob.capMod?.v6porcent4,
+                Mob.capMod?.v7check,
+                Mob.capMod?.v8txt,
+                Mob.capMod?.v9check,
+                Mob.capMod?.v9txt,
+                Mob.capMod?.v10porcent1,
+                Mob.capMod?.v10porcent2,
+                Mob.capMod?.v10porcent3,
+                Mob.capMod?.v10porcent4,
+                Mob.capMod?.observaciones,
+                Mob.capMod?.numControl
+            )
+        }
+        println("----------${Mob.capMod}")
+    }
 }

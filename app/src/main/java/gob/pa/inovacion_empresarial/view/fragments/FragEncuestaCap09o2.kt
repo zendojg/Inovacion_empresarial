@@ -14,6 +14,7 @@ import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
+import gob.pa.inovacion_empresarial.model.ModelCap9
 
 
 class FragEncuestaCap09o2 : Fragment() {
@@ -150,7 +151,48 @@ class FragEncuestaCap09o2 : Fragment() {
 
 
 
+    fun saveCap() {
+        with(bindingcap9o2) {
+            Mob.cap9 = ModelCap9(
+                Mob.cap9?.id,
+                Mob.cap9?.ncontrol,
+                Mob.cap9?.v59check,
+                Mob.cap9?.v59num,
+                Mob.cap9?.v60num,
+                Mob.cap9?.v60txtotro,
+                Mob.cap9?.v61check1,
+                Mob.cap9?.v61check2,
+                Mob.cap9?.v61check3,
+                Mob.cap9?.v61check4,
+                Mob.cap9?.v61check5,
+                Mob.cap9?.v61check6,
+                Mob.cap9?.v61check7,
+                Mob.cap9?.v61check8,//--
+                if (rbtCap962Si.isChecked) true else if (rbtCap962No.isChecked) false else null,
+                if (rbtCap962Si.isChecked && checkCap9631.isChecked)
+                    txtCap9631.text.toString().ifEmpty { null } else null,
+                if (rbtCap962Si.isChecked && checkCap9632.isChecked)
+                    txtCap9632.text.toString().ifEmpty { null } else null,
+                if (rbtCap962Si.isChecked && checkCap9633.isChecked)
+                    txtCap9633.text.toString().ifEmpty { null } else null,
+                if (rbtCap962Si.isChecked && checkCap9634.isChecked)
+                    txtCap9634.text.toString().ifEmpty { null } else null,
+                if (rbtCap962Si.isChecked && checkCap9635.isChecked)
+                    txtCap9635.text.toString().ifEmpty { null } else null,
+                if (rbtCap962Si.isChecked && checkCap9635.isChecked)
+                    txtCap9635Otro.text.toString().ifEmpty { null } else null,
+                if (rbtCap964Si.isChecked) true else if (rbtCap964No.isChecked) false else null,
 
-    fun saveCap() {}
+                if (rbtCap964Si.isChecked) txtCap9651.text.toString().ifEmpty { null } else null,
+                if (rbtCap964Si.isChecked) txtCap9651Year.text.toString()
+                    .ifEmpty { null } else null,
+                if (rbtCap964Si.isChecked) txtCap9652.text.toString().ifEmpty { null } else null,
+                if (rbtCap964Si.isChecked) txtCap9652Year.text.toString()
+                    .ifEmpty { null } else null,
+            )
+
+        }
+        println("----------${Mob.cap9}")
+    }
 
 }

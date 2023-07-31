@@ -14,7 +14,6 @@ object Mob {
     const val APIGETFORM = "api/Cuestionario/full/"
 
     const val DATEFORMAT = "yyyy-MM-dd HH:mm:ss a"
-
     const val PORCENT100:Int = 100
 
     const val WIDTH160DP:Int = 160
@@ -116,7 +115,7 @@ object Mob {
         "(4) Irrelevante"
     )
     const val SOLICITUDNOTSELECT:Int = 0
-    const val SOLICSI2:Int = 2
+    const val SOLICITUDYES2:Int = 2
     val arrOBT: Array<String> = arrayOf(
         "Solicitó apoyo?",
         "(1) Sí solicitó, pero no obtuvo",
@@ -128,7 +127,7 @@ object Mob {
 
     var p56stat: Boolean? = null
 
-    var moduleContinue: Boolean? = null
+    var seccON: Boolean? = null
 
     var windNow = 1
     var windPrev = 0

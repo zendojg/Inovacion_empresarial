@@ -6,11 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.google.gson.annotations.SerializedName
-import gob.pa.inovacion_empresarial.R
-import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo03Binding
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo061InovacionProductosBinding
-import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap6
 
@@ -118,7 +114,6 @@ class FragEncuestaCap06o1 : Fragment() {
                     if (rbtCap6392No2021.isChecked) false else null,
                 if (rbtCap6392Si2022.isChecked) true else
                     if (rbtCap6392No2022.isChecked) false else null,
-
                 if (rbtCap6401Si.isChecked) true else
                     if (rbtCap6401No.isChecked) false else null,
                 if (rbtCap6402Si.isChecked) true else
