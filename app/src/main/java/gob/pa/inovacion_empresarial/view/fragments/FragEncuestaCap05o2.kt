@@ -60,7 +60,7 @@ class FragEncuestaCap05o2 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceEnc = Mob.CAP5P07
+        Mob.indiceFormulario = Mob.CAP5P07
         if (seecap) fillOut()
         else onAction()
     }
@@ -110,8 +110,6 @@ class FragEncuestaCap05o2 : Fragment() {
                     txtCap5384Otro.text?.clear()
                 }
             }
-
-
 
 
             txtCap536A2021.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
@@ -289,42 +287,109 @@ class FragEncuestaCap05o2 : Fragment() {
     private fun fillOut35(cap5: ModelCap5?) {
         val blank = "".toEditable()
         with(bindingcap5o2) {
-            txtCap535AHNac.text = cap5?.v35txthomNaca?.toEditable() ?: blank // A Hombres
-            txtCap535AHExt.text = cap5?.v35txthomExta?.toEditable() ?: blank
-            txtCap535AMNac.text = cap5?.v35txtmujNaca?.toEditable() ?: blank // A Mujeres
-            txtCap535AMExt.text = cap5?.v35txtmujExta?.toEditable() ?: blank
-            txtCap535BHNac.text = cap5?.v35txthomNacb?.toEditable() ?: blank // B Hombres
-            txtCap535BHExt.text = cap5?.v35txthomExtb?.toEditable() ?: blank
-            txtCap535BMNac.text = cap5?.v35txtmujNacb?.toEditable() ?: blank // B Mujeres
-            txtCap535BMExt.text = cap5?.v35txtmujExtb?.toEditable() ?: blank
-            txtCap535CHNac.text = cap5?.v35txthomNacc?.toEditable() ?: blank // C Hombres
-            txtCap535CHExt.text = cap5?.v35txthomExtc?.toEditable() ?: blank
-            txtCap535CMNac.text = cap5?.v35txtmujNacc?.toEditable() ?: blank // C Mujeres
-            txtCap535CMExt.text = cap5?.v35txtmujExtc?.toEditable() ?: blank
-            txtCap535DHNac.text = cap5?.v35txthomNacd?.toEditable() ?: blank // D Hombres
-            txtCap535DHExt.text = cap5?.v35txthomNacd?.toEditable() ?: blank
-            txtCap535DMNac.text = cap5?.v35txtmujNacd?.toEditable() ?: blank // D Mujeres
-            txtCap535DMExt.text = cap5?.v35txtmujNacd?.toEditable() ?: blank
-            txtCap535EHNac.text = cap5?.v35txthomNace?.toEditable() ?: blank // E Hombres
-            txtCap535EHExt.text = cap5?.v35txthomNace?.toEditable() ?: blank
-            txtCap535EMNac.text = cap5?.v35txtmujNace?.toEditable() ?: blank // E Mujeres
-            txtCap535EMExt.text = cap5?.v35txtmujNace?.toEditable() ?: blank
-            txtCap535FHNac.text = cap5?.v35txthomNacf?.toEditable() ?: blank // F Hombres
-            txtCap535FHExt.text = cap5?.v35txthomExtf?.toEditable() ?: blank
-            txtCap535FMNac.text = cap5?.v35txtmujNacf?.toEditable() ?: blank // F Mujeres
-            txtCap535FMExt.text = cap5?.v35txtmujExtf?.toEditable() ?: blank
-            txtCap535GHNac.text = cap5?.v35txthomNacg?.toEditable() ?: blank // G Hombres
-            txtCap535GHExt.text = cap5?.v35txthomExtg?.toEditable() ?: blank
-            txtCap535GMNac.text = cap5?.v35txtmujNacg?.toEditable() ?: blank // G Mujeres
-            txtCap535GMExt.text = cap5?.v35txtmujExtg?.toEditable() ?: blank
-            txtCap535HHNac.text = cap5?.v35txthomNach?.toEditable() ?: blank // H Hombres
-            txtCap535HHExt.text = cap5?.v35txthomExth?.toEditable() ?: blank
-            txtCap535HMNac.text = cap5?.v35txtmujNach?.toEditable() ?: blank // H Mujeres
-            txtCap535HMExt.text = cap5?.v35txtmujExth?.toEditable() ?: blank
-            txtCap5351HNac.text = cap5?.v35txthomNacT?.toEditable() ?: blank // 1 Hombres
-            txtCap5351HExt.text = cap5?.v35txthomExtT?.toEditable() ?: blank
-            txtCap5351MNac.text = cap5?.v35txtmujNacT?.toEditable() ?: blank // 1 Mujeres
-            txtCap5351MExt.text = cap5?.v35txtmujExtT?.toEditable() ?: blank
+            txtCap535AHNac.text =
+                if (cap5?.v35txthomNaca == "0") blank else cap5?.v35txthomNaca?.toEditable()
+                    ?: blank // A Hombres
+            txtCap535AHExt.text =
+                if (cap5?.v35txthomExta == "0") blank else cap5?.v35txthomExta?.toEditable()
+                    ?: blank
+            txtCap535AMNac.text =
+                if (cap5?.v35txtmujNaca == "0") blank else cap5?.v35txtmujNaca?.toEditable()
+                    ?: blank // A Mujeres
+            txtCap535AMExt.text =
+                if (cap5?.v35txtmujExta == "0") blank else cap5?.v35txtmujExta?.toEditable()
+                    ?: blank
+            txtCap535BHNac.text =
+                if (cap5?.v35txthomNacb == "0") blank else cap5?.v35txthomNacb?.toEditable()
+                    ?: blank // B Hombres
+            txtCap535BHExt.text =
+                if (cap5?.v35txthomExtb == "0") blank else cap5?.v35txthomExtb?.toEditable()
+                    ?: blank
+            txtCap535BMNac.text =
+                if (cap5?.v35txtmujNacb == "0") blank else cap5?.v35txtmujNacb?.toEditable()
+                    ?: blank // B Mujeres
+            txtCap535BMExt.text =
+                if (cap5?.v35txtmujExtb == "0") blank else cap5?.v35txtmujExtb?.toEditable()
+                    ?: blank
+            txtCap535CHNac.text =
+                if (cap5?.v35txthomNacc == "0") blank else cap5?.v35txthomNacc?.toEditable()
+                    ?: blank // C Hombres
+            txtCap535CHExt.text =
+                if (cap5?.v35txthomExtc == "0") blank else cap5?.v35txthomExtc?.toEditable()
+                    ?: blank
+            txtCap535CMNac.text =
+                if (cap5?.v35txtmujNacc == "0") blank else cap5?.v35txtmujNacc?.toEditable()
+                    ?: blank // C Mujeres
+            txtCap535CMExt.text =
+                if (cap5?.v35txtmujExtc == "0") blank else cap5?.v35txtmujExtc?.toEditable()
+                    ?: blank
+            txtCap535DHNac.text =
+                if (cap5?.v35txthomNacd == "0") blank else cap5?.v35txthomNacd?.toEditable()
+                    ?: blank // D Hombres
+            txtCap535DHExt.text =
+                if (cap5?.v35txthomExtd == "0") blank else cap5?.v35txthomExtd?.toEditable()
+                    ?: blank
+            txtCap535DMNac.text =
+                if (cap5?.v35txtmujNacd == "0") blank else cap5?.v35txtmujNacd?.toEditable()
+                    ?: blank // D Mujeres
+            txtCap535DMExt.text =
+                if (cap5?.v35txtmujExtd == "0") blank else cap5?.v35txtmujExtd?.toEditable()
+                    ?: blank
+            txtCap535EHNac.text =
+                if (cap5?.v35txthomNace == "0") blank else cap5?.v35txthomNace?.toEditable()
+                    ?: blank // E Hombres
+            txtCap535EHExt.text =
+                if (cap5?.v35txthomExte == "0") blank else cap5?.v35txthomExte?.toEditable()
+                    ?: blank
+            txtCap535EMNac.text =
+                if (cap5?.v35txtmujNace == "0") blank else cap5?.v35txtmujNace?.toEditable()
+                    ?: blank // E Mujeres
+            txtCap535EMExt.text =
+                if (cap5?.v35txtmujExte == "0") blank else cap5?.v35txtmujExte?.toEditable()
+                    ?: blank
+            txtCap535FHNac.text =
+                if (cap5?.v35txthomNacf == "0") blank else cap5?.v35txthomNacf?.toEditable()
+                    ?: blank // F Hombres
+            txtCap535FHExt.text =
+                if (cap5?.v35txthomExtf == "0") blank else cap5?.v35txthomExtf?.toEditable()
+                    ?: blank
+            txtCap535FMNac.text =
+                if (cap5?.v35txtmujNacf == "0") blank else cap5?.v35txtmujNacf?.toEditable()
+                    ?: blank // F Mujeres
+            txtCap535FMExt.text =
+                if (cap5?.v35txtmujExtf == "0") blank else cap5?.v35txtmujExtf?.toEditable()
+                    ?: blank
+            txtCap535GHNac.text =
+                if (cap5?.v35txthomNacg == "0") blank else cap5?.v35txthomNacg?.toEditable()
+                    ?: blank // G Hombres
+            txtCap535GHExt.text =
+                if (cap5?.v35txthomExtg == "0") blank else cap5?.v35txthomExtg?.toEditable()
+                    ?: blank
+            txtCap535GMNac.text =
+                if (cap5?.v35txtmujNacg == "0") blank else cap5?.v35txtmujNacg?.toEditable()
+                    ?: blank // G Mujeres
+            txtCap535GMExt.text =
+                if (cap5?.v35txtmujExtg == "0") blank else cap5?.v35txtmujExtg?.toEditable()
+                    ?: blank
+            txtCap535HHNac.text =
+                if (cap5?.v35txthomNach == "0") blank else cap5?.v35txthomNach?.toEditable()
+                    ?: blank // H Hombres
+            txtCap535HHExt.text =
+                if (cap5?.v35txthomExth == "0") blank else cap5?.v35txthomExth?.toEditable()
+                    ?: blank
+            txtCap535HMNac.text =
+                if (cap5?.v35txtmujNach == "0") blank else cap5?.v35txtmujNach?.toEditable()
+                    ?: blank // H Mujeres
+            txtCap535HMExt.text = if (cap5?.v35txtmujExth == "0") blank else
+                cap5?.v35txtmujExth?.toEditable() ?: blank
+            txtCap5351HNac.text = if (cap5?.v35txthomNacT == "0") blank else
+                cap5?.v35txthomNacT?.toEditable() ?: blank // 1 Hombres
+            txtCap5351HExt.text = if (cap5?.v35txthomExtT == "0") blank else
+                cap5?.v35txthomExtT?.toEditable() ?: blank
+            txtCap5351MNac.text = if (cap5?.v35txtmujNacT == "0") blank else
+                cap5?.v35txtmujNacT?.toEditable() ?: blank // 1 Mujeres
+            txtCap5351MExt.text = if (cap5?.v35txtmujExtT == "0") blank else
+                cap5?.v35txtmujExtT?.toEditable() ?: blank
         }
     }
 
@@ -365,49 +430,49 @@ class FragEncuestaCap05o2 : Fragment() {
                 Mob.cap5?.v34check3o21,
                 Mob.cap5?.v34check3o22,
                 txtCap535Otro.text.toString().ifEmpty { null },
-                txtCap535AHNac.text.toString().ifEmpty { "0" },
-                txtCap535AHExt.text.toString().ifEmpty { "0" },
-                txtCap535BHNac.text.toString().ifEmpty { "0" },
-                txtCap535BHExt.text.toString().ifEmpty { "0" },
-                txtCap535CHNac.text.toString().ifEmpty { "0" },
-                txtCap535CHExt.text.toString().ifEmpty { "0" },
-                txtCap535DHNac.text.toString().ifEmpty { "0" },
-                txtCap535DHExt.text.toString().ifEmpty { "0" },
-                txtCap535EHNac.text.toString().ifEmpty { "0" },
-                txtCap535EHExt.text.toString().ifEmpty { "0" },
-                txtCap535FHNac.text.toString().ifEmpty { "0" },
-                txtCap535FHExt.text.toString().ifEmpty { "0" },
-                txtCap535GHNac.text.toString().ifEmpty { "0" },
-                txtCap535GHExt.text.toString().ifEmpty { "0" },
-                txtCap535HHNac.text.toString().ifEmpty { "0" },
-                txtCap535HHExt.text.toString().ifEmpty { "0" },
-                txtCap5351HNac.text.toString().ifEmpty { "0" },
-                txtCap5351HExt.text.toString().ifEmpty { "0" },
-                txtCap535AMNac.text.toString().ifEmpty { "0" },
-                txtCap535AMExt.text.toString().ifEmpty { "0" },
-                txtCap535BMNac.text.toString().ifEmpty { "0" },
-                txtCap535BMExt.text.toString().ifEmpty { "0" },
-                txtCap535CMNac.text.toString().ifEmpty { "0" },
-                txtCap535CMExt.text.toString().ifEmpty { "0" },
-                txtCap535DMNac.text.toString().ifEmpty { "0" },
-                txtCap535DMExt.text.toString().ifEmpty { "0" },
-                txtCap535EMNac.text.toString().ifEmpty { "0" },
-                txtCap535EMExt.text.toString().ifEmpty { "0" },
-                txtCap535FMNac.text.toString().ifEmpty { "0" },
-                txtCap535FMExt.text.toString().ifEmpty { "0" },
-                txtCap535GMNac.text.toString().ifEmpty { "0" },
-                txtCap535GMExt.text.toString().ifEmpty { "0" },
-                txtCap535HMNac.text.toString().ifEmpty { "0" },
-                txtCap535HMExt.text.toString().ifEmpty { "0" },
-                txtCap5351MNac.text.toString().ifEmpty { "0" },
-                txtCap5351MExt.text.toString().ifEmpty { "0" },
+                txtCap535AHNac.text.toString().ifEmpty { null },
+                txtCap535AHExt.text.toString().ifEmpty { null },
+                txtCap535BHNac.text.toString().ifEmpty { null },
+                txtCap535BHExt.text.toString().ifEmpty { null },
+                txtCap535CHNac.text.toString().ifEmpty { null },
+                txtCap535CHExt.text.toString().ifEmpty { null },
+                txtCap535DHNac.text.toString().ifEmpty { null },
+                txtCap535DHExt.text.toString().ifEmpty { null },
+                txtCap535EHNac.text.toString().ifEmpty { null },
+                txtCap535EHExt.text.toString().ifEmpty { null },
+                txtCap535FHNac.text.toString().ifEmpty { null },
+                txtCap535FHExt.text.toString().ifEmpty { null },
+                txtCap535GHNac.text.toString().ifEmpty { null },
+                txtCap535GHExt.text.toString().ifEmpty { null },
+                txtCap535HHNac.text.toString().ifEmpty { null },
+                txtCap535HHExt.text.toString().ifEmpty { null },
+                txtCap5351HNac.text.toString().ifEmpty { null },
+                txtCap5351HExt.text.toString().ifEmpty { null },
+                txtCap535AMNac.text.toString().ifEmpty { null },
+                txtCap535AMExt.text.toString().ifEmpty { null },
+                txtCap535BMNac.text.toString().ifEmpty { null },
+                txtCap535BMExt.text.toString().ifEmpty { null },
+                txtCap535CMNac.text.toString().ifEmpty { null },
+                txtCap535CMExt.text.toString().ifEmpty { null },
+                txtCap535DMNac.text.toString().ifEmpty { null },
+                txtCap535DMExt.text.toString().ifEmpty { null },
+                txtCap535EMNac.text.toString().ifEmpty { null },
+                txtCap535EMExt.text.toString().ifEmpty { null },
+                txtCap535FMNac.text.toString().ifEmpty { null },
+                txtCap535FMExt.text.toString().ifEmpty { null },
+                txtCap535GMNac.text.toString().ifEmpty { null },
+                txtCap535GMExt.text.toString().ifEmpty { null },
+                txtCap535HMNac.text.toString().ifEmpty { null },
+                txtCap535HMExt.text.toString().ifEmpty { null },
+                txtCap5351MNac.text.toString().ifEmpty { null },
+                txtCap5351MExt.text.toString().ifEmpty { null },
 
-                txtCap536A2021.text.toString().ifEmpty { "0" },
-                txtCap536A2022.text.toString().ifEmpty { "0" },
-                txtCap536B2021.text.toString().ifEmpty { "0" },
-                txtCap536B2022.text.toString().ifEmpty { "0" },
-                txtCap53612021.text.toString().ifEmpty { "0" },
-                txtCap53612022.text.toString().ifEmpty { "0" },
+                txtCap536A2021.text.toString().ifEmpty { null },
+                txtCap536A2022.text.toString().ifEmpty { null },
+                txtCap536B2021.text.toString().ifEmpty { null },
+                txtCap536B2022.text.toString().ifEmpty { null },
+                txtCap53612021.text.toString().ifEmpty { null },
+                txtCap53612022.text.toString().ifEmpty { null },
                 if (rbtCap537Si.isChecked) true else if (rbtCap537No.isChecked) false else null,
                 if (checkCap5381.isChecked) true else null,
                 if (checkCap5381.isChecked) txtCap5381.text.toString().ifEmpty { null } else null,

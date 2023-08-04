@@ -29,14 +29,14 @@ class FragModuloSecc03 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceEnc = Mob.CAPXP19
+        Mob.indiceFormulario = Mob.SEC3P22
         if (seecap) fillOut()
         else onAction()
     }
 
     private fun onAction() {
         with(bindingmod3) {
-
+            scrollForm.isVisible = Mob.seccON != false
             layoutSecc341.isVisible = rbtSecc034ASi.isChecked
 
             rgroupSecc034.setOnCheckedChangeListener { _, id ->
@@ -212,7 +212,7 @@ class FragModuloSecc03 : Fragment() {
                 Mob.capMod?.v10porcent2,
                 Mob.capMod?.v10porcent3,
                 Mob.capMod?.v10porcent4,
-                Mob.capMod?.observaciones,
+                Mob.obsModulo,
                 Mob.capMod?.numControl
             )
         }

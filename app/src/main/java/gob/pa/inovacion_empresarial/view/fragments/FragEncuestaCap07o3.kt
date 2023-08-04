@@ -43,7 +43,7 @@ class FragEncuestaCap07o3 : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        Mob.indiceEnc = Mob.CAP7P14
+        Mob.indiceFormulario = Mob.CAP7P14
         if (seecap) fillOut()
         else onAction()
     }

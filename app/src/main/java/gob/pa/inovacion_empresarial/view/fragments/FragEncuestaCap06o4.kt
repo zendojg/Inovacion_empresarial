@@ -34,7 +34,7 @@ class FragEncuestaCap06o4 : Fragment() {
         super.onResume()
 
 
-        Mob.indiceEnc = Mob.CAP6P11
+        Mob.indiceFormulario = Mob.CAP6P11
         if (seecap) fillOut()
         else onAction()
     }

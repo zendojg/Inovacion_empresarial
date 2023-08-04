@@ -78,6 +78,17 @@
     <string name="emailCharacters">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz._@0123456789</string>
     <string-array name="emptyArr" />
 
+    <string-array name="arr_condiciones">
+        <item>Completa</item>
+        <item>Consolidada</item>
+        <item>Cerró y no fue reemplazada</item>
+        <item>Cerró y fue reemplazada</item>
+        <item>Rehúsa</item>
+        <item>No localizada</item>
+        <item>No operó</item>
+        <item>Otra condición</item>
+    </string-array>
+
     <string-array name="arr_onetofive">
         <item>*</item>
         <item>1</item>
@@ -122,11 +133,16 @@
     <string name="cap_example">Capitulo xxxxxxxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxx</string>
     <string name="guardar">Guardar</string>
     <string name="salir">Salir</string>
-    <string name="ncontrol">N° de control:</string>
+    <string name="ncontrol">N° de control:   </string>
+    <string name="condiciones"><b><font color="#FF018786">CONDICIONES DE EMPADRONAMIENTO</font></b></string>
+    <string name="inconsistencias"><b><font color="#218CBF">Inconsistencias:</font></b></string>
+    <string name="ncontrolN"><b><font color="#218CBF">N° de control:</font></b></string>
+    <string name="done">Aceptar</string>
+    <string name="obss"><font color="#FF018786">OBSERVACIONES:</font></string>
     <string name="_0">0</string>
     <string name="decreto">La información solicitada esta amparada por el Decreto Estadistico y es Estrictamente Confidecial</string>
     <string name="ley">Ley 10 de 22 de enero de 2009</string>
-    <string name="condici_n_de_la_encuesta">Condición de la encuesta</string>
+    <string name="condici_n_de_la_encuesta"><b>Condición de la encuesta</b></string>
     <string name="condicion">Condicion</string>
     <string name="_00000">00000</string>
     <string name="n_de_control">N° de Control:</string>
@@ -631,7 +647,10 @@
     <string name="helpdirdesc">Anote la dirección en el siguiente orden: Mall o centro comercial, avenida, calle, edificio o casa, piso</string>
     <string name="init">Iniciar</string>
     <string name="back">Regresar</string>
+    <string name="logout">Cerrar Sesión</string>
     <string name="menu">Menu</string>
     <string name="leftBranch">}</string>
+    <string name="newForm">Finalizar Empadronamiento</string>
+    <string name="spam">Xxxxxxxxx Xxxxxxxx</string>
 
 </resources>

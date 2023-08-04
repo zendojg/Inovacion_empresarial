@@ -10,10 +10,12 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.viewpager2.widget.ViewPager2
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.FragSearchMainBinding
 import gob.pa.inovacion_empresarial.function.Functions
@@ -67,12 +69,16 @@ class MainFragmentSearch : Fragment() {
         }
         fragSearch.btSearch.setOnClickListener { controlTxt() }
         fragSearch.btcancelSearch.setOnClickListener { viewFind(true) }
+        fragSearch.btdataSearch.setOnClickListener {
+            val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
+            pager?.setCurrentItem(Mob.PAGE02, true) }
     }
 
     private fun controlTxt() {
         hideKeyboard()
+        val color = ContextCompat.getColor(ctx, R.color.dark_red)
         if (fragSearch.txtNControlSearch.text.isNullOrEmpty()) {
-            val alert = Functions.msgMark("Ingrese un N° de Control", Mob.WIDTH180DP, ctx)
+            val alert = Functions.msgMark("Ingrese un N° de Control", Mob.WIDTH180DP, ctx, color)
             alert.showAlignBottom(fragSearch.txtNControlSearch)
             alert.dismissWithDelay(Mob.TIMELONG2SEG)
         } else {
@@ -82,7 +88,7 @@ class MainFragmentSearch : Fragment() {
                 0
             }
             if (ncont <= 0) {
-                val alert = Functions.msgMark("N° de Control inválido", Mob.WIDTH180DP, ctx)
+                val alert = Functions.msgMark("N° de Control inválido", Mob.WIDTH180DP, ctx, color)
                 alert.showAlignBottom(fragSearch.txtNControlSearch)
                 alert.dismissWithDelay(Mob.TIMELONG2SEG)
             } else {
@@ -116,10 +122,11 @@ class MainFragmentSearch : Fragment() {
                         Mob.cap9 = resp.body?.cap9
                         Mob.capx = resp.body?.capx
                         Mob.capMod = resp.body?.capMod
-
+                        Mob.condicion = resp.body?.condicion
                         Mob.obsEncuesta = resp.body?.obs ?: ""
                         Mob.obsModulo = resp.body?.capMod?.observaciones ?: ""
 
+                        println("--------${Mob.cap6}\\n---------${Mob.cap7}")
                         viewFind(false)
                     }
                     Mob.CODE401 -> {
@@ -140,7 +147,8 @@ class MainFragmentSearch : Fragment() {
                     errortxt = errortxt.replace("}", "")
                     errortxt = errortxt.replace("\"", "")
                     val widthtxt = (errortxt.length * 7)
-                    val alert = Functions.msgBallom(errortxt, widthtxt, ctx)
+                    val color = ContextCompat.getColor(ctx, R.color.dark_red)
+                    val alert = Functions.msgBallom(errortxt, widthtxt, ctx, color)
                     alert.showAlignBottom(fragSearch.versionsearch)
                     alert.dismissWithDelay(Mob.TIMELONG4SEG)
                 }
@@ -153,7 +161,7 @@ class MainFragmentSearch : Fragment() {
         fragSearch.lyContainer.isVisible = !check
         fragSearch.btSearch.isVisible = check
         fragSearch.btdataSearch.isVisible = check
-        fragSearch.btuserSearch.isVisible = check
+        fragSearch.btformSearch.isVisible = check
         fragSearch.versionsearch.isVisible = check
         fragSearch.imgSenacytsearch.isVisible = check
         fragSearch.txtNControlSearch.isEnabled = check
@@ -178,7 +186,7 @@ class MainFragmentSearch : Fragment() {
             fragSearch.txtdirSearch.text?.clear()
         }
         fragSearch.btinitSearch.setOnClickListener {
-            Mob.indiceEnc = 1
+            Mob.indiceFormulario = 1
             activity?.finish()
             startActivity(Intent(ctx, FormActivity::class.java))
         }

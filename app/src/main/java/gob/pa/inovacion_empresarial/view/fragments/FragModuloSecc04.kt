@@ -37,13 +37,14 @@ class FragModuloSecc04: Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceEnc = Mob.CAPXP19
+        Mob.indiceFormulario = Mob.SEC4P23
         if (seecap) fillOut()
         else onAction()
     }
 
     private fun onAction() {
         with(bindingmod4) {
+            scrollForm.isVisible = Mob.seccON != false
 
             venta1 = try { txtSecc046p1.text.toString().toInt() }
             catch (e: java.lang.NumberFormatException) { 0 }
@@ -248,12 +249,17 @@ class FragModuloSecc04: Fragment() {
                     txtSecc048.text.toString().ifEmpty { null } else null,
                 if (Mob.seccON != false && rbtSecc049Si.isChecked) true else
                     if (Mob.seccON != false && rbtSecc049No.isChecked) false else null,
-                Mob.capMod?.v9txt,
-                Mob.capMod?.v10porcent1,
-                Mob.capMod?.v10porcent2,
-                Mob.capMod?.v10porcent3,
-                Mob.capMod?.v10porcent4,
-                Mob.capMod?.observaciones,
+                if (Mob.seccON != false && rbtSecc049Si.isChecked)
+                    txtSecc049.text.toString().ifEmpty { null } else null,
+                if (Mob.seccON != false && rbtSecc049Si.isChecked)
+                    txtSecc04101.text.toString().ifEmpty { null } else null,
+                if (Mob.seccON != false && rbtSecc049Si.isChecked)
+                    txtSecc04102.text.toString().ifEmpty { null } else null,
+                if (Mob.seccON != false && rbtSecc049Si.isChecked)
+                    txtSecc04103.text.toString().ifEmpty { null } else null,
+                if (Mob.seccON != false && rbtSecc049Si.isChecked)
+                    txtSecc04104.text.toString().ifEmpty { null } else null,
+                Mob.obsModulo,
                 Mob.capMod?.numControl
             )
         }

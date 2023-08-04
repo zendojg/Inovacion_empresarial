@@ -12,10 +12,12 @@ object Mob {
     const val APICORRE = "api/Catalogo/corr"
     const val APILUGARP = "api/Catalogo/lug"
     const val APIGETFORM = "api/Cuestionario/full/"
+    const val APIUPDATEFORM = "api/Cuestionario/update"
 
     const val DATEFORMAT = "yyyy-MM-dd HH:mm:ss a"
     const val PORCENT100:Int = 100
 
+    const val INITIALYEAR:Int = 1900
     const val WIDTH160DP:Int = 160
     const val WIDTH180DP:Int = 180
     const val WIDTH220DP:Int = 220
@@ -70,8 +72,7 @@ object Mob {
     const val SEC4P23:Int = 23
     const val OBSP24:Int = 24
 
-    lateinit var encuestaFrag: Fragment
-    var arrEncuestas: Array<Fragment> = arrayOf(    //----Contenedor de los Fragment del Form
+    val arrEncuestas: Array<Fragment> = arrayOf(    //----Contenedor de los Fragment del Form
         FragMenu(),             //--00--Menu
         FragEncuestaCap01(),    //--01--c01 --- Encuesta
         FragEncuestaCap02o1(),  //--02--c02
@@ -99,12 +100,27 @@ object Mob {
         FragTotalInforme()      //--24--Informe
     )
 
-    var arrMain: Array<Fragment> = arrayOf( //----Contenedor de los Fragment del Main
+    val arrMain: Array<Fragment> = arrayOf( //----Contenedor de los Fragment del Main
         MainFragmentLogin(),    //--00--c01
         MainFragmentSearch(),   //--01--c02
+        MainFragmentData()      //--02--c0c
     )
 
-    var empArr: Array<Fragment> = emptyArray()
+    val empArr: Array<Fragment> = emptyArray()
+
+    const val CONDICION02:Int = 1
+    const val CONDICION04:Int = 3
+    const val CONDICION08:Int = 7
+    val arrCondicion: Array<String> = arrayOf(
+        "Completa",
+        "Consolidada (Especifique)",
+        "Cerró y no fue reemplazada",
+        "Cerró y fue reemplazada (Especifique)",
+        "Rehúsa",
+        "No localizada",
+        "No operó",
+        "Otra condición (Especifique)"
+    )
 
     const val GRADENOTSELECT:Int = 0
     val arrGrade: Array<String> = arrayOf(
@@ -126,14 +142,13 @@ object Mob {
     val arrImp: Array<String> = arrayOf("*","1","2","3","4","5")
 
     var p56stat: Boolean? = null
-
     var seccON: Boolean? = null
 
-    var windNow = 1
-    var windPrev = 0
-    var indiceEnc = 0               //-----Indice de la encuesta dado desde el Menú
-    var obsEncuesta = ""            //-----Observaciones de la encuesta
-    var obsModulo = ""              //-----Observaciones del Módulo
+    var mainWindow = 1
+    var mainPrevWindow = 0
+    var indiceFormulario = 0        //-----Indice de la encuesta dado desde el Menú
+    var obsEncuesta: String? = ""   //-----Observaciones de la encuesta
+    var obsModulo: String? = ""     //-----Observaciones del Módulo
     var obsTittle = ""              //-----Muestra el título si es Encuesta o Módulo
     var version = "0.0"
 
@@ -149,7 +164,10 @@ object Mob {
     )
     var authData: ModelAuth? = ModelAuth(
         result = authToken,
-        infoMsg = null
+        infoMsg = null,
+        name = null,
+        user = null,
+        rol = null
     )
 
     var authResp: ModelAuthResp? = ModelAuthResp(
@@ -171,6 +189,8 @@ object Mob {
     var capx: ModelCap10? = null
     var capMod: ModelMod? = null
 
+    var condicion: ModelCondicion? = null
+
     var formComp: ModelForm? = ModelForm(
         ncontrol = null,
         obs = null,
@@ -183,6 +203,7 @@ object Mob {
         modSup = null,
         creator = null,
         mod = null,
+        condicion = condicion,
         cap1 = cap1,
         cap2 = cap2,
         cap3 = cap3,

@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.google.gson.annotations.SerializedName
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo10Binding
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap10
@@ -27,7 +26,7 @@ class FragEncuestaCap10 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceEnc = Mob.CAPXP19
+        Mob.indiceFormulario = Mob.CAPXP19
         if (seecap) fillOut()
         else onAction()
     }

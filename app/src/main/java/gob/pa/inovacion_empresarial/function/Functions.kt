@@ -2,6 +2,7 @@ package gob.pa.inovacion_empresarial.function
 
 import android.app.Activity
 import android.content.Context
+import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.text.Editable
@@ -14,13 +15,14 @@ import com.skydoves.balloon.ArrowOrientation
 import com.skydoves.balloon.Balloon
 import com.skydoves.balloon.BalloonAnimation
 import gob.pa.inovacion_empresarial.R
+import gob.pa.inovacion_empresarial.model.Mob
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.Date as fecha
 
 
 object Functions {
-    fun msgMark(msg: String, width: Int, ctx: Context): Balloon {
+    fun msgMark(msg: String, width: Int, ctx: Context, color: Int): Balloon {
         return Balloon.Builder(ctx)
             //.setLayout(R.layout.style_balloon)
             .setArrowSize(10)
@@ -30,12 +32,12 @@ object Functions {
             .setHeight(50)
             .setCornerRadius(4f)
             .setText(msg)
-            .setBackgroundColor(ContextCompat.getColor(ctx, R.color.dark_red))
+            .setBackgroundColor(color)
             .setBalloonAnimation(BalloonAnimation.ELASTIC)
             .build()
     }
 
-    fun msgBallom(msg: String, width: Int, ctx: Context): Balloon {
+    fun msgBallom(msg: String, width: Int, ctx: Context, color: Int): Balloon {
         return Balloon.Builder(ctx)
             //.setLayout(R.layout.style_balloon)
             .setArrowSize(0)
@@ -44,7 +46,7 @@ object Functions {
             .setHeight(28)
             .setCornerRadius(4f)
             .setText(msg)
-            .setBackgroundColor(ContextCompat.getColor(ctx, R.color.dark_red))
+            .setBackgroundColor(color)
             .setBalloonAnimation(BalloonAnimation.ELASTIC)
             .build()
     }
@@ -65,7 +67,7 @@ object Functions {
     }
 
     fun yearArray(): IntArray {
-        val initYear = 1900
+        val initYear = Mob.INITIALYEAR
         val aYears: Int = ((myDate().aString("yyyy")).toInt())
         val years = IntArray(aYears + 1 - initYear)
         for (i in years.indices) {
@@ -98,21 +100,6 @@ object Functions {
                 else -> false
             }
         } else false
-    }
-
-    fun replaceSign(valor: String): String {
-        return try {
-            if (valor.isBlank()) ""
-            else {
-                var cadena = valor.replace(",", "")
-                cadena = cadena.replace(" ", "")
-                cadena = cadena.replace("%", "")
-                cadena = cadena.replace("$", "")
-                cadena
-            }
-        } catch (e: java.lang.Exception) {
-            ""
-        }
     }
 
     fun String.toEditable(): Editable = Editable.Factory.getInstance().newEditable(this)

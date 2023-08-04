@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -33,6 +34,7 @@ class MainFragmentLogin: Fragment() {
     private lateinit var fragLogin: FragLoginMainBinding
     private lateinit var ctx: Context
     private val dvmLogin: DVModel by viewModels()
+    private var rol = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,7 +49,7 @@ class MainFragmentLogin: Fragment() {
         super.onResume()
         val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
         if (pager?.currentItem != null)
-            Mob.windNow = pager.currentItem
+            Mob.mainWindow = pager.currentItem
         fragLogin.lbversionLogin.text = Mob.version
         onAction()
     }
@@ -105,6 +107,10 @@ class MainFragmentLogin: Fragment() {
                         TextInputLayout.END_ICON_PASSWORD_TOGGLE
                     fragLogin.txtuserLogin.error = null
                     fragLogin.txtpassLogin.error = null
+
+                    val user = fragLogin.txtuserLogin.text.toString()
+                    if (user.contains("E")) rol = "E"
+                    else if (user.contains("S")) rol = "S"
                     login()
                 }
             }
@@ -115,10 +121,11 @@ class MainFragmentLogin: Fragment() {
     private fun login() {
         val screen = AlertDialog.Builder(ctx)
         val screenBlack: AlertDialog = screen.create()
+
         val login = ModelLog(
             user = fragLogin.txtuserLogin.text.toString(),
             pass = fragLogin.txtpassLogin.text.toString(),
-            rol = "E"
+            rol = rol
         )
         fragLogin.barLogin.visibility = View.VISIBLE
         screenBlack.setCancelable(false)
@@ -131,8 +138,9 @@ class MainFragmentLogin: Fragment() {
                     Handler(Looper.getMainLooper()).postDelayed({
                         var errortxt = resp.msg
                         if (errortxt.contains("No se encontró datos para la credencial")) {
+                            val color = ContextCompat.getColor(ctx, R.color.dark_red)
                             val alert = Functions.msgBallom(
-                                "Usuario o Contraseña inválida", Mob.WIDTH180DP, ctx)
+                                "Usuario o Contraseña inválida", Mob.WIDTH180DP, ctx, color)
                             alert.showAlignBottom(fragLogin.btLogin)
                             alert.dismissWithDelay(Mob.TIMELONG2SEG)
                         } else {
@@ -156,7 +164,7 @@ class MainFragmentLogin: Fragment() {
                                 fragLogin.txtuserLogin.text?.clear()
                                 fragLogin.txtpassLogin.text?.clear()
                                 val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
-                                pager?.setCurrentItem(1, true)
+                                pager?.setCurrentItem(Mob.INIT01, true)
                             }, (Mob.TIME500MS))
                         }
                         Mob.CODE401 -> {}

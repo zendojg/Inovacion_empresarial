@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.ModuloSeccion02Binding
 import gob.pa.inovacion_empresarial.model.Mob
@@ -26,14 +27,14 @@ class FragModuloSecc02 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceEnc = Mob.SEC2P21
+        Mob.indiceFormulario = Mob.SEC2P21
         if (seecap) fillOut()
         else onAction()
     }
 
     private fun onAction() {
         with(bindingmod2) {
-
+            scrollForm.isVisible = Mob.seccON != false
             lowMod2.setOnClickListener { saveCap() }
         }
     }
@@ -93,7 +94,7 @@ class FragModuloSecc02 : Fragment() {
                 Mob.capMod?.v10porcent2,
                 Mob.capMod?.v10porcent3,
                 Mob.capMod?.v10porcent4,
-                Mob.capMod?.observaciones,
+                Mob.obsModulo,
                 Mob.capMod?.numControl
             )
         }

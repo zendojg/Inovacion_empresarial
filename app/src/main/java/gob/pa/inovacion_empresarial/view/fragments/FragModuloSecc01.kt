@@ -30,7 +30,7 @@ class FragModuloSecc01 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceEnc = Mob.SEC1P20
+        Mob.indiceFormulario = Mob.SEC1P20
         if (seecap) fillOut()
         else onAction()
     }
@@ -146,7 +146,7 @@ class FragModuloSecc01 : Fragment() {
                 if (Mob.seccON == true) Mob.capMod?.v10porcent2 else null,
                 if (Mob.seccON == true) Mob.capMod?.v10porcent3 else null,
                 if (Mob.seccON == true) Mob.capMod?.v10porcent4 else null,
-                if (Mob.seccON == true) Mob.capMod?.observaciones else null,
+                if (Mob.seccON == true) Mob.obsModulo else null,
                 Mob.capMod?.numControl
             )
         }

@@ -61,9 +61,9 @@ class FormActivity : AppCompatActivity() {
     }
 
     private fun onAction() {
-        if (Mob.indiceEnc != 0) {
-            form.viewpager.setCurrentItem(Mob.indiceEnc, false)
-            spinPager(Mob.indiceEnc)
+        if (Mob.indiceFormulario != 0) {
+            form.viewpager.setCurrentItem(Mob.indiceFormulario, false)
+            spinPager(Mob.indiceFormulario)
         }
         form.btnextpager.setOnClickListener {
             if (form.viewpager.currentItem == Mob.OBSP24) {
@@ -266,14 +266,18 @@ class FormActivity : AppCompatActivity() {
             if (form.viewpager.currentItem == Mob.CAP8P15 && Mob.p56stat == false) {
                 form.viewpager.setCurrentItem(form.viewpager.currentItem + 2, false)
             } else
-                form.viewpager.setCurrentItem(form.viewpager.currentItem + 1, false)
-        }
-        else if (move == false)
+                if (form.viewpager.currentItem == Mob.SEC1P20 && Mob.seccON == false) {
+                    form.viewpager.setCurrentItem(form.viewpager.currentItem + 4, false)
+                } else
+                    form.viewpager.setCurrentItem(form.viewpager.currentItem + 1, false)
+        } else if (move == false)
             if (form.viewpager.currentItem == Mob.CAP9P17 && Mob.p56stat == false) {
-                form.viewpager.setCurrentItem(form.viewpager.currentItem - 2,false)
-            }
-            else
-                form.viewpager.setCurrentItem(form.viewpager.currentItem - 1,false)
+                form.viewpager.setCurrentItem(form.viewpager.currentItem - 2, false)
+            } else
+                if (form.viewpager.currentItem == Mob.OBSP24 && Mob.seccON == false) {
+                    form.viewpager.setCurrentItem(form.viewpager.currentItem - 4, false)
+                } else
+                    form.viewpager.setCurrentItem(form.viewpager.currentItem - 1, false)
 
     }
 
@@ -440,7 +444,10 @@ class FormActivity : AppCompatActivity() {
                 Mob.OBSP24 -> {
                     txvtitlepager.text = getString(R.string.informe)
                     txvtitlepager2.text = getString(R.string.informetxt)
-                    txvsubtitlepager.text = getString(R.string.subcap000)
+                    var ncontrol: String = getString(R.string.ncontrol)
+                    if (Mob.formComp?.ncontrol != null)
+                        ncontrol += Mob.formComp?.ncontrol
+                    txvsubtitlepager.text = ncontrol
                 }
             }
         }

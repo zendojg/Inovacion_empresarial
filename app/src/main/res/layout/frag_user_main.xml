@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/foreground_back">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:animateLayoutChanges="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/txvtitlepager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="@color/blue_dark"
+                    android:layout_marginStart="5dp"
+                    android:text="Datos del "
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/lbROLUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Rol de Usuario"
+                    android:textColor="@color/blue_dark"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txvtitlepager"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btbackUser"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginHorizontal="5dp"
+                    android:animateLayoutChanges="true"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="@string/back"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btsaveUser"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_backarr"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageView
+                    android:id="@+id/btsaveUser"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginHorizontal="5dp"
+                    android:animateLayoutChanges="true"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="@string/guardar"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btExitUser"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_save_black"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageView
+                    android:id="@+id/btExitUser"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="5dp"
+                    android:animateLayoutChanges="true"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="@string/menu"
+                    android:focusable="true"
+                    android:padding="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_exit_app"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+
+        <TextView
+            android:id="@+id/lbnamelbUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:animateLayoutChanges="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Nombre: "
+            android:textColor="@color/blue_dark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarpager" />
+
+        <TextView
+            android:id="@+id/lbnameUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:animateLayoutChanges="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/spam"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/lbnamelbUser"
+            app:layout_constraintTop_toTopOf="@+id/lbnamelbUser" />
+
+        <TextView
+            android:id="@+id/lbuserlbUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:animateLayoutChanges="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Usuario: "
+            android:textColor="@color/blue_dark"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbnamelbUser" />
+
+        <TextView
+            android:id="@+id/lbuserUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:animateLayoutChanges="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/spam"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/lbuserlbUser"
+            app:layout_constraintTop_toTopOf="@+id/lbuserlbUser" />
+
+        <TextView
+            android:id="@+id/lbfechalbUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:animateLayoutChanges="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="La sesión expira: "
+            android:textSize="16sp"
+            android:textColor="@color/blue_dark"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbuserlbUser" />
+
+        <TextView
+            android:id="@+id/lbfechaUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:animateLayoutChanges="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/spam"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/lbfechalbUser"
+            app:layout_constraintTop_toTopOf="@+id/lbfechalbUser" />
+
+
+        <TextView
+            android:id="@+id/lbviewFormUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:paddingTop="7dp"
+            android:paddingBottom="10dp"
+            android:paddingHorizontal="10dp"
+            android:background="@drawable/background_shadow_holoblue"
+            android:layout_marginHorizontal="10dp"
+            android:animateLayoutChanges="true"
+
+            android:fontFamily="sans-serif-condensed"
+            android:text="Encuestas:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbfechalbUser" />
+
+        <TextView
+            android:id="@+id/lbopenFormUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:animateLayoutChanges="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Abiertas: "
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbviewFormUser" />
+
+        <TextView
+            android:id="@+id/txtopenFormUser"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:animateLayoutChanges="true"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="16sp"
+            tools:text="00"
+            app:layout_constraintStart_toEndOf="@+id/lbopenFormUser"
+            app:layout_constraintTop_toBottomOf="@+id/lbviewFormUser" />
+
+        <TextView
+            android:id="@+id/lbcreateFormUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:animateLayoutChanges="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Creadas: "
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/txtopenFormUser"
+            app:layout_constraintTop_toBottomOf="@+id/lbviewFormUser" />
+
+        <TextView
+            android:id="@+id/txtcreateFormUser"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:animateLayoutChanges="true"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="16sp"
+            tools:text="00"
+            app:layout_constraintStart_toEndOf="@+id/lbcreateFormUser"
+            app:layout_constraintTop_toBottomOf="@+id/lbviewFormUser" />
+
+        <TextView
+            android:id="@+id/lbsendFormUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:animateLayoutChanges="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Enviadas: "
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/txtcreateFormUser"
+            app:layout_constraintTop_toBottomOf="@+id/lbviewFormUser" />
+
+        <TextView
+            android:id="@+id/txtsendFormUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:animateLayoutChanges="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="00"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/lbsendFormUser"
+            app:layout_constraintTop_toBottomOf="@+id/lbviewFormUser" />
+
+        <ImageView
+            android:id="@+id/imgCITYsearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="CITY"
+            android:scaleType="fitEnd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/foreground_city" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btSearch"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="10dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start|center_vertical"
+            android:maxLines="1"
+            android:text="Crear Respaldo de datos"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+            android:textStyle="bold"
+            app:backgroundTint="@android:color/holo_blue_dark"
+            app:icon="@drawable/img_save_solid"
+            app:iconPadding="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/btrenewUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/blue_dark"
+            app:strokeWidth="1dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btrenewUser"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="10dp"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start|center_vertical"
+            android:maxLines="1"
+            android:text="Renovar datos internos"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+            android:textStyle="bold"
+            app:backgroundTint="@android:color/holo_blue_dark"
+            app:icon="@drawable/img_cached"
+            app:iconPadding="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/guidelineUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/blue_dark"
+            app:strokeWidth="1dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

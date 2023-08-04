@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_border"
+        android:background="@android:color/transparent"
         android:orientation="vertical"
         android:paddingTop="10dp">
 
@@ -127,6 +127,7 @@
             android:textStyle="bold"
             app:icon="@drawable/img_close"
             app:iconPadding="7dp"
+            app:backgroundTint="@android:color/transparent"
             app:iconTint="#666666"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btpositivo"

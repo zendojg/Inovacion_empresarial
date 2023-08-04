@@ -1,5 +1,6 @@
 package gob.pa.inovacion_empresarial.service.api
 
+import android.view.Display.Mode
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelAuth
 import gob.pa.inovacion_empresarial.model.ModelForm
@@ -10,32 +11,32 @@ import gob.pa.inovacion_empresarial.service.room.DBlugarP
 import gob.pa.inovacion_empresarial.service.room.DBprovincia
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ApiService {
     //--  LOGIN
     @POST(Mob.APIAUTH)
     fun loginResp(@Body bodyLog: ModelLog): Call<ModelAuth>
     //--  TOKEN
-    @GET(Mob.APIAUTH)
-    suspend fun loginToken(): Response<Void>
+//    @GET(Mob.APIAUTH)
+//    suspend fun loginToken(): Response<Void>
 
 
     @GET ("${Mob.APIGETFORM}{id}")//--  Formulario GET
     suspend fun getForm(@Path("id") id:String): Response<ModelForm>
 
 
-    //----------------------------------------------------------------------------------------------  DESCARGA PARA DB
-    @GET (Mob.APIPROV)//---------------------------------------------------------------------------  Provincia
+    //--------------------------  DESCARGA PARA DB
+    @GET (Mob.APIPROV)//--------  Provincia
     suspend fun getProv(): Response<List<DBprovincia>>
-    @GET (Mob.APIDIST)//---------------------------------------------------------------------------  Distrito
+    @GET (Mob.APIDIST)//--------  Distrito
     suspend fun getDistrito(): Response<List<DBdistritos>>
-    @GET (Mob.APICORRE) //-------------------------------------------------------------------------  Corregimiento
+    @GET (Mob.APICORRE) //------  Corregimiento
     suspend fun getCorre(): Response<List<DBcorregimiento>>
-    @GET (Mob.APILUGARP) //------------------------------------------------------------------------  Lugar Poblado
+    @GET (Mob.APILUGARP) //-----  Lugar Poblado
     suspend fun getLugarP(): Response<List<DBlugarP>>
+
+    @PUT (Mob.APIUPDATEFORM)
+    suspend fun sendForm(@Body form: ModelForm): Response<Any>
 
 }

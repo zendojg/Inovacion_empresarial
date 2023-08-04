@@ -85,7 +85,7 @@ class DVModel: ViewModel() {
             val respuesta: Response<List<DBprovincia>> =
                 ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getProv()
             respuesta.body() ?: emptyList()
-        } catch (e: Exception) {
+        } catch (e: IOException) {
             emptyList()
         }
     }
@@ -96,7 +96,7 @@ class DVModel: ViewModel() {
             val respuesta: Response<List<DBdistritos>> =
                 ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getDistrito()
             respuesta.body() ?: emptyList()
-        } catch (e: Exception) {
+        } catch (e: IOException) {
             emptyList()
         }
     }
@@ -107,7 +107,7 @@ class DVModel: ViewModel() {
             val respuesta: Response<List<DBcorregimiento>> =
                 ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getCorre()
             respuesta.body() ?: emptyList()
-        } catch (e: Exception) {
+        } catch (e: IOException) {
             emptyList()
         }
     }
@@ -118,9 +118,34 @@ class DVModel: ViewModel() {
             val respuesta: Response<List<DBlugarP>> =
                 ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getLugarP()
             respuesta.body() ?: emptyList()
-        } catch (e: Exception) {
+        } catch (e: IOException) {
             emptyList()
         }
     }
+
+
+    suspend fun sendForm(form: ModelForm): ModelFormSend {
+        var code: String
+        var serverResp: String?
+        val body = try {
+            val resp =
+                ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).sendForm(form)
+            serverResp = if (resp.errorBody() != null) (resp.errorBody()!!.charStream().readText())
+            else null
+            code = resp.code().toString()
+            resp.body()
+        } catch (e: IOException) {
+            Log.e("-- Response error: ", e.message.toString())
+            serverResp = null
+            code = "0"
+            null
+        }
+        return ModelFormSend(
+            code = code,
+            server = serverResp,
+            body = body
+        )
+    }
+
 }
 

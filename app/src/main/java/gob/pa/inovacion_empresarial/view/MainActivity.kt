@@ -132,6 +132,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun validate() { //-------- Validador de TOKEN
+        val ctx = this
         lifecycleScope.launch {
             val resp = dvmMain.seeToken()
             Handler(Looper.getMainLooper()).postDelayed({
@@ -144,8 +145,9 @@ class MainActivity : AppCompatActivity() {
                         pagerMain.visibility = View.VISIBLE
                         main.barMain.visibility = View.GONE
                         pagerMain.setCurrentItem(Mob.LOGIN0, false)
+                        val color = ContextCompat.getColor(ctx, R.color.dark_red)
                         val alert = Functions.msgBallom(
-                            "Sesión expirada", Mob.WIDTH160DP, this@MainActivity)
+                            "Sesión expirada", Mob.WIDTH160DP, ctx, color)
                         alert.showAlignBottom(main.btMainTest)
                         alert.dismissWithDelay(Mob.TIMELONG4SEG)
                     }

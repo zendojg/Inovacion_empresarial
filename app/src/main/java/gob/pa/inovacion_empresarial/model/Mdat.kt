@@ -16,7 +16,10 @@ data class ModelAuthResult(
     @SerializedName("refreshToken")             val infotoken: ModelAuthTokenInfo?)
 data class ModelAuth(
     @SerializedName("result")                   val result: ModelAuthResult?,
-    @SerializedName("infoMessage")              val infoMsg: String?)
+    @SerializedName("infoMessage")              val infoMsg: String?,
+    @SerializedName("name")                     val name: String?,
+    @SerializedName("user")                     val user: String?,
+    @SerializedName("rol")                      val rol: String?,)
 
 data class ModelAuthResp(
     val code: Int?,
@@ -400,6 +403,15 @@ data class ModelMod(
     @SerializedName("observaciones")                                            val observaciones: String?,
     @SerializedName("numControl")                                               val numControl: Int?)
 
+
+data class ModelCondicion(
+    @SerializedName("id")               val ncontrol: String?,
+    @SerializedName("numControl")       val cond: String?,
+    @SerializedName("codCondicion")     val obs: String?,
+    @SerializedName("razonSocial")      val act: String?,
+    @SerializedName("otraNombre")       val rev: String?
+)
+
 data class ModelForm(
     @SerializedName("numControl")                           val ncontrol: Int?,
     @SerializedName("observaciones")                        val obs: String?,
@@ -412,6 +424,8 @@ data class ModelForm(
     @SerializedName("modificadoPorSup")                     val modSup: String?,
     @SerializedName("creador")                              val creator: String?,
     @SerializedName("modificador")                          val mod: String?,
+
+    @SerializedName("condicionEmpadronamiento")             val condicion: ModelCondicion?,
     @SerializedName("cap1Localizacion")                         val cap1: ModelCap1?,
     @SerializedName("cap2DatosEmpresaInformante")               val cap2: ModelCap2?,
     @SerializedName("cap3Organizacion")                         val cap3: ModelCap3?,
@@ -427,3 +441,36 @@ data class ModelFormGet(
     val code: Int?,
     val resp: String?,
     val body: ModelForm?)
+
+data class ModelFormSend(
+    val code: String,
+    val server: String?,
+    val body: Any?)
+
+data class ModelResponse(
+    @SerializedName("numControl")       val ncontrol: Int?,
+    @SerializedName("inconsistente")    val poseeIncon: String?,
+    @SerializedName("inconsistencias")  val inconsistencias: Array<String>?,
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as ModelResponse
+
+        if (ncontrol != other.ncontrol) return false
+        if (poseeIncon != other.poseeIncon) return false
+        if (inconsistencias != null) {
+            if (other.inconsistencias == null) return false
+            if (!inconsistencias.contentEquals(other.inconsistencias)) return false
+        } else if (other.inconsistencias != null) return false
+
+        return true
+    }
+    override fun hashCode(): Int {
+        var result = ncontrol ?: 0
+        result = 31 * result + (poseeIncon?.hashCode() ?: 0)
+        result = 31 * result + (inconsistencias?.contentHashCode() ?: 0)
+        return result
+    }
+}

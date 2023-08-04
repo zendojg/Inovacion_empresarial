@@ -104,7 +104,7 @@ class FragMenu : Fragment() {
     }
 
     private fun viewpager(pos: Int) {
-        Mob.indiceEnc = pos
+        Mob.indiceFormulario = pos
         val pager = activity?.findViewById<ViewPager2>(R.id.viewpager)
         pager?.setCurrentItem(pos, false)
 
