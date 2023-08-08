@@ -16,7 +16,6 @@ import gob.pa.inovacion_empresarial.model.ModelCap6
 class FragEncuestaCap06o4 : Fragment() {
     private lateinit var bindingcap6o4: EncuestaCapitulo064InovacionComercializacionBinding
     private lateinit var ctx: Context
-    private var seecap = true
 
     private var indice01 = 0
     private var indice02 = 0
@@ -35,7 +34,7 @@ class FragEncuestaCap06o4 : Fragment() {
 
 
         Mob.indiceFormulario = Mob.CAP6P11
-        if (seecap) fillOut()
+        if (Mob.seecap06o4) fillOut()
         else onAction()
     }
 
@@ -109,7 +108,7 @@ class FragEncuestaCap06o4 : Fragment() {
                 0
             }
 
-        seecap = false
+        Mob.seecap06o4 = false
         onAction()
     }
 

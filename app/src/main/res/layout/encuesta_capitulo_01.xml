@@ -2,7 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data />
+
     <ScrollView
         android:id="@+id/scrollForm"
         android:layout_width="match_parent"
@@ -17,196 +19,179 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="2dp"
             android:animateLayoutChanges="true"
             android:background="@drawable/background_shadow_med"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="2dp">
 
-            <FrameLayout
-                android:id="@+id/frameCap1_1"
-                android:layout_width="0dp"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtCap1_1ly"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:layout_gravity="center"
+                android:hint="@string/hint01"
+                android:textColorHint="@color/black"
+                android:layout_marginTop="2dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent">
+                app:startIconContentDescription="Localización">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                <AutoCompleteTextView
+                    android:id="@+id/txtCap1_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint01"
-                    android:textColorHint="@color/black"
-                    app:startIconContentDescription="Localización">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/txtCap1_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:entries="@array/arr_provincias"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="none"
-                        android:text="@string/prov"
-                        android:textColor="#0277BD"
-                        android:textSize="16sp"
-                        tools:ignore="LabelFor" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:id="@+id/txtCap1_1ID"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="end|center_vertical"
-                    android:layout_marginHorizontal="5dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="@color/white"
+                    android:backgroundTint="@color/white"
+                    android:entries="@array/arr_provincias"
                     android:fontFamily="sans-serif-condensed"
-                    android:gravity="center"
-                    android:text="@string/doublecero"
-                    android:textSize="15sp" />
+                    android:inputType="none"
+                    android:text="@string/prov"
+                    android:textColor="#0277BD"
+                    android:textSize="16sp"
+                    tools:ignore="LabelFor" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            </FrameLayout>
+            <TextView
+                android:id="@+id/txtCap1_1ID"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:text="@string/doublecero"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txtCap1_1ly"
+                app:layout_constraintEnd_toEndOf="@+id/txtCap1_1ly"
+                app:layout_constraintTop_toTopOf="@+id/txtCap1_1ly" />
 
-            <FrameLayout
-                android:id="@+id/frameCap1_2"
-                android:layout_width="0dp"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtCap1_2ly"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/frameCap1_1"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent">
+                android:hint="@string/hint02"
+                android:textColorHint="@color/black"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtCap1_1ly"
+                app:startIconContentDescription="Distrito">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                <AutoCompleteTextView
+                    android:id="@+id/txtCap1_2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint02"
-                    android:textColorHint="@color/black"
-                    app:startIconContentDescription="Distrito">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/txtCap1_2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="none"
-                        android:text="@string/dist"
-                        android:textColor="#0277BD"
-                        android:textSize="16sp"
-                        tools:ignore="LabelFor" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:id="@+id/txtCap1_2ID"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="end|center_vertical"
-                    android:layout_marginHorizontal="5dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="@color/white"
+                    android:backgroundTint="@color/white"
                     android:fontFamily="sans-serif-condensed"
-                    android:gravity="center"
-                    android:text="@string/doublecero"
-                    android:textSize="15sp" />
+                    android:inputType="none"
+                    android:text="@string/dist"
+                    android:textColor="#0277BD"
+                    android:textSize="16sp"
+                    tools:ignore="LabelFor" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            </FrameLayout>
+            <TextView
+                android:id="@+id/txtCap1_2ID"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:text="@string/doublecero"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txtCap1_2ly"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtCap1_2ly" />
 
-            <FrameLayout
-                android:id="@+id/frameCap1_3"
-                android:layout_width="0dp"
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtCap1_3ly"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/frameCap1_2"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent">
+                android:hint="@string/hint03"
+                android:textColorHint="@color/black"
+                android:layout_marginTop="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtCap1_2ly"
+                app:startIconContentDescription="Corregimiento">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                <AutoCompleteTextView
+                    android:id="@+id/txtCap1_3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint03"
-                    android:textColorHint="@color/black"
-                    app:startIconContentDescription="Corregimiento">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/txtCap1_3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="none"
-                        android:text="@string/corre"
-                        android:textColor="#0277BD"
-                        android:textSize="16sp"
-                        tools:ignore="LabelFor" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:id="@+id/txtCap1_3ID"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="end|center_vertical"
-                    android:layout_marginHorizontal="5dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="@color/white"
+                    android:backgroundTint="@color/white"
                     android:fontFamily="sans-serif-condensed"
-                    android:gravity="center"
-                    android:text="@string/doublecero"
-                    android:textSize="15sp" />
+                    android:inputType="none"
+                    android:text="@string/corre"
+                    android:textColor="#0277BD"
+                    android:textSize="16sp"
+                    tools:ignore="LabelFor" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            </FrameLayout>
+            <TextView
+                android:id="@+id/txtCap1_3ID"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:text="@string/doublecero"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txtCap1_3ly"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtCap1_3ly" />
 
-            <FrameLayout
-                android:id="@+id/frameCap1_4"
-                android:layout_width="0dp"
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtCap1_4ly"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/frameCap1_3"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent">
+                android:layout_marginTop="25dp"
+                android:hint="@string/hint04"
+                android:textColorHint="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtCap1_3ly"
+                app:startIconContentDescription="Corregimiento">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                <AutoCompleteTextView
+                    android:id="@+id/txtCap1_4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hint04"
-                    android:textColorHint="@color/black"
-                    android:layout_marginTop="20dp"
-                    app:startIconContentDescription="Corregimiento">
-
-                    <AutoCompleteTextView
-                        android:id="@+id/txtCap1_4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="none"
-                        android:textSize="16sp"
-                        tools:ignore="LabelFor"
-                        tools:text="Lugar Poblado" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <TextView
-                    android:id="@+id/txtCap1_4ID"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_gravity="end|center_vertical"
-                    android:layout_marginHorizontal="5dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@color/white"
+                    android:backgroundTint="@color/white"
                     android:fontFamily="sans-serif-condensed"
-                    android:gravity="center"
-                    android:text="@string/doublecero"
-                    android:textSize="15sp" />
+                    android:inputType="none"
+                    android:textSize="16sp"
+                    tools:ignore="LabelFor"
+                    tools:text="Lugar Poblado" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            </FrameLayout>
+
+            <TextView
+                android:id="@+id/txtCap1_4ID"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end|center_vertical"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:text="@string/doublecero"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/txtCap1_4ly"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtCap1_4ly" />
 
             <View
                 android:id="@+id/lowCap1"
@@ -215,7 +200,7 @@
                 android:visibility="invisible"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/frameCap1_4" />
+                app:layout_constraintTop_toBottomOf="@+id/txtCap1_4ly" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

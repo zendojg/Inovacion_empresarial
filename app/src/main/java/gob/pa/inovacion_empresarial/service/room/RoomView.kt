@@ -2,6 +2,7 @@ package gob.pa.inovacion_empresarial.service.room
 
 import android.content.Context
 import gob.pa.inovacion_empresarial.model.DVModel
+import gob.pa.inovacion_empresarial.model.ModelForm
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -43,54 +44,32 @@ class RoomView(dvmModel: DVModel, context: Context) {
         }
     }
 
+    suspend fun saveForm(form: DBform) = roomDB.dbFormDao().insertForm(form)
 
-    suspend fun getProv(): Array<String> {
-        return roomDB.dbFormDao().getProvArray()
-    }
+    suspend fun getForm(idUser: String, nControl: String) =
+        roomDB.dbFormDao().getFormsbyID(nControl, idUser)
+    suspend fun getFormsUser(idUser: String) =
+        roomDB.dbFormDao().getFormsUser(idUser)
+    suspend fun getAllForm() =
+        roomDB.dbFormDao().getAllForms()
+    suspend fun getProv() = roomDB.dbFormDao().getProvArray()
+    suspend fun getProvID(prov: String) = roomDB.dbFormDao().getProvID(prov)
+    suspend fun getProvName(idprov: String) =roomDB.dbFormDao().getProvName(idprov)
+    suspend fun getDist(idprov: String) = roomDB.dbFormDao().getDistArrayByID(idprov)
+    suspend fun getDistID(idprov: String, dist: String) = roomDB.dbFormDao().getDistID(idprov, dist)
+    suspend fun getDistName(idprov: String, iddist: String) =
+        roomDB.dbFormDao().getDistName(idprov, iddist)
+    suspend fun getCorre(idprov: String, iddist: String) =
+        roomDB.dbFormDao().getCorreArrayByID(idprov, iddist)
+    suspend fun getCorreID(idprov: String, iddist: String, corre: String) =
+        roomDB.dbFormDao().getCorreID(idprov, iddist, corre)
+    suspend fun getCorreName(idprov: String, iddist: String, idcorre: String) =
+        roomDB.dbFormDao().getCorreName(idprov, iddist, idcorre)
+    suspend fun getLugarP(idprov: String, iddist: String, idcorre: String) =
+        roomDB.dbFormDao().getLugarPArrayByID(idprov, iddist, idcorre)
+    suspend fun getLPID(idprov: String, iddist: String, idcorre: String, lugar: String) =
+        roomDB.dbFormDao().getLugarPID(idprov, iddist, idcorre, lugar)
+    suspend fun getLPName(idprov: String, iddist: String, idcorre: String, idlugar: String) =
+        roomDB.dbFormDao().getLugarPName(idprov, iddist, idcorre, idlugar)
 
-    suspend fun getProvID(prov: String): String {
-        return roomDB.dbFormDao().getProvID(prov)
-    }
-
-    suspend fun getProvName(idprov: String): String {
-        return roomDB.dbFormDao().getProvName(idprov)
-    }
-
-    suspend fun getDist(idprov: String): Array<String> {
-        return roomDB.dbFormDao().getDistArrayByID(idprov)
-    }
-
-    suspend fun getDistID(idprov: String, dist: String): String {
-        return roomDB.dbFormDao().getDistID(idprov, dist)
-    }
-
-    suspend fun getDistName(idprov: String, iddist: String): String {
-        return roomDB.dbFormDao().getDistName(idprov, iddist)
-    }
-
-    suspend fun getCorre(idprov: String, iddist: String): Array<String> {
-        return roomDB.dbFormDao().getCorreArrayByID(idprov, iddist)
-    }
-
-    suspend fun getCorreID(idprov: String, iddist: String, corre: String): String {
-        return roomDB.dbFormDao().getCorreID(idprov, iddist, corre)
-    }
-
-    suspend fun getCorreName(idprov: String, iddist: String, idcorre: String): String {
-        return roomDB.dbFormDao().getCorreName(idprov, iddist, idcorre)
-    }
-
-    suspend fun getLugarP(idprov: String, iddist: String, idcorre: String): Array<String> {
-        return roomDB.dbFormDao().getLugarPArrayByID(idprov, iddist, idcorre)
-    }
-
-    suspend fun getLPID(idprov: String, iddist: String, idcorre: String, lugar: String):
-            String {
-        return roomDB.dbFormDao().getLugarPID(idprov, iddist, idcorre, lugar)
-    }
-
-    suspend fun getLPName(idprov: String, iddist: String, idcorre: String, idlugar: String):
-            String {
-        return roomDB.dbFormDao().getLugarPName(idprov, iddist, idcorre, idlugar)
-    }
 }

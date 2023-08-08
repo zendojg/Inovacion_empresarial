@@ -20,7 +20,6 @@ import gob.pa.inovacion_empresarial.model.ModelMod
 class FragModuloSecc04: Fragment() {
     private lateinit var bindingmod4: ModuloSeccion04Binding
     private lateinit var ctx: Context
-    private var seecap = true
     private var venta1 = 0
     private var venta2 = 0
     private var venta3 = 0
@@ -38,7 +37,7 @@ class FragModuloSecc04: Fragment() {
     override fun onResume() {
         super.onResume()
         Mob.indiceFormulario = Mob.SEC4P23
-        if (seecap) fillOut()
+        if (Mob.seesecc4) fillOut()
         else onAction()
     }
 
@@ -205,7 +204,7 @@ class FragModuloSecc04: Fragment() {
             txtSecc04104.text = mod4?.v10porcent4?.toEditable() ?: blank
 
         }
-        seecap = false
+        Mob.seesecc4 = false
         onAction()
     }
 

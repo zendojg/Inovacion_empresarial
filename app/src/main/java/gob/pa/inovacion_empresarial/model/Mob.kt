@@ -103,7 +103,8 @@ object Mob {
     val arrMain: Array<Fragment> = arrayOf( //----Contenedor de los Fragment del Main
         MainFragmentLogin(),    //--00--c01
         MainFragmentSearch(),   //--01--c02
-        MainFragmentData()      //--02--c0c
+        MainFragmentData(),     //--02--c03
+        MainFragmentForms()     //--03--c04
     )
 
     val empArr: Array<Fragment> = emptyArray()
@@ -144,6 +145,32 @@ object Mob {
     var p56stat: Boolean? = null
     var seccON: Boolean? = null
 
+
+    var seecap01: Boolean = true
+    var seecap02o1: Boolean = true
+    var seecap02o2: Boolean = true
+    var seecap03: Boolean = true
+    var seecap04: Boolean = true
+    var seecap05o1: Boolean = true
+    var seecap05o2: Boolean = true
+    var seecap0601: Boolean = true
+    var seecap06o2: Boolean = true
+    var seecap06o3: Boolean = true
+    var seecap06o4: Boolean = true
+    var seecap07o1: Boolean = true
+    var seecap07o2: Boolean = true
+    var seecap07o3: Boolean = true
+    var seecap08o1: Boolean = true
+    var seecap08o2: Boolean = true
+    var seecap09o1: Boolean = true
+    var seecap09o2: Boolean = true
+    var seecap10: Boolean = true
+
+    var seesecc1: Boolean = true
+    var seesecc2: Boolean = true
+    var seesecc3: Boolean = true
+    var seesecc4: Boolean = true
+
     var mainWindow = 1
     var mainPrevWindow = 0
     var indiceFormulario = 0        //-----Indice de la encuesta dado desde el Menú
@@ -151,6 +178,8 @@ object Mob {
     var obsModulo: String? = ""     //-----Observaciones del Módulo
     var obsTittle = ""              //-----Muestra el título si es Encuesta o Módulo
     var version = "0.0"
+    var sendForm: Boolean = false
+    var inconsistencias: Int? = 0
 
 
     private var authInfo: ModelAuthTokenInfo? = ModelAuthTokenInfo(

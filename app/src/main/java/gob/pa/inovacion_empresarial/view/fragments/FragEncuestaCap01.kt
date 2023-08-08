@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import gob.pa.inovacion_empresarial.R
@@ -23,7 +24,6 @@ class FragEncuestaCap01 : Fragment() {
 
     private lateinit var bindingcap1: EncuestaCapitulo01Binding
     private lateinit var ctx: Context
-    private var seecap = true
     private val dvmCap1: DVModel by viewModels()
 
     private var arrayProv: Array<String> = emptyArray()
@@ -34,6 +34,10 @@ class FragEncuestaCap01 : Fragment() {
     private var iddist: String = ""
     private var idcorre: String = ""
     private var idlugarp: String = ""
+    private var prov: String = ""
+    private var dist: String = ""
+    private var corre: String = ""
+    private var lugarp: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -49,13 +53,15 @@ class FragEncuestaCap01 : Fragment() {
     override fun onResume() {
         super.onResume()
         Mob.indiceFormulario = Mob.CAP1P01
-        if (seecap) fillOut()
-        else onAction()
+        if (Mob.seecap01) fillOut()
+        else seeData()
     }
 
     private fun onAction() {
         val room = RoomView(dvmCap1, ctx)
         with (bindingcap1){
+
+
             txtCap11.onItemClickListener =
                 AdapterView.OnItemClickListener { prn, _, pos, _ ->
                     CoroutineScope(Dispatchers.IO).launch {
@@ -135,6 +141,7 @@ class FragEncuestaCap01 : Fragment() {
                                 idcorre,
                                 prn.getItemAtPosition(pos).toString())
                         activity?.runOnUiThread {
+                            println("-----$idlugarp")
                             txtCap14ID.text = idlugarp
                         }
                     }
@@ -158,17 +165,12 @@ class FragEncuestaCap01 : Fragment() {
         bindingcap1.txtCap13ID.text = idcorre
         bindingcap1.txtCap14ID.text = idlugarp
 
-        seecap = false
+        Mob.seecap01 = false
         seeData()
-        onAction()
     }
 
     private fun seeData() {
         val room = RoomView(dvmCap1, ctx)
-        var prov: String = ctx.getString(R.string.blank)
-        var dist: String = ctx.getString(R.string.blank)
-        var corre: String = ctx.getString(R.string.blank)
-        var lugarp: String = ctx.getString(R.string.blank)
         CoroutineScope(Dispatchers.IO).launch {
             if (arrayProv.isEmpty())
                 arrayProv = room.getProv()
@@ -181,8 +183,9 @@ class FragEncuestaCap01 : Fragment() {
                     if (idcorre.isNotEmpty()) {
                         corre = room.getCorreName(idprov, iddist, idcorre)
                         arrayLugarP = room.getLugarP(idprov, iddist, idcorre)
-                        if (idlugarp.isNotEmpty())
+                        if (idlugarp.isNotEmpty()) {
                             lugarp = room.getLPName(idprov, iddist, idcorre, idlugarp)
+                        }
                     }
                 }
             }
@@ -205,6 +208,7 @@ class FragEncuestaCap01 : Fragment() {
                 bindingcap1.txtCap14.setText(lugarp, false)
             }
         }
+        onAction()
     }
 
 

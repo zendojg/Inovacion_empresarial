@@ -25,7 +25,9 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="10dp">
 
                 <TextView
                     android:id="@+id/txvtitlepager"
@@ -46,9 +48,9 @@
                     android:layout_height="35dp"
                     android:layout_gravity="center|start"
                     android:layout_marginHorizontal="5dp"
+                    android:animateLayoutChanges="true"
                     android:background="?selectableItemBackground"
                     android:clickable="true"
-                    android:animateLayoutChanges="true"
                     android:contentDescription="@string/obs"
                     android:focusable="true"
                     android:padding="5dp"
@@ -64,11 +66,11 @@
                     android:layout_height="35dp"
                     android:layout_gravity="center|start"
                     android:layout_marginHorizontal="5dp"
+                    android:animateLayoutChanges="true"
                     android:background="?selectableItemBackground"
                     android:clickable="true"
                     android:contentDescription="@string/guardar"
                     android:focusable="true"
-                    android:animateLayoutChanges="true"
                     android:padding="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/btmenupager"
@@ -82,9 +84,9 @@
                     android:layout_height="35dp"
                     android:layout_gravity="center"
                     android:layout_marginHorizontal="5dp"
+                    android:animateLayoutChanges="true"
                     android:background="?selectableItemBackground"
                     android:clickable="true"
-                    android:animateLayoutChanges="true"
                     android:contentDescription="@string/menu"
                     android:focusable="true"
                     android:padding="4dp"
@@ -93,6 +95,8 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/img_home"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -147,9 +151,25 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txvsubtitlepager"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintVertical_bias="0.0" />
 
-        </androidx.viewpager2.widget.ViewPager2>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelinepager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <TextView
+            android:id="@+id/txtInfopager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/blank"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guidelinepager" />
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frameLayoutNav"
@@ -202,6 +222,7 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

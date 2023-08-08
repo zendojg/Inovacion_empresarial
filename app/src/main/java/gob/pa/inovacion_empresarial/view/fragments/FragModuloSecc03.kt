@@ -17,7 +17,6 @@ class FragModuloSecc03 : Fragment() {
 
     private lateinit var bindingmod3: ModuloSeccion03Binding
     private lateinit var ctx: Context
-    private var seecap = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -30,7 +29,7 @@ class FragModuloSecc03 : Fragment() {
     override fun onResume() {
         super.onResume()
         Mob.indiceFormulario = Mob.SEC3P22
-        if (seecap) fillOut()
+        if (Mob.seesecc3) fillOut()
         else onAction()
     }
 
@@ -158,7 +157,7 @@ class FragModuloSecc03 : Fragment() {
 
             txtSecc035.text = mod3?.v5txt?.toEditable() ?: blank
         }
-        seecap = false
+        Mob.seesecc3 = false
         onAction()
     }
 

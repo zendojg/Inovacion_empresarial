@@ -21,7 +21,6 @@ class FragEncuestaCap09o2 : Fragment() {
 
     private lateinit var bindingcap9o2: EncuestaCapitulo09Part2Binding
     private lateinit var ctx: Context
-    private var seecap = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -34,7 +33,7 @@ class FragEncuestaCap09o2 : Fragment() {
     override fun onResume() {
         super.onResume()
         Mob.indiceFormulario = Mob.CAP9P18
-        if (seecap) fillOut()
+        if (Mob.seecap09o2) fillOut()
         else onAction()
     }
 
@@ -144,7 +143,7 @@ class FragEncuestaCap09o2 : Fragment() {
             txtCap9652.text = cap9?.v65txt2?.toEditable() ?: blank
             txtCap9652Year.setText((cap9?.v65num2?.toEditable() ?: blank),false)
         }
-        seecap = false
+        Mob.seecap09o2 = false
         onAction()
     }
 

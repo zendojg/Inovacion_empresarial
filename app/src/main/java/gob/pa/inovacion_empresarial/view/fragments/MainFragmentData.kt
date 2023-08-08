@@ -14,7 +14,9 @@ import androidx.viewpager2.widget.ViewPager2
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.FragUserMainBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgAlertBinding
+import gob.pa.inovacion_empresarial.databinding.StyleMsgFormBinding
 import gob.pa.inovacion_empresarial.function.AppCache
+import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 
@@ -40,8 +42,7 @@ class MainFragmentData : Fragment() {
     }
 
     private fun fillOut() {
-        var rol = ""
-        rol = when (Mob.authData?.rol) {
+        val rol = when (Mob.authData?.rol) {
             "E" -> "Empadronador"
             "S" -> "Supervisor"
             else -> "Desconocido?"
@@ -61,9 +62,46 @@ class MainFragmentData : Fragment() {
         with(bindingUser) {
             btExitUser.setOnClickListener { logout() }
 
+            btrenewUser.setOnClickListener { renewData() }
             btbackUser.setOnClickListener {
                 val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
                 pager?.setCurrentItem(Mob.INIT01, true)
+            }
+        }
+    }
+
+    private fun renewData() {
+        val msgLogout = AlertDialog.Builder(ctx)
+        val bindSend: StyleMsgFormBinding =
+            DataBindingUtil.inflate(
+                LayoutInflater.from(ctx),
+                R.layout.style_msg_form, null, false
+            )
+        with(bindSend) {
+            lbtittlestyleF.text = getString(R.string.renewtittle)
+            txt2styleFly.visibility = View.GONE
+            txt1styleFly.visibility = View.GONE
+            txt0styleFly.visibility = View.VISIBLE
+
+            msgLogout.setView(view)
+            msgLogout.setView(bindSend.root)
+            aDialog = msgLogout.create()
+            aDialog?.show()
+
+            btEnd.text = getString(R.string.internalupdt)
+            btCancel.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
+            btEnd.icon = ContextCompat.getDrawable(ctx, R.drawable.img_lock_open)
+            btEnd.backgroundTintList =
+                ContextCompat.getColorStateList(ctx, R.color.dark_red)
+
+            btCancel.setOnClickListener {
+                hideKeyboard()
+                aDialog?.dismiss()
+            }
+            btEnd.setOnClickListener {
+                hideKeyboard()
+                aDialog?.dismiss()
+
             }
         }
     }
@@ -74,7 +112,8 @@ class MainFragmentData : Fragment() {
             DataBindingUtil.inflate(LayoutInflater.from(ctx),
                 R.layout.style_msg_alert, null, false)
         with (bindSend) {
-            btpositivo.text = getString(R.string.back)
+            msgtitle.text = getString(R.string.closeSesion)
+            btpositivo.text = getString(R.string.cancel)
             btnegativo.text = getString(R.string.logout)
             msg1.visibility = View.GONE
             msg2.visibility = View.GONE
@@ -84,7 +123,7 @@ class MainFragmentData : Fragment() {
             aDialog = msgLogout.create()
             aDialog?.show()
 
-            btpositivo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_back)
+            btpositivo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
             btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_logout)
 
             btpositivo.setOnClickListener { aDialog?.dismiss() }
@@ -92,6 +131,8 @@ class MainFragmentData : Fragment() {
                 aDialog?.dismiss()
                 Mob.authData = null
                 AppCache.loginCLEAR(ctx)
+                val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
+                pager?.setCurrentItem(Mob.LOGIN0, true)
             }
         }
     }

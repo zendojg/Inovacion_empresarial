@@ -18,7 +18,6 @@ class FragEncuestaCap09o1 : Fragment() {
 
     private lateinit var bindingcap9o1: EncuestaCapitulo09Part1Binding
     private lateinit var ctx: Context
-    private var seecap = true
     private var check60: String? = null
 
     override fun onCreateView(
@@ -32,7 +31,7 @@ class FragEncuestaCap09o1 : Fragment() {
     override fun onResume() {
         super.onResume()
         Mob.indiceFormulario = Mob.CAP9P17
-        if (seecap) fillOut()
+        if (Mob.seecap09o1) fillOut()
         else onAction()
     }
 
@@ -158,7 +157,7 @@ class FragEncuestaCap09o1 : Fragment() {
                 else -> rgroupCap9618.clearCheck()
             }
         }
-        seecap = false
+        Mob.seecap09o1 = false
         onAction()
     }
 

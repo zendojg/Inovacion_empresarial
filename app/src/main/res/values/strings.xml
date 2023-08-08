@@ -74,9 +74,23 @@
     <string name="informe">INFORME</string>
     <string name="informetxt">Datos del Formulario</string>
 
+    <string name="init">Iniciar</string>
+    <string name="back">Regresar</string>
+    <string name="logout">Cerrar Sesión</string>
+    <string name="menu">Menu</string>
+    <string name="leftBranch">}</string>
+    <string name="newForm">Finalizar Empadronamiento</string>
+    <string name="spam">Xxxxxxxxx Xxxxxxxx</string>
+    <string name="closeSesion">¿Desea cerrar la sesión actual?</string>
+    <string name="claveaccess"><b>Clave de acceso:</b></string>
 
     <string name="emailCharacters">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz._@0123456789</string>
     <string-array name="emptyArr" />
+
+    <string-array name="arr_typeForms">
+        <item><b>Formularios guardados localmente</b></item>
+        <item>Formularios en el servidor</item>
+    </string-array>
 
     <string-array name="arr_condiciones">
         <item>Completa</item>
@@ -645,12 +659,11 @@
     <string name="lb10m3">3. Servicios de consultoria de TIC?</string>
     <string name="lb10m4">4. Otros gastos TIC <font color="#705727">(alquiler de equipo TIC, personal de la empresa dedicada a la producción de software para uso propio no para la venta)</font>?</string>
     <string name="helpdirdesc">Anote la dirección en el siguiente orden: Mall o centro comercial, avenida, calle, edificio o casa, piso</string>
-    <string name="init">Iniciar</string>
-    <string name="back">Regresar</string>
-    <string name="logout">Cerrar Sesión</string>
-    <string name="menu">Menu</string>
-    <string name="leftBranch">}</string>
-    <string name="newForm">Finalizar Empadronamiento</string>
-    <string name="spam">Xxxxxxxxx Xxxxxxxx</string>
+    <string name="renewtittle">Renovación de datos internos</string>
+    <string name="internalupdt">Actualizar datos internos</string>
+    <string name="rucex">000000-000000000000-000000</string>
+    <string name="closeForm">Cerrar encuesta</string>
+    <string name="aswernCloseApp">¿Desea salir de la encuesta?</string>
+    <string name="asnwernCloseApp2">Los datos no guardados se perderan...</string>
 
 </resources>

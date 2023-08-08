@@ -58,6 +58,7 @@ class MainFragmentSearch : Fragment() {
 
 
     private fun onAction() {
+        val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
         fragSearch.txtNControlSearch.setOnEditorActionListener { _, actionID, _ ->
             if (actionID == EditorInfo.IME_ACTION_DONE) {
                 controlTxt()
@@ -70,8 +71,9 @@ class MainFragmentSearch : Fragment() {
         fragSearch.btSearch.setOnClickListener { controlTxt() }
         fragSearch.btcancelSearch.setOnClickListener { viewFind(true) }
         fragSearch.btdataSearch.setOnClickListener {
-            val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
             pager?.setCurrentItem(Mob.PAGE02, true) }
+        fragSearch.btformSearch.setOnClickListener {
+            pager?.setCurrentItem(Mob.PAGE03, true) }
     }
 
     private fun controlTxt() {
@@ -126,7 +128,7 @@ class MainFragmentSearch : Fragment() {
                         Mob.obsEncuesta = resp.body?.obs ?: ""
                         Mob.obsModulo = resp.body?.capMod?.observaciones ?: ""
 
-                        println("--------${Mob.cap6}\\n---------${Mob.cap7}")
+                        println("--------\\n---------${Mob.condicion}")
                         viewFind(false)
                     }
                     Mob.CODE401 -> {
@@ -177,7 +179,7 @@ class MainFragmentSearch : Fragment() {
                 fragSearch.txtdirSearch.text = cap2?.v08dirtxt?.toEditable() ?: blank
             }
         } else {
-            fragSearch.txtNControlSearch.requestFocus()
+            //fragSearch.txtNControlSearch.requestFocus()
             fragSearch.txtLocalSearch.text?.clear()
             fragSearch.txtrazonSearch.text?.clear()
             fragSearch.txttel1Search.text?.clear()

@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
             Mob.PAGE02, Mob.PAGE03, Mob.PAGE04 -> {
                 pagerMain.setCurrentItem(Mob.INIT01,false) }
             else -> {
-                btpositivo.text = getString(R.string.proceed)
+                btpositivo.text = getString(R.string.cancel)
                 btnegativo.text = getString(R.string.close)
                 msgT.text = getString(R.string.closeApp)
                 msg1.visibility = View.GONE
@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity() {
 
                 aDialog = dialogBack.create()
                 aDialog?.show()
-                btpositivo.icon = ContextCompat.getDrawable(this,R.drawable.img_back)
+                btpositivo.icon = ContextCompat.getDrawable(this,R.drawable.img_backs)
                 btnegativo.icon = ContextCompat.getDrawable(this,R.drawable.img_exit_app)
 
                 btpositivo.setOnClickListener {

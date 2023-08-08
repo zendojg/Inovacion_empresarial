@@ -15,7 +15,6 @@ class FragModuloSecc02 : Fragment() {
 
     private lateinit var bindingmod2: ModuloSeccion02Binding
     private lateinit var ctx: Context
-    private var seecap = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -28,7 +27,7 @@ class FragModuloSecc02 : Fragment() {
     override fun onResume() {
         super.onResume()
         Mob.indiceFormulario = Mob.SEC2P21
-        if (seecap) fillOut()
+        if (Mob.seesecc2) fillOut()
         else onAction()
     }
 
@@ -48,7 +47,7 @@ class FragModuloSecc02 : Fragment() {
             checkSecc234.isChecked = mod2?.v3check4 == true
 
         }
-        seecap = false
+        Mob.seesecc2 = false
         onAction()
     }
 

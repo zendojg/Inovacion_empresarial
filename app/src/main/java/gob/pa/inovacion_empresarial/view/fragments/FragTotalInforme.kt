@@ -22,13 +22,14 @@ import com.google.gson.JsonParseException
 import com.google.gson.reflect.TypeToken
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.ModuloTotalInfoBinding
-import gob.pa.inovacion_empresarial.databinding.StyleFormBinding
+import gob.pa.inovacion_empresarial.databinding.StyleMsgFormBinding
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelForm
 import gob.pa.inovacion_empresarial.model.ModelResponse
+import gob.pa.inovacion_empresarial.view.FormActivity
 import gob.pa.inovacion_empresarial.view.MainActivity
 import kotlinx.coroutines.launch
 import java.lang.reflect.Type
@@ -71,6 +72,17 @@ class FragTotalInforme : Fragment() {
 
     private fun onAction() {
         with(bindinginfo) {
+
+            if (Mob.authData?.rol == "E") {
+                btSendObs.isEnabled = true
+                btSaveObs.isEnabled = true
+                btEnd.isEnabled = true
+            } else {
+                btSendObs.isEnabled = false
+                btSaveObs.isEnabled = false
+                btEnd.isEnabled = false
+            }
+
             if (lbcondicionID.text.isNullOrEmpty()) lbcondicionID.text = condID
 
             val idCondInt = try { condID.toInt() -1 }
@@ -86,7 +98,7 @@ class FragTotalInforme : Fragment() {
                         txtespecifiqueCondicionly.visibility = View.VISIBLE
                     contains(Mob.arrCondicion[Mob.CONDICION08]) ->
                         txtespecifiqueCondicionly.visibility = View.VISIBLE
-                    else -> txtespecifiqueCondicionly.visibility = View.GONE
+                    else -> txtespecifiqueCondicionly.visibility = View.INVISIBLE
                 }
             }
             val condicion = ArrayAdapter(ctx, R.layout.style_box2, Mob.arrCondicion)
@@ -99,7 +111,7 @@ class FragTotalInforme : Fragment() {
                 when (pos) {
                     Mob.CONDICION02, Mob.CONDICION04, Mob.CONDICION08 ->
                         txtespecifiqueCondicionly.visibility = View.VISIBLE
-                    else -> txtespecifiqueCondicionly.visibility = View.GONE
+                    else -> txtespecifiqueCondicionly.visibility = View.INVISIBLE
                 }
             }
 
@@ -107,12 +119,18 @@ class FragTotalInforme : Fragment() {
                 //----------------------------------- ARMAR condicionEmpadronamiento obj
                 senFormulario(CreateForm().create())
             }
+            btEnd.setOnClickListener { endForm() }
 
         }
     }
 
     private fun senFormulario(form: ModelForm) {
+        val screen = AlertDialog.Builder(ctx)
+        val screenBlack: AlertDialog = screen.create()
+        screenBlack.setCancelable(false)
+        screenBlack.show()
         lifecycleScope.launch {
+            bindinginfo.progressBar.visibility = View.VISIBLE
             val resp = dvmInforme.sendForm(form)
             with(resp.code) {
                 when {
@@ -128,9 +146,12 @@ class FragTotalInforme : Fragment() {
                     }
                     contains("200")
                     -> {
-                        val respGson: String = try { Gson().toJson(resp.body) as String }
-                        catch (e: JsonParseException) { "" }
-                        carga(respGson)
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            val respGson: String = try {
+                                Gson().toJson(resp.body) as String
+                            } catch (e: JsonParseException) { "" }
+                            carga(respGson)
+                        }, (Mob.TIME800MS))
                     }
                     contains("400") -> {
 
@@ -152,7 +173,10 @@ class FragTotalInforme : Fragment() {
                     }
                 }
             }
-
+            Handler(Looper.getMainLooper()).postDelayed({
+                screenBlack.dismiss()
+                bindinginfo.progressBar.visibility = View.INVISIBLE
+            }, (Mob.TIME800MS))
 
 
         }
@@ -165,9 +189,9 @@ class FragTotalInforme : Fragment() {
 
     private fun carga(data: String) {
         val msgSend = AlertDialog.Builder(ctx)
-        val bindSend: StyleFormBinding =
+        val bindSend: StyleMsgFormBinding =
             DataBindingUtil.inflate(LayoutInflater.from(context),
-                R.layout.style_form, null, false)
+                R.layout.style_msg_form, null, false)
 
 
         val type: Type = object : TypeToken<ModelResponse?>() {}.type
@@ -181,7 +205,7 @@ class FragTotalInforme : Fragment() {
             objResponse?.inconsistencias?.joinToString("\n\n")?.toEditable() }
         catch (e: java.lang.RuntimeException) { "".toEditable() }
 
-
+        Mob.inconsistencias = objResponse?.inconsistencias?.size ?: 0
         msgSend.setView(bindSend.root)
         val dialog: AlertDialog = msgSend.create()
         dialog.setCancelable(false)
@@ -192,27 +216,38 @@ class FragTotalInforme : Fragment() {
 
         bindSend.btEnd.setOnClickListener {
             dialog.dismiss()
-            bindinginfo.progressBar.visibility = View.VISIBLE
-            val screen = AlertDialog.Builder(ctx)
-            val screenBlack: AlertDialog = screen.create()
-            screenBlack.setCancelable(false)
-            screenBlack.show()
-            Handler(Looper.getMainLooper()).postDelayed({
-                val act = activity
-                startActivity(Intent(ctx, MainActivity::class.java))
-                Handler(Looper.getMainLooper()).postDelayed({
-                    act?.finish()
-                    screenBlack.dismiss()
-                }, (Mob.TIME800MS))
-                bindinginfo.progressBar.visibility = View.INVISIBLE
-            }, (Mob.TIME500MS))
+            endForm()
         }
 
 
         bindSend.btCancel.setOnClickListener {
             dialog.dismiss()
+            bindinginfo.btEnd.visibility = View.VISIBLE
         }
 
+    }
+
+    private fun endForm() {
+        bindinginfo.progressBar.visibility = View.VISIBLE
+        val screen = AlertDialog.Builder(ctx)
+        val screenBlack: AlertDialog = screen.create()
+        screenBlack.setCancelable(false)
+        screenBlack.show()
+
+        val form = activity
+        if (form == FormActivity()) {
+            val act = form as FormActivity
+            act.seeCaps(null)
+        }
+        Handler(Looper.getMainLooper()).postDelayed({
+            startActivity(Intent(ctx, MainActivity::class.java))
+            CreateForm().resetForm()
+            Handler(Looper.getMainLooper()).postDelayed({
+                form?.finish()
+                screenBlack.dismiss()
+            }, (Mob.TIME800MS))
+            bindinginfo.progressBar.visibility = View.INVISIBLE
+        }, (Mob.TIME800MS))
     }
 
 }

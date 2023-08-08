@@ -18,7 +18,6 @@ class FragEncuestaCap07o2 : Fragment() {
 
     private lateinit var bindingcap7o2: EncuestaCapitulo07Part2Binding
     private lateinit var ctx: Context
-    private var seecap = true
 
     private var indice01 = 0
     private var indice02 = 0
@@ -47,7 +46,7 @@ class FragEncuestaCap07o2 : Fragment() {
     override fun onResume() {
         super.onResume()
         Mob.indiceFormulario = Mob.CAP7P13
-        if (seecap) fillOut()
+        if (Mob.seecap07o2) fillOut()
         else onAction()
     }
 
@@ -317,7 +316,7 @@ class FragEncuestaCap07o2 : Fragment() {
         } catch (e: java.lang.NumberFormatException) {
             0
         }
-        seecap = false
+        Mob.seecap07o2 = false
         onAction()
     }
 

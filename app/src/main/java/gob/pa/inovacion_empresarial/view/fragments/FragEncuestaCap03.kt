@@ -19,7 +19,6 @@ class FragEncuestaCap03 : Fragment() {
 
     private lateinit var bindingcap3: EncuestaCapitulo03Binding
     private lateinit var ctx: Context
-    private var seecap = true
     private var check23: String? = ""
     private var check25: String? = ""
 
@@ -34,7 +33,7 @@ class FragEncuestaCap03 : Fragment() {
     override fun onResume() {
         super.onResume()
         Mob.indiceFormulario = Mob.CAP3P04
-        if (seecap) fillOut()
+        if (Mob.seecap03) fillOut()
         else onAction()
 
 
@@ -113,7 +112,7 @@ class FragEncuestaCap03 : Fragment() {
             txtCap326.text = cap3?.v26nametxt?.toEditable() ?: blank
             txtCap327.text = cap3?.v27countrytxt?.toEditable() ?: blank
         }
-        seecap = false
+        Mob.seecap03 = false
         onAction()
     }
 

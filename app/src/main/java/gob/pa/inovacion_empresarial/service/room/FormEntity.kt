@@ -1,27 +1,35 @@
 package gob.pa.inovacion_empresarial.service.room
 
-import androidx.room.*
+
+import androidx.room.ColumnInfo
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
 
 //------------------------------------------------------------------------------ Formulario Completo
 @Entity(tableName = "DBform_table",primaryKeys = [
-    "ruc",
-    "ncontrol"])
+    "ncontrol",
+    "idUser"])
 data class DBform (
-    @ColumnInfo(name = "ncontrol")                  val saveNControl: String,
-    @ColumnInfo(name = "ruc")                       val saveRUC: String,
-    @ColumnInfo(name = "nombreLocal")               var saveName: String,
-    @ColumnInfo(name = "idUser")                    var saveId: String?,
-    @ColumnInfo(name = "condicion")                 val saveCond: String?,
-    @ColumnInfo(name = "inconsistencia")            val saveIncon: Boolean?,
-    @ColumnInfo(name = "fecha")                     val saveDate: String?,
-    @ColumnInfo(name = "envio")                     val saveSend: String?,
-    @ColumnInfo(name = "listo")                     val readySend: Boolean?,
+    @ColumnInfo(name = "ncontrol")                  val idNControl: String,
+    @ColumnInfo(name = "idUser")                    var idUser: String,
+    @ColumnInfo(name = "ruc")                       val ruc: String,
+    @ColumnInfo(name = "nombreLocal")               var localName: String?,
+    @ColumnInfo(name = "condicion")                 val condition: String?,
+    @ColumnInfo(name = "fecheDelServidor")          val serverDate: String?,
+    @ColumnInfo(name = "fechaDeGuardado")           val saveDate: String?,
+    @ColumnInfo(name = "inconsistencia")            val saveIncon: String?,
+    @ColumnInfo(name = "ultimaPagina")              val lastpageForm: String?,
     @ColumnInfo(name = "formulario")                var saveForm: String?
 )
 
-
+@Entity(tableName = "DBviews_table",primaryKeys = [
+    "ncontrol",
+    "idUser"])
+data class DBviews (
+    @ColumnInfo(name = "ncontrol")      var idNControl: String,
+    @ColumnInfo(name = "idUser")        var idUser: String
+)
 
 @Entity(tableName = "DBprovincia_table",primaryKeys = [
     "ProvinciaId"])

@@ -17,7 +17,6 @@ class FragEncuestaCap02o1 : Fragment() {
 
     private lateinit var bindingcap2o1: EncuestaCapitulo021DatosDeLaEmpresaBinding
     private lateinit var ctx: Context
-    private var seecap = true
     private var frameview = false
     //private val dvmCap2o1: DVModel by viewModels()
 
@@ -34,7 +33,7 @@ class FragEncuestaCap02o1 : Fragment() {
     override fun onResume() {
         super.onResume()
         Mob.indiceFormulario = Mob.CAP2P02
-        if (seecap) fillOut()
+        if (Mob.seecap02o1) fillOut()
         else onAction()
     }
 
@@ -78,7 +77,7 @@ class FragEncuestaCap02o1 : Fragment() {
 
             frameview = !txtCap292.text.isNullOrBlank()
         }
-        seecap = false
+        Mob.seecap02o1 = false
         onAction()
     }
 

@@ -24,8 +24,9 @@ abstract class FormDB: RoomDatabase() {
             }
 
         fun buildDB(context: Context) =
-            Room.databaseBuilder(context.applicationContext, FormDB::class.java, "DB_testx.db")
+            Room.databaseBuilder(context.applicationContext, FormDB::class.java, "DB_testx3.db")
                 .fallbackToDestructiveMigration() // Borra DB al actualizar version
+                //.addMigrations()
                 .build()
     }
 

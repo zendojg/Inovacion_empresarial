@@ -21,6 +21,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
             android:text="Resultado de la Encuesta"
+            android:layout_marginTop="10dp"
             android:gravity="center"
             android:textSize="@dimen/text18"
             android:textStyle="bold"
@@ -28,6 +29,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txt0styleFly"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginHorizontal="3dp"
+            android:hint="@string/claveaccess"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:startIconContentDescription="Contraseña"
+            app:startIconDrawable="@drawable/img_vpn_key"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lbtittlestyleF">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txt0styleF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:paddingTop="30dp"
+                android:paddingBottom="10dp"
+                android:fontFamily="sans-serif-condensed"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="000000" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txt1styleFly"
@@ -38,7 +67,7 @@
             android:hint="@string/ncontrolN"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lbtittlestyleF">
+            app:layout_constraintTop_toBottomOf="@+id/txt0styleFly">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txt1styleF"
                 android:layout_width="match_parent"

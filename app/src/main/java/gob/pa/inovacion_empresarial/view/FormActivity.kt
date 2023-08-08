@@ -14,25 +14,35 @@ import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.button.MaterialButton
+import com.google.gson.Gson
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.adapters.AdapterFormPager
 import gob.pa.inovacion_empresarial.databinding.ActivityFormBinding
+import gob.pa.inovacion_empresarial.function.Functions
+import gob.pa.inovacion_empresarial.function.Functions.aString
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
+import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
+import gob.pa.inovacion_empresarial.service.room.DBform
+import gob.pa.inovacion_empresarial.service.room.RoomView
 import gob.pa.inovacion_empresarial.view.fragments.*
+import kotlinx.coroutines.launch
 
 
 class FormActivity : AppCompatActivity() {
 
     private lateinit var form: ActivityFormBinding
     private var dialog: AlertDialog? = null
+    private val dvmForm: DVModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,48 +71,53 @@ class FormActivity : AppCompatActivity() {
     }
 
     private fun onAction() {
-        if (Mob.indiceFormulario != 0) {
-            form.viewpager.setCurrentItem(Mob.indiceFormulario, false)
-            spinPager(Mob.indiceFormulario)
-        }
-        form.btnextpager.setOnClickListener {
-            if (form.viewpager.currentItem == Mob.OBSP24) {
-                form.viewpager.setCurrentItem(0,false)
-            } else seeCaps(true)
-        }
-        form.btbackpager.setOnClickListener {
-            seeCaps(false)
-        }
-        form.btmenupager.setOnClickListener {
-            form.viewpager.setCurrentItem(0,false)
-        }
-
-        form.viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-                if (position == 0) {
-                    form.toolbarpager.visibility = View.GONE
-                    form.txvtitlepager2.visibility = View.GONE
-                    form.txvsubtitlepager.visibility = View.GONE
-                    form.frameLayoutNav.visibility = View.GONE
-                } else {
-                    form.toolbarpager.visibility = View.VISIBLE
-                    form.txvtitlepager2.visibility = View.VISIBLE
-                    form.txvsubtitlepager.visibility = View.VISIBLE
-                    form.frameLayoutNav.visibility = View.VISIBLE
-                }
-                spinPager(position)
-                //(viewpager.get(0) as RecyclerView).findViewHolderForAdapterPosition(position)
-                //(viewpager[0] as RecyclerView).layoutManager?.findViewByPosition(position)
+        with (form) {
+            if (Mob.authData?.rol == "E") {
+                btsavepager.visibility = View.VISIBLE
+                btsavepager.isEnabled = true
+            } else {
+                btsavepager.visibility = View.INVISIBLE
+                btsavepager.isEnabled = false
             }
-        })
 
-        form.btobspager.setOnClickListener {
-            observation(form.viewpager.currentItem)
-        }
-        form.btsavepager.setOnClickListener {
-            Toast.makeText(applicationContext, "Formulario guardado", Toast.LENGTH_SHORT).show()
-            seeCaps(null)
+            if (Mob.indiceFormulario != 0) {
+                viewpager.setCurrentItem(Mob.indiceFormulario, false)
+                spinPager(Mob.indiceFormulario)
+            }
+            btnextpager.setOnClickListener {
+                if (viewpager.currentItem == Mob.OBSP24) {
+                    viewpager.setCurrentItem(0, false)
+                } else seeCaps(true)
+            }
+            btbackpager.setOnClickListener {
+                seeCaps(false)
+            }
+            btmenupager.setOnClickListener {
+                viewpager.setCurrentItem(0, false)
+            }
+
+            viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                    if (position == 0) {
+                        toolbarpager.visibility = View.GONE
+                        txvtitlepager2.visibility = View.GONE
+                        txvsubtitlepager.visibility = View.GONE
+                        frameLayoutNav.visibility = View.GONE
+                    } else {
+                        toolbarpager.visibility = View.VISIBLE
+                        txvtitlepager2.visibility = View.VISIBLE
+                        txvsubtitlepager.visibility = View.VISIBLE
+                        frameLayoutNav.visibility = View.VISIBLE
+                    }
+                    spinPager(position)
+                    //(viewpager.get(0) as RecyclerView).findViewHolderForAdapterPosition(position)
+                    //(viewpager[0] as RecyclerView).layoutManager?.findViewByPosition(position)
+                }
+            })
+
+            btobspager.setOnClickListener { observation(form.viewpager.currentItem) }
+            btsavepager.setOnClickListener { seeCaps(null) }
         }
     }
 
@@ -117,16 +132,19 @@ class FormActivity : AppCompatActivity() {
             val msg2: TextView = msg.findViewById(R.id.msg2)
 
             btpositivo.text = getString(R.string.cancel)
-            btnegativo.text = getString(R.string.cerrarAp)
-            msgT.text = getString(R.string.closeApp)
-            msg1.visibility = View.GONE
+            btnegativo.text = getString(R.string.closeForm)
+            msgT.text = getString(R.string.aswernCloseApp)
+
+
+            if (Mob.authData?.rol == "E") { msg1.text = getString(R.string.asnwernCloseApp2) }
+            else { msg1.visibility = View.GONE }
             msg2.visibility = View.GONE
             mesagePregunta.setView(msg)
 
             val dialog: AlertDialog = mesagePregunta.create()
             dialog.show()
-            btpositivo.icon = ContextCompat.getDrawable(this, R.drawable.img_back)
-            btnegativo.icon = ContextCompat.getDrawable(this, R.drawable.img_exit_app)
+            btpositivo.icon = ContextCompat.getDrawable(this, R.drawable.img_backs)
+            btnegativo.icon = ContextCompat.getDrawable(this, R.drawable.img_deleteview)
 
             btpositivo.setOnClickListener {
                 dialog.dismiss()
@@ -134,6 +152,7 @@ class FormActivity : AppCompatActivity() {
             btnegativo.setOnClickListener {
                 dialog.dismiss()
                 startActivity(Intent(this, MainActivity::class.java))
+                CreateForm().resetForm()
                 Handler(Looper.getMainLooper()).postDelayed({
                     finish()
                 }, (Mob.TIME500MS))
@@ -153,8 +172,8 @@ class FormActivity : AppCompatActivity() {
         val color: Int
 
         lbobs.text = Mob.obsTittle
-        txtobs.imeOptions = EditorInfo.IME_ACTION_DONE;
-        txtobs.setRawInputType(InputType.TYPE_CLASS_TEXT);
+        txtobs.imeOptions = EditorInfo.IME_ACTION_DONE
+        txtobs.setRawInputType(InputType.TYPE_CLASS_TEXT)
         if (position < Mob.SEC1P20) {
             color = ContextCompat.getColor(this, R.color.holo_blue_dark)
             txtobs.text = Mob.obsEncuesta
@@ -189,78 +208,32 @@ class FormActivity : AppCompatActivity() {
 
 
 
-    private fun seeCaps(move: Boolean?) {
-        val fm: FragmentManager = supportFragmentManager
-        when (val page = fm.fragments.find { it.isVisible }) {
-            is FragEncuestaCap01 -> {
-                page.savedCap()
-            }
-            is FragEncuestaCap02o1 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap02o2 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap03 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap04 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap05o1 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap05o2 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap06o1 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap06o2 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap06o3 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap06o4 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap07o1 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap07o2 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap07o3 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap08 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap08end -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap09o1 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap09o2 -> {
-                page.saveCap()
-            }
-            is FragEncuestaCap10 -> {
-                page.saveCap()
-            }
-            is FragModuloSecc01 -> {
-                page.saveCap()
-            }
-            is FragModuloSecc02 -> {
-                page.saveCap()
-            }
-            is FragModuloSecc03 -> {
-                page.saveCap()
-            }
-            is FragModuloSecc04 -> {
-                page.saveCap()
-            }
+    fun seeCaps(move: Boolean?) {
+        when (val page = supportFragmentManager.fragments.find { it.isVisible }) {
+            is FragEncuestaCap01 ->  page.savedCap()
+            is FragEncuestaCap02o1 ->  page.saveCap()
+            is FragEncuestaCap02o2 -> page.saveCap()
+            is FragEncuestaCap03 -> page.saveCap()
+            is FragEncuestaCap04 -> page.saveCap()
+            is FragEncuestaCap05o1 -> page.saveCap()
+            is FragEncuestaCap05o2 -> page.saveCap()
+            is FragEncuestaCap06o1 -> page.saveCap()
+            is FragEncuestaCap06o2 -> page.saveCap()
+            is FragEncuestaCap06o3 -> page.saveCap()
+            is FragEncuestaCap06o4 -> page.saveCap()
+            is FragEncuestaCap07o1 -> page.saveCap()
+            is FragEncuestaCap07o2 -> page.saveCap()
+            is FragEncuestaCap07o3 -> page.saveCap()
+            is FragEncuestaCap08 -> page.saveCap()
+            is FragEncuestaCap08end -> page.saveCap()
+            is FragEncuestaCap09o1 -> page.saveCap()
+            is FragEncuestaCap09o2 -> page.saveCap()
+            is FragEncuestaCap10 -> page.saveCap()
+            is FragModuloSecc01 -> page.saveCap()
+            is FragModuloSecc02 -> page.saveCap()
+            is FragModuloSecc03 -> page.saveCap()
+            is FragModuloSecc04 -> page.saveCap()
+
         }
         if (move == true) {
             if (form.viewpager.currentItem == Mob.CAP8P15 && Mob.p56stat == false) {
@@ -270,7 +243,7 @@ class FormActivity : AppCompatActivity() {
                     form.viewpager.setCurrentItem(form.viewpager.currentItem + 4, false)
                 } else
                     form.viewpager.setCurrentItem(form.viewpager.currentItem + 1, false)
-        } else if (move == false)
+        } else if (move == false) {
             if (form.viewpager.currentItem == Mob.CAP9P17 && Mob.p56stat == false) {
                 form.viewpager.setCurrentItem(form.viewpager.currentItem - 2, false)
             } else
@@ -278,7 +251,20 @@ class FormActivity : AppCompatActivity() {
                     form.viewpager.setCurrentItem(form.viewpager.currentItem - 4, false)
                 } else
                     form.viewpager.setCurrentItem(form.viewpager.currentItem - 1, false)
-
+        } else if (move == null) {
+            lifecycleScope.launch {
+                val info = RoomView(dvmForm, this@FormActivity).saveForm(CreateForm().createSaved())
+                println("----------$info")
+            }
+            val color = if (form.viewpager.currentItem < Mob.SEC1P20)
+                ContextCompat.getColor(this, R.color.holo_blue_dark)
+            else ContextCompat.getColor(this, R.color.cream_darl)
+            val alert = Functions.msgBallom(
+                "Formulario guardado", Mob.WIDTH160DP, this, color
+            )
+            alert.showAlignBottom(form.txtInfopager)
+            alert.dismissWithDelay(Mob.TIMELONG2SEG)
+        }
     }
 
 
@@ -337,6 +323,7 @@ class FormActivity : AppCompatActivity() {
         }
         encuestaTittle(position)
     }
+
     private fun encuestaTittle(position: Int) {
         with(form){
             when (position) {

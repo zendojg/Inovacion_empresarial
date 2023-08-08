@@ -1,6 +1,13 @@
 package gob.pa.inovacion_empresarial.view.fragments
 
+import androidx.lifecycle.lifecycleScope
+import com.google.gson.Gson
+import gob.pa.inovacion_empresarial.function.Functions
+import gob.pa.inovacion_empresarial.function.Functions.aString
 import gob.pa.inovacion_empresarial.model.*
+import gob.pa.inovacion_empresarial.service.room.DBform
+import gob.pa.inovacion_empresarial.service.room.RoomView
+import kotlinx.coroutines.launch
 
 class CreateForm {
     fun create(): ModelForm {
@@ -32,8 +39,27 @@ class CreateForm {
             )
         }
     }
+    fun createSaved(): DBform {
+        val form = CreateForm().create()
+        val formString = Gson().toJson(form)
+
+        return DBform(
+            idNControl = form.ncontrol?.toString() ?: "0",
+            idUser = Mob.authData?.user ?: "E_recovery",
+            ruc = form.cap2?.v07ructxt ?: "0-0-0",
+            localName = form.cap2?.v05nameLtxt,
+            condition = form.cond,
+            serverDate = form.dateMod,
+            saveDate = Functions.myDate().aString(Mob.DATEFORMAT),
+            saveIncon = Mob.inconsistencias.toString(),
+            lastpageForm = Mob.indiceFormulario.toString(),
+            saveForm = formString
+        )
+    }
+
 
     //fun rechargeCap1() = Mob.formComp?.cap1
+    //fun rechargeCap2() = Mob.formComp?.cap2
 
     fun resetForm() {
        with (Mob) {
@@ -48,6 +74,32 @@ class CreateForm {
             obsTittle = ""
 
             //--  FORMULARIO
+           sendForm = false
+           seecap01 = true
+           seecap02o1 = true
+           seecap02o2 = true
+           seecap03 = true
+           seecap04 = true
+           seecap05o1 = true
+           seecap05o2 = true
+           seecap0601 = true
+           seecap06o2 = true
+           seecap06o3 = true
+           seecap06o4 = true
+           seecap07o1 = true
+           seecap07o2 = true
+           seecap07o3 = true
+           seecap08o1 = true
+           seecap08o2 = true
+           seecap09o1 = true
+           seecap09o2 = true
+           seecap10 = true
+
+           seesecc1 = true
+           seesecc2 = true
+           seesecc3 = true
+           seesecc4 = true
+
             cap1 = null
             cap2 = null
             cap3 = null

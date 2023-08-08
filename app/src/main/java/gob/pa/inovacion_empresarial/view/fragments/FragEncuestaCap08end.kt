@@ -19,7 +19,6 @@ class FragEncuestaCap08end : Fragment() {
 
     private lateinit var bindingcap8o2: EncuestaCapitulo08CoclusionBinding
     private lateinit var ctx: Context
-    private var seecap = true
 
     private var indice1a = 0
     private var indice1b = 0
@@ -50,7 +49,7 @@ class FragEncuestaCap08end : Fragment() {
         super.onResume()
 
         Mob.indiceFormulario = Mob.CAP8P16
-        if (seecap) fillOut()
+        if (Mob.seecap08o2) fillOut()
         else onAction()
     }
 
@@ -214,7 +213,7 @@ class FragEncuestaCap08end : Fragment() {
 
         bindingcap8o2.txtCap8584DOtra.text = cap8?.v58desc4d?.toEditable() ?: "".toEditable()
 
-        seecap = false
+        Mob.seecap08o2 = false
         onAction()
     }
 

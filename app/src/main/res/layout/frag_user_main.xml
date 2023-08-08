@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:animateLayoutChanges="true"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="Rol de Usuario"
+                    android:text=":Rol de Usuario:"
                     android:textColor="@color/blue_dark"
                     android:textSize="22sp"
                     android:textStyle="bold"
@@ -106,7 +106,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_exit_app"
+                    app:srcCompat="@drawable/img_logout"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -114,6 +114,16 @@
         </androidx.appcompat.widget.Toolbar>
 
 
+        <ImageView
+            android:id="@+id/imgCITYsearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="CITY"
+            android:scaleType="fitEnd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/foreground_city" />
 
         <TextView
             android:id="@+id/lbnamelbUser"
@@ -284,21 +294,11 @@
             android:layout_marginTop="10dp"
             android:animateLayoutChanges="true"
             android:fontFamily="sans-serif-condensed"
-            android:text="00"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/lbsendFormUser"
-            app:layout_constraintTop_toBottomOf="@+id/lbviewFormUser" />
+            app:layout_constraintTop_toBottomOf="@+id/lbviewFormUser"
+            tools:text="00" />
 
-        <ImageView
-            android:id="@+id/imgCITYsearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="CITY"
-            android:scaleType="fitEnd"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/foreground_city" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btSearch"
