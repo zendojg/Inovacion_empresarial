@@ -94,10 +94,10 @@
                     android:inputType="number"
                     android:lines="1"
                     android:longClickable="false"
-                    android:maxLength="6"
+                    android:maxLength="5"
                     android:maxLines="1"
                     android:singleLine="true"
-                    android:textSize="@dimen/text20"
+                    android:textSize="22sp"
                     tools:text="0000000000000" />
             </com.google.android.material.textfield.TextInputLayout>
 

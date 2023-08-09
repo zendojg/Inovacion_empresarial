@@ -665,5 +665,6 @@
     <string name="closeForm">Cerrar encuesta</string>
     <string name="aswernCloseApp">¿Desea salir de la encuesta?</string>
     <string name="asnwernCloseApp2">Los datos no guardados se perderan...</string>
+    <string name="infobt">INFORME y Observaciones</string>
 
 </resources>

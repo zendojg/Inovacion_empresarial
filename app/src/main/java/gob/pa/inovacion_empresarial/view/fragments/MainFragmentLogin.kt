@@ -28,6 +28,7 @@ import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelLog
 import kotlinx.coroutines.launch
+import java.text.DecimalFormat
 
 class MainFragmentLogin: Fragment() {
 
@@ -51,6 +52,12 @@ class MainFragmentLogin: Fragment() {
         if (pager?.currentItem != null)
             Mob.mainWindow = pager.currentItem
         fragLogin.lbversionLogin.text = Mob.version
+
+        Toast.makeText(ctx, "App de prueba ${Mob.version}", Toast.LENGTH_LONG).show() //---- Eliminar
+        Toast.makeText(ctx,
+            "El app esta en construcción, puede tener errores o secciones no terminadas",
+            Toast.LENGTH_LONG).show()
+
         onAction()
     }
 

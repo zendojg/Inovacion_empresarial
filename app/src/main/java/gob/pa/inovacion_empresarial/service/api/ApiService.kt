@@ -25,6 +25,9 @@ interface ApiService {
     @GET ("${Mob.APIGETFORM}{id}")//--  Formulario GET
     suspend fun getForm(@Path("id") id:String): Response<ModelForm>
 
+    @GET ("${Mob.APIFORMUSER}{id}")//--  Formulario GET
+    suspend fun getFormsUser(@Path("id") id:String): Response<List<ModelForm>>
+
 
     //--------------------------  DESCARGA PARA DB
     @GET (Mob.APIPROV)//--------  Provincia

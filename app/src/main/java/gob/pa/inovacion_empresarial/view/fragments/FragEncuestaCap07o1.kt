@@ -396,10 +396,10 @@ class FragEncuestaCap07o1 : Fragment() {
                 false -> rbtCap7512No2022.isChecked = true
                 else -> rgroupCap75122022.clearCheck()
             }
-            txtCap75112021.text = cap7?.v51num21o1?.toString()?.toEditable() ?: blank
-            txtCap75112022.text = cap7?.v51num22o1?.toString()?.toEditable() ?: blank
-            txtCap75122021.text = cap7?.v51num21o2?.toString()?.toEditable() ?: blank
-            txtCap75122022.text = cap7?.v51num22o2?.toString()?.toEditable() ?: blank
+            txtCap75112021.text = cap7?.v51num21o1?.toEditable() ?: blank
+            txtCap75112022.text = cap7?.v51num22o1?.toEditable() ?: blank
+            txtCap75122021.text = cap7?.v51num21o2?.toEditable() ?: blank
+            txtCap75122022.text = cap7?.v51num22o2?.toEditable() ?: blank
         }
     }
 

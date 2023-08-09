@@ -84,18 +84,13 @@ class MainFragmentSearch : Fragment() {
             alert.showAlignBottom(fragSearch.txtNControlSearch)
             alert.dismissWithDelay(Mob.TIMELONG2SEG)
         } else {
-            val ncont: Int = try {
-                fragSearch.txtNControlSearch.text.toString().toInt()
-            } catch (e: java.lang.NumberFormatException) {
-                0
-            }
+            val ncont: Int = try { fragSearch.txtNControlSearch.text.toString().toInt() }
+            catch (e: java.lang.NumberFormatException) { 0 }
             if (ncont <= 0) {
                 val alert = Functions.msgMark("N° de Control inválido", Mob.WIDTH180DP, ctx, color)
                 alert.showAlignBottom(fragSearch.txtNControlSearch)
                 alert.dismissWithDelay(Mob.TIMELONG2SEG)
-            } else {
-                getForm(ncont.toString())
-            }
+            } else { getForm(ncont.toString()) }
         }
     }
 
@@ -112,50 +107,66 @@ class MainFragmentSearch : Fragment() {
 
                 when (resp.code) {
                     Mob.CODE200 -> {
-                        Mob.formComp = resp.body
-                        Mob.cap1 = resp.body?.cap1
-                        Mob.cap2 = resp.body?.cap2
-                        Mob.cap3 = resp.body?.cap3
-                        Mob.cap4 = resp.body?.cap4
-                        Mob.cap5 = resp.body?.cap5
-                        Mob.cap6 = resp.body?.cap6
-                        Mob.cap7 = resp.body?.cap7
-                        Mob.cap8 = resp.body?.cap8
-                        Mob.cap9 = resp.body?.cap9
-                        Mob.capx = resp.body?.capx
-                        Mob.capMod = resp.body?.capMod
-                        Mob.condicion = resp.body?.condicion
-                        Mob.obsEncuesta = resp.body?.obs ?: ""
-                        Mob.obsModulo = resp.body?.capMod?.observaciones ?: ""
+                        with(Mob) {
+                            formComp = resp.body
+                            cap1 = resp.body?.cap1
+                            cap2 = resp.body?.cap2
+                            cap3 = resp.body?.cap3
+                            cap4 = resp.body?.cap4
+                            cap5 = resp.body?.cap5
+                            cap6 = resp.body?.cap6
+                            cap7 = resp.body?.cap7
+                            cap8 = resp.body?.cap8
+                            cap9 = resp.body?.cap9
+                            capx = resp.body?.capx
+                            capMod = resp.body?.capMod
+                            condicion = resp.body?.condicion
+                            obsEncuesta = resp.body?.obs ?: ""
+                            obsModulo = resp.body?.capMod?.observaciones ?: ""
 
-                        println("--------\\n---------${Mob.condicion}")
-                        viewFind(false)
+                            println("--------\\n---------$condicion")
+                            viewFind(false)
+                        }
                     }
                     Mob.CODE401 -> {
                         val bttest = activity?.findViewById<Button>(R.id.btMainTest)
                         val waitBar = activity?.findViewById<ProgressBar>(R.id.barMain)
                         waitBar?.visibility = View.VISIBLE
                         bttest?.callOnClick()
+                        if (!resp.resp.isNullOrEmpty()) {
+                            errorMsg(resp.resp)
+                        }
                     }
-                    Mob.CODE403 -> {}
-                    Mob.CODE404 -> {}
-                    Mob.CODE500 -> {}
+                    Mob.CODE403, Mob.CODE404 -> {
+                        if (!resp.resp.isNullOrEmpty()) {
+                        errorMsg(resp.resp)
+                    }}
+                    Mob.CODE500 -> {
+
+                        if (!resp.resp.isNullOrEmpty()) {
+                            if (resp.resp.length < 50)
+                                errorMsg(resp.resp)
+                            else errorMsg("Error en el servidor")
+                        }
+                    }
                 }
-                if (!resp.resp.isNullOrEmpty()) {
-                    var errortxt = resp.resp
-                    errortxt = errortxt.replace("error", "")
-                    errortxt = errortxt.replace(":", "")
-                    errortxt = errortxt.replace("{", "")
-                    errortxt = errortxt.replace("}", "")
-                    errortxt = errortxt.replace("\"", "")
-                    val widthtxt = (errortxt.length * 7)
-                    val color = ContextCompat.getColor(ctx, R.color.dark_red)
-                    val alert = Functions.msgBallom(errortxt, widthtxt, ctx, color)
-                    alert.showAlignBottom(fragSearch.versionsearch)
-                    alert.dismissWithDelay(Mob.TIMELONG4SEG)
-                }
+
             }
         }
+    }
+
+    private fun errorMsg(resp: String) {
+        var errortxt = resp
+        errortxt = errortxt.replace("error", "")
+        errortxt = errortxt.replace(":", "")
+        errortxt = errortxt.replace("{", "")
+        errortxt = errortxt.replace("}", "")
+        errortxt = errortxt.replace("\"", "")
+        val widthtxt = (errortxt.length * 7)
+        val color = ContextCompat.getColor(ctx, R.color.dark_red)
+        val alert = Functions.msgBallom(errortxt, widthtxt, ctx, color)
+        alert.showAlignBottom(fragSearch.versionsearch)
+        alert.dismissWithDelay(Mob.TIMELONG4SEG)
     }
 
     private fun viewFind(check: Boolean) {

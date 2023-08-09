@@ -77,7 +77,26 @@ class DVModel: ViewModel() {
             body = body
         )
     }
-
+    suspend fun formsGetUser(userID: String): ModelFormsGetUser? {
+        val code: Int
+        val error: String?
+        val body: List<ModelForm>? = try {
+            val resp =
+                ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getFormsUser(userID)
+            error = if (resp.errorBody() != null) (resp.errorBody()!!.charStream().readText())
+            else null
+            code = resp.code()
+            resp.body()
+        } catch (e: IOException) {
+            Log.e("-- Response error: ", e.message.toString())
+            return null
+        }
+        return ModelFormsGetUser(
+            code = code,
+            resp = error,
+            body = body
+        )
+    }
 
     //---- DOWNLOAD PROVINCIAS
     suspend fun getProv(): List<DBprovincia> = withContext(Dispatchers.IO) {

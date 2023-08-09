@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/delete"
+        android:title="borrar" />
+    <item
+        android:id="@+id/header2"
+        android:title="mensaje 1" />
+    <item
+        android:id="@+id/header3"
+        android:title="mensaje 2" />
+
+</menu>

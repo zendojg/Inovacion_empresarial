@@ -13,6 +13,8 @@ object Mob {
     const val APILUGARP = "api/Catalogo/lug"
     const val APIGETFORM = "api/Cuestionario/full/"
     const val APIUPDATEFORM = "api/Cuestionario/update"
+    const val APIFORMUSER = "api/Cuestionario/enc/"
+
 
     const val DATEFORMAT = "yyyy-MM-dd HH:mm:ss a"
     const val PORCENT100:Int = 100

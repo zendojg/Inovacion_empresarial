@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         Mob.version = ("Versión: " + this.packageManager.getPackageInfo
             (this.packageName, 0).versionName)
+
         pagerMain = main.viewpagerMain
         pagerMain.isUserInputEnabled = false
         pagerMain.adapter = AdapterMainPager(Mob.arrMain, supportFragmentManager, lifecycle)
@@ -60,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         pagerMain.visibility = View.INVISIBLE
         main.barMain.visibility = View.VISIBLE
-        if (AppCache.remGET(this)) {
+        if (AppCache.remGET(this) && Mob.authData?.result?.token.isNullOrEmpty()) {
             Mob.authData = AppCache.loginGET(this)             //----- CARGA TOKEM
             if (Mob.authData?.result?.token.isNullOrEmpty()) {     //----- TOKEN VACIO IR A LOGIN
                 Handler(Looper.getMainLooper()).postDelayed({
@@ -74,6 +75,12 @@ class MainActivity : AppCompatActivity() {
                     pagerMain.setCurrentItem(Mob.INIT01, false)
                     RoomView(dvmMain, this@MainActivity).viewRoom()
                 }
+            }
+        } else if (!Mob.authData?.result?.token.isNullOrEmpty()) {     //----- TOKEN VACIO IR A LOGIN
+            lifecycleScope.launch {
+                validate()
+                pagerMain.setCurrentItem(Mob.INIT01, false)
+                RoomView(dvmMain, this@MainActivity).viewRoom()
             }
         } else {
             pagerMain.visibility = View.VISIBLE

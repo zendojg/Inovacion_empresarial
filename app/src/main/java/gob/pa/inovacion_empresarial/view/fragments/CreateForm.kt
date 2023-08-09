@@ -1,13 +1,10 @@
 package gob.pa.inovacion_empresarial.view.fragments
 
-import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.aString
 import gob.pa.inovacion_empresarial.model.*
 import gob.pa.inovacion_empresarial.service.room.DBform
-import gob.pa.inovacion_empresarial.service.room.RoomView
-import kotlinx.coroutines.launch
 
 class CreateForm {
     fun create(): ModelForm {
@@ -42,19 +39,20 @@ class CreateForm {
     fun createSaved(): DBform {
         val form = CreateForm().create()
         val formString = Gson().toJson(form)
-
-        return DBform(
-            idNControl = form.ncontrol?.toString() ?: "0",
-            idUser = Mob.authData?.user ?: "E_recovery",
-            ruc = form.cap2?.v07ructxt ?: "0-0-0",
-            localName = form.cap2?.v05nameLtxt,
-            condition = form.cond,
-            serverDate = form.dateMod,
-            saveDate = Functions.myDate().aString(Mob.DATEFORMAT),
-            saveIncon = Mob.inconsistencias.toString(),
-            lastpageForm = Mob.indiceFormulario.toString(),
-            saveForm = formString
-        )
+        with (Mob) {
+            return DBform(
+                idNControl = form.ncontrol?.toString() ?: "0",
+                idUser = authData?.user ?: "E_recovery",
+                ruc = form.cap2?.v07ructxt ?: "0-0-0",
+                localName = form.cap2?.v05nameLtxt,
+                condition = form.cond,
+                serverDate = form.dateMod,
+                saveDate = Functions.myDate().aString(DATEFORMAT),
+                saveIncon = inconsistencias.toString(),
+                lastpageForm = indiceFormulario.toString(),
+                saveForm = formString
+            )
+        }
     }
 
 

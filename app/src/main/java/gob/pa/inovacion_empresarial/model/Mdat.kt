@@ -403,7 +403,6 @@ data class ModelMod(
     @SerializedName("observaciones")                                            val observaciones: String?,
     @SerializedName("numControl")                                               val numControl: Int?)
 
-
 data class ModelCondicion(
     @SerializedName("id")               val ncontrol: String?,
     @SerializedName("numControl")       val cond: String?,
@@ -413,7 +412,7 @@ data class ModelCondicion(
 )
 
 data class ModelForm(
-    @SerializedName("numControl")                           val ncontrol: Int?,
+    @SerializedName("numControl")                           val ncontrol: String?,
     @SerializedName("observaciones")                        val obs: String?,
     @SerializedName("condicion")                            val cond: String?,
     @SerializedName("actualizado")                          val act: Boolean?,
@@ -441,6 +440,11 @@ data class ModelFormGet(
     val code: Int?,
     val resp: String?,
     val body: ModelForm?)
+
+data class ModelFormsGetUser(
+    val code: Int?,
+    val resp: String?,
+    val body: List<ModelForm>?)
 
 data class ModelFormSend(
     val code: String,

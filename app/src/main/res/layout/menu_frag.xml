@@ -70,10 +70,6 @@
                   android:id="@+id/btEncuestaMain"
                   android:layout_width="0dp"
                   android:layout_height="43dp"
-                  android:layout_marginHorizontal="2dp"
-                  android:layout_marginTop="2dp"
-                  android:layout_marginBottom="3dp"
-                  android:drawableEnd="@drawable/img_forward"
                   android:drawableTint="@color/white"
                   android:fontFamily="sans-serif-condensed"
                   android:gravity="start|center_vertical"
@@ -84,6 +80,7 @@
                   android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
                   android:textSize="@dimen/text14"
                   android:textStyle="bold"
+                  app:icon="@drawable/img_forward"
                   app:backgroundTint="#3C79BB"
                   app:cornerRadius="5dp"
                   app:iconPadding="10dp"
@@ -99,9 +96,6 @@
                   android:id="@+id/framebtExpandMain"
                   android:layout_width="35dp"
                   android:layout_height="0dp"
-                  android:layout_marginTop="2dp"
-                  android:layout_marginBottom="3dp"
-                  android:layout_marginEnd="3dp"
                   android:background="?selectableItemBackground"
                   app:layout_constraintBottom_toBottomOf="parent"
                   app:layout_constraintEnd_toEndOf="parent"
@@ -112,12 +106,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/backgroundbutton"
-                    android:padding="10dp"
+                    android:padding="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@android:drawable/arrow_down_float"
+                    app:srcCompat="@drawable/img_expand_more"
+                    app:tint="@color/white"
                     android:contentDescription="@string/expand" />
 
               </androidx.constraintlayout.widget.ConstraintLayout>
@@ -317,10 +312,6 @@
                   android:id="@+id/btModuloMain"
                   android:layout_width="0dp"
                   android:layout_height="43dp"
-                  android:layout_marginHorizontal="2dp"
-                  android:layout_marginTop="2dp"
-                  android:layout_marginBottom="3dp"
-                  android:drawableEnd="@drawable/img_forward"
                   android:drawableTint="@color/white"
                   android:fontFamily="sans-serif-condensed"
                   android:gravity="start|center_vertical"
@@ -331,6 +322,7 @@
                   android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
                   android:textSize="@dimen/text14"
                   android:textStyle="bold"
+                  app:icon="@drawable/img_forward"
                   app:strokeWidth="1dp"
                   app:strokeColor="#C38832"
                   app:backgroundTint="#D8B18B"
@@ -346,9 +338,6 @@
                   android:id="@+id/framebtExpandMain2"
                   android:layout_width="35dp"
                   android:layout_height="0dp"
-                  android:layout_marginTop="2dp"
-                  android:layout_marginBottom="3dp"
-                  android:layout_marginEnd="3dp"
                   android:background="?selectableItemBackground"
                   app:layout_constraintBottom_toBottomOf="parent"
                   app:layout_constraintEnd_toEndOf="parent"
@@ -359,13 +348,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/backgroundbutton2"
-                    android:padding="10dp"
+                    android:padding="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@android:drawable/arrow_down_float"
-                    android:contentDescription="@string/expand" />
+                    app:srcCompat="@drawable/img_expand_more"
+                    android:contentDescription="@string/expand"
+                    app:tint="@color/white" />
 
               </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -450,26 +440,28 @@
                   android:textStyle="bold"
                   app:backgroundTint="#E4D0AF" />
 
-              <com.google.android.material.button.MaterialButton
-                  android:id="@+id/btsec05main"
-                  android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:drawableEnd="@drawable/img_forward"
-                  android:drawableTint="#757575"
-                  android:ellipsize="end"
-                  android:fontFamily="sans-serif-condensed"
-                  android:gravity="start|center_vertical"
-                  android:maxLines="1"
-                  android:text="@string/obs"
-                  android:textAllCaps="false"
-                  android:textColor="#757575"
-                  android:textStyle="bold"
-                  app:backgroundTint="@color/teal_200" />
-
             </LinearLayout>
             <!-- #D8B18B -->
           </LinearLayout>
+
+
+          <com.google.android.material.button.MaterialButton
+              android:id="@+id/btsec05main"
+              android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginHorizontal="2dp"
+              android:layout_marginVertical="5dp"
+              android:ellipsize="end"
+              android:fontFamily="sans-serif-condensed"
+              android:gravity="start|center_vertical"
+              android:maxLines="1"
+              android:text="@string/infobt"
+              android:textAllCaps="false"
+              android:textColor="@color/white"
+              android:textStyle="bold"
+              app:icon="@drawable/img_forward"
+              app:backgroundTint="@color/teal_700" />
 
         </LinearLayout>
 

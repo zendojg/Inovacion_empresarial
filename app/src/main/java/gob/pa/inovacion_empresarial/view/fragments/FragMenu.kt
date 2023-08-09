@@ -53,14 +53,14 @@ class FragMenu : Fragment() {
                     linearModuloMain.visibility = View.GONE
                     layoutpiemain.visibility = View.GONE
                     btEncuestaExpandMain.setImageDrawable(
-                        ContextCompat.getDrawable(ctx, android.R.drawable.arrow_up_float))
-
-
+                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_less))
+                    btModuloExpandMain.setImageDrawable(
+                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_more))
                 } else { //-- contraer
                     layoutpiemain.visibility = View.VISIBLE
                     linearEncuestaMain.visibility = View.GONE
                     btEncuestaExpandMain.setImageDrawable(
-                        ContextCompat.getDrawable(ctx, android.R.drawable.arrow_down_float))
+                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_more))
                 }
             }
             //-------------------------------------------------------------------------------------- " " Modulo
@@ -70,14 +70,14 @@ class FragMenu : Fragment() {
                     linearEncuestaMain.visibility = View.GONE
 
                     btModuloExpandMain.setImageDrawable(
-                        ContextCompat.getDrawable(ctx, android.R.drawable.arrow_up_float))
+                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_less))
                     btEncuestaExpandMain.setImageDrawable(
-                        ContextCompat.getDrawable(ctx, android.R.drawable.arrow_down_float))
+                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_more))
                 } else { //-- contraer
                     linearModuloMain.visibility = View.GONE
 
                     btModuloExpandMain.setImageDrawable(
-                        ContextCompat.getDrawable(ctx, android.R.drawable.arrow_down_float))
+                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_more))
                 }
             }
             //--------------------------------------------------------------------------------------

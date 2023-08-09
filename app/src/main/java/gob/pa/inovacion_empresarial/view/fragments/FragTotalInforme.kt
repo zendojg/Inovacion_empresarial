@@ -181,11 +181,6 @@ class FragTotalInforme : Fragment() {
 
         }
     }
-    private fun msgBallom(msg: String, width: Int, color: Int) {
-        val alert = Functions.msgBallom(msg, width, ctx, color)
-        alert.showAlignBottom(bindinginfo.guideline)
-        alert.dismissWithDelay(Mob.TIMELONG4SEG)
-    }
 
     private fun carga(data: String) {
         val msgSend = AlertDialog.Builder(ctx)
@@ -195,17 +190,25 @@ class FragTotalInforme : Fragment() {
 
 
         val type: Type = object : TypeToken<ModelResponse?>() {}.type
-        val objResponse: ModelResponse? = Gson().fromJson<ModelResponse>(data, type)
+        val jsonModel: ModelResponse? = Gson().fromJson<ModelResponse>(data, type)
+
+        bindSend.txtmsgStyle.visibility = View.VISIBLE
+        if (jsonModel?.poseeIncon == "false"){
+            bindSend.txtmsgStyle.text = "Encuesta enviada satisfactoriamente..."
+            bindSend.txt2styleFly.visibility = View.GONE
+        } else {
+            bindSend.txtmsgStyle.text = "Encuesta enviada satisfactoriamente...\nSe enlistaron las inconsistencias generadas"
+        }
 
         bindSend.txt1styleF.text = try {
-            objResponse?.ncontrol.toString().toEditable() }
+            jsonModel?.ncontrol.toString().toEditable() }
         catch (e: java.lang.RuntimeException) { "00".toEditable() }
 
         bindSend.txt2styleF.text = try {
-            objResponse?.inconsistencias?.joinToString("\n\n")?.toEditable() }
+            jsonModel?.inconsistencias?.joinToString("\n\n")?.toEditable() }
         catch (e: java.lang.RuntimeException) { "".toEditable() }
 
-        Mob.inconsistencias = objResponse?.inconsistencias?.size ?: 0
+        Mob.inconsistencias = jsonModel?.inconsistencias?.size ?: 0
         msgSend.setView(bindSend.root)
         val dialog: AlertDialog = msgSend.create()
         dialog.setCancelable(false)
@@ -250,4 +253,11 @@ class FragTotalInforme : Fragment() {
         }, (Mob.TIME800MS))
     }
 
+
+
+    private fun msgBallom(msg: String, width: Int, color: Int) {
+        val alert = Functions.msgBallom(msg, width, ctx, color)
+        alert.showAlignBottom(bindinginfo.guideline)
+        alert.dismissWithDelay(Mob.TIMELONG4SEG)
+    }
 }
