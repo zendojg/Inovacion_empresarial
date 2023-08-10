@@ -59,38 +59,50 @@ class MainFragmentSearch : Fragment() {
 
     private fun onAction() {
         val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
-        fragSearch.txtNControlSearch.setOnEditorActionListener { _, actionID, _ ->
-            if (actionID == EditorInfo.IME_ACTION_DONE) {
-                controlTxt()
-                true
-            } else false
+        with (fragSearch) {
+            txtNControlSearch.setOnEditorActionListener { _, actionID, _ ->
+                if (actionID == EditorInfo.IME_ACTION_DONE) {
+                    controlTxt()
+                    true
+                } else false
+            }
+            txtNControllySearch.setStartIconOnClickListener {
+                if (!lyContainer.isVisible) { controlTxt() }
+            }
+            btSearch.setOnClickListener { controlTxt() }
+            btcancelSearch.setOnClickListener { viewFind(true) }
+            btdataSearch.setOnClickListener {
+                pager?.setCurrentItem(Mob.PAGE02, true)
+            }
+            btformSearch.setOnClickListener {
+                pager?.setCurrentItem(Mob.PAGE03, true)
+            }
         }
-        fragSearch.txtNControllySearch.setStartIconOnClickListener {
-            if (!fragSearch.lyContainer.isVisible) controlTxt()
-        }
-        fragSearch.btSearch.setOnClickListener { controlTxt() }
-        fragSearch.btcancelSearch.setOnClickListener { viewFind(true) }
-        fragSearch.btdataSearch.setOnClickListener {
-            pager?.setCurrentItem(Mob.PAGE02, true) }
-        fragSearch.btformSearch.setOnClickListener {
-            pager?.setCurrentItem(Mob.PAGE03, true) }
     }
 
     private fun controlTxt() {
         hideKeyboard()
         val color = ContextCompat.getColor(ctx, R.color.dark_red)
-        if (fragSearch.txtNControlSearch.text.isNullOrEmpty()) {
-            val alert = Functions.msgMark("Ingrese un N° de Control", Mob.WIDTH180DP, ctx, color)
-            alert.showAlignBottom(fragSearch.txtNControlSearch)
-            alert.dismissWithDelay(Mob.TIMELONG2SEG)
-        } else {
-            val ncont: Int = try { fragSearch.txtNControlSearch.text.toString().toInt() }
-            catch (e: java.lang.NumberFormatException) { 0 }
-            if (ncont <= 0) {
-                val alert = Functions.msgMark("N° de Control inválido", Mob.WIDTH180DP, ctx, color)
-                alert.showAlignBottom(fragSearch.txtNControlSearch)
+        with (fragSearch) {
+            if (txtNControlSearch.text.isNullOrEmpty()) {
+                val alert =
+                    Functions.msgMark("Ingrese un N° de Control", Mob.WIDTH180DP, ctx, color)
+                alert.showAlignBottom(txtNControlSearch)
                 alert.dismissWithDelay(Mob.TIMELONG2SEG)
-            } else { getForm(ncont.toString()) }
+            } else {
+                val ncontrolReformat = Functions.ceroLeft(txtNControlSearch.text.toString(), 4)
+                txtNControlSearch.text = ncontrolReformat.toEditable()
+                val ncont: Int = try { txtNControlSearch.text.toString().toInt()
+                } catch (e: java.lang.NumberFormatException) { 0 }
+                if (ncont <= 0) {
+                    val alert =
+                        Functions.msgMark("N° de Control inválido", Mob.WIDTH180DP, ctx, color)
+                    alert.showAlignBottom(txtNControlSearch)
+                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                } else {
+                    getForm(ncont.toString())
+                }
+            }
         }
     }
 

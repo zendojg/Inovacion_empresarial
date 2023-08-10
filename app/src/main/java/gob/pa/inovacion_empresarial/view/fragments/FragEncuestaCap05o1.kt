@@ -19,7 +19,6 @@ class FragEncuestaCap05o1 : Fragment() {
 
     private lateinit var bindingcap5o1: EncuestaCapitulo051VentasYExpoBinding
     private lateinit var ctx: Context
-    private lateinit var textWatcher: Array<TextWatcher>
     private var ventaA21 = 0
     private var ventaA22 = 0
     private var ventaB21 = 0
@@ -51,7 +50,6 @@ class FragEncuestaCap05o1 : Fragment() {
             txtCap530A2022.onFocusChangeListener = null
             txtCap530B2021.onFocusChangeListener = null
             txtCap530B2022.onFocusChangeListener = null
-
         }
 
     }
@@ -144,7 +142,6 @@ class FragEncuestaCap05o1 : Fragment() {
                 venta22 = ventaA22 + ventaB22
                 bindingcap5o1.txtCap53012021.text = venta21.toString().toEditable()
                 bindingcap5o1.txtCap53012022.text = venta22.toString().toEditable()
-                textWatcher += this
             }
         })
     }

@@ -228,6 +228,7 @@ object Mob {
         cond = null,
         act = null,
         rev = null,
+        tieneIncon = null,
         dateCreate = null,
         dateMod = null,
         dateModSup = null,

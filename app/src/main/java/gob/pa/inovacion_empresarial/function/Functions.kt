@@ -76,8 +76,15 @@ object Functions {
         }
         return years
     }
-
-
+    fun ceroLeft(chain: String, cant: Int):String {
+        var chainSize = chain.length
+        var chainR = chain
+        while (cant >= chainSize) {
+            chainR = "0$chainR"
+            chainSize = chainR.length
+        }
+        return chainR
+    }
     fun isOnline(context: Context): Boolean {
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

@@ -54,10 +54,6 @@ class MainFragmentLogin: Fragment() {
         fragLogin.lbversionLogin.text = Mob.version
 
         Toast.makeText(ctx, "App de prueba ${Mob.version}", Toast.LENGTH_LONG).show() //---- Eliminar
-        Toast.makeText(ctx,
-            "El app esta en construcción, puede tener errores o secciones no terminadas",
-            Toast.LENGTH_LONG).show()
-
         onAction()
     }
 

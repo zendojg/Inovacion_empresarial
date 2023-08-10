@@ -82,7 +82,7 @@
             android:id="@+id/scrollUser"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="2dp"
+            android:layout_margin="5dp"
             android:animateLayoutChanges="true"
             android:fillViewport="true"
             android:paddingVertical="5dp"
@@ -96,14 +96,14 @@
                 android:id="@+id/recyclerdata"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="2dp" />
+                android:layout_margin="2dp" />
 
         </ScrollView>
 
 
         <Spinner
             android:id="@+id/spinFormsType"
-            style="@style/Widget.AppCompat.DropDownItem.Spinner"
+            android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"

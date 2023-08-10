@@ -15,6 +15,7 @@ class CreateForm {
                 cond = formComp?.cond,
                 act = formComp?.act,
                 rev = formComp?.rev,
+                tieneIncon = formComp?.tieneIncon,
                 dateCreate = formComp?.dateCreate,
                 dateMod = formComp?.dateMod,
                 dateModSup = formComp?.dateModSup,
@@ -41,7 +42,7 @@ class CreateForm {
         val formString = Gson().toJson(form)
         with (Mob) {
             return DBform(
-                idNControl = form.ncontrol?.toString() ?: "0",
+                idNControl = form.ncontrol ?: "0",
                 idUser = authData?.user ?: "E_recovery",
                 ruc = form.cap2?.v07ructxt ?: "0-0-0",
                 localName = form.cap2?.v05nameLtxt,
@@ -116,6 +117,7 @@ class CreateForm {
                 cond = null,
                 act = null,
                 rev = null,
+                tieneIncon = null,
                 dateCreate = null,
                 dateMod = null,
                 dateModSup = null,

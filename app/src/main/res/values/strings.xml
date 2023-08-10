@@ -661,7 +661,7 @@
     <string name="helpdirdesc">Anote la dirección en el siguiente orden: Mall o centro comercial, avenida, calle, edificio o casa, piso</string>
     <string name="renewtittle">Renovación de datos internos</string>
     <string name="internalupdt">Actualizar datos internos</string>
-    <string name="rucex">000000-000000000000-000000</string>
+    <string name="rucex">000000000000-000000-000000000000</string>
     <string name="closeForm">Cerrar encuesta</string>
     <string name="aswernCloseApp">¿Desea salir de la encuesta?</string>
     <string name="asnwernCloseApp2">Los datos no guardados se perderan...</string>

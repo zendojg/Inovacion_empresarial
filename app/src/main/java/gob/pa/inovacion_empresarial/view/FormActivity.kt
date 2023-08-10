@@ -13,26 +13,21 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.button.MaterialButton
-import com.google.gson.Gson
 import gob.pa.inovacion_empresarial.R
-import gob.pa.inovacion_empresarial.adapters.AdapterFormPager
+import gob.pa.inovacion_empresarial.adapters.AdapterPagerForm
 import gob.pa.inovacion_empresarial.databinding.ActivityFormBinding
 import gob.pa.inovacion_empresarial.function.Functions
-import gob.pa.inovacion_empresarial.function.Functions.aString
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
-import gob.pa.inovacion_empresarial.service.room.DBform
 import gob.pa.inovacion_empresarial.service.room.RoomView
 import gob.pa.inovacion_empresarial.view.fragments.*
 import kotlinx.coroutines.launch
@@ -49,7 +44,7 @@ class FormActivity : AppCompatActivity() {
         form = ActivityFormBinding.inflate(layoutInflater)
         setContentView(form.root)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        val myAdapter = AdapterFormPager(supportFragmentManager, lifecycle)
+        val myAdapter = AdapterPagerForm(supportFragmentManager, lifecycle)
         if (myAdapter.itemCount == 0) {
             myAdapter.addListFragment(Mob.arrEncuestas)
             form.viewpager.adapter = myAdapter

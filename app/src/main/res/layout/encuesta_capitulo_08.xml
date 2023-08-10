@@ -188,6 +188,7 @@
 
                     <Spinner
                         android:id="@+id/spinCap8_57_1_a"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_solicito"
@@ -240,6 +241,7 @@
 
                     <Spinner
                         android:id="@+id/spinCap8_57_1_b"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_solicito"
@@ -301,6 +303,7 @@
 
                     <Spinner
                         android:id="@+id/spinCap8_57_1_c"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_solicito"
@@ -381,6 +384,7 @@
 
                     <Spinner
                         android:id="@+id/spinCap8_57_2_a"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_solicito"
@@ -433,6 +437,7 @@
 
                     <Spinner
                         android:id="@+id/spinCap8_57_2_b"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_solicito"
@@ -494,6 +499,7 @@
 
                     <Spinner
                         android:id="@+id/spinCap8_57_2_c"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_solicito"

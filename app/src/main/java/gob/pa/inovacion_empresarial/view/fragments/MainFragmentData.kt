@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.FragUserMainBinding
@@ -19,6 +20,8 @@ import gob.pa.inovacion_empresarial.function.AppCache
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
+import gob.pa.inovacion_empresarial.service.room.RoomView
+import kotlinx.coroutines.launch
 
 class MainFragmentData : Fragment() {
     private lateinit var bindingUser: FragUserMainBinding
@@ -133,6 +136,17 @@ class MainFragmentData : Fragment() {
                 AppCache.loginCLEAR(ctx)
                 val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
                 pager?.setCurrentItem(Mob.LOGIN0, true)
+            }
+        }
+    }
+
+    private fun actividad() {
+        lifecycleScope.launch {
+            val retroData = dvmUser.formsGetUser(Mob.authData?.user!!)
+            val roomData = RoomView(dvmUser, ctx).getFormsUser(Mob.authData?.user!!)
+            activity?.runOnUiThread {
+                bindingUser.txtsendFormUser.text = retroData?.body?.size.toString()
+                bindingUser.txtcreateFormUser.text = roomData.size.toString()
             }
         }
     }

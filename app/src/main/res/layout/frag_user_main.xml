@@ -257,7 +257,7 @@
             android:layout_marginStart="10dp"
             android:animateLayoutChanges="true"
             android:fontFamily="sans-serif-condensed"
-            android:text="Creadas: "
+            android:text="Guardadas: "
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/txtopenFormUser"
             app:layout_constraintTop_toBottomOf="@+id/lbviewFormUser" />

@@ -3,31 +3,33 @@ package gob.pa.inovacion_empresarial.view.fragments
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
-import android.widget.PopupMenu
-import android.widget.Toast
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.adapters.AdapterForms
 import gob.pa.inovacion_empresarial.databinding.FragFormsMainBinding
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelForm
+import gob.pa.inovacion_empresarial.service.room.RoomView
 import kotlinx.coroutines.launch
+import java.lang.reflect.Type
 
 class MainFragmentForms : Fragment() {
     private lateinit var bindingForm: FragFormsMainBinding
     private lateinit var ctx: Context
-    private lateinit var list: List<ModelForm>
+    private lateinit var adpForms: AdapterForms
+    private var list: List<ModelForm> = emptyList()
     private val dvmForm: DVModel by viewModels()
     var aDialog: AlertDialog? = null
 
@@ -42,6 +44,14 @@ class MainFragmentForms : Fragment() {
     override fun onResume() {
         super.onResume()
 
+        with (bindingForm){
+            adpForms = AdapterForms(list) {
+                //list = list.minus(it)
+                adpForms.updateList(list)
+            }
+            recyclerdata.layoutManager = LinearLayoutManager(ctx)
+            recyclerdata.adapter = adpForms
+        }
 
         onAction()
     }
@@ -53,38 +63,43 @@ class MainFragmentForms : Fragment() {
                 pager?.setCurrentItem(Mob.INIT01, true)
             }
 
+            val arrAdptSpin = ArrayAdapter(ctx, R.layout.style_box,
+                resources.getStringArray(R.array.arr_typeForms))
+            arrAdptSpin.setDropDownViewResource(R.layout.style_list)
+            spinFormsType.adapter = arrAdptSpin
+
             spinFormsType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-
+                    if (pos == 1) {
+                        lifecycleScope.launch {
+                            //list = RoomView(dvmForm, ctx).getFormsUser(Mob.authData?.user!!) //----------------- Agregar mas controles a las variables
+                            val retroData = dvmForm.formsGetUser(Mob.authData?.user!!)
+                            list = retroData?.body!!
+                            adpForms.updateList(list)
+                        }
+                    } else {
+                        lifecycleScope.launch {
+                            val roomData = RoomView(dvmForm, ctx).getFormsUser(Mob.authData?.user!!)
+                            println("---------$roomData")
+                            val listRoom: ArrayList<ModelForm> = ArrayList()
+                            for (i in roomData) {
+                                val type: Type = object : TypeToken<ModelForm?>() {}.type
+                                val listTest = Gson().fromJson<ModelForm>(i.saveForm, type)
+                                listRoom.add(listTest)
+                            }
+                            list = listRoom
+                            adpForms.updateList(list)
+                        }
+                    }
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {}
             }
 
 
-            lifecycleScope.launch {
-                //list = RoomView(dvmForm, ctx).getFormsUser(Mob.authData?.user!!)
-                val response = dvmForm.formsGetUser(Mob.authData?.user!!)
-                    list = response?.body!!
 
-                    adapterData()
-
-            }
         }
     }
 
-    fun adapterData() {
-        with (bindingForm){
-            val adptRUC = AdapterForms(list) {
-                Toast.makeText(ctx, "${it.ncontrol}", Toast.LENGTH_SHORT).show()
-            }
-            println("-----------list")
-            recyclerdata.layoutManager = LinearLayoutManager(ctx)
-            recyclerdata.adapter = adptRUC
-        }
-    }
 //
 //    private fun menuClick(position: Int) {
 //        val x = bindingForm.recyclerdata

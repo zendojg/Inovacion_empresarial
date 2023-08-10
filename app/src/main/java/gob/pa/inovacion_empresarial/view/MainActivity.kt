@@ -15,7 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.button.MaterialButton
 import gob.pa.inovacion_empresarial.R
-import gob.pa.inovacion_empresarial.adapters.AdapterMainPager
+import gob.pa.inovacion_empresarial.adapters.AdapterPagerMain
 import gob.pa.inovacion_empresarial.databinding.ActivityMainBinding
 import gob.pa.inovacion_empresarial.function.AppCache
 import gob.pa.inovacion_empresarial.function.Functions
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         pagerMain = main.viewpagerMain
         pagerMain.isUserInputEnabled = false
-        pagerMain.adapter = AdapterMainPager(Mob.arrMain, supportFragmentManager, lifecycle)
+        pagerMain.adapter = AdapterPagerMain(Mob.arrMain, supportFragmentManager, lifecycle)
 
         val decorView: View = window.decorView
         decorView.systemUiVisibility =

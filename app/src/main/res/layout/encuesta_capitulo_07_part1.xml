@@ -546,6 +546,7 @@
                     android:layout_marginTop="5dp"
                     android:columnCount="2"
                     android:orientation="horizontal"
+                    android:background="@drawable/background_border3"
                     android:padding="1dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -568,7 +569,8 @@
                         android:layout_width="0dp"
                         android:layout_columnWeight="9"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_border3"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
@@ -577,45 +579,48 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_52_1"
-                        android:layout_height="50dp"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"/>
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="9"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_border3"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
+                        android:layout_marginBottom="4dp"
                         android:text="@string/tb52desc2"
                         tools:ignore="TextContrastCheck" />
 
                     <Spinner
                         android:id="@+id/spinCap7_52_2"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="9"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_border3"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
@@ -624,21 +629,23 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_52_3"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="9"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_border3"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
@@ -647,21 +654,23 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_52_4"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="9"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_border3"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
@@ -670,21 +679,23 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_52_5"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="9"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_border3"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
@@ -693,21 +704,23 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_52_6"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="9"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_border3"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
@@ -716,21 +729,23 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_52_7"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="9"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_border3"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
@@ -739,21 +754,23 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_52_8"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="9"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_border3"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
@@ -762,21 +779,23 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_52_9"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="9"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_border3"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
@@ -785,21 +804,23 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_52_10"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="9"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_border3"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
@@ -808,21 +829,23 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_52_11"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"/>
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="9"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_border3"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
@@ -831,21 +854,23 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_52_12"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="9"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_border3"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
@@ -854,21 +879,23 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_52_13"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_columnWeight="9"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
+                        android:background="@drawable/background_border3"
+                        android:layout_marginBottom="4dp"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
@@ -877,15 +904,16 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_52_14"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
 
 
                     <EditText
@@ -903,15 +931,16 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_52_15"
+                        android:layout_height="wrap_content"
                         android:layout_gravity="fill"
-                        android:background="@drawable/background_border2"
                         android:entries="@array/arr_onetofive"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:minWidth="48dp"
                         android:minHeight="48dp"
-                        android:paddingStart="10dp"
-                        android:paddingEnd="0dp" />
+                        android:paddingStart="7dp"
+                        android:paddingEnd="0dp"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar" />
                 </GridLayout>
 
                 <TextView

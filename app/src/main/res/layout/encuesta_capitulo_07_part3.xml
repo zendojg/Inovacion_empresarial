@@ -116,6 +116,8 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_55_1_a"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                        android:layout_marginEnd="30dp"
                         android:layout_width="210dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -145,6 +147,8 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_55_1_b"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                        android:layout_marginEnd="30dp"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -174,6 +178,8 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_55_1_c"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                        android:layout_marginEnd="30dp"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -229,6 +235,8 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_55_2_a"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                        android:layout_marginEnd="30dp"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -258,6 +266,8 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_55_2_b"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                        android:layout_marginEnd="30dp"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -287,6 +297,8 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_55_2_c"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                        android:layout_marginEnd="30dp"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -315,6 +327,8 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_55_2_d"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                        android:layout_marginEnd="30dp"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"
@@ -370,6 +384,8 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_55_3_a"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                        android:layout_marginEnd="30dp"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -399,6 +415,8 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_55_3_b"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                        android:layout_marginEnd="30dp"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -455,6 +473,8 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_55_4_a"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                        android:layout_marginEnd="30dp"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -484,6 +504,8 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_55_4_b"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                        android:layout_marginEnd="30dp"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:layout_marginBottom="5dp"
@@ -513,6 +535,8 @@
 
                     <Spinner
                         android:id="@+id/spinCap7_55_4_c"
+                        android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                        android:layout_marginEnd="30dp"
                         android:layout_width="0dp"
                         android:layout_columnWeight="1"
                         android:entries="@array/arr_hightolow"

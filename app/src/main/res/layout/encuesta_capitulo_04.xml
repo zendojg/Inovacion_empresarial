@@ -110,6 +110,8 @@
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
                         android:imeOptions="actionNext"
+                        android:textColor="#0277BD"
+                        android:focusable="false"
                         android:inputType="number"
                         android:maxLength="4"
                         tools:ignore="TouchTargetSizeCheck,DuplicateSpeakableTextCheck"
@@ -202,11 +204,9 @@
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="5dp"
                         android:hint="@string/hint_cinu"
-                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtCap4_29_1">
-
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap4_29_cinu1"
                             android:layout_width="match_parent"
@@ -272,7 +272,6 @@
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="5dp"
                         android:hint="@string/hint_cinu"
-                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtCap4_29_2">
@@ -342,7 +341,6 @@
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="5dp"
                         android:hint="@string/hint_cinu"
-                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtCap4_29_3">
@@ -412,7 +410,6 @@
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="5dp"
                         android:hint="@string/hint_cinu"
-                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtCap4_29_4">

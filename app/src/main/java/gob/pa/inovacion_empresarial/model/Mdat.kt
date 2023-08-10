@@ -417,6 +417,7 @@ data class ModelForm(
     @SerializedName("condicion")                            val cond: String?,
     @SerializedName("actualizado")                          val act: Boolean?,
     @SerializedName("revisado")                             val rev: Boolean?,
+    @SerializedName("tieneInconsistencias")                 val tieneIncon: Boolean?,
     @SerializedName("fechaCreacion")                        val dateCreate: String?,
     @SerializedName("fechaModificacion")                    val dateMod: String?,
     @SerializedName("fechaModificacionSup")                 val dateModSup: String?,

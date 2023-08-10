@@ -7,12 +7,11 @@ import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 
 
-class AdapterMainPager(
+class AdapterPagerMain(
     windows: Array<Fragment>,
     fragmentManager: FragmentManager,
     lifecycle: Lifecycle
-):
-    FragmentStateAdapter( fragmentManager, lifecycle) {
+): FragmentStateAdapter(fragmentManager, lifecycle) {
 
     private val fragmentList = windows
 //    private val fragmentList: ArrayList<Fragment> = ArrayList()

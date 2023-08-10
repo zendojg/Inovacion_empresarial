@@ -39,6 +39,7 @@ class FragEncuestaCap01 : Fragment() {
     private var corre: String = ""
     private var lugarp: String = ""
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -60,7 +61,6 @@ class FragEncuestaCap01 : Fragment() {
     private fun onAction() {
         val room = RoomView(dvmCap1, ctx)
         with (bindingcap1){
-
 
             txtCap11.onItemClickListener =
                 AdapterView.OnItemClickListener { prn, _, pos, _ ->
@@ -109,7 +109,6 @@ class FragEncuestaCap01 : Fragment() {
                         }
                     }
                 }
-
             txtCap13.onItemClickListener =
                 AdapterView.OnItemClickListener { prn, _, pos, _ ->
                     CoroutineScope(Dispatchers.IO).launch {
@@ -172,14 +171,14 @@ class FragEncuestaCap01 : Fragment() {
     private fun seeData() {
         val room = RoomView(dvmCap1, ctx)
         CoroutineScope(Dispatchers.IO).launch {
-            if (arrayProv.isEmpty())
-                arrayProv = room.getProv()
+            //if (arrayProv.isEmpty())
+            //    arrayProv = room.getProv()
             if (idprov.isNotEmpty()) {
                 prov = room.getProvName(idprov)
-                arrayDist = room.getDist(idprov)
+                //arrayDist = room.getDist(idprov)
                 if (iddist.isNotEmpty()) {
                     dist = room.getDistName(idprov, iddist)
-                    arrayCorre = room.getCorre(idprov, iddist)
+                    //arrayCorre = room.getCorre(idprov, iddist)
                     if (idcorre.isNotEmpty()) {
                         corre = room.getCorreName(idprov, iddist, idcorre)
                         arrayLugarP = room.getLugarP(idprov, iddist, idcorre)
