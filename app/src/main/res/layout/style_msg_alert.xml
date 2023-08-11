@@ -108,7 +108,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnegativo"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="start"
             android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="30dp"
@@ -124,13 +124,14 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:backgroundTint="@color/holo_blue_dark"
+            app:cornerRadius="7dp"
             app:icon="@drawable/img_close"
             app:iconPadding="9dp"
-            app:cornerRadius="7dp"
             app:iconTint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/msg6"
+            tools:ignore="TouchTargetSizeCheck"
             tools:text="Negativo" />
 
 
@@ -138,7 +139,7 @@
             android:id="@+id/btpositivo"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="end"
             android:layout_marginHorizontal="30dp"
             android:layout_marginTop="10dp"
@@ -162,6 +163,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnegativo"
+            tools:ignore="TouchTargetSizeCheck"
             tools:text="Positivo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

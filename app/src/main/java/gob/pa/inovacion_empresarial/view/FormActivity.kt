@@ -232,23 +232,30 @@ class FormActivity : AppCompatActivity() {
         }
         if (move == true) {
             if (form.viewpager.currentItem == Mob.CAP8P15 && Mob.p56stat == false) {
-                form.viewpager.setCurrentItem(form.viewpager.currentItem + 2, false)
+                form.viewpager.setCurrentItem(
+                    form.viewpager.currentItem + 2, false)
             } else
                 if (form.viewpager.currentItem == Mob.SEC1P20 && Mob.seccON == false) {
-                    form.viewpager.setCurrentItem(form.viewpager.currentItem + 4, false)
+                    form.viewpager.setCurrentItem(
+                        form.viewpager.currentItem + 4, false)
                 } else
-                    form.viewpager.setCurrentItem(form.viewpager.currentItem + 1, false)
+                    form.viewpager.setCurrentItem(
+                        form.viewpager.currentItem + 1, false)
         } else if (move == false) {
             if (form.viewpager.currentItem == Mob.CAP9P17 && Mob.p56stat == false) {
-                form.viewpager.setCurrentItem(form.viewpager.currentItem - 2, false)
+                form.viewpager.setCurrentItem(
+                    form.viewpager.currentItem - 2, false)
             } else
                 if (form.viewpager.currentItem == Mob.OBSP24 && Mob.seccON == false) {
-                    form.viewpager.setCurrentItem(form.viewpager.currentItem - 4, false)
+                    form.viewpager.setCurrentItem(
+                        form.viewpager.currentItem - 4, false)
                 } else
-                    form.viewpager.setCurrentItem(form.viewpager.currentItem - 1, false)
+                    form.viewpager.setCurrentItem(
+                        form.viewpager.currentItem - 1, false)
         } else if (move == null) {
             lifecycleScope.launch {
-                val info = RoomView(dvmForm, this@FormActivity).saveForm(CreateForm().createSaved())
+                val info =
+                    RoomView(dvmForm, this@FormActivity).saveForm(CreateForm().createSaved())
                 println("----------$info")
             }
             val color = if (form.viewpager.currentItem < Mob.SEC1P20)

@@ -408,7 +408,9 @@ data class ModelCondicion(
     @SerializedName("numControl")       val cond: String?,
     @SerializedName("codCondicion")     val obs: String?,
     @SerializedName("razonSocial")      val act: String?,
-    @SerializedName("otraNombre")       val rev: String?
+    @SerializedName("otraNombre")       val rev: String?,
+    @SerializedName("descNumControl")   val ncontrolnew: String?,
+    @SerializedName("especifique")      val especifique: String?
 )
 
 data class ModelForm(

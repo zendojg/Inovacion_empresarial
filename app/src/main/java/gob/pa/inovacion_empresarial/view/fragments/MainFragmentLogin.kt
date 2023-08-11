@@ -53,7 +53,7 @@ class MainFragmentLogin: Fragment() {
             Mob.mainWindow = pager.currentItem
         fragLogin.lbversionLogin.text = Mob.version
 
-        Toast.makeText(ctx, "App de prueba ${Mob.version}", Toast.LENGTH_LONG).show() //---- Eliminar
+        Toast.makeText(ctx, "App de prueba ${Mob.version}", Toast.LENGTH_SHORT).show() //---- Eliminar
         onAction()
     }
 

@@ -45,9 +45,7 @@ class MainFragmentSearch : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        if (aDialog?.isShowing == true) {
-            aDialog?.dismiss()
-        }
+        if (aDialog?.isShowing == true)  aDialog?.dismiss()
     }
 
     override fun onResume() {

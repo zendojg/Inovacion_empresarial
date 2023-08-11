@@ -88,8 +88,9 @@
     <string-array name="emptyArr" />
 
     <string-array name="arr_typeForms">
-        <item><b>Formularios guardados localmente</b></item>
-        <item>Formularios en el servidor</item>
+        <item>Formularios guardados localmente</item>
+        <item>Formularios asignados</item>
+        <item>Formularios enviados al servidor</item>
     </string-array>
 
     <string-array name="arr_condiciones">
@@ -666,5 +667,10 @@
     <string name="aswernCloseApp">¿Desea salir de la encuesta?</string>
     <string name="asnwernCloseApp2">Los datos no guardados se perderan...</string>
     <string name="infobt">INFORME y Observaciones</string>
+    <string name="asignadas">Asignadas:</string>
+    <string name="totaldeencuestas">Total de encuestas</string>
+    <string name="sending">Enviadas:</string>
+    <string name="notsending">No enviadas:</string>
+    <string name="guardadas">Guardadas:</string>
 
 </resources>

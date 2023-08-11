@@ -1,6 +1,7 @@
 package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,16 +13,21 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.FragUserMainBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgAlertBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgFormBinding
 import gob.pa.inovacion_empresarial.function.AppCache
+import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
+import gob.pa.inovacion_empresarial.model.ModelForm
 import gob.pa.inovacion_empresarial.service.room.RoomView
 import kotlinx.coroutines.launch
+import java.lang.reflect.Type
 
 class MainFragmentData : Fragment() {
     private lateinit var bindingUser: FragUserMainBinding
@@ -36,7 +42,10 @@ class MainFragmentData : Fragment() {
         ctx = requireContext()
         return bindingUser.root
     }
-
+    override fun onPause() {
+        super.onPause()
+        if (aDialog?.isShowing == true)  aDialog?.dismiss()
+    }
     override fun onResume() {
         super.onResume()
 
@@ -70,6 +79,7 @@ class MainFragmentData : Fragment() {
                 val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
                 pager?.setCurrentItem(Mob.INIT01, true)
             }
+            actividad()
         }
     }
 
@@ -82,13 +92,16 @@ class MainFragmentData : Fragment() {
             )
         with(bindSend) {
             lbtittlestyleF.text = getString(R.string.renewtittle)
+            txtmsgStyle.text = "La siguiente acción actualizara los datos internos de la aplicación desde el servidor"
+            txt1styleF.visibility = View.GONE
             txt2styleFly.visibility = View.GONE
-            txt1styleFly.visibility = View.GONE
             txt0styleFly.visibility = View.VISIBLE
+            txtmsgStyle.visibility = View.VISIBLE
 
             msgLogout.setView(view)
             msgLogout.setView(bindSend.root)
             aDialog = msgLogout.create()
+            aDialog?.setCancelable(false)
             aDialog?.show()
 
             btEnd.text = getString(R.string.internalupdt)
@@ -98,13 +111,24 @@ class MainFragmentData : Fragment() {
                 ContextCompat.getColorStateList(ctx, R.color.dark_red)
 
             btCancel.setOnClickListener {
-                hideKeyboard()
+
                 aDialog?.dismiss()
             }
             btEnd.setOnClickListener {
-                hideKeyboard()
-                aDialog?.dismiss()
+                if (txt0styleF.text.isNullOrEmpty()) {
+                    val alert = Functions.msgMark("Ingrese la clave de acceso",
+                        Mob.WIDTH180DP, ctx, Color.RED)
+                    alert.showAlignBottom(txt0styleF)
+                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                } else if (txt0styleF.text.toString() == "12345") {
 
+                    aDialog?.dismiss()
+                } else {
+                    val alert = Functions.msgBallom("Clave incorrecta",
+                        Mob.WIDTH160DP, ctx, Color.RED)
+                    alert.showAlignBottom(txt0styleF)
+                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                }
             }
         }
     }
@@ -121,9 +145,9 @@ class MainFragmentData : Fragment() {
             msg1.visibility = View.GONE
             msg2.visibility = View.GONE
             msgLogout.setView(view)
-
             msgLogout.setView(bindSend.root)
             aDialog = msgLogout.create()
+            aDialog?.setCancelable(false)
             aDialog?.show()
 
             btpositivo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
@@ -142,11 +166,25 @@ class MainFragmentData : Fragment() {
 
     private fun actividad() {
         lifecycleScope.launch {
-            val retroData = dvmUser.formsGetUser(Mob.authData?.user!!)
-            val roomData = RoomView(dvmUser, ctx).getFormsUser(Mob.authData?.user!!)
-            activity?.runOnUiThread {
-                bindingUser.txtsendFormUser.text = retroData?.body?.size.toString()
-                bindingUser.txtcreateFormUser.text = roomData.size.toString()
+            if (!Mob.authData?.user.isNullOrEmpty()) {
+                val retroData = dvmUser.formsGetUser(Mob.authData?.user!!)
+                val roomData = RoomView(dvmUser, ctx).getFormsUser(Mob.authData?.user!!)
+                var sendForms = 0
+                var notsendForms = 0
+                if  (!retroData?.body.isNullOrEmpty()) {
+                    for (i in retroData?.body!!) { if (i.tieneIncon != null) sendForms += 1 }
+                }
+                for (i in roomData) {
+                    val type: Type = object : TypeToken<ModelForm?>() {}.type
+                    val listTest = Gson().fromJson<ModelForm>(i.saveForm, type)
+                    if (listTest.tieneIncon == null) notsendForms += 1
+                }
+                activity?.runOnUiThread {
+                    bindingUser.txtnotsendUser.text = notsendForms.toString()
+                    bindingUser.txtsendUser.text = sendForms.toString()
+                    bindingUser.txtasignFormUser.text = retroData?.body?.size.toString()
+                    bindingUser.txtsavedmUser.text = roomData.size.toString()
+                }
             }
         }
     }

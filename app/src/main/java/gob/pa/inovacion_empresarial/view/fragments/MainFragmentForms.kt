@@ -70,17 +70,24 @@ class MainFragmentForms : Fragment() {
 
             spinFormsType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    if (pos == 1) {
+                    if (pos == 1 || pos == 2)  {
                         lifecycleScope.launch {
                             //list = RoomView(dvmForm, ctx).getFormsUser(Mob.authData?.user!!) //----------------- Agregar mas controles a las variables
                             val retroData = dvmForm.formsGetUser(Mob.authData?.user!!)
-                            list = retroData?.body!!
-                            adpForms.updateList(list)
+                            if (pos == 1) {
+                                list = retroData?.body!!
+                                adpForms.updateList(list)
+                            } else {
+                                val listSend: ArrayList<ModelForm> = ArrayList()
+                                for (i in retroData?.body!!)  if (i.tieneIncon != null) listSend.add(i)
+                                list = listSend
+                                adpForms.updateList(listSend)
+                            }
                         }
                     } else {
                         lifecycleScope.launch {
                             val roomData = RoomView(dvmForm, ctx).getFormsUser(Mob.authData?.user!!)
-                            println("---------$roomData")
+
                             val listRoom: ArrayList<ModelForm> = ArrayList()
                             for (i in roomData) {
                                 val type: Type = object : TypeToken<ModelForm?>() {}.type
