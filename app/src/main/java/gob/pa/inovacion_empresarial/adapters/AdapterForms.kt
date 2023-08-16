@@ -3,6 +3,7 @@ package gob.pa.inovacion_empresarial.adapters
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import gob.pa.inovacion_empresarial.databinding.StyleItemFormsBinding
@@ -35,20 +36,7 @@ class AdapterForms(var list: List<ModelForm>, private val onItemRemove:(ModelFor
                 else txtconditionRC.text = "Sin condición asignada"
 
                 txtrazonRC.text = form.cap2?.v06razontxt ?: "No registrada"
-                txtinconsistenciasRC.text = when (form.tieneIncon) {
-                    true  -> {
-                        lbinconsistenciasRC.setTextColor(Color.parseColor("#C3584C"))
-                        txtinconsistenciasRC.setTextColor(Color.parseColor("#C3584C"))
-                        "Sí" }
-                    false -> {
-                        lbinconsistenciasRC.setTextColor(Color.parseColor("#2B577B"))
-                        txtinconsistenciasRC.setTextColor(Color.parseColor("#2B577B"))
-                        "No" }
-                    else  -> {
-                        lbinconsistenciasRC.setTextColor(Color.parseColor("#2B577B"))
-                        txtinconsistenciasRC.setTextColor(Color.parseColor("#2B577B"))
-                        "No registradas" }
-                }
+                lbinconsistenciasRC.isVisible = form.tieneIncon == true
 
                 layoutItemForm.setOnClickListener { onItemClick(form) }
             }

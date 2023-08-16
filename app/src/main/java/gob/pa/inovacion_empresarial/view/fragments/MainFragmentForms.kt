@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.SearchView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -24,6 +25,8 @@ import gob.pa.inovacion_empresarial.model.ModelForm
 import gob.pa.inovacion_empresarial.service.room.RoomView
 import kotlinx.coroutines.launch
 import java.lang.reflect.Type
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainFragmentForms : Fragment() {
     private lateinit var bindingForm: FragFormsMainBinding
@@ -70,42 +73,83 @@ class MainFragmentForms : Fragment() {
 
             spinFormsType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    if (pos == 1 || pos == 2)  {
-                        lifecycleScope.launch {
-                            //list = RoomView(dvmForm, ctx).getFormsUser(Mob.authData?.user!!) //----------------- Agregar mas controles a las variables
-                            val retroData = dvmForm.formsGetUser(Mob.authData?.user!!)
+                    var inco = 0
+                    barForms.visibility = View.VISIBLE
+                    val user: String = Mob.authData?.user ?: ""
+                    val listUpdate: ArrayList<ModelForm> = ArrayList()
+                    lifecycleScope.launch {
+                        if (pos == 1 || pos == 2) {
+                            val retroData = dvmForm.formsGetUser(user)
                             if (pos == 1) {
-                                list = retroData?.body!!
+                                list = retroData?.body ?: ArrayList()
+                                for (i in list) if (i.tieneIncon == true) inco += 1
+                                txttotalInconForms.text = inco.toString()
+                                txttotalForms.text = list.size.toString()
                                 adpForms.updateList(list)
                             } else {
-                                val listSend: ArrayList<ModelForm> = ArrayList()
-                                for (i in retroData?.body!!)  if (i.tieneIncon != null) listSend.add(i)
-                                list = listSend
-                                adpForms.updateList(listSend)
+                                for (i in retroData?.body ?: ArrayList())
+                                    if (i.tieneIncon != null) {
+                                        listUpdate.add(i)
+                                        if (i.tieneIncon == true) inco += 1
+                                    }
+                                list = listUpdate
+                                txttotalInconForms.text = inco.toString()
+                                txttotalForms.text = list.size.toString()
+                                adpForms.updateList(list)
                             }
-                        }
-                    } else {
-                        lifecycleScope.launch {
-                            val roomData = RoomView(dvmForm, ctx).getFormsUser(Mob.authData?.user!!)
 
-                            val listRoom: ArrayList<ModelForm> = ArrayList()
+                        } else {
+                            val roomData = RoomView(dvmForm, ctx).getFormsUser(user)
                             for (i in roomData) {
                                 val type: Type = object : TypeToken<ModelForm?>() {}.type
                                 val listTest = Gson().fromJson<ModelForm>(i.saveForm, type)
-                                listRoom.add(listTest)
+                                listUpdate.add(listTest)
                             }
-                            list = listRoom
+                            for (i in listUpdate) if (i.tieneIncon == true) inco += 1
+                            list = listUpdate
+                            txttotalInconForms.text = inco.toString()
+                            txttotalForms.text = list.size.toString()
                             adpForms.updateList(list)
                         }
+                        barForms.visibility = View.INVISIBLE
                     }
                 }
                 override fun onNothingSelected(adp: AdapterView<*>?) {}
             }
 
 
-
+            searchForms.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    if (!query.isNullOrEmpty()) {
+                        var inco = 0
+                        val listUpdate: ArrayList<ModelForm> = ArrayList()
+                        val search = query.lowercase(Locale.getDefault())
+                        list.forEach {
+                            when {
+                                it.ncontrol?.lowercase(Locale.getDefault())
+                                    ?.contains(search) == true -> listUpdate.add(it)
+                                it.cap2?.v05nameLtxt?.lowercase(Locale.getDefault())
+                                    ?.contains(search) == true -> listUpdate.add(it)
+                                it.cap2?.v06razontxt?.lowercase(Locale.getDefault())
+                                    ?.contains(search) == true -> listUpdate.add(it)
+                                it.cap2?.v07ructxt?.lowercase(Locale.getDefault())
+                                    ?.contains(search) == true -> listUpdate.add(it)
+                            }
+                        }
+                        for (i in listUpdate)
+                            if (i.tieneIncon == true) inco += 1
+                        txttotalInconForms.text = inco.toString()
+                        txttotalForms.text = listUpdate.size.toString()
+                        adpForms.updateList(listUpdate)
+                    }
+                    return true
+                }
+                override fun onQueryTextChange(newText: String?) = false
+            })
         }
     }
+
+
 
 //
 //    private fun menuClick(position: Int) {

@@ -3,6 +3,8 @@ package gob.pa.inovacion_empresarial.view.fragments
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -48,9 +50,7 @@ class MainFragmentData : Fragment() {
     }
     override fun onResume() {
         super.onResume()
-
         fillOut()
-
     }
 
     private fun fillOut() {
@@ -66,7 +66,7 @@ class MainFragmentData : Fragment() {
             lbnameUser.text = Mob.authData?.name ?: "Desconocido"
             lbfechaUser.text = expira?.get(0) ?: "0/0/0"
         }
-
+        actividad()
         onAction()
     }
 
@@ -79,7 +79,22 @@ class MainFragmentData : Fragment() {
                 val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
                 pager?.setCurrentItem(Mob.INIT01, true)
             }
-            actividad()
+            btsaveUser.setOnClickListener {
+                bindingUser.barUser.visibility = View.VISIBLE
+                val screen = AlertDialog.Builder(ctx)
+                aDialog = screen.create()
+                aDialog?.setCancelable(false)
+                aDialog?.show()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    //----------------------------------------------------------------------------- UPDATE
+                    val alert = Functions.msgBallom("Respaldo actualizado",
+                        Mob.WIDTH180DP, ctx, Color.DKGRAY)
+                    alert.showAlignBottom(bindingUser.txtwarningUser)
+                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                    bindingUser.barUser.visibility = View.INVISIBLE
+                    aDialog?.dismiss()
+                }, (Mob.TIME1S))
+            }
         }
     }
 
@@ -92,7 +107,7 @@ class MainFragmentData : Fragment() {
             )
         with(bindSend) {
             lbtittlestyleF.text = getString(R.string.renewtittle)
-            txtmsgStyle.text = "La siguiente acción actualizara los datos internos de la aplicación desde el servidor"
+            txtmsgStyle.text = getString(R.string.warningRenew)
             txt1styleF.visibility = View.GONE
             txt2styleFly.visibility = View.GONE
             txt0styleFly.visibility = View.VISIBLE
@@ -120,9 +135,22 @@ class MainFragmentData : Fragment() {
                         Mob.WIDTH180DP, ctx, Color.RED)
                     alert.showAlignBottom(txt0styleF)
                     alert.dismissWithDelay(Mob.TIMELONG2SEG)
-                } else if (txt0styleF.text.toString() == "12345") {
-
+                } else if (txt0styleF.text.toString() == Mob.pass) {
                     aDialog?.dismiss()
+                    bindingUser.barUser.visibility = View.VISIBLE
+                    val screen = AlertDialog.Builder(ctx)
+                    aDialog = screen.create()
+                    aDialog?.setCancelable(false)
+                    aDialog?.show()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        //-------------------------------------------------------------------------- UPDATE
+                        val alert = Functions.msgBallom("Datos actualizados",
+                            Mob.WIDTH180DP, ctx, Color.DKGRAY)
+                        alert.showAlignBottom(bindingUser.txtwarningUser)
+                        alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                        bindingUser.barUser.visibility = View.INVISIBLE
+                        aDialog?.dismiss()
+                    }, (Mob.TIME1S))
                 } else {
                     val alert = Functions.msgBallom("Clave incorrecta",
                         Mob.WIDTH160DP, ctx, Color.RED)
@@ -165,6 +193,7 @@ class MainFragmentData : Fragment() {
     }
 
     private fun actividad() {
+        bindingUser.barUser.visibility = View.VISIBLE
         lifecycleScope.launch {
             if (!Mob.authData?.user.isNullOrEmpty()) {
                 val retroData = dvmUser.formsGetUser(Mob.authData?.user!!)
@@ -180,10 +209,17 @@ class MainFragmentData : Fragment() {
                     if (listTest.tieneIncon == null) notsendForms += 1
                 }
                 activity?.runOnUiThread {
-                    bindingUser.txtnotsendUser.text = notsendForms.toString()
-                    bindingUser.txtsendUser.text = sendForms.toString()
-                    bindingUser.txtasignFormUser.text = retroData?.body?.size.toString()
-                    bindingUser.txtsavedmUser.text = roomData.size.toString()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        with (bindingUser){
+                            barUser.visibility = View.INVISIBLE
+                            txtnotsendUser.text = notsendForms.toString()
+                            txtsendUser.text = sendForms.toString()
+                            txtasignFormUser.text = retroData?.body?.size.toString()
+                            txtsavedmUser.text = roomData.size.toString()
+                            txtcomplettoday.text = "0"  //------------------------------------------ AGREGAR
+                            txtcompletweek.text = "0"
+                        }
+                    }, (Mob.TIME500MS))
                 }
             }
         }

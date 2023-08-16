@@ -672,5 +672,15 @@
     <string name="sending">Enviadas:</string>
     <string name="notsending">No enviadas:</string>
     <string name="guardadas">Guardadas:</string>
+    <string name="datrenew">Crear respaldo de datos</string>
+    <string name="internalDat">Renovar datos internos</string>
+    <string name="datUser">Datos del</string>
+    <string name="name">Nombre:</string>
+    <string name="user">Usuario:</string>
+    <string name="sessionexp">La sesión expira:</string>
+    <string name="city">city</string>
+    <string name="rolExample">:Rol del Usuario:</string>
+    <string name="dmcsaved">Encuestas guardads en el DMC</string>
+    <string name="warningRenew">La siguiente acción actualizara los datos internos de la aplicación desde el servidor</string>
 
 </resources>

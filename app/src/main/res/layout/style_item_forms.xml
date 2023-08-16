@@ -12,21 +12,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="2dp"
-        android:background="@drawable/background_shadow_low">
+        android:background="@drawable/background_border3">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="?selectableItemBackground"
             android:paddingHorizontal="10dp"
-            android:paddingVertical="10dp">
+            android:paddingVertical="12dp">
 
             <TextView
                 android:id="@+id/lbncontrolRC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
-                android:animateLayoutChanges="true"
                 android:fontFamily="sans-serif-condensed"
                 android:text="N° control:"
                 android:textColor="@color/black"
@@ -37,10 +36,9 @@
 
             <TextView
                 android:id="@+id/txtncontrolRC"
-                android:layout_width="70dp"
+                android:layout_width="77dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:animateLayoutChanges="true"
                 android:fontFamily="sans-serif-condensed"
                 android:textSize="@dimen/text16"
                 android:textStyle="bold"
@@ -52,18 +50,17 @@
 
             <TextView
                 android:id="@+id/lbnameLRC"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:layout_marginHorizontal="7dp"
-                android:animateLayoutChanges="true"
+                android:layout_marginEnd="5dp"
                 android:ellipsize="end"
-                android:maxLines="1"
                 android:fontFamily="sans-serif-condensed"
+                android:maxLines="1"
                 android:textSize="@dimen/text16"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/lbncontrolRC"
                 app:layout_constraintTop_toBottomOf="@+id/lbncontrolRC"
                 tools:text="Nombre Comercial " />
 
@@ -71,7 +68,6 @@
                 android:id="@+id/lbrucRC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:animateLayoutChanges="true"
                 android:fontFamily="sans-serif-condensed"
                 android:text="RUC:"
                 android:textColor="@color/black"
@@ -82,16 +78,16 @@
 
             <TextView
                 android:id="@+id/txtrucRC"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:animateLayoutChanges="true"
+                android:layout_marginHorizontal="5dp"
+                android:ellipsize="end"
                 android:fontFamily="sans-serif-condensed"
+                android:maxLines="1"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text14"
-                android:ellipsize="end"
-                android:maxLines="1"
                 app:layout_constraintBottom_toBottomOf="@+id/lbrucRC"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/lbrucRC"
                 app:layout_constraintTop_toTopOf="@+id/lbrucRC"
                 tools:text="@string/rucex" />
@@ -101,7 +97,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
-                android:animateLayoutChanges="true"
                 android:fontFamily="sans-serif-condensed"
                 android:text="Razón Social:"
                 android:textColor="@color/blue_dark"
@@ -112,16 +107,16 @@
 
             <TextView
                 android:id="@+id/txtrazonRC"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
-                android:animateLayoutChanges="true"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@color/blue_dark"
                 android:ellipsize="end"
+                android:fontFamily="sans-serif-condensed"
                 android:maxLines="1"
+                android:textColor="@color/blue_dark"
                 android:textSize="@dimen/text14"
                 app:layout_constraintBottom_toBottomOf="@+id/lbrazonRC"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/lbrazonRC"
                 app:layout_constraintTop_toTopOf="@+id/lbrazonRC"
                 tools:text="Razón o nombre del propietario" />
@@ -131,7 +126,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
-                android:animateLayoutChanges="true"
                 android:fontFamily="sans-serif-condensed"
                 android:text="Condición:"
                 android:textColor="@color/blue_dark"
@@ -145,7 +139,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:animateLayoutChanges="true"
                 android:fontFamily="sans-serif-condensed"
                 android:textColor="@color/blue_dark"
                 android:textSize="@dimen/text14"
@@ -159,35 +152,25 @@
                 android:id="@+id/lbinconsistenciasRC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                android:animateLayoutChanges="true"
                 android:fontFamily="sans-serif-condensed"
-                android:text="Inconsistencias:"
-                android:textColor="@color/blue_dark"
+                android:layout_marginEnd="5dp"
+                android:text="con Inconsistencias"
+                android:visibility="invisible"
+                android:textColor="@color/dark_red"
                 android:textSize="@dimen/text14"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lbconditionRC" />
+                tools:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/txtncontrolRC" />
 
-            <TextView
-                android:id="@+id/txtinconsistenciasRC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:animateLayoutChanges="true"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@color/blue_dark"
-                android:textSize="@dimen/text14"
-                app:layout_constraintBottom_toBottomOf="@+id/lbinconsistenciasRC"
-                app:layout_constraintStart_toEndOf="@+id/lbinconsistenciasRC"
-                app:layout_constraintTop_toTopOf="@+id/lbinconsistenciasRC"
-                tools:text="Condición de la encuesta" />
+
 
 
             <ImageView
                 android:id="@+id/imgStateRC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:srcCompat="@drawable/img_save_solid" />

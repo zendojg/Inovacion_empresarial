@@ -40,8 +40,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-
-
                 <ImageView
                     android:id="@+id/btbackForm"
                     android:layout_width="35dp"
@@ -65,31 +63,19 @@
 
         </androidx.appcompat.widget.Toolbar>
 
-
-        <ImageView
-            android:id="@+id/imgCITYsearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="CITY"
-            android:scaleType="fitEnd"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/foreground_city" />
-
-
         <ScrollView
             android:id="@+id/scrollUser"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_margin="5dp"
             android:animateLayoutChanges="true"
+            android:background="@drawable/background_border"
             android:fillViewport="true"
             android:paddingVertical="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/layoutTotalsForms"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinFormsType"
+            app:layout_constraintTop_toBottomOf="@+id/layoutForms"
             tools:ignore="UselessParent">
 
             <androidx.recyclerview.widget.RecyclerView
@@ -100,20 +86,125 @@
 
         </ScrollView>
 
-
-        <Spinner
-            android:id="@+id/spinFormsType"
-            android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutForms"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:entries="@array/arr_typeForms"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:minHeight="48dp"
+            android:background="@drawable/background_border"
+            app:layout_constraintEnd_toEndOf="@+id/scrollUser"
+            app:layout_constraintStart_toStartOf="@+id/scrollUser"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarpager">
+
+            <Spinner
+                android:id="@+id/spinFormsType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:paddingHorizontal="7dp"
+                android:entries="@array/arr_typeForms"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:minHeight="48dp"
+                android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.widget.SearchView
+                android:id="@+id/searchForms"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="7dp"
+                android:fontFamily="sans-serif-condensed"
+                android:queryHint="Búsqueda avanzada"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinFormsType" />
+
+            <ProgressBar
+                android:id="@+id/barForms"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="7dp"
+                android:indeterminateOnly="true"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutTotalsForms"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:padding="5dp"
+            android:background="@drawable/background_border"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarpager"/>
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/lbtotalForms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:layout_marginStart="17dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="Total de encuestas:"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txttotalForms"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginStart="7dp"
+                android:text="@string/cero"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lbtotalForms"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/lbtotalInconForms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:fontFamily="sans-serif-condensed"
+                android:text="con Inconsistencias:"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/txttotalForms"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txttotalInconForms"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:fontFamily="sans-serif-condensed"
+                android:layout_marginStart="7dp"
+                android:text="@string/cero"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/lbtotalInconForms"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
