@@ -45,7 +45,7 @@ class FragEncuestaCap05o1 : Fragment() {
     override fun onPause() {
         super.onPause()
         with (bindingcap5o1) {
-
+            //txtCap530A2021.removeTextChangedListener()
             txtCap530A2021.onFocusChangeListener = null
             txtCap530A2022.onFocusChangeListener = null
             txtCap530B2021.onFocusChangeListener = null

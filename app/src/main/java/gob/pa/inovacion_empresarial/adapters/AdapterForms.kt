@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.StyleItemFormsBinding
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.model.Mob
@@ -38,7 +39,10 @@ class AdapterForms(var list: List<ModelForm>, private val onItemRemove:(ModelFor
                 txtrazonRC.text = form.cap2?.v06razontxt ?: "No registrada"
                 lbinconsistenciasRC.isVisible = form.tieneIncon == true
 
-                layoutItemForm.setOnClickListener { onItemClick(form) }
+                layoutItemForm.setOnClickListener {
+                    //layoutItemForm.setBackgroundResource(R.drawable.background_shadow_holoblue2)
+                    onItemClick(form)
+                }
             }
         }
 

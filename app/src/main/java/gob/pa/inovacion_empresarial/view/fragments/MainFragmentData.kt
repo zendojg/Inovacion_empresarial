@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -197,6 +198,7 @@ class MainFragmentData : Fragment() {
         lifecycleScope.launch {
             if (!Mob.authData?.user.isNullOrEmpty()) {
                 val retroData = dvmUser.formsGetUser(Mob.authData?.user!!)
+                val asign: Int = retroData?.body?.size ?: 0
                 val roomData = RoomView(dvmUser, ctx).getFormsUser(Mob.authData?.user!!)
                 var sendForms = 0
                 var notsendForms = 0
@@ -214,7 +216,7 @@ class MainFragmentData : Fragment() {
                             barUser.visibility = View.INVISIBLE
                             txtnotsendUser.text = notsendForms.toString()
                             txtsendUser.text = sendForms.toString()
-                            txtasignFormUser.text = retroData?.body?.size.toString()
+                            txtasignFormUser.text = asign.toString()
                             txtsavedmUser.text = roomData.size.toString()
                             txtcomplettoday.text = "0"  //------------------------------------------ AGREGAR
                             txtcompletweek.text = "0"

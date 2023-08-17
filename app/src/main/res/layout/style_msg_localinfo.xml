@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_border"
+        tools:ignore="HardcodedText,TouchTargetSizeCheck">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:background="@drawable/background_shadow_cel2"
+            android:orientation="vertical"
+            android:paddingHorizontal="7dp"
+            android:paddingBottom="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/txtNcapturaLocally"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_ncontrolB"
+                android:layout_marginTop="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconContentDescription="Localización"
+                app:startIconDrawable="@drawable/img_formulario"
+                app:startIconTint="#306F90">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtNcapturaLocal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_shadow"
+                    android:focusable="false"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="phone"
+                    android:maxLength="6"
+                    android:text="@string/cero"
+                    android:textColor="@color/azul"
+                    android:textSize="@dimen/text16" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_ruc"
+                app:layout_constraintTop_toBottomOf="@+id/txtNcapturaLocally"
+                app:startIconContentDescription="RUC"
+                app:startIconDrawable="@drawable/img_idcheck"
+                app:startIconTint="#306F90">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtRUCLocal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_shadow"
+                    android:focusable="false"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="@color/azul"
+                    android:textSize="@dimen/text16"
+                    tools:text="000000000000-00000000-000000000000" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_razon"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+                app:startIconContentDescription="Establecimiento"
+                app:startIconDrawable="@drawable/img_local06"
+                app:startIconTint="#306F90">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtRazonLocal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_shadow"
+                    android:focusable="false"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="textCapWords"
+                    android:textColor="@color/azul"
+                    android:textSize="@dimen/text16"
+                    tools:text="Razón Social" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hin_nameL"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+                app:startIconContentDescription="Establecimiento"
+                app:startIconDrawable="@drawable/img_local08"
+                app:startIconTint="#306F90">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtNameLocal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_shadow"
+                    android:focusable="false"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="textCapWords"
+                    android:textColor="@color/azul"
+                    android:textSize="@dimen/text16"
+                    tools:text="Nombre del Local" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="2dp"
+                android:hint="@string/hint_prov"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout5"
+                app:startIconContentDescription="Localización"
+                app:startIconDrawable="@drawable/img_gps1"
+                app:startIconTint="#306F90">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtProvLocal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_shadow"
+                    android:focusable="false"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="none"
+                    android:textColor="@color/azul"
+                    android:textSize="@dimen/text16"
+                    tools:text="Panamá" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="2dp"
+                android:hint="@string/hint_dist"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
+                app:startIconContentDescription="Distrito"
+                app:startIconDrawable="@drawable/img_gps1"
+                app:startIconTint="#306F90">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtDistLocal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_shadow"
+                    android:focusable="false"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="none"
+                    android:textColor="@color/azul"
+                    android:textSize="@dimen/text16"
+                    tools:text="San Miguelito" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="2dp"
+                android:hint="@string/hint_corre"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+                app:startIconContentDescription="Corregimiento"
+                app:startIconDrawable="@drawable/img_gps1"
+                app:startIconTint="#306F90">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtCorreLocal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_shadow"
+                    android:focusable="false"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="none"
+                    android:textColor="@color/azul"
+                    android:textSize="@dimen/text16"
+                    tools:text="Omar Torrijos" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btBackLocal"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="3dp"
+                android:drawableTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start|center_vertical"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/back"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                android:textSize="@dimen/text14"
+                android:textStyle="bold"
+                app:backgroundTint="#2B577B"
+                app:cornerRadius="7dp"
+                app:icon="@drawable/img_back"
+                app:iconPadding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btInconLocal"
+                app:layout_constraintTop_toTopOf="@+id/btInconLocal"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btInconLocal"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="17dp"
+                android:layout_marginBottom="7dp"
+                android:layout_marginEnd="3dp"
+                android:ellipsize="end"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start|center_vertical"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:maxLines="1"
+                android:text="Cargar formulario"
+                android:textAllCaps="false"
+                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                android:textSize="@dimen/text14"
+                android:textStyle="bold"
+                app:backgroundTint="#2B577B"
+                app:cornerRadius="7dp"
+                app:icon="@drawable/img_download"
+                app:iconPadding="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btBackLocal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout8"
+                tools:ignore="TouchTargetSizeCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

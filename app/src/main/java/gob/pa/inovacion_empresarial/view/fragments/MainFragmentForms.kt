@@ -1,7 +1,10 @@
 package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +12,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.SearchView
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -19,6 +24,7 @@ import com.google.gson.reflect.TypeToken
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.adapters.AdapterForms
 import gob.pa.inovacion_empresarial.databinding.FragFormsMainBinding
+import gob.pa.inovacion_empresarial.databinding.StyleMsgPopupBinding
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelForm
@@ -44,13 +50,19 @@ class MainFragmentForms : Fragment() {
         return bindingForm.root
     }
 
+    override fun onPause() {
+        super.onPause()
+        bindingForm.spinFormsType.onItemSelectedListener = null
+        if (aDialog?.isShowing == true)  aDialog?.dismiss()
+    }
     override fun onResume() {
         super.onResume()
 
         with (bindingForm){
             adpForms = AdapterForms(list) {
                 //list = list.minus(it)
-                adpForms.updateList(list)
+                //adpForms.updateList(list)
+                popUp(it)
             }
             recyclerdata.layoutManager = LinearLayoutManager(ctx)
             recyclerdata.adapter = adpForms
@@ -117,7 +129,6 @@ class MainFragmentForms : Fragment() {
                 override fun onNothingSelected(adp: AdapterView<*>?) {}
             }
 
-
             searchForms.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     if (!query.isNullOrEmpty()) {
@@ -150,36 +161,41 @@ class MainFragmentForms : Fragment() {
     }
 
 
+    private fun popUp(item: ModelForm) {
+        val msgLogout = AlertDialog.Builder(ctx)
+        val bindmsg: StyleMsgPopupBinding =
+            DataBindingUtil.inflate(
+                LayoutInflater.from(ctx),
+                R.layout.style_msg_popup, null, false
+            )
+        with(bindmsg) {
+            msgLogout.setView(view)
+            msgLogout.setView(bindmsg.root)
+            val ncontrol = "N° de control: ${item.ncontrol}"
 
-//
-//    private fun menuClick(position: Int) {
-//        val x = bindingForm.recyclerdata
-//        val popupMenu = PopupMenu(ctx, )
-//        popupMenu.inflate(R.menu.menu)
-//        popupMenu.menu
-//        popupMenu.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener{
-//            override fun onMenuItemClick(item: MenuItem?): Boolean {
-//
-//                when(item?.itemId){
-//                    R.id.delete -> {
-//                        return true
-//                    }
-//                    R.id.header2 -> {
-//                        Toast.makeText(ctx , "opción 2 clicked" ,
-//                            Toast.LENGTH_SHORT).show()
-//                        return true
-//                    }
-//                    R.id.header3 -> {
-//                        Toast.makeText(ctx , "opción 3 clicked" ,
-//                            Toast.LENGTH_SHORT).show()
-//                        return true
-//                    }
-//                }
-//                return false
-//            }
-//        })
-//        popupMenu.show()
-//    }
+            msgtitle.text = ncontrol
+            bt1.text = "Cargar formulario"
+            bt2.text = "Ver más información del formulario"
+            bt3.text = "Borrar formulario seleccionado"
+            bt4.text = "xxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+            bt1.icon= ContextCompat.getDrawable(ctx, R.drawable.img_download)
+            bt2.icon= ContextCompat.getDrawable(ctx, R.drawable.img_formulario)
+            bt3.icon= ContextCompat.getDrawable(ctx, R.drawable.img_delete)
+            bt4.icon= ContextCompat.getDrawable(ctx, R.drawable.img_plus)
+
+
+            aDialog = msgLogout.create()
+            aDialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            aDialog?.window?.attributes?.windowAnimations =
+                R.style.Animation_Design_BottomSheetDialog
+            aDialog?.window?.setGravity(Gravity.BOTTOM)
+            //aDialog?.setCancelable(false)
+            aDialog?.show()
+        }
+
+    }
+
 
 
 }

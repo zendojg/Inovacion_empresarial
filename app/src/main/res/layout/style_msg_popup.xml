@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_popUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/background_border"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:id="@+id/msgtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Titulo XXXXXXXX" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt1"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginVertical="17dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start|center_vertical"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:textAllCaps="false"
+            android:text="@string/textTest"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+            android:textSize="@dimen/text14"
+            android:textStyle="bold"
+            app:icon="@drawable/img_plus"
+            app:iconPadding="27dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/msgtitle"
+            app:strokeColor="@android:color/transparent"
+            app:strokeWidth="1dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt2"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginHorizontal="3dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start|center_vertical"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:textAllCaps="false"
+            android:text="@string/textTest"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+            android:textSize="@dimen/text14"
+            android:textStyle="bold"
+            app:icon="@drawable/img_plus"
+            app:iconPadding="27dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt1"
+            app:strokeColor="@android:color/transparent"
+            app:strokeWidth="1dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt3"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginHorizontal="3dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start|center_vertical"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:textAllCaps="false"
+            android:text="@string/textTest"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+            android:textSize="@dimen/text14"
+            android:textStyle="bold"
+            app:icon="@drawable/img_plus"
+            app:iconPadding="27dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt2"
+            app:strokeColor="@android:color/transparent"
+            app:strokeWidth="1dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/bt4"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginBottom="17dp"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start|center_vertical"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:textAllCaps="false"
+            android:text="@string/textTest"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+            android:textSize="@dimen/text14"
+            android:textStyle="bold"
+            app:icon="@drawable/img_plus"
+            app:iconPadding="27dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bt3"
+            app:strokeColor="@android:color/transparent"
+            app:strokeWidth="1dp"
+            tools:ignore="TouchTargetSizeCheck" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

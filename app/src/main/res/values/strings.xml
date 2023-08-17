@@ -87,6 +87,17 @@
     <string name="emailCharacters">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz._@0123456789</string>
     <string-array name="emptyArr" />
 
+    <string name="hint_condicion"><b>Condición</b></string>
+    <string name="hint_ncontrolB"><b>N° Control</b></string>
+    <string name="hint_ruc"><b>RUC</b></string>
+    <string name="hint_razon"><b>Razón Social</b></string>
+    <string name="hint_ncapt"><b>N° captura</b></string>
+    <string name="hin_nameL"><b>Nombre del Establecimiento</b></string>
+    <string name="hint_prov"><b>Provincia</b></string>
+    <string name="hint_dist"><b>Distrito</b></string>
+    <string name="hint_corre"><b>Corregimiento</b></string>
+    <string name="hint_dir"><b>Dirección</b></string>
+
     <string-array name="arr_typeForms">
         <item>Formularios guardados localmente</item>
         <item>Formularios asignados</item>
@@ -682,5 +693,7 @@
     <string name="rolExample">:Rol del Usuario:</string>
     <string name="dmcsaved">Encuestas guardads en el DMC</string>
     <string name="warningRenew">La siguiente acción actualizara los datos internos de la aplicación desde el servidor</string>
+    <string name="todo">TODO</string>
+    <string name="textTest">XXXxxxxxxx XXxxxxxxxx</string>
 
 </resources>
