@@ -18,6 +18,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.FragSearchMainBinding
+import gob.pa.inovacion_empresarial.function.CreateForm
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
@@ -84,7 +85,7 @@ class MainFragmentSearch : Fragment() {
         with (fragSearch) {
             if (txtNControlSearch.text.isNullOrEmpty()) {
                 val alert =
-                    Functions.msgMark("Ingrese un N° de Control", Mob.WIDTH180DP, ctx, color)
+                    Functions.msgMark("Ingrese un CEROLEFT° de Control", Mob.WIDTH180DP, ctx, color)
                 alert.showAlignBottom(txtNControlSearch)
                 alert.dismissWithDelay(Mob.TIMELONG2SEG)
             } else {
@@ -94,7 +95,7 @@ class MainFragmentSearch : Fragment() {
                 } catch (e: java.lang.NumberFormatException) { 0 }
                 if (ncont <= 0) {
                     val alert =
-                        Functions.msgMark("N° de Control inválido", Mob.WIDTH180DP, ctx, color)
+                        Functions.msgMark("CEROLEFT° de Control inválido", Mob.WIDTH180DP, ctx, color)
                     alert.showAlignBottom(txtNControlSearch)
                     alert.dismissWithDelay(Mob.TIMELONG2SEG)
                 } else {
@@ -117,26 +118,9 @@ class MainFragmentSearch : Fragment() {
 
                 when (resp.code) {
                     Mob.CODE200 -> {
-                        with(Mob) {
-                            formComp = resp.body
-                            cap1 = resp.body?.cap1
-                            cap2 = resp.body?.cap2
-                            cap3 = resp.body?.cap3
-                            cap4 = resp.body?.cap4
-                            cap5 = resp.body?.cap5
-                            cap6 = resp.body?.cap6
-                            cap7 = resp.body?.cap7
-                            cap8 = resp.body?.cap8
-                            cap9 = resp.body?.cap9
-                            capx = resp.body?.capx
-                            capMod = resp.body?.capMod
-                            condicion = resp.body?.condicion
-                            obsEncuesta = resp.body?.obs ?: ""
-                            obsModulo = resp.body?.capMod?.observaciones ?: ""
-
-                            println("--------\\n---------$condicion")
-                            viewFind(false)
-                        }
+                        CreateForm().createLoad(resp.body)
+                        println("--------\\n---------${Mob.condicion}")
+                        viewFind(false)
                     }
                     Mob.CODE401 -> {
                         val bttest = activity?.findViewById<Button>(R.id.btMainTest)

@@ -15,9 +15,10 @@ object Mob {
     const val APIUPDATEFORM = "api/Cuestionario/update"
     const val APIFORMUSER = "api/Cuestionario/enc/"
 
-
+    const val USERTEST :String = "USUARIO SIN INDENTIFICADOR"
     const val DATEFORMAT = "yyyy-MM-dd HH:mm:ss a"
     const val PORCENT100:Int = 100
+    const val CEROLEFT :Int = 4
 
     const val INITIALYEAR:Int = 1900
     const val WIDTH160DP:Int = 160
@@ -29,6 +30,7 @@ object Mob {
     const val TIMELONG6SEG:Long = 6000L
 
     const val TIME10MS:Long = 10
+    const val TIME100MS:Long = 100
     const val TIME360MS:Long = 360
     const val TIME500MS:Long = 500
     const val TIME800MS:Long = 800

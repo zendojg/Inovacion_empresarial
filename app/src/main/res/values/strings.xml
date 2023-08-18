@@ -695,5 +695,11 @@
     <string name="warningRenew">La siguiente acción actualizara los datos internos de la aplicación desde el servidor</string>
     <string name="todo">TODO</string>
     <string name="textTest">XXXxxxxxxx XXxxxxxxxx</string>
+    <string name="sendSuccess">Encuesta enviada satisfactoriamente…</string>
+    <string name="sendSuccessWithIncon">Encuesta enviada satisfactoriamente…\nSe enlistaron las inconsistencias generadas</string>
+    <string name="razonNormal">Razón social:</string>
+    <string name="btcarga">Cargar formulario</string>
+    <string name="btmoreinfo">Ver más información del formulario</string>
+    <string name="btdelete">Borrar formulario seleccionado</string>
 
 </resources>

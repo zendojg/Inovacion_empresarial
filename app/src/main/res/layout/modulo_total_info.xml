@@ -83,32 +83,100 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         tools:text="@string/doublecero" />
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/txtespecifiqueCondicionly"
+                    <LinearLayout
+                        android:id="@+id/linearCondition"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:animateLayoutChanges="true"
-                        android:hint="Especifique:"
-                        android:visibility="invisible"
+                        android:orientation="vertical"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtCondicionly"
-                        tools:visibility="visible">
+                        app:layout_constraintTop_toBottomOf="@+id/txtCondicionly">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/txtespecifiqueCondicion"
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/txtespecifiqueCondicionly"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="@color/white"
-                            android:fontFamily="sans-serif-condensed"
-                            android:inputType="textMultiLine"
-                            android:maxHeight="250dp"
-                            android:overScrollMode="always"
-                            android:scrollbarStyle="insideInset"
-                            android:scrollbars="vertical"
-                            tools:ignore="TouchTargetSizeCheck"
-                            tools:text="xxxxxxxxxxxx" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:animateLayoutChanges="true"
+                            android:hint="Especifique:"
+                            android:visibility="invisible"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtCondicionly"
+                            tools:visibility="visible">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/txtespecifiqueCondicion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/white"
+                                android:fontFamily="sans-serif-condensed"
+                                android:inputType="textMultiLine"
+                                android:maxHeight="250dp"
+                                android:overScrollMode="always"
+                                android:scrollbarStyle="insideInset"
+                                android:scrollbars="vertical"
+                                tools:ignore="TouchTargetSizeCheck"
+                                tools:text="xxxxxxxxxxxx" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/txtnewNcontrolly"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:animateLayoutChanges="true"
+                            android:hint="@string/ncontrol"
+                            android:visibility="invisible"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtCondicionly"
+                            tools:visibility="visible">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/txtnewNcontrol"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/white"
+                                android:fontFamily="sans-serif-condensed"
+                                android:inputType="textMultiLine"
+                                android:maxLength="5"
+                                android:overScrollMode="always"
+                                android:scrollbarStyle="insideInset"
+                                android:scrollbars="vertical"
+                                tools:ignore="TouchTargetSizeCheck"
+                                tools:text="@string/_00000" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/txtnewRazonly"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:animateLayoutChanges="true"
+                            android:hint="@string/razonNormal"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtCondicionly"
+                            tools:visibility="visible">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/txtnewRazon"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:backgroundTint="@color/white"
+                                android:fontFamily="sans-serif-condensed"
+                                android:inputType="textMultiLine"
+                                android:maxHeight="250dp"
+                                android:overScrollMode="always"
+                                android:scrollbarStyle="insideInset"
+                                android:scrollbars="vertical"
+                                tools:ignore="TouchTargetSizeCheck"
+                                tools:text="xxxxxxxxxxxx" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+
 
                     <TextView
                         android:id="@+id/lbobs"
@@ -195,7 +263,7 @@
                         app:icon="@drawable/img_send"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtespecifiqueCondicionly"
+                        app:layout_constraintTop_toBottomOf="@+id/linearCondition"
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <com.google.android.material.button.MaterialButton
@@ -260,12 +328,12 @@
                         app:iconPadding="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+                        app:layout_constraintTop_toBottomOf="@+id/barInforme"
                         tools:ignore="TouchTargetSizeCheck"
                         tools:visibility="visible" />
 
                     <ProgressBar
-                        android:id="@+id/progressBar"
+                        android:id="@+id/barInforme"
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="match_parent"
                         android:layout_height="15dp"

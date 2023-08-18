@@ -3,15 +3,16 @@ package gob.pa.inovacion_empresarial.view
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.os.Environment
 import android.os.Handler
 import android.os.Looper
 import android.text.InputType
+import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.Button
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -24,6 +25,8 @@ import com.google.android.material.button.MaterialButton
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.adapters.AdapterPagerForm
 import gob.pa.inovacion_empresarial.databinding.ActivityFormBinding
+import gob.pa.inovacion_empresarial.databinding.StyleMsgObsBinding
+import gob.pa.inovacion_empresarial.function.CreateForm
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.model.DVModel
@@ -31,6 +34,8 @@ import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.service.room.RoomView
 import gob.pa.inovacion_empresarial.view.fragments.*
 import kotlinx.coroutines.launch
+import java.io.File
+import java.io.FileOutputStream
 
 
 class FormActivity : AppCompatActivity() {
@@ -50,8 +55,15 @@ class FormActivity : AppCompatActivity() {
             form.viewpager.adapter = myAdapter
             form.viewpager.isUserInputEnabled = false
         }
-
+        handleAppCrash
     }
+    private val handleAppCrash =
+        Thread.UncaughtExceptionHandler { _, ex ->
+            Log.e("error", ex.toString())
+            val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
+            val fileDir = File(dir, "EIE_log.txt")
+            FileOutputStream(fileDir).use { it.write(ex.toString().toByteArray()) }
+        }
 
     override fun onResume() {
         super.onResume()
@@ -60,9 +72,7 @@ class FormActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
-        if (dialog?.isShowing == true) {
-            dialog?.dismiss()
-        }
+        if (dialog?.isShowing == true)  dialog?.dismiss()
     }
 
     private fun onAction() {
@@ -147,7 +157,7 @@ class FormActivity : AppCompatActivity() {
             btnegativo.setOnClickListener {
                 dialog.dismiss()
                 startActivity(Intent(this, MainActivity::class.java))
-                CreateForm().resetForm()
+                CreateForm().resetLoad()
                 Handler(Looper.getMainLooper()).postDelayed({
                     finish()
                 }, (Mob.TIME500MS))
@@ -157,47 +167,50 @@ class FormActivity : AppCompatActivity() {
     }
 
     private fun observation(position: Int) {
+
         val mesagePregunta = AlertDialog.Builder(this)
-        val msg: View = layoutInflater.inflate(R.layout.window_observaciones, null)
-        val btpositivo: Button = msg.findViewById(R.id.btsaveobs)
-        val btnegativo: Button = msg.findViewById(R.id.btexitobs)
-        val lbobs: TextView = msg.findViewById(R.id.txvtittleobs)
-        val txtobs: TextView = msg.findViewById(R.id.txtobs)
-        val encabezado: LinearLayout = msg.findViewById(R.id.linearObs)
+        val bindmsg: StyleMsgObsBinding = StyleMsgObsBinding.inflate(layoutInflater)
+        mesagePregunta.setView(bindmsg.root)
+        val ctx = this
         val color: Int
+        with(bindmsg) {
+            txvtittleobs.text = Mob.obsTittle
+            txtobs.imeOptions = EditorInfo.IME_ACTION_DONE
+            txtobs.setRawInputType(InputType.TYPE_CLASS_TEXT)
+            if (position < Mob.SEC1P20) {
+                color = ContextCompat.getColor(ctx, R.color.holo_blue_dark)
+                txtobs.setText(Mob.obsEncuesta ?: "")
+                linearObs.setBackgroundResource(R.drawable.background_shadow_celpast)
+            } else {
+                color = ContextCompat.getColor(ctx, R.color.cream_pastel)
+                txtobs.setText(Mob.obsModulo ?: "")
+                linearObs.setBackgroundResource(R.drawable.background_shadow_pastel)
+            }
+            btsaveobs.backgroundTintList = ColorStateList.valueOf(color)
+            btexitobs.backgroundTintList = ColorStateList.valueOf(color)
 
-        lbobs.text = Mob.obsTittle
-        txtobs.imeOptions = EditorInfo.IME_ACTION_DONE
-        txtobs.setRawInputType(InputType.TYPE_CLASS_TEXT)
-        if (position < Mob.SEC1P20) {
-            color = ContextCompat.getColor(this, R.color.holo_blue_dark)
-            txtobs.text = Mob.obsEncuesta
-            encabezado.setBackgroundResource(R.drawable.background_shadow_celpast)
-
-        } else {
-            color = ContextCompat.getColor(this, R.color.cream_pastel)
-            txtobs.text = Mob.obsModulo
-            encabezado.setBackgroundResource(R.drawable.background_shadow_pastel)
-        }
-        btpositivo.backgroundTintList = ColorStateList.valueOf(color)
-        btnegativo.backgroundTintList = ColorStateList.valueOf(color)
+            dialog = mesagePregunta.create()
+            dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog?.window?.attributes?.windowAnimations =
+                R.style.Animation_Design_BottomSheetDialog
+            dialog?.window?.setGravity(Gravity.BOTTOM)
+            dialog?.setCancelable(false)
+            dialog?.show()
 
 
-        mesagePregunta.setView(msg)
-        val dialog: AlertDialog = mesagePregunta.create()
-        dialog.show()
-        dialog.window?.setGravity(Gravity.CENTER)
-
-
-        btpositivo.setOnClickListener {
-            if (form.viewpager.currentItem < Mob.SEC1P20) { Mob.obsEncuesta = txtobs.text.toString() }
-            else { Mob.obsModulo = txtobs.text.toString() }
-            dialog.dismiss()
-            hideKeyboard()
-        }
-        btnegativo.setOnClickListener {
-            dialog.dismiss()
-            hideKeyboard()
+            btsaveobs.setOnClickListener {
+                if (form.viewpager.currentItem < Mob.SEC1P20) {
+                    Mob.obsEncuesta = txtobs.text.toString()
+                } else {
+                    Mob.obsModulo = txtobs.text.toString()
+                }
+                dialog?.dismiss()
+                hideKeyboard()
+            }
+            btexitobs.setOnClickListener {
+                dialog?.dismiss()
+                hideKeyboard()
+            }
         }
     }
 

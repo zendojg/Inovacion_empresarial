@@ -2,6 +2,7 @@ package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -23,12 +24,17 @@ import com.google.gson.reflect.TypeToken
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.ModuloTotalInfoBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgFormBinding
+import gob.pa.inovacion_empresarial.function.AppCache
+import gob.pa.inovacion_empresarial.function.CreateBackUp
+import gob.pa.inovacion_empresarial.function.CreateForm
 import gob.pa.inovacion_empresarial.function.Functions
+import gob.pa.inovacion_empresarial.function.Functions.aString
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelForm
 import gob.pa.inovacion_empresarial.model.ModelResponse
+import gob.pa.inovacion_empresarial.service.room.RoomView
 import gob.pa.inovacion_empresarial.view.FormActivity
 import gob.pa.inovacion_empresarial.view.MainActivity
 import kotlinx.coroutines.launch
@@ -41,6 +47,7 @@ class FragTotalInforme : Fragment() {
     private lateinit var ctx: Context
     private val dvmInforme: DVModel by viewModels()
     private var condID = ""
+    var aDialog: AlertDialog? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -48,6 +55,11 @@ class FragTotalInforme : Fragment() {
         bindinginfo = ModuloTotalInfoBinding.inflate(layoutInflater)
         ctx = requireContext()
         return bindinginfo.root
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if (aDialog?.isShowing == true)  aDialog?.dismiss()
     }
 
     override fun onResume() {
@@ -87,18 +99,30 @@ class FragTotalInforme : Fragment() {
 
             val idCondInt = try { condID.toInt() -1 }
             catch (e: java.lang.NumberFormatException) { null }
-            if (idCondInt != null)
-                txtCondicion.setText(Mob.arrCondicion[idCondInt],false)
+            txtCondicion.setText(Mob.arrCondicion[idCondInt ?: 0],false)
 
             with(txtCondicion.text.toString()) {
                 when {
-                    contains(Mob.arrCondicion[Mob.CONDICION02]) ->
+                    contains(Mob.arrCondicion[Mob.CONDICION02]) -> {
+                        txtespecifiqueCondicionly.visibility = View.GONE
+                        txtnewNcontrolly.visibility = View.VISIBLE
+                        txtnewRazonly.visibility = View.VISIBLE
+                    }
+                    contains(Mob.arrCondicion[Mob.CONDICION04]) -> {
+                        txtespecifiqueCondicionly.visibility = View.GONE
+                        txtnewNcontrolly.visibility = View.VISIBLE
+                        txtnewRazonly.visibility = View.VISIBLE
+                    }
+                    contains(Mob.arrCondicion[Mob.CONDICION08]) -> {
                         txtespecifiqueCondicionly.visibility = View.VISIBLE
-                    contains(Mob.arrCondicion[Mob.CONDICION04]) ->
-                        txtespecifiqueCondicionly.visibility = View.VISIBLE
-                    contains(Mob.arrCondicion[Mob.CONDICION08]) ->
-                        txtespecifiqueCondicionly.visibility = View.VISIBLE
-                    else -> txtespecifiqueCondicionly.visibility = View.INVISIBLE
+                        txtnewNcontrolly.visibility = View.INVISIBLE
+                        txtnewRazonly.visibility = View.GONE
+                    }
+                    else -> {
+                        txtespecifiqueCondicionly.visibility = View.GONE
+                        txtnewNcontrolly.visibility = View.INVISIBLE
+                        txtnewRazonly.visibility = View.INVISIBLE
+                    }
                 }
             }
             val condicion = ArrayAdapter(ctx, R.layout.style_box2, Mob.arrCondicion)
@@ -109,12 +133,46 @@ class FragTotalInforme : Fragment() {
                 condID = idCond
                 lbcondicionID.text = idCond
                 when (pos) {
-                    Mob.CONDICION02, Mob.CONDICION04, Mob.CONDICION08 ->
+                    Mob.CONDICION02 -> {
+                        txtespecifiqueCondicionly.visibility = View.GONE
+                        txtnewNcontrolly.visibility = View.VISIBLE
+                        txtnewRazonly.visibility = View.VISIBLE
+                    }
+                    Mob.CONDICION04 -> {
+                        txtespecifiqueCondicionly.visibility = View.GONE
+                        txtnewNcontrolly.visibility = View.VISIBLE
+                        txtnewRazonly.visibility = View.VISIBLE
+                    }
+                    Mob.CONDICION08 -> {
                         txtespecifiqueCondicionly.visibility = View.VISIBLE
-                    else -> txtespecifiqueCondicionly.visibility = View.INVISIBLE
+                        txtnewNcontrolly.visibility = View.INVISIBLE
+                        txtnewRazonly.visibility = View.GONE
+                    }
+                    else -> {
+                        txtespecifiqueCondicionly.visibility = View.GONE
+                        txtnewNcontrolly.visibility = View.INVISIBLE
+                        txtnewRazonly.visibility = View.INVISIBLE
+                    }
                 }
             }
 
+            btSaveObs.setOnClickListener {
+                barInforme.visibility = View.VISIBLE
+                savedForm(CreateForm().create())
+                val screen = AlertDialog.Builder(ctx)
+                aDialog = screen.create()
+                aDialog?.setCancelable(false)
+                aDialog?.show()
+                lifecycleScope.launch { CreateBackUp().saved(ctx) }
+                Handler(Looper.getMainLooper()).postDelayed({
+                    val alert = Functions.msgBallom("Guardado exitoso",
+                        Mob.WIDTH180DP, ctx, Color.MAGENTA)
+                    alert.showAlignBottom(btEnd)
+                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                    barInforme.visibility = View.INVISIBLE
+                    aDialog?.dismiss()
+                }, (Mob.TIME500MS))
+            }
             btSendObs.setOnClickListener {
                 //----------------------------------- ARMAR condicionEmpadronamiento obj
                 senFormulario(CreateForm().create())
@@ -130,8 +188,9 @@ class FragTotalInforme : Fragment() {
         screenBlack.setCancelable(false)
         screenBlack.show()
         lifecycleScope.launch {
-            bindinginfo.progressBar.visibility = View.VISIBLE
+            bindinginfo.barInforme.visibility = View.VISIBLE
             val resp = dvmInforme.sendForm(form)
+            savedForm(form)
             with(resp.code) {
                 when {
                     contains("java.net.UnknownHostException")  ||
@@ -175,10 +234,22 @@ class FragTotalInforme : Fragment() {
             }
             Handler(Looper.getMainLooper()).postDelayed({
                 screenBlack.dismiss()
-                bindinginfo.progressBar.visibility = View.INVISIBLE
+                bindinginfo.barInforme.visibility = View.INVISIBLE
             }, (Mob.TIME800MS))
 
 
+        }
+    }
+
+    private fun savedForm(form: ModelForm) {
+        val nameForm: String
+        with(Mob) {
+            nameForm = "${authData?.user ?: USERTEST}*${Functions.myDate().aString(DATEFORMAT)}"
+        }
+        AppCache.formSAVE(ctx, form, nameForm)
+        lifecycleScope.launch {
+            CreateBackUp().saved(ctx)
+            val info = RoomView(dvmInforme, ctx).saveForm(CreateForm().createSaved())
         }
     }
 
@@ -188,25 +259,22 @@ class FragTotalInforme : Fragment() {
             DataBindingUtil.inflate(LayoutInflater.from(context),
                 R.layout.style_msg_form, null, false)
 
-
         val type: Type = object : TypeToken<ModelResponse?>() {}.type
         val jsonModel: ModelResponse? = Gson().fromJson<ModelResponse>(data, type)
 
         bindSend.txtmsgStyle.visibility = View.VISIBLE
         if (jsonModel?.poseeIncon == "false"){
-            bindSend.txtmsgStyle.text = "Encuesta enviada satisfactoriamente..."
+            bindSend.txtmsgStyle.text = getString(R.string.sendSuccess)
             bindSend.txt2styleFly.visibility = View.GONE
-        } else {
-            bindSend.txtmsgStyle.text = "Encuesta enviada satisfactoriamente...\nSe enlistaron las inconsistencias generadas"
-        }
+        } else bindSend.txtmsgStyle.text = getString(R.string.sendSuccessWithIncon)
 
-        bindSend.txt1styleF.text = try {
-            jsonModel?.ncontrol.toString().toEditable() }
-        catch (e: java.lang.RuntimeException) { "00".toEditable() }
+        val ncont = Functions.ceroLeft(jsonModel?.ncontrol?.toString() ?: "0", Mob.CEROLEFT)
+        bindSend.txt1styleF.text = try { ncont.toEditable() }
+        catch (e: RuntimeException) { "00".toEditable() }
 
         bindSend.txt2styleF.text = try {
             jsonModel?.inconsistencias?.joinToString("\n\n")?.toEditable() }
-        catch (e: java.lang.RuntimeException) { "".toEditable() }
+        catch (e: RuntimeException) { "".toEditable() }
 
         Mob.inconsistencias = jsonModel?.inconsistencias?.size ?: 0
         msgSend.setView(bindSend.root)
@@ -231,7 +299,7 @@ class FragTotalInforme : Fragment() {
     }
 
     private fun endForm() {
-        bindinginfo.progressBar.visibility = View.VISIBLE
+        bindinginfo.barInforme.visibility = View.VISIBLE
         val screen = AlertDialog.Builder(ctx)
         val screenBlack: AlertDialog = screen.create()
         screenBlack.setCancelable(false)
@@ -244,12 +312,12 @@ class FragTotalInforme : Fragment() {
         }
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(ctx, MainActivity::class.java))
-            CreateForm().resetForm()
+            CreateForm().resetLoad()
             Handler(Looper.getMainLooper()).postDelayed({
                 form?.finish()
                 screenBlack.dismiss()
             }, (Mob.TIME800MS))
-            bindinginfo.progressBar.visibility = View.INVISIBLE
+            bindinginfo.barInforme.visibility = View.INVISIBLE
         }, (Mob.TIME800MS))
     }
 

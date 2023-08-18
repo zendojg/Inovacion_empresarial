@@ -23,6 +23,7 @@ import gob.pa.inovacion_empresarial.databinding.FragUserMainBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgAlertBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgFormBinding
 import gob.pa.inovacion_empresarial.function.AppCache
+import gob.pa.inovacion_empresarial.function.CreateBackUp
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.model.DVModel
@@ -80,14 +81,14 @@ class MainFragmentData : Fragment() {
                 val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
                 pager?.setCurrentItem(Mob.INIT01, true)
             }
-            btsaveUser.setOnClickListener {
+            btBackUp.setOnClickListener {
                 bindingUser.barUser.visibility = View.VISIBLE
                 val screen = AlertDialog.Builder(ctx)
                 aDialog = screen.create()
                 aDialog?.setCancelable(false)
                 aDialog?.show()
+                lifecycleScope.launch { CreateBackUp().saved(ctx) }
                 Handler(Looper.getMainLooper()).postDelayed({
-                    //----------------------------------------------------------------------------- UPDATE
                     val alert = Functions.msgBallom("Respaldo actualizado",
                         Mob.WIDTH180DP, ctx, Color.DKGRAY)
                     alert.showAlignBottom(bindingUser.txtwarningUser)

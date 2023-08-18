@@ -1,7 +1,6 @@
-package gob.pa.inovacion_empresarial.view.fragments
+package gob.pa.inovacion_empresarial.function
 
 import com.google.gson.Gson
-import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.aString
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelForm
@@ -61,8 +60,26 @@ class CreateForm {
 
     //fun rechargeCap1() = Mob.formComp?.cap1
     //fun rechargeCap2() = Mob.formComp?.cap2
-
-    fun resetForm() {
+    fun createLoad(form: ModelForm?) {
+        with(Mob) {
+            formComp = form
+            cap1 = form?.cap1
+            cap2 = form?.cap2
+            cap3 = form?.cap3
+            cap4 = form?.cap4
+            cap5 = form?.cap5
+            cap6 = form?.cap6
+            cap7 = form?.cap7
+            cap8 = form?.cap8
+            cap9 = form?.cap9
+            capx = form?.capx
+            capMod = form?.capMod
+            condicion = form?.condicion
+            obsEncuesta = form?.obs ?: ""
+            obsModulo = form?.capMod?.observaciones ?: ""
+        }
+    }
+    fun resetLoad() {
         with(Mob) {
             p56stat = null
             seccON = null
