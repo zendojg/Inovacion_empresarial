@@ -17,10 +17,10 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
-import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -29,9 +29,12 @@ import com.google.gson.reflect.TypeToken
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.adapters.AdapterForms
 import gob.pa.inovacion_empresarial.databinding.FragFormsMainBinding
+import gob.pa.inovacion_empresarial.databinding.StyleMsgFormBinding
+import gob.pa.inovacion_empresarial.databinding.StyleMsgLocalinfoBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgPopupBinding
 import gob.pa.inovacion_empresarial.function.CreateForm
 import gob.pa.inovacion_empresarial.function.Functions
+import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelForm
@@ -179,29 +182,29 @@ class MainFragmentForms : Fragment() {
     }
 
     private fun windBottom(item: ModelForm) {
-        val msgLogout = AlertDialog.Builder(ctx)
+        val msgOpcions = AlertDialog.Builder(ctx)
         val bindmsg: StyleMsgPopupBinding =
             DataBindingUtil.inflate(
                 LayoutInflater.from(ctx),
                 R.layout.style_msg_popup, null, false)
-        bindingForm.spinFormsType.selectedItemPosition
+        val selection = bindingForm.spinFormsType.selectedItemPosition
         with(bindmsg) {
-            msgLogout.setView(bindmsg.root)
+            msgOpcions.setView(bindmsg.root)
             val ncontrol = "N° de control: ${Functions.ceroLeft(item.ncontrol ?: "0",4)}"
 
             msgtitle.text = ncontrol
             bt1.text = getString(R.string.btcarga)
             bt2.text = getString(R.string.btmoreinfo)
             bt3.text = getString(R.string.btdelete)
-            bt4.text = "xxxxxxxxxxxxxxxxxxxxxxxxxx"
+            bt4.text = "Opción por agregar"
 
             bt1.icon= ContextCompat.getDrawable(ctx, R.drawable.img_download)
             bt2.icon= ContextCompat.getDrawable(ctx, R.drawable.img_formulario)
             bt3.icon= ContextCompat.getDrawable(ctx, R.drawable.img_delete)
             bt4.icon= ContextCompat.getDrawable(ctx, R.drawable.img_plus)
 
-
-            aDialog = msgLogout.create()
+            if (selection == 1 || selection == 2) bt3.isEnabled = false
+            aDialog = msgOpcions.create()
             aDialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             aDialog?.window?.attributes?.windowAnimations =
                 R.style.Animation_Design_BottomSheetDialog
@@ -217,6 +220,137 @@ class MainFragmentForms : Fragment() {
                     activity?.finish()
                     startActivity(Intent(ctx, FormActivity::class.java))
                 }, (Mob.TIME100MS))
+            }
+
+            bt2.setOnClickListener {
+                aDialog?.dismiss()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    viewForm(item)
+                }, (Mob.TIME100MS))
+            }
+
+            bt3.setOnClickListener {
+                aDialog?.dismiss()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    if (selection == 1 || selection == 2)
+                        Toast.makeText(ctx, "Imposible borrar", Toast.LENGTH_SHORT).show()
+                     else deleteForm(item)
+                }, (Mob.TIME100MS))
+            }
+
+            bt4.setOnClickListener {
+                aDialog?.dismiss()
+            }
+        }
+    }
+
+    private fun deleteForm(item: ModelForm) {
+        val msgLogout = AlertDialog.Builder(ctx)
+        val bindSend: StyleMsgFormBinding =
+            DataBindingUtil.inflate(
+                LayoutInflater.from(ctx),
+                R.layout.style_msg_form, null, false
+            )
+        with(bindSend) {
+            lbtittlestyleF.text = getString(R.string.deleteTittle)
+            txtmsgStyle.text = getString(R.string.deleteSpec)
+            txt1styleF.visibility = View.GONE
+            txt2styleFly.visibility = View.GONE
+            txt0styleFly.visibility = View.VISIBLE
+            txtmsgStyle.visibility = View.VISIBLE
+
+            msgLogout.setView(view)
+            msgLogout.setView(bindSend.root)
+            aDialog = msgLogout.create()
+            aDialog?.setCancelable(false)
+            aDialog?.show()
+
+            btEnd.text = getString(R.string.delete)
+            btCancel.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
+            btEnd.icon = ContextCompat.getDrawable(ctx, R.drawable.img_delete)
+            btEnd.backgroundTintList =
+                ContextCompat.getColorStateList(ctx, R.color.dark_red)
+
+            btCancel.setOnClickListener {
+                txt0styleF.clearFocus()
+                aDialog?.dismiss()
+            }
+            btEnd.setOnClickListener {
+                txt0styleF.clearFocus()
+                if (txt0styleF.text.isNullOrEmpty()) {
+                    val alert = Functions.msgMark("Ingrese la clave de acceso",
+                        Mob.WIDTH180DP, ctx, Color.RED)
+                    alert.showAlignBottom(txt0styleF)
+                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                } else if (txt0styleF.text.toString() == Mob.pass) {
+                    aDialog?.dismiss()
+                    val screen = AlertDialog.Builder(ctx)
+                    aDialog = screen.create()
+                    aDialog?.setCancelable(false)
+                    aDialog?.show()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        //-------------------------------------------------------------------------- UPDATE
+                        val alert = Functions.msgBallom("Formulario eliminado",
+                            Mob.WIDTH180DP, ctx, Color.DKGRAY)
+                        alert.showAlignBottom(bindingForm.txtwarningForm)
+                        alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                        aDialog?.dismiss()
+                        list = list.minus(item)
+                        adpForms.updateList(list)
+                    }, (Mob.TIME1S))
+                } else {
+                    val alert = Functions.msgBallom("Clave incorrecta",
+                        Mob.WIDTH160DP, ctx, Color.RED)
+                    alert.showAlignBottom(txt0styleF)
+                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                }
+            }
+        }
+    }
+
+
+    private fun viewForm(item: ModelForm) {
+        val msgForm = AlertDialog.Builder(ctx)
+        val bindmsg: StyleMsgLocalinfoBinding =
+            DataBindingUtil.inflate(
+                LayoutInflater.from(ctx),
+                R.layout.style_msg_localinfo, null, false)
+        msgForm.setView(bindmsg.root)
+        lifecycleScope.launch {
+            val ncontrol = Functions.ceroLeft(item.ncontrol ?: "0",Mob.CEROLEFT)
+            val room = RoomView(dvmForm, ctx)
+            val provincia = room.getProvName(item.cap1?.v01provtxt ?: "0")
+            val distrito = room.getDistName(item.cap1?.v01provtxt ?: "0",
+                item.cap1?.v02disttxt ?: "0")
+            val corregimiento = room.getCorreName(item.cap1?.v01provtxt ?: "0",
+                item.cap1?.v02disttxt ?: "0", item.cap1?.v03corretxt ?: "0")
+            activity?.runOnUiThread {
+                with(bindmsg) {
+                    txtProvLocal.text = provincia.toEditable()
+                    txtDistLocal.text = distrito.toEditable()
+                    txtCorreLocal.text = corregimiento.toEditable()
+                    txtNcontrolLocal.text = ncontrol.toEditable()
+                    txtNameLocal.text = item.cap2?.v05nameLtxt?.toEditable() ?: "".toEditable()
+                    txtRazonLocal.text = item.cap2?.v06razontxt?.toEditable() ?: "".toEditable()
+                    txtRUCLocal.text = item.cap2?.v07ructxt?.toEditable() ?: "".toEditable()
+
+                    aDialog = msgForm.create()
+                    aDialog?.window?.attributes?.windowAnimations =
+                        R.style.Animation_Design_BottomSheetDialog
+                    aDialog?.setCancelable(false)
+                    aDialog?.show()
+
+                    btBackLocal.setOnClickListener { aDialog?.dismiss() }
+                    btInconLocal.setOnClickListener {
+                        aDialog?.dismiss()
+                        CreateForm().createLoad(item)
+                        Mob.indiceFormulario = 1
+                        Handler(Looper.getMainLooper()).postDelayed({
+                            activity?.finish()
+                            startActivity(Intent(ctx, FormActivity::class.java))
+                        }, (Mob.TIME100MS))
+                    }
+                }
             }
         }
 

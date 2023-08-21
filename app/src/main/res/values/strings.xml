@@ -673,10 +673,10 @@
     <string name="helpdirdesc">Anote la dirección en el siguiente orden: Mall o centro comercial, avenida, calle, edificio o casa, piso</string>
     <string name="renewtittle">Renovación de datos internos</string>
     <string name="internalupdt">Actualizar datos internos</string>
-    <string name="rucex">000000000000-000000-000000000000</string>
+    <string name="rucex">000000000000–000000–000000000000</string>
     <string name="closeForm">Cerrar encuesta</string>
     <string name="aswernCloseApp">¿Desea salir de la encuesta?</string>
-    <string name="asnwernCloseApp2">Los datos no guardados se perderan...</string>
+    <string name="asnwernCloseApp2">Los datos no guardados se perderan…</string>
     <string name="infobt">INFORME y Observaciones</string>
     <string name="asignadas">Asignadas:</string>
     <string name="totaldeencuestas">Total de encuestas</string>
@@ -701,5 +701,8 @@
     <string name="btcarga">Cargar formulario</string>
     <string name="btmoreinfo">Ver más información del formulario</string>
     <string name="btdelete">Borrar formulario seleccionado</string>
+    <string name="deleteTittle">Eliminación de Formularios</string>
+    <string name="deleteSpec">Solo se podra eliminar formularios guardados en el DMC y que no han sido enviados.</string>
+    <string name="delete">Eliminar</string>
 
 </resources>

@@ -11,6 +11,17 @@
         android:animateLayoutChanges="true"
         android:background="@drawable/foreground_back">
 
+        <ImageView
+            android:id="@+id/imgCITYsearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/city"
+            android:scaleType="fitEnd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/foreground_city" />
+
         <LinearLayout
             android:id="@+id/layoutTitleSearch"
             android:layout_width="match_parent"
@@ -330,18 +341,18 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="17dp"
             android:ellipsize="end"
             android:fontFamily="sans-serif-condensed"
             android:gravity="start|center_vertical"
             android:maxLines="1"
-            android:text="Buscar Encuesta"
+            android:text="Ver datos del N° de control"
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
             android:textStyle="bold"
             app:iconPadding="10dp"
             app:backgroundTint="@android:color/holo_blue_dark"
-            app:icon="@drawable/img_find"
+            app:icon="@drawable/img_formulario"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layoutSearch"
@@ -363,7 +374,7 @@
             android:textStyle="bold"
             app:iconPadding="10dp"
             app:backgroundTint="@android:color/holo_blue_dark"
-            app:icon="@drawable/img_add_page"
+            app:icon="@drawable/img_idcheck"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btSearch"
@@ -379,13 +390,13 @@
             android:fontFamily="sans-serif-condensed"
             android:gravity="start|center_vertical"
             android:maxLines="1"
-            android:text="Lista de cuestionarios"
+            android:text="Lista de formularios"
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
             android:textStyle="bold"
             app:iconPadding="10dp"
             app:backgroundTint="@android:color/holo_blue_dark"
-            app:icon="@drawable/img_formedit"
+            app:icon="@drawable/img_open_folder"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btdataSearch"
@@ -393,16 +404,6 @@
             app:strokeWidth="1dp" />
 
 
-        <ImageView
-            android:id="@+id/imgCITYsearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:contentDescription="CITY"
-            android:scaleType="fitEnd"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/foreground_city" />
 
         <ImageView
             android:id="@+id/img_senacytsearch"
@@ -430,11 +431,13 @@
 
         <ProgressBar
             android:id="@+id/barSearch"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="10dp"
             android:visibility="gone"
+            android:indeterminateOnly="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btformSearch"

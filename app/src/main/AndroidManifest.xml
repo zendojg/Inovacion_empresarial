@@ -24,14 +24,14 @@
             android:configChanges="screenSize|orientation|screenLayout|navigation"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden"
+            android:windowSoftInputMode="stateAlwaysHidden"
             tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".view.MainActivity"
             android:configChanges="screenSize|orientation|screenLayout|navigation"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden|adjustPan|adjustResize"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan|adjustResize"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

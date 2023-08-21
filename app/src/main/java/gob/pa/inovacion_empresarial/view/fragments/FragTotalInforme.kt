@@ -158,20 +158,23 @@ class FragTotalInforme : Fragment() {
 
             btSaveObs.setOnClickListener {
                 barInforme.visibility = View.VISIBLE
-                savedForm(CreateForm().create())
                 val screen = AlertDialog.Builder(ctx)
                 aDialog = screen.create()
                 aDialog?.setCancelable(false)
                 aDialog?.show()
-                lifecycleScope.launch { CreateBackUp().saved(ctx) }
-                Handler(Looper.getMainLooper()).postDelayed({
-                    val alert = Functions.msgBallom("Guardado exitoso",
-                        Mob.WIDTH180DP, ctx, Color.MAGENTA)
-                    alert.showAlignBottom(btEnd)
-                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
-                    barInforme.visibility = View.INVISIBLE
-                    aDialog?.dismiss()
-                }, (Mob.TIME500MS))
+                lifecycleScope.launch {
+                    val estado = savedForm(CreateForm().create())
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        if (estado > 0) {
+                            val alert = Functions.msgBallom("Guardado exitoso",
+                                Mob.WIDTH180DP, ctx, Color.MAGENTA)
+                            alert.showAlignBottom(btEnd)
+                            alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                        }
+                        barInforme.visibility = View.INVISIBLE
+                        aDialog?.dismiss()
+                    }, (Mob.TIME500MS))
+                }
             }
             btSendObs.setOnClickListener {
                 //----------------------------------- ARMAR condicionEmpadronamiento obj
@@ -241,16 +244,14 @@ class FragTotalInforme : Fragment() {
         }
     }
 
-    private fun savedForm(form: ModelForm) {
+    private suspend fun savedForm(form: ModelForm): Long {
         val nameForm: String
         with(Mob) {
             nameForm = "${authData?.user ?: USERTEST}*${Functions.myDate().aString(DATEFORMAT)}"
         }
         AppCache.formSAVE(ctx, form, nameForm)
-        lifecycleScope.launch {
-            CreateBackUp().saved(ctx)
-            val info = RoomView(dvmInforme, ctx).saveForm(CreateForm().createSaved())
-        }
+        CreateBackUp().saved(ctx)
+        return RoomView(dvmInforme, ctx).saveForm(CreateForm().createSaved())
     }
 
     private fun carga(data: String) {

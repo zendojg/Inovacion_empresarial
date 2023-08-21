@@ -11,6 +11,7 @@
         android:background="@drawable/foreground_back">
 
 
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarpager"
             android:layout_width="match_parent"
@@ -23,17 +24,19 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="10dp">
 
                 <TextView
                     android:id="@+id/txvtitleForm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
                     android:animateLayoutChanges="true"
                     android:fontFamily="sans-serif-condensed"
-                    android:textColor="@color/blue_dark"
-                    android:layout_marginStart="5dp"
                     android:text="Formularios:"
+                    android:textColor="@color/blue_dark"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -57,7 +60,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/img_backarr"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -204,7 +206,23 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
 
+        <TextView
+            android:id="@+id/txtwarningForm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/blank"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guidelineForm" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

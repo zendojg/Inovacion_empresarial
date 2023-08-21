@@ -68,7 +68,9 @@ class MainFragmentSearch : Fragment() {
             txtNControllySearch.setStartIconOnClickListener {
                 if (!lyContainer.isVisible) { controlTxt() }
             }
-            btSearch.setOnClickListener { controlTxt() }
+            btSearch.setOnClickListener {
+                //controlTxt()
+            }
             btcancelSearch.setOnClickListener { viewFind(true) }
             btdataSearch.setOnClickListener {
                 pager?.setCurrentItem(Mob.PAGE02, true)
@@ -85,7 +87,7 @@ class MainFragmentSearch : Fragment() {
         with (fragSearch) {
             if (txtNControlSearch.text.isNullOrEmpty()) {
                 val alert =
-                    Functions.msgMark("Ingrese un CEROLEFT° de Control", Mob.WIDTH180DP, ctx, color)
+                    Functions.msgMark("Ingrese un N° de Control", Mob.WIDTH180DP, ctx, color)
                 alert.showAlignBottom(txtNControlSearch)
                 alert.dismissWithDelay(Mob.TIMELONG2SEG)
             } else {
@@ -95,19 +97,16 @@ class MainFragmentSearch : Fragment() {
                 } catch (e: java.lang.NumberFormatException) { 0 }
                 if (ncont <= 0) {
                     val alert =
-                        Functions.msgMark("CEROLEFT° de Control inválido", Mob.WIDTH180DP, ctx, color)
+                        Functions.msgMark("N° de Control inválido", Mob.WIDTH180DP, ctx, color)
                     alert.showAlignBottom(txtNControlSearch)
                     alert.dismissWithDelay(Mob.TIMELONG2SEG)
-                } else {
-                    getForm(ncont.toString())
-                }
+                } else { getForm(ncont.toString()) } //------------
             }
         }
     }
 
     private fun getForm(ncont: String) {
         val win = AlertDialog.Builder(ctx)
-
         aDialog = win.create()
         aDialog?.setCancelable(false)
         fragSearch.barSearch.visibility = View.VISIBLE
@@ -127,18 +126,14 @@ class MainFragmentSearch : Fragment() {
                         val waitBar = activity?.findViewById<ProgressBar>(R.id.barMain)
                         waitBar?.visibility = View.VISIBLE
                         bttest?.callOnClick()
-                        if (!resp.resp.isNullOrEmpty()) {
-                            errorMsg(resp.resp)
-                        }
+                        if (!resp.resp.isNullOrEmpty()) errorMsg(resp.resp)
                     }
-                    Mob.CODE403, Mob.CODE404 -> {
-                        if (!resp.resp.isNullOrEmpty()) {
-                        errorMsg(resp.resp)
-                    }}
+                    Mob.CODE403, Mob.CODE404 -> if (!resp.resp.isNullOrEmpty()) errorMsg(resp.resp)
+
                     Mob.CODE500 -> {
 
                         if (!resp.resp.isNullOrEmpty()) {
-                            if (resp.resp.length < 50)
+                            if (resp.resp.length < Mob.LIMITMSG)
                                 errorMsg(resp.resp)
                             else errorMsg("Error en el servidor")
                         }
@@ -156,7 +151,7 @@ class MainFragmentSearch : Fragment() {
         errortxt = errortxt.replace("{", "")
         errortxt = errortxt.replace("}", "")
         errortxt = errortxt.replace("\"", "")
-        val widthtxt = (errortxt.length * 7)
+        val widthtxt = (errortxt.length * Mob.SIZEAUTOCONTROL)
         val color = ContextCompat.getColor(ctx, R.color.dark_red)
         val alert = Functions.msgBallom(errortxt, widthtxt, ctx, color)
         alert.showAlignBottom(fragSearch.versionsearch)
@@ -165,37 +160,40 @@ class MainFragmentSearch : Fragment() {
 
     private fun viewFind(check: Boolean) {
         hideKeyboard()
-        fragSearch.lyContainer.isVisible = !check
-        fragSearch.btSearch.isVisible = check
-        fragSearch.btdataSearch.isVisible = check
-        fragSearch.btformSearch.isVisible = check
-        fragSearch.versionsearch.isVisible = check
-        fragSearch.imgSenacytsearch.isVisible = check
-        fragSearch.txtNControlSearch.isEnabled = check
-
-        if (!check) {
-            with(Mob) {
-                val blank = "".toEditable()
-                fragSearch.txtLocalSearch.text = cap2?.v05nameLtxt?.toEditable() ?: blank
-                fragSearch.txtrazonSearch.text = cap2?.v06razontxt?.toEditable() ?: blank
-                fragSearch.txttel1Search.text = cap2?.v09tel1txt?.toEditable() ?: blank
-                fragSearch.txttel2Search.text = cap2?.v09tel2txt?.toEditable() ?: blank
-                fragSearch.txtRUCsearch.text = cap2?.v07ructxt?.toEditable() ?: blank
-                fragSearch.txtdirSearch.text = cap2?.v08dirtxt?.toEditable() ?: blank
+        with (fragSearch){
+            lyContainer.isVisible = !check
+            btSearch.isVisible = check
+            btdataSearch.isVisible = check
+            btformSearch.isVisible = check
+            versionsearch.isVisible = check
+            imgSenacytsearch.isVisible = check
+            txtNControlSearch.isEnabled = check
+            when (check) {
+                false -> {
+                    with(Mob) {
+                        val blank = "".toEditable()
+                        txtLocalSearch.text = cap2?.v05nameLtxt?.toEditable() ?: blank
+                        txtrazonSearch.text = cap2?.v06razontxt?.toEditable() ?: blank
+                        txttel1Search.text = cap2?.v09tel1txt?.toEditable() ?: blank
+                        txttel2Search.text = cap2?.v09tel2txt?.toEditable() ?: blank
+                        txtRUCsearch.text = cap2?.v07ructxt?.toEditable() ?: blank
+                        txtdirSearch.text = cap2?.v08dirtxt?.toEditable() ?: blank
+                    }
+                }
+                true -> {
+                    txtLocalSearch.text?.clear()
+                    txtrazonSearch.text?.clear()
+                    txttel1Search.text?.clear()
+                    txttel2Search.text?.clear()
+                    txtRUCsearch.text?.clear()
+                    txtdirSearch.text?.clear()
+                }
             }
-        } else {
-            //fragSearch.txtNControlSearch.requestFocus()
-            fragSearch.txtLocalSearch.text?.clear()
-            fragSearch.txtrazonSearch.text?.clear()
-            fragSearch.txttel1Search.text?.clear()
-            fragSearch.txttel2Search.text?.clear()
-            fragSearch.txtRUCsearch.text?.clear()
-            fragSearch.txtdirSearch.text?.clear()
-        }
-        fragSearch.btinitSearch.setOnClickListener {
-            Mob.indiceFormulario = 1
-            activity?.finish()
-            startActivity(Intent(ctx, FormActivity::class.java))
+            btinitSearch.setOnClickListener {
+                Mob.indiceFormulario = 1
+                activity?.finish()
+                startActivity(Intent(ctx, FormActivity::class.java))
+            }
         }
     }
 

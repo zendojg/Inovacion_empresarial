@@ -123,7 +123,7 @@ class MainFragmentData : Fragment() {
 
             btEnd.text = getString(R.string.internalupdt)
             btCancel.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
-            btEnd.icon = ContextCompat.getDrawable(ctx, R.drawable.img_lock_open)
+            btEnd.icon = ContextCompat.getDrawable(ctx, R.drawable.img_system_update)
             btEnd.backgroundTintList =
                 ContextCompat.getColorStateList(ctx, R.color.dark_red)
 

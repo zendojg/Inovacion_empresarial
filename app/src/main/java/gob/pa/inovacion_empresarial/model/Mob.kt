@@ -18,6 +18,8 @@ object Mob {
     const val USERTEST :String = "USUARIO SIN INDENTIFICADOR"
     const val DATEFORMAT = "yyyy-MM-dd HH:mm:ss a"
     const val PORCENT100:Int = 100
+    const val LIMITMSG :Int = 50
+    const val SIZEAUTOCONTROL :Int = 7
     const val CEROLEFT :Int = 4
 
     const val INITIALYEAR:Int = 1900

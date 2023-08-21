@@ -34,9 +34,9 @@ class CreateBackUp {
             if (i.contains("UserAPP") ||
                 i.contains("RememberCHECK") ||
                 i.contains("tokenData")) {
-                lista.add("{}")
+                lista.add("")
             } else
-                lista.add("$i _ ${data ?: ""}")
+                lista.add("$i*${data ?: ""}")
         }
         val fileBackUp = File(dir, "EIE_backup.txt")
         FileOutputStream(fileBackUp).use {

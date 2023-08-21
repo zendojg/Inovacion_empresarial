@@ -122,7 +122,7 @@ class CreateForm {
         }
     }
 
-    fun cleanForm() {
+    private fun cleanForm() {
         Mob.cap1 = null
         Mob.cap2 = null
         Mob.cap3 = null

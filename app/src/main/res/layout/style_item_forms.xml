@@ -119,7 +119,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/lbrazonRC"
                 app:layout_constraintTop_toTopOf="@+id/lbrazonRC"
-                tools:text="Razón o nombre del propietario" />
+                tools:text="Razón o nombre del propietario ........................................" />
 
             <TextView
                 android:id="@+id/lbconditionRC"
@@ -168,8 +168,8 @@
 
             <ImageView
                 android:id="@+id/imgStateRC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="18dp"
+                android:layout_height="18dp"
                 android:animateLayoutChanges="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
