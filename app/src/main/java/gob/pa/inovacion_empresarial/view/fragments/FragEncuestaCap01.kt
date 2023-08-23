@@ -8,10 +8,13 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo01Binding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap1
@@ -211,18 +214,32 @@ class FragEncuestaCap01 : Fragment() {
     }
 
 
-    fun savedCap() {
+    fun savedCap(): List<String> {
         with(bindingcap1) {
             Mob.cap1 = ModelCap1(
-                Mob.cap1?.id,
-                Mob.cap1?.ncontrol,
+                Mob.formComp?.cap1?.id,
+                Mob.formComp?.cap1?.ncontrol,
                 txtCap11ID.text.toString().ifEmpty { null },
                 txtCap12ID.text.toString().ifEmpty { null },
                 txtCap13ID.text.toString().ifEmpty { null },
                 txtCap14ID.text.toString().ifEmpty { null },
             )
+            return viewCap()
         }
-        println("----------${Mob.cap1}")
+    }
+
+    private fun viewCap(): List<String> {
+        with (bindingcap1) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (txtCap11ID.text.toString().isEmpty()) { returnList.add("Provincia sin datos") }
+            if (txtCap12ID.text.toString().isEmpty()) { returnList.add("Distrito sin datos") }
+            if (txtCap13ID.text.toString().isEmpty()) { returnList.add("Corregimiento sin datos") }
+            if (txtCap14ID.text.toString().isEmpty()) { returnList.add("Lugar poblado sin datos") }
+
+            println("---------Is not empty: ${Mob.icap01}--${Mob.cap1}")
+            Mob.icap01 = returnList.isNotEmpty()
+            return returnList
+        }
     }
 
 }

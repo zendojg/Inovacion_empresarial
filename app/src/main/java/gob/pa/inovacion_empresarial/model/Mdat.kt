@@ -3,6 +3,12 @@ package gob.pa.inovacion_empresarial.model
 import com.google.gson.annotations.SerializedName
 
 //-- LOGIN
+
+data class ModelInconsistencias(
+    @SerializedName("PAUTA")                 val pauta: String,
+    @SerializedName("TEXTO")                 val texto: String
+)
+
 data class ModelLog(
     @SerializedName("username")                 val user: String,
     @SerializedName("password")                 val pass: String,
@@ -25,7 +31,6 @@ data class ModelAuthResp(
     val code: Int?,
     val msg: String?,
     val body: ModelAuth?)
-
 
 data class ModelResp(
     val code: Int?,

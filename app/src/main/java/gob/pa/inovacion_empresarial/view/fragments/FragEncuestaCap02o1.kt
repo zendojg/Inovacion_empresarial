@@ -2,12 +2,18 @@ package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo021DatosDeLaEmpresaBinding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap2
@@ -81,11 +87,11 @@ class FragEncuestaCap02o1 : Fragment() {
         onAction()
     }
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with (bindingcap2o1) {
             Mob.cap2 = ModelCap2(
-                Mob.cap2?.id,
-                Mob.cap2?.ncontrol,
+                Mob.formComp?.cap2?.id,
+                Mob.formComp?.cap2?.ncontrol,
                 txtCap25.text.toString().ifEmpty { null },
                 txtCap26.text.toString().ifEmpty { null },
                 txtCap27.text.toString().ifEmpty { null },
@@ -110,7 +116,24 @@ class FragEncuestaCap02o1 : Fragment() {
                 Mob.cap2?.v20celtxt,
                 Mob.cap2?.v21emailtxt
             )
-            println("------------${Mob.cap2}")
+            return viewCap()
+        }
+    }
+    private fun viewCap(): List<String> {
+        with (bindingcap2o1) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (txtCap214.text.toString().isEmpty()) {
+                returnList.add("Pregunta 14. Número de locales esta vacio")
+            } else if (txtCap215.text.toString().isNotEmpty()) {
+                val p14 = txtCap214.text?.toString()?.toInt() ?: 0
+                val p15 = txtCap215.text?.toString()?.toInt() ?: 0
+                if (p14 < p15) {
+                    returnList.add("Pregunta 15. El número de locales es menor a los que se encuentran en Panamá")
+                }
+            }
+            println("---------Is not empty: ${Mob.icap02o1}--${Mob.cap2}")
+            Mob.icap02o1 = returnList.isNotEmpty()
+            return returnList
         }
     }
 

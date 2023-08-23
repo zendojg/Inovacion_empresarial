@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.ModuloSeccion02Binding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelMod
 
@@ -51,7 +52,7 @@ class FragModuloSecc02 : Fragment() {
         onAction()
     }
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with (bindingmod2) {
             Mob.capMod = ModelMod(
                 Mob.capMod?.id,
@@ -97,6 +98,20 @@ class FragModuloSecc02 : Fragment() {
                 Mob.capMod?.numControl
             )
         }
-        println("----------${Mob.capMod}")
+        return viewCap()
+    }
+
+    private fun viewCap(): List<String> {
+        with(bindingmod2) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (!checkSecc231.isChecked && !checkSecc232.isChecked)
+                if (!checkSecc233.isChecked && !checkSecc234.isChecked)
+                    returnList.add(CreateInconsistecia.inconsistencia(ctx, "293") ?: "")
+
+
+            Mob.isecc2 = returnList.isNotEmpty()
+            println("---------Is not empty: ${Mob.isecc2}--${Mob.capMod}")
+            return returnList
+        }
     }
 }

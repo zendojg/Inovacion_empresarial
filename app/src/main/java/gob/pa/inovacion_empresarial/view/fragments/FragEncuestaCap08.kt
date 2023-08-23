@@ -11,6 +11,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo08Binding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
@@ -88,7 +89,6 @@ class FragEncuestaCap08 : Fragment() {
             spinCap8572B.setSelection(indice2b)
             spinCap8572C.setSelection(indice2c)
 
-            //txtCap8571AMontoly.isVisible = spinCap8571A.selectedItem.toString() == Mob.arrOBT[Mob.SOLICITUDYES2]
             spinsAction()
         }
     }
@@ -100,7 +100,6 @@ class FragEncuestaCap08 : Fragment() {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice1a = pos
                     txtCap8571AMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICITUDYES2]
-                    //txtCap8571AMonto.requestFocus()
                 }
 
                 override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
@@ -109,7 +108,6 @@ class FragEncuestaCap08 : Fragment() {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice1b = pos
                     txtCap8571BMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICITUDYES2]
-                    //txtCap8571BMonto.requestFocus()
                 }
 
                 override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
@@ -118,7 +116,6 @@ class FragEncuestaCap08 : Fragment() {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice1c = pos
                     txtCap8571CMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICITUDYES2]
-                    //txtCap8571CMonto.requestFocus()
                 }
 
                 override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
@@ -127,7 +124,6 @@ class FragEncuestaCap08 : Fragment() {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice2a = pos
                     txtCap8572AMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICITUDYES2]
-                    //txtCap8572AMonto.requestFocus()
                 }
 
                 override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
@@ -144,7 +140,6 @@ class FragEncuestaCap08 : Fragment() {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice2c = pos
                     txtCap8572CMontoly.isVisible = Mob.arrOBT[pos] == Mob.arrOBT[Mob.SOLICITUDYES2]
-                    //txtCap8572CMonto.requestFocus()
                 }
 
                 override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
@@ -155,7 +150,6 @@ class FragEncuestaCap08 : Fragment() {
 
     private fun fillOut() {
         val cap8 = Mob.formComp?.cap8
-
         val blank = "".toEditable()
         when (cap8?.v56check) {
             true -> {
@@ -194,7 +188,7 @@ class FragEncuestaCap08 : Fragment() {
     }
 
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with(bindingcap8o1) {
             Mob.cap8 = ModelCap8(
                 Mob.cap8?.id,
@@ -245,8 +239,21 @@ class FragEncuestaCap08 : Fragment() {
                 Mob.cap8?.v58num4d
             )
         }
+        return viewCap()
+    }
 
-        println("----------${Mob.cap8}")
+    private fun viewCap(): List<String> {
+        with(bindingcap8o1) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (!rbtCap856Si.isChecked && !rbtCap856No.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "143") ?: "")
+
+
+
+            Mob.icap08o1 = returnList.isNotEmpty()
+            println("---------Is not empty: ${Mob.icap08o1}--${Mob.cap8}")
+            return returnList
+        }
     }
 
 }

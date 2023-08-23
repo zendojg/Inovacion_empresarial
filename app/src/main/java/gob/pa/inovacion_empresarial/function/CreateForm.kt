@@ -6,7 +6,7 @@ import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelForm
 import gob.pa.inovacion_empresarial.service.room.DBform
 
-class CreateForm {
+object  CreateForm {
     fun create(): ModelForm {
         with(Mob) {
             return ModelForm(
@@ -39,7 +39,7 @@ class CreateForm {
     }
 
     fun createSaved(): DBform {
-        val form = CreateForm().create()
+        val form = create()
         val formString = Gson().toJson(form)
         val idrandom = "RECOVERY-${(10000..99999).random()}"
         with(Mob) {
@@ -83,9 +83,6 @@ class CreateForm {
         with(Mob) {
             p56stat = null
             seccON = null
-
-            mainWindow = 1
-            mainPrevWindow = 0
             indiceFormulario = 0
             obsEncuesta = ""
             obsModulo = ""
@@ -117,6 +114,31 @@ class CreateForm {
             seesecc2 = true
             seesecc3 = true
             seesecc4 = true
+
+            icap01 = true
+            icap02o1 = true
+            icap02o2 = true
+            icap03 = true
+            icap04 = true
+            icap05o1 = true
+            icap05o2 = true
+            icap0601 = true
+            icap06o2 = true
+            icap06o3 = true
+            icap06o4 = true
+            icap07o1 = true
+            icap07o2 = true
+            icap07o3 = true
+            icap08o1 = true
+            icap08o2 = true
+            icap09o1 = true
+            icap09o2 = true
+            icap10 = true
+
+            isecc1 = true
+            isecc2 = true
+            isecc3 = true
+            isecc4 = true
 
             cleanForm()
         }

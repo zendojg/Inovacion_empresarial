@@ -10,6 +10,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo09Part2Binding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
@@ -150,7 +151,7 @@ class FragEncuestaCap09o2 : Fragment() {
 
 
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with(bindingcap9o2) {
             Mob.cap9 = ModelCap9(
                 Mob.cap9?.id,
@@ -191,7 +192,20 @@ class FragEncuestaCap09o2 : Fragment() {
             )
 
         }
-        println("----------${Mob.cap9}")
+        return viewCap()
     }
 
+    private fun viewCap(): List<String> {
+        with(bindingcap9o2) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (!rbtCap962Si.isChecked && !rbtCap962No.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "180") ?: "")
+
+
+
+            Mob.icap09o2 = returnList.isNotEmpty()
+            println("---------Is not empty: ${Mob.icap09o2}--${Mob.cap9}")
+            return returnList
+        }
+    }
 }

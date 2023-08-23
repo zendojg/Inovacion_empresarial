@@ -10,6 +10,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo03Binding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
@@ -35,9 +36,6 @@ class FragEncuestaCap03 : Fragment() {
         Mob.indiceFormulario = Mob.CAP3P04
         if (Mob.seecap03) fillOut()
         else onAction()
-
-
-
     }
 
     private fun onAction() {
@@ -149,7 +147,7 @@ class FragEncuestaCap03 : Fragment() {
         }
     }
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with (bindingcap3) {
             Mob.cap3 = ModelCap3(
                 Mob.cap3?.id,
@@ -163,7 +161,29 @@ class FragEncuestaCap03 : Fragment() {
                 if (rbtCap324Si.isChecked) txtCap326.text.toString() else null,
                 if (rbtCap324Si.isChecked) txtCap327.text.toString() else null
             )
+            return viewCap()
         }
-        println("------------${Mob.cap3}")
     }
+
+    private fun viewCap(): List<String> {
+        val returnList: ArrayList<String> = ArrayList()
+        with (bindingcap3) {
+            if (txtCap322.text.toString().isEmpty())
+                returnList.add("")
+            if (check23.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "8") ?: "")
+            if (!rbtCap324Si.isChecked || !rbtCap324No.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "9") ?: "")
+            if (rbtCap324Si.isChecked && check25.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "10") ?: "")
+            if (rbtCap324Si.isChecked && txtCap326.text.toString().isEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "11") ?: "")
+            if (rbtCap324Si.isChecked && txtCap327.text.toString().isEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "12") ?: "")
+        }
+        println("---------Is not empty: ${Mob.icap03}--${Mob.cap3}")
+        Mob.icap03 = returnList.isNotEmpty()
+        return returnList
+    }
+
 }

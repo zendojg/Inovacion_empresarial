@@ -13,22 +13,23 @@ import android.util.Log
 import android.view.Gravity
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.button.MaterialButton
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.adapters.AdapterPagerForm
 import gob.pa.inovacion_empresarial.databinding.ActivityFormBinding
+import gob.pa.inovacion_empresarial.databinding.StyleMsgAlertBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgObsBinding
 import gob.pa.inovacion_empresarial.function.CreateForm
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
+import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.service.room.RoomView
@@ -36,6 +37,8 @@ import gob.pa.inovacion_empresarial.view.fragments.*
 import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileOutputStream
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class FormActivity : AppCompatActivity() {
@@ -129,41 +132,36 @@ class FormActivity : AppCompatActivity() {
     override fun onBackPressed() {
         if (form.viewpager.currentItem == Mob.MENUP00) {
             val mesagePregunta = AlertDialog.Builder(this)
-            val msg: View = layoutInflater.inflate(R.layout.style_msg_alert, null)
-            val btpositivo: MaterialButton = msg.findViewById(R.id.btpositivo)
-            val btnegativo: MaterialButton = msg.findViewById(R.id.btnegativo)
-            val msgT: TextView = msg.findViewById(R.id.msgtitle)
-            val msg1: TextView = msg.findViewById(R.id.msg1)
-            val msg2: TextView = msg.findViewById(R.id.msg2)
+            val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)
+            val ctx = this
+            with (bindmsg) {
+                btpositivo.text = getString(R.string.cancel)
+                btnegativo.text = getString(R.string.closeForm)
+                msgtitle.text = getString(R.string.aswernCloseApp)
 
-            btpositivo.text = getString(R.string.cancel)
-            btnegativo.text = getString(R.string.closeForm)
-            msgT.text = getString(R.string.aswernCloseApp)
+                if (Mob.authData?.rol == "E") msg1.text = getString(R.string.asnwernCloseApp2)
+                else msg1.visibility = View.GONE
+                msg2.visibility = View.GONE
 
+                mesagePregunta.setView(bindmsg.root)
+                dialog = mesagePregunta.create()
+                dialog?.show()
+                btpositivo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
+                btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_deleteview)
 
-            if (Mob.authData?.rol == "E") { msg1.text = getString(R.string.asnwernCloseApp2) }
-            else { msg1.visibility = View.GONE }
-            msg2.visibility = View.GONE
-            mesagePregunta.setView(msg)
-
-            val dialog: AlertDialog = mesagePregunta.create()
-            dialog.show()
-            btpositivo.icon = ContextCompat.getDrawable(this, R.drawable.img_backs)
-            btnegativo.icon = ContextCompat.getDrawable(this, R.drawable.img_deleteview)
-
-            btpositivo.setOnClickListener {
-                dialog.dismiss()
+                btpositivo.setOnClickListener {
+                    dialog?.dismiss()
+                }
+                btnegativo.setOnClickListener {
+                    dialog?.dismiss()
+                    startActivity(Intent(ctx, MainActivity::class.java))
+                    CreateForm.resetLoad()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        finish()
+                    }, (Mob.TIME500MS))
+                }
             }
-            btnegativo.setOnClickListener {
-                dialog.dismiss()
-                startActivity(Intent(this, MainActivity::class.java))
-                CreateForm().resetLoad()
-                Handler(Looper.getMainLooper()).postDelayed({
-                    finish()
-                }, (Mob.TIME500MS))
-            }
-        } else form.viewpager.setCurrentItem(
-            form.viewpager.currentItem - 1,true)
+        } else form.viewpager.setCurrentItem(form.viewpager.currentItem - 1, true)
     }
 
     private fun observation(position: Int) {
@@ -217,68 +215,110 @@ class FormActivity : AppCompatActivity() {
 
 
     fun seeCaps(move: Boolean?) {
+        var listFaltantes: List<String> = ArrayList()
         when (val page = supportFragmentManager.fragments.find { it.isVisible }) {
-            is FragEncuestaCap01 ->  page.savedCap()
-            is FragEncuestaCap02o1 ->  page.saveCap()
-            is FragEncuestaCap02o2 -> page.saveCap()
-            is FragEncuestaCap03 -> page.saveCap()
-            is FragEncuestaCap04 -> page.saveCap()
-            is FragEncuestaCap05o1 -> page.saveCap()
-            is FragEncuestaCap05o2 -> page.saveCap()
-            is FragEncuestaCap06o1 -> page.saveCap()
-            is FragEncuestaCap06o2 -> page.saveCap()
-            is FragEncuestaCap06o3 -> page.saveCap()
-            is FragEncuestaCap06o4 -> page.saveCap()
-            is FragEncuestaCap07o1 -> page.saveCap()
-            is FragEncuestaCap07o2 -> page.saveCap()
-            is FragEncuestaCap07o3 -> page.saveCap()
-            is FragEncuestaCap08 -> page.saveCap()
-            is FragEncuestaCap08end -> page.saveCap()
-            is FragEncuestaCap09o1 -> page.saveCap()
-            is FragEncuestaCap09o2 -> page.saveCap()
-            is FragEncuestaCap10 -> page.saveCap()
-            is FragModuloSecc01 -> page.saveCap()
-            is FragModuloSecc02 -> page.saveCap()
-            is FragModuloSecc03 -> page.saveCap()
-            is FragModuloSecc04 -> page.saveCap()
-
+            is FragEncuestaCap01 -> listFaltantes = page.savedCap()
+            is FragEncuestaCap02o1 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap02o2 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap03 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap04 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap05o1 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap05o2 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap06o1 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap06o2 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap06o3 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap06o4 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap07o1 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap07o2 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap07o3 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap08 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap08end -> listFaltantes = page.saveCap()
+            is FragEncuestaCap09o1 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap09o2 -> listFaltantes = page.saveCap()
+            is FragEncuestaCap10 -> listFaltantes = page.saveCap()
+            is FragModuloSecc01 -> listFaltantes = page.saveCap()
+            is FragModuloSecc02 -> listFaltantes = page.saveCap()
+            is FragModuloSecc03 -> listFaltantes = page.saveCap()
+            is FragModuloSecc04 -> listFaltantes = page.saveCap()
         }
-        if (move == true) {
-            if (form.viewpager.currentItem == Mob.CAP8P15 && Mob.p56stat == false) {
-                form.viewpager.setCurrentItem(
-                    form.viewpager.currentItem + 2, false)
-            } else
-                if (form.viewpager.currentItem == Mob.SEC1P20 && Mob.seccON == false) {
-                    form.viewpager.setCurrentItem(
-                        form.viewpager.currentItem + 4, false)
-                } else
-                    form.viewpager.setCurrentItem(
-                        form.viewpager.currentItem + 1, false)
-        } else if (move == false) {
-            if (form.viewpager.currentItem == Mob.CAP9P17 && Mob.p56stat == false) {
-                form.viewpager.setCurrentItem(
-                    form.viewpager.currentItem - 2, false)
-            } else
-                if (form.viewpager.currentItem == Mob.OBSP24 && Mob.seccON == false) {
-                    form.viewpager.setCurrentItem(
-                        form.viewpager.currentItem - 4, false)
-                } else
-                    form.viewpager.setCurrentItem(
-                        form.viewpager.currentItem - 1, false)
+
+        if (Mob.authData?.rol != "E" && move != null) { moveTo(move)
+        } else if (move != null && listFaltantes.isEmpty()) { moveTo(move)
         } else if (move == null) {
             lifecycleScope.launch {
                 val info =
-                    RoomView(dvmForm, this@FormActivity).saveForm(CreateForm().createSaved())
+                    RoomView(dvmForm, this@FormActivity).saveForm(CreateForm.createSaved())
                 println("----------$info")
             }
             val color = if (form.viewpager.currentItem < Mob.SEC1P20)
                 ContextCompat.getColor(this, R.color.holo_blue_dark)
             else ContextCompat.getColor(this, R.color.cream_darl)
             val alert = Functions.msgBallom(
-                "Formulario guardado", Mob.WIDTH160DP, this, color
-            )
+                "Formulario guardado", Mob.WIDTH160DP, this, color)
             alert.showAlignBottom(form.txtInfopager)
             alert.dismissWithDelay(Mob.TIMELONG2SEG)
+        } else  {
+            val mesagePregunta = AlertDialog.Builder(this)
+            val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)
+            val ctx = this
+            with (bindmsg) {
+                btpositivo.text = getString(R.string.cancel)
+                msgtitle.text = "¡Advertencia!"
+                msg1.text = "Las siguientes preguntas no han sido contestadas o poseen error en su captura:"
+                btnegativo.backgroundTintList = if (form.viewpager.currentItem < Mob.SEC1P20)
+                    ContextCompat.getColorStateList(ctx, R.color.holo_blue_dark) else
+                    ContextCompat.getColorStateList(ctx, R.color.cream_darl)
+                msg2.visibility = View.GONE
+
+                msg6.isVisible = true
+                msg6.text = listFaltantes.toTypedArray().joinToString("\n\n").toEditable()
+
+                mesagePregunta.setView(bindmsg.root)
+                dialog = mesagePregunta.create()
+                dialog?.show()
+                btpositivo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_close)
+                if (move) {
+                    btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_forward)
+                    btnegativo.text = "Avanzar"
+                }
+                else {
+                    btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
+                    btnegativo.text = "Retroceder"
+                }
+
+                btpositivo.setOnClickListener { dialog?.dismiss() }
+                btnegativo.setOnClickListener {
+                    dialog?.dismiss()
+                    moveTo(move)
+                }
+            }
+            println("---------------$listFaltantes")
+        }
+    }
+
+    private fun moveTo(move: Boolean) {
+        if (move) {
+            if (form.viewpager.currentItem == Mob.CAP8P15 && Mob.p56stat == false) {
+                form.viewpager.setCurrentItem(
+                    form.viewpager.currentItem + 2, false)
+            } else
+                if (form.viewpager.currentItem == Mob.SEC1P20 && Mob.seccON == false) {
+                    form.viewpager.setCurrentItem(
+                        form.viewpager.currentItem + Mob.JUMPMODULE1, false)
+                } else
+                    form.viewpager.setCurrentItem(
+                        form.viewpager.currentItem + 1, false)
+        } else {
+            if (form.viewpager.currentItem == Mob.CAP9P17 && Mob.p56stat == false) {
+                form.viewpager.setCurrentItem(
+                    form.viewpager.currentItem - 2, false)
+            } else
+                if (form.viewpager.currentItem == Mob.OBSP24 && Mob.seccON == false) {
+                    form.viewpager.setCurrentItem(
+                        form.viewpager.currentItem - Mob.JUMPMODULE1, false)
+                } else
+                    form.viewpager.setCurrentItem(
+                        form.viewpager.currentItem - 1, false)
         }
     }
 

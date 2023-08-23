@@ -21,10 +21,6 @@ class FragMenu : Fragment() {
     private lateinit var ctx: Context
     private val dvmMenu: DVModel by viewModels()
 
-    private var idCap1:Int? = null
-    private var nCont:Int? = null
-
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

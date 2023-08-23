@@ -11,6 +11,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo08CoclusionBinding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap8
@@ -92,7 +93,6 @@ class FragEncuestaCap08end : Fragment() {
             spinCap8584C.setSelection(indice4c)
             spinCap8584D.setSelection(indice4d)
 
-            //txtCap8571AMontoly.isVisible = spinCap8571A.selectedItem.toString() == Mob.arrOBT[Mob.SOLICITUDYES2]
             spinsAction()
         }
     }
@@ -197,19 +197,19 @@ class FragEncuestaCap08end : Fragment() {
     private fun fillOut() {
         val cap8 = Mob.formComp?.cap8
 
-        indice1a = try { cap8?.v58num1a ?: 0 } catch (e: java.lang.NumberFormatException) { 0 }
-        indice1b = try { cap8?.v58num1b ?: 0 } catch (e: java.lang.NumberFormatException) { 0 }
-        indice1c = try { cap8?.v58num1c ?: 0 } catch (e: java.lang.NumberFormatException) { 0 }
-        indice2a = try { cap8?.v58num2a ?: 0 } catch (e: java.lang.NumberFormatException) { 0 }
-        indice2b = try { cap8?.v58num2b ?: 0 } catch (e: java.lang.NumberFormatException) { 0 }
-        indice2c = try { cap8?.v58num2c ?: 0 } catch (e: java.lang.NumberFormatException) { 0 }
-        indice2d = try { cap8?.v58num2d ?: 0 } catch (e: java.lang.NumberFormatException) { 0 }
-        indice3a = try { cap8?.v58num3a ?: 0 } catch (e: java.lang.NumberFormatException) { 0 }
-        indice3b = try { cap8?.v58num3b ?: 0 } catch (e: java.lang.NumberFormatException) { 0 }
-        indice4a = try { cap8?.v58num4a ?: 0 } catch (e: java.lang.NumberFormatException) { 0 }
-        indice4b = try { cap8?.v58num4b ?: 0 } catch (e: java.lang.NumberFormatException) { 0 }
-        indice4c = try { cap8?.v58num4c ?: 0 } catch (e: java.lang.NumberFormatException) { 0 }
-        indice4d = try { cap8?.v58num4d ?: 0 } catch (e: java.lang.NumberFormatException) { 0 }
+        indice1a = try { cap8?.v58num1a ?: 0 } catch (e: NumberFormatException) { 0 }
+        indice1b = try { cap8?.v58num1b ?: 0 } catch (e: NumberFormatException) { 0 }
+        indice1c = try { cap8?.v58num1c ?: 0 } catch (e: NumberFormatException) { 0 }
+        indice2a = try { cap8?.v58num2a ?: 0 } catch (e: NumberFormatException) { 0 }
+        indice2b = try { cap8?.v58num2b ?: 0 } catch (e: NumberFormatException) { 0 }
+        indice2c = try { cap8?.v58num2c ?: 0 } catch (e: NumberFormatException) { 0 }
+        indice2d = try { cap8?.v58num2d ?: 0 } catch (e: NumberFormatException) { 0 }
+        indice3a = try { cap8?.v58num3a ?: 0 } catch (e: NumberFormatException) { 0 }
+        indice3b = try { cap8?.v58num3b ?: 0 } catch (e: NumberFormatException) { 0 }
+        indice4a = try { cap8?.v58num4a ?: 0 } catch (e: NumberFormatException) { 0 }
+        indice4b = try { cap8?.v58num4b ?: 0 } catch (e: NumberFormatException) { 0 }
+        indice4c = try { cap8?.v58num4c ?: 0 } catch (e: NumberFormatException) { 0 }
+        indice4d = try { cap8?.v58num4d ?: 0 } catch (e: NumberFormatException) { 0 }
 
         bindingcap8o2.txtCap8584DOtra.text = cap8?.v58desc4d?.toEditable() ?: "".toEditable()
 
@@ -218,7 +218,7 @@ class FragEncuestaCap08end : Fragment() {
     }
 
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with(bindingcap8o2) {
             Mob.cap8 = ModelCap8(
                 Mob.cap8?.id,
@@ -255,8 +255,23 @@ class FragEncuestaCap08end : Fragment() {
                 if (indice4d == 0) null else indice4d,
             )
         }
+        return viewCap()
+    }
 
-        println("----------${Mob.cap8}")
+    private fun viewCap(): List<String> {
+        with(bindingcap8o2) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (indice1a == 0 || Mob.p56stat == true)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "156") ?: "")
+            if (indice1b == 0 || Mob.p56stat == true)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "157") ?: "")
+
+
+
+            Mob.icap08o2 = returnList.isNotEmpty()
+            println("---------Is not empty: ${Mob.icap08o2}--${Mob.cap8}")
+            return returnList
+        }
     }
 
 }

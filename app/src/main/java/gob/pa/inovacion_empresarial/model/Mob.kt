@@ -15,12 +15,15 @@ object Mob {
     const val APIUPDATEFORM = "api/Cuestionario/update"
     const val APIFORMUSER = "api/Cuestionario/enc/"
 
-    const val USERTEST :String = "USUARIO SIN INDENTIFICADOR"
-    const val DATEFORMAT = "yyyy-MM-dd HH:mm:ss a"
+    const val USERTEST:String = "USUARIO SIN INDENTIFICADOR"
+    const val DATEFORMAT:String = "yyyy-MM-dd HH:mm:ss a"
     const val PORCENT100:Int = 100
-    const val LIMITMSG :Int = 50
-    const val SIZEAUTOCONTROL :Int = 7
-    const val CEROLEFT :Int = 4
+    const val LIMITMSG:Int = 50
+    const val SIZEAUTOCONTROL:Int = 7
+    const val CEROLEFT:Int = 4
+
+
+    const val JUMPMODULE1:Int = 4
 
     const val INITIALYEAR:Int = 1900
     const val WIDTH160DP:Int = 160
@@ -176,6 +179,32 @@ object Mob {
     var seesecc2: Boolean = true
     var seesecc3: Boolean = true
     var seesecc4: Boolean = true
+
+
+    var icap01: Boolean = true
+    var icap02o1: Boolean = true
+    var icap02o2: Boolean = true
+    var icap03: Boolean = true
+    var icap04: Boolean = true
+    var icap05o1: Boolean = true
+    var icap05o2: Boolean = true
+    var icap0601: Boolean = true
+    var icap06o2: Boolean = true
+    var icap06o3: Boolean = true
+    var icap06o4: Boolean = true
+    var icap07o1: Boolean = true
+    var icap07o2: Boolean = true
+    var icap07o3: Boolean = true
+    var icap08o1: Boolean = true
+    var icap08o2: Boolean = true
+    var icap09o1: Boolean = true
+    var icap09o2: Boolean = true
+    var icap10: Boolean = true
+
+    var isecc1: Boolean = true
+    var isecc2: Boolean = true
+    var isecc3: Boolean = true
+    var isecc4: Boolean = true
 
     var mainWindow = 1
     var mainPrevWindow = 0

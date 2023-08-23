@@ -17,8 +17,8 @@
             android:id="@+id/msgtitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
             android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed"
             android:gravity="center"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -31,12 +31,11 @@
             android:id="@+id/msg1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:fontFamily="sans-serif-condensed"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/lineRightAlert"
+            app:layout_constraintStart_toStartOf="@+id/lineLeftAlert"
             app:layout_constraintTop_toBottomOf="@+id/msgtitle"
             tools:text="Mensaje xxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
 
@@ -46,7 +45,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/lineRightAlert"
             app:layout_constraintStart_toStartOf="@+id/msg1"
             app:layout_constraintTop_toBottomOf="@+id/msg1"
             tools:text="Mensaje xxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
@@ -58,8 +57,8 @@
             android:fontFamily="sans-serif-condensed"
             android:textSize="16sp"
             android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/msg2"
+            app:layout_constraintEnd_toStartOf="@+id/lineRightAlert"
+            app:layout_constraintStart_toStartOf="@+id/msg1"
             app:layout_constraintTop_toBottomOf="@+id/msg2"
             tools:text="Mensaje xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
             tools:visibility="visible" />
@@ -71,8 +70,8 @@
             android:fontFamily="sans-serif-condensed"
             android:textSize="16sp"
             android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/msg3"
+            app:layout_constraintEnd_toStartOf="@+id/lineRightAlert"
+            app:layout_constraintStart_toStartOf="@+id/msg1"
             app:layout_constraintTop_toBottomOf="@+id/msg3"
             tools:text="Mensaje xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
             tools:visibility="visible" />
@@ -84,24 +83,35 @@
             android:fontFamily="sans-serif-condensed"
             android:textSize="16sp"
             android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/msg4"
+            app:layout_constraintEnd_toStartOf="@+id/lineRightAlert"
+            app:layout_constraintStart_toStartOf="@+id/msg1"
             app:layout_constraintTop_toBottomOf="@+id/msg4"
             tools:text="Mensaje xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
             tools:visibility="visible" />
 
 
-        <TextView
+        <EditText
             android:id="@+id/msg6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
+            android:layout_marginTop="7dp"
+            android:focusable="false"
             android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:textStyle="bold"
+            android:maxHeight="350dp"
+            android:overScrollMode="always"
+            android:paddingTop="17dp"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
             android:textSize="16sp"
             android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/msg5"
+            app:layout_constraintEnd_toStartOf="@+id/lineRightAlert"
+            app:layout_constraintStart_toStartOf="@+id/msg1"
             app:layout_constraintTop_toBottomOf="@+id/msg5"
+            tools:ignore="LabelFor"
             tools:text="Mensaje xxxxxxxxxxxxxxxxxxxxxxxxxxxx"
             tools:visibility="visible" />
 
@@ -110,7 +120,6 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_gravity="start"
-            android:layout_marginHorizontal="30dp"
             android:layout_marginVertical="30dp"
             android:ellipsize="end"
             android:fontFamily="sans-serif-condensed"
@@ -128,8 +137,8 @@
             app:icon="@drawable/img_close"
             app:iconPadding="9dp"
             app:iconTint="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/lineRightAlert"
+            app:layout_constraintStart_toStartOf="@+id/lineLeftAlert"
             app:layout_constraintTop_toBottomOf="@+id/msg6"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Negativo" />
@@ -141,9 +150,8 @@
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_gravity="end"
-            android:layout_marginHorizontal="30dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="17dp"
             android:ellipsize="end"
             android:fontFamily="sans-serif-condensed"
             android:gravity="start|center_vertical"
@@ -156,15 +164,30 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:cornerRadius="7dp"
-            app:iconPadding="9dp"
             app:icon="@drawable/img_done"
+            app:iconPadding="9dp"
             app:iconTint="#666666"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/lineRightAlert"
+            app:layout_constraintStart_toStartOf="@+id/lineLeftAlert"
             app:layout_constraintTop_toBottomOf="@+id/btnegativo"
             tools:ignore="TouchTargetSizeCheck"
             tools:text="Positivo" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/lineLeftAlert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.07" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/lineRightAlert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.93" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -11,6 +11,7 @@ import android.widget.EditText
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo052RecursosHumanosBinding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
@@ -393,7 +394,7 @@ class FragEncuestaCap05o2 : Fragment() {
     }
 
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with(bindingcap5o2) {
             Mob.cap5 = ModelCap5(
                 Mob.cap5?.id,
@@ -465,7 +466,6 @@ class FragEncuestaCap05o2 : Fragment() {
                 txtCap535HMExt.text.toString().ifEmpty { null },
                 txtCap5351MNac.text.toString().ifEmpty { null },
                 txtCap5351MExt.text.toString().ifEmpty { null },
-
                 txtCap536A2021.text.toString().ifEmpty { null },
                 txtCap536A2022.text.toString().ifEmpty { null },
                 txtCap536B2021.text.toString().ifEmpty { null },
@@ -484,6 +484,27 @@ class FragEncuestaCap05o2 : Fragment() {
                 if (checkCap5384.isChecked) txtCap5384.text.toString().ifEmpty { null } else null,
             )
         }
-        println("----------${Mob.cap5}")
+        return viewCap()
+    }
+
+    private fun viewCap(): List<String> {
+        with (bindingcap5o2) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (txtCap5351HNac.text.toString().isEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"32") ?: "")
+            if (txtCap5351HExt.text.toString().isEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"33") ?: "")
+            if (txtCap5351MNac.text.toString().isEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"34") ?: "")
+            if (txtCap5351MExt.text.toString().isEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"35") ?: "")
+
+
+
+
+            println("---------Is not empty: ${Mob.icap05o2}--${Mob.cap5}")
+            Mob.icap05o2 = returnList.isNotEmpty()
+            return returnList
+        }
     }
 }

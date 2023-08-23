@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo022DatosDelInformanteBinding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap2
@@ -73,7 +75,7 @@ class FragEncuestaCap02o2 : Fragment() {
         onAction()
     }
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with (bindingcap2o2) {
             Mob.cap2 = ModelCap2(
                 Mob.cap2?.id,
@@ -102,7 +104,19 @@ class FragEncuestaCap02o2 : Fragment() {
                 txtCap220.text.toString().ifEmpty { null },
                 txtCap221.text.toString().ifEmpty { null }
             )
-            println("------------${Mob.cap2}")
+            return viewCap()
+        }
+    }
+
+    private fun viewCap(): List<String> {
+        with (bindingcap2o2) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (txtCap217.text.toString().isNotEmpty() && txtCap216.text.toString().isEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"5") ?: "")
+
+            println("---------Is not empty: ${Mob.icap02o2}--${Mob.cap2}")
+            Mob.icap02o2 = returnList.isNotEmpty()
+            return returnList
         }
     }
 

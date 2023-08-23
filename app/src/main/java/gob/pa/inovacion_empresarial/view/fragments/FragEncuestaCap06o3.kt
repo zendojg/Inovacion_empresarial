@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo063InovacionOrganizacionalBinding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap6
 
@@ -172,7 +173,7 @@ class FragEncuestaCap06o3 : Fragment() {
     }
 
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with (bindingcap6o3) {
             Mob.cap6 = ModelCap6(
                 Mob.cap6?.id,
@@ -229,7 +230,32 @@ class FragEncuestaCap06o3 : Fragment() {
                 Mob.cap6?.v49txtGrado3
             )
         }
-        println("----------${Mob.cap6}")
+        return viewCap()
+    }
+
+    private fun viewCap(): List<String> {
+        with(bindingcap6o3) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (!rbtCap6461Si2021.isChecked && !rbtCap6461No2021.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "68") ?: "")
+            if (!rbtCap6461Si2022.isChecked && !rbtCap6461No2022.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "69") ?: "")
+            if (!rbtCap6462Si2021.isChecked && !rbtCap6462No2021.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "70") ?: "")
+            if (!rbtCap6462Si2022.isChecked && !rbtCap6462No2022.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "71") ?: "")
+            if (!rbtCap6463Si2021.isChecked && !rbtCap6463No2021.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "72") ?: "")
+            if (!rbtCap6463Si2022.isChecked && !rbtCap6463No2022.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "73") ?: "")
+
+
+
+
+            Mob.icap06o3 = returnList.isNotEmpty()
+            println("---------Is not empty: ${Mob.icap06o3}--${Mob.cap6}")
+            return returnList
+        }
     }
 
 }

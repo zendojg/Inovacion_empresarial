@@ -9,7 +9,7 @@ import java.io.File
 import java.io.FileOutputStream
 import java.lang.ClassCastException
 
-class CreateBackUp {
+object CreateBackUp {
 
     suspend fun saved(ctx: Context) = withContext(Dispatchers.IO)  {
         val sharedPreferences = ctx.getSharedPreferences(

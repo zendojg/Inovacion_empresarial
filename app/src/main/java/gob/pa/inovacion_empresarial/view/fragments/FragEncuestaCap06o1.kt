@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo061InovacionProductosBinding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap6
 
@@ -100,7 +101,7 @@ class FragEncuestaCap06o1 : Fragment() {
         }
     }
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with (bindingcap6o1) {
             Mob.cap6 = ModelCap6(
                 Mob.cap6?.id,
@@ -159,6 +160,27 @@ class FragEncuestaCap06o1 : Fragment() {
             )
         }
 
-        println("----------${Mob.cap6}")
+        return viewCap()
+    }
+
+    private fun viewCap(): List<String> {
+        with(bindingcap6o1) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (!rbtCap6391Si2021.isChecked && !rbtCap6391No2021.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "44") ?: "")
+            if (!rbtCap6391Si2022.isChecked && !rbtCap6391No2022.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "45") ?: "")
+            if (!rbtCap6392Si2021.isChecked && !rbtCap6392No2021.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "46") ?: "")
+            if (!rbtCap6392Si2022.isChecked && !rbtCap6392No2022.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "47") ?: "")
+
+
+
+
+            println("---------Is not empty: ${Mob.icap0601}--${Mob.cap6}")
+            Mob.icap0601 = returnList.isNotEmpty()
+            return returnList
+        }
     }
 }

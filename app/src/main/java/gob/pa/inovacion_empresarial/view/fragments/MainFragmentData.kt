@@ -87,7 +87,7 @@ class MainFragmentData : Fragment() {
                 aDialog = screen.create()
                 aDialog?.setCancelable(false)
                 aDialog?.show()
-                lifecycleScope.launch { CreateBackUp().saved(ctx) }
+                lifecycleScope.launch { CreateBackUp.saved(ctx) }
                 Handler(Looper.getMainLooper()).postDelayed({
                     val alert = Functions.msgBallom("Respaldo actualizado",
                         Mob.WIDTH180DP, ctx, Color.DKGRAY)

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.ModuloSeccion03Binding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
@@ -161,7 +162,7 @@ class FragModuloSecc03 : Fragment() {
         onAction()
     }
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with (bindingmod3) {
             val p4check = (Mob.seccON != false && rbtSecc034Si.isChecked)
 
@@ -215,6 +216,19 @@ class FragModuloSecc03 : Fragment() {
                 Mob.capMod?.numControl
             )
         }
-        println("----------${Mob.capMod}")
+        return viewCap()
+    }
+
+    private fun viewCap(): List<String> {
+        with(bindingmod3) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (!rbtSecc034Si.isChecked && !rbtSecc034No.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "294") ?: "")
+
+
+            Mob.isecc3 = returnList.isNotEmpty()
+            println("---------Is not empty: ${Mob.isecc3}--${Mob.capMod}")
+            return returnList
+        }
     }
 }

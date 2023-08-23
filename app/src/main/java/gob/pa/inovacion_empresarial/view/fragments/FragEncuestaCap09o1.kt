@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo09Part1Binding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
@@ -162,16 +163,13 @@ class FragEncuestaCap09o1 : Fragment() {
     }
 
 
-
-
-
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with(bindingcap9o1) {
             Mob.cap9 = ModelCap9(
                 Mob.cap9?.id,
                 Mob.cap9?.ncontrol,
                 if (rbtCap959Si.isChecked) true else if (rbtCap959No.isChecked) false else null,
-                if (rbtCap959Si.isChecked) txtCap959.text.toString().ifEmpty { "0" } else null,
+                if (rbtCap959Si.isChecked) txtCap959.text.toString().ifEmpty { null } else null,
                 if (rbtCap959Si.isChecked) check60 else null,
                 if (rbtCap959Si.isChecked && rbtCap9606.isChecked) txtCap9606Otra.text.toString()
                 else null,
@@ -206,6 +204,23 @@ class FragEncuestaCap09o1 : Fragment() {
             )
 
         }
-        println("----------${Mob.cap9}")
+        return viewCap()
+    }
+
+    private fun viewCap(): List<String> {
+        with(bindingcap9o1) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (!rbtCap959Si.isChecked && !rbtCap959No.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "169") ?: "")
+            if (rbtCap959Si.isChecked && txtCap959.text.toString() == "0" )
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "170") ?: "")
+            else if (rbtCap959Si.isChecked && txtCap959.text.toString().isEmpty() )
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "170") ?: "")
+
+
+            Mob.icap09o1 = returnList.isNotEmpty()
+            println("---------Is not empty: ${Mob.icap09o1}--${Mob.cap9}")
+            return returnList
+        }
     }
 }

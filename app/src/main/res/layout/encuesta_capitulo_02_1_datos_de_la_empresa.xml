@@ -366,6 +366,7 @@
                     android:backgroundTint="@color/white"
                     android:fontFamily="sans-serif-condensed"
                     android:inputType="textWebEmailAddress"
+                    android:digits="@string/emailCharacters"
                     tools:ignore="TouchTargetSizeCheck"
                     tools:text="web@emp.com" />
             </com.google.android.material.textfield.TextInputLayout>

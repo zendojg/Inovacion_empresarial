@@ -71,11 +71,7 @@ class MainFragmentForms : Fragment() {
         super.onResume()
 
         with (bindingForm){
-            adpForms = AdapterForms(list) {
-                //list = list.minus(it)
-                //adpForms.updateList(list)
-                windBottom(it)
-            }
+            adpForms = AdapterForms(list) { windBottom(it) }
             recyclerdata.layoutManager = LinearLayoutManager(ctx)
             recyclerdata.adapter = adpForms
         }
@@ -90,7 +86,7 @@ class MainFragmentForms : Fragment() {
                 pager?.setCurrentItem(Mob.INIT01, true)
             }
 
-            val arrAdptSpin = ArrayAdapter(ctx, R.layout.style_box2,
+            val arrAdptSpin = ArrayAdapter(ctx, R.layout.style_box,
                 resources.getStringArray(R.array.arr_typeForms))
             arrAdptSpin.setDropDownViewResource(R.layout.style_list)
             spinFormsType.adapter = arrAdptSpin
@@ -214,7 +210,7 @@ class MainFragmentForms : Fragment() {
 
             bt1.setOnClickListener {
                 aDialog?.dismiss()
-                CreateForm().createLoad(item)
+                CreateForm.createLoad(item)
                 Mob.indiceFormulario = 1
                 Handler(Looper.getMainLooper()).postDelayed({
                     activity?.finish()
@@ -289,7 +285,7 @@ class MainFragmentForms : Fragment() {
                     aDialog?.setCancelable(false)
                     aDialog?.show()
                     Handler(Looper.getMainLooper()).postDelayed({
-                        //-------------------------------------------------------------------------- UPDATE
+                        //------------ ADD DELETE IF NOT SEND FORM
                         val alert = Functions.msgBallom("Formulario eliminado",
                             Mob.WIDTH180DP, ctx, Color.DKGRAY)
                         alert.showAlignBottom(bindingForm.txtwarningForm)
@@ -343,7 +339,7 @@ class MainFragmentForms : Fragment() {
                     btBackLocal.setOnClickListener { aDialog?.dismiss() }
                     btInconLocal.setOnClickListener {
                         aDialog?.dismiss()
-                        CreateForm().createLoad(item)
+                        CreateForm.createLoad(item)
                         Mob.indiceFormulario = 1
                         Handler(Looper.getMainLooper()).postDelayed({
                             activity?.finish()

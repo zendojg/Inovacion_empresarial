@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo062InovacionProcesoBinding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap6
 
@@ -204,7 +205,7 @@ class FragEncuestaCap06o2 : Fragment() {
     }
 
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with (bindingcap6o2) {
             Mob.cap6 = ModelCap6(
                 Mob.cap6?.id,
@@ -264,7 +265,31 @@ class FragEncuestaCap06o2 : Fragment() {
                 Mob.cap6?.v49txtGrado3
             )
         }
+        return viewCap()
+    }
 
-        println("----------${Mob.cap6}")
+    private fun viewCap(): List<String> {
+        with(bindingcap6o2) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (!rbtCap6421Si2021.isChecked && !rbtCap6421No2021.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "52") ?: "")
+            if (!rbtCap6421Si2022.isChecked && !rbtCap6421No2022.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "53") ?: "")
+            if (!rbtCap6422Si2021.isChecked && !rbtCap6422No2021.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "54") ?: "")
+            if (!rbtCap6422Si2022.isChecked && !rbtCap6422No2022.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "55") ?: "")
+            if (!rbtCap6423Si2021.isChecked && !rbtCap6423No2021.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "56") ?: "")
+            if (!rbtCap6423Si2022.isChecked && !rbtCap6423No2022.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "57") ?: "")
+
+
+
+
+            println("---------Is not empty: ${Mob.icap06o2}--${Mob.cap6}")
+            Mob.icap06o2 = returnList.isNotEmpty()
+            return returnList
+        }
     }
 }

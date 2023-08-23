@@ -11,6 +11,7 @@ import android.widget.EditText
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo051VentasYExpoBinding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap5
@@ -239,7 +240,7 @@ class FragEncuestaCap05o1 : Fragment() {
         }
     }
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with(bindingcap5o1) {
             Mob.cap5 = ModelCap5(
                 Mob.cap5?.id,
@@ -335,6 +336,24 @@ class FragEncuestaCap05o1 : Fragment() {
                 Mob.cap5?.v38txt4,
             )
         }
-        println("----------${Mob.cap5}")
+        return viewCap()
+    }
+
+    private fun viewCap(): List<String> {
+        with(bindingcap5o1) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (txtCap53012021.text.toString().isEmpty() && txtCap53012022.text.toString()
+                    .isEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "18") ?: "")
+            else if (txtCap53012021.text.toString() == "0" && txtCap53012022.text.toString() == "0")
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "18") ?: "")
+
+
+
+
+            println("---------Is not empty: ${Mob.icap05o1}--${Mob.cap5}")
+            Mob.icap05o1 = returnList.isNotEmpty()
+            return returnList
+        }
     }
 }

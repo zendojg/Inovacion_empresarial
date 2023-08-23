@@ -125,7 +125,7 @@ class FragTotalInforme : Fragment() {
                     }
                 }
             }
-            val condicion = ArrayAdapter(ctx, R.layout.style_box2, Mob.arrCondicion)
+            val condicion = ArrayAdapter(ctx, R.layout.style_box, Mob.arrCondicion)
             condicion.setDropDownViewResource(R.layout.style_list)
             txtCondicion.setAdapter(condicion)
             txtCondicion.setOnItemClickListener { _, _, pos, _ ->
@@ -163,7 +163,7 @@ class FragTotalInforme : Fragment() {
                 aDialog?.setCancelable(false)
                 aDialog?.show()
                 lifecycleScope.launch {
-                    val estado = savedForm(CreateForm().create())
+                    val estado = savedForm(CreateForm.create())
                     Handler(Looper.getMainLooper()).postDelayed({
                         if (estado > 0) {
                             val alert = Functions.msgBallom("Guardado exitoso",
@@ -178,7 +178,7 @@ class FragTotalInforme : Fragment() {
             }
             btSendObs.setOnClickListener {
                 //----------------------------------- ARMAR condicionEmpadronamiento obj
-                senFormulario(CreateForm().create())
+                senFormulario(CreateForm.create())
             }
             btEnd.setOnClickListener { endForm() }
 
@@ -250,8 +250,8 @@ class FragTotalInforme : Fragment() {
             nameForm = "${authData?.user ?: USERTEST}*${Functions.myDate().aString(DATEFORMAT)}"
         }
         AppCache.formSAVE(ctx, form, nameForm)
-        CreateBackUp().saved(ctx)
-        return RoomView(dvmInforme, ctx).saveForm(CreateForm().createSaved())
+        CreateBackUp.saved(ctx)
+        return RoomView(dvmInforme, ctx).saveForm(CreateForm.createSaved())
     }
 
     private fun carga(data: String) {
@@ -313,7 +313,7 @@ class FragTotalInforme : Fragment() {
         }
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(ctx, MainActivity::class.java))
-            CreateForm().resetLoad()
+            CreateForm.resetLoad()
             Handler(Looper.getMainLooper()).postDelayed({
                 form?.finish()
                 screenBlack.dismiss()

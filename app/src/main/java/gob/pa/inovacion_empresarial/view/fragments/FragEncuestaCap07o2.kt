@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo07Part2Binding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap7
@@ -241,81 +242,36 @@ class FragEncuestaCap07o2 : Fragment() {
         val cap7 = Mob.formComp?.cap7
         fillOut53(cap7)
 
-        indice01 = try {
-            cap7?.v54txt01?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice02 = try {
-            cap7?.v54txt02?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice03 = try {
-            cap7?.v54txt03?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice04 = try {
-            cap7?.v54txt04?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice05 = try {
-            cap7?.v54txt05?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice06 = try {
-            cap7?.v54txt06?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice07 = try {
-            cap7?.v54txt07?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice08 = try {
-            cap7?.v54txt08?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice09 = try {
-            cap7?.v54txt09?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice10 = try {
-            cap7?.v54txt10?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice11 = try {
-            cap7?.v54txt11?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice12 = try {
-            cap7?.v54txt12?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice13 = try {
-            cap7?.v54txt13?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice14 = try {
-            cap7?.v54txt14?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
-        indice15 = try {
-            cap7?.v54txt15?.toInt() ?: 0
-        } catch (e: java.lang.NumberFormatException) {
-            0
-        }
+        indice01 = try {  cap7?.v54txt01?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice02 = try {  cap7?.v54txt02?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice03 = try {  cap7?.v54txt03?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice04 = try {  cap7?.v54txt04?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice05 = try {  cap7?.v54txt05?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice06 = try {  cap7?.v54txt06?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice07 = try {  cap7?.v54txt07?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice08 = try {  cap7?.v54txt08?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice09 = try {  cap7?.v54txt09?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice10 = try {  cap7?.v54txt10?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice11 = try {  cap7?.v54txt11?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice12 = try {  cap7?.v54txt12?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice13 = try {  cap7?.v54txt13?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice14 = try {  cap7?.v54txt14?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
+        indice15 = try {  cap7?.v54txt15?.toInt() ?: 0 }
+        catch (e: java.lang.NumberFormatException) { 0 }
         Mob.seecap07o2 = false
         onAction()
     }
@@ -346,7 +302,7 @@ class FragEncuestaCap07o2 : Fragment() {
 
 
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with (bindingcap7o2) {
             Mob.cap7 = ModelCap7(
 
@@ -425,7 +381,23 @@ class FragEncuestaCap07o2 : Fragment() {
 
                 )
         }
-        println("----------${Mob.cap7}")
+        return viewCap()
+    }
+
+    private fun viewCap(): List<String> {
+        with(bindingcap7o2) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (txtCap753T2021.text.toString().isEmpty() || txtCap753T2021.text.toString() == "0")
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "114") ?: "")
+            if (txtCap753T2022.text.toString().isEmpty() || txtCap753T2022.text.toString() == "0")
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "115") ?: "")
+
+
+
+            Mob.icap07o2 = returnList.isNotEmpty()
+            println("---------Is not empty: ${Mob.icap07o2}--${Mob.cap7}")
+            return returnList
+        }
     }
 
 }

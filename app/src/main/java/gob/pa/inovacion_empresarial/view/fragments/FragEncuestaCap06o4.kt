@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo064InovacionComercializacionBinding
+import gob.pa.inovacion_empresarial.function.CreateInconsistecia
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap6
 
@@ -161,7 +162,7 @@ class FragEncuestaCap06o4 : Fragment() {
     }
 
 
-    fun saveCap() {
+    fun saveCap(): List<String> {
         with (bindingcap6o4) {
             Mob.cap6 = ModelCap6(
                 Mob.cap6?.id,
@@ -220,7 +221,35 @@ class FragEncuestaCap06o4 : Fragment() {
                 if (indice03 == 0) null else indice03.toString()
             )
         }
-        println("----------${Mob.cap6}")
+        return viewCap()
     }
 
+    private fun viewCap(): List<String> {
+        with(bindingcap6o4) {
+            val returnList: ArrayList<String> = ArrayList()
+            if (!rbtCap6481Si2021.isChecked && !rbtCap6481No2021.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "79") ?: "")
+            if (!rbtCap6481Si2022.isChecked && !rbtCap6481No2022.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "80") ?: "")
+            if (!rbtCap6482Si2021.isChecked && !rbtCap6482No2021.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "81") ?: "")
+            if (!rbtCap6482Si2022.isChecked && !rbtCap6482No2022.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "82") ?: "")
+            if (!rbtCap6483Si2021.isChecked && !rbtCap6483No2021.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "83") ?: "")
+            if (!rbtCap6483Si2022.isChecked && !rbtCap6483No2022.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "84") ?: "")
+            if (!rbtCap6484Si2021.isChecked && !rbtCap6484No2021.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "85") ?: "")
+            if (!rbtCap6484Si2022.isChecked && !rbtCap6484No2022.isChecked)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "86") ?: "")
+
+
+
+
+            Mob.icap06o4 = returnList.isNotEmpty()
+            println("---------Is not empty: ${Mob.icap06o4}--${Mob.cap6}")
+            return returnList
+        }
+    }
 }

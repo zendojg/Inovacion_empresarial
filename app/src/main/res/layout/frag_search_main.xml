@@ -335,7 +335,6 @@
 
         </LinearLayout>
 
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btSearch"
             android:layout_width="match_parent"

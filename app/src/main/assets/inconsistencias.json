@@ -1,0 +1,1246 @@
+[
+  {
+    "PAUTA": 1,
+    "TEXTO": "Condición de empadronamiento de la primera página no es igual al de la última página."
+  },
+  {
+    "PAUTA": 2,
+    "TEXTO": "Pregunta 11. Correo electrónico de la empresa, no debe existir espacio o tilde o \"ñ\"."
+  },
+  {
+    "PAUTA": 3,
+    "TEXTO": "Pregunta 13. Tiene  Número de clave y la provincia debe ser 03 y CINU debe iniciar con 45, Pregunta 28."
+  },
+  {
+    "PAUTA": 4,
+    "TEXTO": "Pregunta 14. El número de locales que conforman la empresa debe ser igual a cuidad de Panamá + otras provincias."
+  },
+  {
+    "PAUTA": 5,
+    "TEXTO": "Pregunta 16. Está registrado Nombre del informante y no el Cargo del mismo,  pregunta 17."
+  },
+  {
+    "PAUTA": 6,
+    "TEXTO": "Pregunta 21. Correo electrónico del informante, no debe existir espacio o tilde o \"ñ\"."
+  },
+  {
+    "PAUTA": 7,
+    "TEXTO": "Pregunta 22.  Debe registrar el año que inició operaciones la empresa en nuestro país."
+  },
+  {
+    "PAUTA": 8,
+    "TEXTO": "Pregunta 23.  Debe registrar algunas de las opciones de naturaleza jurídica de la empresa."
+  },
+  {
+    "PAUTA": 9,
+    "TEXTO": "Pregunta 24.  Su empresa pertenece a algún tipo de empresas organizadas formalmente, debe registrar algunas de las dos opciones."
+  },
+  {
+    "PAUTA": 10,
+    "TEXTO": "Pregunta 25.  Debe registrar algunas de las opciones de A qué tipo de empresas organizadas formalmente pertenece."
+  },
+  {
+    "PAUTA": 11,
+    "TEXTO": "Pregunta 26.  Debe registrar el nombre completo, si pertenece a uno de estos tipos de empresas organizadas formalmente."
+  },
+  {
+    "PAUTA": 12,
+    "TEXTO": "Pregunta 27.  Debe registrar el nombre del país de origen de la casa matriz de la empresa."
+  },
+  {
+    "PAUTA": 13,
+    "TEXTO": "Pregunta 28.  En el 2022, ¿cuál fue la principal actividad económica desarrollada por la empresa?, Tiene descrita la actividad económica y no tiene registrado el código CINU Rev. 4."
+  },
+  {
+    "PAUTA": 14,
+    "TEXTO": "Pregunta 29.1.  En el 2022, ¿cuáles fueron las actividades económicas secundarias que desarrolló la empresa?, Tiene descrita la actividad económica y no tiene registrado el código CINU Rev. 4."
+  },
+  {
+    "PAUTA": 15,
+    "TEXTO": "Pregunta 29.2.  En el 2022, ¿cuáles fueron las actividades económicas secundarias que desarrolló la empresa?, Tiene descrita la actividad económica y no tiene registrado el código CINU Rev. 4."
+  },
+  {
+    "PAUTA": 16,
+    "TEXTO": "Pregunta 29.3.  En el 2022, ¿cuáles fueron las actividades económicas secundarias que desarrolló la empresa?, Tiene descrita la actividad económica y no tiene registrado el código CINU Rev. 4."
+  },
+  {
+    "PAUTA": 17,
+    "TEXTO": "Pregunta 29.4.  En el 2022, ¿cuáles fueron las actividades económicas secundarias que desarrolló la empresa?, Tiene descrita la actividad económica y no tiene registrado el código CINU Rev. 4."
+  },
+  {
+    "PAUTA": 18,
+    "TEXTO": "Pregunta 30. En el 2021 y 2022, ¿cuál fue el total de las ventas netas de la empresa?, no tiene información."
+  },
+  {
+    "PAUTA": 19,
+    "TEXTO": "Pregunta 30. Total de Ventas netas 2021, no suma."
+  },
+  {
+    "PAUTA": 20,
+    "TEXTO": "Pregunta 30. Total de Ventas netas 2022, no suma."
+  },
+  {
+    "PAUTA": 21,
+    "TEXTO": "Pregunta 30. Tiene valor Total de Ventas netas 2021 y no tiene información en las opciones de la Pregunta 31.2021."
+  },
+  {
+    "PAUTA": 22,
+    "TEXTO": "Pregunta 30. Total de Ventas netas 2021, es mayor que el intervalo de ingresos brutos seleccionado columna 2021, Pregunta 31."
+  },
+  {
+    "PAUTA": 23,
+    "TEXTO": "Pregunta 30. Total de Ventas netas 2022, es mayor que el intervalo de ingresos brutos seleccionado columna 2022, Pregunta 31."
+  },
+  {
+    "PAUTA": 24,
+    "TEXTO": "Pregunta 30. Tiene valor Total de Ventas netas 2022 y no tiene información en las opciones de la Pregunta 31.2022."
+  },
+  {
+    "PAUTA": 25,
+    "TEXTO": "Pregunta 32.  No tiene respuesta en ¿Su empresa produjo bienes o servicios en…"
+  },
+  {
+    "PAUTA": 26,
+    "TEXTO": "Pregunta 32.  Produjo bienes o servicios en el 2021 y no tiene respuesta de principales bienes y servicios en el 2021, Pregunta 33."
+  },
+  {
+    "PAUTA": 27,
+    "TEXTO": "Pregunta 32.  Produjo bienes o servicios en el 2022 y no tiene respuesta de principales bienes y servicios en el 2022, Pregunta 33."
+  },
+  {
+    "PAUTA": 28,
+    "TEXTO": "Pregunta 34. Destino de las ventas local o nacional en el 2021 tiene información y  no tiene Ventas netas nacional 2021, Pregunta 30. "
+  },
+  {
+    "PAUTA": 29,
+    "TEXTO": "Pregunta 34. Destino de las ventas local o nacional en el 2022 tiene información y  no tiene Ventas netas nacional 2022, Pregunta 30. "
+  },
+  {
+    "PAUTA": 30,
+    "TEXTO": "Pregunta 34. Destino de las ventas exterior en el 2021 tiene información y no tiene total de Ventas netas exportaciones 2021, Pregunta 30."
+  },
+  {
+    "PAUTA": 31,
+    "TEXTO": "Pregunta 34. Destino de las ventas exterior en el 2022 tiene información y no tiene total de Ventas netas exportaciones 2022, Pregunta 30."
+  },
+  {
+    "PAUTA": 32,
+    "TEXTO": "Pregunta 35. Hombres de origen nacional por nivel académico, no suma."
+  },
+  {
+    "PAUTA": 33,
+    "TEXTO": "Pregunta 35. Hombres de origen exterior por nivel académico, no suma."
+  },
+  {
+    "PAUTA": 34,
+    "TEXTO": "Pregunta 35. Mujeres de origen nacional por nivel académico, no suma."
+  },
+  {
+    "PAUTA": 35,
+    "TEXTO": "Pregunta 35. Mujeres de origen exterior por nivel académico, no suma."
+  },
+  {
+    "PAUTA": 36,
+    "TEXTO": "Pregunta 36. Total Promedio de empleados 2021, no suma."
+  },
+  {
+    "PAUTA": 37,
+    "TEXTO": "Pregunta 36. Total Promedio de empleados 2022, no suma."
+  },
+  {
+    "PAUTA": 38,
+    "TEXTO": "No tiene respuesta en la Pregunta 37. En el 2022, la empresa contaba con personal, oficina, sección, departamento  o  laboratorio  para  desarrollar labores innovación"
+  },
+  {
+    "PAUTA": 39,
+    "TEXTO": "Pregunta 37. En el 2022, la empresa contaba con personal, oficina, sección, departamento  o  laboratorio  para  desarrollar labores innovación y no tiene información en la Pregunta 38."
+  },
+  {
+    "PAUTA": 40,
+    "TEXTO": "Pregunta 38. Tiene \"x\" en la opción 1.  Informática y sistemas y no tiene cantidad anotada."
+  },
+  {
+    "PAUTA": 41,
+    "TEXTO": "Pregunta 38. Tiene \"x\" en la opción 2.  Investigación y Desarrollo (I + D) y no tiene cantidad anotada."
+  },
+  {
+    "PAUTA": 42,
+    "TEXTO": "Pregunta 38. Tiene \"x\" en la opción 3.  Ingeniería y diseño industrial y no tiene cantidad anotada."
+  },
+  {
+    "PAUTA": 43,
+    "TEXTO": "Pregunta 38. Tiene \"x\" en la opción 4.  Otro y no tiene cantidad anotada."
+  },
+  {
+    "PAUTA": 44,
+    "TEXTO": "Pregunta 39. Para el 2021, no tiene respuesta en la opción 1. Bienes nuevos o significativamente mejorados."
+  },
+  {
+    "PAUTA": 45,
+    "TEXTO": "Pregunta 39. Para el 2022, no tiene respuesta  en la opción 1.  Bienes nuevos o significativamente mejorados."
+  },
+  {
+    "PAUTA": 46,
+    "TEXTO": "Pregunta 39. Para el 2021, no tiene respuesta  en la opción 2.  Servicios nuevos o significativamente mejorados."
+  },
+  {
+    "PAUTA": 47,
+    "TEXTO": "Pregunta 39. Para el 2022, no tiene respuesta  en la opción 2.  Servicios nuevos o significativamente mejorados."
+  },
+  {
+    "PAUTA": 48,
+    "TEXTO": "Pregunta 40. No tiene respuesta en la opción 1. Nueva para su mercado."
+  },
+  {
+    "PAUTA": 49,
+    "TEXTO": "Pregunta 40. No tiene respuesta en la opción 2. Solo nueva para la empresa."
+  },
+  {
+    "PAUTA": 50,
+    "TEXTO": "Pregunta 41. No tiene respuesta en las opciones de ¿Quién desarrolló esta innovación de producto?  y respondió sí en la pregunta 39."
+  },
+  {
+    "PAUTA": 51,
+    "TEXTO": "Pregunta 41. No tiene respuesta en las opciones de ¿Quién desarrolló esta innovación de producto? y respondió sí en la pregunta 40."
+  },
+  {
+    "PAUTA": 52,
+    "TEXTO": "Pregunta 42. Para el  2021, no tiene  respuesta en la opción 1.  Un nuevo o significativamente mejorado método de manufactura o producción de bienes o servicios. "
+  },
+  {
+    "PAUTA": 53,
+    "TEXTO": "Pregunta 42. Para el  2022, no tiene  respuesta en la opción 1.  Un nuevo o significativamente mejorado método de manufactura o producción de bienes o servicios. "
+  },
+  {
+    "PAUTA": 54,
+    "TEXTO": "Pregunta 42. Para el  2021, no tiene  respuesta en la opción 2.  Un nuevo o significativamente mejorado método de logística, entrega o distribución para sus insumos, bienes o servicios."
+  },
+  {
+    "PAUTA": 55,
+    "TEXTO": "Pregunta 42. Para el  2022, no tiene  respuesta en la opción 2.  Un nuevo o significativamente mejorado método de logística, entrega o distribución para sus insumos, bienes o servicios."
+  },
+  {
+    "PAUTA": 56,
+    "TEXTO": "Pregunta 42. Para el  2021, no tiene  respuesta en la opción 3.  Una nueva o significativamente mejorada actividad de soporte para sus procesos, tales  como: Sistema de mantenimiento y operaciones de compras, contabilidad o informática."
+  },
+  {
+    "PAUTA": 57,
+    "TEXTO": "Pregunta 42. Para el  2022, no tiene  respuesta en la opción 3.  Una nueva o significativamente mejorada actividad de soporte para sus procesos, tales  como: Sistema de mantenimiento y operaciones de compras, contabilidad o informática."
+  },
+  {
+    "PAUTA": 58,
+    "TEXTO": "Pregunta 43. No tiene  respuesta en la opción 1.  Nueva para su mercado."
+  },
+  {
+    "PAUTA": 59,
+    "TEXTO": "Pregunta 43. No tiene  respuesta en la opción 2.  Solo nueva para la empresa."
+  },
+  {
+    "PAUTA": 60,
+    "TEXTO": "Pregunta 42  alguna de las opciones es afirmativa y Pregunta 44. No tiene  respuesta en las opciones de ¿Quién desarrolló esta innovación de proceso?"
+  },
+  {
+    "PAUTA": 61,
+    "TEXTO": "Pregunta 45. No tiene  respuesta en las opción 1.  Ampliación de la gama de los bienes y servicios?"
+  },
+  {
+    "PAUTA": 62,
+    "TEXTO": "Pregunta 45. No tiene  respuesta en las opción 2.  Ingreso a nuevos mercados o incrementos de la participación en el mercado actual?"
+  },
+  {
+    "PAUTA": 63,
+    "TEXTO": "Pregunta 45. No tiene  respuesta en las opción 3.  Mejora en la calidad de los bienes y servicios?"
+  },
+  {
+    "PAUTA": 64,
+    "TEXTO": "Pregunta 45. No tiene  respuesta en las opción 4.  Aumentar la capacidad y\/o flexibilidad para la producción de bienes y servicios?"
+  },
+  {
+    "PAUTA": 65,
+    "TEXTO": "Pregunta 45. No tiene  respuesta en las opción 5.  Reducción de costos por unidad producida?"
+  },
+  {
+    "PAUTA": 66,
+    "TEXTO": "Pregunta 45. No tiene  respuesta en las opción 6.  Reducción de impacto medioambiental o mejora la sanidad y la seguridad?"
+  },
+  {
+    "PAUTA": 67,
+    "TEXTO": "Pregunta 43  alguna de las opciones es afirmativa y Pregunta 44. No tiene  respuesta en las opciones de ¿Quién desarrolló esta innovación de proceso?"
+  },
+  {
+    "PAUTA": 68,
+    "TEXTO": "Pregunta 46. Para el  2021, no tiene  respuesta en la opción 1.  Nuevas prácticas de negocios  para la organización de procesos."
+  },
+  {
+    "PAUTA": 69,
+    "TEXTO": "Pregunta 46. Para el  2022, no tiene  respuesta en la opción 1.  Nuevas prácticas de negocios  para la organización de procesos."
+  },
+  {
+    "PAUTA": 70,
+    "TEXTO": "Pregunta 46. Para el  2021, no tiene  respuesta en la opción 2.  Nuevos métodos de la organización de responsabilidades  y  toma de decisiones."
+  },
+  {
+    "PAUTA": 71,
+    "TEXTO": "Pregunta 46. Para el  2022, no tiene  respuesta en la opción 2.  Nuevos métodos de la organización de responsabilidades  y  toma de decisiones."
+  },
+  {
+    "PAUTA": 72,
+    "TEXTO": "Pregunta 46. Para el  2021, no tiene  respuesta en la opción 3.  Nuevos métodos de la organización de las relaciones externas con otras empresas o instituciones públicas."
+  },
+  {
+    "PAUTA": 73,
+    "TEXTO": "Pregunta 46. Para el  2022, no tiene  respuesta en la opción 3.  Nuevos métodos de la organización de las relaciones externas con otras empresas o instituciones públicas."
+  },
+  {
+    "PAUTA": 74,
+    "TEXTO": "Pregunta 47. No tiene  respuesta en la opción 1.  Reducir tiempo de respuesta a la necesidad del cliente y\/o proveedor?"
+  },
+  {
+    "PAUTA": 75,
+    "TEXTO": "Pregunta 47. No tiene  respuesta en la opción 2.  Mejorar la habilidad para desarrollar nuevos productos y\/o procesos?"
+  },
+  {
+    "PAUTA": 76,
+    "TEXTO": "Pregunta 47. No tiene  respuesta en la opción 3.  Mejorar la calidad por unidad producida?"
+  },
+  {
+    "PAUTA": 77,
+    "TEXTO": "Pregunta 47. No tiene  respuesta en la opción 4.  Reducir los costos por unidad producida?"
+  },
+  {
+    "PAUTA": 78,
+    "TEXTO": "Pregunta 47. No tiene  respuesta en la opción 5.  Mejorar la comunicación y\/o participación de información dentro de su empresa y\/o con otras empresas y\/o instituciones?"
+  },
+  {
+    "PAUTA": 79,
+    "TEXTO": "Pregunta 48. Para el  2021, no tiene  respuesta en la opción 1.  Cambios significativos en el diseño, envase y embalaje de productos."
+  },
+  {
+    "PAUTA": 80,
+    "TEXTO": "Pregunta 48. Para el  2022, no tiene  respuesta en la opción 1.  Cambios significativos en el diseño, envase y embalaje de productos."
+  },
+  {
+    "PAUTA": 81,
+    "TEXTO": "Pregunta 48. Para el  2021, no tiene  respuesta en la opción 2.  Nuevos medios o técnicas para la promoción del producto."
+  },
+  {
+    "PAUTA": 82,
+    "TEXTO": "Pregunta 48. Para el  2022, no tiene  respuesta en la opción 2.  Nuevos medios o técnicas para la promoción del producto."
+  },
+  {
+    "PAUTA": 83,
+    "TEXTO": "Pregunta 48. Para el  2021, no tiene  respuesta en la opción 3.  Nuevos métodos para los canales de  distribución del producto."
+  },
+  {
+    "PAUTA": 84,
+    "TEXTO": "Pregunta 48. Para el  2022, no tiene  respuesta en la opción 3.  Nuevos métodos para los canales de  distribución del producto."
+  },
+  {
+    "PAUTA": 85,
+    "TEXTO": "Pregunta 48. Para el  2021, no tiene  respuesta en la opción 4.  Nuevos métodos de tarificación de bienes y servicios."
+  },
+  {
+    "PAUTA": 86,
+    "TEXTO": "Pregunta 48. Para el  2022, no tiene  respuesta en la opción 4.  Nuevos métodos de tarificación de bienes y servicios."
+  },
+  {
+    "PAUTA": 87,
+    "TEXTO": "Pregunta 49. No tiene  respuesta en la opción 1.  Incrementar o mantener la participación de mercado?"
+  },
+  {
+    "PAUTA": 88,
+    "TEXTO": "Pregunta 49. No tiene  respuesta en la opción 2.  Introducir productos para un nuevo segmento de mercado?"
+  },
+  {
+    "PAUTA": 89,
+    "TEXTO": "Pregunta 49. No tiene  respuesta en la opción 3.  Introducir productos para un mercado geográficamente nuevo?"
+  },
+  {
+    "PAUTA": 90,
+    "TEXTO": "Pregunta 50.   ¿La empresa tiene personal, oficina, sección, departamento o laboratorio de investigación y desarrollo (I + D)? y no tiene  respuesta."
+  },
+  {
+    "PAUTA": 91,
+    "TEXTO": "Pregunta 51. Para el 2021, no tiene respuesta en la opción 1.  Investigación y desarrollo en la empresa."
+  },
+  {
+    "PAUTA": 92,
+    "TEXTO": "Pregunta 51. Para el 2022, no tiene respuesta  en la opción 1.  Investigación y desarrollo en la empresa."
+  },
+  {
+    "PAUTA": 93,
+    "TEXTO": "Pregunta 51. Para el 2021, no tiene respuesta  en la opción 2.  Investigación y desarrollo fuera de la empresa."
+  },
+  {
+    "PAUTA": 94,
+    "TEXTO": "Pregunta 51. Para el 2022, no tiene respuesta  en la opción 2.  Investigación y desarrollo fuera de la empresa."
+  },
+  {
+    "PAUTA": 95,
+    "TEXTO": "Pregunta 51. Para el 2021, tiene respuesta afirmativa en la opción 1.  Investigación y desarrollo en la empresa y no tiene porcentaje invertido."
+  },
+  {
+    "PAUTA": 96,
+    "TEXTO": "Pregunta 51. Para el 2022, tiene respuesta afirmativa en la opción 1.  Investigación y desarrollo en la empresa y no tiene porcentaje invertido."
+  },
+  {
+    "PAUTA": 97,
+    "TEXTO": "Pregunta 51. Para el 2021, tiene respuesta afirmativa en la opción 2.  Investigación y desarrollo fuera de la empresa y no tiene porcentaje invertido."
+  },
+  {
+    "PAUTA": 98,
+    "TEXTO": "Pregunta 51. Para el 2022, tiene respuesta afirmativa en la opción 2.  Investigación y desarrollo fuera de la empresa y no tiene porcentaje invertido."
+  },
+  {
+    "PAUTA": 99,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 1.  Iniciativas del Departamento de Investigación y Desarrollo."
+  },
+  {
+    "PAUTA": 100,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 2.  Departamento de ingeniería o producción."
+  },
+  {
+    "PAUTA": 101,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 3.  Departamento de diseño."
+  },
+  {
+    "PAUTA": 102,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 4.  Departamento de comercialización."
+  },
+  {
+    "PAUTA": 103,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 5.  Empresarios - gerentes internos."
+  },
+  {
+    "PAUTA": 104,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 6.  Empresarios - gerentes externos."
+  },
+  {
+    "PAUTA": 105,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 7.  Planes estratégicos."
+  },
+  {
+    "PAUTA": 106,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 8.  Clientes."
+  },
+  {
+    "PAUTA": 107,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 9.  Competidores."
+  },
+  {
+    "PAUTA": 108,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 10.  Consultores."
+  },
+  {
+    "PAUTA": 109,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 11.  Universidades o centros de investigación."
+  },
+  {
+    "PAUTA": 110,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 12.  Patentes."
+  },
+  {
+    "PAUTA": 111,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 13.  Ferias y exposiciones."
+  },
+  {
+    "PAUTA": 112,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 14.  Entidades de Gobierno."
+  },
+  {
+    "PAUTA": 113,
+    "TEXTO": "Pregunta 52. No tiene respuesta en la opción 15. Otra."
+  },
+  {
+    "PAUTA": 114,
+    "TEXTO": "Pregunta 53.1 total gasto realizado en las actividades de innovación 2021, no suma."
+  },
+  {
+    "PAUTA": 115,
+    "TEXTO": "Pregunta 53.1 total gasto realizado en las actividades de innovación 2022, no suma."
+  },
+  {
+    "PAUTA": 116,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 1.  Innovar no es rentable."
+  },
+  {
+    "PAUTA": 117,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 2.  El mercado no requiere o valora nuevos productos."
+  },
+  {
+    "PAUTA": 118,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 3.  No considera necesario innovar."
+  },
+  {
+    "PAUTA": 119,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 4.  Carencia de recursos financieros públicos para adelantar proyectos de innovación."
+  },
+  {
+    "PAUTA": 120,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 5.  Carencia de recursos financieros privados para adelantar proyectos de innovación."
+  },
+  {
+    "PAUTA": 121,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 6.  Carencia de personal capacitado para realizar proyectos de innovación."
+  },
+  {
+    "PAUTA": 122,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 7.  Tamaño inadecuado del mercado."
+  },
+  {
+    "PAUTA": 123,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 8.  Desconocimiento de los apoyos gubernamentales para proyectos de innovación."
+  },
+  {
+    "PAUTA": 124,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 9.  Dificultad para acceder a apoyos gubernamentales."
+  },
+  {
+    "PAUTA": 125,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 10.  Deficiencias, dificultades burocráticas, alto costo  al sistema de protección a la propiedad intelectual."
+  },
+  {
+    "PAUTA": 126,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 11.  Dificultades de acceso o costo excesivo del financiamiento a la innovación. "
+  },
+  {
+    "PAUTA": 127,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 12.  Insuficientes incentivos a la innovación en la actividad económica desarrollada por la empresa."
+  },
+  {
+    "PAUTA": 128,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 13.  Insuficientes incentivos a la innovación por baja receptividad de la demanda."
+  },
+  {
+    "PAUTA": 129,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 14.  Insuficientes incentivos a la innovación por deficiencia en las políticas públicas."
+  },
+  {
+    "PAUTA": 130,
+    "TEXTO": "Pregunta 54. No tiene respuesta en la opción 15.  Otra."
+  },
+  {
+    "PAUTA": 131,
+    "TEXTO": "Pregunta 55. No tiene respuesta en la opción 1.a.  Falta de fondos propios."
+  },
+  {
+    "PAUTA": 132,
+    "TEXTO": "Pregunta 55. No tiene respuesta en la opción 1.b.  Falta de financiamiento externo a la empresa."
+  },
+  {
+    "PAUTA": 133,
+    "TEXTO": "Pregunta 55. No tiene respuesta en la opción 1.c.  Costos de innovación muy alto."
+  },
+  {
+    "PAUTA": 134,
+    "TEXTO": "Pregunta 55. No tiene respuesta en la opción 2.a.  Falta de personal calificado."
+  },
+  {
+    "PAUTA": 135,
+    "TEXTO": "Pregunta 55. No tiene respuesta en la opción 2.b.  Falta de información sobre la tecnología."
+  },
+  {
+    "PAUTA": 136,
+    "TEXTO": "Pregunta 55. No tiene respuesta en la opción 2.c.  Falta de información sobre los mercados."
+  },
+  {
+    "PAUTA": 137,
+    "TEXTO": "Pregunta 55. No tiene respuesta en la opción 2.d.  Dificultad en encontrar cooperación."
+  },
+  {
+    "PAUTA": 138,
+    "TEXTO": "Pregunta 55. No tiene respuesta en la opción 3.a.  Mercado dominado por empresas establecidas."
+  },
+  {
+    "PAUTA": 139,
+    "TEXTO": "Pregunta 55. No tiene respuesta en la opción 3.b.  Incertidumbre respecto a la demanda por bienes y servicios."
+  },
+  {
+    "PAUTA": 140,
+    "TEXTO": "Pregunta 55. No tiene respuesta en la opción 4.a.  No es necesario debido a innovaciones previas."
+  },
+  {
+    "PAUTA": 141,
+    "TEXTO": "Pregunta 55. No tiene respuesta en la opción 4.b.  No es necesario por falta de demanda de innovaciones."
+  },
+  {
+    "PAUTA": 142,
+    "TEXTO": "Pregunta 55. No tiene respuesta en la opción 4.c.  Dificultad regulatoria."
+  },
+  {
+    "PAUTA": 143,
+    "TEXTO": "Pregunta 56.  ¿Conoce la empresa que existen instituciones públicas, privadas y organismos internacionales que prestan apoyo para realizar actividades de innovación? , no tiene  respuesta."
+  },
+  {
+    "PAUTA": 144,
+    "TEXTO": "Pregunta 57. No tiene respuesta en la opción 1.a.  Autoridad de la Pequeña y Mediana Empresa (Ampyme)."
+  },
+  {
+    "PAUTA": 145,
+    "TEXTO": "Pregunta 57. No tiene respuesta en la opción 1.b.  Secretaría de Ciencia, Tecnología e Innovación (Senacyt)."
+  },
+  {
+    "PAUTA": 146,
+    "TEXTO": "Pregunta 57. No tiene respuesta en la opción 1.c.  Otra."
+  },
+  {
+    "PAUTA": 147,
+    "TEXTO": "Pregunta 57. No tiene respuesta en la opción 2.a.  Banco Interamericano de Desarrollo (BID)."
+  },
+  {
+    "PAUTA": 148,
+    "TEXTO": "Pregunta 57. No tiene respuesta en la opción 2.b.  Banco Mundial."
+  },
+  {
+    "PAUTA": 149,
+    "TEXTO": "Pregunta 57. No tiene respuesta en la opción 2.c.  Otro."
+  },
+  {
+    "PAUTA": 150,
+    "TEXTO": "Pregunta 57.1.a. La empresa obtuvo financiamiento para la actividad de innovación de Autoridad de la Pequeña y Mediana Empresa (Ampyme) y no tiene registrado el monto obtenido en Balboas."
+  },
+  {
+    "PAUTA": 151,
+    "TEXTO": "Pregunta 57.1.b. La empresa obtuvo financiamiento para la actividad de innovación de Secretaría de Ciencia, Tecnología e Innovación (Senacyt) y no tiene registrado el monto obtenido en Balboas."
+  },
+  {
+    "PAUTA": 152,
+    "TEXTO": "Pregunta 57.1.c. La empresa obtuvo financiamiento para la actividad de innovación de Otra y no tiene registrado el monto obtenido en Balboas."
+  },
+  {
+    "PAUTA": 153,
+    "TEXTO": "Pregunta 57.2.a. La empresa obtuvo financiamiento para la actividad de innovación de Banco Interamericano de Desarrollo (BID) y no tiene registrado el monto obtenido en Balboas."
+  },
+  {
+    "PAUTA": 154,
+    "TEXTO": "Pregunta 57.2.b. La empresa obtuvo financiamiento para la actividad de innovación de Banco Mundial y no tiene registrado el monto obtenido en Balboas."
+  },
+  {
+    "PAUTA": 155,
+    "TEXTO": "Pregunta 57.2.c. La empresa obtuvo financiamiento para la actividad de innovación de Otro y no tiene registrado el monto obtenido en Balboas."
+  },
+  {
+    "PAUTA": 156,
+    "TEXTO": "Pregunta 58. No tiene respuesta en la opción 1.a.  Propios de la empresa mediante reinversión de utilidades."
+  },
+  {
+    "PAUTA": 157,
+    "TEXTO": "Pregunta 58. No tiene respuesta en la opción 1.b.  Propios de la empresa mediante aporte de los socios."
+  },
+  {
+    "PAUTA": 158,
+    "TEXTO": "Pregunta 58. No tiene respuesta en la opción 1.c.  Mediante aporte de la casa matriz."
+  },
+  {
+    "PAUTA": 159,
+    "TEXTO": "Pregunta 58. No tiene respuesta en la opción 2.a.  Proveedores."
+  },
+  {
+    "PAUTA": 160,
+    "TEXTO": "Pregunta 58. No tiene respuesta en la opción 2.b.  Clientes."
+  },
+  {
+    "PAUTA": 161,
+    "TEXTO": "Pregunta 58. No tiene respuesta en la opción 2.c.  Competidores u otras empresas del mismo sector."
+  },
+  {
+    "PAUTA": 162,
+    "TEXTO": "Pregunta 58. No tiene respuesta en la opción 2.d. Consultores, laboratorios comerciales o institutos privados I+D."
+  },
+  {
+    "PAUTA": 163,
+    "TEXTO": "Pregunta 58. No tiene respuesta en la opción 3.a.  Universidades y otras instituciones de educación superior (públicas o privadas)."
+  },
+  {
+    "PAUTA": 164,
+    "TEXTO": "Pregunta 58. No tiene respuesta en la opción 3.b.  Institutos de investigación públicos o del Gobierno."
+  },
+  {
+    "PAUTA": 165,
+    "TEXTO": "Pregunta 58. No tiene respuesta en la opción 4.a.  Fundaciones, Asociaciones Sin Fines de Lucro y ONG."
+  },
+  {
+    "PAUTA": 166,
+    "TEXTO": "Pregunta 58. No tiene respuesta en la opción 4.b.  Banca comercial (públicas o privadas)."
+  },
+  {
+    "PAUTA": 167,
+    "TEXTO": "Pregunta 58. No tiene respuesta en la opción 4.c.  Organismos internacionales (BID, Banco Mundial, Unión Europea)."
+  },
+  {
+    "PAUTA": 168,
+    "TEXTO": "Pregunta 58. No tiene respuesta en la opción 4.d.  Otra fuente."
+  },
+  {
+    "PAUTA": 169,
+    "TEXTO": "Pregunta 59.   En el 2021 y\/o 2022, ¿la empresa obtuvo patentes en el país y\/o en el exterior?, no tiene  respuesta."
+  },
+  {
+    "PAUTA": 170,
+    "TEXTO": "Pregunta 59.  La empresa obtuvo patentes en el país y\/o en el exterior y no tiene  cuantas."
+  },
+  {
+    "PAUTA": 171,
+    "TEXTO": "Pregunta 60. No tiene  respuesta en las opciones de ¿En qué país fueron aprobadas las patentes?"
+  },
+  {
+    "PAUTA": 172,
+    "TEXTO": "Pregunta 61. No tiene respuesta en la opción 1.  Marca."
+  },
+  {
+    "PAUTA": 173,
+    "TEXTO": "Pregunta 61. No tiene respuesta en la opción 2.  Patentes."
+  },
+  {
+    "PAUTA": 174,
+    "TEXTO": "Pregunta 61. No tiene respuesta en la opción 3.  Modelo de utilidad."
+  },
+  {
+    "PAUTA": 175,
+    "TEXTO": "Pregunta 61. No tiene respuesta en la opción 4.  Diseño industrial."
+  },
+  {
+    "PAUTA": 176,
+    "TEXTO": "Pregunta 61. No tiene respuesta en la opción 5.  Derecho de autor."
+  },
+  {
+    "PAUTA": 177,
+    "TEXTO": "Pregunta 61. No tiene respuesta en la opción 6.  Denominación de origen."
+  },
+  {
+    "PAUTA": 178,
+    "TEXTO": "Pregunta 61. No tiene respuesta en la opción 7.  Cláusula de confidencialidad para los empleados."
+  },
+  {
+    "PAUTA": 179,
+    "TEXTO": "Pregunta 61. No tiene respuesta en la opción 8.  Contratos de confidencialidad con proveedores y\/o clientes."
+  },
+  {
+    "PAUTA": 180,
+    "TEXTO": "Pregunta 62.   En el 2021 y\/o 2022, ¿la empresa contó con alguna certificación sobre normas de calidad? , no tiene  respuesta."
+  },
+  {
+    "PAUTA": 181,
+    "TEXTO": "Pregunta 63. No tiene  respuesta en las opciones de ¿Qué tipo de certificación sobre normas de calidad tenía e indique la cantidad de locales de la empresa?"
+  },
+  {
+    "PAUTA": 182,
+    "TEXTO": "Pregunta 63. Tiene  \"x\" en la opción 1.   ISO - 9001 - Gestión de Calidad y no tiene cantidad de locales."
+  },
+  {
+    "PAUTA": 183,
+    "TEXTO": "Pregunta 63. Tiene  \"x\" en la opción 2.   ISO - 14001 - Gestión Ambiental y no tiene cantidad de locales."
+  },
+  {
+    "PAUTA": 184,
+    "TEXTO": "Pregunta 63. Tiene  \"x\" en la opción 3.   ISO - IEC 17025 - Laboratorios de Ensayo y Calibración y no tiene cantidad de locales."
+  },
+  {
+    "PAUTA": 185,
+    "TEXTO": "Pregunta 63. Tiene  \"x\" en la opción 4.   ISO - IEC 20000 - Gestión de Seguridad y Riesgos y no tiene cantidad de locales."
+  },
+  {
+    "PAUTA": 186,
+    "TEXTO": "Pregunta 63. Tiene  \"x\" en la opción 5.   Otra y no tiene cantidad de locales."
+  },
+  {
+    "PAUTA": 187,
+    "TEXTO": "Pregunta 64.   En el 2021 y\/o 2022, ¿la empresa contó con productos certificados? , no tiene  respuesta."
+  },
+  {
+    "PAUTA": 188,
+    "TEXTO": "Pregunta 65. No tiene  respuesta en las opciones de ¿Mencione las dos normas de calidad más importantes y su año de obtención? "
+  },
+  {
+    "PAUTA": 189,
+    "TEXTO": "Pregunta 65.1 Tiene  información Normas de calidad y no tiene Año de obtención."
+  },
+  {
+    "PAUTA": 190,
+    "TEXTO": "Pregunta 65.2 Tiene  información Normas de calidad y no tiene Año de obtención."
+  },
+  {
+    "PAUTA": 191,
+    "TEXTO": "Pregunta 66. No tiene respuesta en la opción 1.  Innovaciones de productos (bienes o servicios)."
+  },
+  {
+    "PAUTA": 192,
+    "TEXTO": "Pregunta 66. No tiene respuesta en la opción 2.  Innovaciones de procesos."
+  },
+  {
+    "PAUTA": 193,
+    "TEXTO": "Pregunta 66. No tiene respuesta en la opción 3.  Innovaciones organizacional."
+  },
+  {
+    "PAUTA": 194,
+    "TEXTO": "Pregunta 66. No tiene respuesta en la opción 4.  Innovaciones de comercialización."
+  },
+  {
+    "PAUTA": 195,
+    "TEXTO": "Pregunta 17. Está registrado el cargo del informante y no tiene Nombre del informante, pregunta 16."
+  },
+  {
+    "PAUTA": 196,
+    "TEXTO": "Pregunta 25.  Tiene registrado algún tipo de empresas organizadas formalmente pertenece y debe de decir sí la pregunta 24."
+  },
+  {
+    "PAUTA": 197,
+    "TEXTO": "Pregunta 26.  Tiene registrado el nombre completo y debe de decir sí la pregunta 24."
+  },
+  {
+    "PAUTA": 198,
+    "TEXTO": "Pregunta 27.  Tiene registrado el nombre del país de origen de la casa matriz de la empresa y debe de decir sí la pregunta 24."
+  },
+  {
+    "PAUTA": 199,
+    "TEXTO": "Pregunta 28.  En el 2022, ¿cuál fue la principal actividad económica desarrollada por la empresa? Tiene registrado el código CINU Rev. 4 y no tiene descrita la actividad económica."
+  },
+  {
+    "PAUTA": 200,
+    "TEXTO": "Pregunta 29.1.  En el 2022, ¿cuál fue la actividad económica secundaria, desarrollada por la empresa? Tiene registrado el código CINU Rev. 4 y no tiene descrita la actividad económica."
+  },
+  {
+    "PAUTA": 201,
+    "TEXTO": "Pregunta 29.2.  En el 2022, ¿cuál fue la actividad económica secundaria, desarrollada por la empresa? Tiene registrado el código CINU Rev. 4 y no tiene descrita la actividad económica."
+  },
+  {
+    "PAUTA": 202,
+    "TEXTO": "Pregunta 29.3.  En el 2022, ¿cuál fue la actividad económica secundaria, desarrollada por la empresa? Tiene registrado el código CINU Rev. 4 y no tiene descrita la actividad económica."
+  },
+  {
+    "PAUTA": 203,
+    "TEXTO": "Pregunta 29.4.  En el 2022, ¿cuál fue la actividad económica secundaria, desarrollada por la empresa? Tiene registrado el código CINU Rev. 4 y no tiene descrita la actividad económica."
+  },
+  {
+    "PAUTA": 204,
+    "TEXTO": "Pregunta 33. Tiene respuesta de principales bienes y servicios en el 2021 y debe de decir sí la pregunta 32."
+  },
+  {
+    "PAUTA": 205,
+    "TEXTO": "Pregunta 33. Tiene respuesta de principales bienes y servicios en el 2022 y debe de decir sí la pregunta 32."
+  },
+  {
+    "PAUTA": 206,
+    "TEXTO": "Pregunta 30, Tiene Ventas netas nacional 2021 y no tiene Destino de las ventas local o nacional en el 2021, Pregunta 34."
+  },
+  {
+    "PAUTA": 207,
+    "TEXTO": "Pregunta 30, Tiene Ventas netas nacional 2022 y no tiene Destino de las ventas local o nacional en el 2022, Pregunta 34."
+  },
+  {
+    "PAUTA": 208,
+    "TEXTO": "Pregunta 30, Tiene total de Ventas netas exportaciones 2021 y no tiene Destino de las ventas exterior en el 2021, Pregunta 34. "
+  },
+  {
+    "PAUTA": 209,
+    "TEXTO": "Pregunta 30, Tiene total de Ventas netas exportaciones 2022 y no tiene Destino de las ventas exterior en el 2022, Pregunta 34. "
+  },
+  {
+    "PAUTA": 210,
+    "TEXTO": "Pregunta 38. Tiene información  y debe de decir sí la pregunta 37."
+  },
+  {
+    "PAUTA": 211,
+    "TEXTO": "Pregunta 38. Tiene cantidad anotada y no tiene \"x\" en la opción 1.  Informática y sistemas."
+  },
+  {
+    "PAUTA": 212,
+    "TEXTO": "Pregunta 38. Tiene cantidad anotada y no tiene \"x\" en la opción 2.  Investigación y Desarrollo (I + D)."
+  },
+  {
+    "PAUTA": 213,
+    "TEXTO": "Pregunta 38. Tiene cantidad anotada y no tiene \"x\" en la opción 3.  Ingeniería y diseño industrial."
+  },
+  {
+    "PAUTA": 214,
+    "TEXTO": "Pregunta 38. Tiene cantidad anotada y no tiene \"x\" en la opción 4.  Otro."
+  },
+  {
+    "PAUTA": 215,
+    "TEXTO": "Pregunta 40. Tiene respuesta en la opción 1. Nueva para su mercado y debe de decir sí en alguna de la opciones de la pregunta 39."
+  },
+  {
+    "PAUTA": 216,
+    "TEXTO": "Pregunta 40. Tiene respuesta en la opción 2. Solo nueva para la empresa y debe de decir sí en alguna de la opciones de la pregunta 39."
+  },
+  {
+    "PAUTA": 217,
+    "TEXTO": "Pregunta 41. Tiene respuesta en las opciones de ¿Quién desarrolló esta innovación de producto? y debe de decir sí en alguna de la opciones de la pregunta 39."
+  },
+  {
+    "PAUTA": 218,
+    "TEXTO": "Pregunta 41. Tiene respuesta en las opciones de ¿Quién desarrolló esta innovación de producto? y debe de decir sí en alguna de la opciones de la pregunta 40."
+  },
+  {
+    "PAUTA": 219,
+    "TEXTO": "Pregunta 43. Tiene  respuesta en la opción 1.  Nueva para su mercado y debe de decir sí en alguna de la opciones de la pregunta 42."
+  },
+  {
+    "PAUTA": 220,
+    "TEXTO": "Pregunta 44. Tiene  respuesta en las opciones de ¿Quién desarrolló esta innovación de proceso? y debe de decir sí en alguna de la opciones de la pregunta 43."
+  },
+  {
+    "PAUTA": 221,
+    "TEXTO": "Pregunta 43. Tiene  respuesta en la opción 2.  Solo nueva para la empresa y debe de decir sí en alguna de la opciones de la pregunta 42."
+  },
+  {
+    "PAUTA": 222,
+    "TEXTO": "Pregunta 44. Tiene  respuesta en las opciones de ¿Quién desarrolló esta innovación de proceso? y debe de decir sí en alguna de la opciones de la pregunta 42."
+  },
+  {
+    "PAUTA": 223,
+    "TEXTO": "Pregunta 45. Tiene  respuesta en las opción 1.  Ampliación de la gama de los bienes y servicios? y debe de decir sí en alguna de la opciones de la pregunta 42."
+  },
+  {
+    "PAUTA": 224,
+    "TEXTO": "Pregunta 45. Tiene  respuesta en las opción 2.  Ingreso a nuevos mercados o incrementos de la participación en el mercado actual? y debe de decir sí en alguna de la opciones de la pregunta 42."
+  },
+  {
+    "PAUTA": 225,
+    "TEXTO": "Pregunta 45. Tiene  respuesta en las opción 3.  Mejora en la calidad de los bienes y servicios? y debe de decir sí en alguna de la opciones de la pregunta 42."
+  },
+  {
+    "PAUTA": 226,
+    "TEXTO": "Pregunta 45. Tiene  respuesta en las opción 4.  Aumentar la capacidad y\/o flexibilidad para la producción de bienes y servicios? y debe de decir sí en alguna de la opciones de la pregunta 42."
+  },
+  {
+    "PAUTA": 227,
+    "TEXTO": "Pregunta 45. Tiene  respuesta en las opción 5.  Reducción de costos por unidad producida? y debe de decir sí en alguna de la opciones de la pregunta 42."
+  },
+  {
+    "PAUTA": 228,
+    "TEXTO": "Pregunta 45. Tiene  respuesta en las opción 6.  Reducción de impacto medioambiental o mejora la sanidad y la seguridad? y debe de decir sí en alguna de la opciones de la pregunta 42."
+  },
+  {
+    "PAUTA": 229,
+    "TEXTO": "Pregunta 47. Tiene  respuesta en la opción 1.  Reducir tiempo de respuesta a la necesidad del cliente y\/o proveedor?  y debe de decir sí en alguna de la opciones de la pregunta 46."
+  },
+  {
+    "PAUTA": 230,
+    "TEXTO": "Pregunta 47. Tiene  respuesta en la opción 2.  Mejorar la habilidad para desarrollar nuevos productos y\/o procesos?  y debe de decir sí en alguna de la opciones de la pregunta 46."
+  },
+  {
+    "PAUTA": 231,
+    "TEXTO": "Pregunta 47. Tiene  respuesta en la opción 3.  Mejorar la calidad por unidad producida?  y debe de decir sí en alguna de la opciones de la pregunta 46."
+  },
+  {
+    "PAUTA": 232,
+    "TEXTO": "Pregunta 47. Tiene  respuesta en la opción 4.  Reducir los costos por unidad producida?  y debe de decir sí en alguna de la opciones de la pregunta 46."
+  },
+  {
+    "PAUTA": 233,
+    "TEXTO": "Pregunta 47. Tiene  respuesta en la opción 5.  Mejorar la comunicación y\/o participación de información dentro de su empresa y\/o con otras empresas y\/o instituciones?  y debe de decir sí en alguna de la opciones de la pregunta 46."
+  },
+  {
+    "PAUTA": 234,
+    "TEXTO": "Pregunta 49. Tiene  respuesta en la opción 1.  Incrementar o mantener la participación de mercado?  y debe de decir sí en alguna de la opciones de la pregunta 48."
+  },
+  {
+    "PAUTA": 235,
+    "TEXTO": "Pregunta 49. Tiene  respuesta en la opción 2.  Introducir productos para un nuevo segmento de mercado?  y debe de decir sí en alguna de la opciones de la pregunta 48."
+  },
+  {
+    "PAUTA": 236,
+    "TEXTO": "Pregunta 49. Tiene  respuesta en la opción 3.  Introducir productos para un mercado geográficamente nuevo?  y debe de decir sí en alguna de la opciones de la pregunta 48."
+  },
+  {
+    "PAUTA": 237,
+    "TEXTO": "Pregunta 51. Para el 2021, Tiene respuesta en la opción 1.  Investigación y desarrollo en la empresa y debe de decir sí en la Pregunta 50."
+  },
+  {
+    "PAUTA": 238,
+    "TEXTO": "Pregunta 51. Para el 2022, Tiene respuesta  en la opción 1.  Investigación y desarrollo en la empresa y debe de decir sí en la Pregunta 50."
+  },
+  {
+    "PAUTA": 239,
+    "TEXTO": "Pregunta 51. Para el 2021, Tiene respuesta  en la opción 2.  Investigación y desarrollo fuera de la empresa y debe de decir sí en la Pregunta 50."
+  },
+  {
+    "PAUTA": 240,
+    "TEXTO": "Pregunta 51. Para el 2022, Tiene respuesta  en la opción 2.  Investigación y desarrollo fuera de la empresa y debe de decir sí en la Pregunta 50."
+  },
+  {
+    "PAUTA": 241,
+    "TEXTO": "Pregunta 51. Para el 2021, Tiene porcentaje invertido y debe de decir sí en la opción 1.  Investigación y desarrollo en la empresa."
+  },
+  {
+    "PAUTA": 242,
+    "TEXTO": "Pregunta 51. Para el 2022, Tiene porcentaje invertido y debe de decir sí en la opción 1.  Investigación y desarrollo en la empresa."
+  },
+  {
+    "PAUTA": 243,
+    "TEXTO": "Pregunta 51. Para el 2021, Tiene porcentaje invertido y debe de decir sí en la opción 2.  Investigación y desarrollo fuera de la empresa."
+  },
+  {
+    "PAUTA": 244,
+    "TEXTO": "Pregunta 51. Para el 2022, Tiene porcentaje invertido y debe de decir sí en la opción 2.  Investigación y desarrollo fuera de la empresa."
+  },
+  {
+    "PAUTA": 245,
+    "TEXTO": "Pregunta 57. Tiene respuesta en la opción 1.a.  Autoridad de la Pequeña y Mediana Empresa (Ampyme) y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 246,
+    "TEXTO": "Pregunta 57. Tiene respuesta en la opción 1.b.  Secretaría de Ciencia, Tecnología e Innovación (Senacyt) y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 247,
+    "TEXTO": "Pregunta 57. Tiene respuesta en la opción 1.c.  Otra y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 248,
+    "TEXTO": "Pregunta 57. Tiene respuesta en la opción 2.a.  Banco Interamericano de Desarrollo (BID) y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 249,
+    "TEXTO": "Pregunta 57. Tiene respuesta en la opción 2.b.  Banco Mundial y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 250,
+    "TEXTO": "Pregunta 57. Tiene respuesta en la opción 2.c.  Otro y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 251,
+    "TEXTO": "Pregunta 57. Tiene registrado el monto obtenido en Balboas y debe tener marcada la columna 2 en la opción 1.a. La empresa obtuvo financiamiento para la actividad de innovación de Autoridad de la Pequeña y Mediana Empresa (Ampyme)."
+  },
+  {
+    "PAUTA": 252,
+    "TEXTO": "Pregunta 57. Tiene registrado el monto obtenido en Balboas y debe tener marcada la columna 2 en la opción 1.b. La empresa obtuvo financiamiento para la actividad de innovación de Secretaría de Ciencia, Tecnología e Innovación (Senacyt)."
+  },
+  {
+    "PAUTA": 253,
+    "TEXTO": "Pregunta 57. Tiene registrado el monto obtenido en Balboas y debe tener marcada la columna 2 en la opción 1.c. La empresa obtuvo financiamiento para la actividad de innovación de Otra."
+  },
+  {
+    "PAUTA": 254,
+    "TEXTO": "Pregunta 57. Tiene registrado el monto obtenido en Balboas y debe tener marcada la columna 2 en la opción 2.a. La empresa obtuvo financiamiento para la actividad de innovación de Banco Interamericano de Desarrollo (BID)."
+  },
+  {
+    "PAUTA": 255,
+    "TEXTO": "Pregunta 57. Tiene registrado el monto obtenido en Balboas y debe tener marcada la columna 2 en la opción 2.b. La empresa obtuvo financiamiento para la actividad de innovación de Banco Mundial."
+  },
+  {
+    "PAUTA": 256,
+    "TEXTO": "Pregunta 57. Tiene registrado el monto obtenido en Balboas y debe tener marcada la columna 2 en la opción 2.c. La empresa obtuvo financiamiento para la actividad de innovación de Otro."
+  },
+  {
+    "PAUTA": 257,
+    "TEXTO": "Pregunta 58. Tiene respuesta en la opción 1.a.  Propios de la empresa mediante reinversión de utilidades y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 258,
+    "TEXTO": "Pregunta 58. Tiene respuesta en la opción 1.b.  Propios de la empresa mediante aporte de los socios y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 259,
+    "TEXTO": "Pregunta 58. Tiene respuesta en la opción 1.c.  Mediante aporte de la casa matriz y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 260,
+    "TEXTO": "Pregunta 58. Tiene respuesta en la opción 2.a.  Proveedores y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 261,
+    "TEXTO": "Pregunta 58. Tiene respuesta en la opción 2.b.  Clientes y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 262,
+    "TEXTO": "Pregunta 58. Tiene respuesta en la opción 2.c.  Competidores u otras empresas del mismo sector y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 263,
+    "TEXTO": "Pregunta 58. Tiene respuesta en la opción 2.d. Consultores, laboratorios comerciales o institutos privados I+D y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 264,
+    "TEXTO": "Pregunta 58. Tiene respuesta en la opción 3.a.  Universidades y otras instituciones de educación superior (públicas o privadas) y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 265,
+    "TEXTO": "Pregunta 58. Tiene respuesta en la opción 3.b.  Institutos de investigación públicos o del Gobierno y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 266,
+    "TEXTO": "Pregunta 58. Tiene respuesta en la opción 4.a.  Fundaciones, Asociaciones Sin Fines de Lucro y ONG y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 267,
+    "TEXTO": "Pregunta 58. Tiene respuesta en la opción 4.b.  Banca comercial (públicas o privadas) y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 268,
+    "TEXTO": "Pregunta 58. Tiene respuesta en la opción 4.c.  Organismos internacionales (BID, Banco Mundial, Unión Europea) y debe de decir sí en la Pregunta 56."
+  },
+  {
+    "PAUTA": 269,
+    "TEXTO": "Pregunta 58. Tiene respuesta en la opción 4.d.  Otra fuente y debe de decir sí en la Pregunta 56. "
+  },
+  {
+    "PAUTA": 270,
+    "TEXTO": "Pregunta 59.  La empresa obtuvo patentes en el país y\/o en el exterior tiene  cuantas y debe de decir sí."
+  },
+  {
+    "PAUTA": 271,
+    "TEXTO": "Pregunta 60. Tiene respuesta en las opciones de ¿En qué país fueron aprobadas las patentes? y debe de decir sí en la Pregunta 59. "
+  },
+  {
+    "PAUTA": 272,
+    "TEXTO": "Pregunta 61. Tiene respuesta en la opción 1.  Marca y debe de decir sí en la Pregunta 59. "
+  },
+  {
+    "PAUTA": 273,
+    "TEXTO": "Pregunta 61. Tiene respuesta en la opción 2.  Patentes y debe de decir sí en la Pregunta 59. "
+  },
+  {
+    "PAUTA": 274,
+    "TEXTO": "Pregunta 61. Tiene respuesta en la opción 3.  Modelo de utilidad y debe de decir sí en la Pregunta 59. "
+  },
+  {
+    "PAUTA": 275,
+    "TEXTO": "Pregunta 61. Tiene respuesta en la opción 4.  Diseño industrial y debe de decir sí en la Pregunta 59. "
+  },
+  {
+    "PAUTA": 276,
+    "TEXTO": "Pregunta 61. Tiene respuesta en la opción 5.  Derecho de autor y debe de decir sí en la Pregunta 59. "
+  },
+  {
+    "PAUTA": 277,
+    "TEXTO": "Pregunta 61. Tiene respuesta en la opción 6.  Denominación de origen y debe de decir sí en la Pregunta 59. "
+  },
+  {
+    "PAUTA": 278,
+    "TEXTO": "Pregunta 61. Tiene respuesta en la opción 7.  Cláusula de confidencialidad para los empleados y debe de decir sí en la Pregunta 59. "
+  },
+  {
+    "PAUTA": 279,
+    "TEXTO": "Pregunta 61. Tiene respuesta en la opción 8.  Contratos de confidencialidad con proveedores y\/o clientes y debe de decir sí en la Pregunta 59. "
+  },
+  {
+    "PAUTA": 280,
+    "TEXTO": "Pregunta 63. Tiene  respuesta en las opciones de ¿Qué tipo de certificación sobre normas de calidad tenía e indique la cantidad de locales de la empresa? y debe de decir sí en la Pregunta 62. "
+  },
+  {
+    "PAUTA": 281,
+    "TEXTO": "Pregunta 63. Tiene  cantidad de locales en la opción 1.   ISO - 9001 - Gestión de Calidad y debe marcar con una \"x\" cantidad de locales."
+  },
+  {
+    "PAUTA": 282,
+    "TEXTO": "Pregunta 63. Tiene  cantidad de locales en la opción 2.   ISO - 14001 - Gestión Ambiental y debe marcar con una \"x\" cantidad de locales."
+  },
+  {
+    "PAUTA": 283,
+    "TEXTO": "Pregunta 63. Tiene  cantidad de locales en la opción 3.   ISO - IEC 17025 - Laboratorios de Ensayo y Calibración y debe marcar con una \"x\" cantidad de locales."
+  },
+  {
+    "PAUTA": 284,
+    "TEXTO": "Pregunta 63. Tiene  cantidad de locales en la opción 4.   ISO - IEC 20000 - Gestión de Seguridad y Riesgos y debe marcar con una \"x\" cantidad de locales."
+  },
+  {
+    "PAUTA": 285,
+    "TEXTO": "Pregunta 63. Tiene  cantidad de locales en la opción 5.   Otra y debe marcar con una \"x\" cantidad de locales."
+  },
+  {
+    "PAUTA": 286,
+    "TEXTO": "Pregunta 65. Tiene  respuesta en las opciones de ¿Mencione las dos normas de calidad más importantes y su año de obtención?  Y debe decir sí en la Pregunta 64."
+  },
+  {
+    "PAUTA": 287,
+    "TEXTO": "Pregunta 65.1 Tiene Año de obtención  y debe tener información de Normas de calidad."
+  },
+  {
+    "PAUTA": 288,
+    "TEXTO": "Pregunta 65.2 Tiene Año de obtención  y debe tener información de Normas de calidad."
+  },
+  {
+    "PAUTA": 289,
+    "TEXTO": "Pregunta 1.  En el 2022, ¿utilizó su empresa Internet para el desarrollo de sus actividades?, no tiene respuesta."
+  },
+  {
+    "PAUTA": 290,
+    "TEXTO": "Pregunta 2.  ¿Qué tipo de conexión utilizó para acceder a Internet, no tiene respuesta en la opción 1.  Fijo (cable o inalámbrico)?"
+  },
+  {
+    "PAUTA": 291,
+    "TEXTO": "Pregunta 2.1.1.a. No tiene respuesta en la opción  de Seleccione el tipo de acceso a conexión."
+  },
+  {
+    "PAUTA": 292,
+    "TEXTO": "Pregunta 2.2. Móviles (USB Módem, Wifi vía celular)?, no tiene respuesta."
+  },
+  {
+    "PAUTA": 293,
+    "TEXTO": "Pregunta 3.  ¿Utiliza su empresa alguna de las siguientes medidas de seguridad TIC, no tiene respuesta."
+  },
+  {
+    "PAUTA": 294,
+    "TEXTO": "Pregunta 4.  ¿Realizó su empresa ventas de bienes y\/o servicios, a través de medios electrónicos?, no tiene respuesta."
+  },
+  {
+    "PAUTA": 295,
+    "TEXTO": "Pregunta 4.1. No tiene respuesta en la opción  a).  Página web (carrito de compra)?"
+  },
+  {
+    "PAUTA": 296,
+    "TEXTO": "Pregunta 4.1. No tiene respuesta en la opción  b).  Correo electrónico?"
+  },
+  {
+    "PAUTA": 297,
+    "TEXTO": "Pregunta 4.1. No tiene respuesta en la opción  c).  Redes sociales (WhatsApp, Instagram y Facebook)?"
+  },
+  {
+    "PAUTA": 298,
+    "TEXTO": "Pregunta 4.1. No tiene respuesta en la opción  d).  App (propia)?"
+  },
+  {
+    "PAUTA": 299,
+    "TEXTO": "Pregunta 4.1. No tiene respuesta en la opción  e).  Otro medio utilizado para realizar ventas en línea."
+  },
+  {
+    "PAUTA": 300,
+    "TEXTO": "Pregunta 4.1.   a).  Página web (carrito de compra)?, no tiene porcentaje."
+  },
+  {
+    "PAUTA": 301,
+    "TEXTO": "Pregunta 4.1.   b).  Correo electrónico?, no tiene porcentaje."
+  },
+  {
+    "PAUTA": 302,
+    "TEXTO": "Pregunta 4.1.   c).  Redes sociales (WhatsApp, Instagram y Facebook)?, no tiene porcentaje."
+  },
+  {
+    "PAUTA": 303,
+    "TEXTO": "Pregunta 4.1.   d).  App (propia)?, no tiene porcentaje."
+  },
+  {
+    "PAUTA": 304,
+    "TEXTO": "Pregunta 4.1.   d).  Otro medio utilizado para realizar ventas en línea, no tiene porcentaje."
+  },
+  {
+    "PAUTA": 305,
+    "TEXTO": "Pregunta 5.  ¿Cuál fue el total de las ventas de bienes y\/o servicios realizadas a través de medios electrónicos?, no tiene respuesta."
+  },
+  {
+    "PAUTA": 306,
+    "TEXTO": "Pregunta 6.  De este total de las ventas de bienes y\/o servicios realizadas, a través de medios electrónicos, ¿cuál es el porcentaje, según tipo de cliente?, no tiene respuesta."
+  },
+  {
+    "PAUTA": 307,
+    "TEXTO": "Pregunta 6.  Porcentaje de Hogares + empresa + gobierno + otros, no suma."
+  },
+  {
+    "PAUTA": 308,
+    "TEXTO": "Pregunta 7.  ¿Realizó su empresa pedidos y\/o reservas de bienes y\/o servicios a través de medios electrónicos?, no tiene respuesta."
+  },
+  {
+    "PAUTA": 309,
+    "TEXTO": "Pregunta 8.  Del total de los costos y\/o gastos de la empresa en el 2022, ¿cuál es el valor de los costos y\/o gastos, correspondiente a pedidos y\/o reservas de bienes y\/o servicios realizados por medios electrónicos?, no tiene respuesta."
+  },
+  {
+    "PAUTA": 310,
+    "TEXTO": "Pregunta 9.  En el 2022, ¿realizó su empresa costos y\/o gastos en Tecnologías de la Información y las Comunicaciones (TIC)?, no tiene respuesta."
+  },
+  {
+    "PAUTA": 311,
+    "TEXTO": "Pregunta 10.  Porcentaje de Hardware + Software +  Servicios de consultoría de TIC + Otros gastos TIC, no suma 100%."
+  }
+]

@@ -46,6 +46,7 @@ class MainFragmentSearch : Fragment() {
 
     override fun onPause() {
         super.onPause()
+        fragSearch.txtNControlSearch.text?.clear()
         if (aDialog?.isShowing == true)  aDialog?.dismiss()
     }
 
@@ -84,23 +85,29 @@ class MainFragmentSearch : Fragment() {
     private fun controlTxt() {
         hideKeyboard()
         val color = ContextCompat.getColor(ctx, R.color.dark_red)
-        with (fragSearch) {
+        with(fragSearch) {
             if (txtNControlSearch.text.isNullOrEmpty()) {
                 val alert =
                     Functions.msgMark("Ingrese un N° de Control", Mob.WIDTH180DP, ctx, color)
                 alert.showAlignBottom(txtNControlSearch)
                 alert.dismissWithDelay(Mob.TIMELONG2SEG)
             } else {
-                val ncontrolReformat = Functions.ceroLeft(txtNControlSearch.text.toString(), 4)
+                val ncontrolReformat =
+                    Functions.ceroLeft(txtNControlSearch.text.toString(), Mob.CEROLEFT)
                 txtNControlSearch.text = ncontrolReformat.toEditable()
-                val ncont: Int = try { txtNControlSearch.text.toString().toInt()
-                } catch (e: java.lang.NumberFormatException) { 0 }
+                val ncont: Int = try {
+                    txtNControlSearch.text.toString().toInt()
+                } catch (e: java.lang.NumberFormatException) {
+                    0
+                }
                 if (ncont <= 0) {
                     val alert =
                         Functions.msgMark("N° de Control inválido", Mob.WIDTH180DP, ctx, color)
                     alert.showAlignBottom(txtNControlSearch)
                     alert.dismissWithDelay(Mob.TIMELONG2SEG)
-                } else { getForm(ncont.toString()) } //------------
+                } else {
+                    getForm(ncont.toString())
+                } //------------
             }
         }
     }
@@ -117,7 +124,7 @@ class MainFragmentSearch : Fragment() {
 
                 when (resp.code) {
                     Mob.CODE200 -> {
-                        CreateForm().createLoad(resp.body)
+                        CreateForm.createLoad(resp.body)
                         println("--------\\n---------${Mob.condicion}")
                         viewFind(false)
                     }
