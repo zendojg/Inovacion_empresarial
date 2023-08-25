@@ -473,37 +473,62 @@ class FragEncuestaCap05o2 : Fragment() {
                 txtCap53612021.text.toString().ifEmpty { null },
                 txtCap53612022.text.toString().ifEmpty { null },
                 if (rbtCap537Si.isChecked) true else if (rbtCap537No.isChecked) false else null,
-                if (checkCap5381.isChecked) true else null,
-                if (checkCap5381.isChecked) txtCap5381.text.toString().ifEmpty { null } else null,
-                if (checkCap5382.isChecked) true else null,
-                if (checkCap5382.isChecked) txtCap5382.text.toString().ifEmpty { null } else null,
-                if (checkCap5383.isChecked) true else null,
-                if (checkCap5383.isChecked) txtCap5383.text.toString().ifEmpty { null } else null,
-                if (checkCap5384.isChecked) txtCap5384Otro.text.toString() else null,
-                if (checkCap5384.isChecked) true else null,
-                if (checkCap5384.isChecked) txtCap5384.text.toString().ifEmpty { null } else null,
+                if (rbtCap537Si.isChecked && checkCap5381.isChecked) true else null,
+                if (rbtCap537Si.isChecked && checkCap5381.isChecked) txtCap5381.text.toString()
+                    .ifEmpty { null } else null,
+                if (rbtCap537Si.isChecked && checkCap5382.isChecked) true else null,
+                if (rbtCap537Si.isChecked && checkCap5382.isChecked) txtCap5382.text.toString()
+                    .ifEmpty { null } else null,
+                if (rbtCap537Si.isChecked && checkCap5383.isChecked) true else null,
+                if (rbtCap537Si.isChecked && checkCap5383.isChecked) txtCap5383.text.toString()
+                    .ifEmpty { null } else null,
+                if (rbtCap537Si.isChecked && checkCap5384.isChecked) txtCap5384Otro.text.toString()
+                    .ifEmpty { null } else null,
+                if (rbtCap537Si.isChecked && checkCap5384.isChecked) true else null,
+                if (rbtCap537Si.isChecked && checkCap5384.isChecked) txtCap5384.text.toString()
+                    .ifEmpty { null } else null,
             )
         }
         return viewCap()
     }
 
     private fun viewCap(): List<String> {
-        with (bindingcap5o2) {
+        with (Mob) {
             val returnList: ArrayList<String> = ArrayList()
-            if (txtCap5351HNac.text.toString().isEmpty())
+            if (cap5?.v35txthomNacT.isNullOrEmpty())
                 returnList.add(CreateInconsistecia.inconsistencia(ctx,"32") ?: "")
-            if (txtCap5351HExt.text.toString().isEmpty())
+            if (cap5?.v35txthomExtT.isNullOrEmpty())
                 returnList.add(CreateInconsistecia.inconsistencia(ctx,"33") ?: "")
-            if (txtCap5351MNac.text.toString().isEmpty())
+            if (cap5?.v35txtmujNacT.isNullOrEmpty())
                 returnList.add(CreateInconsistecia.inconsistencia(ctx,"34") ?: "")
-            if (txtCap5351MExt.text.toString().isEmpty())
+            if (cap5?.v35txtmujExtT.isNullOrEmpty())
                 returnList.add(CreateInconsistecia.inconsistencia(ctx,"35") ?: "")
 
+            if (cap5?.v36txtempT21.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"36") ?: "")
+            if (cap5?.v36txtempT22.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"37") ?: "")
+            if (cap5?.v37check == null)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"38") ?: "")
 
+            if (cap5?.v37check == true)
+                if (cap5?.v38txt1.isNullOrEmpty() &&
+                    cap5?.v38txt2.isNullOrEmpty())
+                    if (cap5?.v38txt3.isNullOrEmpty() &&
+                        cap5?.v38txt4.isNullOrEmpty())
+                        returnList.add(CreateInconsistecia.inconsistencia(ctx,"39")?: "")
 
+            if (cap5?.v38check1 == true && cap5?.v38txt1.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"40") ?: "")
+            if (cap5?.v38check2 == true  && cap5?.v38txt2.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"41") ?: "")
+            if (cap5?.v38check3 == true  && cap5?.v38txt3.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"42") ?: "")
+            if (cap5?.v38check4 == true  && cap5?.v38txt4.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"43") ?: "")
 
-            println("---------Is not empty: ${Mob.icap05o2}--${Mob.cap5}")
-            Mob.icap05o2 = returnList.isNotEmpty()
+            icap05o2 = returnList.isNotEmpty()
+            println("---------Is not empty: $icap05o2--$cap5")
             return returnList
         }
     }

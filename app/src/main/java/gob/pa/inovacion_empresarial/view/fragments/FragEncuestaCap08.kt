@@ -195,7 +195,8 @@ class FragEncuestaCap08 : Fragment() {
                 Mob.cap8?.ncontrol,
                 if (rbtCap856Si.isChecked) true else if (rbtCap856No.isChecked) false else null,
 
-                if (rbtCap856Si.isChecked && indice1a != 0) indice1a else null,
+                if (rbtCap856Si.isChecked && spinCap8571A.selectedItemPosition != 0)
+                    spinCap8571A.selectedItemPosition else null,
                 if (rbtCap856Si.isChecked && indice1a == 2)
                     txtCap8571AMonto.text.toString().ifEmpty { null } else null,
 

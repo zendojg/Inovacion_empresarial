@@ -53,12 +53,11 @@ class FragEncuestaCap01 : Fragment() {
         return bindingcap1.root
     }
 
-
     override fun onResume() {
         super.onResume()
         Mob.indiceFormulario = Mob.CAP1P01
         if (Mob.seecap01) fillOut()
-        else seeData()
+        else seeData(false)
     }
 
     private fun onAction() {
@@ -168,20 +167,20 @@ class FragEncuestaCap01 : Fragment() {
         bindingcap1.txtCap14ID.text = idlugarp
 
         Mob.seecap01 = false
-        seeData()
+        seeData(false)
     }
 
-    private fun seeData() {
+    private fun seeData(editFields: Boolean) {
         val room = RoomView(dvmCap1, ctx)
         CoroutineScope(Dispatchers.IO).launch {
-            //if (arrayProv.isEmpty())
-            //    arrayProv = room.getProv()
+            if (arrayProv.isEmpty() && editFields)
+                arrayProv = room.getProv()
             if (idprov.isNotEmpty()) {
                 prov = room.getProvName(idprov)
-                //arrayDist = room.getDist(idprov)
+                if (editFields) arrayDist = room.getDist(idprov)
                 if (iddist.isNotEmpty()) {
                     dist = room.getDistName(idprov, iddist)
-                    //arrayCorre = room.getCorre(idprov, iddist)
+                    if (editFields) arrayCorre = room.getCorre(idprov, iddist)
                     if (idcorre.isNotEmpty()) {
                         corre = room.getCorreName(idprov, iddist, idcorre)
                         arrayLugarP = room.getLugarP(idprov, iddist, idcorre)
@@ -229,15 +228,17 @@ class FragEncuestaCap01 : Fragment() {
     }
 
     private fun viewCap(): List<String> {
-        with (bindingcap1) {
+        with (Mob) {
             val returnList: ArrayList<String> = ArrayList()
-            if (txtCap11ID.text.toString().isEmpty()) { returnList.add("Provincia sin datos") }
-            if (txtCap12ID.text.toString().isEmpty()) { returnList.add("Distrito sin datos") }
-            if (txtCap13ID.text.toString().isEmpty()) { returnList.add("Corregimiento sin datos") }
-            if (txtCap14ID.text.toString().isEmpty()) { returnList.add("Lugar poblado sin datos") }
+            if (cap1?.v01provtxt.isNullOrEmpty()) { returnList.add("Provincia sin datos") }
+            if (cap1?.v02disttxt.isNullOrEmpty()) { returnList.add("Distrito sin datos") }
+            if (cap1?.v03corretxt.isNullOrEmpty()) { returnList.add("Corregimiento sin datos") }
+            if (cap1?.v04lugartxt.isNullOrEmpty()) { returnList.add("Lugar poblado sin datos") }
 
-            println("---------Is not empty: ${Mob.icap01}--${Mob.cap1}")
-            Mob.icap01 = returnList.isNotEmpty()
+            println("---------Is not empty: $icap01--$cap1")
+            icap01 = returnList.isNotEmpty()
+            if (returnList.size > 1) seeData(true)
+
             return returnList
         }
     }

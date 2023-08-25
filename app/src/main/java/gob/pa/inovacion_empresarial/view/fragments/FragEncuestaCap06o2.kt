@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.view.get
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo062InovacionProcesoBinding
@@ -18,8 +20,7 @@ class FragEncuestaCap06o2 : Fragment() {
 
     private lateinit var bindingcap6o2: EncuestaCapitulo062InovacionProcesoBinding
     private lateinit var ctx: Context
-
-    private var check44: String? = ""
+    private var checkNo42: MutableList<Boolean> = mutableListOf(false,false,false,false,false,false)
     private var indice01 = 0
     private var indice02 = 0
     private var indice03 = 0
@@ -46,15 +47,40 @@ class FragEncuestaCap06o2 : Fragment() {
     private fun onAction() {
         with(bindingcap6o2) {
             lowCap6o2.setOnClickListener { saveCap() }
-            rgroupCap644.setOnCheckedChangeListener { _, id ->
-                check44 = when (id) {
-                    rbtCap6441.id -> "1"
-                    rbtCap6442.id -> "2"
-                    rbtCap6443.id -> "3"
-                    rbtCap6444.id -> "4"
-                    else -> null
-                }
+
+            checkNo42[Mob.CHECK1Y2021] = rbtCap6421No2021.isChecked
+            checkNo42[Mob.CHECK1Y2022] = rbtCap6421No2022.isChecked
+            checkNo42[Mob.CHECK2Y2021] = rbtCap6422No2021.isChecked
+            checkNo42[Mob.CHECK2Y2022] = rbtCap6422No2022.isChecked
+            checkNo42[Mob.CHECK3Y2021] = rbtCap6422No2021.isChecked
+            checkNo42[Mob.CHECK3Y2022] = rbtCap6422No2022.isChecked
+            check42()
+
+            rgroupCap64212021.setOnCheckedChangeListener { _, id ->
+                checkNo42[Mob.CHECK1Y2021] = rbtCap6421No2021.id == id
+                check42()
             }
+            rgroupCap64212022.setOnCheckedChangeListener { _, id ->
+                checkNo42[Mob.CHECK1Y2022] = rbtCap6421No2022.id == id
+                check42()
+            }
+            rgroupCap64222021.setOnCheckedChangeListener { _, id ->
+                checkNo42[Mob.CHECK2Y2021] = rbtCap6422No2021.id == id
+                check42()
+            }
+            rgroupCap64222022.setOnCheckedChangeListener { _, id ->
+                checkNo42[Mob.CHECK2Y2022] = rbtCap6422No2022.id == id
+                check42()
+            }
+            rgroupCap64232021.setOnCheckedChangeListener { _, id ->
+                checkNo42[Mob.CHECK3Y2021] = rbtCap6423No2021.id == id
+                check42()
+            }
+            rgroupCap64232022.setOnCheckedChangeListener { _, id ->
+                checkNo42[Mob.CHECK3Y2022] = rbtCap6423No2022.id == id
+                check42()
+            }
+
             val gr45Adp = ArrayAdapter(ctx, R.layout.style_box, Mob.arrGrade)
             gr45Adp.setDropDownViewResource(R.layout.style_list)
 
@@ -64,8 +90,15 @@ class FragEncuestaCap06o2 : Fragment() {
             spinCap6454.adapter = gr45Adp
             spinCap6455.adapter = gr45Adp
             spinCap6456.adapter = gr45Adp
-
             sipnAction()
+        }
+    }
+    private fun check42() {
+        val allItems: (Boolean) -> Boolean = { it }
+        with(bindingcap6o2) {
+            layoutCap643.isVisible = !checkNo42.all(allItems)
+            layoutCap644.isVisible = !checkNo42.all(allItems)
+            layoutCap645.isVisible = !checkNo42.all(allItems)
         }
     }
 
@@ -78,48 +111,47 @@ class FragEncuestaCap06o2 : Fragment() {
             spinCap6455.setSelection(indice05)
             spinCap6456.setSelection(indice06)
 
-            spinCap6451.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            spinCap6451.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice01 = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
+                override fun onNothingSelected(adp: AdapterView<*>?) {}
             }
-            spinCap6452.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            spinCap6452.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice02 = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
+                override fun onNothingSelected(adp: AdapterView<*>?) {}
             }
-            spinCap6453.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            spinCap6453.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice03 = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
+                override fun onNothingSelected(adp: AdapterView<*>?) {}
             }
-            spinCap6454.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            spinCap6454.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice04 = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {}
             }
-            spinCap6455.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            spinCap6455.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice05 = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
+                override fun onNothingSelected(adp: AdapterView<*>?) {}
             }
-            spinCap6456.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            spinCap6456.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice06 = pos
                 }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) { println("---NO selection") }
+                override fun onNothingSelected(adp: AdapterView<*>?) {}
             }
         }
     }
@@ -139,16 +171,13 @@ class FragEncuestaCap06o2 : Fragment() {
                 false -> rbtCap6432No.isChecked = true
                 else -> rgroupCap6432.clearCheck()
             }
-            check44 = cap6?.v44check
             when (cap6?.v44check) {
                 "1" -> rbtCap6441.isChecked = true
                 "2" -> rbtCap6442.isChecked = true
                 "3" -> rbtCap6443.isChecked = true
                 "4" -> rbtCap6444.isChecked = true
-                else -> {
-                    check44 = null
-                    rgroupCap644.clearCheck()
-                }
+                else -> rgroupCap644.clearCheck()
+
             }
             indice01 = try { cap6?.v45txtGrado1?.toInt() ?: 0 }
             catch (e: java.lang.NumberFormatException) { 0 }
@@ -206,6 +235,9 @@ class FragEncuestaCap06o2 : Fragment() {
 
 
     fun saveCap(): List<String> {
+        val allItems: (Boolean) -> Boolean = { it }
+        val check = checkNo42.all(allItems)
+
         with (bindingcap6o2) {
             Mob.cap6 = ModelCap6(
                 Mob.cap6?.id,
@@ -229,18 +261,30 @@ class FragEncuestaCap06o2 : Fragment() {
                     if (rbtCap6422No2022.isChecked) false else null,
                 if (rbtCap6423Si2022.isChecked) true else
                     if (rbtCap6423No2022.isChecked) false else null,
-                if (rbtCap6431Si.isChecked) true else
+
+                if (check) null else if (rbtCap6431Si.isChecked) true else
                     if (rbtCap6431No.isChecked) false else null,
-                if (rbtCap6432Si.isChecked) true else
+                if (check) null else if (rbtCap6432Si.isChecked) true else
                     if (rbtCap6432No.isChecked) false else null,
-                check44,
-                if (indice01 == 0) null else indice01.toString(),
-                if (indice02 == 0) null else indice02.toString(),
-                if (indice03 == 0) null else indice03.toString(),
-                if (indice04 == 0) null else indice04.toString(),
-                if (indice05 == 0) null else indice05.toString(),
-                if (indice06 == 0) null else indice06.toString(),
-                //if (indice06 == 0) null else spinCap6456.selectedItemPosition.toString(),
+                if (check) null else when {
+                    rbtCap6441.isChecked -> "1"
+                    rbtCap6442.isChecked -> "2"
+                    rbtCap6443.isChecked -> "3"
+                    rbtCap6444.isChecked -> "4"
+                    else -> null
+                },
+                if (check) null else if (spinCap6451.selectedItemPosition == 0) null else
+                    spinCap6451.selectedItemPosition.toString(),
+                if (check) null else if (spinCap6452.selectedItemPosition == 0) null else
+                    spinCap6452.selectedItemPosition.toString(),
+                if (check) null else if (spinCap6453.selectedItemPosition == 0) null else
+                    spinCap6453.selectedItemPosition.toString(),
+                if (check) null else if (spinCap6454.selectedItemPosition == 0) null else
+                    spinCap6454.selectedItemPosition.toString(),
+                if (check) null else if (spinCap6455.selectedItemPosition == 0) null else
+                    spinCap6455.selectedItemPosition.toString(),
+                if (check) null else if (spinCap6456.selectedItemPosition == 0) null else
+                    spinCap6456.selectedItemPosition.toString(),
                 Mob.cap6?.v46check21o1,//
                 Mob.cap6?.v46check21o2,
                 Mob.cap6?.v46check21o3,
@@ -269,26 +313,45 @@ class FragEncuestaCap06o2 : Fragment() {
     }
 
     private fun viewCap(): List<String> {
-        with(bindingcap6o2) {
+        val allItems: (Boolean) -> Boolean = { it }
+        val check = checkNo42.all(allItems)
+        with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
-            if (!rbtCap6421Si2021.isChecked && !rbtCap6421No2021.isChecked)
+            if (cap6?.v42check21o1 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "52") ?: "")
-            if (!rbtCap6421Si2022.isChecked && !rbtCap6421No2022.isChecked)
+            if (cap6?.v42check22o1 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "53") ?: "")
-            if (!rbtCap6422Si2021.isChecked && !rbtCap6422No2021.isChecked)
+            if (cap6?.v42check21o2 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "54") ?: "")
-            if (!rbtCap6422Si2022.isChecked && !rbtCap6422No2022.isChecked)
+            if (cap6?.v42check22o2 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "55") ?: "")
-            if (!rbtCap6423Si2021.isChecked && !rbtCap6423No2021.isChecked)
+            if (cap6?.v42check21o3 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "56") ?: "")
-            if (!rbtCap6423Si2022.isChecked && !rbtCap6423No2022.isChecked)
+            if (cap6?.v42check22o3 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "57") ?: "")
 
+            if (!check && cap6?.v43check1 == null)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "58") ?: "")
+            if (!check && cap6?.v43check2 == null)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "59") ?: "")
+            if (!check && bindingcap6o2.rgroupCap644.checkedRadioButtonId == -1)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "60") ?: "")
 
+            if (!check && cap6?.v45txtGrado1.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "61") ?: "")
+            if (!check && cap6?.v45txtGrado2.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "62") ?: "")
+            if (!check && cap6?.v45txtGrado3.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "63") ?: "")
+            if (!check && cap6?.v45txtGrado4.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "64") ?: "")
+            if (!check && cap6?.v45txtGrado5.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "65") ?: "")
+            if (!check && cap6?.v45txtGrado6.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "66") ?: "")
 
-
-            println("---------Is not empty: ${Mob.icap06o2}--${Mob.cap6}")
-            Mob.icap06o2 = returnList.isNotEmpty()
+            icap06o2 = returnList.isNotEmpty()
+            println("---------Is not empty: $icap06o2--$cap6")
             return returnList
         }
     }

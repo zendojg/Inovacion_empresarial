@@ -17,6 +17,7 @@ import com.google.android.material.button.MaterialButton
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.adapters.AdapterPagerMain
 import gob.pa.inovacion_empresarial.databinding.ActivityMainBinding
+import gob.pa.inovacion_empresarial.databinding.StyleMsgAlertBinding
 import gob.pa.inovacion_empresarial.function.AppCache
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.model.DVModel
@@ -103,33 +104,34 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         val dialogBack = AlertDialog.Builder(this)
-        val msg: View = layoutInflater.inflate(R.layout.style_msg_alert, null)
-        val btpositivo: MaterialButton = msg.findViewById(R.id.btpositivo)
-        val btnegativo: MaterialButton = msg.findViewById(R.id.btnegativo)
-        val msgT: TextView = msg.findViewById(R.id.msgtitle)
-        val msg1: TextView = msg.findViewById(R.id.msg1)
-        val msg2: TextView = msg.findViewById(R.id.msg2)
+        val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)
+        val ctx = this
 
         if (pagerMain.currentItem == Mob.INIT01) {
-            btpositivo.text = getString(R.string.cancel)
-            btnegativo.text = getString(R.string.close)
-            msgT.text = getString(R.string.closeApp)
-            msg1.visibility = View.GONE
-            msg2.visibility = View.GONE
-            dialogBack.setView(msg)
+            with (bindmsg) {
+                btpositivo.text = getString(R.string.cancel)
+                btnegativo.text = getString(R.string.close)
+                msgtitle.text = getString(R.string.closeApp)
+                msg1.visibility = View.GONE
+                msg2.visibility = View.GONE
+                btpositivo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
+                btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_exit_app)
+                btnegativo.backgroundTintList =
+                    ContextCompat.getColorStateList(ctx, R.color.dark_pink)
+                layoutAlert.background =
+                    ContextCompat.getDrawable(ctx, R.drawable.background_border_alert)
 
-            aDialog = dialogBack.create()
-            aDialog?.show()
-            btpositivo.icon = ContextCompat.getDrawable(this, R.drawable.img_backs)
-            btnegativo.icon = ContextCompat.getDrawable(this, R.drawable.img_exit_app)
-
-            btpositivo.setOnClickListener {
-                aDialog?.dismiss()
-            }
-            btnegativo.setOnClickListener {
-                finishAffinity()
-                this.finish()
-                exitProcess(-1)
+                dialogBack.setView(bindmsg.root)
+                aDialog = dialogBack.create()
+                aDialog?.show()
+                btpositivo.setOnClickListener {
+                    aDialog?.dismiss()
+                }
+                btnegativo.setOnClickListener {
+                    finishAffinity()
+                    ctx.finish()
+                    exitProcess(-1)
+                }
             }
         }  else pagerMain.currentItem = Mob.INIT01
 

@@ -142,12 +142,16 @@ class FormActivity : AppCompatActivity() {
                 if (Mob.authData?.rol == "E") msg1.text = getString(R.string.asnwernCloseApp2)
                 else msg1.visibility = View.GONE
                 msg2.visibility = View.GONE
+                btpositivo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
+                btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_deleteview)
+                btnegativo.backgroundTintList =
+                    ContextCompat.getColorStateList(ctx, R.color.dark_pink)
+                layoutAlert.background =
+                    ContextCompat.getDrawable(ctx, R.drawable.background_border_alert)
 
                 mesagePregunta.setView(bindmsg.root)
                 dialog = mesagePregunta.create()
                 dialog?.show()
-                btpositivo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
-                btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_deleteview)
 
                 btpositivo.setOnClickListener {
                     dialog?.dismiss()
@@ -182,10 +186,13 @@ class FormActivity : AppCompatActivity() {
             } else {
                 color = ContextCompat.getColor(ctx, R.color.cream_pastel)
                 txtobs.setText(Mob.obsModulo ?: "")
-                linearObs.setBackgroundResource(R.drawable.background_shadow_pastel)
+                linearObs.setBackgroundResource(R.drawable.background_shadow_pastelowl)
             }
             btsaveobs.backgroundTintList = ColorStateList.valueOf(color)
             btexitobs.backgroundTintList = ColorStateList.valueOf(color)
+            layoutObs.background = if (form.viewpager.currentItem < Mob.SEC1P20)
+                ContextCompat.getDrawable(ctx, R.drawable.background_border_blue) else
+                ContextCompat.getDrawable(ctx, R.drawable.background_border_cream)
 
             dialog = mesagePregunta.create()
             dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -268,8 +275,12 @@ class FormActivity : AppCompatActivity() {
                 btnegativo.backgroundTintList = if (form.viewpager.currentItem < Mob.SEC1P20)
                     ContextCompat.getColorStateList(ctx, R.color.holo_blue_dark) else
                     ContextCompat.getColorStateList(ctx, R.color.cream_darl)
-                msg2.visibility = View.GONE
 
+                layoutAlert.background = if (form.viewpager.currentItem < Mob.SEC1P20)
+                    ContextCompat.getDrawable(ctx, R.drawable.background_border_blue) else
+                    ContextCompat.getDrawable(ctx, R.drawable.background_border_cream)
+
+                msg2.visibility = View.GONE
                 msg6.isVisible = true
                 msg6.text = listFaltantes.toTypedArray().joinToString("\n\n").toEditable()
 

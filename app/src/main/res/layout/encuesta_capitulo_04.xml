@@ -448,7 +448,7 @@
                     android:layout_marginBottom="5dp"
                     android:drawableTop="@drawable/img_plus"
                     android:drawableTint="@color/white"
-                    app:backgroundTint="@android:color/holo_blue_dark"
+                    app:backgroundTint="@color/blue_dark"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,VisualLintButtonSize" />
             </LinearLayout>
 

@@ -20,8 +20,6 @@ class FragEncuestaCap03 : Fragment() {
 
     private lateinit var bindingcap3: EncuestaCapitulo03Binding
     private lateinit var ctx: Context
-    private var check23: String? = ""
-    private var check25: String? = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -49,22 +47,7 @@ class FragEncuestaCap03 : Fragment() {
 
             txtCap322.setAdapter(year22)
             rgroupCap323.setOnCheckedChangeListener { _, id ->
-                txtCap3239.isVisible = rbtCap3239.id == id
-            }
-
-            rgroupCap323.setOnCheckedChangeListener { _, id ->
-                check23 = when (id) {
-                    rbtCap3231.id -> "1"
-                    rbtCap3232.id -> "2"
-                    rbtCap3233.id -> "3"
-                    rbtCap3234.id -> "4"
-                    rbtCap3235.id -> "5"
-                    rbtCap3236.id -> "6"
-                    rbtCap3237.id -> "7"
-                    rbtCap3238.id -> "8"
-                    rbtCap3239.id -> "9"
-                    else -> null
-                }
+                txtCap3239ly.isVisible = rbtCap3239.id == id
             }
 
             rgroupCap324.setOnCheckedChangeListener { _, id ->
@@ -75,16 +58,11 @@ class FragEncuestaCap03 : Fragment() {
             }
 
             rgroupCap325.setOnCheckedChangeListener { _, id ->
-                check25 = when (id) {
-                    rbtCap3251.id -> "1"
-                    rbtCap3252.id -> "2"
-                    rbtCap3253.id -> "3"
-                    rbtCap3254.id -> "4"
-                    rbtCap3255.id -> "5"
-                    rbtCap3256.id -> "6"
-                    else -> null
-                }
+                if (rbtCap3256.id == id) {
+                    txtCap3256ly.visibility = View.VISIBLE
+                } else txtCap3256ly.visibility = View.GONE
             }
+
             rgroupCap325.setOnCheckedChangeListener { _, id ->
                 txtCap3256.isVisible = rbtCap3256.id == id
             }
@@ -115,7 +93,6 @@ class FragEncuestaCap03 : Fragment() {
     }
 
     private fun fillOut23(check: String?) {
-        check23 = check
         with(bindingcap3) {
             when (check) {
                 "1" -> rbtCap3231.isChecked = true
@@ -133,7 +110,6 @@ class FragEncuestaCap03 : Fragment() {
     }
 
     private fun fillOut25(check: String?) {
-        check25 = check
         with(bindingcap3) {
             when (check) {
                 "1" -> rbtCap3251.isChecked = true
@@ -153,13 +129,34 @@ class FragEncuestaCap03 : Fragment() {
                 Mob.cap3?.id,
                 Mob.cap3?.ncontrol,
                 txtCap322.text.toString(),
-                check23,
-                if (check23 == "9") txtCap3239.text.toString() else null,
+                when {
+                    rbtCap3231.isChecked -> "1"
+                    rbtCap3232.isChecked -> "2"
+                    rbtCap3233.isChecked -> "3"
+                    rbtCap3234.isChecked -> "4"
+                    rbtCap3235.isChecked -> "5"
+                    rbtCap3236.isChecked -> "6"
+                    rbtCap3237.isChecked -> "7"
+                    rbtCap3238.isChecked -> "8"
+                    rbtCap3239.isChecked -> "9"
+                    else -> null
+                },
+                if (rbtCap3239.isChecked) txtCap3239.text.toString() else null,
                 if (rbtCap324Si.isChecked) true else if (rbtCap324No.isChecked) false else null,
-                if (rbtCap324Si.isChecked) check25 else null,
-                if (check25 == "5" && rbtCap324Si.isChecked) txtCap3256.text.toString() else null,
-                if (rbtCap324Si.isChecked) txtCap326.text.toString() else null,
-                if (rbtCap324Si.isChecked) txtCap327.text.toString() else null
+                if (rbtCap324Si.isChecked) when {
+                    rbtCap3251.isChecked -> "1"
+                    rbtCap3252.isChecked -> "2"
+                    rbtCap3253.isChecked -> "3"
+                    rbtCap3254.isChecked -> "4"
+                    rbtCap3255.isChecked -> "5"
+                    rbtCap3256.isChecked -> "6"
+                    else -> null
+                } else null,
+                if (rbtCap3256.isChecked && rbtCap324Si.isChecked) txtCap3256.text.toString() else null,
+                if (rbtCap324Si.isChecked && txtCap326.text.toString().isNotEmpty())
+                    txtCap326.text.toString() else null,
+                if (rbtCap324Si.isChecked && txtCap327.text.toString().isNotEmpty())
+                    txtCap327.text.toString() else null
             )
             return viewCap()
         }
@@ -167,23 +164,23 @@ class FragEncuestaCap03 : Fragment() {
 
     private fun viewCap(): List<String> {
         val returnList: ArrayList<String> = ArrayList()
-        with (bindingcap3) {
-            if (txtCap322.text.toString().isEmpty())
-                returnList.add("")
-            if (check23.isNullOrEmpty())
+        with (Mob) {
+            if (cap3?.v22yearNum.isNullOrEmpty() || cap3?.v22yearNum == "0")
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "7") ?: "")
+            if (cap3?.v23natNum.isNullOrEmpty())
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "8") ?: "")
-            if (!rbtCap324Si.isChecked || !rbtCap324No.isChecked)
+            if (cap3?.v24check == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "9") ?: "")
-            if (rbtCap324Si.isChecked && check25.isNullOrEmpty())
+            if (cap3?.v24check == true && cap3?.v25typeNum.isNullOrEmpty() )
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "10") ?: "")
-            if (rbtCap324Si.isChecked && txtCap326.text.toString().isEmpty())
+            if (cap3?.v24check == true && cap3?.v26nametxt.isNullOrEmpty())
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "11") ?: "")
-            if (rbtCap324Si.isChecked && txtCap327.text.toString().isEmpty())
+            if (cap3?.v24check == true && cap3?.v27countrytxt.isNullOrEmpty())
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "12") ?: "")
+            icap03 = returnList.isNotEmpty()
+            println("---------Is not empty: $icap03--$cap3")
+            return returnList
         }
-        println("---------Is not empty: ${Mob.icap03}--${Mob.cap3}")
-        Mob.icap03 = returnList.isNotEmpty()
-        return returnList
     }
 
 }

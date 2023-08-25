@@ -305,7 +305,6 @@ class FragEncuestaCap07o2 : Fragment() {
     fun saveCap(): List<String> {
         with (bindingcap7o2) {
             Mob.cap7 = ModelCap7(
-
                 Mob.cap7?.id,
                 Mob.cap7?.ncontrol,
                 Mob.cap7?.v50check,
@@ -333,39 +332,54 @@ class FragEncuestaCap07o2 : Fragment() {
                 Mob.cap7?.v52txt14,
                 Mob.cap7?.v52txt15desc,
                 Mob.cap7?.v52txt15,//
-                txtCap753A2021.text.toString().ifEmpty { "0" },
-                txtCap753B2021.text.toString().ifEmpty { "0" },
-                txtCap753C2021.text.toString().ifEmpty { "0" },
-                txtCap753D2021.text.toString().ifEmpty { "0" },
-                txtCap753E2021.text.toString().ifEmpty { "0" },
-                txtCap753F2021.text.toString().ifEmpty { "0" },
-                txtCap753G2021.text.toString().ifEmpty { "0" },
-                txtCap753T2021.text.toString().ifEmpty { "0" },
-                txtCap753A2022.text.toString().ifEmpty { "0" },
-                txtCap753B2022.text.toString().ifEmpty { "0" },
-                txtCap753C2022.text.toString().ifEmpty { "0" },
-                txtCap753D2022.text.toString().ifEmpty { "0" },
-                txtCap753E2022.text.toString().ifEmpty { "0" },
-                txtCap753F2022.text.toString().ifEmpty { "0" },
-                txtCap753G2022.text.toString().ifEmpty { "0" },
-                txtCap753T2022.text.toString().ifEmpty { "0" },
+                txtCap753A2021.text.toString().ifEmpty { null },
+                txtCap753B2021.text.toString().ifEmpty { null },
+                txtCap753C2021.text.toString().ifEmpty { null },
+                txtCap753D2021.text.toString().ifEmpty { null },
+                txtCap753E2021.text.toString().ifEmpty { null },
+                txtCap753F2021.text.toString().ifEmpty { null },
+                txtCap753G2021.text.toString().ifEmpty { null },
+                txtCap753T2021.text.toString().ifEmpty { null },
+                txtCap753A2022.text.toString().ifEmpty { null },
+                txtCap753B2022.text.toString().ifEmpty { null },
+                txtCap753C2022.text.toString().ifEmpty { null },
+                txtCap753D2022.text.toString().ifEmpty { null },
+                txtCap753E2022.text.toString().ifEmpty { null },
+                txtCap753F2022.text.toString().ifEmpty { null },
+                txtCap753G2022.text.toString().ifEmpty { null },
+                txtCap753T2022.text.toString().ifEmpty { null },
                 txtCap753GOtro.text.toString().ifEmpty { null },
-                if (indice01 == 0) null else indice01.toString(),
-                if (indice02 == 0) null else indice02.toString(),
-                if (indice03 == 0) null else indice03.toString(),
-                if (indice04 == 0) null else indice04.toString(),
-                if (indice05 == 0) null else indice05.toString(),
-                if (indice06 == 0) null else indice06.toString(),
-                if (indice07 == 0) null else indice07.toString(),
-                if (indice08 == 0) null else indice08.toString(),
-                if (indice09 == 0) null else indice09.toString(),
-                if (indice10 == 0) null else indice10.toString(),
-                if (indice11 == 0) null else indice11.toString(),
-                if (indice12 == 0) null else indice12.toString(),
-                if (indice13 == 0) null else indice13.toString(),
-                if (indice14 == 0) null else indice14.toString(),
-                if (indice15 == 0) null else indice15.toString(),
-                Mob.cap7?.v54txt15desc,
+                if (spinCap7541.selectedItemPosition == 0) null else
+                    spinCap7541.selectedItemPosition.toString(),
+                if (spinCap7542.selectedItemPosition == 0) null else
+                    spinCap7542.selectedItemPosition.toString(),
+                if (spinCap7543.selectedItemPosition == 0) null else
+                    spinCap7543.selectedItemPosition.toString(),
+                if (spinCap7544.selectedItemPosition == 0) null else
+                    spinCap7544.selectedItemPosition.toString(),
+                if (spinCap7545.selectedItemPosition == 0) null else
+                    spinCap7545.selectedItemPosition.toString(),
+                if (spinCap7546.selectedItemPosition == 0) null else
+                    spinCap7546.selectedItemPosition.toString(),
+                if (spinCap7547.selectedItemPosition == 0) null else
+                    spinCap7547.selectedItemPosition.toString(),
+                if (spinCap7548.selectedItemPosition == 0) null else
+                    spinCap7548.selectedItemPosition.toString(),
+                if (spinCap7549.selectedItemPosition == 0) null else
+                    spinCap7549.selectedItemPosition.toString(),
+                if (spinCap75410.selectedItemPosition == 0) null else
+                    spinCap75410.selectedItemPosition.toString(),
+                if (spinCap75411.selectedItemPosition == 0) null else
+                    spinCap75411.selectedItemPosition.toString(),
+                if (spinCap75412.selectedItemPosition == 0) null else
+                    spinCap75412.selectedItemPosition.toString(),
+                if (spinCap75413.selectedItemPosition == 0) null else
+                    spinCap75413.selectedItemPosition.toString(),
+                if (spinCap75414.selectedItemPosition == 0) null else
+                    spinCap75414.selectedItemPosition.toString(),
+                if (spinCap75415.selectedItemPosition == 0) null else
+                    spinCap75415.selectedItemPosition.toString(),
+                txtCap75415Otro.text.toString().ifEmpty { null },
                 Mob.cap7?.v55txt1a,//
                 Mob.cap7?.v55txt1b,
                 Mob.cap7?.v55txt1c,
@@ -385,17 +399,48 @@ class FragEncuestaCap07o2 : Fragment() {
     }
 
     private fun viewCap(): List<String> {
-        with(bindingcap7o2) {
+        with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
-            if (txtCap753T2021.text.toString().isEmpty() || txtCap753T2021.text.toString() == "0")
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "114") ?: "")
-            if (txtCap753T2022.text.toString().isEmpty() || txtCap753T2022.text.toString() == "0")
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "115") ?: "")
+//            if (cap7?.v53num1T21.isNullOrEmpty())
+//                returnList.add(CreateInconsistecia.inconsistencia(ctx, "114") ?: "")
+//            if (cap7?.v53num1T22.isNullOrEmpty())
+//                returnList.add(CreateInconsistecia.inconsistencia(ctx, "115") ?: "")
+            if (cap7?.v54txt01.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "116") ?: "")
+            if (cap7?.v54txt02.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "117") ?: "")
+            if (cap7?.v54txt03.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "118") ?: "")
+            if (cap7?.v54txt04.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "119") ?: "")
+            if (cap7?.v54txt05.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "120") ?: "")
+            if (cap7?.v54txt06.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "121") ?: "")
+            if (cap7?.v54txt07.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "122") ?: "")
+            if (cap7?.v54txt08.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "123") ?: "")
+            if (cap7?.v54txt09.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "124") ?: "")
+            if (cap7?.v54txt10.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "125") ?: "")
+            if (cap7?.v54txt11.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "126") ?: "")
+            if (cap7?.v54txt12.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "127") ?: "")
+            if (cap7?.v54txt13.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "128") ?: "")
+            if (cap7?.v54txt14.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "129") ?: "")
+            if (cap7?.v54txt15.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "130") ?: "")
+            if (cap7?.v54txt15.isNullOrEmpty() && cap7?.v54txt15?.isNotEmpty() == true)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "130") ?: "")
 
 
-
-            Mob.icap07o2 = returnList.isNotEmpty()
-            println("---------Is not empty: ${Mob.icap07o2}--${Mob.cap7}")
+            icap07o2 = returnList.isNotEmpty()
+            println("---------Is not empty: $icap07o2--$cap7")
             return returnList
         }
     }

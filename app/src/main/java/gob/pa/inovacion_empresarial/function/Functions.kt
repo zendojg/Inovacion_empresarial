@@ -2,19 +2,16 @@ package gob.pa.inovacion_empresarial.function
 
 import android.app.Activity
 import android.content.Context
-import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.text.Editable
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.skydoves.balloon.ArrowOrientation
 import com.skydoves.balloon.Balloon
 import com.skydoves.balloon.BalloonAnimation
-import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.model.Mob
 import java.text.SimpleDateFormat
 import java.util.*
@@ -22,6 +19,7 @@ import java.util.Date as fecha
 
 
 object Functions {
+
     fun msgMark(msg: String, width: Int, ctx: Context, color: Int): Balloon {
         return Balloon.Builder(ctx)
             //.setLayout(R.layout.style_balloon)

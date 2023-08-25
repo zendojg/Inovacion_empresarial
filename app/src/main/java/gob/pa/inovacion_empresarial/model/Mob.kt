@@ -23,6 +23,16 @@ object Mob {
     const val CEROLEFT:Int = 4
 
 
+    const val CHECK1Y2021:Int = 0
+    const val CHECK1Y2022:Int = 1
+    const val CHECK2Y2021:Int = 2
+    const val CHECK2Y2022:Int = 3
+    const val CHECK3Y2021:Int = 4
+    const val CHECK3Y2022:Int = 5
+    const val CHECK4Y2021:Int = 6
+    const val CHECK4Y2022:Int = 7
+
+
     const val JUMPMODULE1:Int = 4
 
     const val INITIALYEAR:Int = 1900

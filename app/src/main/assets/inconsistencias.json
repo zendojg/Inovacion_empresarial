@@ -13,7 +13,7 @@
   },
   {
     "PAUTA": 4,
-    "TEXTO": "Pregunta 14. El número de locales que conforman la empresa debe ser igual a cuidad de Panamá + otras provincias."
+    "TEXTO": "Pregunta 14. El número de locales que conforman la empresa debe ser igual a ciudad de Panamá + otras provincias."
   },
   {
     "PAUTA": 5,
@@ -1242,5 +1242,37 @@
   {
     "PAUTA": 311,
     "TEXTO": "Pregunta 10.  Porcentaje de Hardware + Software +  Servicios de consultoría de TIC + Otros gastos TIC, no suma 100%."
+  },
+
+
+  {
+    "PAUTA": 600,
+    "TEXTO": "Pregunta 28.  ¿Cuál fue la principal actividad económica desarrollada por la empresa?"
+  },
+  {
+    "PAUTA": 601,
+    "TEXTO": "Pregunta 34.  No ha escogido destino de las ventas para el 2021 y tiene ventas ingresadas en el 2021 en la Pregunta 30"
+  },
+  {
+    "PAUTA": 602,
+    "TEXTO": "Pregunta 34.  No ha escogido destino de las ventas para el 2022 y tiene ventas ingresadas en el 2022 en la Pregunta 30"
+  },
+  {
+    "PAUTA": 603,
+    "TEXTO": "Pregunta 35.  Debe ingresar el número de personas que trabajan en la empresa"
+  },
+
+  {
+    "PAUTA": 604,
+    "TEXTO": "Pregunta 14. Número de locales esta vacio"
+  },
+  {
+    "PAUTA": 605,
+    "TEXTO": "Pregunta 14. El número de locales debe ser mayor a 0"
+  },
+  {
+    "PAUTA": 606,
+    "TEXTO": "Pregunta 15. El número de locales debe ser mayor a 0"
   }
+
 ]

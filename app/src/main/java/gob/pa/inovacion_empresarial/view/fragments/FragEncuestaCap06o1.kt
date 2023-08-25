@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo061InovacionProductosBinding
 import gob.pa.inovacion_empresarial.function.CreateInconsistecia
@@ -15,7 +16,7 @@ class FragEncuestaCap06o1 : Fragment() {
 
     private lateinit var bindingcap6o1: EncuestaCapitulo061InovacionProductosBinding
     private lateinit var ctx: Context
-    private var check41: String? = ""
+    private var checkNo39: MutableList<Boolean> = mutableListOf(false,false,false,false)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -34,16 +35,39 @@ class FragEncuestaCap06o1 : Fragment() {
 
     private fun onAction() {
         with(bindingcap6o1) {
-            lowCap6o1.setOnClickListener { saveCap() }
-            rgroupCap641.setOnCheckedChangeListener { _, id ->
-                check41 = when (id) {
-                    rbtCap6411.id -> "1"
-                    rbtCap6412.id -> "2"
-                    rbtCap6413.id -> "3"
-                    rbtCap6414.id -> "4"
-                    else -> null
-                }
+
+            checkNo39[Mob.CHECK1Y2021] = rbtCap6391No2021.isChecked
+            checkNo39[Mob.CHECK1Y2022] = rbtCap6391No2022.isChecked
+            checkNo39[Mob.CHECK2Y2021] = rbtCap6392No2021.isChecked
+            checkNo39[Mob.CHECK2Y2022] = rbtCap6392No2022.isChecked
+            check39()
+
+            rgroupCap63912021.setOnCheckedChangeListener { _, id ->
+                checkNo39[Mob.CHECK1Y2021] = rbtCap6391No2021.id == id
+                check39()
             }
+            rgroupCap63912022.setOnCheckedChangeListener { _, id ->
+                checkNo39[Mob.CHECK1Y2022] = rbtCap6391No2022.id == id
+                check39()
+            }
+            rgroupCap63922021.setOnCheckedChangeListener { _, id ->
+                checkNo39[Mob.CHECK2Y2021] = rbtCap6392No2021.id == id
+                check39()
+            }
+            rgroupCap63922022.setOnCheckedChangeListener { _, id ->
+                checkNo39[Mob.CHECK2Y2022] = rbtCap6392No2022.id == id
+                check39()
+            }
+
+            lowCap6o1.setOnClickListener { saveCap() }
+        }
+    }
+
+    private fun check39() {
+        val allItems: (Boolean) -> Boolean = { it }
+        with(bindingcap6o1) {
+            layoutCap640.isVisible = !checkNo39.all(allItems)
+            layoutCap641.isVisible = !checkNo39.all(allItems)
         }
     }
 
@@ -62,7 +86,6 @@ class FragEncuestaCap06o1 : Fragment() {
                 false -> rbtCap6402No.isChecked = true
                 else -> rgroupCap6402.clearCheck()
             }
-            check41 = cap6?.v41check
             when (cap6?.v41check) {
                 "1" -> rbtCap6411.isChecked = true
                 "2" -> rbtCap6412.isChecked = true
@@ -78,30 +101,31 @@ class FragEncuestaCap06o1 : Fragment() {
     private fun fillOut39(cap6: ModelCap6?) {
         with(bindingcap6o1) {
             when (cap6?.v39check21o1) {
-                true -> rbtCap6391Si2021.isChecked = true
+                true  -> rbtCap6391Si2021.isChecked = true
                 false -> rbtCap6391No2021.isChecked = true
-                else -> rgroupCap63912021.clearCheck()
+                else  -> rgroupCap63912021.clearCheck()
             }
             when (cap6?.v39check22o1) {
-                true -> rbtCap6391Si2022.isChecked = true
+                true  -> rbtCap6391Si2022.isChecked = true
                 false -> rbtCap6391No2022.isChecked = true
-                else -> rgroupCap63912022.clearCheck()
+                else  -> rgroupCap63912022.clearCheck()
             }
-
             when (cap6?.v39check21o2) {
-                true -> rbtCap6392Si2021.isChecked = true
+                true  -> rbtCap6392Si2021.isChecked = true
                 false -> rbtCap6392No2021.isChecked = true
-                else -> rgroupCap63922021.clearCheck()
+                else  -> rgroupCap63922021.clearCheck()
             }
             when (cap6?.v39check22o2) {
-                true -> rbtCap6392Si2022.isChecked = true
+                true  -> rbtCap6392Si2022.isChecked = true
                 false -> rbtCap6392No2022.isChecked = true
-                else -> rgroupCap63922022.clearCheck()
+                else  -> rgroupCap63922022.clearCheck()
             }
         }
     }
 
     fun saveCap(): List<String> {
+        val allItems: (Boolean) -> Boolean = { it }
+        val check = checkNo39.all(allItems)
         with (bindingcap6o1) {
             Mob.cap6 = ModelCap6(
                 Mob.cap6?.id,
@@ -114,12 +138,17 @@ class FragEncuestaCap06o1 : Fragment() {
                     if (rbtCap6392No2021.isChecked) false else null,
                 if (rbtCap6392Si2022.isChecked) true else
                     if (rbtCap6392No2022.isChecked) false else null,
-                if (rbtCap6401Si.isChecked) true else
+                 if (check) null else if (rbtCap6401Si.isChecked) true else
                     if (rbtCap6401No.isChecked) false else null,
-                if (rbtCap6402Si.isChecked) true else
+                if (check) null else if (rbtCap6402Si.isChecked) true else
                     if (rbtCap6402No.isChecked) false else null,
-                check41,
-
+                if (check) null else when {
+                    rbtCap6411.isChecked -> "1"
+                    rbtCap6412.isChecked -> "2"
+                    rbtCap6413.isChecked -> "3"
+                    rbtCap6414.isChecked -> "4"
+                    else -> null
+                },
                 Mob.cap6?.v42check21o1,
                 Mob.cap6?.v42check21o2,
                 Mob.cap6?.v42check21o3,
@@ -164,22 +193,27 @@ class FragEncuestaCap06o1 : Fragment() {
     }
 
     private fun viewCap(): List<String> {
-        with(bindingcap6o1) {
+        val allItems: (Boolean) -> Boolean = { it }
+        val check = checkNo39.all(allItems)
+        with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
-            if (!rbtCap6391Si2021.isChecked && !rbtCap6391No2021.isChecked)
+            if (cap6?.v39check21o1 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "44") ?: "")
-            if (!rbtCap6391Si2022.isChecked && !rbtCap6391No2022.isChecked)
+            if (cap6?.v39check22o1 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "45") ?: "")
-            if (!rbtCap6392Si2021.isChecked && !rbtCap6392No2021.isChecked)
+            if (cap6?.v39check21o2 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "46") ?: "")
-            if (!rbtCap6392Si2022.isChecked && !rbtCap6392No2022.isChecked)
+            if (cap6?.v39check22o2 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "47") ?: "")
 
+            if (cap6?.v40check1 == null && !check)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "48") ?: "")
+            if (cap6?.v40check2 == null && !check)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "49") ?: "")
 
 
-
-            println("---------Is not empty: ${Mob.icap0601}--${Mob.cap6}")
-            Mob.icap0601 = returnList.isNotEmpty()
+            icap0601 = returnList.isNotEmpty()
+            println("---------Is not empty: $icap0601--$cap6")
             return returnList
         }
     }

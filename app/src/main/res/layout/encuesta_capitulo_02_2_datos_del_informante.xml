@@ -275,6 +275,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:inputType="textEmailAddress"
                     android:digits="@string/emailCharacters"
+                    android:imeOptions="actionDone"
                     tools:ignore="TouchTargetSizeCheck"
                     tools:text="correo@email.com" />
             </com.google.android.material.textfield.TextInputLayout>

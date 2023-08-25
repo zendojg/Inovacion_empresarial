@@ -6,6 +6,7 @@
     <data />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_alert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_border"
@@ -100,7 +101,6 @@
             android:gravity="start"
             android:importantForAutofill="no"
             android:inputType="textMultiLine"
-            android:textStyle="bold"
             android:maxHeight="350dp"
             android:overScrollMode="always"
             android:paddingTop="17dp"

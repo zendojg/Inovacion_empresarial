@@ -195,92 +195,127 @@ class FragEncuestaCap07o3 : Fragment() {
     }
 
     fun saveCap(): List<String> {
-        Mob.cap7 = ModelCap7(
-            Mob.cap7?.id,
-            Mob.cap7?.ncontrol,
-            Mob.cap7?.v50check,
-            Mob.cap7?.v51check21o1,
-            Mob.cap7?.v51check21o2,
-            Mob.cap7?.v51num21o1,
-            Mob.cap7?.v51num21o2,
-            Mob.cap7?.v51check22o1,
-            Mob.cap7?.v51check22o2,
-            Mob.cap7?.v51num22o1,
-            Mob.cap7?.v51num22o2,
-            Mob.cap7?.v52txt01,
-            Mob.cap7?.v52txt02,
-            Mob.cap7?.v52txt03,
-            Mob.cap7?.v52txt04,
-            Mob.cap7?.v52txt05,
-            Mob.cap7?.v52txt06,
-            Mob.cap7?.v52txt07,
-            Mob.cap7?.v52txt08,
-            Mob.cap7?.v52txt09,
-            Mob.cap7?.v52txt10,
-            Mob.cap7?.v52txt11,
-            Mob.cap7?.v52txt12,
-            Mob.cap7?.v52txt13,
-            Mob.cap7?.v52txt14,
-            Mob.cap7?.v52txt15desc,
-            Mob.cap7?.v52txt15,
-            Mob.cap7?.v53num21a,
-            Mob.cap7?.v53num21b,
-            Mob.cap7?.v53num21c,
-            Mob.cap7?.v53num21d,
-            Mob.cap7?.v53num21e,
-            Mob.cap7?.v53num21f,
-            Mob.cap7?.v53num21g,
-            Mob.cap7?.v53num1T21,
-            Mob.cap7?.v53num22a,
-            Mob.cap7?.v53num22b,
-            Mob.cap7?.v53num22c,
-            Mob.cap7?.v53num22d,
-            Mob.cap7?.v53num22e,
-            Mob.cap7?.v53num22f,
-            Mob.cap7?.v53num22g,
-            Mob.cap7?.v53num1T22,
-            Mob.cap7?.v53txtgdesc,
-            Mob.cap7?.v54txt01,
-            Mob.cap7?.v54txt02,
-            Mob.cap7?.v54txt03,
-            Mob.cap7?.v54txt04,
-            Mob.cap7?.v54txt05,
-            Mob.cap7?.v54txt06,
-            Mob.cap7?.v54txt07,
-            Mob.cap7?.v54txt08,
-            Mob.cap7?.v54txt09,
-            Mob.cap7?.v54txt10,
-            Mob.cap7?.v54txt11,
-            Mob.cap7?.v54txt12,
-            Mob.cap7?.v54txt13,
-            Mob.cap7?.v54txt14,
-            Mob.cap7?.v54txt15,
-            Mob.cap7?.v54txt15desc,//
-            if (indice1a == 0) null else indice1a.toString(),
-            if (indice1b == 0) null else indice1b.toString(),
-            if (indice1c == 0) null else indice1c.toString(),
-            if (indice2a == 0) null else indice2a.toString(),
-            if (indice2b == 0) null else indice2b.toString(),
-            if (indice2c == 0) null else indice2c.toString(),
-            if (indice2d == 0) null else indice2d.toString(),
-            if (indice3a == 0) null else indice3a.toString(),
-            if (indice3b == 0) null else indice3b.toString(),
-            if (indice4a == 0) null else indice4a.toString(),
-            if (indice4b == 0) null else indice4b.toString(),
-            if (indice4c == 0) null else indice4c.toString(),
+        with (bindingcap7o3) {
+            Mob.cap7 = ModelCap7(
+                Mob.cap7?.id,
+                Mob.cap7?.ncontrol,
+                Mob.cap7?.v50check,
+                Mob.cap7?.v51check21o1,
+                Mob.cap7?.v51check21o2,
+                Mob.cap7?.v51num21o1,
+                Mob.cap7?.v51num21o2,
+                Mob.cap7?.v51check22o1,
+                Mob.cap7?.v51check22o2,
+                Mob.cap7?.v51num22o1,
+                Mob.cap7?.v51num22o2,
+                Mob.cap7?.v52txt01,
+                Mob.cap7?.v52txt02,
+                Mob.cap7?.v52txt03,
+                Mob.cap7?.v52txt04,
+                Mob.cap7?.v52txt05,
+                Mob.cap7?.v52txt06,
+                Mob.cap7?.v52txt07,
+                Mob.cap7?.v52txt08,
+                Mob.cap7?.v52txt09,
+                Mob.cap7?.v52txt10,
+                Mob.cap7?.v52txt11,
+                Mob.cap7?.v52txt12,
+                Mob.cap7?.v52txt13,
+                Mob.cap7?.v52txt14,
+                Mob.cap7?.v52txt15desc,
+                Mob.cap7?.v52txt15,
+                Mob.cap7?.v53num21a,
+                Mob.cap7?.v53num21b,
+                Mob.cap7?.v53num21c,
+                Mob.cap7?.v53num21d,
+                Mob.cap7?.v53num21e,
+                Mob.cap7?.v53num21f,
+                Mob.cap7?.v53num21g,
+                Mob.cap7?.v53num1T21,
+                Mob.cap7?.v53num22a,
+                Mob.cap7?.v53num22b,
+                Mob.cap7?.v53num22c,
+                Mob.cap7?.v53num22d,
+                Mob.cap7?.v53num22e,
+                Mob.cap7?.v53num22f,
+                Mob.cap7?.v53num22g,
+                Mob.cap7?.v53num1T22,
+                Mob.cap7?.v53txtgdesc,
+                Mob.cap7?.v54txt01,
+                Mob.cap7?.v54txt02,
+                Mob.cap7?.v54txt03,
+                Mob.cap7?.v54txt04,
+                Mob.cap7?.v54txt05,
+                Mob.cap7?.v54txt06,
+                Mob.cap7?.v54txt07,
+                Mob.cap7?.v54txt08,
+                Mob.cap7?.v54txt09,
+                Mob.cap7?.v54txt10,
+                Mob.cap7?.v54txt11,
+                Mob.cap7?.v54txt12,
+                Mob.cap7?.v54txt13,
+                Mob.cap7?.v54txt14,
+                Mob.cap7?.v54txt15,
+                Mob.cap7?.v54txt15desc,//
+                if (spinCap7551A.selectedItemPosition == 0) null else
+                    spinCap7551A.selectedItemPosition.toString(),
+                if (spinCap7551B.selectedItemPosition == 0) null else
+                    spinCap7551B.selectedItemPosition.toString(),
+                if (spinCap7551C.selectedItemPosition == 0) null else
+                    spinCap7551C.selectedItemPosition.toString(),
+                if (spinCap7552A.selectedItemPosition == 0) null else
+                    spinCap7552A.selectedItemPosition.toString(),
+                if (spinCap7552B.selectedItemPosition == 0) null else
+                    spinCap7552B.selectedItemPosition.toString(),
+                if (spinCap7552C.selectedItemPosition == 0) null else
+                    spinCap7552C.selectedItemPosition.toString(),
+                if (spinCap7552D.selectedItemPosition == 0) null else
+                    spinCap7552D.selectedItemPosition.toString(),
+                if (spinCap7553A.selectedItemPosition == 0) null else
+                    spinCap7553A.selectedItemPosition.toString(),
+                if (spinCap7553B.selectedItemPosition == 0) null else
+                    spinCap7553B.selectedItemPosition.toString(),
+                if (spinCap7554A.selectedItemPosition == 0) null else
+                    spinCap7554A.selectedItemPosition.toString(),
+                if (spinCap7554B.selectedItemPosition == 0) null else
+                    spinCap7554B.selectedItemPosition.toString(),
+                if (spinCap7554C.selectedItemPosition == 0) null else
+                    spinCap7554C.selectedItemPosition.toString(),
             )
-
+        }
         return viewCap()
     }
     private fun viewCap(): List<String> {
         val returnList: ArrayList<String> = ArrayList()
-        if (indice1a == 0)
-            returnList.add(CreateInconsistecia.inconsistencia(ctx, "131") ?: "")
+        with (Mob) {
+            if (cap7?.v55txt1a.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "131") ?: "")
+            if (cap7?.v55txt1b.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "132") ?: "")
+            if (cap7?.v55txt1c.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "133") ?: "")
+            if (cap7?.v55txt2a.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "134") ?: "")
+            if (cap7?.v55txt2b.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "135") ?: "")
+            if (cap7?.v55txt2c.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "136") ?: "")
+            if (cap7?.v55txt2d.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "137") ?: "")
+            if (cap7?.v55txt3a.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "138") ?: "")
+            if (cap7?.v55txt3b.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "139") ?: "")
+            if (cap7?.v55txt4a.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "140") ?: "")
+            if (cap7?.v55txt4b.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "141") ?: "")
+            if (cap7?.v55txt4c.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "142") ?: "")
 
-
-
-        Mob.icap07o3 = returnList.isNotEmpty()
-        println("---------Is not empty: ${Mob.icap07o3}--${Mob.cap7}")
-        return returnList
+            icap07o3 = returnList.isNotEmpty()
+            println("---------Is not empty: $icap07o3--$cap7")
+            return returnList
+        }
     }
 }

@@ -41,18 +41,18 @@ class FragEncuestaCap04 : Fragment() {
     private fun onAction() {
         with(bindingcap4) {
 
-            if (frameview2) {
-                layoutCap4292.visibility = View.VISIBLE
-                btCap429Remove.visibility = View.VISIBLE
+            txtCap428.onFocusChangeListener = View.OnFocusChangeListener { _, _ ->
+                if (txtCap428.text.toString().isEmpty()) {
+                    txtCap428.isEnabled = true
+                    txtCap428.isFocusable = true
+                }
             }
-            if (frameview3) {
-                layoutCap4293.visibility = View.VISIBLE
-                btCap429Remove.visibility = View.VISIBLE
-            }
-            if (frameview4) {
-                layoutCap4294.visibility = View.VISIBLE
-                btCap429Remove.visibility = View.VISIBLE
-            }
+            layoutCap4292.isVisible = frameview2
+            layoutCap4293.isVisible = frameview3
+            layoutCap4294.isVisible = frameview4
+             if (frameview2 || frameview3 || frameview4)
+                 btCap429Remove.visibility = View.VISIBLE
+            else btCap429Remove.visibility = View.GONE
 
             btCap429Plus.setOnClickListener {
                 if (!layoutCap4292.isVisible) {
@@ -69,19 +69,16 @@ class FragEncuestaCap04 : Fragment() {
                 when {
                     layoutCap4294.isVisible -> {
                         layoutCap4294.visibility = View.GONE
-                        txtCap4294.text?.clear()
-                        txtCap429Cinu4.text?.clear()
+                        frameview4 = false
                     }
                     layoutCap4293.isVisible -> {
                         layoutCap4293.visibility = View.GONE
-                        txtCap4293.text?.clear()
-                        txtCap429Cinu3.text?.clear()
+                        frameview3 = false
                     }
                     layoutCap4292.isVisible -> {
-                        txtCap4292.text?.clear()
-                        txtCap429Cinu2.text?.clear()
                         layoutCap4292.visibility = View.GONE
                         btCap429Remove.visibility = View.GONE
+                        frameview2 = false
                     }
                 }
             }
@@ -122,12 +119,12 @@ class FragEncuestaCap04 : Fragment() {
                 txtCap4281.text.toString().ifEmpty { null },
                 txtCap4291.text.toString().ifEmpty { null },
                 txtCap429Cinu1.text.toString().ifEmpty { null },
-                txtCap4292.text.toString().ifEmpty { null },
-                txtCap429Cinu2.text.toString().ifEmpty { null },
-                txtCap4293.text.toString().ifEmpty { null },
-                txtCap429Cinu3.text.toString().ifEmpty { null },
-                txtCap4294.text.toString().ifEmpty { null },
-                txtCap429Cinu4.text.toString().ifEmpty { null },
+                if (frameview2) txtCap4292.text.toString().ifEmpty { null } else null,
+                if (frameview2) txtCap429Cinu2.text.toString().ifEmpty { null } else null,
+                if (frameview3) txtCap4293.text.toString().ifEmpty { null } else null,
+                if (frameview3) txtCap429Cinu3.text.toString().ifEmpty { null } else null,
+                if (frameview4) txtCap4294.text.toString().ifEmpty { null } else null,
+                if (frameview4) txtCap429Cinu4.text.toString().ifEmpty { null } else null,
             )
         }
         println("------------${Mob.cap4}")
@@ -135,13 +132,23 @@ class FragEncuestaCap04 : Fragment() {
     }
 
     private fun viewCap(): List<String> {
-        with (bindingcap4) {
+        with (Mob) {
             val returnList: ArrayList<String> = ArrayList()
-            if (txtCap4281.text.toString().isNotEmpty() && txtCap428.text.toString().isEmpty())
+            if (cap4?.v28acttxt.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"600") ?: "")
+            if (cap4?.v28acttxt?.isNotEmpty() == true && cap4?.v28cinutxt.isNullOrEmpty())
                 returnList.add(CreateInconsistecia.inconsistencia(ctx,"13") ?: "")
+            if (cap4?.v29cinu1txt?.isNotEmpty() == true && cap4?.v29act1txt.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"200") ?: "")
+            if (cap4?.v29cinu2txt?.isNotEmpty() == true && cap4?.v29act2txt.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"201") ?: "")
+            if (cap4?.v29cinu3txt?.isNotEmpty() == true && cap4?.v29act3txt.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"202") ?: "")
+            if (cap4?.v29cinu4txt?.isNotEmpty() == true && cap4?.v29act4txt.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"203") ?: "")
 
-            println("---------Is not empty: ${Mob.icap02o2}--${Mob.cap2}")
-            Mob.icap02o1 = returnList.isNotEmpty()
+            icap02o1 = returnList.isNotEmpty()
+            println("---------Is not empty: $icap02o2--$cap2")
             return returnList
         }
     }

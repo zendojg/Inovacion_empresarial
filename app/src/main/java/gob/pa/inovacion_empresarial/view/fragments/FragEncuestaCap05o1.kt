@@ -340,19 +340,38 @@ class FragEncuestaCap05o1 : Fragment() {
     }
 
     private fun viewCap(): List<String> {
-        with(bindingcap5o1) {
+        with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
-            if (txtCap53012021.text.toString().isEmpty() && txtCap53012022.text.toString()
-                    .isEmpty())
+            if (cap5?.v30txt21T.isNullOrEmpty() || cap5?.v30txt22T.isNullOrEmpty())
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "18") ?: "")
-            else if (txtCap53012021.text.toString() == "0" && txtCap53012022.text.toString() == "0")
+            else if (cap5?.v30txt21T == "0" && cap5?.v30txt22T == "0")
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "18") ?: "")
 
+            if (cap5?.v32check21 == null || cap5?.v32check22 == null)
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "25") ?: "")
+            else if (cap5?.v32check21 == true) {
+                if (cap5?.v33txt1s21.isNullOrEmpty() &&
+                    cap5?.v33txt2s21.isNullOrEmpty() &&
+                    cap5?.v33txt3s21.isNullOrEmpty())
+                    returnList.add(CreateInconsistecia.inconsistencia(ctx, "26") ?: "")
+            }
+            else if (cap5?.v32check22 == true) {
+                if (cap5?.v33txt1s22.isNullOrEmpty() &&
+                    cap5?.v33txt2s22.isNullOrEmpty() &&
+                    cap5?.v33txt3s22.isNullOrEmpty())
+                    returnList.add(CreateInconsistecia.inconsistencia(ctx, "27") ?: "")
+            }
+
+            if (bindingcap5o1.rgroupCap5342021.checkedRadioButtonId == -1 &&
+                !cap5?.v30txt21T.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "601") ?: "")
+            if (bindingcap5o1.rgroupCap5342022.checkedRadioButtonId == -1 &&
+                !cap5?.v30txt22T.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "602") ?: "")
 
 
-
-            println("---------Is not empty: ${Mob.icap05o1}--${Mob.cap5}")
-            Mob.icap05o1 = returnList.isNotEmpty()
+            icap05o1 = returnList.isNotEmpty()
+            println("---------Is not empty: $icap05o1--$cap5")
             return returnList
         }
     }

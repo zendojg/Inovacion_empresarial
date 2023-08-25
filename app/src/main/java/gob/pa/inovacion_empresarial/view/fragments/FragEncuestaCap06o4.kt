@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo064InovacionComercializacionBinding
@@ -17,7 +18,8 @@ import gob.pa.inovacion_empresarial.model.ModelCap6
 class FragEncuestaCap06o4 : Fragment() {
     private lateinit var bindingcap6o4: EncuestaCapitulo064InovacionComercializacionBinding
     private lateinit var ctx: Context
-
+    private var checkNo48: MutableList<Boolean> =
+        mutableListOf(false, false, false, false, false, false, false, false)
     private var indice01 = 0
     private var indice02 = 0
     private var indice03 = 0
@@ -43,6 +45,49 @@ class FragEncuestaCap06o4 : Fragment() {
         with(bindingcap6o4) {
             lowCap6o4.setOnClickListener { saveCap() }
 
+            checkNo48[Mob.CHECK1Y2021] = rbtCap6481No2021.isChecked
+            checkNo48[Mob.CHECK1Y2022] = rbtCap6481No2022.isChecked
+            checkNo48[Mob.CHECK2Y2021] = rbtCap6482No2021.isChecked
+            checkNo48[Mob.CHECK2Y2022] = rbtCap6482No2022.isChecked
+            checkNo48[Mob.CHECK3Y2021] = rbtCap6483No2021.isChecked
+            checkNo48[Mob.CHECK3Y2022] = rbtCap6483No2022.isChecked
+            checkNo48[Mob.CHECK4Y2021] = rbtCap6484No2021.isChecked
+            checkNo48[Mob.CHECK4Y2022] = rbtCap6484No2022.isChecked
+            check48()
+
+            rgroupCap64812021.setOnCheckedChangeListener { _, id ->
+                checkNo48[Mob.CHECK1Y2021] = rbtCap6481No2021.id == id
+                check48()
+            }
+            rgroupCap64812022.setOnCheckedChangeListener { _, id ->
+                checkNo48[Mob.CHECK1Y2022] = rbtCap6481No2022.id == id
+                check48()
+            }
+            rgroupCap64822021.setOnCheckedChangeListener { _, id ->
+                checkNo48[Mob.CHECK2Y2021] = rbtCap6482No2021.id == id
+                check48()
+            }
+            rgroupCap64822022.setOnCheckedChangeListener { _, id ->
+                checkNo48[Mob.CHECK2Y2022] = rbtCap6482No2022.id == id
+                check48()
+            }
+            rgroupCap64832021.setOnCheckedChangeListener { _, id ->
+                checkNo48[Mob.CHECK3Y2021] = rbtCap6483No2021.id == id
+                check48()
+            }
+            rgroupCap64832022.setOnCheckedChangeListener { _, id ->
+                checkNo48[Mob.CHECK3Y2022] = rbtCap6483No2022.id == id
+                check48()
+            }
+            rgroupCap64842021.setOnCheckedChangeListener { _, id ->
+                checkNo48[Mob.CHECK4Y2021] = rbtCap6484No2021.id == id
+                check48()
+            }
+            rgroupCap64842022.setOnCheckedChangeListener { _, id ->
+                checkNo48[Mob.CHECK4Y2022] = rbtCap6484No2022.id == id
+                check48()
+            }
+
             val gr49Adp = ArrayAdapter(ctx, R.layout.style_box, Mob.arrGrade)
             gr49Adp.setDropDownViewResource(R.layout.style_list)
 
@@ -50,6 +95,12 @@ class FragEncuestaCap06o4 : Fragment() {
             spinCap6492.adapter = gr49Adp
             spinCap6493.adapter = gr49Adp
             spinsAction()
+        }
+    }
+    private fun check48() {
+        val allItems: (Boolean) -> Boolean = { it }
+        with(bindingcap6o4) {
+            layoutCap649.isVisible = !checkNo48.all(allItems)
         }
     }
 
@@ -163,6 +214,8 @@ class FragEncuestaCap06o4 : Fragment() {
 
 
     fun saveCap(): List<String> {
+        val allItems: (Boolean) -> Boolean = { it }
+        val check = checkNo48.all(allItems)
         with (bindingcap6o4) {
             Mob.cap6 = ModelCap6(
                 Mob.cap6?.id,
@@ -216,39 +269,48 @@ class FragEncuestaCap06o4 : Fragment() {
                     if (rbtCap6483No2022.isChecked) false else null,
                 if (rbtCap6484Si2022.isChecked) true else
                     if (rbtCap6484No2022.isChecked) false else null,
-                if (indice01 == 0) null else indice01.toString(),
-                if (indice02 == 0) null else indice02.toString(),
-                if (indice03 == 0) null else indice03.toString()
+                if (check) null else if (spinCap6491.selectedItemPosition == 0) null else
+                    spinCap6491.selectedItemPosition.toString(),
+                if (check) null else if (spinCap6492.selectedItemPosition == 0) null else
+                    spinCap6492.selectedItemPosition.toString(),
+                if (check) null else if (spinCap6493.selectedItemPosition == 0) null else
+                    spinCap6493.selectedItemPosition.toString()
             )
         }
         return viewCap()
     }
 
     private fun viewCap(): List<String> {
-        with(bindingcap6o4) {
+        val allItems: (Boolean) -> Boolean = { it }
+        val check = checkNo48.all(allItems)
+        with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
-            if (!rbtCap6481Si2021.isChecked && !rbtCap6481No2021.isChecked)
+            if (cap6?.v48check21o1 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "79") ?: "")
-            if (!rbtCap6481Si2022.isChecked && !rbtCap6481No2022.isChecked)
+            if (cap6?.v48check22o1 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "80") ?: "")
-            if (!rbtCap6482Si2021.isChecked && !rbtCap6482No2021.isChecked)
+            if (cap6?.v48check21o2 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "81") ?: "")
-            if (!rbtCap6482Si2022.isChecked && !rbtCap6482No2022.isChecked)
+            if (cap6?.v48check22o2 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "82") ?: "")
-            if (!rbtCap6483Si2021.isChecked && !rbtCap6483No2021.isChecked)
+            if (cap6?.v48check21o3 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "83") ?: "")
-            if (!rbtCap6483Si2022.isChecked && !rbtCap6483No2022.isChecked)
+            if (cap6?.v48check22o3 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "84") ?: "")
-            if (!rbtCap6484Si2021.isChecked && !rbtCap6484No2021.isChecked)
+            if (cap6?.v48check21o4 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "85") ?: "")
-            if (!rbtCap6484Si2022.isChecked && !rbtCap6484No2022.isChecked)
+            if (cap6?.v48check22o4 == null)
                 returnList.add(CreateInconsistecia.inconsistencia(ctx, "86") ?: "")
 
+            if (!check && cap6?.v49txtGrado1.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "87") ?: "")
+            if (!check && cap6?.v49txtGrado1.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "88") ?: "")
+            if (!check && cap6?.v49txtGrado1.isNullOrEmpty())
+                returnList.add(CreateInconsistecia.inconsistencia(ctx, "89") ?: "")
 
-
-
-            Mob.icap06o4 = returnList.isNotEmpty()
-            println("---------Is not empty: ${Mob.icap06o4}--${Mob.cap6}")
+            icap06o4 = returnList.isNotEmpty()
+            println("---------Is not empty: $icap06o4--$cap6")
             return returnList
         }
     }

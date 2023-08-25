@@ -2,18 +2,13 @@ package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo021DatosDeLaEmpresaBinding
 import gob.pa.inovacion_empresarial.function.CreateInconsistecia
-import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap2
@@ -78,8 +73,8 @@ class FragEncuestaCap02o1 : Fragment() {
             txtCap212.text = cap2?.v12webtxt?.toEditable() ?: blank
             txtCap213.text = cap2?.v13nclavetxt?.toEditable() ?: blank
             txtCap214.text = cap2?.v14nlNum?.toEditable() ?: blank
-            txtCap215.text = cap2?.v15nlNum?.toEditable() ?: blank
-            txtCap2151.text = cap2?.v15nldescNum?.toEditable() ?: blank
+            txtCap215.text = cap2?.v15nlNumPma?.toEditable() ?: blank
+            txtCap2151.text = cap2?.v15nlNumProv?.toEditable() ?: blank
 
             frameview = !txtCap292.text.isNullOrBlank()
         }
@@ -120,19 +115,29 @@ class FragEncuestaCap02o1 : Fragment() {
         }
     }
     private fun viewCap(): List<String> {
-        with (bindingcap2o1) {
+        with (Mob) {
             val returnList: ArrayList<String> = ArrayList()
-            if (txtCap214.text.toString().isEmpty()) {
-                returnList.add("Pregunta 14. Número de locales esta vacio")
-            } else if (txtCap215.text.toString().isNotEmpty()) {
-                val p14 = txtCap214.text?.toString()?.toInt() ?: 0
-                val p15 = txtCap215.text?.toString()?.toInt() ?: 0
-                if (p14 < p15) {
-                    returnList.add("Pregunta 15. El número de locales es menor a los que se encuentran en Panamá")
+            if (cap2?.v14nlNum.isNullOrEmpty()) {
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"604") ?: "")
+            } else if (cap2?.v14nlNum == "0") {
+                returnList.add(CreateInconsistecia.inconsistencia(ctx,"605") ?: "")
+            } else  {
+                val p14 = try { cap2?.v14nlNum?.toInt() ?: 0 }
+                catch (e: NumberFormatException) { 0 }
+                val p15a = try { cap2?.v15nlNumPma?.toInt() ?: 0 }
+                catch (e: NumberFormatException) { 0 }
+                val p15b = try { cap2?.v15nlNumProv?.toInt() ?: 0 }
+                catch (e: NumberFormatException) { 0 }
+                val p15 = p15a + p15b
+                if (p15 == 0) {
+                    returnList.add(CreateInconsistecia.inconsistencia(ctx,"606") ?: "")
+                }
+                else if (p14 < p15) {
+                    returnList.add(CreateInconsistecia.inconsistencia(ctx,"4") ?: "")
                 }
             }
-            println("---------Is not empty: ${Mob.icap02o1}--${Mob.cap2}")
-            Mob.icap02o1 = returnList.isNotEmpty()
+            println("---------Is not empty: $icap02o1--$cap2")
+            icap02o1 = returnList.isNotEmpty()
             return returnList
         }
     }

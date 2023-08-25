@@ -210,9 +210,13 @@
                         tools:ignore="TouchTargetSizeCheck" />
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtCap3_23_9ly"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/hint23_9">
+                        android:visibility="gone"
+                        android:hint="@string/hint23_9"
+                        tools:visibility="visible" >
+
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap3_23_9"
                             android:layout_width="match_parent"
@@ -223,10 +227,8 @@
                             android:inputType="text"
                             android:maxLength="32"
                             android:textSize="14sp"
-                            android:visibility="gone"
                             tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck"
-                            tools:text="Especifique"
-                            tools:visibility="visible" />
+                            tools:text="Especifique"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                 </RadioGroup>
@@ -412,10 +414,13 @@
                     </RadioGroup>
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtCap3_25_6ly"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="5dp"
-                        android:hint="@string/txt25_6">
+                        android:layout_marginHorizontal="30dp"
+                        android:hint="@string/txt25_6"
+                        android:visibility="gone"
+                        tools:visibility="visible">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/txtCap3_25_6"
@@ -427,13 +432,10 @@
                             android:inputType="text"
                             android:maxLength="32"
                             android:textSize="14sp"
-                            android:visibility="gone"
                             android:animateLayoutChanges="true"
                             tools:ignore="TextContrastCheck"
-                            tools:text="Especifique"
-                            tools:visibility="visible" />
+                            tools:text="Especifique" />
                     </com.google.android.material.textfield.TextInputLayout>
-
 
                 </LinearLayout>
 
