@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo09Part1Binding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
@@ -211,11 +211,11 @@ class FragEncuestaCap09o1 : Fragment() {
         with(bindingcap9o1) {
             val returnList: ArrayList<String> = ArrayList()
             if (!rbtCap959Si.isChecked && !rbtCap959No.isChecked)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "169") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "169") ?: "")
             if (rbtCap959Si.isChecked && txtCap959.text.toString() == "0" )
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "170") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "170") ?: "")
             else if (rbtCap959Si.isChecked && txtCap959.text.toString().isEmpty() )
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "170") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "170") ?: "")
 
 
             Mob.icap09o1 = returnList.isNotEmpty()

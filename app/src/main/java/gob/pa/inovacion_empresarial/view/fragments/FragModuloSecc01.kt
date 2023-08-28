@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.ModuloSeccion01Binding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
@@ -157,7 +157,7 @@ class FragModuloSecc01 : Fragment() {
         with(bindingmod1) {
             val returnList: ArrayList<String> = ArrayList()
             if (!rbtSecc011Si.isChecked && !rbtSecc011No.isChecked)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "289") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "289") ?: "")
 
 
             Mob.isecc1 = returnList.isNotEmpty()

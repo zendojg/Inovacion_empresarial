@@ -18,7 +18,6 @@ data class DBform (
     @ColumnInfo(name = "condicion")                 val condition: String?,
     @ColumnInfo(name = "fecheDelServidor")          val serverDate: String?,
     @ColumnInfo(name = "fechaDeGuardado")           val saveDate: String?,
-    @ColumnInfo(name = "inconsistencia")            val saveIncon: String?,
     @ColumnInfo(name = "ultimaPagina")              val lastpageForm: String?,
     @ColumnInfo(name = "formulario")                var saveForm: String?
 )

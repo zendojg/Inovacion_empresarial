@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo021DatosDeLaEmpresaBinding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap2
@@ -118,9 +118,9 @@ class FragEncuestaCap02o1 : Fragment() {
         with (Mob) {
             val returnList: ArrayList<String> = ArrayList()
             if (cap2?.v14nlNum.isNullOrEmpty()) {
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"604") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"604") ?: "")
             } else if (cap2?.v14nlNum == "0") {
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"605") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"605") ?: "")
             } else  {
                 val p14 = try { cap2?.v14nlNum?.toInt() ?: 0 }
                 catch (e: NumberFormatException) { 0 }
@@ -130,10 +130,10 @@ class FragEncuestaCap02o1 : Fragment() {
                 catch (e: NumberFormatException) { 0 }
                 val p15 = p15a + p15b
                 if (p15 == 0) {
-                    returnList.add(CreateInconsistecia.inconsistencia(ctx,"606") ?: "")
+                    returnList.add(CreateIncon.inconsistencia(ctx,"606") ?: "")
                 }
                 else if (p14 < p15) {
-                    returnList.add(CreateInconsistecia.inconsistencia(ctx,"4") ?: "")
+                    returnList.add(CreateIncon.inconsistencia(ctx,"4") ?: "")
                 }
             }
             println("---------Is not empty: $icap02o1--$cap2")

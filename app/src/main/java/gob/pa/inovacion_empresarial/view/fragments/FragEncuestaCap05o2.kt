@@ -11,7 +11,7 @@ import android.widget.EditText
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo052RecursosHumanosBinding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
@@ -496,36 +496,36 @@ class FragEncuestaCap05o2 : Fragment() {
         with (Mob) {
             val returnList: ArrayList<String> = ArrayList()
             if (cap5?.v35txthomNacT.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"32") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"32") ?: "")
             if (cap5?.v35txthomExtT.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"33") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"33") ?: "")
             if (cap5?.v35txtmujNacT.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"34") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"34") ?: "")
             if (cap5?.v35txtmujExtT.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"35") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"35") ?: "")
 
             if (cap5?.v36txtempT21.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"36") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"36") ?: "")
             if (cap5?.v36txtempT22.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"37") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"37") ?: "")
             if (cap5?.v37check == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"38") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"38") ?: "")
 
             if (cap5?.v37check == true)
                 if (cap5?.v38txt1.isNullOrEmpty() &&
                     cap5?.v38txt2.isNullOrEmpty())
                     if (cap5?.v38txt3.isNullOrEmpty() &&
                         cap5?.v38txt4.isNullOrEmpty())
-                        returnList.add(CreateInconsistecia.inconsistencia(ctx,"39")?: "")
+                        returnList.add(CreateIncon.inconsistencia(ctx,"39")?: "")
 
             if (cap5?.v38check1 == true && cap5?.v38txt1.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"40") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"40") ?: "")
             if (cap5?.v38check2 == true  && cap5?.v38txt2.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"41") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"41") ?: "")
             if (cap5?.v38check3 == true  && cap5?.v38txt3.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"42") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"42") ?: "")
             if (cap5?.v38check4 == true  && cap5?.v38txt4.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"43") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"43") ?: "")
 
             icap05o2 = returnList.isNotEmpty()
             println("---------Is not empty: $icap05o2--$cap5")

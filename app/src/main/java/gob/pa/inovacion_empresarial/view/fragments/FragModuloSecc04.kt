@@ -12,7 +12,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import gob.pa.inovacion_empresarial.databinding.ModuloSeccion04Binding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
@@ -271,9 +271,9 @@ class FragModuloSecc04: Fragment() {
             val returnList: ArrayList<String> = ArrayList()
             if (txtSecc046p1.text.toString().isEmpty() && txtSecc046p2.text.toString().isEmpty())
                 if (txtSecc046p3.text.toString().isEmpty() && txtSecc046p4.text.toString().isEmpty())
-                    returnList.add(CreateInconsistecia.inconsistencia(ctx, "306") ?: "")
+                    returnList.add(CreateIncon.inconsistencia(ctx, "306") ?: "")
             if (ventat < 100 || ventat > 100)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "307") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "307") ?: "")
 
             Mob.isecc4 = returnList.isNotEmpty()
             println("---------Is not empty: ${Mob.isecc4}--${Mob.capMod}")

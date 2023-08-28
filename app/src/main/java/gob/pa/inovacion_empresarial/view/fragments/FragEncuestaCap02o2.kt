@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo022DatosDelInformanteBinding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap2
@@ -121,7 +121,7 @@ class FragEncuestaCap02o2 : Fragment() {
         with (Mob) {
             val returnList: ArrayList<String> = ArrayList()
             if (cap2?.v17cargotxt.isNullOrEmpty() && cap2?.v16infonametxt?.isNotEmpty() == true)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"5") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"5") ?: "")
 
             icap02o2 = returnList.isNotEmpty()
             println("---------Is not empty: $icap02o2--$cap2")

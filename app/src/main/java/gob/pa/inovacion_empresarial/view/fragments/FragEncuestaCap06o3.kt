@@ -11,7 +11,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo063InovacionOrganizacionalBinding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap6
 
@@ -273,28 +273,28 @@ class FragEncuestaCap06o3 : Fragment() {
         with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
             if (cap6?.v46check21o1 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "68") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "68") ?: "")
             if (cap6?.v46check22o1 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "69") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "69") ?: "")
             if (cap6?.v46check21o2 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "70") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "70") ?: "")
             if (cap6?.v46check22o2 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "71") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "71") ?: "")
             if (cap6?.v46check21o3 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "72") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "72") ?: "")
             if (cap6?.v46check22o3 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "73") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "73") ?: "")
 
             if (!check && cap6?.v47txtGrado1.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "74") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "74") ?: "")
             if (!check && cap6?.v47txtGrado2.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "75") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "75") ?: "")
             if (!check && cap6?.v47txtGrado3.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "76") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "76") ?: "")
             if (!check && cap6?.v47txtGrado4.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "77") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "77") ?: "")
             if (!check && cap6?.v47txtGrado5.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "78") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "78") ?: "")
 
 
             icap06o3 = returnList.isNotEmpty()

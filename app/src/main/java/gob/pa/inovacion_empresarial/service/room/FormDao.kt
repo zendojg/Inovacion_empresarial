@@ -61,8 +61,10 @@ interface FormDao {
     @Query("SELECT CorreNombre FROM dbcorregimiento_table LIMIT 20")
     suspend fun getCorrVer(): Array<String>
 
-    @Query("SELECT CorreNombre FROM dbcorregimiento_table " +
-                "WHERE  ProvinciaId = :idProv AND  DistritoId = :idDist AND CorregimientoId = :idCorre")
+    @Query(
+        "SELECT CorreNombre FROM dbcorregimiento_table " +
+                "WHERE  ProvinciaId = :idProv AND  DistritoId = :idDist AND CorregimientoId = :idCorre"
+    )
     suspend fun getCorreName(
         idProv: String,
         idDist: String,
@@ -75,8 +77,10 @@ interface FormDao {
         idDist: String
     ): Array<String>
 
-    @Query("SELECT CorregimientoId FROM dbcorregimiento_table " +
-                "WHERE CorreNombre = :corre AND ProvinciaId = :idProv AND  DistritoId = :idDist")
+    @Query(
+        "SELECT CorregimientoId FROM dbcorregimiento_table " +
+                "WHERE CorreNombre = :corre AND ProvinciaId = :idProv AND  DistritoId = :idDist"
+    )
     suspend fun getCorreID(
         idProv: String,
         idDist: String,
@@ -93,9 +97,11 @@ interface FormDao {
     @Query("SELECT lugarPobNombre FROM DBlugarP_table LIMIT 20")
     suspend fun getLugarPVer(): Array<String>
 
-    @Query("SELECT lugarPobNombre FROM DBlugarP_table " +
+    @Query(
+        "SELECT lugarPobNombre FROM DBlugarP_table " +
                 "WHERE lugarPobladoId = :idLugar AND corregimientoId = :idcorre " +
-                "AND  distritoId = :idDist AND provinciaId = :idProv")
+                "AND  distritoId = :idDist AND provinciaId = :idProv"
+    )
     suspend fun getLugarPName(
         idProv: String,
         idDist: String,
@@ -103,17 +109,21 @@ interface FormDao {
         idcorre: String
     ): String
 
-    @Query("SELECT lugarPobNombre FROM DBlugarP_table " +
-                "WHERE  corregimientoId = :idCorre AND  distritoId = :idDist AND provinciaId = :idProv")
+    @Query(
+        "SELECT lugarPobNombre FROM DBlugarP_table " +
+                "WHERE  corregimientoId = :idCorre AND  distritoId = :idDist AND provinciaId = :idProv"
+    )
     suspend fun getLugarPArrayByID(
         idProv: String,
         idDist: String,
         idCorre: String
     ): Array<String>
 
-    @Query("SELECT lugarPobladoId FROM DBlugarP_table " +
+    @Query(
+        "SELECT lugarPobladoId FROM DBlugarP_table " +
                 "WHERE lugarPobNombre = :lugarname AND corregimientoId = :idcorre " +
-                "AND  distritoId = :idDist AND provinciaId = :idProv")
+                "AND  distritoId = :idDist AND provinciaId = :idProv"
+    )
     suspend fun getLugarPID(
         idProv: String,
         idDist: String,

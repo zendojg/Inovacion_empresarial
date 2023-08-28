@@ -1273,6 +1273,13 @@
   {
     "PAUTA": 606,
     "TEXTO": "Pregunta 15. El número de locales debe ser mayor a 0"
+  },
+
+
+
+  {
+    "PAUTA": 610,
+    "TEXTO": "Pregunta 58. Debe contestar la pregunta 56 del capítulo 8 parte 1 antes de seguir"
   }
 
 ]

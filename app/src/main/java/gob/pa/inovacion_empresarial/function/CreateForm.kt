@@ -51,7 +51,6 @@ object  CreateForm {
                 condition = form.cond,
                 serverDate = form.dateMod,
                 saveDate = Functions.myDate().aString(DATEFORMAT),
-                saveIncon = inconsistencias.toString(),
                 lastpageForm = indiceFormulario.toString(),
                 saveForm = formString
             )

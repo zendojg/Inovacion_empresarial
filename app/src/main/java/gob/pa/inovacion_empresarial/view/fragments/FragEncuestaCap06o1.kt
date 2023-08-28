@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo061InovacionProductosBinding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap6
 
@@ -198,18 +198,18 @@ class FragEncuestaCap06o1 : Fragment() {
         with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
             if (cap6?.v39check21o1 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "44") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "44") ?: "")
             if (cap6?.v39check22o1 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "45") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "45") ?: "")
             if (cap6?.v39check21o2 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "46") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "46") ?: "")
             if (cap6?.v39check22o2 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "47") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "47") ?: "")
 
             if (cap6?.v40check1 == null && !check)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "48") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "48") ?: "")
             if (cap6?.v40check2 == null && !check)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "49") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "49") ?: "")
 
 
             icap0601 = returnList.isNotEmpty()

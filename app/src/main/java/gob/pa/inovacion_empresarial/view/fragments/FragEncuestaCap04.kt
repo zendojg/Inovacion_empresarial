@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo04Binding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap4
@@ -135,17 +135,17 @@ class FragEncuestaCap04 : Fragment() {
         with (Mob) {
             val returnList: ArrayList<String> = ArrayList()
             if (cap4?.v28acttxt.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"600") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"600") ?: "")
             if (cap4?.v28acttxt?.isNotEmpty() == true && cap4?.v28cinutxt.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"13") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"13") ?: "")
             if (cap4?.v29cinu1txt?.isNotEmpty() == true && cap4?.v29act1txt.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"200") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"200") ?: "")
             if (cap4?.v29cinu2txt?.isNotEmpty() == true && cap4?.v29act2txt.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"201") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"201") ?: "")
             if (cap4?.v29cinu3txt?.isNotEmpty() == true && cap4?.v29act3txt.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"202") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"202") ?: "")
             if (cap4?.v29cinu4txt?.isNotEmpty() == true && cap4?.v29act4txt.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx,"203") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx,"203") ?: "")
 
             icap02o1 = returnList.isNotEmpty()
             println("---------Is not empty: $icap02o2--$cap2")

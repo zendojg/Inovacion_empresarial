@@ -118,8 +118,6 @@ class MainActivity : AppCompatActivity() {
                 btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_exit_app)
                 btnegativo.backgroundTintList =
                     ContextCompat.getColorStateList(ctx, R.color.dark_pink)
-                layoutAlert.background =
-                    ContextCompat.getDrawable(ctx, R.drawable.background_border_alert)
 
                 dialogBack.setView(bindmsg.root)
                 aDialog = dialogBack.create()

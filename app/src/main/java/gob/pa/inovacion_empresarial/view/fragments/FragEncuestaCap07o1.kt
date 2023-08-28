@@ -11,7 +11,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo07Part1Binding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
@@ -440,32 +440,32 @@ class FragEncuestaCap07o1 : Fragment() {
         with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
             if (cap7?.v50check == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "90") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "90") ?: "")
             if (cap7?.v50check == true && cap7?.v51check21o1 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "91") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "91") ?: "")
             if (cap7?.v50check == true && cap7?.v51check22o1 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "92") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "92") ?: "")
             if (cap7?.v50check == true && cap7?.v51check21o2 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "93") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "93") ?: "")
             if (cap7?.v50check == true && cap7?.v51check22o2 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "94") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "94") ?: "")
 
             if (cap7?.v50check == true &&
                 cap7?.v51check21o1 == true &&
                 cap7?.v51num21o1.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "95") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "95") ?: "")
             if (cap7?.v50check == true &&
                 cap7?.v51check22o1 == true &&
                 cap7?.v51num22o1.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "96") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "96") ?: "")
             if (cap7?.v50check == true &&
                 cap7?.v51check21o2 == true &&
                 cap7?.v51num21o2.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "97") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "97") ?: "")
             if (cap7?.v50check == true &&
                 cap7?.v51check22o2 == true &&
                 cap7?.v51num22o2.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "98") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "98") ?: "")
 
             icap07o1 = returnList.isNotEmpty()
             println("---------Is not empty: $icap07o1--$cap7")

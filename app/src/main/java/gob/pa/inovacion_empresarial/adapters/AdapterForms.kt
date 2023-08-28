@@ -1,18 +1,16 @@
 package gob.pa.inovacion_empresarial.adapters
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.StyleItemFormsBinding
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelForm
 
-class AdapterForms(var list: List<ModelForm>, private val onItemRemove:(ModelForm) -> Unit):
+class AdapterForms(var list: List<ModelForm>, private val onItemClick:(ModelForm) -> Unit):
     RecyclerView.Adapter<AdapterForms.FormViewHolder>() {
 
     override fun getItemCount() = list.size
@@ -21,7 +19,7 @@ class AdapterForms(var list: List<ModelForm>, private val onItemRemove:(ModelFor
         return FormViewHolder(binding)
     }
     override fun onBindViewHolder(holder: FormViewHolder, position: Int) {
-        holder.render(list[position], onItemRemove)
+        holder.render(list[position], onItemClick)
     }
     class FormViewHolder(val binding: StyleItemFormsBinding) :
         RecyclerView.ViewHolder(binding.root) {

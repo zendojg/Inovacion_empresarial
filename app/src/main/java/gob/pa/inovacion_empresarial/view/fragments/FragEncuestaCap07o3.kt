@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo07Part3Binding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap7
 
@@ -288,30 +288,30 @@ class FragEncuestaCap07o3 : Fragment() {
     private fun viewCap(): List<String> {
         val returnList: ArrayList<String> = ArrayList()
         with (Mob) {
-            if (cap7?.v55txt1a.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "131") ?: "")
-            if (cap7?.v55txt1b.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "132") ?: "")
-            if (cap7?.v55txt1c.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "133") ?: "")
-            if (cap7?.v55txt2a.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "134") ?: "")
-            if (cap7?.v55txt2b.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "135") ?: "")
-            if (cap7?.v55txt2c.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "136") ?: "")
-            if (cap7?.v55txt2d.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "137") ?: "")
-            if (cap7?.v55txt3a.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "138") ?: "")
-            if (cap7?.v55txt3b.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "139") ?: "")
-            if (cap7?.v55txt4a.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "140") ?: "")
-            if (cap7?.v55txt4b.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "141") ?: "")
-            if (cap7?.v55txt4c.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "142") ?: "")
+            if (cap7?.v55txt1a.isNullOrEmpty() || cap7?.v55txt1a == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "131") ?: "")
+            if (cap7?.v55txt1b.isNullOrEmpty() || cap7?.v55txt1b == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "132") ?: "")
+            if (cap7?.v55txt1c.isNullOrEmpty() || cap7?.v55txt1c == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "133") ?: "")
+            if (cap7?.v55txt2a.isNullOrEmpty() || cap7?.v55txt2a == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "134") ?: "")
+            if (cap7?.v55txt2b.isNullOrEmpty() || cap7?.v55txt2b == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "135") ?: "")
+            if (cap7?.v55txt2c.isNullOrEmpty() || cap7?.v55txt2c == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "136") ?: "")
+            if (cap7?.v55txt2d.isNullOrEmpty() || cap7?.v55txt2d == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "137") ?: "")
+            if (cap7?.v55txt3a.isNullOrEmpty() || cap7?.v55txt3a == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "138") ?: "")
+            if (cap7?.v55txt3b.isNullOrEmpty() || cap7?.v55txt3b == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "139") ?: "")
+            if (cap7?.v55txt4a.isNullOrEmpty() || cap7?.v55txt4a == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "140") ?: "")
+            if (cap7?.v55txt4b.isNullOrEmpty() || cap7?.v55txt4b == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "141") ?: "")
+            if (cap7?.v55txt4c.isNullOrEmpty() || cap7?.v55txt4c == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "142") ?: "")
 
             icap07o3 = returnList.isNotEmpty()
             println("---------Is not empty: $icap07o3--$cap7")

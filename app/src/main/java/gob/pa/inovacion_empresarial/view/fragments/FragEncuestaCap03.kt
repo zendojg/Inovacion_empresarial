@@ -10,7 +10,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo03Binding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
@@ -166,17 +166,17 @@ class FragEncuestaCap03 : Fragment() {
         val returnList: ArrayList<String> = ArrayList()
         with (Mob) {
             if (cap3?.v22yearNum.isNullOrEmpty() || cap3?.v22yearNum == "0")
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "7") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "7") ?: "")
             if (cap3?.v23natNum.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "8") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "8") ?: "")
             if (cap3?.v24check == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "9") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "9") ?: "")
             if (cap3?.v24check == true && cap3?.v25typeNum.isNullOrEmpty() )
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "10") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "10") ?: "")
             if (cap3?.v24check == true && cap3?.v26nametxt.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "11") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "11") ?: "")
             if (cap3?.v24check == true && cap3?.v27countrytxt.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "12") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "12") ?: "")
             icap03 = returnList.isNotEmpty()
             println("---------Is not empty: $icap03--$cap3")
             return returnList

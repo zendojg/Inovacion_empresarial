@@ -11,7 +11,7 @@ import android.widget.EditText
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo051VentasYExpoBinding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap5
@@ -343,31 +343,31 @@ class FragEncuestaCap05o1 : Fragment() {
         with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
             if (cap5?.v30txt21T.isNullOrEmpty() || cap5?.v30txt22T.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "18") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "18") ?: "")
             else if (cap5?.v30txt21T == "0" && cap5?.v30txt22T == "0")
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "18") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "18") ?: "")
 
             if (cap5?.v32check21 == null || cap5?.v32check22 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "25") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "25") ?: "")
             else if (cap5?.v32check21 == true) {
                 if (cap5?.v33txt1s21.isNullOrEmpty() &&
                     cap5?.v33txt2s21.isNullOrEmpty() &&
                     cap5?.v33txt3s21.isNullOrEmpty())
-                    returnList.add(CreateInconsistecia.inconsistencia(ctx, "26") ?: "")
+                    returnList.add(CreateIncon.inconsistencia(ctx, "26") ?: "")
             }
             else if (cap5?.v32check22 == true) {
                 if (cap5?.v33txt1s22.isNullOrEmpty() &&
                     cap5?.v33txt2s22.isNullOrEmpty() &&
                     cap5?.v33txt3s22.isNullOrEmpty())
-                    returnList.add(CreateInconsistecia.inconsistencia(ctx, "27") ?: "")
+                    returnList.add(CreateIncon.inconsistencia(ctx, "27") ?: "")
             }
 
             if (bindingcap5o1.rgroupCap5342021.checkedRadioButtonId == -1 &&
-                !cap5?.v30txt21T.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "601") ?: "")
+                !cap5?.v30txt21T.isNullOrEmpty() && cap5?.v30txt21T != "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "601") ?: "")
             if (bindingcap5o1.rgroupCap5342022.checkedRadioButtonId == -1 &&
-                !cap5?.v30txt22T.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "602") ?: "")
+                !cap5?.v30txt22T.isNullOrEmpty() && cap5?.v30txt22T != "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "602") ?: "")
 
 
             icap05o1 = returnList.isNotEmpty()

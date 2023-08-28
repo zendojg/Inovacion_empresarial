@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo10Binding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap10
 
@@ -85,9 +85,9 @@ class FragEncuestaCap10 : Fragment() {
         with(bindingcap10) {
             val returnList: ArrayList<String> = ArrayList()
             if (!rbtCap10661Si.isChecked && !rbtCap10661No.isChecked)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "191") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "191") ?: "")
             if (!rbtCap10662Si.isChecked && !rbtCap10662No.isChecked)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "192") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "192") ?: "")
 
 
 

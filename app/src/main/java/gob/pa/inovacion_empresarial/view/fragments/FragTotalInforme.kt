@@ -20,6 +20,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
 import com.google.gson.JsonParseException
+import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.ModuloTotalInfoBinding
@@ -30,10 +31,7 @@ import gob.pa.inovacion_empresarial.function.CreateForm
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.aString
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
-import gob.pa.inovacion_empresarial.model.DVModel
-import gob.pa.inovacion_empresarial.model.Mob
-import gob.pa.inovacion_empresarial.model.ModelForm
-import gob.pa.inovacion_empresarial.model.ModelResponse
+import gob.pa.inovacion_empresarial.model.*
 import gob.pa.inovacion_empresarial.service.room.RoomView
 import gob.pa.inovacion_empresarial.view.FormActivity
 import gob.pa.inovacion_empresarial.view.MainActivity
@@ -72,12 +70,17 @@ class FragTotalInforme : Fragment() {
 //    }
 
     private fun fillOut() {
+        val blank = "".toEditable()
         with(bindinginfo) {
-            txtInfoObsEncuesta.text = Mob.obsEncuesta?.toEditable() ?: "".toEditable()
-            txtInfoObsModulo.text = Mob.obsModulo?.toEditable() ?: "".toEditable()
             condID = Mob.formComp?.cond ?: ""
-            //txtespecifiqueCondicion.text = "".toEditable()
+            txtInfoObsEncuesta.text = Mob.obsEncuesta?.toEditable() ?: blank
+            txtInfoObsModulo.text = Mob.obsModulo?.toEditable() ?: blank
 
+            txtnewRazon.text = Mob.condicion?.newRazon?.toEditable() ?: blank
+            txtnewNcontrol.text = Mob.condicion?.newNcontrol?.toEditable() ?: blank
+            txtespecifiqueCondicion.text = Mob.condicion?.especifique?.toEditable() ?: blank
+
+            //txtespecifiqueCondicion.text = "".toEditable()
         }
         onAction()
     }
@@ -163,6 +166,7 @@ class FragTotalInforme : Fragment() {
                 aDialog?.setCancelable(false)
                 aDialog?.show()
                 lifecycleScope.launch {
+                    saveCap()
                     val estado = savedForm(CreateForm.create())
                     Handler(Looper.getMainLooper()).postDelayed({
                         if (estado > 0) {
@@ -177,13 +181,15 @@ class FragTotalInforme : Fragment() {
                 }
             }
             btSendObs.setOnClickListener {
-                //----------------------------------- ARMAR condicionEmpadronamiento obj
+                saveCap()
                 senFormulario(CreateForm.create())
             }
             btEnd.setOnClickListener { endForm() }
 
         }
     }
+
+
 
     private fun senFormulario(form: ModelForm) {
         val screen = AlertDialog.Builder(ctx)
@@ -277,7 +283,6 @@ class FragTotalInforme : Fragment() {
             jsonModel?.inconsistencias?.joinToString("\n\n")?.toEditable() }
         catch (e: RuntimeException) { "".toEditable() }
 
-        Mob.inconsistencias = jsonModel?.inconsistencias?.size ?: 0
         msgSend.setView(bindSend.root)
         val dialog: AlertDialog = msgSend.create()
         dialog.setCancelable(false)
@@ -328,5 +333,20 @@ class FragTotalInforme : Fragment() {
         val alert = Functions.msgBallom(msg, width, ctx, color)
         alert.showAlignBottom(bindinginfo.guideline)
         alert.dismissWithDelay(Mob.TIMELONG4SEG)
+    }
+
+    fun saveCap(): List<String> {
+        with(bindinginfo) {
+            Mob.condicion = ModelCondicion(
+                id = Mob.condicion?.id,
+                idcondi = lbcondicionID.text.toString().ifEmpty { null },
+                newRazon = txtnewRazon.text.toString().ifEmpty { null },
+                otra = Mob.condicion?.otra,
+                newNcontrol = txtnewNcontrol.text.toString().ifEmpty { null },
+                especifique = txtespecifiqueCondicion.text.toString().ifEmpty { null },
+                ncontrol = Mob.condicion?.ncontrol
+            )
+        }
+        return emptyList()
     }
 }

@@ -11,7 +11,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo064InovacionComercializacionBinding
-import gob.pa.inovacion_empresarial.function.CreateInconsistecia
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap6
 
@@ -286,28 +286,28 @@ class FragEncuestaCap06o4 : Fragment() {
         with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
             if (cap6?.v48check21o1 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "79") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "79") ?: "")
             if (cap6?.v48check22o1 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "80") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "80") ?: "")
             if (cap6?.v48check21o2 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "81") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "81") ?: "")
             if (cap6?.v48check22o2 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "82") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "82") ?: "")
             if (cap6?.v48check21o3 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "83") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "83") ?: "")
             if (cap6?.v48check22o3 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "84") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "84") ?: "")
             if (cap6?.v48check21o4 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "85") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "85") ?: "")
             if (cap6?.v48check22o4 == null)
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "86") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "86") ?: "")
 
             if (!check && cap6?.v49txtGrado1.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "87") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "87") ?: "")
             if (!check && cap6?.v49txtGrado1.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "88") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "88") ?: "")
             if (!check && cap6?.v49txtGrado1.isNullOrEmpty())
-                returnList.add(CreateInconsistecia.inconsistencia(ctx, "89") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "89") ?: "")
 
             icap06o4 = returnList.isNotEmpty()
             println("---------Is not empty: $icap06o4--$cap6")

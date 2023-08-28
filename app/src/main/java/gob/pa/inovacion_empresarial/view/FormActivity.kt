@@ -146,8 +146,6 @@ class FormActivity : AppCompatActivity() {
                 btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_deleteview)
                 btnegativo.backgroundTintList =
                     ContextCompat.getColorStateList(ctx, R.color.dark_pink)
-                layoutAlert.background =
-                    ContextCompat.getDrawable(ctx, R.drawable.background_border_alert)
 
                 mesagePregunta.setView(bindmsg.root)
                 dialog = mesagePregunta.create()
@@ -169,7 +167,6 @@ class FormActivity : AppCompatActivity() {
     }
 
     private fun observation(position: Int) {
-
         val mesagePregunta = AlertDialog.Builder(this)
         val bindmsg: StyleMsgObsBinding = StyleMsgObsBinding.inflate(layoutInflater)
         mesagePregunta.setView(bindmsg.root)
@@ -247,6 +244,7 @@ class FormActivity : AppCompatActivity() {
             is FragModuloSecc02 -> listFaltantes = page.saveCap()
             is FragModuloSecc03 -> listFaltantes = page.saveCap()
             is FragModuloSecc04 -> listFaltantes = page.saveCap()
+            is FragTotalInforme -> listFaltantes = page.saveCap()
         }
 
         if (Mob.authData?.rol != "E" && move != null) { moveTo(move)

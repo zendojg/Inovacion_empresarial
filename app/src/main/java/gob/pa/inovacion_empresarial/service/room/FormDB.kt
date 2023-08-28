@@ -15,16 +15,13 @@ import androidx.room.RoomDatabase
 
 abstract class FormDB: RoomDatabase() {
     abstract fun dbFormDao(): FormDao
-
     companion object {
         @Volatile private var InternalDB: FormDB? = null
-
         fun getInstance(context: Context): FormDB = InternalDB ?: synchronized(this) {
                 InternalDB ?: buildDB(context).also { InternalDB = it }
             }
-
         fun buildDB(context: Context) =
-            Room.databaseBuilder(context.applicationContext, FormDB::class.java, "DB_testx3.db")
+            Room.databaseBuilder(context.applicationContext, FormDB::class.java, "DB_test1.db")
                 .fallbackToDestructiveMigration() // Borra DB al actualizar version
                 //.addMigrations()
                 .build()
