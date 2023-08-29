@@ -11,8 +11,8 @@ object  CreateForm {
         with(Mob) {
             return ModelForm(
                 ncontrol = formComp?.ncontrol,
-                obs = formComp?.obs, //---------
-                cond = formComp?.cond,
+                obs = obsEncuesta, //---------
+                cond = condicionID,
                 act = formComp?.act,
                 rev = formComp?.rev,
                 tieneIncon = formComp?.tieneIncon,
@@ -76,6 +76,8 @@ object  CreateForm {
             condicion = form?.condicion
             obsEncuesta = form?.obs ?: ""
             obsModulo = form?.capMod?.observaciones ?: ""
+            condicionID = form?.cond
+
         }
     }
     fun resetLoad() {
@@ -86,6 +88,7 @@ object  CreateForm {
             obsEncuesta = ""
             obsModulo = ""
             obsTittle = ""
+            condicionID = null
 
             //--  FORMULARIO
             sendForm = false

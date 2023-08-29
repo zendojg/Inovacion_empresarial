@@ -125,7 +125,6 @@ class MainFragmentSearch : Fragment() {
                 when (resp.code) {
                     Mob.CODE200 -> {
                         CreateForm.createLoad(resp.body)
-                        println("--------\\n---------${Mob.condicion}")
                         viewFind(false)
                     }
                     Mob.CODE401 -> {

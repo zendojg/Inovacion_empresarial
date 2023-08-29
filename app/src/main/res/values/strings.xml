@@ -704,6 +704,7 @@
     <string name="deleteTittle">Eliminación de Formularios</string>
     <string name="deleteSpec">Solo se podra eliminar formularios guardados en el DMC y que no han sido enviados.</string>
     <string name="delete">Eliminar</string>
+    <string name="exitUser">Cerrar sesión</string>
 
 
 </resources>

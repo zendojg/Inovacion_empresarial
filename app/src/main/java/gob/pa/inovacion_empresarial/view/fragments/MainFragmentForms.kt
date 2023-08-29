@@ -7,16 +7,15 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -34,6 +33,7 @@ import gob.pa.inovacion_empresarial.databinding.StyleMsgLocalinfoBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgPopupBinding
 import gob.pa.inovacion_empresarial.function.CreateForm
 import gob.pa.inovacion_empresarial.function.Functions
+import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
@@ -267,39 +267,39 @@ class MainFragmentForms : Fragment() {
             btEnd.backgroundTintList =
                 ContextCompat.getColorStateList(ctx, R.color.dark_red)
 
-            btCancel.setOnClickListener {
-                txt0styleF.clearFocus()
-                aDialog?.dismiss()
-            }
+            btCancel.setOnClickListener { aDialog?.dismiss() }
             btEnd.setOnClickListener {
-                txt0styleF.clearFocus()
-                if (txt0styleF.text.isNullOrEmpty()) {
-                    val alert = Functions.msgMark("Ingrese la clave de acceso",
-                        Mob.WIDTH180DP, ctx, Color.RED)
-                    alert.showAlignBottom(txt0styleF)
-                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
-                } else if (txt0styleF.text.toString() == Mob.pass) {
-                    aDialog?.dismiss()
-                    val screen = AlertDialog.Builder(ctx)
-                    aDialog = screen.create()
-                    aDialog?.setCancelable(false)
-                    aDialog?.show()
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        //------------ ADD DELETE IF NOT SEND FORM
-                        val alert = Functions.msgBallom("Formulario eliminado",
-                            Mob.WIDTH180DP, ctx, Color.DKGRAY)
-                        alert.showAlignBottom(bindingForm.txtwarningForm)
-                        alert.dismissWithDelay(Mob.TIMELONG2SEG)
-                        aDialog?.dismiss()
-                        list = list.minus(item)
-                        adpForms.updateList(list)
-                    }, (Mob.TIME1S))
-                } else {
-                    val alert = Functions.msgBallom("Clave incorrecta",
-                        Mob.WIDTH160DP, ctx, Color.RED)
-                    alert.showAlignBottom(txt0styleF)
-                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
-                }
+                aDialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
+                txt0styleF.imeOptions = 1
+//                Handler(Looper.getMainLooper()).postDelayed({
+//                if (txt0styleF.text.isNullOrEmpty()) {
+//                    val alert = Functions.msgMark("Ingrese la clave de acceso",
+//                        Mob.WIDTH180DP, ctx, Color.RED)
+//                    alert.showAlignBottom(txt0styleF)
+//                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
+//                } else if (txt0styleF.text.toString() == Mob.pass) {
+//                    aDialog?.dismiss()
+//                    val screen = AlertDialog.Builder(ctx)
+//                    aDialog = screen.create()
+//                    aDialog?.setCancelable(false)
+//                    aDialog?.show()
+//
+//                        //------------ ADD DELETE IF NOT SEND FORM
+//                        val alert = Functions.msgBallom("Formulario eliminado",
+//                            Mob.WIDTH180DP, ctx, Color.DKGRAY)
+//                        alert.showAlignBottom(bindingForm.txtwarningForm)
+//                        alert.dismissWithDelay(Mob.TIMELONG2SEG)
+//                        aDialog?.dismiss()
+//                        list = list.minus(item)
+//                        adpForms.updateList(list)
+//
+//                } else {
+//                    val alert = Functions.msgBallom("Clave incorrecta",
+//                        Mob.WIDTH160DP, ctx, Color.RED)
+//                    alert.showAlignBottom(txt0styleF)
+//                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
+//                }
+//                }, (Mob.TIME500MS))
             }
         }
     }

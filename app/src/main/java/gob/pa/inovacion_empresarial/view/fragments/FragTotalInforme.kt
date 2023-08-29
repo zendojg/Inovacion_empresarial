@@ -44,7 +44,6 @@ class FragTotalInforme : Fragment() {
     private lateinit var bindinginfo: ModuloTotalInfoBinding
     private lateinit var ctx: Context
     private val dvmInforme: DVModel by viewModels()
-    private var condID = ""
     var aDialog: AlertDialog? = null
 
     override fun onCreateView(
@@ -72,7 +71,7 @@ class FragTotalInforme : Fragment() {
     private fun fillOut() {
         val blank = "".toEditable()
         with(bindinginfo) {
-            condID = Mob.formComp?.cond ?: ""
+
             txtInfoObsEncuesta.text = Mob.obsEncuesta?.toEditable() ?: blank
             txtInfoObsModulo.text = Mob.obsModulo?.toEditable() ?: blank
 
@@ -98,9 +97,9 @@ class FragTotalInforme : Fragment() {
                 btEnd.isEnabled = false
             }
 
-            if (lbcondicionID.text.isNullOrEmpty()) lbcondicionID.text = condID
+            if (lbcondicionID.text.isNullOrEmpty()) lbcondicionID.text = Mob.condicionID ?: ""
 
-            val idCondInt = try { condID.toInt() -1 }
+            val idCondInt = try { (Mob.condicionID?.toInt() ?: 0) -1 }
             catch (e: java.lang.NumberFormatException) { null }
             txtCondicion.setText(Mob.arrCondicion[idCondInt ?: 0],false)
 
@@ -132,9 +131,8 @@ class FragTotalInforme : Fragment() {
             condicion.setDropDownViewResource(R.layout.style_list)
             txtCondicion.setAdapter(condicion)
             txtCondicion.setOnItemClickListener { _, _, pos, _ ->
-                val idCond = "0"+(pos + 1)
-                condID = idCond
-                lbcondicionID.text = idCond
+                Mob.condicionID = "0"+(pos + 1)
+                lbcondicionID.text = Mob.condicionID
                 when (pos) {
                     Mob.CONDICION02 -> {
                         txtespecifiqueCondicionly.visibility = View.GONE

@@ -221,10 +221,10 @@ object Mob {
     var indiceFormulario = 0        //-----Indice de la encuesta dado desde el Menú
     var obsEncuesta: String? = ""   //-----Observaciones de la encuesta
     var obsModulo: String? = ""     //-----Observaciones del Módulo
-    var obsTittle = ""              //-----Muestra el título si es Encuesta o Módulo
-    var version = "0.0"
+    var obsTittle: String = ""      //-----Muestra el título si es Encuesta o Módulo
+    var version: String = "0.0"
+    var condicionID: String? = null
     var sendForm: Boolean = false
-    var inconsistencias: Int? = 0
 
 
     private var authInfo: ModelAuthTokenInfo? = ModelAuthTokenInfo(

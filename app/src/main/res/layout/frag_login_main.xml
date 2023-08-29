@@ -12,62 +12,62 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/foreground_back"
-            android:orientation="horizontal"
             tools:ignore="HardcodedText">
 
-            <!-- android:background="@drawable/background_gradiente" -->
-            <LinearLayout
-                android:id="@+id/layoutTittleLogin"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:paddingVertical="30dp"
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="220dp"
+                android:layout_height="80dp"
+                android:contentDescription="Secretaria Nacional de Ciencia, Tecnología e Innovación"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/logo_senacyt" />
 
-                <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="220dp"
-                    android:layout_height="80dp"
-                    android:contentDescription="Secretaria Nacional de Ciencia, Tecnología e Innovación"
-                    app:srcCompat="@drawable/logo_senacyt" />
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:text="DIRECTORIO DE EMPRESAS Y LOCALES"
+                android:textColor="@color/blue_dark"
+                android:textSize="@dimen/text18"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed"
-                    android:gravity="center"
-                    android:text="DIRECTORIO DE EMPRESAS Y LOCALES"
-                    android:textColor="@color/blue_dark"
-                    android:textSize="@dimen/text18"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:text="CONTRALORÍA GENERAL DE LA REPÚBLICA"
+                android:textColor="@color/blue_dark"
+                android:textSize="@dimen/text12"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="CONTRALORÍA GENERAL DE LA REPÚBLICA"
-                    android:textColor="@color/blue_dark"
-                    android:textSize="@dimen/text12" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-condensed"
-                    android:gravity="center"
-                    android:text="Instituto Nacional de Estadística y Censo"
-                    android:textColor="@color/blue_dark"
-                    android:textSize="@dimen/text12"
-                    android:visibility="gone" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="center"
+                android:text="Instituto Nacional de Estadística y Censo"
+                android:textColor="@color/blue_dark"
+                android:textSize="@dimen/text12"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 
-            </LinearLayout>
 
             <ImageView
                 android:id="@+id/img_Alogin"
@@ -218,6 +218,8 @@
                     app:icon="@drawable/img_login"
                     app:iconPadding="-30dp"
                     app:iconTint="@color/white"
+                    app:strokeColor="@color/blue_dark"
+                    app:strokeWidth="1dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/checkLogin" />
@@ -235,23 +237,14 @@
                     app:layout_constraintTop_toBottomOf="@+id/btLogin"
                     tools:ignore="SmallSp" />
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideLow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_end="124dp" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guidemidle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.5" />
+                app:layout_constraintGuide_percent="0.82" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

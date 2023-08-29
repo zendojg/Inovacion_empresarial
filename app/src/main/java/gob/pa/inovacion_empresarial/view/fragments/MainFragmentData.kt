@@ -182,7 +182,8 @@ class MainFragmentData : Fragment() {
 
             btpositivo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
             btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_logout)
-
+            btnegativo.backgroundTintList =
+                ContextCompat.getColorStateList(ctx, R.color.teal_700)
             btpositivo.setOnClickListener { aDialog?.dismiss() }
             btnegativo.setOnClickListener {
                 aDialog?.dismiss()

@@ -226,14 +226,16 @@ class FragEncuestaCap01 : Fragment() {
     private fun viewCap(): List<String> {
         with (Mob) {
             val returnList: ArrayList<String> = ArrayList()
-            if (cap1?.v01provtxt.isNullOrEmpty()) { returnList.add("Provincia sin datos") }
-            if (cap1?.v02disttxt.isNullOrEmpty()) { returnList.add("Distrito sin datos") }
-            if (cap1?.v03corretxt.isNullOrEmpty()) { returnList.add("Corregimiento sin datos") }
-            if (cap1?.v04lugartxt.isNullOrEmpty()) { returnList.add("Lugar poblado sin datos") }
+            if (cap1?.v01provtxt.isNullOrEmpty()) {
+                returnList.add("Pregunta 1.  Provincia sin datos") }
+            if (cap1?.v02disttxt.isNullOrEmpty()) {
+                returnList.add("Pregunta 2.  Distrito sin datos") }
+            if (cap1?.v03corretxt.isNullOrEmpty()) {
+                returnList.add("Pregunta 3.  Corregimiento sin datos") }
 
             println("---------Is not empty: $icap01--$cap1")
             icap01 = returnList.isNotEmpty()
-            if (returnList.size > 1) seeData(true)
+            if (returnList.isEmpty()) seeData(true)
 
             return returnList
         }

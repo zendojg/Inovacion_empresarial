@@ -47,7 +47,6 @@ class FragEncuestaCap02o1 : Fragment() {
                 btCap29Tel1.isEnabled = false
             }
             btCap29Tel2.setOnClickListener {
-                txtCap292.text?.clear()
                 frameCap29Tel2.visibility = View.GONE
                 frameview = false
                 btCap29Tel1.isEnabled = true
@@ -94,7 +93,7 @@ class FragEncuestaCap02o1 : Fragment() {
                 txtCap28.text.toString().ifEmpty { null },
                 txtCap281.text.toString().ifEmpty { null },
                 txtCap291.text.toString().ifEmpty { null },
-                txtCap292.text.toString().ifEmpty { null },
+                if (frameview) txtCap292.text.toString().ifEmpty { null } else null,
                 txtCap210.text.toString().ifEmpty { null },
                 txtCap211.text.toString().ifEmpty { null },
                 txtCap212.text.toString().ifEmpty { null },

@@ -40,14 +40,11 @@ class FragEncuestaCap02o2 : Fragment() {
         with(bindingcap2o2) {
             frameCap219Tel2.isVisible = frameview
             btCap219tel1.setOnClickListener {
-                if (frameview) {
-                    frameCap219Tel2.visibility = View.VISIBLE
-                    btCap219tel1.isEnabled = false
-                    frameview = true
-                }
+                frameCap219Tel2.visibility = View.VISIBLE
+                btCap219tel1.isEnabled = false
+                frameview = true
             }
             btCap219tel2.setOnClickListener {
-                txtCap2192.text?.clear()
                 frameCap219Tel2.visibility = View.GONE
                 btCap219tel1.isEnabled = true
                 frameview = false
@@ -75,7 +72,7 @@ class FragEncuestaCap02o2 : Fragment() {
             txtCap218.text = cap2?.v18dirtxt?.toEditable() ?: blank
             txtCap2181.text = cap2?.v18dirreftxt?.toEditable() ?: blank
             txtCap2191.text = cap2?.v19tel1txt?.toEditable() ?: blank
-            txtCap2192.text = cap2?.v19tel2txt?.toEditable() ?: blank
+            if (frameview) txtCap2192.text = cap2?.v19tel2txt?.toEditable() ?: blank else null
             txtCap220.text = cap2?.v20celtxt?.toEditable() ?: blank
             frameview = !txtCap2192.text.isNullOrBlank()
         }
