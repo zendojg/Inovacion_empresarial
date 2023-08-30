@@ -52,10 +52,11 @@ class MainFragmentSearch : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        viewFind(true)
+        fragSearch.barSearch.visibility = View.INVISIBLE
         fragSearch.versionsearch.text = Mob.version
         onAction()
     }
-
 
     private fun onAction() {
         val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
@@ -70,7 +71,7 @@ class MainFragmentSearch : Fragment() {
                 if (!lyContainer.isVisible) { controlTxt() }
             }
             btSearch.setOnClickListener {
-                //controlTxt()
+                controlTxt()
             }
             btcancelSearch.setOnClickListener { viewFind(true) }
             btdataSearch.setOnClickListener {
@@ -83,14 +84,9 @@ class MainFragmentSearch : Fragment() {
     }
 
     private fun controlTxt() {
-        hideKeyboard()
-        val color = ContextCompat.getColor(ctx, R.color.dark_red)
         with(fragSearch) {
             if (txtNControlSearch.text.isNullOrEmpty()) {
-                val alert =
-                    Functions.msgMark("Ingrese un N° de Control", Mob.WIDTH180DP, ctx, color)
-                alert.showAlignBottom(txtNControlSearch)
-                alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                txtNControllySearch.error = "Ingrese un N° de Control"
             } else {
                 val ncontrolReformat =
                     Functions.ceroLeft(txtNControlSearch.text.toString(), Mob.CEROLEFT)
@@ -100,15 +96,13 @@ class MainFragmentSearch : Fragment() {
                 } catch (e: java.lang.NumberFormatException) {
                     0
                 }
-                if (ncont <= 0) {
-                    val alert =
-                        Functions.msgMark("N° de Control inválido", Mob.WIDTH180DP, ctx, color)
-                    alert.showAlignBottom(txtNControlSearch)
-                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                if (ncont <= 0) { txtNControllySearch.error = "N° de Control inválido"
                 } else {
+                    txtNControllySearch.helperText = "Búsqueda del número de control"
                     getForm(ncont.toString())
                 } //------------
             }
+            hideKeyboard()
         }
     }
 
@@ -134,15 +128,20 @@ class MainFragmentSearch : Fragment() {
                         bttest?.callOnClick()
                         if (!resp.resp.isNullOrEmpty()) errorMsg(resp.resp)
                     }
-                    Mob.CODE403, Mob.CODE404 -> if (!resp.resp.isNullOrEmpty()) errorMsg(resp.resp)
+                    Mob.CODE403, Mob.CODE404 -> {
+                        if (!resp.resp.isNullOrEmpty()) errorMsg(resp.resp)
+                        else errorMsg("Error: ${resp.code}")
+                    }
 
                     Mob.CODE500 -> {
-
                         if (!resp.resp.isNullOrEmpty()) {
-                            if (resp.resp.length < Mob.LIMITMSG)
-                                errorMsg(resp.resp)
-                            else errorMsg("Error en el servidor")
+                            if (resp.resp.length < Mob.LIMITMSG) errorMsg(resp.resp)
+                            else errorMsg("Error en el servidor (500)")
                         }
+                    }
+                    else -> {
+                        if (!resp.code?.toString().isNullOrEmpty())
+                            errorMsg("Error: ${resp.code}")
                     }
                 }
 
@@ -153,6 +152,7 @@ class MainFragmentSearch : Fragment() {
     private fun errorMsg(resp: String) {
         var errortxt = resp
         errortxt = errortxt.replace("error", "")
+        errortxt = errortxt.replace("NumComtrol", "N° de control")
         errortxt = errortxt.replace(":", "")
         errortxt = errortxt.replace("{", "")
         errortxt = errortxt.replace("}", "")
@@ -165,7 +165,6 @@ class MainFragmentSearch : Fragment() {
     }
 
     private fun viewFind(check: Boolean) {
-        hideKeyboard()
         with (fragSearch){
             lyContainer.isVisible = !check
             btSearch.isVisible = check
@@ -201,6 +200,7 @@ class MainFragmentSearch : Fragment() {
                 startActivity(Intent(ctx, FormActivity::class.java))
             }
         }
+        hideKeyboard()
     }
 
 }

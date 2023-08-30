@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -87,14 +88,10 @@ class FragTotalInforme : Fragment() {
     private fun onAction() {
         with(bindinginfo) {
 
-            if (Mob.authData?.rol == "E") {
-                btSendObs.isEnabled = true
-                btSaveObs.isEnabled = true
-                btEnd.isEnabled = true
-            } else {
+            if (Mob.authData?.rol != "E") {
                 btSendObs.isEnabled = false
-                btSaveObs.isEnabled = false
-                btEnd.isEnabled = false
+                btViewObs.isEnabled = false
+                btEnd.isVisible = true
             }
 
             if (lbcondicionID.text.isNullOrEmpty()) lbcondicionID.text = Mob.condicionID ?: ""
@@ -157,27 +154,6 @@ class FragTotalInforme : Fragment() {
                 }
             }
 
-            btSaveObs.setOnClickListener {
-                barInforme.visibility = View.VISIBLE
-                val screen = AlertDialog.Builder(ctx)
-                aDialog = screen.create()
-                aDialog?.setCancelable(false)
-                aDialog?.show()
-                lifecycleScope.launch {
-                    saveCap()
-                    val estado = savedForm(CreateForm.create())
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        if (estado > 0) {
-                            val alert = Functions.msgBallom("Guardado exitoso",
-                                Mob.WIDTH180DP, ctx, Color.MAGENTA)
-                            alert.showAlignBottom(btEnd)
-                            alert.dismissWithDelay(Mob.TIMELONG2SEG)
-                        }
-                        barInforme.visibility = View.INVISIBLE
-                        aDialog?.dismiss()
-                    }, (Mob.TIME500MS))
-                }
-            }
             btSendObs.setOnClickListener {
                 saveCap()
                 senFormulario(CreateForm.create())

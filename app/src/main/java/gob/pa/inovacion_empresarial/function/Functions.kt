@@ -20,15 +20,21 @@ import java.util.Date as fecha
 
 object Functions {
 
+    private const val ARROWSIZE = 10
+    private const val ARROWPOS = 0.5f
+    private const val CORNER = 4f
+
+    private const val HEIGHTMARK = 50
+    private const val HEIGHTBALLON = 28
     fun msgMark(msg: String, width: Int, ctx: Context, color: Int): Balloon {
         return Balloon.Builder(ctx)
             //.setLayout(R.layout.style_balloon)
-            .setArrowSize(10)
+            .setArrowSize(ARROWSIZE)
             .setArrowOrientation(ArrowOrientation.BOTTOM)
-            .setArrowPosition(0.5f)
+            .setArrowPosition(ARROWPOS)
             .setWidth(width)
-            .setHeight(50)
-            .setCornerRadius(4f)
+            .setHeight(HEIGHTMARK)
+            .setCornerRadius(CORNER)
             .setText(msg)
             .setBackgroundColor(color)
             .setBalloonAnimation(BalloonAnimation.ELASTIC)
@@ -41,8 +47,8 @@ object Functions {
             .setArrowSize(0)
             .setArrowOrientation(ArrowOrientation.BOTTOM)
             .setWidth(width)
-            .setHeight(28)
-            .setCornerRadius(4f)
+            .setHeight(HEIGHTBALLON)
+            .setCornerRadius(CORNER)
             .setText(msg)
             .setBackgroundColor(color)
             .setBalloonAnimation(BalloonAnimation.ELASTIC)

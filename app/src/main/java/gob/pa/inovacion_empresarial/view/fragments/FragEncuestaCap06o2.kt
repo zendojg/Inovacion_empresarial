@@ -19,7 +19,7 @@ class FragEncuestaCap06o2 : Fragment() {
 
     private lateinit var bindingcap6o2: EncuestaCapitulo062InovacionProcesoBinding
     private lateinit var ctx: Context
-    private var checkNo42: MutableList<Boolean> = mutableListOf(false,false,false,false,false,false)
+    var checkNo42: MutableList<Boolean> = mutableListOf(false,false,false,false,false,false)
     private var indice01 = 0
     private var indice02 = 0
     private var indice03 = 0

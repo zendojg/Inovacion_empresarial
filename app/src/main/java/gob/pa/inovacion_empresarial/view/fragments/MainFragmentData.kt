@@ -89,12 +89,9 @@ class MainFragmentData : Fragment() {
                 aDialog?.show()
                 lifecycleScope.launch { CreateBackUp.saved(ctx) }
                 Handler(Looper.getMainLooper()).postDelayed({
-                    val alert = Functions.msgBallom("Respaldo actualizado",
-                        Mob.WIDTH180DP, ctx, Color.DKGRAY)
-                    alert.showAlignBottom(bindingUser.txtwarningUser)
-                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
                     bindingUser.barUser.visibility = View.INVISIBLE
                     aDialog?.dismiss()
+                    msgBallon("Respaldo actualizado")
                 }, (Mob.TIME1S))
             }
         }
@@ -125,7 +122,7 @@ class MainFragmentData : Fragment() {
             btCancel.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
             btEnd.icon = ContextCompat.getDrawable(ctx, R.drawable.img_system_update)
             btEnd.backgroundTintList =
-                ContextCompat.getColorStateList(ctx, R.color.dark_red)
+                ContextCompat.getColorStateList(ctx, R.color.holo_blue_dark)
 
             btCancel.setOnClickListener {
 
@@ -133,10 +130,7 @@ class MainFragmentData : Fragment() {
             }
             btEnd.setOnClickListener {
                 if (txt0styleF.text.isNullOrEmpty()) {
-                    val alert = Functions.msgMark("Ingrese la clave de acceso",
-                        Mob.WIDTH180DP, ctx, Color.RED)
-                    alert.showAlignBottom(txt0styleF)
-                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                    txt0styleFly.error = "Ingrese la clave de acceso"
                 } else if (txt0styleF.text.toString() == Mob.pass) {
                     aDialog?.dismiss()
                     bindingUser.barUser.visibility = View.VISIBLE
@@ -146,21 +140,22 @@ class MainFragmentData : Fragment() {
                     aDialog?.show()
                     Handler(Looper.getMainLooper()).postDelayed({
                         //-------------------------------------------------------------------------- UPDATE
-                        val alert = Functions.msgBallom("Datos actualizados",
-                            Mob.WIDTH180DP, ctx, Color.DKGRAY)
-                        alert.showAlignBottom(bindingUser.txtwarningUser)
-                        alert.dismissWithDelay(Mob.TIMELONG2SEG)
-                        bindingUser.barUser.visibility = View.INVISIBLE
+
                         aDialog?.dismiss()
+                        bindingUser.barUser.visibility = View.INVISIBLE
+                        msgBallon("Datos actualizados")
+
                     }, (Mob.TIME1S))
-                } else {
-                    val alert = Functions.msgBallom("Clave incorrecta",
-                        Mob.WIDTH160DP, ctx, Color.RED)
-                    alert.showAlignBottom(txt0styleF)
-                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
-                }
+                } else { txt0styleFly.error = "Clave incorrecta" }
             }
         }
+    }
+    private fun msgBallon(msg: String) {
+        Handler(Looper.getMainLooper()).postDelayed({
+            val alert = Functions.msgBallom(msg, Mob.WIDTH160DP, ctx, R.color.dark_red)
+            alert.showAlignBottom(bindingUser.txtwarningUser)
+            alert.dismissWithDelay(Mob.TIMELONG2SEG)
+        }, (Mob.TIME500MS))
     }
 
     private fun logout() {

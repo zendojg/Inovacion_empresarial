@@ -18,7 +18,7 @@ import gob.pa.inovacion_empresarial.model.ModelCap6
 class FragEncuestaCap06o4 : Fragment() {
     private lateinit var bindingcap6o4: EncuestaCapitulo064InovacionComercializacionBinding
     private lateinit var ctx: Context
-    private var checkNo48: MutableList<Boolean> =
+    var checkNo48: MutableList<Boolean> =
         mutableListOf(false, false, false, false, false, false, false, false)
     private var indice01 = 0
     private var indice02 = 0

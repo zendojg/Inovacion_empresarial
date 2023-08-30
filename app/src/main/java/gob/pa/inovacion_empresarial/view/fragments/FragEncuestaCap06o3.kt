@@ -20,7 +20,7 @@ class FragEncuestaCap06o3 : Fragment() {
     private lateinit var bindingcap6o3: EncuestaCapitulo063InovacionOrganizacionalBinding
     private lateinit var ctx: Context
 
-    private var checkNo46: MutableList<Boolean> =
+    var checkNo46: MutableList<Boolean> =
         mutableListOf(false, false, false, false, false, false)
     private var indice01 = 0
     private var indice02 = 0
@@ -45,8 +45,6 @@ class FragEncuestaCap06o3 : Fragment() {
     }
 
     private fun onAction() {
-
-
         val gr47Adp = ArrayAdapter(ctx, R.layout.style_box, Mob.arrGrade)
         gr47Adp.setDropDownViewResource(R.layout.style_list)
 
@@ -78,11 +76,11 @@ class FragEncuestaCap06o3 : Fragment() {
                 check46()
             }
             rgroupCap64632021.setOnCheckedChangeListener { _, id ->
-                checkNo46[Mob.CHECK2Y2021] = rbtCap6463No2021.id == id
+                checkNo46[Mob.CHECK3Y2021] = rbtCap6463No2021.id == id
                 check46()
             }
             rgroupCap64632022.setOnCheckedChangeListener { _, id ->
-                checkNo46[Mob.CHECK2Y2022] = rbtCap6463No2022.id == id
+                checkNo46[Mob.CHECK3Y2022] = rbtCap6463No2022.id == id
                 check46()
             }
             spinCap6471.adapter = gr47Adp
@@ -229,18 +227,19 @@ class FragEncuestaCap06o3 : Fragment() {
                 Mob.cap6?.v45txtGrado4,
                 Mob.cap6?.v45txtGrado5,
                 Mob.cap6?.v45txtGrado6,
-                if (check) null else if (rbtCap6461Si2021.isChecked) true else
+                if (rbtCap6461Si2021.isChecked) true else
                     if (rbtCap6461No2021.isChecked) false else null,
-                if (check) null else if (rbtCap6462Si2021.isChecked) true else
+                if (rbtCap6462Si2021.isChecked) true else
                     if (rbtCap6462No2021.isChecked) false else null,
-                if (check) null else if (rbtCap6463Si2021.isChecked) true else
+                if (rbtCap6463Si2021.isChecked) true else
                     if (rbtCap6463No2021.isChecked) false else null,
-                if (check) null else if (rbtCap6461Si2022.isChecked) true else
+                if (rbtCap6461Si2022.isChecked) true else
                     if (rbtCap6461No2022.isChecked) false else null,
-                if (check) null else if (rbtCap6462Si2022.isChecked) true else
+                if (rbtCap6462Si2022.isChecked) true else
                     if (rbtCap6462No2022.isChecked) false else null,
                 if (rbtCap6463Si2022.isChecked) true else
                     if (rbtCap6463No2022.isChecked) false else null,
+
                 if (check) null else if (spinCap6471.selectedItemPosition == 0) null else
                     spinCap6471.selectedItemPosition.toString(),
                 if (check) null else if (spinCap6472.selectedItemPosition == 0) null else

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
@@ -21,7 +22,7 @@ class FragEncuestaCap07o1 : Fragment() {
 
     private lateinit var bindingcap7o1: EncuestaCapitulo07Part1Binding
     private lateinit var ctx: Context
-
+    private var p52Enable = true
     private var indice01 = 0
     private var indice02 = 0
     private var indice03 = 0
@@ -52,6 +53,35 @@ class FragEncuestaCap07o1 : Fragment() {
         Mob.indiceFormulario = Mob.CAP7P12
         if (Mob.seecap07o1) fillOut()
         else onAction()
+
+        p52Enable = !(Mob.cap6?.v39check21o1 == false &&
+                Mob.cap6?.v39check22o1 == false &&
+                Mob.cap6?.v39check21o2 == false &&
+                Mob.cap6?.v39check22o2 == false &&
+
+                Mob.cap6?.v42check21o1 == false &&
+                Mob.cap6?.v42check22o1 == false &&
+                Mob.cap6?.v42check21o2 == false &&
+                Mob.cap6?.v42check22o2 == false &&
+                Mob.cap6?.v42check21o3 == false &&
+                Mob.cap6?.v42check22o3 == false &&
+
+                Mob.cap6?.v46check21o1 == false &&
+                Mob.cap6?.v46check22o1 == false &&
+                Mob.cap6?.v46check21o2 == false &&
+                Mob.cap6?.v46check22o2 == false &&
+                Mob.cap6?.v46check21o3 == false &&
+                Mob.cap6?.v46check22o3 == false &&
+
+                Mob.cap6?.v48check21o1 == false &&
+                Mob.cap6?.v48check22o1 == false &&
+                Mob.cap6?.v48check21o2 == false &&
+                Mob.cap6?.v48check22o2 == false &&
+                Mob.cap6?.v48check21o3 == false &&
+                Mob.cap6?.v48check22o3 == false &&
+                Mob.cap6?.v48check21o4 == false &&
+                Mob.cap6?.v48check22o4 == false)
+
     }
 
     private fun onAction() {

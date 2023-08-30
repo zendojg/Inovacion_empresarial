@@ -75,7 +75,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/btmenupager"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_save_black"
+                    app:srcCompat="@drawable/img_save_solid"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                 <ImageView
@@ -148,10 +148,9 @@
             tools:background="@color/gray"
             app:layout_constraintBottom_toTopOf="@+id/frameLayoutNav"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txvsubtitlepager"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/txvsubtitlepager" />
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelinepager"

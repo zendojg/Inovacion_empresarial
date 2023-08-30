@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.*
+import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -228,9 +229,8 @@ class MainFragmentForms : Fragment() {
             bt3.setOnClickListener {
                 aDialog?.dismiss()
                 Handler(Looper.getMainLooper()).postDelayed({
-                    if (selection == 1 || selection == 2)
-                        Toast.makeText(ctx, "Imposible borrar", Toast.LENGTH_SHORT).show()
-                     else deleteForm(item)
+                    if (selection == 1 || selection == 2) msgBallon("Imposible borrar")
+                    else deleteForm(item)
                 }, (Mob.TIME100MS))
             }
 
@@ -269,41 +269,37 @@ class MainFragmentForms : Fragment() {
 
             btCancel.setOnClickListener { aDialog?.dismiss() }
             btEnd.setOnClickListener {
-                aDialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
-                txt0styleF.imeOptions = 1
-//                Handler(Looper.getMainLooper()).postDelayed({
-//                if (txt0styleF.text.isNullOrEmpty()) {
-//                    val alert = Functions.msgMark("Ingrese la clave de acceso",
-//                        Mob.WIDTH180DP, ctx, Color.RED)
-//                    alert.showAlignBottom(txt0styleF)
-//                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
-//                } else if (txt0styleF.text.toString() == Mob.pass) {
-//                    aDialog?.dismiss()
-//                    val screen = AlertDialog.Builder(ctx)
-//                    aDialog = screen.create()
-//                    aDialog?.setCancelable(false)
-//                    aDialog?.show()
-//
-//                        //------------ ADD DELETE IF NOT SEND FORM
-//                        val alert = Functions.msgBallom("Formulario eliminado",
-//                            Mob.WIDTH180DP, ctx, Color.DKGRAY)
-//                        alert.showAlignBottom(bindingForm.txtwarningForm)
-//                        alert.dismissWithDelay(Mob.TIMELONG2SEG)
-//                        aDialog?.dismiss()
-//                        list = list.minus(item)
-//                        adpForms.updateList(list)
-//
-//                } else {
-//                    val alert = Functions.msgBallom("Clave incorrecta",
-//                        Mob.WIDTH160DP, ctx, Color.RED)
-//                    alert.showAlignBottom(txt0styleF)
-//                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
-//                }
-//                }, (Mob.TIME500MS))
+                txt0styleF.imeOptions = EditorInfo.IME_ACTION_DONE
+                Handler(Looper.getMainLooper()).postDelayed({
+                if (txt0styleF.text.isNullOrEmpty()) {
+                    txt0styleFly.error = "Ingrese la clave de acceso"
+                } else if (txt0styleF.text.toString() == Mob.pass) {
+                    aDialog?.dismiss()
+                    val screen = AlertDialog.Builder(ctx)
+                    aDialog = screen.create()
+                    aDialog?.setCancelable(false)
+                    aDialog?.show()
+
+                    //------------ ADD DELETE IF NOT SEND FORM
+                    aDialog?.dismiss()
+                    list = list.minus(item)
+                    adpForms.updateList(list)
+                    msgBallon("Formulario eliminado")
+                } else {
+                    txt0styleFly.error = "Clave incorrecta"
+                }
+                }, (Mob.TIME500MS))
             }
         }
     }
 
+    private fun msgBallon(msg: String) {
+        Handler(Looper.getMainLooper()).postDelayed({
+            val alert = Functions.msgBallom(msg, Mob.WIDTH160DP, ctx, R.color.dark_red)
+            alert.showAlignBottom(bindingForm.txtwarningForm)
+            alert.dismissWithDelay(Mob.TIMELONG2SEG)
+        }, (Mob.TIME500MS))
+    }
 
     private fun viewForm(item: ModelForm) {
         val msgForm = AlertDialog.Builder(ctx)

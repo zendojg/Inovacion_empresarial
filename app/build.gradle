@@ -53,6 +53,8 @@ dependencies {
 
     // Popupp msg
     implementation "com.github.skydoves:balloon:1.4.2"
+    // Gif
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.0'
 
     // RetroFit
     implementation 'com.google.code.gson:gson:2.8.5'

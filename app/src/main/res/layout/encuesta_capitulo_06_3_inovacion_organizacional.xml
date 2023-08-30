@@ -421,7 +421,6 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center"
-                    android:textStyle="italic"
                     android:text="@string/lb46_desclast"
                     android:textColor="@android:color/holo_blue_dark"
                     android:textSize="@dimen/text14"

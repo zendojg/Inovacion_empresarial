@@ -705,6 +705,10 @@
     <string name="deleteSpec">Solo se podra eliminar formularios guardados en el DMC y que no han sido enviados.</string>
     <string name="delete">Eliminar</string>
     <string name="exitUser">Cerrar sesión</string>
+    <string name="tittleWarningIncon">¡Aviso de inconsistencia!</string>
+    <string name="msgWarningIncon">Las siguientes preguntas no han sido contestadas o poseen error en su captura:</string>
+    <string name="Go">Avanzar</string>
+    <string name="Back">Retroceder</string>
 
 
 </resources>

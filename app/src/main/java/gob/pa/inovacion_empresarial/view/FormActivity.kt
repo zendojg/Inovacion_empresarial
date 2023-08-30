@@ -1,5 +1,6 @@
 package gob.pa.inovacion_empresarial.view
 
+import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -37,7 +38,6 @@ import gob.pa.inovacion_empresarial.view.fragments.*
 import kotlinx.coroutines.launch
 import java.io.File
 import java.io.FileOutputStream
-import java.util.*
 import kotlin.collections.ArrayList
 
 
@@ -46,6 +46,7 @@ class FormActivity : AppCompatActivity() {
     private lateinit var form: ActivityFormBinding
     private var dialog: AlertDialog? = null
     private val dvmForm: DVModel by viewModels()
+    private val ctx: Context = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,12 +98,8 @@ class FormActivity : AppCompatActivity() {
                     viewpager.setCurrentItem(0, false)
                 } else seeCaps(true)
             }
-            btbackpager.setOnClickListener {
-                seeCaps(false)
-            }
-            btmenupager.setOnClickListener {
-                viewpager.setCurrentItem(0, false)
-            }
+            btbackpager.setOnClickListener { seeCaps(false) }
+            btmenupager.setOnClickListener { viewpager.setCurrentItem(0, false) }
 
             viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
@@ -163,16 +160,19 @@ class FormActivity : AppCompatActivity() {
                     }, (Mob.TIME500MS))
                 }
             }
-        } else form.viewpager.setCurrentItem(form.viewpager.currentItem - 1, true)
+        } else seeCaps(false)
     }
 
     private fun observation(position: Int) {
         val mesagePregunta = AlertDialog.Builder(this)
         val bindmsg: StyleMsgObsBinding = StyleMsgObsBinding.inflate(layoutInflater)
         mesagePregunta.setView(bindmsg.root)
-        val ctx = this
         val color: Int
         with(bindmsg) {
+            if (Mob.authData?.rol != "E") {
+                btsaveobs.isEnabled = false
+                txtobs.isFocusable = false
+            }
             txvtittleobs.text = Mob.obsTittle
             txtobs.imeOptions = EditorInfo.IME_ACTION_DONE
             txtobs.setRawInputType(InputType.TYPE_CLASS_TEXT)
@@ -216,9 +216,10 @@ class FormActivity : AppCompatActivity() {
         }
     }
 
-
-
     fun seeCaps(move: Boolean?) {
+        hideKeyboard()
+        val colorlb = if (form.viewpager.currentItem < Mob.SEC1P20) R.color.holo_blue_dark
+        else  R.color.cream_darl
         var listFaltantes: List<String> = ArrayList()
         when (val page = supportFragmentManager.fragments.find { it.isVisible }) {
             is FragEncuestaCap01 -> listFaltantes = page.savedCap()
@@ -247,37 +248,26 @@ class FormActivity : AppCompatActivity() {
             is FragTotalInforme -> listFaltantes = page.saveCap()
         }
 
-        if (Mob.authData?.rol != "E" && move != null) { moveTo(move)
-        } else if (move != null && listFaltantes.isEmpty()) { moveTo(move)
-        } else if (move == null) {
+        if (move != null && Mob.authData?.rol != "E") { moveTo(move)//--- No muestra inconsistencias
+        } else if (move != null && listFaltantes.isEmpty()) { moveTo(move) //-- mover normal
+        } else if (move == null) { //-- Guardar
             lifecycleScope.launch {
-                val info =
-                    RoomView(dvmForm, this@FormActivity).saveForm(CreateForm.createSaved())
+                val info = RoomView(dvmForm, ctx).saveForm(CreateForm.createSaved())
                 println("----------$info")
             }
-            val color = if (form.viewpager.currentItem < Mob.SEC1P20)
-                ContextCompat.getColor(this, R.color.holo_blue_dark)
-            else ContextCompat.getColor(this, R.color.cream_darl)
+            val colorBallom = ContextCompat.getColor(this, colorlb)
             val alert = Functions.msgBallom(
-                "Formulario guardado", Mob.WIDTH160DP, this, color)
+                "Formulario guardado", Mob.WIDTH160DP, this, colorBallom)
             alert.showAlignBottom(form.txtInfopager)
             alert.dismissWithDelay(Mob.TIMELONG2SEG)
-        } else  {
+        } else  { //-- Inconsistencia
             val mesagePregunta = AlertDialog.Builder(this)
             val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)
-            val ctx = this
             with (bindmsg) {
                 btpositivo.text = getString(R.string.cancel)
-                msgtitle.text = "¡Advertencia!"
-                msg1.text = "Las siguientes preguntas no han sido contestadas o poseen error en su captura:"
-                btnegativo.backgroundTintList = if (form.viewpager.currentItem < Mob.SEC1P20)
-                    ContextCompat.getColorStateList(ctx, R.color.holo_blue_dark) else
-                    ContextCompat.getColorStateList(ctx, R.color.cream_darl)
-
-                layoutAlert.background = if (form.viewpager.currentItem < Mob.SEC1P20)
-                    ContextCompat.getDrawable(ctx, R.drawable.background_border_blue) else
-                    ContextCompat.getDrawable(ctx, R.drawable.background_border_cream)
-
+                msgtitle.text = getString(R.string.tittleWarningIncon)
+                msg1.text = getString(R.string.msgWarningIncon)
+                btnegativo.backgroundTintList = ContextCompat.getColorStateList(ctx, colorlb)
                 msg2.visibility = View.GONE
                 msg6.isVisible = true
                 msg6.text = listFaltantes.toTypedArray().joinToString("\n\n").toEditable()
@@ -288,20 +278,18 @@ class FormActivity : AppCompatActivity() {
                 btpositivo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_close)
                 if (move) {
                     btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_forward)
-                    btnegativo.text = "Avanzar"
+                    btnegativo.text = getString(R.string.Go)
                 }
                 else {
                     btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
-                    btnegativo.text = "Retroceder"
+                    btnegativo.text = getString(R.string.Back)
                 }
-
                 btpositivo.setOnClickListener { dialog?.dismiss() }
                 btnegativo.setOnClickListener {
                     dialog?.dismiss()
                     moveTo(move)
                 }
             }
-            println("---------------$listFaltantes")
         }
     }
 
@@ -336,7 +324,6 @@ class FormActivity : AppCompatActivity() {
         val colorLetras : Int
         val colorFondo: Int
         val decorView: View = window.decorView
-        val ctx = this
         with(form){
             when {
                 position == Mob.MENUP00 -> {
@@ -348,7 +335,6 @@ class FormActivity : AppCompatActivity() {
                 position < Mob.SEC1P20 -> {
                     Mob.obsTittle = "Encuesta  de Innovación en Empresas"
                     btobspager.visibility = View.VISIBLE
-                    btsavepager.visibility = View.VISIBLE
                     colorLetras = (Color.WHITE)
                     decorView.systemUiVisibility =
                         decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
@@ -356,7 +342,6 @@ class FormActivity : AppCompatActivity() {
                 }
                 position == Mob.OBSP24 -> {
                     btobspager.visibility = View.INVISIBLE
-                    btsavepager.visibility = View.INVISIBLE
                     colorLetras = (Color.WHITE)
                     decorView.systemUiVisibility =
                         decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
@@ -365,7 +350,6 @@ class FormActivity : AppCompatActivity() {
                 else -> {
                     Mob.obsTittle = "Módulo de Comercio Electrónico"
                     btobspager.visibility = View.VISIBLE
-                    btsavepager.visibility = View.VISIBLE
                     decorView.systemUiVisibility =
                         decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
                     colorLetras = (Color.DKGRAY)

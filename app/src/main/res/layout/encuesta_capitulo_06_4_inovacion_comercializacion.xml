@@ -532,7 +532,6 @@
                     android:text="@string/lb48_desclast"
                     android:textColor="@android:color/holo_blue_dark"
                     android:textSize="@dimen/text14"
-                    android:textStyle="italic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

@@ -66,9 +66,9 @@ class MainActivity : AppCompatActivity() {
             Mob.authData = AppCache.loginGET(this)             //----- CARGA TOKEM
             if (Mob.authData?.result?.token.isNullOrEmpty()) {     //----- TOKEN VACIO IR A LOGIN
                 Handler(Looper.getMainLooper()).postDelayed({
+                    main.barMain.visibility = View.GONE
                     pagerMain.setCurrentItem(Mob.LOGIN0, false)
                     pagerMain.visibility = View.VISIBLE
-                    main.barMain.visibility = View.GONE
                 }, (Mob.TIME500MS))
             } else {
                 lifecycleScope.launch {
@@ -84,9 +84,9 @@ class MainActivity : AppCompatActivity() {
                 RoomView(dvmMain, this@MainActivity).viewRoom()
             }
         } else {
-            pagerMain.visibility = View.VISIBLE
             main.barMain.visibility = View.GONE
             pagerMain.setCurrentItem(Mob.LOGIN0, false)
+            pagerMain.visibility = View.VISIBLE
         }
         pagerMain.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
         val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)
         val ctx = this
 
-        if (pagerMain.currentItem == Mob.INIT01) {
+        if (pagerMain.currentItem == Mob.INIT01 || pagerMain.currentItem == Mob.LOGIN0) {
             with (bindmsg) {
                 btpositivo.text = getString(R.string.cancel)
                 btnegativo.text = getString(R.string.close)
@@ -142,13 +142,13 @@ class MainActivity : AppCompatActivity() {
             Handler(Looper.getMainLooper()).postDelayed({
                 when (resp?.code) {
                     Mob.CODE200 -> {
-                        pagerMain.visibility = View.VISIBLE
                         main.barMain.visibility = View.GONE
+                        pagerMain.visibility = View.VISIBLE
                     }
                     Mob.CODE401 -> {
-                        pagerMain.visibility = View.VISIBLE
                         main.barMain.visibility = View.GONE
                         pagerMain.setCurrentItem(Mob.LOGIN0, false)
+                        pagerMain.visibility = View.VISIBLE
                         val color = ContextCompat.getColor(ctx, R.color.dark_red)
                         val alert = Functions.msgBallom(
                             "Sesión expirada", Mob.WIDTH160DP, ctx, color)
@@ -156,8 +156,8 @@ class MainActivity : AppCompatActivity() {
                         alert.dismissWithDelay(Mob.TIMELONG4SEG)
                     }
                     else -> {
-                        pagerMain.visibility = View.VISIBLE
                         main.barMain.visibility = View.GONE
+                        pagerMain.visibility = View.VISIBLE
                     }
                 }
             }, (Mob.TIME500MS))

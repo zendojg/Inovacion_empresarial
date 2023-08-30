@@ -16,7 +16,7 @@ class FragEncuestaCap06o1 : Fragment() {
 
     private lateinit var bindingcap6o1: EncuestaCapitulo061InovacionProductosBinding
     private lateinit var ctx: Context
-    private var checkNo39: MutableList<Boolean> = mutableListOf(false,false,false,false)
+    var checkNo39: MutableList<Boolean> = mutableListOf(false,false,false,false)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
