@@ -52,8 +52,6 @@ class MainFragmentLogin: Fragment() {
         if (pager?.currentItem != null)
             Mob.mainWindow = pager.currentItem
         fragLogin.lbversionLogin.text = Mob.version
-
-        Toast.makeText(ctx, "App de prueba ${Mob.version}", Toast.LENGTH_SHORT).show() //---- Eliminar
         onAction()
     }
 
@@ -100,16 +98,14 @@ class MainFragmentLogin: Fragment() {
                         TextInputLayout.END_ICON_PASSWORD_TOGGLE
                 }
                 fragLogin.txtpassLogin.text.isNullOrEmpty() -> {
-                    fragLogin.txtpasslyLogin.endIconMode =
-                        TextInputLayout.END_ICON_CUSTOM
+                    fragLogin.txtpasslyLogin.endIconMode = TextInputLayout.END_ICON_CUSTOM
                     fragLogin.txtpassLogin.error = getString(R.string.errorPass)
                     fragLogin.txtuserLogin.error = null
                 }
                 else -> {
-                    fragLogin.txtpasslyLogin.endIconMode =
-                        TextInputLayout.END_ICON_PASSWORD_TOGGLE
-                    fragLogin.txtuserLogin.error = null
+                    fragLogin.txtpasslyLogin.endIconMode = TextInputLayout.END_ICON_PASSWORD_TOGGLE
                     fragLogin.txtpassLogin.error = null
+                    fragLogin.txtuserLogin.error = null
 
                     val user = fragLogin.txtuserLogin.text.toString()
                     if (user.contains("E")) rol = "E"

@@ -32,7 +32,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var main: ActivityMainBinding
     lateinit var pagerMain: ViewPager2
     private val dvmMain: DVModel by viewModels()
-    var aDialog: AlertDialog? = null
+    private var aDialog: AlertDialog? = null
+    private val ctx = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,9 +54,8 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onPause() {
         super.onPause()
-        if (aDialog?.isShowing == true){
-            aDialog?.dismiss()
-        }
+        if (aDialog?.isShowing == true) aDialog?.dismiss()
+
     }
 
     override fun onResume() {
@@ -105,7 +105,6 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         val dialogBack = AlertDialog.Builder(this)
         val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)
-        val ctx = this
 
         if (pagerMain.currentItem == Mob.INIT01 || pagerMain.currentItem == Mob.LOGIN0) {
             with (bindmsg) {
@@ -136,7 +135,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun validate() { //-------- Validador de TOKEN
-        val ctx = this
         lifecycleScope.launch {
             val resp = dvmMain.seeToken()
             Handler(Looper.getMainLooper()).postDelayed({

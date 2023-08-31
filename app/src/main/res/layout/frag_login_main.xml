@@ -68,15 +68,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
 
-
             <ImageView
                 android:id="@+id/img_Alogin"
                 android:layout_width="100dp"
                 android:layout_height="80dp"
                 android:contentDescription="Instituto Nacional de Estadística y Censo"
+                app:layout_constraintBottom_toTopOf="@+id/textView9"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/guideLow"
                 app:srcCompat="@drawable/logo_inec" />
 
 
@@ -89,7 +88,9 @@
                 android:paddingHorizontal="30dp"
                 android:text="@string/subtittle2Main"
                 android:textSize="@dimen/text10"
-                app:layout_constraintTop_toBottomOf="@+id/img_Alogin" />
+                app:layout_constraintBottom_toTopOf="@+id/textView10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/textView10"
@@ -99,7 +100,8 @@
                 android:gravity="center"
                 android:text="@string/subtittle3Main"
                 android:textSize="@dimen/text10"
-                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+                android:layout_marginBottom="25dp"
+                app:layout_constraintBottom_toBottomOf="parent" />
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -238,12 +240,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideLow"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.82" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

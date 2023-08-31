@@ -72,7 +72,7 @@ class FragEncuestaCap02o2 : Fragment() {
             txtCap218.text = cap2?.v18dirtxt?.toEditable() ?: blank
             txtCap2181.text = cap2?.v18dirreftxt?.toEditable() ?: blank
             txtCap2191.text = cap2?.v19tel1txt?.toEditable() ?: blank
-            if (frameview) txtCap2192.text = cap2?.v19tel2txt?.toEditable() ?: blank else null
+            txtCap2192.text = cap2?.v19tel2txt?.toEditable() ?: blank
             txtCap220.text = cap2?.v20celtxt?.toEditable() ?: blank
             frameview = !txtCap2192.text.isNullOrBlank()
         }

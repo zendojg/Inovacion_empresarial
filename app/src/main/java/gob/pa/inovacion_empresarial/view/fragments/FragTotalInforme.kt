@@ -258,21 +258,21 @@ class FragTotalInforme : Fragment() {
         catch (e: RuntimeException) { "".toEditable() }
 
         msgSend.setView(bindSend.root)
-        val dialog: AlertDialog = msgSend.create()
-        dialog.setCancelable(false)
-        dialog.show()
+        aDialog = msgSend.create()
+        aDialog?.setCancelable(false)
+        aDialog?.show()
 
 
-        dialog.window?.setGravity(Gravity.CENTER)
+        aDialog?.window?.setGravity(Gravity.CENTER)
 
         bindSend.btEnd.setOnClickListener {
-            dialog.dismiss()
+            aDialog?.dismiss()
             endForm()
         }
 
 
         bindSend.btCancel.setOnClickListener {
-            dialog.dismiss()
+            aDialog?.dismiss()
             bindinginfo.btEnd.visibility = View.VISIBLE
         }
 

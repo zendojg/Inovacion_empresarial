@@ -34,7 +34,6 @@ class FragMenu : Fragment() {
         return formbinding.root
     }
 
-
     override fun onResume() {
         super.onResume()
 
@@ -43,42 +42,41 @@ class FragMenu : Fragment() {
 
     private fun action() {
         with(formbinding) {
-            btEncuestaExpandMain.setOnClickListener {
+            btEncuestaMain.setOnClickListener {
                 if (!linearEncuestaMain.isVisible) { //-- expandir
                     linearEncuestaMain.visibility = View.VISIBLE
                     linearModuloMain.visibility = View.GONE
                     layoutpiemain.visibility = View.GONE
-                    btEncuestaExpandMain.setImageDrawable(
-                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_less))
-                    btModuloExpandMain.setImageDrawable(
-                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_more))
+                    linearInfoMenu.visibility = View.GONE
+                    btEncuestaMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_less)
+                    btModuloMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_more)
+
+
                 } else { //-- contraer
                     layoutpiemain.visibility = View.VISIBLE
+                    linearInfoMenu.visibility = View.VISIBLE
                     linearEncuestaMain.visibility = View.GONE
-                    btEncuestaExpandMain.setImageDrawable(
-                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_more))
+                    btEncuestaMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_more)
                 }
             }
             //-------------------------------------------------------------------------------------- " " Modulo
-            btModuloExpandMain.setOnClickListener {
+            btModuloMain.setOnClickListener {
                 if (!linearModuloMain.isVisible) { //-- expandir
                     linearModuloMain.visibility = View.VISIBLE
                     linearEncuestaMain.visibility = View.GONE
+                    linearInfoMenu.visibility = View.GONE
 
-                    btModuloExpandMain.setImageDrawable(
-                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_less))
-                    btEncuestaExpandMain.setImageDrawable(
-                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_more))
+                    btModuloMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_less)
+                    btEncuestaMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_more)
+
                 } else { //-- contraer
+                    linearInfoMenu.visibility = View.VISIBLE
                     linearModuloMain.visibility = View.GONE
-
-                    btModuloExpandMain.setImageDrawable(
-                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_more))
+                    btModuloMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_more)
                 }
             }
             //--------------------------------------------------------------------------------------
             //-------------------------------------------------------------------------------------- Comenzar Encuesta
-            btEncuestaMain.setOnClickListener { viewpager(Mob.CAP1P01) }
             btcap01main.setOnClickListener { viewpager(Mob.CAP1P01) }
             btcap02main.setOnClickListener { viewpager(Mob.CAP2P02) }
             btcap03main.setOnClickListener { viewpager(Mob.CAP3P04) }
@@ -90,7 +88,6 @@ class FragMenu : Fragment() {
             btcap09main.setOnClickListener { viewpager(Mob.CAP9P17) }
             btcap10main.setOnClickListener { viewpager(Mob.CAPXP19) }
             //-------------------------------------------------------------------------------------- Comenzar Modulo
-            btModuloMain.setOnClickListener { viewpager(Mob.SEC1P20) }
             btsec01main.setOnClickListener { viewpager(Mob.SEC1P20) }
             btsec02main.setOnClickListener { viewpager(Mob.SEC2P21) }
             btsec03main.setOnClickListener { viewpager(Mob.SEC3P22) }
