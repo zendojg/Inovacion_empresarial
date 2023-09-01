@@ -56,11 +56,11 @@ class FragEncuestaCap08end : Fragment() {
 
     private fun onAction() {
         with(bindingcap8o2) {
-            scrollForm.isVisible = Mob.p56stat != false
+            scrollForm.isVisible = Mob.cap8?.v56check != false
 
             lowCap8o2.setOnClickListener { saveCap() }
-            if (Mob.p56stat == true) tb58.isVisible = true
-            else if (Mob.p56stat == false) tb58.isVisible = false
+            if (Mob.cap8?.v56check == true) tb58.isVisible = true
+            else if (Mob.cap8?.v56check == false) tb58.isVisible = false
 
             val grade58 = ArrayAdapter(ctx, R.layout.style_box, Mob.arrGrade)
             grade58.setDropDownViewResource(R.layout.style_list)
@@ -262,7 +262,7 @@ class FragEncuestaCap08end : Fragment() {
                     spinCap8584B.selectedItemPosition.toString(),
                 if (spinCap8584C.selectedItemPosition == 0 || Mob.cap8?.v56check == false) null else
                     spinCap8584C.selectedItemPosition.toString(),
-                if (Mob.p56stat == false) null else txtCap8584DOtra.text.toString()
+                if (Mob.cap8?.v56check == false) null else txtCap8584DOtra.text.toString()
                     .ifEmpty { null },
                 if (spinCap8584D.selectedItemPosition == 0 || Mob.cap8?.v56check == false) null else
                     spinCap8584D.selectedItemPosition.toString(),

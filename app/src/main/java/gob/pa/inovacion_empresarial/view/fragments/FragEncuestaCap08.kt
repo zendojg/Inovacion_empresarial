@@ -48,26 +48,14 @@ class FragEncuestaCap08 : Fragment() {
         with(bindingcap8o1) {
             lowCap8o1.setOnClickListener { saveCap() }
 
-            if (rbtCap856Si.isChecked) {
-                Mob.p56stat = true
-                layoutCap857.isVisible = true
-            }
-            else if (rbtCap856No.isChecked) {
-                Mob.p56stat = false
-                layoutCap857.isVisible = false
-            }
+            if (rbtCap856Si.isChecked) { layoutCap857.isVisible = true }
+            else if (rbtCap856No.isChecked) { layoutCap857.isVisible = false }
 
             rgroupCap856.setOnCheckedChangeListener { _, id ->
                 hideKeyboard()
                 when (id) {
-                    rbtCap856Si.id -> {
-                        Mob.p56stat = true
-                        layoutCap857.visibility = View.VISIBLE
-                    }
-                    rbtCap856No.id -> {
-                        Mob.p56stat = false
-                        layoutCap857.visibility = View.GONE
-                    }
+                    rbtCap856Si.id -> { layoutCap857.visibility = View.VISIBLE }
+                    rbtCap856No.id -> { layoutCap857.visibility = View.GONE }
                 }
             }
 
@@ -152,18 +140,9 @@ class FragEncuestaCap08 : Fragment() {
         val cap8 = Mob.formComp?.cap8
         val blank = "".toEditable()
         when (cap8?.v56check) {
-            true -> {
-                Mob.p56stat = true
-                bindingcap8o1.rbtCap856Si.isChecked = true
-            }
-            false -> {
-                Mob.p56stat = false
-                bindingcap8o1.rbtCap856No.isChecked = true
-            }
-            else -> {
-                Mob.p56stat = null
-                bindingcap8o1.rgroupCap856.clearCheck()
-            }
+            true -> { bindingcap8o1.rbtCap856Si.isChecked = true }
+            false -> { bindingcap8o1.rbtCap856No.isChecked = true }
+            else -> { bindingcap8o1.rgroupCap856.clearCheck() }
         }
         indice1a = try { cap8?.v57num1a?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }
         indice1b = try { cap8?.v57num1b?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }

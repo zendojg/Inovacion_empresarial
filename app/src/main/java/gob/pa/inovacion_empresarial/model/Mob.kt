@@ -162,8 +162,6 @@ object Mob {
     val arrImp: Array<String> = arrayOf("*","1","2","3","4","5")
 
     var pass: String? = "12345"
-    var p56stat: Boolean? = null
-    var seccON: Boolean? = null
 
     var seecap01: Boolean = true
     var seecap02o1: Boolean = true

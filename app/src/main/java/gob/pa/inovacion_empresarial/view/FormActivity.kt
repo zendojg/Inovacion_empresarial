@@ -295,22 +295,26 @@ class FormActivity : AppCompatActivity() {
 
     private fun moveTo(move: Boolean) {
         if (move) {
-            if (form.viewpager.currentItem == Mob.CAP8P15 && Mob.p56stat == false) {
+            if (form.viewpager.currentItem == Mob.CAP8P15 &&
+                Mob.cap8?.v56check == false) {
                 form.viewpager.setCurrentItem(
                     form.viewpager.currentItem + 2, false)
             } else
-                if (form.viewpager.currentItem == Mob.SEC1P20 && Mob.seccON == false) {
+                if (form.viewpager.currentItem == Mob.SEC1P20 &&
+                    Mob.capMod?.v1check == false) {
                     form.viewpager.setCurrentItem(
                         form.viewpager.currentItem + Mob.JUMPMODULE1, false)
                 } else
                     form.viewpager.setCurrentItem(
                         form.viewpager.currentItem + 1, false)
         } else {
-            if (form.viewpager.currentItem == Mob.CAP9P17 && Mob.p56stat == false) {
+            if (form.viewpager.currentItem == Mob.CAP9P17 &&
+                Mob.cap8?.v56check == false) {
                 form.viewpager.setCurrentItem(
                     form.viewpager.currentItem - 2, false)
             } else
-                if (form.viewpager.currentItem == Mob.OBSP24 && Mob.seccON == false) {
+                if (form.viewpager.currentItem == Mob.OBSP24 &&
+                    Mob.capMod?.v1check == false) {
                     form.viewpager.setCurrentItem(
                         form.viewpager.currentItem - Mob.JUMPMODULE1, false)
                 } else

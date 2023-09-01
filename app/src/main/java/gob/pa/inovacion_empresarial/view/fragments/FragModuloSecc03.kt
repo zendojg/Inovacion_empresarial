@@ -36,7 +36,7 @@ class FragModuloSecc03 : Fragment() {
 
     private fun onAction() {
         with(bindingmod3) {
-            scrollForm.isVisible = Mob.seccON != false
+            scrollForm.isVisible = Mob.capMod?.v1check != false
             layoutSecc341.isVisible = rbtSecc034ASi.isChecked
 
             rgroupSecc034.setOnCheckedChangeListener { _, id ->
@@ -164,7 +164,7 @@ class FragModuloSecc03 : Fragment() {
 
     fun saveCap(): List<String> {
         with (bindingmod3) {
-            val p4check = (Mob.seccON != false && rbtSecc034Si.isChecked)
+            val p4check = (Mob.capMod?.v1check != false && rbtSecc034Si.isChecked)
 
             Mob.capMod = ModelMod(
                 Mob.capMod?.id,
@@ -181,7 +181,7 @@ class FragModuloSecc03 : Fragment() {
                 Mob.capMod?.v3check2,
                 Mob.capMod?.v3check3,
                 Mob.capMod?.v3check4,//---------
-                if (p4check) true else if (Mob.seccON != false && rbtSecc034No.isChecked)
+                if (p4check) true else if (Mob.capMod?.v1check != false && rbtSecc034No.isChecked)
                     false else null,
                 if (p4check && rbtSecc034ASi.isChecked) true else
                     if (p4check && rbtSecc034ANo.isChecked) false else null,

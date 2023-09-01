@@ -34,7 +34,7 @@ class FragModuloSecc02 : Fragment() {
 
     private fun onAction() {
         with(bindingmod2) {
-            scrollForm.isVisible = Mob.seccON != false
+            scrollForm.isVisible = Mob.capMod?.v1check != false
             lowMod2.setOnClickListener { saveCap() }
         }
     }
@@ -65,10 +65,10 @@ class FragModuloSecc02 : Fragment() {
                 Mob.capMod?.v2txtDesc1d,
                 Mob.capMod?.v2check2,
                 //Mob.capMod?.v2txtnull: String?, //---------
-                if (Mob.seccON != false && checkSecc231.isChecked) true else null,
-                if (Mob.seccON != false && checkSecc232.isChecked) true else null,
-                if (Mob.seccON != false && checkSecc233.isChecked) true else null,
-                if (Mob.seccON != false && checkSecc234.isChecked) true else null,
+                if (Mob.capMod?.v1check != false && checkSecc231.isChecked) true else null,
+                if (Mob.capMod?.v1check != false && checkSecc232.isChecked) true else null,
+                if (Mob.capMod?.v1check != false && checkSecc233.isChecked) true else null,
+                if (Mob.capMod?.v1check != false && checkSecc234.isChecked) true else null,
                 Mob.capMod?.v4check,//----------
                 Mob.capMod?.v4check1a,
                 Mob.capMod?.v4check1aPorcent,

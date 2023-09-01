@@ -44,7 +44,7 @@ class FragModuloSecc04: Fragment() {
 
     private fun onAction() {
         with(bindingmod4) {
-            scrollForm.isVisible = Mob.seccON != false
+            scrollForm.isVisible = Mob.capMod?.v1check != false
 
             venta1 = try { txtSecc046p1.text.toString().toInt() }
             catch (e: java.lang.NumberFormatException) { 0 }
@@ -239,25 +239,29 @@ class FragModuloSecc04: Fragment() {
                 Mob.capMod?.v4check1ePorcent,
                 Mob.capMod?.v4check1eOther,
                 Mob.capMod?.v5txt,//--------------
-                if (Mob.seccON != false) txtSecc046p1.text.toString().ifEmpty { "0" } else null,
-                if (Mob.seccON != false) txtSecc046p2.text.toString().ifEmpty { "0" } else null,
-                if (Mob.seccON != false) txtSecc046p3.text.toString().ifEmpty { "0" } else null,
-                if (Mob.seccON != false) txtSecc046p4.text.toString().ifEmpty { "0" } else null,
-                if (Mob.seccON != false && rbtSecc047Si.isChecked) true else
-                    if (Mob.seccON != false && rbtSecc047No.isChecked) false else null,
-                if (Mob.seccON != false && rbtSecc047Si.isChecked)
+                if (Mob.capMod?.v1check != false)
+                    txtSecc046p1.text.toString().ifEmpty { "0" } else null,
+                if (Mob.capMod?.v1check != false)
+                    txtSecc046p2.text.toString().ifEmpty { "0" } else null,
+                if (Mob.capMod?.v1check != false)
+                    txtSecc046p3.text.toString().ifEmpty { "0" } else null,
+                if (Mob.capMod?.v1check != false)
+                    txtSecc046p4.text.toString().ifEmpty { "0" } else null,
+                if (Mob.capMod?.v1check != false && rbtSecc047Si.isChecked) true else
+                    if (Mob.capMod?.v1check != false && rbtSecc047No.isChecked) false else null,
+                if (Mob.capMod?.v1check != false && rbtSecc047Si.isChecked)
                     txtSecc048.text.toString().ifEmpty { null } else null,
-                if (Mob.seccON != false && rbtSecc049Si.isChecked) true else
-                    if (Mob.seccON != false && rbtSecc049No.isChecked) false else null,
-                if (Mob.seccON != false && rbtSecc049Si.isChecked)
+                if (Mob.capMod?.v1check != false && rbtSecc049Si.isChecked) true else
+                    if (Mob.capMod?.v1check != false && rbtSecc049No.isChecked) false else null,
+                if (Mob.capMod?.v1check != false && rbtSecc049Si.isChecked)
                     txtSecc049.text.toString().ifEmpty { null } else null,
-                if (Mob.seccON != false && rbtSecc049Si.isChecked)
+                if (Mob.capMod?.v1check != false && rbtSecc049Si.isChecked)
                     txtSecc04101.text.toString().ifEmpty { null } else null,
-                if (Mob.seccON != false && rbtSecc049Si.isChecked)
+                if (Mob.capMod?.v1check != false && rbtSecc049Si.isChecked)
                     txtSecc04102.text.toString().ifEmpty { null } else null,
-                if (Mob.seccON != false && rbtSecc049Si.isChecked)
+                if (Mob.capMod?.v1check != false && rbtSecc049Si.isChecked)
                     txtSecc04103.text.toString().ifEmpty { null } else null,
-                if (Mob.seccON != false && rbtSecc049Si.isChecked)
+                if (Mob.capMod?.v1check != false && rbtSecc049Si.isChecked)
                     txtSecc04104.text.toString().ifEmpty { null } else null,
                 Mob.obsModulo,
                 Mob.capMod?.numControl
@@ -267,16 +271,16 @@ class FragModuloSecc04: Fragment() {
     }
 
     private fun viewCap(): List<String> {
-        with(bindingmod4) {
+        with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
-            if (txtSecc046p1.text.toString().isEmpty() && txtSecc046p2.text.toString().isEmpty())
-                if (txtSecc046p3.text.toString().isEmpty() && txtSecc046p4.text.toString().isEmpty())
+            if (capMod?.v6porcent1.isNullOrEmpty() && capMod?.v6porcent2.isNullOrEmpty())
+                if (capMod?.v6porcent3.isNullOrEmpty() && capMod?.v6porcent4.isNullOrEmpty())
                     returnList.add(CreateIncon.inconsistencia(ctx, "306") ?: "")
-            if (ventat < 100 || ventat > 100)
+            if (ventat < PORCENT100 || ventat > PORCENT100)
                 returnList.add(CreateIncon.inconsistencia(ctx, "307") ?: "")
 
-            Mob.isecc4 = returnList.isNotEmpty()
-            println("---------Is not empty: ${Mob.isecc4}--${Mob.capMod}")
+            isecc4 = returnList.isNotEmpty()
+            println("---------Is not empty: $isecc4--$capMod")
             return returnList
         }
     }

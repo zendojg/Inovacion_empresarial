@@ -82,8 +82,6 @@ object  CreateForm {
     }
     fun resetLoad() {
         with(Mob) {
-            p56stat = null
-            seccON = null
             indiceFormulario = 0
             obsEncuesta = ""
             obsModulo = ""

@@ -60,75 +60,7 @@ class FragEncuestaCap01 : Fragment() {
         val room = RoomView(dvmCap1, ctx)
         with (bindingcap1){
 
-            txtCap11.onItemClickListener =
-                AdapterView.OnItemClickListener { prn, _, pos, _ ->
-                    CoroutineScope(Dispatchers.IO).launch {
-                        idprov = room.getProvID(prn.getItemAtPosition(pos).toString())
-                        arrayDist = room.getDist(idprov)
-                        iddist = ""
-                        idcorre = ""
-                        idlugarp = ""
-                        activity?.runOnUiThread {
-                            txtCap11ID.text = idprov
-                            txtCap12ID.text = iddist
-                            txtCap13ID.text = idcorre
-                            txtCap14ID.text = idlugarp
 
-                            txtCap12.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayDist))
-                            txtCap13.setAdapter(ArrayAdapter(ctx, R.layout.style_list, Mob.empArr))
-                            txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, Mob.empArr))
-                            txtCap12.setText("", false)
-                            txtCap13.setText("", false)
-                            txtCap14.setText("", false)
-                        }
-                    }
-                }
-            txtCap12.onItemClickListener =
-                AdapterView.OnItemClickListener { prn, _, pos, _ ->
-                    CoroutineScope(Dispatchers.IO).launch {
-                        iddist = room.getDistID(
-                            idprov,
-                            prn.getItemAtPosition(pos).toString())
-                        arrayCorre = room.getCorre(
-                            idprov,
-                            iddist)
-                        idcorre = ""
-                        idlugarp = ""
-                        activity?.runOnUiThread {
-                            txtCap12ID.text = iddist
-                            txtCap13ID.text = idcorre
-                            txtCap14ID.text = idlugarp
-
-                            txtCap13.setAdapter(
-                                ArrayAdapter(ctx, R.layout.style_list, arrayCorre))
-                            txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, Mob.empArr))
-                            txtCap13.setText("", false)
-                            txtCap14.setText("", false)
-                        }
-                    }
-                }
-            txtCap13.onItemClickListener =
-                AdapterView.OnItemClickListener { prn, _, pos, _ ->
-                    CoroutineScope(Dispatchers.IO).launch {
-                        idcorre =
-                            room.getCorreID(
-                                idprov,
-                                iddist,
-                                prn.getItemAtPosition(pos).toString())
-                        arrayLugarP = room.getLugarP(
-                            idprov,
-                            iddist,
-                            idcorre)
-                        idlugarp = ""
-                        activity?.runOnUiThread {
-                            txtCap13ID.text = idcorre
-                            txtCap14ID.text = idlugarp
-
-                            txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayLugarP))
-                            txtCap14.setText("", false)
-                        }
-                    }
-                }
             txtCap14.onItemClickListener =
                 AdapterView.OnItemClickListener { prn, _, pos, _ ->
                     CoroutineScope(Dispatchers.IO).launch {
@@ -169,14 +101,18 @@ class FragEncuestaCap01 : Fragment() {
     private fun seeData(editFields: Boolean) {
         val room = RoomView(dvmCap1, ctx)
         CoroutineScope(Dispatchers.IO).launch {
-            if (arrayProv.isEmpty() && editFields)
+
+            if (editFields) {
                 arrayProv = room.getProv()
+                cargaEmptys()
+            } else arrayProv = emptyArray()
+
             if (idprov.isNotEmpty()) {
                 prov = room.getProvName(idprov)
-                if (editFields) arrayDist = room.getDist(idprov)
+                arrayDist = if (editFields) room.getDist(idprov) else emptyArray()
                 if (iddist.isNotEmpty()) {
                     dist = room.getDistName(idprov, iddist)
-                    if (editFields) arrayCorre = room.getCorre(idprov, iddist)
+                    arrayCorre = if (editFields) room.getCorre(idprov, iddist) else emptyArray()
                     if (idcorre.isNotEmpty()) {
                         corre = room.getCorreName(idprov, iddist, idcorre)
                         arrayLugarP = room.getLugarP(idprov, iddist, idcorre)
@@ -208,6 +144,84 @@ class FragEncuestaCap01 : Fragment() {
         onAction()
     }
 
+    private fun cargaEmptys() {
+        val room = RoomView(dvmCap1, ctx)
+        with (bindingcap1) {
+            txtCap11.onItemClickListener =
+                AdapterView.OnItemClickListener { prn, _, pos, _ ->
+                    CoroutineScope(Dispatchers.IO).launch {
+                        idprov = room.getProvID(prn.getItemAtPosition(pos).toString())
+                        arrayDist = room.getDist(idprov)
+                        iddist = ""
+                        idcorre = ""
+                        idlugarp = ""
+                        activity?.runOnUiThread {
+                            txtCap11ID.text = idprov
+                            txtCap12ID.text = iddist
+                            txtCap13ID.text = idcorre
+                            txtCap14ID.text = idlugarp
+
+                            txtCap12.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayDist))
+                            txtCap13.setAdapter(ArrayAdapter(ctx, R.layout.style_list, Mob.empArr))
+                            txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, Mob.empArr))
+                            txtCap12.setText("", false)
+                            txtCap13.setText("", false)
+                            txtCap14.setText("", false)
+                        }
+                    }
+                }
+            txtCap12.onItemClickListener =
+                AdapterView.OnItemClickListener { prn, _, pos, _ ->
+                    CoroutineScope(Dispatchers.IO).launch {
+                        iddist = room.getDistID(
+                            idprov,
+                            prn.getItemAtPosition(pos).toString()
+                        )
+                        arrayCorre = room.getCorre(
+                            idprov,
+                            iddist
+                        )
+                        idcorre = ""
+                        idlugarp = ""
+                        activity?.runOnUiThread {
+                            txtCap12ID.text = iddist
+                            txtCap13ID.text = idcorre
+                            txtCap14ID.text = idlugarp
+
+                            txtCap13.setAdapter(
+                                ArrayAdapter(ctx, R.layout.style_list, arrayCorre)
+                            )
+                            txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, Mob.empArr))
+                            txtCap13.setText("", false)
+                            txtCap14.setText("", false)
+                        }
+                    }
+                }
+            txtCap13.onItemClickListener =
+                AdapterView.OnItemClickListener { prn, _, pos, _ ->
+                    CoroutineScope(Dispatchers.IO).launch {
+                        idcorre =
+                            room.getCorreID(
+                                idprov,
+                                iddist,
+                                prn.getItemAtPosition(pos).toString()
+                            )
+                        arrayLugarP = room.getLugarP(
+                            idprov,
+                            iddist,
+                            idcorre
+                        )
+                        idlugarp = ""
+                        activity?.runOnUiThread {
+                            txtCap13ID.text = idcorre
+                            txtCap14ID.text = idlugarp
+                            txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayLugarP))
+                            txtCap14.setText("", false)
+                        }
+                    }
+                }
+        }
+    }
 
     fun savedCap(): List<String> {
         with(bindingcap1) {

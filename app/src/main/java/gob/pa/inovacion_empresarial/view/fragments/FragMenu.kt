@@ -42,6 +42,8 @@ class FragMenu : Fragment() {
 
     private fun action() {
         with(formbinding) {
+
+
             btEncuestaMain.setOnClickListener {
                 if (!linearEncuestaMain.isVisible) { //-- expandir
                     linearEncuestaMain.visibility = View.VISIBLE
