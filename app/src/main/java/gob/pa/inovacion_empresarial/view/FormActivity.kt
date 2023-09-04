@@ -12,16 +12,21 @@ import android.os.Looper
 import android.text.InputType
 import android.util.Log
 import android.view.Gravity
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.activity.viewModels
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.navigation.NavigationView
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.adapters.AdapterPagerForm
 import gob.pa.inovacion_empresarial.databinding.ActivityFormBinding
@@ -41,9 +46,12 @@ import java.io.FileOutputStream
 import kotlin.collections.ArrayList
 
 
-class FormActivity : AppCompatActivity() {
+class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var form: ActivityFormBinding
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var toggle: ActionBarDrawerToggle
+
     private var dialog: AlertDialog? = null
     private val dvmForm: DVModel by viewModels()
     private val ctx: Context = this
@@ -51,7 +59,6 @@ class FormActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         form = ActivityFormBinding.inflate(layoutInflater)
-        setContentView(form.root)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         val myAdapter = AdapterPagerForm(supportFragmentManager, lifecycle)
         if (myAdapter.itemCount == 0) {
@@ -59,18 +66,18 @@ class FormActivity : AppCompatActivity() {
             form.viewpager.adapter = myAdapter
             form.viewpager.isUserInputEnabled = false
         }
-        handleAppCrash
+        setContentView(form.root)
     }
-    private val handleAppCrash =
-        Thread.UncaughtExceptionHandler { _, ex ->
-            Log.e("error", ex.toString())
-            val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
-            val fileDir = File(dir, "EIE_log.txt")
-            FileOutputStream(fileDir).use { it.write(ex.toString().toByteArray()) }
-        }
+
 
     override fun onResume() {
         super.onResume()
+        drawerLayout  = form.constraintpager
+        toggle = ActionBarDrawerToggle(this, drawerLayout, form.toolbarpager,
+            R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+        form.navView.setNavigationItemSelectedListener(this)
         onAction()
     }
 
@@ -120,13 +127,22 @@ class FormActivity : AppCompatActivity() {
                     //(viewpager[0] as RecyclerView).layoutManager?.findViewByPosition(position)
                 }
             })
-
             btobspager.setOnClickListener { observation(form.viewpager.currentItem) }
             btsavepager.setOnClickListener { seeCaps(null) }
         }
     }
 
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        if (toggle.onOptionsItemSelected(item)) {
+            return true
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
+            drawerLayout.closeDrawer(GravityCompat.END)
+        } else
         if (form.viewpager.currentItem == Mob.MENUP00) {
             val mesagePregunta = AlertDialog.Builder(this)
             val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)

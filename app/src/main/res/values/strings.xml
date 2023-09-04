@@ -12,7 +12,7 @@
     <string name="c09">Capítulo IX.  Patentes, Derechos de Propiedad intelectual, Marca y Normas de Calidad</string>
     <string name="c10">Capítulo X.  Perspectivas de Innovaciones Futuras</string>
 
-    <string name="cap01">Capítulo I.</string>
+    <string name="cap01"><font falmily="sans-serif-condensed">Capítulo I.</font></string>
     <string name="cap02">Capítulo II.</string>
     <string name="cap03">Capítulo III.</string>
     <string name="cap04">Capítulo IV.</string>
@@ -73,6 +73,10 @@
 
     <string name="informe">INFORME</string>
     <string name="informetxt">Datos del Formulario</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="init">Iniciar</string>
     <string name="back">Regresar</string>
@@ -180,6 +184,10 @@
     <string name="backgroud">Backgroud</string>
     <string name="btinitForm">Encuesta de Innovación en Empresas</string>
     <string name="btinitmodule">Módulo de Comercio Electrónico en la Empresa</string>
+
+    <string name="tittleInno">INNOVACIÓN EN EMPRESAS</string>
+    <string name="tittleMod">COMERCIO ELECTRÓNICO EN LA EMPRESA</string>
+
     <string name="subtittle2Main">La información solicitada está amparada por el secreto estadístico y es estrictamente confidencial</string>
     <string name="subtittle3Main">LEY 10 DEL 22 DE ENERO DE 2009</string>
 

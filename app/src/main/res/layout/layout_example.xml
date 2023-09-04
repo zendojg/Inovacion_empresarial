@@ -3,502 +3,249 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+    <data />
 
-    </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/constraintpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:animateLayoutChanges="true"
-        android:background="@drawable/foreground_back">
+        android:fitsSystemWindows="true"
+        tools:context=".view.FormActivity"
+        tools:openDrawer="start">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            android:layout_marginTop="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/layoutpiemain"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
 
-            <ScrollView
-                android:id="@+id/scrollMain"
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarpager"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="vertical"
-                android:fillViewport="true"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="UselessParent">
+                app:layout_constraintTop_toTopOf="parent">
 
-                <LinearLayout
-                    android:id="@+id/linearFormMain"
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbarpager"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:animateLayoutChanges="true"
-                    android:orientation="vertical">
 
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:id="@+id/linearInfoMenu"
+                    android:animateLayoutChanges="true">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:animateLayoutChanges="true"
-                        android:layout_marginHorizontal="7dp"
-                        android:layout_marginVertical="17dp"
-                        android:orientation="vertical">
+                        android:layout_height="match_parent"
+                        android:visibility="gone">
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/txtNcontrolLocally"
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/txvtitlepager"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="7dp"
-                            android:hint="@string/hint_ncontrolB"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/lbtittlestyleF"
-                            app:startIconContentDescription="Localización"
-                            app:startIconDrawable="@drawable/img_find"
-                            app:startIconTint="#306F90">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/txtNcontrolLocal"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/background_shadow"
-                                android:focusable="false"
-                                android:fontFamily="sans-serif-condensed"
-                                android:inputType="phone"
-                                android:maxLength="6"
-                                android:text="@string/cero"
-                                android:textColor="@color/azul"
-                                android:textSize="@dimen/text16" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/textInputLayout3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/hint_ruc"
-                            app:layout_constraintTop_toBottomOf="@+id/txtNcontrolLocally"
-                            app:startIconContentDescription="RUC"
-                            app:startIconDrawable="@drawable/img_idcheck"
-                            app:startIconTint="#306F90">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/txtRUCLocal"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/background_shadow"
-                                android:focusable="false"
-                                android:fontFamily="sans-serif-condensed"
-                                android:textColor="@color/azul"
-                                android:textSize="@dimen/text16"
-                                tools:text="000000000000-00000000-000000000000" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/textInputLayout4"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/hint_razon"
-                            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-                            app:startIconContentDescription="Establecimiento"
-                            app:startIconDrawable="@drawable/img_local06"
-                            app:startIconTint="#306F90">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/txtRazonLocal"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/background_shadow"
-                                android:focusable="false"
-                                android:fontFamily="sans-serif-condensed"
-                                android:inputType="textCapWords"
-                                android:textColor="@color/azul"
-                                android:textSize="@dimen/text16"
-                                tools:text="Razón Social" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/textInputLayout5"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/hin_nameL"
-                            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
-                            app:startIconContentDescription="Establecimiento"
-                            app:startIconDrawable="@drawable/img_local08"
-                            app:startIconTint="#306F90">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/txtNameLocal"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/background_shadow"
-                                android:focusable="false"
-                                android:fontFamily="sans-serif-condensed"
-                                android:inputType="textCapWords"
-                                android:textColor="@color/azul"
-                                android:textSize="@dimen/text16"
-                                tools:text="Nombre del Local" />
-                        </com.google.android.material.textfield.TextInputLayout>
-
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="7dp"
-                        android:layout_marginBottom="5dp"
-                        android:animateLayoutChanges="true"
-                        android:orientation="vertical"
-                        app:cornerRadius="5dp">
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btEncuestaMain"
-                            android:layout_width="match_parent"
-                            android:layout_height="43dp"
-                            android:drawableTint="@color/white"
+                            android:animateLayoutChanges="true"
                             android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:insetTop="0dp"
-                            android:insetBottom="0dp"
-                            android:text="@string/btinitForm"
-                            android:textAllCaps="false"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                            android:textSize="@dimen/text16"
+                            android:text="@string/cap_test"
+                            android:textSize="22sp"
                             android:textStyle="bold"
-                            app:backgroundTint="@color/txtBlueD"
-                            app:cornerRadius="5dp"
-                            app:icon="@drawable/img_expand_more"
-                            app:iconPadding="10dp"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:strokeColor="@color/blue_dark"
-                            app:strokeWidth="1dp"
-                            tools:ignore="TouchTargetSizeCheck" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
-                        <LinearLayout
-                            android:id="@+id/linearEncuestaMain"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                        <ImageView
+                            android:id="@+id/btobspager"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center|start"
                             android:layout_marginHorizontal="5dp"
-                            android:orientation="vertical"
-                            android:paddingVertical="7dp"
-                            android:visibility="gone">
+                            android:animateLayoutChanges="true"
+                            android:background="?selectableItemBackground"
+                            android:clickable="true"
+                            android:contentDescription="@string/obs"
+                            android:focusable="true"
+                            android:padding="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/btsavepager"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_edit"
+                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btcap01main"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="start|center_vertical"
-                                android:maxLines="1"
-                                android:text="@string/c01"
-                                android:textAllCaps="false"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                                android:textColor="@color/white"
-                                android:textStyle="bold" />
+                        <ImageView
+                            android:id="@+id/btsavepager"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center|start"
+                            android:layout_marginHorizontal="5dp"
+                            android:animateLayoutChanges="true"
+                            android:background="?selectableItemBackground"
+                            android:clickable="true"
+                            android:contentDescription="@string/guardar"
+                            android:focusable="true"
+                            android:padding="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/btmenupager"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_save_solid"
+                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btcap02main"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="start|center_vertical"
-                                android:maxLines="1"
-                                android:text="@string/c02"
-                                android:textAllCaps="false"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                                android:textColor="@color/white"
-                                android:textStyle="bold" />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btcap03main"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="start|center_vertical"
-                                android:maxLines="1"
-                                android:text="@string/c03"
-                                android:textAllCaps="false"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                                android:textColor="@color/white"
-                                android:textStyle="bold" />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btcap04main"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="start|center_vertical"
-                                android:maxLines="1"
-                                android:text="@string/c04"
-                                android:textAllCaps="false"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                                android:textColor="@color/white"
-                                android:textStyle="bold" />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btcap05main"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="start|center_vertical"
-                                android:maxLines="1"
-                                android:text="@string/c05"
-                                android:textAllCaps="false"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                                android:textColor="@color/white"
-                                android:textStyle="bold" />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btcap06main"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="start|center_vertical"
-                                android:maxLines="1"
-                                android:text="@string/c06"
-                                android:textAllCaps="false"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                                android:textColor="@color/white"
-                                android:textStyle="bold" />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btcap07main"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="start|center_vertical"
-                                android:maxLines="1"
-                                android:text="@string/c07"
-                                android:textAllCaps="false"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                                android:textColor="@color/white"
-                                android:textStyle="bold" />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btcap08main"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="start|center_vertical"
-                                android:maxLines="1"
-                                android:text="@string/c08"
-                                android:textAllCaps="false"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                                android:textColor="@color/white"
-                                android:textStyle="bold" />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btcap09main"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="start|center_vertical"
-                                android:maxLines="1"
-                                android:text="@string/c09"
-                                android:textAllCaps="false"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                                android:textColor="@color/white"
-                                android:textStyle="bold" />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btcap10main"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="start|center_vertical"
-                                android:maxLines="1"
-                                android:text="@string/c10"
-                                android:textAllCaps="false"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                                android:textColor="@color/white"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="7dp"
-                        android:layout_marginVertical="5dp"
-                        android:animateLayoutChanges="true"
-                        android:orientation="vertical">
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btModuloMain"
-                            android:layout_width="match_parent"
-                            android:layout_height="43dp"
-                            android:drawableTint="@color/white"
-                            android:fontFamily="sans-serif-condensed"
-                            android:gravity="start|center_vertical"
-                            android:insetTop="0dp"
-                            android:insetBottom="0dp"
-                            android:text="@string/btinitmodule"
-                            android:textAllCaps="false"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                            android:textSize="@dimen/text14"
-                            android:textStyle="bold"
-                            app:backgroundTint="#D8B18B"
-                            app:cornerRadius="5dp"
-                            app:icon="@drawable/img_expand_more"
-                            app:iconPadding="10dp"
+                        <ImageView
+                            android:id="@+id/btmenupager"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_marginHorizontal="5dp"
+                            android:animateLayoutChanges="true"
+                            android:background="?selectableItemBackground"
+                            android:clickable="true"
+                            android:contentDescription="@string/menu"
+                            android:focusable="true"
+                            android:padding="4dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:strokeColor="#C38832"
-                            app:strokeWidth="1dp"
-                            tools:ignore="TouchTargetSizeCheck" />
+                            app:srcCompat="@drawable/img_home"
+                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-                        <LinearLayout
-                            android:id="@+id/linearModuloMain"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:paddingHorizontal="7dp"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:visibility="gone">
 
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btsec01main"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="start|center_vertical"
-                                android:maxLines="1"
-                                android:text="@string/s01"
-                                android:textAllCaps="false"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                                android:textColor="#757575"
-                                android:textStyle="bold"
-                                app:backgroundTint="#E4D0AF" />
 
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btsec02main"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="start|center_vertical"
-                                android:maxLines="1"
-                                android:text="@string/s02"
-                                android:textAllCaps="false"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                                android:textColor="#757575"
-                                android:textStyle="bold"
-                                app:backgroundTint="#E4D0AF" />
 
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btsec03main"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="start|center_vertical"
-                                android:maxLines="1"
-                                android:text="@string/s03"
-                                android:textAllCaps="false"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                                android:textColor="#757575"
-                                android:textStyle="bold"
-                                app:backgroundTint="#E4D0AF" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btsec04main"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:ellipsize="end"
-                                android:fontFamily="sans-serif-condensed"
-                                android:gravity="start|center_vertical"
-                                android:maxLines="1"
-                                android:text="@string/s04"
-                                android:textAllCaps="false"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                                android:textColor="#757575"
-                                android:textStyle="bold"
-                                app:backgroundTint="#E4D0AF" />
+                    <TextView
+                        android:id="@+id/txvtitlepager2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="15dp"
+                        android:animateLayoutChanges="true"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/ctxt_test"
+                        android:textAllCaps="true"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
-                        </LinearLayout>
-                        <!-- #D8B18B -->
-                    </LinearLayout>
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btsec05main"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginHorizontal="7dp"
-                        android:layout_marginVertical="5dp"
-                        android:ellipsize="end"
+                    <TextView
+                        android:id="@+id/txvsubtitlepager"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginHorizontal="1dp"
+                        android:animateLayoutChanges="true"
+                        android:background="@drawable/background_shadow"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start|center_vertical"
-                        android:maxLines="1"
-                        android:text="@string/infobt"
-                        android:textAllCaps="false"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
-                        android:textColor="@color/white"
+                        android:padding="5dp"
+                        android:paddingStart="15dp"
+                        android:paddingEnd="5dp"
+                        android:text="@string/subcap_test"
+                        android:textSize="15sp"
                         android:textStyle="bold"
-                        app:backgroundTint="@color/teal_700"
-                        app:icon="@drawable/img_forward" />
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
 
-                </LinearLayout>
+                </androidx.appcompat.widget.Toolbar>
 
-            </ScrollView>
+            </com.google.android.material.appbar.AppBarLayout>
+
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="2dp"
+                android:animateLayoutChanges="true"
+                android:foregroundGravity="top"
+                app:layout_constraintBottom_toTopOf="@+id/frameLayoutNav"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarpager"
+                tools:background="@color/gray" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinepager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.8" />
+
+            <TextView
+                android:id="@+id/txtInfopager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/blank"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guidelinepager" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/frameLayoutNav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_shadow1"
+                android:gravity="top"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/btbackpager"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="1dp"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="Previo"
+                    android:focusable="true"
+                    android:padding="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnextpager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_previous"
+                    app:tint="@color/white"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageView
+                    android:id="@+id/btnextpager"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="Siguiente"
+                    android:focusable="true"
+                    android:gravity="end"
+                    android:padding="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btbackpager"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_next"
+                    app:tint="@color/white"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <LinearLayout
-            android:id="@+id/layoutpiemain"
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_margin="17dp"
-            android:gravity="center"
-            android:animateLayoutChanges="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="UseCompoundDrawables">
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/menu_header"
+            app:menu="@menu/menu_form"
+            tools:visibility="gone"/>
 
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                app:srcCompat="@drawable/logo_senacyt"
-                android:contentDescription="@string/senacyt" />
+    </androidx.drawerlayout.widget.DrawerLayout>
 
-            <TextView
-                android:id="@+id/versionsearch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:textSize="12sp"
-                android:textColor="@android:color/holo_blue_dark"
-                android:text="@string/version" />
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

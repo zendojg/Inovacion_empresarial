@@ -1,14 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 
     <item
-        android:id="@+id/delete"
-        android:title="borrar" />
+        android:id="@+id/newMenu"
+        android:title="New"
+        android:icon="@mipmap/ic_launcher"/>
     <item
-        android:id="@+id/header2"
-        android:title="mensaje 1" />
-    <item
-        android:id="@+id/header3"
-        android:title="mensaje 2" />
+        android:id="@+id/saveMenu"
+        android:title="Save"
+        android:icon="@mipmap/ic_launcher">
 
+    </item>
+    <item android:name="android:itemTextAppearance"
+        android:title="Save Us">@style/menu_text_style</item>
+    <item
+        android:id="@+id/saveasMenu"
+        android:title="Save Us"/>
+    <item
+        android:id="@+id/editMenu"
+        android:title="Edit"/>
+    <item
+        android:id="@+id/exitMenu"
+        android:title="Exit"/>
 </menu>

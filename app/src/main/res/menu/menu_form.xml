@@ -1,4 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:showIn="navigation_view">
+
+
+    <item
+        android:title="@string/tittleInno">
+        <menu>
+            <item
+                android:id="@+id/menu_cap1"
+                android:icon="@drawable/img_arrow_right"
+                android:fontFamily="sans-serif-condensed"
+                android:title="@string/cap01" />
+            <item
+                android:id="@+id/menu_cap2"
+                android:icon="@drawable/img_arrow_right"
+                android:fontFamily="sans-serif-condensed"
+                android:title="@string/cap02" />
+            <item
+                android:id="@+id/menu_cap3"
+                android:icon="@drawable/img_arrow_right"
+                android:fontFamily="sans-serif-condensed"
+                android:title="@string/cap03" />
+            <item
+                android:id="@+id/menu_cap4"
+                android:icon="@drawable/img_arrow_right"
+                android:fontFamily="sans-serif-condensed"
+                android:title="@string/cap04" />
+            <item
+                android:id="@+id/menu_cap5"
+                android:icon="@drawable/img_arrow_right"
+                android:fontFamily="sans-serif-condensed"
+                android:title="@string/cap05" />
+            <item
+                android:id="@+id/menu_cap6"
+                android:icon="@drawable/img_arrow_right"
+                android:fontFamily="sans-serif-condensed"
+                android:title="@string/cap06" />
+            <item
+                android:id="@+id/menu_cap7"
+                android:icon="@drawable/img_arrow_right"
+                android:title="@string/cap07" />
+            <item
+                android:id="@+id/menu_cap8"
+                android:icon="@drawable/img_arrow_right"
+                android:fontFamily="sans-serif-condensed"
+                android:title="@string/cap08" />
+            <item
+                android:id="@+id/menu_cap9"
+                android:icon="@drawable/img_arrow_right"
+                android:fontFamily="sans-serif-condensed"
+                android:title="@string/cap09" />
+            <item
+                android:id="@+id/menu_cap10"
+                android:icon="@drawable/img_arrow_right"
+                android:fontFamily="sans-serif-condensed"
+                android:title="@string/cap10" />
+        </menu>
+    </item>
+
+    <item
+        android:title="@string/tittleMod">
+        <menu>
+            <item
+                android:id="@+id/menu_mod1"
+                android:icon="@drawable/img_arrow_right"
+                android:fontFamily="sans-serif-condensed"
+                android:title="@string/secc01" />
+            <item
+                android:id="@+id/menu_mod2"
+                android:icon="@drawable/img_arrow_right"
+                android:fontFamily="sans-serif-condensed"
+                android:title="@string/secc02" />
+            <item
+                android:id="@+id/menu_mod3"
+                android:icon="@drawable/img_arrow_right"
+                android:fontFamily="sans-serif-condensed"
+                android:title="@string/secc03" />
+            <item
+                android:id="@+id/menu_mod4"
+                android:icon="@drawable/img_arrow_right"
+                android:fontFamily="sans-serif-condensed"
+                android:title="@string/secc04" />
+        </menu>
+    </item>
+
+    <group >
+        <item
+            android:id="@+id/nav_form"
+            android:icon="@drawable/img_open_folder"
+            android:fontFamily="sans-serif-condensed"
+            android:title="Informe"/>
+        <item
+            android:id="@+id/menu_exit"
+            android:icon="@drawable/img_close"
+            android:fontFamily="sans-serif-condensed"
+            android:title="Salir del Formulario" />
+    </group>
 
 </menu>

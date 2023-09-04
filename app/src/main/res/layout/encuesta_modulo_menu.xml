@@ -42,114 +42,6 @@
             android:animateLayoutChanges="true"
             android:orientation="vertical">
 
-          <androidx.appcompat.widget.LinearLayoutCompat
-              android:id="@+id/linearInfoMenu"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:animateLayoutChanges="true"
-              android:layout_marginHorizontal="7dp"
-              android:layout_marginVertical="17dp"
-              android:orientation="vertical">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtNcontrolLocally"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:hint="@string/hint_ncontrolB"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/lbtittlestyleF"
-                app:startIconContentDescription="Localización"
-                app:startIconDrawable="@drawable/img_find"
-                app:startIconTint="#306F90">
-
-              <com.google.android.material.textfield.TextInputEditText
-                  android:id="@+id/txtNcontrolLocal"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:background="@drawable/background_shadow"
-                  android:focusable="false"
-                  android:fontFamily="sans-serif-condensed"
-                  android:inputType="phone"
-                  android:maxLength="6"
-                  android:text="@string/cero"
-                  android:textColor="@color/azul"
-                  android:textSize="@dimen/text16" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_ruc"
-                app:layout_constraintTop_toBottomOf="@+id/txtNcontrolLocally"
-                app:startIconContentDescription="RUC"
-                app:startIconDrawable="@drawable/img_idcheck"
-                app:startIconTint="#306F90">
-
-              <com.google.android.material.textfield.TextInputEditText
-                  android:id="@+id/txtRUCLocal"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:background="@drawable/background_shadow"
-                  android:focusable="false"
-                  android:fontFamily="sans-serif-condensed"
-                  android:textColor="@color/azul"
-                  android:textSize="@dimen/text16"
-                  tools:text="000000000000-00000000-000000000000" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_razon"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-                app:startIconContentDescription="Establecimiento"
-                app:startIconDrawable="@drawable/img_local06"
-                app:startIconTint="#306F90">
-
-              <com.google.android.material.textfield.TextInputEditText
-                  android:id="@+id/txtRazonLocal"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:background="@drawable/background_shadow"
-                  android:focusable="false"
-                  android:fontFamily="sans-serif-condensed"
-                  android:inputType="textCapWords"
-                  android:textColor="@color/azul"
-                  android:textSize="@dimen/text16"
-                  tools:text="Razón Social" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hin_nameL"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
-                app:startIconContentDescription="Establecimiento"
-                app:startIconDrawable="@drawable/img_local08"
-                app:startIconTint="#306F90">
-
-              <com.google.android.material.textfield.TextInputEditText
-                  android:id="@+id/txtNameLocal"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:background="@drawable/background_shadow"
-                  android:focusable="false"
-                  android:fontFamily="sans-serif-condensed"
-                  android:inputType="textCapWords"
-                  android:textColor="@color/azul"
-                  android:textSize="@dimen/text16"
-                  tools:text="Nombre del Local" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-          </androidx.appcompat.widget.LinearLayoutCompat>
-
-
           <LinearLayout
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
@@ -191,8 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="5dp"
                 android:orientation="vertical"
-                android:paddingVertical="7dp"
-                android:visibility="gone">
+                android:paddingVertical="7dp">
 
               <com.google.android.material.button.MaterialButton
                   android:id="@+id/btcap01main"
@@ -379,8 +270,7 @@
                 android:orientation="vertical"
                 android:paddingHorizontal="7dp"
                 android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:visibility="gone">
+                android:paddingBottom="5dp">
 
               <com.google.android.material.button.MaterialButton
                   android:id="@+id/btsec01main"
@@ -477,6 +367,7 @@
         android:orientation="vertical"
         android:layout_margin="17dp"
         android:gravity="center"
+        android:visibility="gone"
         android:animateLayoutChanges="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

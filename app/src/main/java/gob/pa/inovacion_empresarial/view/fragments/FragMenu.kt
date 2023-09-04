@@ -11,13 +11,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import gob.pa.inovacion_empresarial.R
-import gob.pa.inovacion_empresarial.databinding.MenuFragBinding
+import gob.pa.inovacion_empresarial.databinding.EncuestaModuloMenuBinding
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 
 class FragMenu : Fragment() {
 
-    private lateinit var formbinding: MenuFragBinding
+    private lateinit var formbinding: EncuestaModuloMenuBinding
     private lateinit var ctx: Context
     private val dvmMenu: DVModel by viewModels()
 
@@ -26,7 +26,7 @@ class FragMenu : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?): View {
 
-        formbinding = MenuFragBinding.inflate(layoutInflater)
+        formbinding = EncuestaModuloMenuBinding.inflate(layoutInflater)
         ctx = requireContext()
 
         formbinding.versionsearch.text = Mob.version
@@ -49,14 +49,12 @@ class FragMenu : Fragment() {
                     linearEncuestaMain.visibility = View.VISIBLE
                     linearModuloMain.visibility = View.GONE
                     layoutpiemain.visibility = View.GONE
-                    linearInfoMenu.visibility = View.GONE
                     btEncuestaMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_less)
                     btModuloMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_more)
 
 
                 } else { //-- contraer
                     layoutpiemain.visibility = View.VISIBLE
-                    linearInfoMenu.visibility = View.VISIBLE
                     linearEncuestaMain.visibility = View.GONE
                     btEncuestaMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_more)
                 }
@@ -66,13 +64,11 @@ class FragMenu : Fragment() {
                 if (!linearModuloMain.isVisible) { //-- expandir
                     linearModuloMain.visibility = View.VISIBLE
                     linearEncuestaMain.visibility = View.GONE
-                    linearInfoMenu.visibility = View.GONE
 
                     btModuloMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_less)
                     btEncuestaMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_more)
 
                 } else { //-- contraer
-                    linearInfoMenu.visibility = View.VISIBLE
                     linearModuloMain.visibility = View.GONE
                     btModuloMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_more)
                 }

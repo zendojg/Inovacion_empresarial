@@ -3,225 +3,252 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+    <data />
 
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/constraintpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:animateLayoutChanges="true"
-        android:id="@+id/constraintpager"
-        tools:context=".view.FormActivity">
+        android:fitsSystemWindows="true"
+        tools:context=".view.FormActivity"
+        tools:openDrawer="start">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarpager"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:animateLayoutChanges="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarpager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="10dp">
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/txvtitlepager"
-                    android:layout_width="wrap_content"
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbarpager"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:animateLayoutChanges="true"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/cap_test"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="gone"
+                        tools:layout_editor_absoluteX="16dp"
+                        tools:layout_editor_absoluteY="10dp">
+
+                        <TextView
+                            android:id="@+id/txvtitlepager"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/cap_test"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/btobspager"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center|start"
+                            android:layout_marginHorizontal="5dp"
+                            android:animateLayoutChanges="true"
+                            android:background="?selectableItemBackground"
+                            android:clickable="true"
+                            android:contentDescription="@string/obs"
+                            android:focusable="true"
+                            android:padding="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/btsavepager"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_edit"
+                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                        <ImageView
+                            android:id="@+id/btsavepager"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center|start"
+                            android:layout_marginHorizontal="5dp"
+                            android:animateLayoutChanges="true"
+                            android:background="?selectableItemBackground"
+                            android:clickable="true"
+                            android:contentDescription="@string/guardar"
+                            android:focusable="true"
+                            android:padding="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/btmenupager"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_save_solid"
+                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                        <ImageView
+                            android:id="@+id/btmenupager"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:layout_marginHorizontal="5dp"
+                            android:animateLayoutChanges="true"
+                            android:background="?selectableItemBackground"
+                            android:clickable="true"
+                            android:contentDescription="@string/menu"
+                            android:focusable="true"
+                            android:padding="4dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_home"
+                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <TextView
+                android:id="@+id/txvtitlepager2"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="15dp"
+                android:animateLayoutChanges="true"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/ctxt_test"
+                android:textAllCaps="true"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarpager" />
+
+            <TextView
+                android:id="@+id/txvsubtitlepager"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_marginHorizontal="1dp"
+                android:animateLayoutChanges="true"
+                android:background="@drawable/background_shadow"
+                android:fontFamily="sans-serif-condensed"
+                android:gravity="start|center_vertical"
+                android:padding="5dp"
+                android:paddingStart="15dp"
+                android:paddingEnd="5dp"
+                android:text="@string/subcap_test"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txvtitlepager2" />
+
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="2dp"
+                android:animateLayoutChanges="true"
+                android:foregroundGravity="top"
+                app:layout_constraintBottom_toTopOf="@+id/frameLayoutNav"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txvsubtitlepager"
+                tools:background="@color/gray" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelinepager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.8" />
+
+            <TextView
+                android:id="@+id/txtInfopager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/blank"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/guidelinepager" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/frameLayoutNav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_shadow1"
+                android:gravity="top"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <ImageView
-                    android:id="@+id/btobspager"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="center|start"
-                    android:layout_marginHorizontal="5dp"
-                    android:animateLayoutChanges="true"
-                    android:background="?selectableItemBackground"
-                    android:clickable="true"
-                    android:contentDescription="@string/obs"
-                    android:focusable="true"
-                    android:padding="5dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/btsavepager"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_edit"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                <ImageView
-                    android:id="@+id/btsavepager"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_gravity="center|start"
-                    android:layout_marginHorizontal="5dp"
-                    android:animateLayoutChanges="true"
-                    android:background="?selectableItemBackground"
-                    android:clickable="true"
-                    android:contentDescription="@string/guardar"
-                    android:focusable="true"
-                    android:padding="5dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/btmenupager"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_save_solid"
-                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                <ImageView
-                    android:id="@+id/btmenupager"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:id="@+id/btbackpager"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginHorizontal="5dp"
-                    android:animateLayoutChanges="true"
+                    android:layout_margin="1dp"
                     android:background="?selectableItemBackground"
                     android:clickable="true"
-                    android:contentDescription="@string/menu"
+                    android:contentDescription="Previo"
                     android:focusable="true"
-                    android:padding="4dp"
+                    android:padding="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnextpager"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_previous"
+                    app:tint="@color/white"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageView
+                    android:id="@+id/btnextpager"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="Siguiente"
+                    android:focusable="true"
+                    android:gravity="end"
+                    android:padding="6dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btbackpager"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/img_home"
+                    app:srcCompat="@drawable/img_next"
+                    app:tint="@color/white"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </androidx.appcompat.widget.Toolbar>
-
-        <TextView
-            android:id="@+id/txvtitlepager2"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="15dp"
-            android:animateLayoutChanges="true"
-            android:fontFamily="sans-serif-condensed"
-            android:textAllCaps="true"
-            android:text="@string/ctxt_test"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/toolbarpager" />
-
-        <TextView
-            android:id="@+id/txvsubtitlepager"
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:paddingStart="15dp"
-            android:paddingEnd="5dp"
-            android:layout_marginHorizontal="1dp"
-            android:animateLayoutChanges="true"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="start|center_vertical"
-            android:padding="5dp"
-            android:text="@string/subcap_test"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txvtitlepager2" />
-
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="2dp"
-            android:animateLayoutChanges="true"
-            android:foregroundGravity="top"
-            tools:background="@color/gray"
-            app:layout_constraintBottom_toTopOf="@+id/frameLayoutNav"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txvsubtitlepager" />
-
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinepager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.8" />
-
-        <TextView
-            android:id="@+id/txtInfopager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/blank"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guidelinepager" />
-
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/frameLayoutNav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/background_shadow1"
-            android:gravity="top"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <ImageView
-                android:id="@+id/btbackpager"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="?selectableItemBackground"
-                android:clickable="true"
-                android:contentDescription="Previo"
-                android:focusable="true"
-                android:layout_margin="1dp"
-                android:padding="6dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btnextpager"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/img_previous"
-                app:tint="@color/white"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-            <ImageView
-                android:id="@+id/btnextpager"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="?selectableItemBackground"
-                android:clickable="true"
-                android:layout_margin="1dp"
-                android:contentDescription="Siguiente"
-                android:focusable="true"
-                android:gravity="end"
-                android:padding="6dp"
-                app:layout_constraintStart_toEndOf="@+id/btbackpager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/img_next"
-                app:tint="@color/white"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/menu_header"
+            app:menu="@menu/menu_form"
+            app:theme="@style/menu_text_style"/>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
 </layout>

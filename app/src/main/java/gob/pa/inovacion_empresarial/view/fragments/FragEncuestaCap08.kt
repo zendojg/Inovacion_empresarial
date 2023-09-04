@@ -261,8 +261,6 @@ class FragEncuestaCap08 : Fragment() {
                         returnList.add(CreateIncon.inconsistencia(ctx, "149") ?: "")
 
 
-
-
                 if (cap8?.v57num1a == "2" && cap8?.v57monto1a.isNullOrEmpty())
                     returnList.add(CreateIncon.inconsistencia(ctx, "150") ?: "")
                 if (cap8?.v57num1b == "2" && cap8?.v57monto1b.isNullOrEmpty())
