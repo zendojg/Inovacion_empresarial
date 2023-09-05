@@ -86,12 +86,12 @@
         </menu>
     </item>
 
-    <group >
+    <group>
         <item
             android:id="@+id/nav_form"
-            android:icon="@drawable/img_open_folder"
+            android:icon="@drawable/img_send"
             android:fontFamily="sans-serif-condensed"
-            android:title="Informe"/>
+            android:title="Envio del formulario"/>
         <item
             android:id="@+id/menu_exit"
             android:icon="@drawable/img_close"

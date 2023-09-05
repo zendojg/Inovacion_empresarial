@@ -43,7 +43,6 @@ class FragMenu : Fragment() {
     private fun action() {
         with(formbinding) {
 
-
             btEncuestaMain.setOnClickListener {
                 if (!linearEncuestaMain.isVisible) { //-- expandir
                     linearEncuestaMain.visibility = View.VISIBLE
@@ -98,6 +97,5 @@ class FragMenu : Fragment() {
         Mob.indiceFormulario = pos
         val pager = activity?.findViewById<ViewPager2>(R.id.viewpager)
         pager?.setCurrentItem(pos, false)
-
     }
 }

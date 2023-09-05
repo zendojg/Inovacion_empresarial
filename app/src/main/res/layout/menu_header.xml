@@ -6,26 +6,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="7dp"
+        android:paddingTop="50dp"
         android:paddingHorizontal="17dp"
-        android:layout_marginTop="37dp"
         android:background="@android:color/white"
         android:orientation="vertical"
         android:theme="@style/ThemeOverlay.AppCompat.Light">
 
         <ImageView
-            android:layout_width="97dp"
+            android:layout_width="200dp"
             android:layout_height="60dp"
-            app:srcCompat="@drawable/logo_inec"
+            app:srcCompat="@drawable/logo_senacyt"
             android:contentDescription="@string/todo" />
 
         <TextView
             android:id="@+id/lbname"
-            android:paddingTop="2dp"
+            android:paddingTop="7dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"
-            android:text="nombre" />
+            android:textStyle="bold"
+            android:textSize="@dimen/text16"
+            android:text="Nombre Xxxxxxxxx" />
 
 
     </LinearLayout>

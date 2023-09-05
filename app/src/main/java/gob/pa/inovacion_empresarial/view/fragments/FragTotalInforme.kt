@@ -2,7 +2,6 @@ package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -21,7 +20,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
 import com.google.gson.JsonParseException
-import com.google.gson.annotations.SerializedName
 import com.google.gson.reflect.TypeToken
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.ModuloTotalInfoBinding
@@ -231,7 +229,7 @@ class FragTotalInforme : Fragment() {
         }
         AppCache.formSAVE(ctx, form, nameForm)
         CreateBackUp.saved(ctx)
-        return RoomView(dvmInforme, ctx).saveForm(CreateForm.createSaved())
+        return RoomView(dvmInforme, ctx).saveForm(CreateForm.createObDB())
     }
 
     private fun carga(data: String) {
@@ -285,13 +283,13 @@ class FragTotalInforme : Fragment() {
         screenBlack.setCancelable(false)
         screenBlack.show()
 
-        val form = activity
-        if (form == FormActivity()) {
-            val act = form as FormActivity
-            act.seeCaps(null)
-        }
+        lifecycleScope.launch { CreateForm.createSaved(dvmInforme, ctx) }
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(ctx, MainActivity::class.java))
+            val form = activity
+            val intent = Intent(ctx, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                    Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
             CreateForm.resetLoad()
             Handler(Looper.getMainLooper()).postDelayed({
                 form?.finish()

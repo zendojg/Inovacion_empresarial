@@ -11,7 +11,7 @@
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         tools:context=".view.FormActivity"
-        tools:openDrawer="start">
+        tools:openDrawer="end">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -22,6 +22,8 @@
                 android:id="@+id/appBarpager"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:elevation="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -35,80 +37,84 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
+                    <ImageButton
+                        android:id="@+id/btDrawerpager"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_marginHorizontal="5dp"
+                        android:layout_gravity="center|end"
+                        android:layout_marginEnd="16dp"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:contentDescription="@string/navigation_drawer_toggle"
+                        android:src="@drawable/img_menu"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                    <ImageView
+                        android:id="@+id/btsavepager"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center|end"
+                        android:layout_marginHorizontal="5dp"
+                        android:animateLayoutChanges="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:contentDescription="@string/guardar"
+                        android:focusable="true"
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/img_save_solid"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                    <ImageView
+                        android:id="@+id/btobspager"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center|end"
+                        android:animateLayoutChanges="true"
+                        android:background="?attr/selectableItemBackgroundBorderless"
+                        android:clickable="true"
+                        android:contentDescription="@string/obs"
+                        android:focusable="true"
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/img_edit"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                    <ImageView
+                        android:id="@+id/btmenupager"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center|end"
+                        android:layout_marginHorizontal="5dp"
+                        android:animateLayoutChanges="true"
+                        android:background="?selectableItemBackground"
+                        android:clickable="true"
+                        android:contentDescription="@string/menu"
+                        android:focusable="true"
+                        android:padding="4dp"
+                        android:visibility="gone"
+                        app:srcCompat="@drawable/img_home"
+                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                    <TextView
+                        android:id="@+id/txvtitlepager"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:animateLayoutChanges="true"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/cap_test"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:visibility="gone"
                         tools:layout_editor_absoluteX="16dp"
                         tools:layout_editor_absoluteY="10dp">
-
-                        <TextView
-                            android:id="@+id/txvtitlepager"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:animateLayoutChanges="true"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="@string/cap_test"
-                            android:textSize="22sp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <ImageView
-                            android:id="@+id/btobspager"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:layout_gravity="center|start"
-                            android:layout_marginHorizontal="5dp"
-                            android:animateLayoutChanges="true"
-                            android:background="?selectableItemBackground"
-                            android:clickable="true"
-                            android:contentDescription="@string/obs"
-                            android:focusable="true"
-                            android:padding="5dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@id/btsavepager"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/img_edit"
-                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                        <ImageView
-                            android:id="@+id/btsavepager"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:layout_gravity="center|start"
-                            android:layout_marginHorizontal="5dp"
-                            android:animateLayoutChanges="true"
-                            android:background="?selectableItemBackground"
-                            android:clickable="true"
-                            android:contentDescription="@string/guardar"
-                            android:focusable="true"
-                            android:padding="5dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/btmenupager"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/img_save_solid"
-                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                        <ImageView
-                            android:id="@+id/btmenupager"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:layout_gravity="center"
-                            android:layout_marginHorizontal="5dp"
-                            android:animateLayoutChanges="true"
-                            android:background="?selectableItemBackground"
-                            android:clickable="true"
-                            android:contentDescription="@string/menu"
-                            android:focusable="true"
-                            android:padding="4dp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/img_home"
-                            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -243,8 +249,9 @@
             android:id="@+id/nav_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
+            android:layout_gravity="end"
             android:fitsSystemWindows="true"
+            tools:visibility="gone"
             app:headerLayout="@layout/menu_header"
             app:menu="@menu/menu_form"
             app:theme="@style/menu_text_style"/>

@@ -25,6 +25,7 @@ import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.view.FormActivity
+import gob.pa.inovacion_empresarial.view.MainActivity
 import kotlinx.coroutines.launch
 
 class MainFragmentSearch : Fragment() {
@@ -197,7 +198,9 @@ class MainFragmentSearch : Fragment() {
             btinitSearch.setOnClickListener {
                 Mob.indiceFormulario = 1
                 activity?.finish()
-                startActivity(Intent(ctx, FormActivity::class.java))
+                val intent = Intent(ctx, FormActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
             }
         }
         hideKeyboard()

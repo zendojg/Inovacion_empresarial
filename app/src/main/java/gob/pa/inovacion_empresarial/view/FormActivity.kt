@@ -6,11 +6,9 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.os.Environment
 import android.os.Handler
 import android.os.Looper
 import android.text.InputType
-import android.util.Log
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
@@ -41,10 +39,7 @@ import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.service.room.RoomView
 import gob.pa.inovacion_empresarial.view.fragments.*
 import kotlinx.coroutines.launch
-import java.io.File
-import java.io.FileOutputStream
 import kotlin.collections.ArrayList
-
 
 class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -73,11 +68,16 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onResume() {
         super.onResume()
         drawerLayout  = form.constraintpager
-        toggle = ActionBarDrawerToggle(this, drawerLayout, form.toolbarpager,
+        setSupportActionBar(form.toolbarpager)
+        toggle = ActionBarDrawerToggle(this, drawerLayout,
             R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        supportActionBar?.setDisplayShowHomeEnabled(false)
         form.navView.setNavigationItemSelectedListener(this)
+
         onAction()
     }
 
@@ -88,21 +88,24 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun onAction() {
         with (form) {
-            if (Mob.authData?.rol == "E") {
-                btsavepager.visibility = View.VISIBLE
-                btsavepager.isEnabled = true
-            } else {
-                btsavepager.visibility = View.INVISIBLE
-                btsavepager.isEnabled = false
+
+            btDrawerpager.setOnClickListener {
+                if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
+                    drawerLayout.closeDrawer(GravityCompat.END, true)
+                } else  drawerLayout.openDrawer(GravityCompat.END, true)
             }
 
-            if (Mob.indiceFormulario != 0) {
+            if (Mob.authData?.rol == "E")  btsavepager.visibility = View.VISIBLE
+             else btsavepager.visibility = View.INVISIBLE
+
+
+            if (Mob.indiceFormulario != Mob.MENUP00) {
                 viewpager.setCurrentItem(Mob.indiceFormulario, false)
                 spinPager(Mob.indiceFormulario)
             }
             btnextpager.setOnClickListener {
                 if (viewpager.currentItem == Mob.OBSP24) {
-                    viewpager.setCurrentItem(0, false)
+                    viewpager.setCurrentItem(Mob.MENUP00, false)
                 } else seeCaps(true)
             }
             btbackpager.setOnClickListener { seeCaps(false) }
@@ -111,7 +114,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
-                    if (position == 0) {
+                    if (position == Mob.MENUP00) {
                         toolbarpager.visibility = View.GONE
                         txvtitlepager2.visibility = View.GONE
                         txvsubtitlepager.visibility = View.GONE
@@ -123,8 +126,6 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                         frameLayoutNav.visibility = View.VISIBLE
                     }
                     spinPager(position)
-                    //(viewpager.get(0) as RecyclerView).findViewHolderForAdapterPosition(position)
-                    //(viewpager[0] as RecyclerView).layoutManager?.findViewByPosition(position)
                 }
             })
             btobspager.setOnClickListener { observation(form.viewpager.currentItem) }
@@ -133,15 +134,36 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        if (toggle.onOptionsItemSelected(item)) {
-            return true
+        when (item.itemId) {
+            R.id.menu_cap1 -> viewpager(Mob.CAP1P01)
+            R.id.menu_cap2 ->  viewpager(Mob.CAP2P02)
+            R.id.menu_cap3 ->  viewpager(Mob.CAP3P04)
+            R.id.menu_cap4 ->  viewpager(Mob.CAP4P05)
+            R.id.menu_cap5 ->  viewpager(Mob.CAP5P06)
+            R.id.menu_cap6 ->  viewpager(Mob.CAP6P08)
+            R.id.menu_cap7 ->  viewpager(Mob.CAP7P12)
+            R.id.menu_cap8 ->  viewpager(Mob.CAP8P15)
+            R.id.menu_cap9 ->  viewpager(Mob.CAP9P17)
+            R.id.menu_cap10 ->  viewpager(Mob.CAPXP19)
+
+            R.id.menu_mod1 -> viewpager(Mob.SEC1P20)
+            R.id.menu_mod2 ->  viewpager(Mob.SEC2P21)
+            R.id.menu_mod3 ->  viewpager(Mob.SEC3P22)
+            R.id.menu_mod4 ->  viewpager(Mob.SEC4P23)
+
+            R.id.nav_form ->  viewpager(Mob.OBSP24)
+            else -> viewpager(Mob.MENUP00)
         }
         return super.onOptionsItemSelected(item)
     }
-
+    private fun viewpager(pos: Int) {
+        drawerLayout.closeDrawer(GravityCompat.END, true)
+        Mob.indiceFormulario = pos
+        form.viewpager.setCurrentItem(pos, false)
+    }
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
-            drawerLayout.closeDrawer(GravityCompat.END)
+            drawerLayout.closeDrawer(GravityCompat.END, true)
         } else
         if (form.viewpager.currentItem == Mob.MENUP00) {
             val mesagePregunta = AlertDialog.Builder(this)
@@ -169,7 +191,11 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
                 btnegativo.setOnClickListener {
                     dialog?.dismiss()
-                    startActivity(Intent(ctx, MainActivity::class.java))
+
+                    val intent = Intent(ctx, MainActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                            Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
                     CreateForm.resetLoad()
                     Handler(Looper.getMainLooper()).postDelayed({
                         finish()
@@ -182,8 +208,8 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun observation(position: Int) {
         val mesagePregunta = AlertDialog.Builder(this)
         val bindmsg: StyleMsgObsBinding = StyleMsgObsBinding.inflate(layoutInflater)
-        mesagePregunta.setView(bindmsg.root)
         val color: Int
+        mesagePregunta.setView(bindmsg.root)
         with(bindmsg) {
             if (Mob.authData?.rol != "E") {
                 btsaveobs.isEnabled = false
@@ -203,9 +229,6 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             }
             btsaveobs.backgroundTintList = ColorStateList.valueOf(color)
             btexitobs.backgroundTintList = ColorStateList.valueOf(color)
-            layoutObs.background = if (form.viewpager.currentItem < Mob.SEC1P20)
-                ContextCompat.getDrawable(ctx, R.drawable.background_border_blue) else
-                ContextCompat.getDrawable(ctx, R.drawable.background_border_cream)
 
             dialog = mesagePregunta.create()
             dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -217,11 +240,10 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
             btsaveobs.setOnClickListener {
-                if (form.viewpager.currentItem < Mob.SEC1P20) {
+                if (form.viewpager.currentItem < Mob.SEC1P20)
                     Mob.obsEncuesta = txtobs.text.toString()
-                } else {
-                    Mob.obsModulo = txtobs.text.toString()
-                }
+                 else Mob.obsModulo = txtobs.text.toString()
+
                 dialog?.dismiss()
                 hideKeyboard()
             }
@@ -232,7 +254,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    fun seeCaps(move: Boolean?) {
+    private fun seeCaps(move: Boolean?) {
         hideKeyboard()
         val colorlb = if (form.viewpager.currentItem < Mob.SEC1P20) R.color.holo_blue_dark
         else  R.color.cream_darl
@@ -268,14 +290,20 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } else if (move != null && listFaltantes.isEmpty()) { moveTo(move) //-- mover normal
         } else if (move == null) { //-- Guardar
             lifecycleScope.launch {
-                val info = RoomView(dvmForm, ctx).saveForm(CreateForm.createSaved())
-                println("----------$info")
+                val colorBallom = ContextCompat.getColor(ctx, colorlb)
+                if (CreateForm.createSaved(dvmForm, ctx) > 0) {
+                    val alert = Functions.msgBallom(
+                        "Formulario guardado", Mob.WIDTH160DP, ctx, colorBallom)
+                    alert.showAlignBottom(form.txtInfopager)
+                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                } else {
+                    val alert = Functions.msgBallom(
+                        "Error al guardar", Mob.WIDTH160DP, ctx, colorBallom)
+                    alert.showAlignBottom(form.txtInfopager)
+                    alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                }
             }
-            val colorBallom = ContextCompat.getColor(this, colorlb)
-            val alert = Functions.msgBallom(
-                "Formulario guardado", Mob.WIDTH160DP, this, colorBallom)
-            alert.showAlignBottom(form.txtInfopager)
-            alert.dismissWithDelay(Mob.TIMELONG2SEG)
+
         } else  { //-- Inconsistencia
             val mesagePregunta = AlertDialog.Builder(this)
             val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)
@@ -379,6 +407,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             btsavepager.setColorFilter(colorLetras)
             btobspager.setColorFilter(colorLetras)
+            btDrawerpager.setColorFilter(colorLetras)
             btmenupager.setColorFilter(colorLetras)
             btbackpager.setColorFilter(colorLetras)
             btnextpager.setColorFilter(colorLetras)

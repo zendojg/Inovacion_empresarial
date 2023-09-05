@@ -1,10 +1,13 @@
 package gob.pa.inovacion_empresarial.function
 
+import android.content.Context
 import com.google.gson.Gson
 import gob.pa.inovacion_empresarial.function.Functions.aString
+import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelForm
 import gob.pa.inovacion_empresarial.service.room.DBform
+import gob.pa.inovacion_empresarial.service.room.RoomView
 
 object  CreateForm {
     fun create(): ModelForm {
@@ -38,10 +41,10 @@ object  CreateForm {
         }
     }
 
-    fun createSaved(): DBform {
+    fun createObDB(): DBform {
         val form = create()
         val formString = Gson().toJson(form)
-        val idrandom = "RECOVERY-${(10000..99999).random()}"
+        val idrandom = "RECOVERY-${(100000..999999).random()}"
         with(Mob) {
             return DBform(
                 idNControl = form.ncontrol ?: idrandom,
@@ -56,6 +59,10 @@ object  CreateForm {
             )
         }
     }
+
+    suspend fun createSaved(dvm: DVModel, ctx: Context) =
+        RoomView(dvm, ctx).saveForm(createObDB())
+
 
     //fun rechargeCap1() = Mob.formComp?.cap1
     //fun rechargeCap2() = Mob.formComp?.cap2
@@ -80,6 +87,7 @@ object  CreateForm {
 
         }
     }
+
     fun resetLoad() {
         with(Mob) {
             indiceFormulario = 0
@@ -140,11 +148,11 @@ object  CreateForm {
             isecc3 = true
             isecc4 = true
 
-            cleanForm()
+            resetForm()
         }
     }
 
-    private fun cleanForm() {
+    private fun resetForm() {
         Mob.cap1 = null
         Mob.cap2 = null
         Mob.cap3 = null
