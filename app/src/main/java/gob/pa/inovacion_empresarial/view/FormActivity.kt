@@ -13,6 +13,7 @@ import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
@@ -28,6 +29,7 @@ import com.google.android.material.navigation.NavigationView
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.adapters.AdapterPagerForm
 import gob.pa.inovacion_empresarial.databinding.ActivityFormBinding
+import gob.pa.inovacion_empresarial.databinding.MenuHeaderBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgAlertBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgObsBinding
 import gob.pa.inovacion_empresarial.function.CreateForm
@@ -78,6 +80,11 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         supportActionBar?.setDisplayShowHomeEnabled(false)
         form.navView.setNavigationItemSelectedListener(this)
 
+        val ncontrol = "N° de control: ${Functions.ceroLeft(
+            Mob.formComp?.ncontrol ?: "0", 4)}"
+        val headerNav = form.navView.getHeaderView(0)
+        val headerbinding = MenuHeaderBinding.inflate(layoutInflater)
+        headerNav.findViewById<TextView>(headerbinding.lbname.id)?.text = ncontrol
         onAction()
     }
 
@@ -194,6 +201,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
                     val intent = Intent(ctx, MainActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK  or
                             Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
                     CreateForm.resetLoad()

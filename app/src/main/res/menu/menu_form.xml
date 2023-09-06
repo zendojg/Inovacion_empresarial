@@ -96,7 +96,7 @@
             android:id="@+id/menu_exit"
             android:icon="@drawable/img_close"
             android:fontFamily="sans-serif-condensed"
-            android:title="Salir del Formulario" />
+            android:title="Salir del formulario" />
     </group>
 
 </menu>

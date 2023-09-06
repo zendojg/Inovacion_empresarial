@@ -32,7 +32,6 @@ import gob.pa.inovacion_empresarial.function.Functions.aString
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.*
 import gob.pa.inovacion_empresarial.service.room.RoomView
-import gob.pa.inovacion_empresarial.view.FormActivity
 import gob.pa.inovacion_empresarial.view.MainActivity
 import kotlinx.coroutines.launch
 import java.lang.reflect.Type
@@ -283,7 +282,7 @@ class FragTotalInforme : Fragment() {
         screenBlack.setCancelable(false)
         screenBlack.show()
 
-        lifecycleScope.launch { CreateForm.createSaved(dvmInforme, ctx) }
+        lifecycleScope.launch { CreateForm.createSaved(dvmInforme, ctx) } //-- SAVE FORMULARIO
         Handler(Looper.getMainLooper()).postDelayed({
             val form = activity
             val intent = Intent(ctx, MainActivity::class.java)

@@ -178,7 +178,7 @@ class MainFragmentForms : Fragment() {
         return true
     }
 
-    private fun windBottom(item: ModelForm) {
+    private fun windBottom(item: ModelForm) { //----------------------------------------------------------- ARREGLAR LA BUSQUEDA QUE TRAE UN LIST INCOMPLETO
         val msgOpcions = AlertDialog.Builder(ctx)
         val bindmsg: StyleMsgPopupBinding =
             DataBindingUtil.inflate(
@@ -212,10 +212,14 @@ class MainFragmentForms : Fragment() {
             bt1.setOnClickListener {
                 aDialog?.dismiss()
                 CreateForm.createLoad(item)
-                Mob.indiceFormulario = 1
+                Mob.indiceFormulario = Mob.CAP1P01
                 Handler(Looper.getMainLooper()).postDelayed({
                     activity?.finish()
-                    startActivity(Intent(ctx, FormActivity::class.java))
+                    val intent = Intent(ctx, FormActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK  or
+                            Intent.FLAG_ACTIVITY_NEW_TASK)
+                    startActivity(intent)
                 }, (Mob.TIME100MS))
             }
 
@@ -339,7 +343,11 @@ class MainFragmentForms : Fragment() {
                         Mob.indiceFormulario = 1
                         Handler(Looper.getMainLooper()).postDelayed({
                             activity?.finish()
-                            startActivity(Intent(ctx, FormActivity::class.java))
+                            val intent = Intent(ctx, FormActivity::class.java)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                                    Intent.FLAG_ACTIVITY_CLEAR_TASK  or
+                                    Intent.FLAG_ACTIVITY_NEW_TASK)
+                            startActivity(intent)
                         }, (Mob.TIME100MS))
                     }
                 }

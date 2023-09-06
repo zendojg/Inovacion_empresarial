@@ -16,6 +16,7 @@ import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap5
+import gob.pa.inovacion_empresarial.model.ModelTexWatchers
 
 
 class FragEncuestaCap05o2 : Fragment() {
@@ -23,6 +24,7 @@ class FragEncuestaCap05o2 : Fragment() {
     private lateinit var bindingcap5o2: EncuestaCapitulo052RecursosHumanosBinding
     private lateinit var ctx: Context
 
+    private val textWatcherList = mutableListOf<ModelTexWatchers>()
     private var empA21 = 0
     private var empA22 = 0
     private var empB21 = 0
@@ -30,23 +32,6 @@ class FragEncuestaCap05o2 : Fragment() {
     private var emp21 = 0
     private var emp22 = 0
 
-    private var hombNacA = 0
-    private var hombNacB = 0
-    private var hombNacC = 0
-    private var hombNacD = 0
-    private var hombNacE = 0
-    private var hombNacF = 0
-    private var hombNacG = 0
-    private var hombNacH = 0
-
-    private var hombExtcA = 0
-    private var hombExtB = 0
-    private var hombExtC = 0
-    private var hombExtD = 0
-    private var hombExtE = 0
-    private var hombExtF = 0
-    private var hombExtG = 0
-    private var hombExtH = 0
 
 
     //private val dvmCap4: DVModel by viewModels()
@@ -64,7 +49,16 @@ class FragEncuestaCap05o2 : Fragment() {
         if (Mob.seecap05o2) fillOut()
         else onAction()
     }
+    override fun onPause() {
+        super.onPause()
 
+        for (modelTexWatcher in textWatcherList) {
+            modelTexWatcher.editext.removeTextChangedListener(modelTexWatcher.watcher)
+        }
+        textWatcherList.clear()
+
+
+    }
 
     private fun onAction() {
         with (bindingcap5o2) {
@@ -128,6 +122,7 @@ class FragEncuestaCap05o2 : Fragment() {
                     txtCap536A2022.text = "0".toEditable()
                 }
             }
+
             txtCap536B2021.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
                 if (hasFocus) {
                     if (txtCap536B2021.text.toString() == "0") txtCap536B2021.text?.clear()
@@ -136,8 +131,6 @@ class FragEncuestaCap05o2 : Fragment() {
                     txtCap536B2021.text = "0".toEditable()
                 }
             }
-
-
 
 
             txtCap536B2022.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
@@ -150,17 +143,31 @@ class FragEncuestaCap05o2 : Fragment() {
                 }
             }
 
+            for(i in 0 until tb35.childCount) {
+                val view = tb35.getChildAt(i)
+                if (view is EditText) {
+                    view.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                        if (hasFocus) {
+
+                        }
+                    }
+                }
+            }
+
+
             lowCap5o2.setOnClickListener { saveCap() }
         }
     }
 
 
-    private fun actionTxtSum35(txt: EditText) {
+    private fun actionTxtSum35(txt: EditText) { //-- Autosuma p35
         with (bindingcap5o2) {
             txt.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, st: Int, c: Int, a: Int) {}
                 override fun onTextChanged(s: CharSequence, st: Int, b: Int, c: Int) {}
                 override fun afterTextChanged(s: Editable?) {
+                    val modelTexWatchers = ModelTexWatchers(txt, this)
+                    textWatcherList.add(modelTexWatchers)
                     if (!s.isNullOrEmpty()) {
                         when (txt) {
                             txtCap536A2021 -> {
@@ -197,12 +204,14 @@ class FragEncuestaCap05o2 : Fragment() {
             })
         }
     }
-    private fun actionTxtSum36(txt: EditText) {
+    private fun actionTxtSum36(txt: EditText) { //-- Autosuma p36
         with (bindingcap5o2) {
             txt.addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, st: Int, c: Int, a: Int) {}
                 override fun onTextChanged(s: CharSequence, st: Int, b: Int, c: Int) {}
                 override fun afterTextChanged(s: Editable?) {
+                    val modelTexWatchers = ModelTexWatchers(txt, this)
+                    textWatcherList.add(modelTexWatchers)
                     if (!s.isNullOrEmpty()) {
                         when (txt) {
                             txtCap536A2021 -> {

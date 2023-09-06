@@ -196,10 +196,12 @@ class MainFragmentSearch : Fragment() {
                 }
             }
             btinitSearch.setOnClickListener {
-                Mob.indiceFormulario = 1
+                Mob.indiceFormulario = Mob.CAP1P01
                 activity?.finish()
                 val intent = Intent(ctx, FormActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK  or
+                        Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
             }
         }

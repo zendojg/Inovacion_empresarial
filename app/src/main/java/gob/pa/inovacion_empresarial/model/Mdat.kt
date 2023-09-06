@@ -1,12 +1,14 @@
 package gob.pa.inovacion_empresarial.model
 
+import android.text.TextWatcher
+import android.widget.EditText
 import com.google.gson.annotations.SerializedName
 
 //-- LOGIN
 
-data class ModelInconsistencias(
-    @SerializedName("PAUTA")                 val pauta: String,
-    @SerializedName("TEXTO")                 val texto: String
+data class ModelTexWatchers(
+    val editext: EditText,
+    val watcher: TextWatcher
 )
 
 data class ModelLog(
