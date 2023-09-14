@@ -2,24 +2,31 @@ package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import androidx.fragment.app.Fragment
+import com.google.android.material.textfield.TextInputLayout
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo07Part2Binding
+import gob.pa.inovacion_empresarial.function.ClassFunctions
 import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap7
+import gob.pa.inovacion_empresarial.model.ModelTexWatchers
 
 class FragEncuestaCap07o2 : Fragment() {
 
     private lateinit var bindingcap7o2: EncuestaCapitulo07Part2Binding
     private lateinit var ctx: Context
-
+    private val textWatcherList = mutableListOf<ModelTexWatchers>()
+    private var row1EditTexts: List<EditText> = emptyList()
+    private var row2EditTexts: List<EditText> = emptyList()
     private var indice01 = 0
     private var indice02 = 0
     private var indice03 = 0
@@ -51,9 +58,75 @@ class FragEncuestaCap07o2 : Fragment() {
         else onAction()
     }
 
+    override fun onPause() {
+        super.onPause()
+        for (edittext in row1EditTexts)
+            edittext.onFocusChangeListener = null
+        for (edittext in row2EditTexts)
+            edittext.onFocusChangeListener = null
+
+        for (modelTexWatcher in textWatcherList) {
+            modelTexWatcher.editext.removeTextChangedListener(modelTexWatcher.watcher)
+        }
+        textWatcherList.clear()
+    }
     private fun onAction() {
         with(bindingcap7o2) {
             lowCap7o2.setOnClickListener { saveCap() }
+
+            row1EditTexts = listOf(
+                txtCap753A2021,
+                txtCap753B2021,
+                txtCap753C2021,
+                txtCap753D2021,
+                txtCap753E2021,
+                txtCap753F2021,
+                txtCap753G2021,)
+
+            row2EditTexts = listOf(
+                txtCap753A2022,
+                txtCap753B2022,
+                txtCap753C2022,
+                txtCap753D2022,
+                txtCap753E2022,
+                txtCap753F2022,
+                txtCap753G2022,)
+
+            for (index in 0 until tb53.childCount) {
+                val view = tb53.getChildAt(index)
+                if (view is TextInputLayout) {
+                    val editText = view.editText
+                    editText?.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                        if (hasFocus) {
+                            if (row1EditTexts.contains(editText) && editText != null) {
+                                val modelTexWatchers =
+                                    ClassFunctions.actionEdittextSum(
+                                        editText,
+                                        row1EditTexts,
+                                        txtCap753T2021)
+                                textWatcherList.add(modelTexWatchers)
+                            } else if (row2EditTexts.contains(editText) && editText != null) {
+                                val modelTexWatchers =
+                                    ClassFunctions.actionEdittextSum(
+                                        editText,
+                                        row2EditTexts,
+                                        txtCap753T2022)
+                                textWatcherList.add(modelTexWatchers)
+                            }
+                        } else {
+                            if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
+                                for (modelTexWatcher in textWatcherList) {
+                                    modelTexWatcher.editext.removeTextChangedListener(
+                                        modelTexWatcher.watcher
+                                    )
+                                }
+                            }
+                            Log.i("-------textWatcher:", "${textWatcherList.size}")
+                        }
+                    }
+                }
+            }
+
 
 
             val imp54Adp = ArrayAdapter(ctx, R.layout.style_box, Mob.arrImp)
@@ -103,136 +176,91 @@ class FragEncuestaCap07o2 : Fragment() {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice01 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
             spinCap7542.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice02 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
             spinCap7543.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice03 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
             spinCap7544.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice04 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
             spinCap7545.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice05 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
             spinCap7546.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice06 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
             spinCap7547.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice07 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
             spinCap7548.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice08 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
             spinCap7549.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice09 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
             spinCap75410.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice10 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
             spinCap75411.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice11 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
             spinCap75412.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice12 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
             spinCap75413.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice13 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
             spinCap75414.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice14 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
             spinCap75415.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     indice15 = pos
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    println("---NO selection")
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
         }
     }

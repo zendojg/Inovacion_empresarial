@@ -5,22 +5,28 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import gob.pa.inovacion_empresarial.databinding.ModuloSeccion04Binding
+import gob.pa.inovacion_empresarial.function.ClassFunctions
 import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelMod
+import gob.pa.inovacion_empresarial.model.ModelTexWatchers
 
 class FragModuloSecc04: Fragment() {
     private lateinit var bindingmod4: ModuloSeccion04Binding
     private lateinit var ctx: Context
+    private val textWatcherList = mutableListOf<ModelTexWatchers>()
+    private var rowEditTexts: List<EditText> = emptyList()
     private var venta1 = 0
     private var venta2 = 0
     private var venta3 = 0
@@ -41,10 +47,22 @@ class FragModuloSecc04: Fragment() {
         if (Mob.seesecc4) fillOut()
         else onAction()
     }
+    override fun onPause() {
+        super.onPause()
+        for (edittext in rowEditTexts)
+            edittext.onFocusChangeListener = null
+
+        for (modelTexWatcher in textWatcherList) {
+            modelTexWatcher.editext.removeTextChangedListener(modelTexWatcher.watcher)
+        }
+        rowEditTexts = emptyList()
+        textWatcherList.clear()
+    }
 
     private fun onAction() {
         with(bindingmod4) {
             scrollForm.isVisible = Mob.capMod?.v1check != false
+            rowEditTexts = listOf(txtSecc046p1, txtSecc046p2, txtSecc046p3, txtSecc046p4)
 
             venta1 = try { txtSecc046p1.text.toString().toInt() }
             catch (e: java.lang.NumberFormatException) { 0 }
@@ -59,11 +77,10 @@ class FragModuloSecc04: Fragment() {
             catch (e: java.lang.NumberFormatException) { 0 }
 
             ventat = venta1 + venta2 + venta3 + venta4
-            lb6nm100.text = ventat.toString()
+            lb6nm100.text = ventat.toString().toEditable()
 
             if (ventat == Mob.PORCENT100) lb6nm100.setTextColor(Color.GREEN)
             else lb6nm100.setTextColor(Color.RED)
-
 
             if (rbtSecc047No.isChecked) layoutSecc48.isVisible = false
             rgroupSecc047.setOnCheckedChangeListener { _, id ->
@@ -92,69 +109,60 @@ class FragModuloSecc04: Fragment() {
                 }
             }
             actionPorcent()
-            lowMod4.setOnClickListener { saveCap() }
         }
     }
 
     private fun actionPorcent() {
-        with(bindingmod4) {
-            txtSecc046p1.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-                if (hasFocus) {
-                    if (txtSecc046p1.text.toString() == "0") txtSecc046p1.text?.clear()
-                    actionTxtPorcent(txtSecc046p1)
-                } else if (txtSecc046p1.text.isNullOrEmpty()) {
-                    txtSecc046p1.text = "0".toEditable()
-                }
-            }
-            txtSecc046p2.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-                if (hasFocus) {
-                    if (txtSecc046p2.text.toString() == "0") txtSecc046p2.text?.clear()
-                    actionTxtPorcent(txtSecc046p2)
-                } else if (txtSecc046p2.text.isNullOrEmpty()) {
-                    txtSecc046p2.text = "0".toEditable()
-                }
-            }
-            txtSecc046p3.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-                if (hasFocus) {
-                    if (txtSecc046p3.text.toString() == "0") txtSecc046p3.text?.clear()
-                    actionTxtPorcent(txtSecc046p3)
-                } else if (txtSecc046p3.text.isNullOrEmpty()) {
-                    txtSecc046p3.text = "0".toEditable()
-                }
-            }
-            txtSecc046p4.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-                if (hasFocus) {
-                    if (txtSecc046p4.text.toString() == "0") txtSecc046p4.text?.clear()
-                    actionTxtPorcent(txtSecc046p4)
-                } else if (txtSecc046p4.text.isNullOrEmpty()) {
-                    txtSecc046p4.text = "0".toEditable()
+        fun bodyTxt(editText: TextInputEditText, hasFocus: Boolean) {
+            if (hasFocus) {
+                if (editText.text.toString() == "0") editText.text?.clear()
+                actionTxtPorcent(editText)
+            } else if (editText.text.isNullOrEmpty()) {
+                editText.text = "0".toEditable()
+                if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
+                    for (modelTexWatcher in textWatcherList) {
+                        modelTexWatcher.editext.removeTextChangedListener(modelTexWatcher.watcher)
+                    }
                 }
             }
         }
+
+        with(bindingmod4) {
+            txtSecc046p1.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                bodyTxt(txtSecc046p1, hasFocus)
+            }
+            txtSecc046p2.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                bodyTxt(txtSecc046p2, hasFocus)
+            }
+            txtSecc046p3.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                bodyTxt(txtSecc046p3, hasFocus)
+            }
+            txtSecc046p4.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                bodyTxt(txtSecc046p4, hasFocus)
+            }
+        }
+
+
     }
 
     private fun actionTxtPorcent(txt: TextInputEditText) {
         txt.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, st: Int, c: Int, a: Int) {}
-            override fun onTextChanged(s: CharSequence, st: Int, b: Int, c: Int) {}
+            override fun beforeTextChanged(s: CharSequence?, st: Int, c: Int, a: Int) {/* Nada */}
+            override fun onTextChanged(s: CharSequence, st: Int, b: Int, c: Int) {/* Nada */}
             override fun afterTextChanged(s: Editable?) {
                 if (!s.isNullOrEmpty()) {
                     when (txt) {
-                        bindingmod4.txtSecc046p1 -> {
-                            venta1 = try { txt.text.toString().toInt() }
+                        bindingmod4.txtSecc046p1 -> { venta1 = try { txt.text.toString().toInt() }
                             catch (e: java.lang.NumberFormatException) { 0 }}
-                        bindingmod4.txtSecc046p2 -> {
-                            venta2 = try { txt.text.toString().toInt() }
+                        bindingmod4.txtSecc046p2 -> { venta2 = try { txt.text.toString().toInt() }
                             catch (e: java.lang.NumberFormatException) { 0 }}
-                        bindingmod4.txtSecc046p3 -> {
-                            venta3 = try { txt.text.toString().toInt() }
+                        bindingmod4.txtSecc046p3 -> { venta3 = try { txt.text.toString().toInt() }
                             catch (e: java.lang.NumberFormatException) { 0 }}
-                        bindingmod4.txtSecc046p4 -> {
-                            venta4 = try { txt.text.toString().toInt() }
+                        bindingmod4.txtSecc046p4 -> { venta4 = try { txt.text.toString().toInt() }
                             catch (e: java.lang.NumberFormatException) { 0 }}
                     }
                     ventat = venta1 + venta2 + venta3 + venta4
-                    bindingmod4.lb6nm100.text = ventat.toString()
+                    bindingmod4.lb6nm100.text = ventat.toString().toEditable()
                     if (ventat == Mob.PORCENT100) bindingmod4.lb6nm100.setTextColor(Color.GREEN)
                     else bindingmod4.lb6nm100.setTextColor(Color.RED)
                 } else {
@@ -165,10 +173,12 @@ class FragModuloSecc04: Fragment() {
                         bindingmod4.txtSecc046p4 -> venta4 = 0
                     }
                     ventat = venta1 + venta2 + venta3 + venta4
-                    bindingmod4.lb6nm100.text = ventat.toString()
+                    bindingmod4.lb6nm100.text = ventat.toString().toEditable()
                     if (ventat == Mob.PORCENT100) bindingmod4.lb6nm100.setTextColor(Color.GREEN)
                     else bindingmod4.lb6nm100.setTextColor(Color.RED)
                 }
+                val watchers = ModelTexWatchers(txt, this)
+                textWatcherList.add(watchers)
             }
         })
     }

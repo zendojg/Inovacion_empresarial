@@ -109,6 +109,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
+                            android:maxLength="15"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -129,6 +130,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
+                            android:maxLength="15"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -177,6 +179,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
+                            android:maxLength="15"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -197,6 +200,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
+                            android:maxLength="15"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -245,6 +249,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
+                            android:maxLength="15"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -265,6 +270,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
+                            android:maxLength="15"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -313,6 +319,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
+                            android:maxLength="15"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -333,6 +340,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
+                            android:maxLength="15"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -381,6 +389,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
+                            android:maxLength="15"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -401,6 +410,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
+                            android:maxLength="15"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -449,6 +459,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
+                            android:maxLength="15"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -469,6 +480,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
+                            android:maxLength="15"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -527,6 +539,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
+                            android:maxLength="15"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -547,6 +560,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
+                            android:maxLength="15"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />

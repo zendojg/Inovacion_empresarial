@@ -20,7 +20,7 @@ object Mob {
     const val PORCENT100:Int = 100
     const val LIMITMSG:Int = 50
     const val SIZEAUTOCONTROL:Int = 7
-    const val CEROLEFT:Int = 4
+    const val FOR5DIGITS:Int = 4
 
 
     const val CHECK1Y2021:Int = 0
@@ -32,6 +32,8 @@ object Mob {
     const val CHECK4Y2021:Int = 6
     const val CHECK4Y2022:Int = 7
 
+    const val MAXTEXWATCHER4ROWS:Int = 6
+    const val MAXTEXWATCHERMANYROWS:Int = 9
 
     const val JUMPMODULE1:Int = 4
 

@@ -25,6 +25,7 @@
             android:padding="2dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_secc04_6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
@@ -47,10 +48,9 @@
                     android:layout_marginBottom="40dp"
                     android:fontFamily="sans-serif-condensed-light"
                     android:text="@string/leftBranch"
-                    app:layout_constraintBottom_toBottomOf="@+id/txtSecc04_6p4ly"
+                    app:layout_constraintBottom_toBottomOf="@+id/LinearSecc4_6_txt"
                     app:layout_constraintEnd_toStartOf="@+id/lb6nm100"
-                    app:layout_constraintTop_toTopOf="@+id/txtSecc04_6p1ly" />
-
+                    app:layout_constraintTop_toTopOf="@+id/LinearSecc4_6_txt" />
 
 
                 <TextView
@@ -79,104 +79,105 @@
                     app:layout_constraintTop_toTopOf="@+id/lb6nm"
                     tools:ignore="TextContrastCheck" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:id="@+id/txtSecc04_6p1ly"
+                <LinearLayout
+                    android:id="@+id/LinearSecc4_6_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp"
-                    android:hint="@string/hints061"
+                    android:orientation="vertical"
                     app:layout_constraintEnd_toStartOf="@+id/txtBranch"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lb6txtm">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtSecc04_6p1"
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/txtSecc04_6p1ly"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="number"
-                        android:maxLength="3"
-                        tools:ignore="TouchTargetSizeCheck"
-                        tools:text="100" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="10dp"
+                        android:hint="@string/hints061">
 
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtSecc04_6p1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:fontFamily="sans-serif-condensed"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:text="100" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:id="@+id/txtSecc04_6p2ly"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:hint="@string/hints062"
-                    app:layout_constraintEnd_toStartOf="@+id/txtBranch"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtSecc04_6p1ly">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtSecc04_6p2"
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/txtSecc04_6p2ly"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="number"
-                        android:maxLength="3"
-                        tools:ignore="TouchTargetSizeCheck"
-                        tools:text="100" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_marginHorizontal="20dp"
+                        android:hint="@string/hints062">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:id="@+id/txtSecc04_6p3ly"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:hint="@string/hints063"
-                    app:layout_constraintEnd_toStartOf="@+id/txtBranch"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtSecc04_6p2ly">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtSecc04_6p2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:fontFamily="sans-serif-condensed"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:text="100" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtSecc04_6p3"
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/txtSecc04_6p3ly"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="number"
-                        android:maxLength="3"
-                        tools:ignore="TouchTargetSizeCheck"
-                        tools:text="100" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_marginHorizontal="20dp"
+                        android:hint="@string/hints063">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:id="@+id/txtSecc04_6p4ly"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
-                    android:hint="@string/hints064"
-                    app:layout_constraintEnd_toStartOf="@+id/txtBranch"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtSecc04_6p3ly">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtSecc04_6p3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:fontFamily="sans-serif-condensed"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:text="100" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtSecc04_6p4"
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:id="@+id/txtSecc04_6p4ly"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="number"
-                        android:maxLength="3"
-                        tools:ignore="TouchTargetSizeCheck"
-                        tools:text="100" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_marginHorizontal="20dp"
+                        android:hint="@string/hints064">
 
-                <TextView
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtSecc04_6p4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:fontFamily="sans-serif-condensed"
+                            android:inputType="number"
+                            android:maxLength="3"
+                            tools:ignore="TouchTargetSizeCheck"
+                            tools:text="100" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+
+                <EditText
                     android:id="@+id/lb6nm100"
-                    android:layout_width="40dp"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/transparent"
+                    android:focusable="false"
                     android:gravity="end"
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/porc100"
@@ -184,9 +185,9 @@
                     android:maxLines="1"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/txtSecc04_6p4ly"
+                    app:layout_constraintBottom_toBottomOf="@+id/LinearSecc4_6_txt"
                     app:layout_constraintEnd_toStartOf="@+id/lb6nmporcent"
-                    app:layout_constraintTop_toTopOf="@+id/txtSecc04_6p1ly" />
+                    app:layout_constraintTop_toTopOf="@+id/LinearSecc4_6_txt" />
 
                 <TextView
                     android:id="@+id/lb6nmporcent"
@@ -197,9 +198,9 @@
                     android:text="@string/porcent"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/txtSecc04_6p4ly"
+                    app:layout_constraintBottom_toBottomOf="@+id/LinearSecc4_6_txt"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/txtSecc04_6p1ly" />
+                    app:layout_constraintTop_toTopOf="@+id/LinearSecc4_6_txt" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -210,8 +211,8 @@
                     android:text="@string/p6mdescend"
                     android:textColor="#D8B18B"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/txtSecc04_6p4ly"
-                    app:layout_constraintTop_toBottomOf="@+id/txtSecc04_6p4ly"
+                    app:layout_constraintStart_toStartOf="@+id/LinearSecc4_6_txt"
+                    app:layout_constraintTop_toBottomOf="@+id/LinearSecc4_6_txt"
                     tools:ignore="TextContrastCheck" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

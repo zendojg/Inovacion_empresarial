@@ -1,10 +1,8 @@
 package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
-import android.nfc.FormatException
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,22 +10,21 @@ import android.widget.EditText
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo051VentasYExpoBinding
+import gob.pa.inovacion_empresarial.function.ClassFunctions
 import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap5
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
-import java.math.BigDecimal
 import java.text.DecimalFormat
-import java.text.ParseException
 
 class FragEncuestaCap05o1 : Fragment() {
 
     private lateinit var bindingcap5o1: EncuestaCapitulo051VentasYExpoBinding
     private lateinit var ctx: Context
     private val textWatcherList = mutableListOf<ModelTexWatchers>()
-    var row1EditTexts: List<EditText> = emptyList()
-    var row2EditTexts: List<EditText> = emptyList()
+    private var row1EditTexts: List<EditText> = emptyList()
+    private var row2EditTexts: List<EditText> = emptyList()
     //private val dvmCap4: DVModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -77,63 +74,39 @@ class FragEncuestaCap05o1 : Fragment() {
                 }
             }
 
-            for(i in 0 until tb30.childCount) {
-                val view = tb30.getChildAt(i)
+            for(index in 0 until tb30.childCount) {
+                val view = tb30.getChildAt(index)
                 if (view is EditText) {
                     view.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
                         if (hasFocus) {
                             if (view.text.toString() == "0") view.text?.clear()
-                            if (row1EditTexts.contains(view))
-                                actionTxtSum(view, row1EditTexts, txtCap53012021)
-                            else if (row2EditTexts.contains(view))
-                                actionTxtSum(view, row2EditTexts, txtCap53012022)
+                            if (row1EditTexts.contains(view)) {
+                                val modelTexWatchers =
+                                    ClassFunctions.actionEdittextSum(view, row1EditTexts, txtCap53012021)
+                                textWatcherList.add(modelTexWatchers)
+                            }
+                            else if (row2EditTexts.contains(view)) {
+                                val modelTexWatchers =
+                                    ClassFunctions.actionEdittextSum(view, row2EditTexts, txtCap53012022)
+                                textWatcherList.add(modelTexWatchers)
+                            }
                         } else if (view.text.isNullOrEmpty()) {
                             view.text = "0".toEditable()
+                        } else {
+                            if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
+                                for (modelTexWatcher in textWatcherList) {
+                                    modelTexWatcher.editext.removeTextChangedListener(
+                                        modelTexWatcher.watcher
+                                    )
+                                }
+                            }
+                            Log.i("-------textWatcher:", "${textWatcherList.size}")
                         }
                     }
                 }
             }
         }
     }
-
-    private fun actionTxtSum(txt: EditText, editTexts: List<EditText>, resultEditText: EditText) {
-        txt.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // No se requiere acción antes del cambio de texto.
-            }
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val modelTexWatchers = ModelTexWatchers(txt, this)
-                textWatcherList.add(modelTexWatchers)
-            }
-            override fun afterTextChanged(s: Editable?) {
-                txt.removeTextChangedListener(this) // Evitar un bucle infinito
-                val decimalFormat = DecimalFormat("#,###")
-                try {
-                    // Eliminar las comas existentes antes de formatear
-                    val originalText = s.toString()
-                    val longValue = decimalFormat.parse(originalText)?.toLong() ?: 0
-                    val formattedText = decimalFormat.format(longValue)
-
-                    txt.setText(formattedText)
-                    txt.setSelection(formattedText.length) // Colocar el cursor al final
-                } catch (e: ParseException) { e.printStackTrace() }
-                txt.addTextChangedListener(this) // Restablecer el TextWatcher
-                try {
-                    // Calcular la suma de los valores en los EditText
-                    val sum = editTexts.fold(BigDecimal.ZERO) { acc, editText ->
-                        val text = editText.text.toString().replace(",", "")
-                        if (text.isNotBlank()) { acc.add(BigDecimal(text)) }
-                        else { acc }
-                    }
-                    // Formatear y establecer el resultado en el EditText de resultado
-                    val formattedSum = decimalFormat.format(sum)
-                    resultEditText.setText(formattedSum)
-
-                } catch (e: ParseException) { println(e) }
-            }
-        })
-    }
-
 
     private fun fillOut() {
         val cap5 = Mob.formComp?.cap5

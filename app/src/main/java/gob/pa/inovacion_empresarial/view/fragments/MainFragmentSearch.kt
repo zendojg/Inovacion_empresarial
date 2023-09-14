@@ -25,7 +25,6 @@ import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.view.FormActivity
-import gob.pa.inovacion_empresarial.view.MainActivity
 import kotlinx.coroutines.launch
 
 class MainFragmentSearch : Fragment() {
@@ -90,7 +89,7 @@ class MainFragmentSearch : Fragment() {
                 txtNControllySearch.error = "Ingrese un N° de Control"
             } else {
                 val ncontrolReformat =
-                    Functions.ceroLeft(txtNControlSearch.text.toString(), Mob.CEROLEFT)
+                    Functions.ceroLeft(txtNControlSearch.text.toString(), Mob.FOR5DIGITS)
                 txtNControlSearch.text = ncontrolReformat.toEditable()
                 val ncont: Int = try {
                     txtNControlSearch.text.toString().toInt()

@@ -2,8 +2,7 @@ package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +10,7 @@ import android.widget.EditText
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo052RecursosHumanosBinding
+import gob.pa.inovacion_empresarial.function.ClassFunctions
 import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
@@ -23,17 +23,16 @@ class FragEncuestaCap05o2 : Fragment() {
 
     private lateinit var bindingcap5o2: EncuestaCapitulo052RecursosHumanosBinding
     private lateinit var ctx: Context
-
+    
+    private var row1EditTexts35: List<EditText> = emptyList()
+    private var row2EditTexts35: List<EditText> = emptyList()
+    private var row3EditTexts35: List<EditText> = emptyList()
+    private var row4EditTexts35: List<EditText> = emptyList()
+    
+    private var row1EditTexts36: List<EditText> = emptyList()
+    private var row2EditTexts36: List<EditText> = emptyList()
+    
     private val textWatcherList = mutableListOf<ModelTexWatchers>()
-    private var empA21 = 0
-    private var empA22 = 0
-    private var empB21 = 0
-    private var empB22 = 0
-    private var emp21 = 0
-    private var emp22 = 0
-
-
-
     //private val dvmCap4: DVModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -52,16 +51,79 @@ class FragEncuestaCap05o2 : Fragment() {
     override fun onPause() {
         super.onPause()
 
+        for (edittext in row1EditTexts35)
+            edittext.onFocusChangeListener = null
+        for (edittext in row2EditTexts35)
+            edittext.onFocusChangeListener = null
+        for (edittext in row3EditTexts35)
+            edittext.onFocusChangeListener = null
+        for (edittext in row4EditTexts35)
+            edittext.onFocusChangeListener = null
+
+        for (edittext in row1EditTexts36)
+            edittext.onFocusChangeListener = null
+        for (edittext in row2EditTexts36)
+            edittext.onFocusChangeListener = null
+
         for (modelTexWatcher in textWatcherList) {
             modelTexWatcher.editext.removeTextChangedListener(modelTexWatcher.watcher)
         }
         textWatcherList.clear()
-
-
     }
 
     private fun onAction() {
         with (bindingcap5o2) {
+            
+            row1EditTexts35 = listOf(
+                txtCap535AHNac,
+                txtCap535BHNac,
+                txtCap535CHNac,
+                txtCap535DHNac,
+                txtCap535EHNac,
+                txtCap535FHNac,
+                txtCap535GHNac,
+                txtCap535HHNac
+            )
+            row2EditTexts35 = listOf(
+                txtCap535AHExt,
+                txtCap535BHExt,
+                txtCap535CHExt,
+                txtCap535DHExt,
+                txtCap535EHExt,
+                txtCap535FHExt,
+                txtCap535GHExt,
+                txtCap535HHExt
+            )
+
+            row3EditTexts35 = listOf(
+                txtCap535AMNac,
+                txtCap535BMNac,
+                txtCap535CMNac,
+                txtCap535DMNac,
+                txtCap535EMNac,
+                txtCap535FMNac,
+                txtCap535GMNac,
+                txtCap535HMNac
+            )
+            row4EditTexts35 = listOf(
+                txtCap535AMExt,
+                txtCap535BMExt,
+                txtCap535CMExt,
+                txtCap535DMExt,
+                txtCap535EMExt,
+                txtCap535FMExt,
+                txtCap535GMExt,
+                txtCap535HMExt
+            )
+
+            row1EditTexts36 = listOf(
+                txtCap536A2021,
+                txtCap536B2021
+            )
+            row2EditTexts36 = listOf(
+                txtCap536A2022,
+                txtCap536B2022
+            )
 
             layoutCap538.isVisible = rbtCap537Si.isChecked
             txtCap5381.isVisible = checkCap5381.isChecked
@@ -106,148 +168,98 @@ class FragEncuestaCap05o2 : Fragment() {
             }
 
 
-            txtCap536A2021.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-                if (hasFocus) {
-                    if (txtCap536A2021.text.toString() == "0") txtCap536A2021.text?.clear()
-                    actionTxtSum36(txtCap536A2021)
-                } else if (txtCap536A2021.text.isNullOrEmpty()) {
-                    txtCap536A2021.text = "0".toEditable()
-                }
-            }
-            txtCap536A2022.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-                if (hasFocus) {
-                    if (txtCap536A2022.text.toString() == "0") txtCap536A2022.text?.clear()
-                    actionTxtSum36(txtCap536A2022)
-                } else if (txtCap536A2022.text.isNullOrEmpty()) {
-                    txtCap536A2022.text = "0".toEditable()
-                }
-            }
-
-            txtCap536B2021.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-                if (hasFocus) {
-                    if (txtCap536B2021.text.toString() == "0") txtCap536B2021.text?.clear()
-                    actionTxtSum36(txtCap536B2021)
-                } else if (txtCap536B2021.text.isNullOrEmpty()) {
-                    txtCap536B2021.text = "0".toEditable()
-                }
-            }
-
-
-            txtCap536B2022.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-                if (hasFocus) {
-                    if (txtCap536B2022.text.toString() == "0") txtCap536B2022.text?.clear()
-                    actionTxtSum36(txtCap536B2022)
-                } else if (txtCap536B2022.text.isNullOrEmpty()) {
-                    txtCap536B2022.text = "0".toEditable()
-                    txtCap536B2022.addTextChangedListener(null)
-                }
-            }
-
             for(i in 0 until tb35.childCount) {
                 val view = tb35.getChildAt(i)
                 if (view is EditText) {
                     view.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
                         if (hasFocus) {
+                            if (view.text.toString() == "0") view.text?.clear()
+                            if (row1EditTexts35.contains(view)) {
+                                val modelTexWatchers =
+                                    ClassFunctions.actionEdittextSum(
+                                        view,
+                                        row1EditTexts35,
+                                        txtCap5351HNac)
+                                textWatcherList.add(modelTexWatchers)
+                            } else if (row2EditTexts35.contains(view)) {
+                                val modelTexWatchers =
+                                    ClassFunctions.actionEdittextSum(
+                                        view,
+                                        row2EditTexts35,
+                                        txtCap5351HExt)
+                                textWatcherList.add(modelTexWatchers)
+                            } else if (row3EditTexts35.contains(view)) {
+                                val modelTexWatchers =
+                                    ClassFunctions.actionEdittextSum(
+                                        view,
+                                        row3EditTexts35,
+                                        txtCap5351MNac)
+                                textWatcherList.add(modelTexWatchers)
+                            } else if (row4EditTexts35.contains(view)) {
+                                val modelTexWatchers =
+                                    ClassFunctions.actionEdittextSum(
+                                        view,
+                                        row4EditTexts35,
+                                        txtCap5351MExt)
+                                textWatcherList.add(modelTexWatchers)
+                            }
 
+
+                        } else if (view.text.isNullOrEmpty()) {
+                            view.text = "0".toEditable()
+                        } else {
+                            if (textWatcherList.size > Mob.MAXTEXWATCHERMANYROWS) {
+                                for (modelTexWatcher in textWatcherList) {
+                                    modelTexWatcher.editext.removeTextChangedListener(
+                                        modelTexWatcher.watcher)
+                                }
+                            }
+                            Log.i("-------textWatcher:", "${textWatcherList.size}")
                         }
                     }
                 }
             }
 
-
-            lowCap5o2.setOnClickListener { saveCap() }
-        }
-    }
-
-
-    private fun actionTxtSum35(txt: EditText) { //-- Autosuma p35
-        with (bindingcap5o2) {
-            txt.addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(s: CharSequence?, st: Int, c: Int, a: Int) {}
-                override fun onTextChanged(s: CharSequence, st: Int, b: Int, c: Int) {}
-                override fun afterTextChanged(s: Editable?) {
-                    val modelTexWatchers = ModelTexWatchers(txt, this)
-                    textWatcherList.add(modelTexWatchers)
-                    if (!s.isNullOrEmpty()) {
-                        when (txt) {
-                            txtCap536A2021 -> {
-                                empA21 = try { txt.text.toString().toInt() }
-                                catch (e: java.lang.NumberFormatException) { 0 }}
-                            txtCap536A2022 -> {
-                                empA22 = try { txt.text.toString().toInt() }
-                                catch (e: java.lang.NumberFormatException) { 0 }}
-                            txtCap536B2021 -> {
-                                empB21 = try { txt.text.toString().toInt() }
-                                catch (e: java.lang.NumberFormatException) { 0 }}
-                            txtCap536B2022 -> {
-                                empB22 = try { txt.text.toString().toInt() }
-                                catch (e: java.lang.NumberFormatException) { 0 }}
+            for(i in 0 until tb36.childCount) {
+                val view = tb36.getChildAt(i)
+                if (view is EditText) {
+                    view.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                        if (hasFocus) {
+                            if (view.text.toString() == "0") view.text?.clear()
+                            if (row1EditTexts36.contains(view)) {
+                                val modelTexWatchers =
+                                    ClassFunctions.actionEdittextSum(
+                                        view,
+                                        row1EditTexts36,
+                                        txtCap53612021)
+                                textWatcherList.add(modelTexWatchers)
+                            }
+                            else if (row2EditTexts36.contains(view)) {
+                                val modelTexWatchers =
+                                    ClassFunctions.actionEdittextSum(
+                                        view,
+                                        row2EditTexts36,
+                                        txtCap53612022)
+                                textWatcherList.add(modelTexWatchers)
+                            }
                         }
-                        emp21 = empA21 + empB21
-                        emp22 = empA22 + empB22
-                        txtCap53612021.text = emp21.toString().toEditable()
-                        txtCap53612022.text = emp22.toString().toEditable()
-
-                    } else {
-                        when (txt) {
-                            txtCap536A2021 -> empA21 = 0
-                            txtCap536A2022 -> empA22 = 0
-                            txtCap536B2021 -> empB21 = 0
-                            txtCap536B2022 -> empB22 = 0
+                        else if (view.text.isNullOrEmpty()) { view.text = "0".toEditable() }
+                        else {
+                            if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
+                                for (modelTexWatcher in textWatcherList) {
+                                    modelTexWatcher.editext.removeTextChangedListener(
+                                        modelTexWatcher.watcher
+                                    )
+                                }
+                            }
+                            Log.i("-------textWatcher:", "${textWatcherList.size}")
                         }
-                        emp21 = empA21 + empB21
-                        emp22 = empA22 + empB22
-                        txtCap53612021.text = emp21.toString().toEditable()
-                        txtCap53612022.text = emp22.toString().toEditable()
                     }
                 }
-            })
+            }
         }
     }
-    private fun actionTxtSum36(txt: EditText) { //-- Autosuma p36
-        with (bindingcap5o2) {
-            txt.addTextChangedListener(object : TextWatcher {
-                override fun beforeTextChanged(s: CharSequence?, st: Int, c: Int, a: Int) {}
-                override fun onTextChanged(s: CharSequence, st: Int, b: Int, c: Int) {}
-                override fun afterTextChanged(s: Editable?) {
-                    val modelTexWatchers = ModelTexWatchers(txt, this)
-                    textWatcherList.add(modelTexWatchers)
-                    if (!s.isNullOrEmpty()) {
-                        when (txt) {
-                            txtCap536A2021 -> {
-                                empA21 = try { txt.text.toString().toInt() }
-                                catch (e: java.lang.NumberFormatException) { 0 }}
-                            txtCap536A2022 -> {
-                                empA22 = try { txt.text.toString().toInt() }
-                                catch (e: java.lang.NumberFormatException) { 0 }}
-                            txtCap536B2021 -> {
-                                empB21 = try { txt.text.toString().toInt() }
-                                catch (e: java.lang.NumberFormatException) { 0 }}
-                            txtCap536B2022 -> {
-                                empB22 = try { txt.text.toString().toInt() }
-                                catch (e: java.lang.NumberFormatException) { 0 }}
-                        }
-                        emp21 = empA21 + empB21
-                        emp22 = empA22 + empB22
-                        txtCap53612021.text = emp21.toString().toEditable()
-                        txtCap53612022.text = emp22.toString().toEditable()
 
-                    } else {
-                        when (txt) {
-                            txtCap536A2021 -> empA21 = 0
-                            txtCap536A2022 -> empA22 = 0
-                            txtCap536B2021 -> empB21 = 0
-                            txtCap536B2022 -> empB22 = 0
-                        }
-                        emp21 = empA21 + empB21
-                        emp22 = empA22 + empB22
-                        txtCap53612021.text = emp21.toString().toEditable()
-                        txtCap53612022.text = emp22.toString().toEditable()
-                    }
-                }
-            })
-        }
-    }
 
     private fun fillOut() {
         val cap5 = Mob.formComp?.cap5

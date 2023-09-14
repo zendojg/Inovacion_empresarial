@@ -9,18 +9,15 @@ import android.os.Handler
 import android.os.Looper
 import android.view.*
 import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
@@ -34,7 +31,6 @@ import gob.pa.inovacion_empresarial.databinding.StyleMsgLocalinfoBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgPopupBinding
 import gob.pa.inovacion_empresarial.function.CreateForm
 import gob.pa.inovacion_empresarial.function.Functions
-import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
@@ -187,12 +183,13 @@ class MainFragmentForms : Fragment() {
         val selection = bindingForm.spinFormsType.selectedItemPosition
         with(bindmsg) {
             msgOpcions.setView(bindmsg.root)
-            val ncontrol = "N° de control: ${Functions.ceroLeft(item.ncontrol ?: "0",4)}"
+            val ncontrol = "N° de control: ${
+                Functions.ceroLeft(item.ncontrol ?: "0",Mob.FOR5DIGITS)}"
 
             msgtitle.text = ncontrol
-            bt1.text = getString(R.string.btcarga)
-            bt2.text = getString(R.string.btmoreinfo)
-            bt3.text = getString(R.string.btdelete)
+            bt1.text = getString(R.string.btcarga)    //-- Cargar formulario
+            bt2.text = getString(R.string.btmoreinfo) //-- Ver formulario completo
+            bt3.text = getString(R.string.btdelete)   //-- Borrar formulario
             bt4.text = "Opción por agregar"
 
             bt1.icon= ContextCompat.getDrawable(ctx, R.drawable.img_download)
@@ -289,9 +286,7 @@ class MainFragmentForms : Fragment() {
                     list = list.minus(item)
                     adpForms.updateList(list)
                     msgBallon("Formulario eliminado")
-                } else {
-                    txt0styleFly.error = "Clave incorrecta"
-                }
+                } else { txt0styleFly.error = "Clave incorrecta" }
                 }, (Mob.TIME500MS))
             }
         }
@@ -313,7 +308,7 @@ class MainFragmentForms : Fragment() {
                 R.layout.style_msg_localinfo, null, false)
         msgForm.setView(bindmsg.root)
         lifecycleScope.launch {
-            val ncontrol = Functions.ceroLeft(item.ncontrol ?: "0",Mob.CEROLEFT)
+            val ncontrol = Functions.ceroLeft(item.ncontrol ?: "0",Mob.FOR5DIGITS)
             val room = RoomView(dvmForm, ctx)
             val provincia = room.getProvName(item.cap1?.v01provtxt ?: "0")
             val distrito = room.getDistName(item.cap1?.v01provtxt ?: "0",

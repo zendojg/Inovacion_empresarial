@@ -246,7 +246,7 @@ class FragTotalInforme : Fragment() {
             bindSend.txt2styleFly.visibility = View.GONE
         } else bindSend.txtmsgStyle.text = getString(R.string.sendSuccessWithIncon)
 
-        val ncont = Functions.ceroLeft(jsonModel?.ncontrol?.toString() ?: "0", Mob.CEROLEFT)
+        val ncont = Functions.ceroLeft(jsonModel?.ncontrol?.toString() ?: "0", Mob.FOR5DIGITS)
         bindSend.txt1styleF.text = try { ncont.toEditable() }
         catch (e: RuntimeException) { "00".toEditable() }
 

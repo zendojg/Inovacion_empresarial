@@ -4,13 +4,13 @@ import android.text.TextWatcher
 import android.widget.EditText
 import com.google.gson.annotations.SerializedName
 
-//-- LOGIN
-
+//-- Texwatcher reset
 data class ModelTexWatchers(
     val editext: EditText,
     val watcher: TextWatcher
 )
 
+//-- LOGIN
 data class ModelLog(
     @SerializedName("username")                 val user: String,
     @SerializedName("password")                 val pass: String,

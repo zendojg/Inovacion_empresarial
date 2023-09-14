@@ -5,242 +5,578 @@
 
     <data />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <GridLayout
+        android:id="@+id/tb53"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:animateLayoutChanges="true">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:columnCount="3"
+        android:orientation="horizontal"
+        android:padding="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lb53txt">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBarpager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            app:elevation="0dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_rowSpan="3"
+            android:layout_gravity="fill"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="@string/a"
+            android:textStyle="bold" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbarpager"
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="2"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="@string/tb53a"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:hint="@string/a2021">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_a2021"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:animateLayoutChanges="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:maxLength="15"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <ImageButton
-                    android:id="@+id/btnDrawerToggle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="16dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/navigation_drawer_toggle"
-                    android:src="@drawable/img_menu"
-                    tools:ignore="TouchTargetSizeCheck" />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:hint="@string/a2022">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_a2022"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:maxLength="15"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="gone"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="10dp">
-
-                    <TextView
-                        android:id="@+id/txvtitlepager"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:animateLayoutChanges="true"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="@string/cap_test"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/btobspager"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_gravity="center|start"
-                        android:layout_marginHorizontal="5dp"
-                        android:animateLayoutChanges="true"
-                        android:background="?selectableItemBackground"
-                        android:clickable="true"
-                        android:contentDescription="@string/obs"
-                        android:focusable="true"
-                        android:padding="5dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@id/btsavepager"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/img_edit"
-                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                    <ImageView
-                        android:id="@+id/btsavepager"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_gravity="center|start"
-                        android:layout_marginHorizontal="5dp"
-                        android:animateLayoutChanges="true"
-                        android:background="?selectableItemBackground"
-                        android:clickable="true"
-                        android:contentDescription="@string/guardar"
-                        android:focusable="true"
-                        android:padding="5dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/btmenupager"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/img_save_solid"
-                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-                    <ImageView
-                        android:id="@+id/btmenupager"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_gravity="center"
-                        android:layout_marginHorizontal="5dp"
-                        android:animateLayoutChanges="true"
-                        android:background="?selectableItemBackground"
-                        android:clickable="true"
-                        android:contentDescription="@string/menu"
-                        android:focusable="true"
-                        android:padding="4dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/img_home"
-                        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
-
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.appcompat.widget.Toolbar>
-
-        </com.google.android.material.appbar.AppBarLayout>
+        <View
+            android:layout_columnSpan="3"
+            android:layout_width="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="fill"
+            android:background="#E7F0F7"
+            android:layout_height="5dp" />
 
         <TextView
-            android:id="@+id/txvtitlepager2"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="15dp"
-            android:animateLayoutChanges="true"
+            android:layout_rowSpan="3"
+            android:layout_gravity="fill"
             android:fontFamily="sans-serif-condensed"
-            android:text="@string/ctxt_test"
-            android:textAllCaps="true"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBarpager" />
-
-        <TextView
-            android:id="@+id/txvsubtitlepager"
-            android:layout_width="0dp"
-            android:layout_height="35dp"
-            android:layout_marginHorizontal="1dp"
-            android:animateLayoutChanges="true"
-            android:background="@drawable/background_shadow"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="start|center_vertical"
+            android:gravity="start"
             android:padding="5dp"
-            android:paddingStart="15dp"
-            android:paddingEnd="5dp"
-            android:text="@string/subcap_test"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txvtitlepager2" />
-
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_margin="2dp"
-            android:animateLayoutChanges="true"
-            android:foregroundGravity="top"
-            app:layout_constraintBottom_toTopOf="@+id/frameLayoutNav"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txvsubtitlepager"
-            tools:background="@color/gray" />
-
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelinepager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.8" />
+            android:text="@string/b"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtInfopager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/blank"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guidelinepager" />
+            android:layout_width="0dp"
+            android:layout_columnWeight="2"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="@string/tb53b"
+            android:textStyle="bold" />
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/frameLayoutNav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/background_shadow1"
-            android:gravity="top"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <ImageView
-                android:id="@+id/btbackpager"
-                android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:hint="@string/a2021">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_b2021"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="1dp"
-                android:background="?selectableItemBackground"
-                android:clickable="true"
-                android:contentDescription="Previo"
-                android:focusable="true"
-                android:padding="6dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btnextpager"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/img_previous"
-                app:tint="@color/white"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:maxLength="15"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageView
-                android:id="@+id/btnextpager"
-                android:layout_width="0dp"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:hint="@string/a2022">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_b2022"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="1dp"
-                android:background="?selectableItemBackground"
-                android:clickable="true"
-                android:contentDescription="Siguiente"
-                android:focusable="true"
-                android:gravity="end"
-                android:padding="6dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btbackpager"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/img_next"
-                app:tint="@color/white"
-                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:maxLength="15"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <View
+            android:layout_columnSpan="3"
+            android:layout_width="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="fill"
+            android:background="#E7F0F7"
+            android:layout_height="5dp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_rowSpan="3"
+            android:layout_gravity="fill"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="@string/c"
+            android:textStyle="bold" />
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="2"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="@string/tb53c"
+            android:textStyle="bold" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:hint="@string/a2021">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_c2021"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:maxLength="15"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:hint="@string/a2022">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_c2022"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:maxLength="15"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_columnSpan="3"
+            android:layout_width="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="fill"
+            android:background="#E7F0F7"
+            android:layout_height="5dp" />
+
+        <TextView
+            android:layout_rowSpan="3"
+            android:layout_gravity="fill"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="@string/d"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="2"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="@string/tb53d"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:hint="@string/a2021">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_d2021"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:maxLength="15"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:hint="@string/a2022">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_d2022"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:maxLength="15"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_columnSpan="3"
+            android:layout_width="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="fill"
+            android:background="#E7F0F7"
+            android:layout_height="5dp" />
+
+        <TextView
+            android:layout_rowSpan="3"
+            android:layout_gravity="fill"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="@string/e"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="2"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="@string/tb53e"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:hint="@string/a2021">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_e2021"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:maxLength="15"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:hint="@string/a2022">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_e2022"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:maxLength="15"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_columnSpan="3"
+            android:layout_width="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="fill"
+            android:background="#E7F0F7"
+            android:layout_height="5dp" />
+
+        <TextView
+            android:layout_rowSpan="3"
+            android:layout_gravity="fill"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="@string/f"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="2"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="@string/tb53f"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:hint="@string/a2021">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_f2021"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:hint="@string/a2022">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_f2022"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_columnSpan="3"
+            android:layout_width="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="fill"
+            android:background="#E7F0F7"
+            android:layout_height="5dp" />
+        <TextView
+            android:layout_rowSpan="3"
+            android:layout_gravity="fill"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="15dp"
+            android:text="@string/g"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtCap7_51_1_2021ly"
+            android:layout_width="0dp"
+            android:layout_columnSpan="2"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="fill"
+            android:hint="@string/otheract">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_g_otro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="textMultiLine"
+                android:maxLength="2"
+                android:gravity="start"
+                android:minHeight="48dp"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:hint="@string/a2021">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_g2021"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:hint="@string/a2022">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_g2022"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_columnSpan="3"
+            android:layout_width="0dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="fill"
+            android:background="#E7F0F7"
+            android:layout_height="5dp" />
+
+        <TextView
+            android:layout_rowSpan="3"
+            android:layout_gravity="fill"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="@string/n1"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_columnWeight="2"
+            android:layout_columnSpan="2"
+            android:layout_gravity="fill"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="start"
+            android:padding="5dp"
+            android:text="@string/tb53total"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:textColorHint="@android:color/holo_blue_dark"
+            android:hint="@string/a2021">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_t2021"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:textSize="14sp"
+                android:textColor="@color/holo_blue_dark"
+                android:focusable="false"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_columnSpan="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:textColorHint="@android:color/holo_blue_dark"
+            android:hint="@string/a2022">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCap7_53_t2022"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:textSize="14sp"
+                android:focusable="false"
+                android:textColor="@color/holo_blue_dark"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:text="@string/doublecero" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </GridLayout>
 
 </layout>
