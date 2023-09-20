@@ -366,7 +366,6 @@
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow"
                         android:ems="10"
-                        android:enabled="false"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:hint="@string/cero"

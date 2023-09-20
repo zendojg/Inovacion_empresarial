@@ -11,7 +11,8 @@ import androidx.room.RoomDatabase
     DBdistritos::class,
     DBcorregimiento::class,
     DBlugarP::class],
-    version = 1)
+    version = 1,
+    exportSchema = false)
 
 abstract class FormDB: RoomDatabase() {
     abstract fun dbFormDao(): FormDao

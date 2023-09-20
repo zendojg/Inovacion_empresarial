@@ -62,12 +62,11 @@ class FragEncuestaCap05o1 : Fragment() {
             layoutCap5332022.isVisible = rbtCap532BSi.isChecked
 
             rgroupCap532a.setOnCheckedChangeListener { _, id ->
-                when (id) {
-                    rbtCap532ASi.id -> layoutCap5332021.isVisible = true
-                    rbtCap532ANo.id -> layoutCap5332021.isVisible = false
-                }
+                val isVisible = id == rbtCap532ASi.id
+                layoutCap5332021.isVisible = isVisible
             }
             rgroupCap532b.setOnCheckedChangeListener { _, id ->
+
                 when (id) {
                     rbtCap532BSi.id -> layoutCap5332022.isVisible = true
                     rbtCap532BNo.id -> layoutCap5332022.isVisible = false
@@ -100,7 +99,6 @@ class FragEncuestaCap05o1 : Fragment() {
                                     )
                                 }
                             }
-                            Log.i("-------textWatcher:", "${textWatcherList.size}")
                         }
                     }
                 }
@@ -110,40 +108,31 @@ class FragEncuestaCap05o1 : Fragment() {
 
     private fun fillOut() {
         val cap5 = Mob.formComp?.cap5
-        val blank = "".toEditable()
         with(bindingcap5o1) {
-
             val decimalFormat = DecimalFormat("#,###")
-            val a21 = try { decimalFormat.format(cap5?.v30txt21a?.toDouble()?.toInt() ?: 0)
-            } catch (e:java.lang.NumberFormatException) { "0" }
-            val a22 = try { decimalFormat.format(cap5?.v30txt22a?.toDouble()?.toInt() ?: 0)
-            } catch (e:java.lang.NumberFormatException) { "0" }
-            val b21 = try { decimalFormat.format(cap5?.v30txt21b?.toDouble()?.toInt() ?: 0)
-            } catch (e:java.lang.NumberFormatException) { "0" }
-            val b22 = try { decimalFormat.format(cap5?.v30txt22b?.toDouble()?.toInt() ?: 0)
-            } catch (e:java.lang.NumberFormatException) { "0" }
 
-            val t21 = try { decimalFormat.format(cap5?.v30txt21T?.toDouble()?.toInt() ?: 0)
-            } catch (e:java.lang.NumberFormatException) { "0" }
-            val t22 = try { decimalFormat.format(cap5?.v30txt22T?.toDouble()?.toInt() ?: 0)
-            } catch (e:java.lang.NumberFormatException) { "0" }
-
-            txtCap53012021.text = t21.toEditable()
-            txtCap53012022.text = t22.toEditable()
-            txtCap530A2021.text = a21.toEditable()
-            txtCap530A2022.text = a22.toEditable()
-            txtCap530B2021.text = b21.toEditable()
-            txtCap530B2022.text = b22.toEditable()
+            txtCap53012021.text = cap5?.v30txt21T?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap53012022.text = cap5?.v30txt22T?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap530A2021.text = cap5?.v30txt21a?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap530A2022.text = cap5?.v30txt22a?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap530B2021.text = cap5?.v30txt21b?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap530B2022.text = cap5?.v30txt22b?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
             fillOut31(cap5)
             fillOut32(cap5)
 
-            txtCap53312021.text = cap5?.v33txt1s21?.toEditable() ?: blank
-            txtCap53322021.text = cap5?.v33txt2s21?.toEditable() ?: blank
-            txtCap53332021.text = cap5?.v33txt3s21?.toEditable() ?: blank
+            txtCap53312021.text = cap5?.v33txt1s21?.toEditable() ?: "".toEditable()
+            txtCap53322021.text = cap5?.v33txt2s21?.toEditable() ?: "".toEditable()
+            txtCap53332021.text = cap5?.v33txt3s21?.toEditable() ?: "".toEditable()
 
-            txtCap53312022.text = cap5?.v33txt1s22?.toEditable() ?: blank
-            txtCap53322022.text = cap5?.v33txt2s22?.toEditable() ?: blank
-            txtCap53332022.text = cap5?.v33txt3s22?.toEditable() ?: blank
+            txtCap53312022.text = cap5?.v33txt1s22?.toEditable() ?: "".toEditable()
+            txtCap53322022.text = cap5?.v33txt2s22?.toEditable() ?: "".toEditable()
+            txtCap53332022.text = cap5?.v33txt3s22?.toEditable() ?: "".toEditable()
 
             fillOut34(cap5)
             Mob.seecap05o1 = false
@@ -333,7 +322,7 @@ class FragEncuestaCap05o1 : Fragment() {
 
 
             icap05o1 = returnList.isNotEmpty()
-            println("---------Is not empty: $icap05o1--$cap5")
+            println("Cap5-part1: $icap05o1--$cap5")
             return returnList
         }
     }

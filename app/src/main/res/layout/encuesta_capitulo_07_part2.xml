@@ -578,6 +578,7 @@
                     <TextView
                         android:layout_rowSpan="3"
                         android:layout_gravity="fill"
+                        android:background="@color/white_blue"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
@@ -589,6 +590,7 @@
                         android:layout_columnWeight="2"
                         android:layout_columnSpan="2"
                         android:layout_gravity="fill"
+                        android:background="@color/white_blue"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start"
                         android:padding="5dp"
@@ -601,6 +603,7 @@
                         android:layout_columnSpan="1"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill"
+                        android:background="@color/white_blue"
                         android:textColorHint="@android:color/holo_blue_dark"
                         android:hint="@string/a2021">
                         <com.google.android.material.textfield.TextInputEditText
@@ -609,6 +612,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
+                            android:textStyle="bold"
                             android:minHeight="48dp"
                             android:textSize="14sp"
                             android:textColor="@color/holo_blue_dark"
@@ -623,6 +627,7 @@
                         android:layout_columnSpan="1"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill"
+                        android:background="@color/white_blue"
                         android:textColorHint="@android:color/holo_blue_dark"
                         android:hint="@string/a2022">
                         <com.google.android.material.textfield.TextInputEditText
@@ -631,6 +636,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
+                            android:textStyle="bold"
                             android:minHeight="48dp"
                             android:textSize="14sp"
                             android:focusable="false"

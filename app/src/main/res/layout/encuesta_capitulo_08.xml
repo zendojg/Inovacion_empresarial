@@ -218,7 +218,7 @@
                             android:inputType="number"
                             android:maxLength="9"
                             android:minHeight="48dp"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -272,7 +272,7 @@
                             android:animateLayoutChanges="true"
                             android:maxLength="9"
                             android:minHeight="48dp"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -334,7 +334,7 @@
                             android:animateLayoutChanges="true"
                             android:maxLength="9"
                             android:minHeight="48dp"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -417,7 +417,7 @@
                             android:animateLayoutChanges="true"
                             android:maxLength="9"
                             android:minHeight="48dp"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -470,7 +470,7 @@
                             android:inputType="number"
                             android:maxLength="9"
                             android:minHeight="48dp"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             android:textStyle="bold"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -533,7 +533,7 @@
                             android:textStyle="bold"
                             android:maxLength="9"
                             android:minHeight="48dp"
-                            android:textSize="14sp"
+                            android:textSize="16sp"
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
 

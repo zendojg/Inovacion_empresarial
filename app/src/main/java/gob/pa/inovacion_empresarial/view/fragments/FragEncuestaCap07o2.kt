@@ -2,13 +2,13 @@ package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.EditText
+import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
 import gob.pa.inovacion_empresarial.R
@@ -18,30 +18,20 @@ import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap7
+import gob.pa.inovacion_empresarial.model.ModelSpinLister
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
+import java.text.DecimalFormat
 
 class FragEncuestaCap07o2 : Fragment() {
 
     private lateinit var bindingcap7o2: EncuestaCapitulo07Part2Binding
     private lateinit var ctx: Context
     private val textWatcherList = mutableListOf<ModelTexWatchers>()
+    private val spinList = mutableListOf<ModelSpinLister>()
     private var row1EditTexts: List<EditText> = emptyList()
     private var row2EditTexts: List<EditText> = emptyList()
-    private var indice01 = 0
-    private var indice02 = 0
-    private var indice03 = 0
-    private var indice04 = 0
-    private var indice05 = 0
-    private var indice06 = 0
-    private var indice07 = 0
-    private var indice08 = 0
-    private var indice09 = 0
-    private var indice10 = 0
-    private var indice11 = 0
-    private var indice12 = 0
-    private var indice13 = 0
-    private var indice14 = 0
-    private var indice15 = 0
+    private val decimalFormat = DecimalFormat("#,###")
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -54,6 +44,19 @@ class FragEncuestaCap07o2 : Fragment() {
     override fun onResume() {
         super.onResume()
         Mob.indiceFormulario = Mob.CAP7P13
+
+        with(bindingcap7o2) {
+
+            row1EditTexts = listOf(
+                txtCap753A2021, txtCap753B2021, txtCap753C2021, txtCap753D2021,
+                txtCap753E2021, txtCap753F2021, txtCap753G2021,)
+
+            row2EditTexts = listOf(
+                txtCap753A2022, txtCap753B2022, txtCap753C2022, txtCap753D2022,
+                txtCap753E2022, txtCap753F2022, txtCap753G2022,)
+
+        }
+
         if (Mob.seecap07o2) fillOut()
         else onAction()
     }
@@ -72,25 +75,22 @@ class FragEncuestaCap07o2 : Fragment() {
     }
     private fun onAction() {
         with(bindingcap7o2) {
-            lowCap7o2.setOnClickListener { saveCap() }
-
-            row1EditTexts = listOf(
-                txtCap753A2021,
-                txtCap753B2021,
-                txtCap753C2021,
-                txtCap753D2021,
-                txtCap753E2021,
-                txtCap753F2021,
-                txtCap753G2021,)
-
-            row2EditTexts = listOf(
-                txtCap753A2022,
-                txtCap753B2022,
-                txtCap753C2022,
-                txtCap753D2022,
-                txtCap753E2022,
-                txtCap753F2022,
-                txtCap753G2022,)
+            spinList.clear()
+            spinList.add(ModelSpinLister(spinCap7541, Mob.cap7?.v54txt01?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap7542, Mob.cap7?.v54txt02?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap7543, Mob.cap7?.v54txt03?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap7544, Mob.cap7?.v54txt04?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap7545, Mob.cap7?.v54txt05?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap7546, Mob.cap7?.v54txt06?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap7547, Mob.cap7?.v54txt07?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap7548, Mob.cap7?.v54txt08?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap7549, Mob.cap7?.v54txt09?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap75410, Mob.cap7?.v54txt10?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap75411, Mob.cap7?.v54txt11?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap75412, Mob.cap7?.v54txt12?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap75413, Mob.cap7?.v54txt13?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap75414, Mob.cap7?.v54txt14?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap75415, Mob.cap7?.v54txt15?.toIntOrNull() ?: 0))
 
             for (index in 0 until tb53.childCount) {
                 val view = tb53.getChildAt(index)
@@ -99,12 +99,10 @@ class FragEncuestaCap07o2 : Fragment() {
                     editText?.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
                         if (hasFocus) {
                             if (row1EditTexts.contains(editText) && editText != null) {
-                                val modelTexWatchers =
-                                    ClassFunctions.actionEdittextSum(
-                                        editText,
-                                        row1EditTexts,
-                                        txtCap753T2021)
-                                textWatcherList.add(modelTexWatchers)
+                                textWatcherList.add(ClassFunctions.actionEdittextSum(
+                                    editText,
+                                    row1EditTexts,
+                                    txtCap753T2021))
                             } else if (row2EditTexts.contains(editText) && editText != null) {
                                 val modelTexWatchers =
                                     ClassFunctions.actionEdittextSum(
@@ -121,214 +119,82 @@ class FragEncuestaCap07o2 : Fragment() {
                                     )
                                 }
                             }
-                            Log.i("-------textWatcher:", "${textWatcherList.size}")
                         }
                     }
                 }
             }
 
-
-
             val imp54Adp = ArrayAdapter(ctx, R.layout.style_box, Mob.arrImp)
             imp54Adp.setDropDownViewResource(R.layout.style_list)
+            for (index in 0 until tb54.childCount) {
+                val view = tb54.getChildAt(index)
+                if (view is Spinner) { view.adapter = imp54Adp }
+            }
+            for (modelSpinLister in spinList) {
+                val spinner = modelSpinLister.spinner
+                val indice = modelSpinLister.indice
+                if (indice >= 0 && indice < spinner.adapter.count) { spinner.setSelection(indice) }
+            }
 
-            spinCap7541.adapter = imp54Adp
-            spinCap7542.adapter = imp54Adp
-            spinCap7543.adapter = imp54Adp
-            spinCap7544.adapter = imp54Adp
-            spinCap7545.adapter = imp54Adp
-            spinCap7546.adapter = imp54Adp
-            spinCap7547.adapter = imp54Adp
-            spinCap7548.adapter = imp54Adp
-            spinCap7549.adapter = imp54Adp
-            spinCap75410.adapter = imp54Adp
-            spinCap75411.adapter = imp54Adp
-            spinCap75412.adapter = imp54Adp
-            spinCap75413.adapter = imp54Adp
-            spinCap75414.adapter = imp54Adp
-            spinCap75415.adapter = imp54Adp
-            spinsAction()
-        }
-    }
+            for (modelSpinLister in spinList) {
+                val spinner = modelSpinLister.spinner
 
-    private fun spinsAction() {
-        with(bindingcap7o2) {
-
-            spinCap7541.setSelection(indice01)
-            spinCap7542.setSelection(indice02)
-            spinCap7543.setSelection(indice03)
-            spinCap7544.setSelection(indice04)
-            spinCap7545.setSelection(indice05)
-
-            spinCap7546.setSelection(indice06)
-            spinCap7547.setSelection(indice07)
-            spinCap7548.setSelection(indice08)
-            spinCap7549.setSelection(indice09)
-            spinCap75410.setSelection(indice10)
-
-            spinCap75411.setSelection(indice11)
-            spinCap75412.setSelection(indice12)
-            spinCap75413.setSelection(indice13)
-            spinCap75414.setSelection(indice14)
-            spinCap75415.setSelection(indice15)
-
-            spinCap7541.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice01 = pos
+                spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(
+                        parent: AdapterView<*>?,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) { modelSpinLister.indice = position }
+                    override fun onNothingSelected(parent: AdapterView<*>?) { /* sin selección */ }
                 }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
-            }
-            spinCap7542.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice02 = pos
-                }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
-            }
-            spinCap7543.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice03 = pos
-                }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
-            }
-            spinCap7544.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice04 = pos
-                }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
-            }
-            spinCap7545.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice05 = pos
-                }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
-            }
-            spinCap7546.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice06 = pos
-                }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
-            }
-            spinCap7547.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice07 = pos
-                }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
-            }
-            spinCap7548.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice08 = pos
-                }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
-            }
-            spinCap7549.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice09 = pos
-                }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
-            }
-            spinCap75410.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice10 = pos
-                }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
-            }
-            spinCap75411.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice11 = pos
-                }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
-            }
-            spinCap75412.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice12 = pos
-                }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
-            }
-            spinCap75413.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice13 = pos
-                }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
-            }
-            spinCap75414.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice14 = pos
-                }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
-            }
-            spinCap75415.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice15 = pos
-                }
-                override fun onNothingSelected(adp: AdapterView<*>?) {/* Sin acción */ }
             }
         }
     }
-
 
     private fun fillOut() {
         val cap7 = Mob.formComp?.cap7
-        fillOut53(cap7)
+        with(bindingcap7o2) {
 
-        indice01 = try {  cap7?.v54txt01?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice02 = try {  cap7?.v54txt02?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice03 = try {  cap7?.v54txt03?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice04 = try {  cap7?.v54txt04?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice05 = try {  cap7?.v54txt05?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice06 = try {  cap7?.v54txt06?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice07 = try {  cap7?.v54txt07?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice08 = try {  cap7?.v54txt08?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice09 = try {  cap7?.v54txt09?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice10 = try {  cap7?.v54txt10?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice11 = try {  cap7?.v54txt11?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice12 = try {  cap7?.v54txt12?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice13 = try {  cap7?.v54txt13?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice14 = try {  cap7?.v54txt14?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice15 = try {  cap7?.v54txt15?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
+            txtCap753A2021.text = cap7?.v53num21a?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753A2022.text = cap7?.v53num22a?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753B2021.text = cap7?.v53num21b?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753B2022.text = cap7?.v53num22b?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753C2021.text = cap7?.v53num21c?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753C2022.text = cap7?.v53num22c?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753D2021.text = cap7?.v53num21d?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753D2022.text = cap7?.v53num22d?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753E2021.text = cap7?.v53num21e?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753E2022.text = cap7?.v53num22e?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753F2021.text = cap7?.v53num21f?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753F2022.text = cap7?.v53num22f?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753G2021.text = cap7?.v53num21g?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753G2022.text = cap7?.v53num22g?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753GOtro.text = cap7?.v53txtgdesc?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+
+            txtCap753T2021.text = cap7?.v53num1T21?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            txtCap753T2022.text = cap7?.v53num1T22?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+        }
         Mob.seecap07o2 = false
         onAction()
     }
-
-    private fun fillOut53(cap7: ModelCap7?) {
-        val blank = "".toEditable()
-        with(bindingcap7o2) {
-            txtCap753A2021.text = cap7?.v53num21a?.toEditable() ?: blank
-            txtCap753A2022.text = cap7?.v53num22a?.toEditable() ?: blank
-            txtCap753B2021.text = cap7?.v53num21b?.toEditable() ?: blank
-            txtCap753B2022.text = cap7?.v53num22b?.toEditable() ?: blank
-            txtCap753C2021.text = cap7?.v53num21c?.toEditable() ?: blank
-            txtCap753C2022.text = cap7?.v53num22c?.toEditable() ?: blank
-            txtCap753D2021.text = cap7?.v53num21d?.toEditable() ?: blank
-            txtCap753D2022.text = cap7?.v53num22d?.toEditable() ?: blank
-            txtCap753E2021.text = cap7?.v53num21e?.toEditable() ?: blank
-            txtCap753E2022.text = cap7?.v53num22e?.toEditable() ?: blank
-            txtCap753F2021.text = cap7?.v53num21f?.toEditable() ?: blank
-            txtCap753F2022.text = cap7?.v53num22f?.toEditable() ?: blank
-            txtCap753G2021.text = cap7?.v53num21g?.toEditable() ?: blank
-            txtCap753G2022.text = cap7?.v53num22g?.toEditable() ?: blank
-            txtCap753GOtro.text = cap7?.v53txtgdesc?.toEditable() ?: blank
-
-            txtCap753T2021.text = cap7?.v53num1T21?.toEditable() ?: blank
-            txtCap753T2022.text = cap7?.v53num1T22?.toEditable() ?: blank
-        }
-    }
-
-
 
     fun saveCap(): List<String> {
         with (bindingcap7o2) {
@@ -360,23 +226,23 @@ class FragEncuestaCap07o2 : Fragment() {
                 Mob.cap7?.v52txt14,
                 Mob.cap7?.v52txt15desc,
                 Mob.cap7?.v52txt15,//
-                txtCap753A2021.text.toString().ifEmpty { null },
-                txtCap753B2021.text.toString().ifEmpty { null },
-                txtCap753C2021.text.toString().ifEmpty { null },
-                txtCap753D2021.text.toString().ifEmpty { null },
-                txtCap753E2021.text.toString().ifEmpty { null },
-                txtCap753F2021.text.toString().ifEmpty { null },
-                txtCap753G2021.text.toString().ifEmpty { null },
-                txtCap753T2021.text.toString().ifEmpty { null },
-                txtCap753A2022.text.toString().ifEmpty { null },
-                txtCap753B2022.text.toString().ifEmpty { null },
-                txtCap753C2022.text.toString().ifEmpty { null },
-                txtCap753D2022.text.toString().ifEmpty { null },
-                txtCap753E2022.text.toString().ifEmpty { null },
-                txtCap753F2022.text.toString().ifEmpty { null },
-                txtCap753G2022.text.toString().ifEmpty { null },
-                txtCap753T2022.text.toString().ifEmpty { null },
-                txtCap753GOtro.text.toString().ifEmpty { null },
+                txtCap753A2021.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753B2021.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753C2021.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753D2021.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753E2021.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753F2021.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753G2021.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753T2021.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753A2022.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753B2022.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753C2022.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753D2022.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753E2022.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753F2022.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753G2022.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753T2022.text.toString().replace(",", "").ifEmpty { null },
+                txtCap753GOtro.text.toString().replace(",", "").ifEmpty { null },
                 if (spinCap7541.selectedItemPosition == 0) null else
                     spinCap7541.selectedItemPosition.toString(),
                 if (spinCap7542.selectedItemPosition == 0) null else

@@ -183,6 +183,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_a_HExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -199,6 +200,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_a_MNac"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -215,6 +217,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_a_MExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -231,6 +234,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_b_HNac"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -247,6 +251,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_b_HExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -263,6 +268,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_b_MNac"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -279,6 +285,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_b_MExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -295,6 +302,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_c_HNac"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -311,6 +319,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_c_HExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -327,6 +336,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_c_MNac"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -343,6 +353,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_c_MExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -359,6 +370,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_d_HNac"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -375,6 +387,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_d_HExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -391,6 +404,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_d_MNac"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -407,6 +421,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_d_MExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -423,6 +438,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_e_HNac"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -439,6 +455,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_e_HExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -455,6 +472,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_e_MNac"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -471,6 +489,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_e_MExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -487,6 +506,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_f_HNac"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -503,6 +523,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_f_HExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -519,6 +540,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_f_MNac"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -535,6 +557,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_f_MExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -551,6 +574,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_g_HNac"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -567,6 +591,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_g_HExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -583,6 +608,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_g_MNac"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -599,6 +625,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_g_MExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -615,6 +642,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_otro"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -631,6 +659,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_h_HExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -647,6 +676,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_h_MNac"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -663,6 +693,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_35_h_MExt"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -679,6 +710,7 @@
                         android:maxLength="6"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_36_1_2021"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -698,6 +730,7 @@
                         android:nextFocusDown="@+id/txtCap5_35_1_HExt"
                         android:textColor="@color/holo_blue_dark"
                         android:textColorHint="@color/holo_blue_dark"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -717,6 +750,7 @@
                         android:nextFocusDown="@+id/txtCap5_35_1_MNac"
                         android:textColor="@color/holo_blue_dark"
                         android:textColorHint="@color/holo_blue_dark"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -736,6 +770,7 @@
                         android:nextFocusDown="@+id/txtCap5_35_1_MExt"
                         android:textColor="@color/holo_blue_dark"
                         android:textColorHint="@color/holo_blue_dark"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -755,6 +790,7 @@
                         android:nextFocusDown="@+id/txtCap5_35_a_HNac"
                         android:textColor="@color/holo_blue_dark"
                         android:textColorHint="@color/holo_blue_dark"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                 </GridLayout>
@@ -1023,6 +1059,7 @@
                         android:maxLength="6"
                         android:minHeight="40dp"
                         android:nextFocusDown="@+id/txtCap5_36_a_2022"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -1040,6 +1077,7 @@
                         android:maxLength="6"
                         android:minHeight="40dp"
                         android:nextFocusDown="@+id/txtCap5_36_b_2021"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <TextView
@@ -1069,6 +1107,7 @@
                         android:maxLength="6"
                         android:minHeight="40dp"
                         android:nextFocusDown="@+id/txtCap5_36_b_2022"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -1085,6 +1124,7 @@
                         android:inputType="number"
                         android:maxLength="6"
                         android:minHeight="40dp"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <TextView
@@ -1111,11 +1151,11 @@
                         android:hint="@string/cero"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="6"
                         android:minHeight="40dp"
                         android:nextFocusDown="@+id/txtCap5_36_1_2022"
                         android:textColor="@color/holo_blue_dark"
                         android:textColorHint="@color/holo_blue_dark"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -1130,11 +1170,11 @@
                         android:hint="@string/cero"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="6"
                         android:minHeight="40dp"
                         android:nextFocusDown="@+id/txtCap5_36_a_2021"
                         android:textColor="@color/holo_blue_dark"
                         android:textColorHint="@color/holo_blue_dark"
+                        tools:text="10,000"
                         tools:ignore="LabelFor,TouchTargetSizeCheck,DuplicateSpeakableTextCheck" />
 
 

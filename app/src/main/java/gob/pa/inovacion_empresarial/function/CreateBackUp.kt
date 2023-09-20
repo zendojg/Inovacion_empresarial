@@ -15,6 +15,15 @@ object CreateBackUp {
         val sharedPreferences = ctx.getSharedPreferences(
             ctx.getString(R.string.sharedPreferencesKey), Context.MODE_PRIVATE)
         val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
+
+        val storageState = Environment.getExternalStorageState()
+        if (Environment.MEDIA_MOUNTED == storageState) {
+            // El almacenamiento externo está disponible y montado
+        } else {
+            // El almacenamiento externo no está disponible o no está montado
+        }
+
+
         val sharedIds = sharedPreferences.all.map { it.key }
 //        val sharedValues = sharedPreferences.all.map { it.value }
 //        if (keys) {
@@ -38,9 +47,14 @@ object CreateBackUp {
             } else
                 lista.add("$i*${data ?: ""}")
         }
-        val fileBackUp = File(dir, "EIE_backup.txt")
-        FileOutputStream(fileBackUp).use {
-            it.write(lista.joinToString("\n").toByteArray())
-        }
+//        val fileBackUp = File(dir, "EIE_backup.txt")
+//        FileOutputStream(fileBackUp).use {
+//            it.write(lista.joinToString("\n").toByteArray())
+//        }
+    }
+
+
+    fun savedQuestion() {
+
     }
 }

@@ -2,12 +2,17 @@ package gob.pa.inovacion_empresarial.model
 
 import android.text.TextWatcher
 import android.widget.EditText
+import android.widget.Spinner
 import com.google.gson.annotations.SerializedName
 
 //-- Texwatcher reset
 data class ModelTexWatchers(
     val editext: EditText,
     val watcher: TextWatcher
+)
+data class ModelSpinLister(
+    val spinner: Spinner,
+    var indice: Int
 )
 
 //-- LOGIN

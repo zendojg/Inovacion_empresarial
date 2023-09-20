@@ -73,28 +73,10 @@ class FragEncuestaCap03 : Fragment() {
 
     private fun fillOut() {
         val cap3 = Mob.formComp?.cap3
-        val blank = "".toEditable()
         with(bindingcap3) {
-            txtCap322.text = cap3?.v22yearNum?.toEditable() ?: blank
-            fillOut23(cap3?.v23natNum)
-            txtCap3239.text = cap3?.v23natdesctxt?.toEditable() ?: blank
-            when (cap3?.v24check) {
-                true -> rbtCap324Si.isChecked = true
-                false -> rbtCap324No.isChecked = true
-                else -> rgroupCap324.clearCheck()
-            }
-            fillOut25(cap3?.v25typeNum)
-            txtCap3256.text = cap3?.v25typetxt?.toEditable() ?: blank
-            txtCap326.text = cap3?.v26nametxt?.toEditable() ?: blank
-            txtCap327.text = cap3?.v27countrytxt?.toEditable() ?: blank
-        }
-        Mob.seecap03 = false
-        onAction()
-    }
+            txtCap322.text = cap3?.v22yearNum?.toEditable() ?: "".toEditable()
 
-    private fun fillOut23(check: String?) {
-        with(bindingcap3) {
-            when (check) {
+            when (cap3?.v23natNum) {
                 "1" -> rbtCap3231.isChecked = true
                 "2" -> rbtCap3232.isChecked = true
                 "3" -> rbtCap3233.isChecked = true
@@ -106,12 +88,15 @@ class FragEncuestaCap03 : Fragment() {
                 "9" -> rbtCap3239.isChecked = true
                 else -> rgroupCap323.clearCheck()
             }
-        }
-    }
+            txtCap3239.text = cap3?.v23natdesctxt?.toEditable() ?: "".toEditable()
 
-    private fun fillOut25(check: String?) {
-        with(bindingcap3) {
-            when (check) {
+            when (cap3?.v24check) {
+                true -> rbtCap324Si.isChecked = true
+                false -> rbtCap324No.isChecked = true
+                else -> rgroupCap324.clearCheck()
+            }
+
+            when (cap3?.v25typeNum) {
                 "1" -> rbtCap3251.isChecked = true
                 "2" -> rbtCap3252.isChecked = true
                 "3" -> rbtCap3253.isChecked = true
@@ -120,44 +105,68 @@ class FragEncuestaCap03 : Fragment() {
                 "6" -> rbtCap3256.isChecked = true
                 else -> rgroupCap325.clearCheck()
             }
+
+            txtCap3256.text = cap3?.v25typetxt?.toEditable() ?: "".toEditable()
+            txtCap326.text = cap3?.v26nametxt?.toEditable() ?: "".toEditable()
+            txtCap327.text = cap3?.v27countrytxt?.toEditable() ?: "".toEditable()
         }
+        Mob.seecap03 = false
+        onAction()
     }
 
     fun saveCap(): List<String> {
-        with (bindingcap3) {
-            Mob.cap3 = ModelCap3(
-                Mob.cap3?.id,
-                Mob.cap3?.ncontrol,
-                txtCap322.text.toString(),
-                when {
-                    rbtCap3231.isChecked -> "1"
-                    rbtCap3232.isChecked -> "2"
-                    rbtCap3233.isChecked -> "3"
-                    rbtCap3234.isChecked -> "4"
-                    rbtCap3235.isChecked -> "5"
-                    rbtCap3236.isChecked -> "6"
-                    rbtCap3237.isChecked -> "7"
-                    rbtCap3238.isChecked -> "8"
-                    rbtCap3239.isChecked -> "9"
-                    else -> null
-                },
-                if (rbtCap3239.isChecked) txtCap3239.text.toString() else null,
-                if (rbtCap324Si.isChecked) true else if (rbtCap324No.isChecked) false else null,
-                if (rbtCap324Si.isChecked) when {
-                    rbtCap3251.isChecked -> "1"
-                    rbtCap3252.isChecked -> "2"
-                    rbtCap3253.isChecked -> "3"
-                    rbtCap3254.isChecked -> "4"
-                    rbtCap3255.isChecked -> "5"
-                    rbtCap3256.isChecked -> "6"
-                    else -> null
-                } else null,
-                if (rbtCap3256.isChecked && rbtCap324Si.isChecked) txtCap3256.text.toString() else null,
-                if (rbtCap324Si.isChecked && txtCap326.text.toString().isNotEmpty())
-                    txtCap326.text.toString() else null,
-                if (rbtCap324Si.isChecked && txtCap327.text.toString().isNotEmpty())
+        with(bindingcap3) {
+            val cap3Id = Mob.cap3?.id
+            val ncontrol = Mob.cap3?.ncontrol
+            val txtCap322Value = txtCap322.text.toString()
+            val rbtCap323Value = when {
+                rbtCap3231.isChecked -> "1"
+                rbtCap3232.isChecked -> "2"
+                rbtCap3233.isChecked -> "3"
+                rbtCap3234.isChecked -> "4"
+                rbtCap3235.isChecked -> "5"
+                rbtCap3236.isChecked -> "6"
+                rbtCap3237.isChecked -> "7"
+                rbtCap3238.isChecked -> "8"
+                rbtCap3239.isChecked -> "9"
+                else -> null
+            }
+            val txtCap3239Value = if (rbtCap3239.isChecked) txtCap3239.text.toString() else null
+            val rbtCap324Value =
+                if (rbtCap324Si.isChecked) true else if (rbtCap324No.isChecked) false else null
+            val rbtCap325Value = if (rbtCap324Si.isChecked) when {
+                rbtCap3251.isChecked -> "1"
+                rbtCap3252.isChecked -> "2"
+                rbtCap3253.isChecked -> "3"
+                rbtCap3254.isChecked -> "4"
+                rbtCap3255.isChecked -> "5"
+                rbtCap3256.isChecked -> "6"
+                else -> null
+            } else null
+
+            val txtCap3256Value =
+                if (rbtCap3256.isChecked && rbtCap324Value == true)
+                    txtCap3256.text.toString() else null
+            val txtCap326Value =
+                if (rbtCap324Value == true && txtCap326.text.toString().isNotEmpty())
+                    txtCap326.text.toString() else null
+            val txtCap327Value =
+                if (rbtCap324Value == true && txtCap327.text.toString().isNotEmpty())
                     txtCap327.text.toString() else null
+
+            Mob.cap3 = ModelCap3(
+                cap3Id,
+                ncontrol,
+                txtCap322Value,
+                rbtCap323Value,
+                txtCap3239Value,
+                rbtCap324Value,
+                rbtCap325Value,
+                txtCap3256Value,
+                txtCap326Value,
+                txtCap327Value
             )
+
             return viewCap()
         }
     }

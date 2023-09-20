@@ -12,7 +12,7 @@
                 android:id="@+id/menu_cap1"
                 android:icon="@drawable/img_arrow_right"
                 android:fontFamily="sans-serif-condensed"
-                android:title="@string/cap01" />
+                android:title="@string/cap01"/>
             <item
                 android:id="@+id/menu_cap2"
                 android:icon="@drawable/img_arrow_right"
@@ -92,6 +92,8 @@
             android:icon="@drawable/img_send"
             android:fontFamily="sans-serif-condensed"
             android:title="Envio del formulario"/>
+
+
         <item
             android:id="@+id/menu_exit"
             android:icon="@drawable/img_close"

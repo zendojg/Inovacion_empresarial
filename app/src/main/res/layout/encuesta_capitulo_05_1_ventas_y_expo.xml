@@ -144,9 +144,10 @@
                         android:hint="@string/cero"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="13"
+                        android:maxLength="14"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_30_a_2022"
+                        tools:text="10,000,000,000"
                         tools:ignore="DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -161,9 +162,10 @@
                         android:hint="@string/cero"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="13"
+                        android:maxLength="14"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_30_b_2021"
+                        tools:text="10,000,000,000"
                         tools:ignore="DuplicateSpeakableTextCheck" />
 
                     <TextView
@@ -192,9 +194,10 @@
                         android:hint="@string/cero"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="13"
+                        android:maxLength="14"
                         android:minHeight="48dp"
                         android:nextFocusDown="@+id/txtCap5_30_b_2022"
+                        tools:text="10,000,000,000"
                         tools:ignore="DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -209,8 +212,9 @@
                         android:hint="@string/cero"
                         android:importantForAutofill="no"
                         android:inputType="number"
-                        android:maxLength="13"
+                        android:maxLength="14"
                         android:minHeight="48dp"
+                        tools:text="10,000,000,000"
                         tools:ignore="DuplicateSpeakableTextCheck" />
 
                     <TextView
@@ -242,6 +246,7 @@
                         android:nextFocusDown="@+id/txtCap5_30_1_2022"
                         android:textColor="@color/holo_blue_dark"
                         android:textColorHint="@color/holo_blue_dark"
+                        tools:text="10,000,000,000"
                         tools:ignore="DuplicateSpeakableTextCheck" />
 
                     <EditText
@@ -261,6 +266,7 @@
                         android:nextFocusDown="@+id/txtCap5_30_a_2021"
                         android:textColor="@color/holo_blue_dark"
                         android:textColorHint="@color/holo_blue_dark"
+                        tools:text="10,000,000,000"
                         tools:ignore="DuplicateSpeakableTextCheck" />
 
                 </GridLayout>
@@ -711,7 +717,7 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="textMultiLine"
+                            android:inputType="textMultiLine|textCapCharacters"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="Bien o servicio" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -731,7 +737,7 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="textMultiLine"
+                            android:inputType="textMultiLine|textCapCharacters"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="Bien o servicio" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -785,7 +791,7 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="textMultiLine"
+                            android:inputType="textMultiLine|textCapCharacters"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="Bien o servicio" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -805,7 +811,7 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="textMultiLine"
+                            android:inputType="textMultiLine|textCapCharacters"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="Bien o servicio" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -825,7 +831,7 @@
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="textMultiLine"
+                            android:inputType="textMultiLine|textCapCharacters"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="Bien o servicio" />
                     </com.google.android.material.textfield.TextInputLayout>

@@ -11,7 +11,6 @@ import java.text.DecimalFormat
 import java.text.ParseException
 
 object ClassFunctions {
-
     fun actionEdittextSum(
         txt: EditText,
         editTexts: List<EditText>,
@@ -33,7 +32,7 @@ object ClassFunctions {
                     val formattedText = decimalFormat.format(longValue)
                     txt.setText(formattedText)
                     txt.setSelection(formattedText.length)
-                } catch (e: ParseException) { e.printStackTrace() }
+                } catch (e: ParseException) { txt.setText("0") }
                 txt.addTextChangedListener(this)
                 try {
                     // Calcular la suma de los valores en los EditText
@@ -51,9 +50,32 @@ object ClassFunctions {
             }
         }
         txt.addTextChangedListener(textWatcher)
-        Log.i("---------Return:",":$txt--$textWatcher")
         return ModelTexWatchers(txt, textWatcher)
     }
 
+    fun actionEdittextMiles(txt: EditText): ModelTexWatchers {
+        val textWatcher = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // No se requiere acción antes del cambio de texto.
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // No se requiere acción en el cambio de texto.
+            }
+            override fun afterTextChanged(s: Editable?) {
+                txt.removeTextChangedListener(this)
+                val decimalFormat = DecimalFormat("#,###")
+                try {
+                    val originalText = if (!s.isNullOrEmpty()) s.toString() else "0"
+                    val longValue = decimalFormat.parse(originalText)?.toLong() ?: 0
+                    val formattedText = decimalFormat.format(longValue)
+                    txt.setText(formattedText)
+                    txt.setSelection(formattedText.length)
+                } catch (e: ParseException) { txt.setText("0") }
+                txt.addTextChangedListener(this)
+            }
+        }
+        txt.addTextChangedListener(textWatcher)
+        return ModelTexWatchers(txt, textWatcher)
+    }
 
 }

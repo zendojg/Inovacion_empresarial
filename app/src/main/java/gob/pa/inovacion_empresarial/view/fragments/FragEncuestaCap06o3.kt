@@ -7,26 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Spinner
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo063InovacionOrganizacionalBinding
 import gob.pa.inovacion_empresarial.function.CreateIncon
+import gob.pa.inovacion_empresarial.function.Functions.allTrue
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap6
+import gob.pa.inovacion_empresarial.model.ModelSpinLister
 
 class FragEncuestaCap06o3 : Fragment() {
 
     private lateinit var bindingcap6o3: EncuestaCapitulo063InovacionOrganizacionalBinding
     private lateinit var ctx: Context
-
-    var checkNo46: MutableList<Boolean> =
-        mutableListOf(false, false, false, false, false, false)
-    private var indice01 = 0
-    private var indice02 = 0
-    private var indice03 = 0
-    private var indice04 = 0
-    private var indice05 = 0
+    private val checkNo46 = MutableList(6) { false }
+    private val spinList = mutableListOf<ModelSpinLister>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -45,11 +44,15 @@ class FragEncuestaCap06o3 : Fragment() {
     }
 
     private fun onAction() {
-        val gr47Adp = ArrayAdapter(ctx, R.layout.style_box, Mob.arrGrade)
-        gr47Adp.setDropDownViewResource(R.layout.style_list)
+        fun check46() { bindingcap6o3.layoutCap647.isVisible = !checkNo46.allTrue() }
 
         with(bindingcap6o3) {
-            lowCap6o3.setOnClickListener { saveCap() }
+            spinList.clear()
+            spinList.add(ModelSpinLister(spinCap6471, Mob.cap6?.v47txtGrado1?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap6472, Mob.cap6?.v47txtGrado2?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap6473, Mob.cap6?.v47txtGrado3?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap6474, Mob.cap6?.v47txtGrado4?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap6475, Mob.cap6?.v47txtGrado5?.toIntOrNull() ?: 0))
 
             checkNo46[Mob.CHECK1Y2021] = rbtCap6461No2021.isChecked
             checkNo46[Mob.CHECK1Y2022] = rbtCap6461No2022.isChecked
@@ -83,118 +86,66 @@ class FragEncuestaCap06o3 : Fragment() {
                 checkNo46[Mob.CHECK3Y2022] = rbtCap6463No2022.id == id
                 check46()
             }
-            spinCap6471.adapter = gr47Adp
-            spinCap6472.adapter = gr47Adp
-            spinCap6473.adapter = gr47Adp
-            spinCap6474.adapter = gr47Adp
-            spinCap6475.adapter = gr47Adp
 
-            spinsAction()
-        }
-    }
-    private fun check46() {
-        val allItems: (Boolean) -> Boolean = { it }
-        with(bindingcap6o3) {
-            layoutCap647.isVisible = !checkNo46.all(allItems)
-        }
-    }
+            val gradoImport = ArrayAdapter(ctx, R.layout.style_box, Mob.arrGrade)
+            gradoImport.setDropDownViewResource(R.layout.style_list)
 
-    private fun spinsAction() {
-        with(bindingcap6o3) {
-            spinCap6471.setSelection(indice01)
-            spinCap6472.setSelection(indice02)
-            spinCap6473.setSelection(indice03)
-            spinCap6474.setSelection(indice04)
-            spinCap6475.setSelection(indice05)
-
-            spinCap6471.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice01 = pos
-                }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
+            for (index in 0 until layoutCap647.childCount) {
+                val view = layoutCap647.getChildAt(index)
+                if (view is Spinner) { view.adapter = gradoImport }
             }
-            spinCap6472.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice02 = pos
-                }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
+            for (modelSpinLister in spinList) {
+                val spinner = modelSpinLister.spinner
+                val indice = modelSpinLister.indice
+                if (indice >= 0 && indice < spinner.adapter.count) { spinner.setSelection(indice) }
             }
-            spinCap6473.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice03 = pos
+            for (modelSpinLister in spinList) {
+                val spinner = modelSpinLister.spinner
+                spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(
+                        parent: AdapterView<*>?,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) { modelSpinLister.indice = position }
+                    override fun onNothingSelected(parent: AdapterView<*>?) { /* sin selección */ }
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
-            }
-            spinCap6474.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice04 = pos
-                }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
-            }
-            spinCap6475.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice05 = pos
-                }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
             }
         }
     }
 
     private fun fillOut() {
         val cap6 = Mob.formComp?.cap6
-        fillOut46(cap6)
-        indice01 = try { cap6?.v47txtGrado1?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice02 = try { cap6?.v47txtGrado2?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice03 = try { cap6?.v47txtGrado3?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice04 = try { cap6?.v47txtGrado4?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
-        indice05 = try { cap6?.v47txtGrado5?.toInt() ?: 0 }
-        catch (e: java.lang.NumberFormatException) { 0 }
+        with(bindingcap6o3) {
 
+            setRadioButtonState(rbtCap6461Si2021, rbtCap6461No2021, rgroupCap64612021,
+                cap6?.v46check21o1)
+            setRadioButtonState(rbtCap6461Si2022, rbtCap6461No2022, rgroupCap64612022,
+                cap6?.v46check22o1)
+            setRadioButtonState(rbtCap6462Si2021, rbtCap6462No2021, rgroupCap64622021,
+                cap6?.v46check21o2)
+            setRadioButtonState(rbtCap6462Si2022, rbtCap6462No2022, rgroupCap64622022,
+                cap6?.v46check22o2)
+            setRadioButtonState(rbtCap6463Si2021, rbtCap6463No2021, rgroupCap64632021,
+                cap6?.v46check21o3)
+            setRadioButtonState(rbtCap6463Si2022, rbtCap6463No2022, rgroupCap64632022,
+                cap6?.v46check22o3)
+
+        }
         Mob.seecap06o3 = false
         onAction()
     }
 
-    private fun fillOut46(cap6: ModelCap6?) {
-        with(bindingcap6o3) {
-            when (cap6?.v46check21o1) {
-                true -> rbtCap6461Si2021.isChecked = true
-                false -> rbtCap6461No2021.isChecked = true
-                else -> rgroupCap64612021.clearCheck()
-            }
-            when (cap6?.v46check22o1) {
-                true -> rbtCap6461Si2022.isChecked = true
-                false -> rbtCap6461No2022.isChecked = true
-                else -> rgroupCap64612022.clearCheck()
-            }
-            when (cap6?.v46check21o2) {
-                true -> rbtCap6462Si2021.isChecked = true
-                false -> rbtCap6462No2021.isChecked = true
-                else -> rgroupCap64622021.clearCheck()
-            }
-            when (cap6?.v46check22o2) {
-                true -> rbtCap6462Si2022.isChecked = true
-                false -> rbtCap6462No2022.isChecked = true
-                else -> rgroupCap64622022.clearCheck()
-            }
-            when (cap6?.v46check21o3) {
-                true -> rbtCap6463Si2021.isChecked = true
-                false -> rbtCap6463No2021.isChecked = true
-                else -> rgroupCap64632021.clearCheck()
-            }
-            when (cap6?.v46check22o3) {
-                true -> rbtCap6463Si2022.isChecked = true
-                false -> rbtCap6463No2022.isChecked = true
-                else -> rgroupCap64632022.clearCheck()
-            }
+    private fun setRadioButtonState(
+        radioButtonYes: RadioButton,
+        radioButtonNo: RadioButton,
+        radioGroup: RadioGroup,
+        isChecked: Boolean?
+    ) {
+        when (isChecked) {
+            true -> radioButtonYes.isChecked = true
+            false -> radioButtonNo.isChecked = true
+            else -> radioGroup.clearCheck()
         }
     }
 

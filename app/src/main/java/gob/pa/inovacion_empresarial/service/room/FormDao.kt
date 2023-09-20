@@ -105,8 +105,8 @@ interface FormDao {
     suspend fun getLugarPName(
         idProv: String,
         idDist: String,
-        idLugar: String,
-        idcorre: String
+        idcorre: String,
+        idLugar: String
     ): String
 
     @Query(

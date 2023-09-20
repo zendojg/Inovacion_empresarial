@@ -259,7 +259,6 @@
                         android:layout_marginVertical="1dp"
                         android:layout_marginHorizontal="10dp"
                         android:paddingHorizontal="5dp"
-                        android:enabled="false"
                         android:animateLayoutChanges="true"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_vertical"

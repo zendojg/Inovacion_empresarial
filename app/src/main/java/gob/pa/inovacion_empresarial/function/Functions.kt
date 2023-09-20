@@ -26,20 +26,21 @@ object Functions {
 
     private const val HEIGHTMARK = 50
     private const val HEIGHTBALLON = 28
-    fun msgMark(msg: String, width: Int, ctx: Context, color: Int): Balloon {
-        return Balloon.Builder(ctx)
-            //.setLayout(R.layout.style_balloon)
-            .setArrowSize(ARROWSIZE)
-            .setArrowOrientation(ArrowOrientation.BOTTOM)
-            .setArrowPosition(ARROWPOS)
-            .setWidth(width)
-            .setHeight(HEIGHTMARK)
-            .setCornerRadius(CORNER)
-            .setText(msg)
-            .setBackgroundColor(color)
-            .setBalloonAnimation(BalloonAnimation.ELASTIC)
-            .build()
-    }
+
+//    fun msgMark(msg: String, width: Int, ctx: Context, color: Int): Balloon {
+//        return Balloon.Builder(ctx)
+//            //.setLayout(R.layout.style_balloon)
+//            .setArrowSize(ARROWSIZE)
+//            .setArrowOrientation(ArrowOrientation.BOTTOM)
+//            .setArrowPosition(ARROWPOS)
+//            .setWidth(width)
+//            .setHeight(HEIGHTMARK)
+//            .setCornerRadius(CORNER)
+//            .setText(msg)
+//            .setBackgroundColor(color)
+//            .setBalloonAnimation(BalloonAnimation.ELASTIC)
+//            .build()
+//    }
 
     fun msgBallom(msg: String, width: Int, ctx: Context, color: Int): Balloon {
         return Balloon.Builder(ctx)
@@ -113,5 +114,7 @@ object Functions {
         } else false
     }
 
+    fun List<Boolean?>.allTrue() = all { it == true }
+    fun List<Boolean?>.allFalse() = all { it == false }
     fun String.toEditable(): Editable = Editable.Factory.getInstance().newEditable(this)
 }
