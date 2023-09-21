@@ -2,16 +2,14 @@ package gob.pa.inovacion_empresarial.function
 
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.widget.EditText
-import com.google.android.material.textfield.TextInputEditText
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
 import java.math.BigDecimal
 import java.text.DecimalFormat
 import java.text.ParseException
 
-object ClassFunctions {
-    fun actionEdittextSum(
+object EdittextFormat {
+    fun edittextSum(
         txt: EditText,
         editTexts: List<EditText>,
         resultEditText: EditText
@@ -53,7 +51,7 @@ object ClassFunctions {
         return ModelTexWatchers(txt, textWatcher)
     }
 
-    fun actionEdittextMiles(txt: EditText): ModelTexWatchers {
+    fun edittextMiles(txt: EditText): ModelTexWatchers {
         val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 // No se requiere acción antes del cambio de texto.

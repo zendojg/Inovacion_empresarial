@@ -2,7 +2,6 @@ package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,7 @@ import android.widget.EditText
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo051VentasYExpoBinding
-import gob.pa.inovacion_empresarial.function.ClassFunctions
+import gob.pa.inovacion_empresarial.function.EdittextFormat
 import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
@@ -81,12 +80,12 @@ class FragEncuestaCap05o1 : Fragment() {
                             if (view.text.toString() == "0") view.text?.clear()
                             if (row1EditTexts.contains(view)) {
                                 val modelTexWatchers =
-                                    ClassFunctions.actionEdittextSum(view, row1EditTexts, txtCap53012021)
+                                    EdittextFormat.edittextSum(view, row1EditTexts, txtCap53012021)
                                 textWatcherList.add(modelTexWatchers)
                             }
                             else if (row2EditTexts.contains(view)) {
                                 val modelTexWatchers =
-                                    ClassFunctions.actionEdittextSum(view, row2EditTexts, txtCap53012022)
+                                    EdittextFormat.edittextSum(view, row2EditTexts, txtCap53012022)
                                 textWatcherList.add(modelTexWatchers)
                             }
                         } else if (view.text.isNullOrEmpty()) {

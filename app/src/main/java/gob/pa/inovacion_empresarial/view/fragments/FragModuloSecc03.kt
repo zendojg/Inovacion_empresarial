@@ -118,36 +118,22 @@ class FragModuloSecc03 : Fragment() {
         val blank = "".toEditable()
         with(bindingmod3) {
 
-            when (mod3?.v4check) {
-                true -> rbtSecc034Si.isChecked = true
-                false -> rbtSecc034No.isChecked = true
-                else -> rgroupSecc034.clearCheck()
+            val radioButtonsMap = mapOf(
+                rgroupSecc034 to mod3?.v4check,
+                rgroupSecc034A to mod3?.v4check1a,
+                rgroupSecc034B to mod3?.v4check1b,
+                rgroupSecc034C to mod3?.v4check1c,
+                rgroupSecc034D to mod3?.v4check1d,
+                rgroupSecc034E to mod3?.v4check1e
+            )
+            for ((radioGroup, isChecked) in radioButtonsMap) {
+                when (isChecked) {
+                    true -> radioGroup.check(radioGroup.getChildAt(0).id)
+                    false -> radioGroup.check(radioGroup.getChildAt(1).id)
+                    null -> radioGroup.clearCheck()
+                }
             }
-            when (mod3?.v4check1a) {
-                true -> rbtSecc034ASi.isChecked = true
-                false -> rbtSecc034ANo.isChecked = true
-                else -> rgroupSecc034A.clearCheck()
-            }
-            when (mod3?.v4check1b) {
-                true -> rbtSecc034BSi.isChecked = true
-                false -> rbtSecc034BNo.isChecked = true
-                else -> rgroupSecc034B.clearCheck()
-            }
-            when (mod3?.v4check1c) {
-                true -> rbtSecc034CSi.isChecked = true
-                false -> rbtSecc034CNo.isChecked = true
-                else -> rgroupSecc034C.clearCheck()
-            }
-            when (mod3?.v4check1d) {
-                true -> rbtSecc034DSi.isChecked = true
-                false -> rbtSecc034DNo.isChecked = true
-                else -> rgroupSecc034D.clearCheck()
-            }
-            when (mod3?.v4check1e) {
-                true -> rbtSecc034ESi.isChecked = true
-                false -> rbtSecc034ENo.isChecked = true
-                else -> rgroupSecc034E.clearCheck()
-            }
+
             txtSecc034A.text = mod3?.v4check1aPorcent?.toEditable() ?: blank
             txtSecc034B.text = mod3?.v4check1bPorcent?.toEditable() ?: blank
             txtSecc034C.text = mod3?.v4check1cPorcent?.toEditable() ?: blank
@@ -222,12 +208,14 @@ class FragModuloSecc03 : Fragment() {
     private fun viewCap(): List<String> {
         with(bindingmod3) {
             val returnList: ArrayList<String> = ArrayList()
-            if (!rbtSecc034Si.isChecked && !rbtSecc034No.isChecked)
+            if (Mob.capMod?.v1check == true && rgroupSecc034.checkedRadioButtonId == -1)
                 returnList.add(CreateIncon.inconsistencia(ctx, "294") ?: "")
 
+            if (Mob.capMod?.v1check == true && rgroupSecc034A.checkedRadioButtonId == -1)
+                returnList.add(CreateIncon.inconsistencia(ctx, "295") ?: "")
 
             Mob.isecc3 = returnList.isNotEmpty()
-            println("---------Is not empty: ${Mob.isecc3}--${Mob.capMod}")
+            println("Secc3: ${Mob.isecc3}--${Mob.capMod}")
             return returnList
         }
     }

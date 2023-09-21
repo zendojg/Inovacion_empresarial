@@ -60,12 +60,10 @@ object  CreateForm {
         }
     }
 
-    suspend fun createSaved(dvm: DVModel, ctx: Context) =
-        RoomView(dvm, ctx).saveForm(createObDB())
-
-
+    suspend fun createSaved(dvm: DVModel, ctx: Context) = RoomView(dvm, ctx).saveForm(createObDB())
     //fun rechargeCap1() = Mob.formComp?.cap1
     //fun rechargeCap2() = Mob.formComp?.cap2
+
     fun createLoad(form: ModelForm?) {
         with(Mob) {
             formComp = form
@@ -84,7 +82,6 @@ object  CreateForm {
             obsEncuesta = form?.obs ?: ""
             obsModulo = form?.capMod?.observaciones ?: ""
             condicionID = form?.cond
-
         }
     }
 

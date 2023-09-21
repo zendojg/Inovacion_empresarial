@@ -99,11 +99,7 @@ class FragEncuestaCap09o1 : Fragment() {
         val cap9 = Mob.formComp?.cap9
         val blank = "".toEditable()
         with(bindingcap9o1) {
-            when (cap9?.v59check) {
-                true -> rbtCap959Si.isChecked = true
-                false -> rbtCap959No.isChecked = true
-                else -> rgroupCap959.clearCheck()
-            }
+
             txtCap959.text = cap9?.v59num?.toEditable() ?: blank
             check60 = cap9?.v60num
             when (cap9?.v60num) {
@@ -117,45 +113,23 @@ class FragEncuestaCap09o1 : Fragment() {
             }
             txtCap9606Otra.text = cap9?.v60txtotro?.toEditable() ?: blank
 
-            when (cap9?.v61check1) {
-                true -> rbtCap9611Si.isChecked = true
-                false -> rbtCap9611No.isChecked = true
-                else -> rgroupCap9611.clearCheck()
-            }
-            when (cap9?.v61check2) {
-                true -> rbtCap9612Si.isChecked = true
-                false -> rbtCap9612No.isChecked = true
-                else -> rgroupCap9612.clearCheck()
-            }
-            when (cap9?.v61check3) {
-                true -> rbtCap9613Si.isChecked = true
-                false -> rbtCap9613No.isChecked = true
-                else -> rgroupCap9613.clearCheck()
-            }
-            when (cap9?.v61check4) {
-                true -> rbtCap9614Si.isChecked = true
-                false -> rbtCap9614No.isChecked = true
-                else -> rgroupCap9614.clearCheck()
-            }
-            when (cap9?.v61check5) {
-                true -> rbtCap9615Si.isChecked = true
-                false -> rbtCap9615No.isChecked = true
-                else -> rgroupCap9615.clearCheck()
-            }
-            when (cap9?.v61check6) {
-                true -> rbtCap9616Si.isChecked = true
-                false -> rbtCap9616No.isChecked = true
-                else -> rgroupCap9616.clearCheck()
-            }
-            when (cap9?.v61check7) {
-                true -> rbtCap9617Si.isChecked = true
-                false -> rbtCap9617No.isChecked = true
-                else -> rgroupCap9617.clearCheck()
-            }
-            when (cap9?.v61check8) {
-                true -> rbtCap9618Si.isChecked = true
-                false -> rbtCap9618No.isChecked = true
-                else -> rgroupCap9618.clearCheck()
+            val radioButtonsMap = mapOf(
+                rgroupCap959 to cap9?.v59check,
+                rgroupCap9611 to cap9?.v61check1,
+                rgroupCap9612 to cap9?.v61check2,
+                rgroupCap9613 to cap9?.v61check3,
+                rgroupCap9614 to cap9?.v61check4,
+                rgroupCap9615 to cap9?.v61check5,
+                rgroupCap9616 to cap9?.v61check6,
+                rgroupCap9617 to cap9?.v61check7,
+                rgroupCap9618 to cap9?.v61check8
+            )
+            for ((radioGroup, isChecked) in radioButtonsMap) {
+                when (isChecked) {
+                    true -> radioGroup.check(radioGroup.getChildAt(0).id)
+                    false -> radioGroup.check(radioGroup.getChildAt(1).id)
+                    else -> radioGroup.clearCheck()
+                }
             }
         }
         Mob.seecap09o1 = false

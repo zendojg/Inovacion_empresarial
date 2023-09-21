@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo07Part2Binding
-import gob.pa.inovacion_empresarial.function.ClassFunctions
+import gob.pa.inovacion_empresarial.function.EdittextFormat
 import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
@@ -99,13 +99,13 @@ class FragEncuestaCap07o2 : Fragment() {
                     editText?.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
                         if (hasFocus) {
                             if (row1EditTexts.contains(editText) && editText != null) {
-                                textWatcherList.add(ClassFunctions.actionEdittextSum(
+                                textWatcherList.add(EdittextFormat.edittextSum(
                                     editText,
                                     row1EditTexts,
                                     txtCap753T2021))
                             } else if (row2EditTexts.contains(editText) && editText != null) {
                                 val modelTexWatchers =
-                                    ClassFunctions.actionEdittextSum(
+                                    EdittextFormat.edittextSum(
                                         editText,
                                         row2EditTexts,
                                         txtCap753T2022)

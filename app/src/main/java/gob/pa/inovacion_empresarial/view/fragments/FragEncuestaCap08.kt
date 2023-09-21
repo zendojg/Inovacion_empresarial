@@ -14,7 +14,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo08Binding
-import gob.pa.inovacion_empresarial.function.ClassFunctions
+import gob.pa.inovacion_empresarial.function.EdittextFormat
 import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
@@ -90,7 +90,7 @@ class FragEncuestaCap08 : Fragment() {
                     editText?.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
                         if (hasFocus) {
                             if (editText != null)
-                                textWatcherList.add(ClassFunctions.actionEdittextMiles(editText))
+                                textWatcherList.add(EdittextFormat.edittextMiles(editText))
                         }
                         else {
                             if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
@@ -158,18 +158,18 @@ class FragEncuestaCap08 : Fragment() {
             txtCap8571COtra.text = cap8?.v57desc1c?.toEditable() ?: "".toEditable()
             txtCap8572COtra.text = cap8?.v57desc2c?.toEditable() ?: "".toEditable()
 
-            txtCap8571AMonto.text = cap8?.v57monto1a?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap8571BMonto.text = cap8?.v57monto1b?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap8571CMonto.text = cap8?.v57monto1c?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap8572AMonto.text = cap8?.v57monto2a?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap8572BMonto.text = cap8?.v57monto2b?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap8572CMonto.text = cap8?.v57monto2c?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            val txtCapsMap = mapOf(
+                txtCap8571AMonto to cap8?.v57monto1a,
+                txtCap8571BMonto to cap8?.v57monto1b,
+                txtCap8571CMonto to cap8?.v57monto1c,
+                txtCap8572AMonto to cap8?.v57monto2a,
+                txtCap8572BMonto to cap8?.v57monto2b,
+                txtCap8572CMonto to cap8?.v57monto2c,
+            )
+            for ((txt, vCap) in txtCapsMap) {
+                txt.text = vCap?.toDouble()?.toInt()?.takeIf { it > 0 }
+                    ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
+            }
         }
         Mob.seecap08o1 = false
         onAction()

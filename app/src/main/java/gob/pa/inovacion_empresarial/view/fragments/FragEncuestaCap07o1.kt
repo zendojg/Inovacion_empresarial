@@ -154,15 +154,11 @@ class FragEncuestaCap07o1 : Fragment() {
                     override fun onNothingSelected(parent: AdapterView<*>?) { /* sin selección */ }
                 }
             }
-
         }
     }
 
-
-
     private fun fillOut() {
         val cap7 = Mob.formComp?.cap7
-
         when (cap7?.v50check) {
             true -> bindingcap7o1.rbtCap750Si.isChecked = true
             false -> bindingcap7o1.rbtCap750No.isChecked = true
@@ -320,7 +316,6 @@ class FragEncuestaCap07o1 : Fragment() {
                 returnList.add(CreateIncon.inconsistencia(ctx, "93") ?: "")
             if (cap7?.v50check == true && cap7?.v51check22o2 == null)
                 returnList.add(CreateIncon.inconsistencia(ctx, "94") ?: "")
-
             if (cap7?.v50check == true &&
                 cap7?.v51check21o1 == true &&
                 cap7?.v51num21o1.isNullOrEmpty())

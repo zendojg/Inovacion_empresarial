@@ -82,7 +82,6 @@ class MainFragmentForms : Fragment() {
                 val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
                 pager?.setCurrentItem(Mob.INIT01, true)
             }
-
             val arrAdptSpin = ArrayAdapter(ctx, R.layout.style_box,
                 resources.getStringArray(R.array.arr_typeForms))
             arrAdptSpin.setDropDownViewResource(R.layout.style_list)
@@ -92,13 +91,10 @@ class MainFragmentForms : Fragment() {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
                     spinnerSelection(pos)
                 }
-                override fun onNothingSelected(adp: AdapterView<*>?) {
-                    Toast.makeText(ctx, "test", Toast.LENGTH_SHORT).show()
-                }
+                override fun onNothingSelected(adp: AdapterView<*>?) { /* Nothing */ }
             }
-
             searchForms.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String?): Boolean { return search(query) }
+                override fun onQueryTextSubmit(query: String?) = search(query)
                 override fun onQueryTextChange(newText: String?) = false
             })
         }

@@ -5,7 +5,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
-
 //------------------------------------------------------------------------------ Formulario Completo
 @Entity(tableName = "DBform_table",primaryKeys = [
     "ncontrol",

@@ -109,7 +109,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
-                            android:maxLength="15"
+                            android:maxLength="14"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -130,7 +130,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
-                            android:maxLength="15"
+                            android:maxLength="14"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -179,7 +179,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
-                            android:maxLength="15"
+                            android:maxLength="14"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -200,7 +200,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
-                            android:maxLength="15"
+                            android:maxLength="14"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -249,7 +249,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
-                            android:maxLength="15"
+                            android:maxLength="14"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -270,7 +270,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
-                            android:maxLength="15"
+                            android:maxLength="14"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -319,7 +319,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
-                            android:maxLength="15"
+                            android:maxLength="14"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -340,7 +340,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
-                            android:maxLength="15"
+                            android:maxLength="14"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -389,7 +389,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
-                            android:maxLength="15"
+                            android:maxLength="14"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -410,7 +410,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
-                            android:maxLength="15"
+                            android:maxLength="14"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -459,7 +459,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
-                            android:maxLength="15"
+                            android:maxLength="14"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -480,7 +480,7 @@
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="number"
                             android:minHeight="48dp"
-                            android:maxLength="15"
+                            android:maxLength="14"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="@string/doublecero" />
@@ -517,7 +517,6 @@
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
                             android:inputType="textMultiLine"
-                            android:maxLength="2"
                             android:gravity="start"
                             android:minHeight="48dp"
                             android:textSize="14sp"

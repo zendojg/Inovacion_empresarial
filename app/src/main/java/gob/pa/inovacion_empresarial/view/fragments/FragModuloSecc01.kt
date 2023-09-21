@@ -9,14 +9,13 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.ModuloSeccion01Binding
 import gob.pa.inovacion_empresarial.function.CreateIncon
+import gob.pa.inovacion_empresarial.function.Functions.allFalse
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelMod
 
 class FragModuloSecc01 : Fragment() {
-
-
     private lateinit var bindingmod1: ModuloSeccion01Binding
     private lateinit var ctx: Context
 
@@ -40,7 +39,6 @@ class FragModuloSecc01 : Fragment() {
             if (rbtSecc011No.isChecked) {
                 linearSecc012.isVisible = false
             }
-
             rgroupSecc011.setOnCheckedChangeListener { _, id ->
                 hideKeyboard()
                 when (id) {
@@ -48,9 +46,7 @@ class FragModuloSecc01 : Fragment() {
                     rbtSecc011No.id -> { linearSecc012.isVisible = false }
                 }
             }
-
             if (rbtSecc012Si.isChecked) linearSecc0121.isVisible = true
-
             rgroupSecc0121.setOnCheckedChangeListener { _, id ->
                 hideKeyboard()
                 when (id) {
@@ -58,18 +54,14 @@ class FragModuloSecc01 : Fragment() {
                     rbtSecc012No.id -> linearSecc0121.isVisible = false
                 }
             }
-
             checkSecc012D.setOnClickListener {
                 txtSecc012DOtra.isVisible = checkSecc012D.isChecked
             }
-
-            lowMod1.setOnClickListener { saveCap() }
         }
     }
 
     private fun fillOut() {
         val mod1 = Mob.formComp?.capMod
-        val blank = "".toEditable()
         with(bindingmod1) {
             when (mod1?.v1check) {
                 true -> rbtSecc011Si.isChecked = true
@@ -85,9 +77,7 @@ class FragModuloSecc01 : Fragment() {
             checkSecc012B.isChecked = mod1?.v2check1b == true
             checkSecc012C.isChecked = mod1?.v2check1c == true
             checkSecc012D.isChecked = mod1?.v2check1d == true
-
-            txtSecc012DOtra.text = mod1?.v2txtDesc1d?.toEditable() ?: blank
-
+            txtSecc012DOtra.text = mod1?.v2txtDesc1d?.toEditable() ?: "".toEditable()
             checkSecc0122.isChecked = mod1?.v2check2 == true
         }
         Mob.seesecc1 = false
@@ -99,14 +89,24 @@ class FragModuloSecc01 : Fragment() {
             Mob.capMod = ModelMod(
                 Mob.capMod?.id,
                 if (rbtSecc011Si.isChecked) true else if (rbtSecc011No.isChecked) false else null,
-                if (Mob.formComp?.capMod?.v1check == true && rbtSecc012Si.isChecked) true else
-                    if (Mob.formComp?.capMod?.v1check == true && rbtSecc012No.isChecked) false else null,
-                if (Mob.capMod?.v1check == true && checkSecc012A.isChecked) true else null,
-                if (Mob.capMod?.v1check == true && checkSecc012B.isChecked) true else null,
-                if (Mob.capMod?.v1check == true && checkSecc012C.isChecked) true else null,
-                if (Mob.capMod?.v1check == true && checkSecc012D.isChecked) true else null,
-                if (Mob.capMod?.v1check == true && checkSecc012D.isChecked)
-                    txtSecc012DOtra.text.toString() else null,
+                if (Mob.capMod?.v1check == true && rbtSecc012Si.isChecked) true else
+                    if (Mob.capMod?.v1check == true && rbtSecc012No.isChecked) false else null,
+                if (Mob.capMod?.v1check == true &&
+                    rbtSecc012Si.isChecked &&
+                    checkSecc012A.isChecked) true else null,
+                if (Mob.capMod?.v1check == true &&
+                    rbtSecc012Si.isChecked &&
+                    checkSecc012B.isChecked) true else null,
+                if (Mob.capMod?.v1check == true &&
+                    rbtSecc012Si.isChecked &&
+                    checkSecc012C.isChecked) true else null,
+                if (Mob.capMod?.v1check == true &&
+                    rbtSecc012Si.isChecked &&
+                    checkSecc012D.isChecked) true else null,
+                if (Mob.capMod?.v1check == true &&
+                    rbtSecc012Si.isChecked &&
+                    checkSecc012D.isChecked)
+                    txtSecc012DOtra.text.toString().ifEmpty { null } else null,
                 if (Mob.capMod?.v1check == true && checkSecc0122.isChecked) true else null,
                 //Mob.capMod?.v2txtnull: String?,
                 if (Mob.capMod?.v1check == true) Mob.capMod?.v3check1 else null,//---------
@@ -146,14 +146,27 @@ class FragModuloSecc01 : Fragment() {
     }
 
     private fun viewCap(): List<String> {
+
         with(bindingmod1) {
+            val allCheckSecc01P2 = listOf(
+                checkSecc012A.isChecked,
+                checkSecc012B.isChecked,
+                checkSecc012C.isChecked,
+                checkSecc012D.isChecked,
+                )
             val returnList: ArrayList<String> = ArrayList()
             if (!rbtSecc011Si.isChecked && !rbtSecc011No.isChecked)
                 returnList.add(CreateIncon.inconsistencia(ctx, "289") ?: "")
-
+            if (rbtSecc011Si.isChecked) {
+                if (rgroupSecc0121.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "290") ?: "")
+                else if (rbtSecc011Si.isChecked && allCheckSecc01P2.allFalse())
+                    returnList.add(CreateIncon.inconsistencia(ctx, "291") ?: "")
+            } else if (rbtSecc011No.isChecked && !checkSecc0122.isChecked)
+                returnList.add(CreateIncon.inconsistencia(ctx, "292") ?: "")
 
             Mob.isecc1 = returnList.isNotEmpty()
-            println("---------Is not empty: ${Mob.isecc1}--${Mob.capMod}")
+            println("Secc1: ${Mob.isecc1}--${Mob.capMod}")
             return returnList
         }
     }

@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.ModuloSeccion02Binding
 import gob.pa.inovacion_empresarial.function.CreateIncon
+import gob.pa.inovacion_empresarial.function.Functions.allFalse
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelMod
 
@@ -35,7 +36,6 @@ class FragModuloSecc02 : Fragment() {
     private fun onAction() {
         with(bindingmod2) {
             scrollForm.isVisible = Mob.capMod?.v1check != false
-            lowMod2.setOnClickListener { saveCap() }
         }
     }
 
@@ -46,7 +46,6 @@ class FragModuloSecc02 : Fragment() {
             checkSecc232.isChecked = mod2?.v3check2 == true
             checkSecc233.isChecked = mod2?.v3check3 == true
             checkSecc234.isChecked = mod2?.v3check4 == true
-
         }
         Mob.seesecc2 = false
         onAction()
@@ -103,14 +102,18 @@ class FragModuloSecc02 : Fragment() {
 
     private fun viewCap(): List<String> {
         with(bindingmod2) {
+            val allCheckSecc02 = listOf(
+                checkSecc231.isChecked,
+                checkSecc232.isChecked,
+                checkSecc233.isChecked,
+                checkSecc234.isChecked,
+            )
             val returnList: ArrayList<String> = ArrayList()
-            if (!checkSecc231.isChecked && !checkSecc232.isChecked)
-                if (!checkSecc233.isChecked && !checkSecc234.isChecked)
-                    returnList.add(CreateIncon.inconsistencia(ctx, "293") ?: "")
-
+            if (Mob.capMod?.v1check == true && allCheckSecc02.allFalse())
+                returnList.add(CreateIncon.inconsistencia(ctx, "293") ?: "")
 
             Mob.isecc2 = returnList.isNotEmpty()
-            println("---------Is not empty: ${Mob.isecc2}--${Mob.capMod}")
+            println("Secc2: ${Mob.isecc2}--${Mob.capMod}")
             return returnList
         }
     }
