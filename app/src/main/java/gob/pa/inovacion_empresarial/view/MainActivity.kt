@@ -30,7 +30,7 @@ import kotlin.system.exitProcess
 class MainActivity : AppCompatActivity() {
 
     private lateinit var main: ActivityMainBinding
-    lateinit var pagerMain: ViewPager2
+    private lateinit var pagerMain: ViewPager2
     private val dvmMain: DVModel by viewModels()
     private var aDialog: AlertDialog? = null
     private val ctx = this
@@ -47,9 +47,9 @@ class MainActivity : AppCompatActivity() {
         pagerMain.isUserInputEnabled = false
         pagerMain.adapter = AdapterPagerMain(Mob.arrMain, supportFragmentManager, lifecycle)
 
-        val decorView: View = window.decorView
-        decorView.systemUiVisibility =
-            decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+//        val decorView: View = window.decorView
+//        decorView.systemUiVisibility =
+//            decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
         window.statusBarColor = ContextCompat.getColor(this, R.color.celeste)
     }
     override fun onPause() {
@@ -74,14 +74,14 @@ class MainActivity : AppCompatActivity() {
                 lifecycleScope.launch {
                     validate()
                     pagerMain.setCurrentItem(Mob.INIT01, false)
-                    RoomView(dvmMain, this@MainActivity).viewRoom()
+                    RoomView(dvmMain, ctx).viewRoom()
                 }
             }
-        } else if (!Mob.authData?.result?.token.isNullOrEmpty()) {     //----- TOKEN VACIO IR A LOGIN
+        } else if (!Mob.authData?.result?.token.isNullOrEmpty()) {  //----- TOKEN VACIO IR A LOGIN
             lifecycleScope.launch {
                 validate()
                 pagerMain.setCurrentItem(Mob.INIT01, false)
-                RoomView(dvmMain, this@MainActivity).viewRoom()
+                RoomView(dvmMain, ctx).viewRoom()
             }
         } else {
             main.barMain.visibility = View.GONE
@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
                 if (position != Mob.LOGIN0) validate() //--- CAMBIAR VERIFICADOR A PUNTOS CLAVES ---
                 if (position == Mob.INIT01) {
                     lifecycleScope.launch {
-                        RoomView(dvmMain, this@MainActivity).viewRoom()
+                        RoomView(dvmMain, ctx).viewRoom()
                     }
                 }
             }
@@ -159,7 +159,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }, (Mob.TIME500MS))
-            Log.i("RESP:","\n--------CODE: ${resp?.code}\n--------MSG: ${resp?.msg}\n")
+            Log.i("RESP----","\nCODE: ${resp?.code}\nMSG: ${resp?.msg}\n")
 
         }
     }

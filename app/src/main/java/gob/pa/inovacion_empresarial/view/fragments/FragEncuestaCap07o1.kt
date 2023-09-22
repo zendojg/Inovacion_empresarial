@@ -159,32 +159,20 @@ class FragEncuestaCap07o1 : Fragment() {
 
     private fun fillOut() {
         val cap7 = Mob.formComp?.cap7
-        when (cap7?.v50check) {
-            true -> bindingcap7o1.rbtCap750Si.isChecked = true
-            false -> bindingcap7o1.rbtCap750No.isChecked = true
-            else -> bindingcap7o1.rgroupCap750.clearCheck()
-        }
         with(bindingcap7o1) {
-            when (cap7?.v51check21o1) {
-                true -> rbtCap7511Si2021.isChecked = true
-                false -> rbtCap7511No2021.isChecked = true
-                else -> rgroupCap75112021.clearCheck()
-            }
-            when (cap7?.v51check22o1) {
-                true -> rbtCap7511Si2022.isChecked = true
-                false -> rbtCap7511No2022.isChecked = true
-                else -> rgroupCap75112022.clearCheck()
-            }
-
-            when (cap7?.v51check21o2) {
-                true -> rbtCap7512Si2021.isChecked = true
-                false -> rbtCap7512No2021.isChecked = true
-                else -> rgroupCap75122021.clearCheck()
-            }
-            when (cap7?.v51check22o2) {
-                true -> rbtCap7512Si2022.isChecked = true
-                false -> rbtCap7512No2022.isChecked = true
-                else -> rgroupCap75122022.clearCheck()
+            val radioButtonsMap = mapOf(
+                rgroupCap750 to cap7?.v50check,
+                rgroupCap75112021 to cap7?.v51check21o1,
+                rgroupCap75112022 to cap7?.v51check22o1,
+                rgroupCap75122021 to cap7?.v51check21o2,
+                rgroupCap75122022 to cap7?.v51check22o2,
+            )
+            for ((radioGroup, isChecked) in radioButtonsMap) {
+                when (isChecked) {
+                    true -> radioGroup.check(radioGroup.getChildAt(0).id)
+                    false -> radioGroup.check(radioGroup.getChildAt(1).id)
+                    else -> radioGroup.clearCheck()
+                }
             }
             txtCap75112021.text = cap7?.v51num21o1?.toEditable() ?: "".toEditable()
             txtCap75112022.text = cap7?.v51num22o1?.toEditable() ?: "".toEditable()

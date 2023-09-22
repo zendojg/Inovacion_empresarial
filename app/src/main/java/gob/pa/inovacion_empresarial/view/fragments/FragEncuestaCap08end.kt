@@ -313,7 +313,7 @@ class FragEncuestaCap08end : Fragment() {
                 returnList.add(CreateIncon.inconsistencia(ctx, "610") ?: "")
             }
             icap08o2 = returnList.isNotEmpty()
-            println("---------Is not empty: $icap08o2--$cap8")
+            println("Cap8-part2: $icap08o2--$cap8")
             return returnList
         }
     }

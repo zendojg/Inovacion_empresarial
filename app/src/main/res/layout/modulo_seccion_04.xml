@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
+            android:id="@+id/linearSecc4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
@@ -48,9 +49,9 @@
                     android:layout_marginBottom="40dp"
                     android:fontFamily="sans-serif-condensed-light"
                     android:text="@string/leftBranch"
-                    app:layout_constraintBottom_toBottomOf="@+id/LinearSecc4_6_txt"
+                    app:layout_constraintBottom_toBottomOf="@+id/linearSecc4_6_txt"
                     app:layout_constraintEnd_toStartOf="@+id/lb6nm100"
-                    app:layout_constraintTop_toTopOf="@+id/LinearSecc4_6_txt" />
+                    app:layout_constraintTop_toTopOf="@+id/linearSecc4_6_txt" />
 
 
                 <TextView
@@ -80,7 +81,7 @@
                     tools:ignore="TextContrastCheck" />
 
                 <LinearLayout
-                    android:id="@+id/LinearSecc4_6_txt"
+                    android:id="@+id/linearSecc4_6_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -93,7 +94,8 @@
                         android:id="@+id/txtSecc04_6p1ly"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="10dp"
                         android:layout_marginTop="10dp"
                         android:hint="@string/hints061">
 
@@ -114,7 +116,8 @@
                         android:id="@+id/txtSecc04_6p2ly"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="10dp"
                         android:hint="@string/hints062">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -134,7 +137,8 @@
                         android:id="@+id/txtSecc04_6p3ly"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="10dp"
                         android:hint="@string/hints063">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -154,7 +158,8 @@
                         android:id="@+id/txtSecc04_6p4ly"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="10dp"
                         android:hint="@string/hints064">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -177,42 +182,45 @@
                     android:layout_width="60dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/transparent"
-                    android:focusable="false"
-                    android:gravity="end"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/porc100"
                     android:ellipsize="end"
+                    android:focusable="false"
+                    android:enabled="false"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="end"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
                     android:maxLines="1"
+                    android:text="@string/porc100"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/LinearSecc4_6_txt"
+                    app:layout_constraintBottom_toBottomOf="@+id/linearSecc4_6_txt"
                     app:layout_constraintEnd_toStartOf="@+id/lb6nmporcent"
-                    app:layout_constraintTop_toTopOf="@+id/LinearSecc4_6_txt" />
+                    app:layout_constraintTop_toTopOf="@+id/linearSecc4_6_txt"
+                    tools:ignore="LabelFor" />
 
                 <TextView
                     android:id="@+id/lb6nmporcent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="7dp"
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/porcent"
                     android:textSize="24sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@+id/LinearSecc4_6_txt"
+                    app:layout_constraintBottom_toBottomOf="@+id/linearSecc4_6_txt"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/LinearSecc4_6_txt" />
+                    app:layout_constraintTop_toTopOf="@+id/linearSecc4_6_txt" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:layout_marginStart="10dp"
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/p6mdescend"
                     android:textColor="#D8B18B"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="@+id/LinearSecc4_6_txt"
-                    app:layout_constraintTop_toBottomOf="@+id/LinearSecc4_6_txt"
+                    app:layout_constraintStart_toStartOf="@+id/lb6txtm"
+                    app:layout_constraintTop_toBottomOf="@+id/linearSecc4_6_txt"
                     tools:ignore="TextContrastCheck" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -351,7 +359,7 @@
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="number"
-                        android:maxLength="9"
+                        android:maxLength="14"
                         tools:ignore="TouchTargetSizeCheck"
                         tools:text="00000000" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -451,7 +459,7 @@
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="number"
-                        android:maxLength="11"
+                        android:maxLength="14"
                         tools:ignore="TouchTargetSizeCheck"
                         tools:text="00000000" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -510,7 +518,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="1dp"
                     android:textStyle="bold"
-                    android:padding="1dp"
+                    android:paddingHorizontal="7dp"
+                    android:paddingVertical="3dp"
                     android:text="@string/lb10m1"
                     app:layout_constraintBottom_toBottomOf="@+id/rbtSecc04_10_1ly"
                     app:layout_constraintHorizontal_weight="4"
@@ -557,7 +566,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="1dp"
                     android:textStyle="bold"
-                    android:padding="1dp"
+                    android:paddingHorizontal="7dp"
+                    android:paddingVertical="3dp"
                     android:text="@string/lb10m2"
                     app:layout_constraintBottom_toBottomOf="@+id/rbtSecc04_10_2ly"
                     app:layout_constraintHorizontal_weight="4"
@@ -571,7 +581,7 @@
                     android:id="@+id/rbtSecc04_10_2ly"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="7dp"
                     android:layout_marginStart="1dp"
                     android:hint="@string/porcent"
                     android:textColorHint="@color/black"
@@ -605,7 +615,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="1dp"
                     android:textStyle="bold"
-                    android:padding="1dp"
+                    android:paddingHorizontal="7dp"
+                    android:paddingVertical="3dp"
                     android:text="@string/lb10m3"
                     app:layout_constraintBottom_toBottomOf="@+id/rbtSecc04_10_3ly"
                     app:layout_constraintHorizontal_weight="4"
@@ -619,7 +630,7 @@
                     android:id="@+id/rbtSecc04_10_3ly"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="7dp"
                     android:layout_marginStart="1dp"
                     android:hint="@string/porcent"
                     android:textColorHint="@color/black"
@@ -652,7 +663,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="1dp"
                     android:textStyle="bold"
-                    android:padding="1dp"
+                    android:paddingHorizontal="7dp"
+                    android:paddingVertical="3dp"
                     android:text="@string/lb10m4"
                     app:layout_constraintBottom_toBottomOf="@+id/rbtSecc04_10_4ly"
                     app:layout_constraintHorizontal_weight="4"
@@ -665,7 +677,7 @@
                     android:id="@+id/rbtSecc04_10_4ly"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="7dp"
                     android:layout_marginStart="1dp"
                     android:hint="@string/porcent"
                     android:textColorHint="@color/black"
@@ -688,6 +700,64 @@
                         tools:text="100" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <TextView
+                    android:id="@+id/lb10m5"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:background="@drawable/background_shadow_pastelowl2"
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="1dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/cream_darl"
+                    android:paddingHorizontal="17dp"
+                    android:text="@string/lb10m5"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtSecc04_10_5"
+                    app:layout_constraintHorizontal_weight="4"
+                    app:layout_constraintEnd_toStartOf="@+id/txtSecc04_10_5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/txtSecc04_10_5"
+                    tools:ignore="TextContrastCheck" />
+
+                <EditText
+                    android:id="@+id/txtSecc04_10_5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginTop="27dp"
+                    android:background="@drawable/background_shadow_pastelowl2"
+                    android:focusable="false"
+                    android:enabled="false"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:textColor="@color/cream_darl"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:paddingVertical="7dp"
+                    android:text="@string/porc100"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_weight="0.9"
+                    app:layout_constraintStart_toEndOf="@+id/lb10m1"
+                    app:layout_constraintTop_toBottomOf="@+id/rbtSecc04_10_4ly"
+                    tools:ignore="LabelFor" />
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/p6mdescend"
+                    android:textColor="#D8B18B"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/lb10txtm"
+                    app:layout_constraintTop_toBottomOf="@+id/lb10m5"
+                    tools:ignore="TextContrastCheck" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <View

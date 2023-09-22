@@ -1225,7 +1225,7 @@
   },
   {
     "PAUTA": 307,
-    "TEXTO": "Pregunta 6.  Porcentaje de Hogares + empresa + gobierno + otros, no suma."
+    "TEXTO": "Pregunta 6.  Porcentaje de Hogares + empresa + gobierno + otros, la suma total debe ser del 100%."
   },
   {
     "PAUTA": 308,
@@ -1241,7 +1241,7 @@
   },
   {
     "PAUTA": 311,
-    "TEXTO": "Pregunta 10.  Porcentaje de Hardware + Software +  Servicios de consultoría de TIC + Otros gastos TIC, no suma 100%."
+    "TEXTO": "Pregunta 10.  Porcentaje de Hardware + Software +  Servicios de consultoría de TIC + Otros gastos TIC, no suman 100%."
   },
 
 

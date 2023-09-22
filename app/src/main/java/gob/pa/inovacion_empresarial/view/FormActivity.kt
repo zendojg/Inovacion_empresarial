@@ -379,35 +379,29 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     fun spinPager(position: Int) {
         val colorLetras : Int
         val colorFondo: Int
-        val decorView: View = window.decorView
+//        val decorView: View = window.decorView
+//        decorView.systemUiVisibility =
+//            decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
         with(form){
             when {
                 position == Mob.MENUP00 -> {
-                    decorView.systemUiVisibility =
-                        decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
                     colorFondo = ContextCompat.getColor(ctx, R.color.celeste)
-                    colorLetras = (Color.WHITE)
+                    colorLetras = Color.WHITE
                 }
                 position < Mob.SEC1P20 -> {
                     Mob.obsTittle = "Encuesta  de Innovación en Empresas"
                     btobspager.visibility = View.VISIBLE
                     colorLetras = (Color.WHITE)
-                    decorView.systemUiVisibility =
-                        decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
                     colorFondo = ContextCompat.getColor(ctx, R.color.holo_blue_dark)
                 }
                 position == Mob.OBSP24 -> {
                     btobspager.visibility = View.INVISIBLE
                     colorLetras = (Color.WHITE)
-                    decorView.systemUiVisibility =
-                        decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
                     colorFondo = ContextCompat.getColor(ctx, R.color.teal_700)
                 }
                 else -> {
                     Mob.obsTittle = "Módulo de Comercio Electrónico"
                     btobspager.visibility = View.VISIBLE
-                    decorView.systemUiVisibility =
-                        decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
                     colorLetras = (Color.DKGRAY)
                     colorFondo = ContextCompat.getColor(ctx, R.color.cream_pastel)
                 }

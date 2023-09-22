@@ -80,12 +80,12 @@ class FragEncuestaCap05o1 : Fragment() {
                             if (view.text.toString() == "0") view.text?.clear()
                             if (row1EditTexts.contains(view)) {
                                 val modelTexWatchers =
-                                    EdittextFormat.edittextSum(view, row1EditTexts, txtCap53012021)
+                                    EdittextFormat.edittextBigSum(view, row1EditTexts, txtCap53012021)
                                 textWatcherList.add(modelTexWatchers)
                             }
                             else if (row2EditTexts.contains(view)) {
                                 val modelTexWatchers =
-                                    EdittextFormat.edittextSum(view, row2EditTexts, txtCap53012022)
+                                    EdittextFormat.edittextBigSum(view, row2EditTexts, txtCap53012022)
                                 textWatcherList.add(modelTexWatchers)
                             }
                         } else if (view.text.isNullOrEmpty()) {

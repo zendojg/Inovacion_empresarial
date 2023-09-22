@@ -28,43 +28,31 @@ class FragEncuestaCap10 : Fragment() {
         super.onResume()
         Mob.indiceFormulario = Mob.CAPXP19
         if (Mob.seecap10) fillOut()
-        else onAction()
+//        else onAction()
     }
 
-    private fun onAction() {
-        with(bindingcap10) {
-
-            lowCap10.setOnClickListener { saveCap() }
-        }
-    }
+//    private fun onAction() {
+//    }
 
     private fun fillOut() {
         val cap10 = Mob.formComp?.capx
         with(bindingcap10) {
-
-            when (cap10?.v66check1) {
-                true -> rbtCap10661Si.isChecked = true
-                false -> rbtCap10661No.isChecked = true
-                else -> rgroupCap10661.clearCheck()
-            }
-            when (cap10?.v66check2) {
-                true -> rbtCap10662Si.isChecked = true
-                false -> rbtCap10662No.isChecked = true
-                else -> rgroupCap10662.clearCheck()
-            }
-            when (cap10?.v66check3) {
-                true -> rbtCap10663Si.isChecked = true
-                false -> rbtCap10663No.isChecked = true
-                else -> rgroupCap10663.clearCheck()
-            }
-            when (cap10?.v66check4) {
-                true -> rbtCap10664Si.isChecked = true
-                false -> rbtCap10664No.isChecked = true
-                else -> rgroupCap10664.clearCheck()
+            val radioButtonsMap = mapOf(
+                rgroupCap10661 to cap10?.v66check1,
+                rgroupCap10662 to cap10?.v66check2,
+                rgroupCap10663 to cap10?.v66check3,
+                rgroupCap10664 to cap10?.v66check4
+            )
+            for ((radioGroup, isChecked) in radioButtonsMap) {
+                when (isChecked) {
+                    true -> radioGroup.check(radioGroup.getChildAt(1).id)
+                    false -> radioGroup.check(radioGroup.getChildAt(2).id)
+                    else -> radioGroup.clearCheck()
+                }
             }
         }
         Mob.seecap10 = false
-        onAction()
+//        onAction()
     }
 
     fun saveCap(): List<String> {
@@ -84,12 +72,14 @@ class FragEncuestaCap10 : Fragment() {
     private fun viewCap(): List<String> {
         with(bindingcap10) {
             val returnList: ArrayList<String> = ArrayList()
-            if (!rbtCap10661Si.isChecked && !rbtCap10661No.isChecked)
+            if (rgroupCap10661.checkedRadioButtonId == -1)
                 returnList.add(CreateIncon.inconsistencia(ctx, "191") ?: "")
-            if (!rbtCap10662Si.isChecked && !rbtCap10662No.isChecked)
+            if (rgroupCap10662.checkedRadioButtonId == -1)
                 returnList.add(CreateIncon.inconsistencia(ctx, "192") ?: "")
-
-
+            if (rgroupCap10663.checkedRadioButtonId == -1)
+                returnList.add(CreateIncon.inconsistencia(ctx, "193") ?: "")
+            if (rgroupCap10664.checkedRadioButtonId == -1)
+                returnList.add(CreateIncon.inconsistencia(ctx, "194") ?: "")
 
             Mob.icap10 = returnList.isNotEmpty()
             println("---------Is not empty: ${Mob.icap10}--${Mob.capx}")

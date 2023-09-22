@@ -111,6 +111,8 @@ class FragModuloSecc02 : Fragment() {
             val returnList: ArrayList<String> = ArrayList()
             if (Mob.capMod?.v1check == true && allCheckSecc02.allFalse())
                 returnList.add(CreateIncon.inconsistencia(ctx, "293") ?: "")
+            else if (Mob.capMod?.v1check == null)
+                returnList.add(CreateIncon.inconsistencia(ctx, "289") ?: "")
 
             Mob.isecc2 = returnList.isNotEmpty()
             println("Secc2: ${Mob.isecc2}--${Mob.capMod}")

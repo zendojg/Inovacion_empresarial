@@ -42,9 +42,9 @@ class FragEncuestaCap09o1 : Fragment() {
                 txtCap959ly.isVisible = false
                 layoutCap960.isVisible = false
                 layoutCap961.isVisible = false
-            }
-            txtCap9606Otra.isEnabled = rbtCap9606.isChecked
+            } else if (rbtCap959Si.isChecked) txtCap959ly.isVisible = true
 
+            txtCap9606Otra.isEnabled = rbtCap9606.isChecked
             rgroupCap959.setOnCheckedChangeListener { _, id ->
                 hideKeyboard()
                 when (id) {
@@ -176,7 +176,6 @@ class FragEncuestaCap09o1 : Fragment() {
                 Mob.cap9?.v65txt2,
                 Mob.cap9?.v65num2,
             )
-
         }
         return viewCap()
     }
@@ -184,16 +183,37 @@ class FragEncuestaCap09o1 : Fragment() {
     private fun viewCap(): List<String> {
         with(bindingcap9o1) {
             val returnList: ArrayList<String> = ArrayList()
-            if (!rbtCap959Si.isChecked && !rbtCap959No.isChecked)
+            if (rgroupCap959.checkedRadioButtonId == -1)
                 returnList.add(CreateIncon.inconsistencia(ctx, "169") ?: "")
-            if (rbtCap959Si.isChecked && txtCap959.text.toString() == "0" )
-                returnList.add(CreateIncon.inconsistencia(ctx, "170") ?: "")
-            else if (rbtCap959Si.isChecked && txtCap959.text.toString().isEmpty() )
-                returnList.add(CreateIncon.inconsistencia(ctx, "170") ?: "")
+            if (rbtCap959Si.isChecked) {
+                if (txtCap959.text.toString() == "0" )
+                    returnList.add(CreateIncon.inconsistencia(ctx, "170") ?: "")
+                else if (rbtCap959Si.isChecked && txtCap959.text.toString().isEmpty() )
+                    returnList.add(CreateIncon.inconsistencia(ctx, "170") ?: "")
 
+                if (rgroupCap960.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "171") ?: "")
+
+                if (rgroupCap9611.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "172") ?: "")
+                if (rgroupCap9612.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "173") ?: "")
+                if (rgroupCap9613.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "174") ?: "")
+                if (rgroupCap9614.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "175") ?: "")
+                if (rgroupCap9615.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "176") ?: "")
+                if (rgroupCap9616.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "177") ?: "")
+                if (rgroupCap9617.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "178") ?: "")
+                if (rgroupCap9618.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "179") ?: "")
+            }
 
             Mob.icap09o1 = returnList.isNotEmpty()
-            println("---------Is not empty: ${Mob.icap09o1}--${Mob.cap9}")
+            println("Cap9-part1: ${Mob.icap09o1}--${Mob.cap9}")
             return returnList
         }
     }

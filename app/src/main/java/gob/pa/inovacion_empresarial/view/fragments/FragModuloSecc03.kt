@@ -5,19 +5,30 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Spinner
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.google.android.material.textfield.TextInputLayout
 import gob.pa.inovacion_empresarial.databinding.ModuloSeccion03Binding
 import gob.pa.inovacion_empresarial.function.CreateIncon
+import gob.pa.inovacion_empresarial.function.EdittextFormat
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelMod
+import gob.pa.inovacion_empresarial.model.ModelTexWatchers
+import java.text.DecimalFormat
 
 class FragModuloSecc03 : Fragment() {
 
     private lateinit var bindingmod3: ModuloSeccion03Binding
     private lateinit var ctx: Context
+    private val textWatcherList = mutableListOf<ModelTexWatchers>()
+    private var rowEditTexts: List<EditText> = emptyList()
+    private val decimalFormat = DecimalFormat("#,###")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -33,83 +44,66 @@ class FragModuloSecc03 : Fragment() {
         if (Mob.seesecc3) fillOut()
         else onAction()
     }
+    override fun onPause() {
+        super.onPause()
 
+        for (modelTexWatcher in textWatcherList) {
+            modelTexWatcher.editext.removeTextChangedListener(modelTexWatcher.watcher)
+        }
+        textWatcherList.clear()
+    }
     private fun onAction() {
         with(bindingmod3) {
             scrollForm.isVisible = Mob.capMod?.v1check != false
-            layoutSecc341.isVisible = rbtSecc034ASi.isChecked
+            if (rbtSecc034ANo.isChecked) {
+                layoutSecc341.isVisible = false
+                layoutSecc35.isVisible = false
+            }
+            val radioGroups = listOf(
+                rgroupSecc034A,
+                rgroupSecc034B,
+                rgroupSecc034C,
+                rgroupSecc034D,
+                rgroupSecc034E
+            )
+            val radioButtons =
+                listOf(rbtSecc034ASi, rbtSecc034BSi, rbtSecc034CSi, rbtSecc034DSi, rbtSecc034ESi)
+            val textViews =
+                listOf(txtSecc034Aly, txtSecc034Bly, txtSecc034Cly, txtSecc034Dly, txtSecc034Ely)
 
-            rgroupSecc034.setOnCheckedChangeListener { _, id ->
-                hideKeyboard()
-                when (id) {
-                    rbtSecc034Si.id -> {
-                        layoutSecc341.isVisible = true
-                        layoutSecc35.isVisible = true
+            for (i in radioGroups.indices) {
+                radioGroups[i].setOnCheckedListener(radioButtons[i], textViews[i])
+                textViews[i].visibility =
+                    if (radioButtons[i].isChecked) View.VISIBLE else View.INVISIBLE
+            }
+
+            rgroupSecc034.setOnCheckedListener(rbtSecc034Si, layoutSecc35)
+            rgroupSecc034.setOnCheckedListener(rbtSecc034Si, layoutSecc341)
+
+            rgroupSecc034A.setOnCheckedListener(rbtSecc034ASi, txtSecc034Aly)
+            rgroupSecc034B.setOnCheckedListener(rbtSecc034BSi, txtSecc034Bly)
+            rgroupSecc034C.setOnCheckedListener(rbtSecc034CSi, txtSecc034Cly)
+            rgroupSecc034D.setOnCheckedListener(rbtSecc034DSi, txtSecc034Dly)
+            rgroupSecc034E.setOnCheckedListener(rbtSecc034ESi, txtSecc034Ely)
+
+            txtSecc035.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                if (hasFocus) textWatcherList.add(EdittextFormat.edittextMiles(txtSecc035))
+                else if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
+                    for (modelTextWatcher in textWatcherList) {
+                        modelTextWatcher.editext.removeTextChangedListener(modelTextWatcher.watcher)
                     }
-                    rbtSecc034No.id -> {
-                        layoutSecc35.isVisible = false
-                        layoutSecc341.isVisible = false
-                    }
                 }
             }
+        }
+    }
 
-            if (rbtSecc034ASi.isChecked) txtSecc034Aly.visibility = View.VISIBLE
-            else txtSecc034Aly.visibility = View.INVISIBLE
-
-            if (rbtSecc034BSi.isChecked) txtSecc034Bly.visibility = View.VISIBLE
-            else txtSecc034Bly.visibility = View.INVISIBLE
-
-            if (rbtSecc034CSi.isChecked) txtSecc034Cly.visibility = View.VISIBLE
-            else txtSecc034Cly.visibility = View.INVISIBLE
-
-            if (rbtSecc034DSi.isChecked) txtSecc034Dly.visibility = View.VISIBLE
-            else txtSecc034Dly.visibility = View.INVISIBLE
-
-            if (rbtSecc034ESi.isChecked) txtSecc034Ely.visibility = View.VISIBLE
-            else txtSecc034Ely.visibility = View.INVISIBLE
-
-
-
-            rgroupSecc034A.setOnCheckedChangeListener { _, id ->
-                hideKeyboard()
-                when (id) {
-                    rbtSecc034ASi.id -> txtSecc034Aly.visibility = View.VISIBLE
-                    rbtSecc034ANo.id -> txtSecc034Aly.visibility = View.INVISIBLE
-                }
-            }
-            rgroupSecc034B.setOnCheckedChangeListener { _, id ->
-                hideKeyboard()
-                when (id) {
-                    rbtSecc034BSi.id -> txtSecc034Bly.visibility = View.VISIBLE
-                    rbtSecc034BNo.id -> txtSecc034Bly.visibility = View.INVISIBLE
-                }
-            }
-            rgroupSecc034C.setOnCheckedChangeListener { _, id ->
-                hideKeyboard()
-                when (id) {
-                    rbtSecc034CSi.id -> txtSecc034Cly.visibility = View.VISIBLE
-                    rbtSecc034CNo.id -> txtSecc034Cly.visibility = View.INVISIBLE
-                }
-            }
-            rgroupSecc034D.setOnCheckedChangeListener { _, id ->
-                hideKeyboard()
-                when (id) {
-                    rbtSecc034DSi.id -> txtSecc034Dly.visibility = View.VISIBLE
-                    rbtSecc034DNo.id -> txtSecc034Dly.visibility = View.INVISIBLE
-                }
-            }
-            rgroupSecc034E.setOnCheckedChangeListener { _, id ->
-                hideKeyboard()
-                when (id) {
-                    rbtSecc034ESi.id -> txtSecc034Ely.visibility = View.VISIBLE
-                    rbtSecc034ENo.id -> txtSecc034Ely.visibility = View.INVISIBLE
-                }
-            }
-
-
-            if (rbtSecc034ANo.isChecked) layoutSecc35.isVisible = false
-
-            lowMod3.setOnClickListener { saveCap() }
+    private fun RadioGroup.setOnCheckedListener(
+        radioButtonSi: RadioButton,
+        view: View
+    ) {
+        setOnCheckedChangeListener { _, id ->
+            hideKeyboard()
+            view.visibility = if (id == radioButtonSi.id) View.VISIBLE else View.INVISIBLE
         }
     }
 
@@ -133,7 +127,6 @@ class FragModuloSecc03 : Fragment() {
                     null -> radioGroup.clearCheck()
                 }
             }
-
             txtSecc034A.text = mod3?.v4check1aPorcent?.toEditable() ?: blank
             txtSecc034B.text = mod3?.v4check1bPorcent?.toEditable() ?: blank
             txtSecc034C.text = mod3?.v4check1cPorcent?.toEditable() ?: blank
@@ -142,7 +135,8 @@ class FragModuloSecc03 : Fragment() {
 
             txtSecc034EOtro.text = mod3?.v4check1eOther?.toEditable() ?: blank
 
-            txtSecc035.text = mod3?.v5txt?.toEditable() ?: blank
+            txtSecc035.text = mod3?.v5txt?.toDouble()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
         }
         Mob.seesecc3 = false
         onAction()
@@ -185,7 +179,8 @@ class FragModuloSecc03 : Fragment() {
                     if (p4check && rbtSecc034ENo.isChecked) false else null,
                 if (p4check && rbtSecc034ESi.isChecked) txtSecc034E.text.toString() else null,
                 if (p4check && rbtSecc034ESi.isChecked) txtSecc034EOtro.text.toString() else null,
-                if (p4check) txtSecc035.text.toString().ifEmpty { null } else null,
+                if (p4check)
+                    txtSecc035.text.toString().replace(",", "").ifEmpty { null } else null,
                 Mob.capMod?.v6porcent1,//-----------
                 Mob.capMod?.v6porcent2,
                 Mob.capMod?.v6porcent3,
@@ -208,11 +203,39 @@ class FragModuloSecc03 : Fragment() {
     private fun viewCap(): List<String> {
         with(bindingmod3) {
             val returnList: ArrayList<String> = ArrayList()
-            if (Mob.capMod?.v1check == true && rgroupSecc034.checkedRadioButtonId == -1)
-                returnList.add(CreateIncon.inconsistencia(ctx, "294") ?: "")
+            if (Mob.capMod?.v1check == true) {
+                if (rgroupSecc034.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "294") ?: "")
 
-            if (Mob.capMod?.v1check == true && rgroupSecc034A.checkedRadioButtonId == -1)
-                returnList.add(CreateIncon.inconsistencia(ctx, "295") ?: "")
+                if (rgroupSecc034A.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "295") ?: "")
+                else if (rbtSecc034ASi.isChecked && txtSecc034A.text.isNullOrEmpty())
+                    returnList.add(CreateIncon.inconsistencia(ctx, "300") ?: "")
+
+                if (rgroupSecc034B.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "296") ?: "")
+                else if (rbtSecc034BSi.isChecked && txtSecc034B.text.isNullOrEmpty())
+                    returnList.add(CreateIncon.inconsistencia(ctx, "301") ?: "")
+
+                if (rgroupSecc034C.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "297") ?: "")
+                else if (rbtSecc034CSi.isChecked && txtSecc034C.text.isNullOrEmpty())
+                    returnList.add(CreateIncon.inconsistencia(ctx, "302") ?: "")
+
+                if (rgroupSecc034D.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "298") ?: "")
+                else if (rbtSecc034DSi.isChecked && txtSecc034D.text.isNullOrEmpty())
+                    returnList.add(CreateIncon.inconsistencia(ctx, "303") ?: "")
+
+                if (rgroupSecc034E.checkedRadioButtonId == -1)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "299") ?: "")
+                else if (rbtSecc034ESi.isChecked && txtSecc034E.text.isNullOrEmpty())
+                    returnList.add(CreateIncon.inconsistencia(ctx, "304") ?: "")
+
+                if (txtSecc035.text.isNullOrEmpty() || txtSecc035.text.toString() == "0")
+                    returnList.add(CreateIncon.inconsistencia(ctx, "305") ?: "")
+            } else if (Mob.capMod?.v1check == null)
+                returnList.add(CreateIncon.inconsistencia(ctx, "289") ?: "")
 
             Mob.isecc3 = returnList.isNotEmpty()
             println("Secc3: ${Mob.isecc3}--${Mob.capMod}")

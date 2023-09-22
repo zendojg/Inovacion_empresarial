@@ -146,28 +146,28 @@ class FragEncuestaCap05o2 : Fragment() {
                             if (view.text.toString() == "0") view.text?.clear()
                             if (row1EditTexts35.contains(view)) {
                                 val modelTexWatchers =
-                                    EdittextFormat.edittextSum(
+                                    EdittextFormat.edittextBigSum(
                                         view,
                                         row1EditTexts35,
                                         txtCap5351HNac)
                                 textWatcherList.add(modelTexWatchers)
                             } else if (row2EditTexts35.contains(view)) {
                                 val modelTexWatchers =
-                                    EdittextFormat.edittextSum(
+                                    EdittextFormat.edittextBigSum(
                                         view,
                                         row2EditTexts35,
                                         txtCap5351HExt)
                                 textWatcherList.add(modelTexWatchers)
                             } else if (row3EditTexts35.contains(view)) {
                                 val modelTexWatchers =
-                                    EdittextFormat.edittextSum(
+                                    EdittextFormat.edittextBigSum(
                                         view,
                                         row3EditTexts35,
                                         txtCap5351MNac)
                                 textWatcherList.add(modelTexWatchers)
                             } else if (row4EditTexts35.contains(view)) {
                                 val modelTexWatchers =
-                                    EdittextFormat.edittextSum(
+                                    EdittextFormat.edittextBigSum(
                                         view,
                                         row4EditTexts35,
                                         txtCap5351MExt)
@@ -195,7 +195,7 @@ class FragEncuestaCap05o2 : Fragment() {
                             if (view.text.toString() == "0") view.text?.clear()
                             if (row1EditTexts36.contains(view)) {
                                 val modelTexWatchers =
-                                    EdittextFormat.edittextSum(
+                                    EdittextFormat.edittextBigSum(
                                         view,
                                         row1EditTexts36,
                                         txtCap53612021)
@@ -203,7 +203,7 @@ class FragEncuestaCap05o2 : Fragment() {
                             }
                             else if (row2EditTexts36.contains(view)) {
                                 val modelTexWatchers =
-                                    EdittextFormat.edittextSum(
+                                    EdittextFormat.edittextBigSum(
                                         view,
                                         row2EditTexts36,
                                         txtCap53612022)

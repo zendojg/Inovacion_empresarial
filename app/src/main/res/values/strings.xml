@@ -298,7 +298,7 @@
     <string name="hints061"> 1. Hogares </string>
     <string name="hints062"> 2. Empresas </string>
     <string name="hints063"> 3. Gobierno </string>
-    <string name="hints064"> 4. Otros (iglesias, ONG y otros) </string>
+    <string name="hints064"> 4. Iglesias, ONG y otros </string>
 
     <string name="hint_userx"><b>Usuario</b></string>
     <string name="hint_passx"><b>Contraseña</b></string>
@@ -718,6 +718,7 @@
     <string name="Go">Avanzar</string>
     <string name="Back">Retroceder</string>
     <string name="navigation_drawer_toggle">Menú de navegación</string>
+    <string name="lb10m5">PORCENTAJE TOTAL:</string>
 
 
 </resources>

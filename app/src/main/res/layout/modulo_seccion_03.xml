@@ -564,7 +564,7 @@
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="number"
-                        android:maxLength="11"
+                        android:maxLength="14"
                         tools:ignore="TouchTargetSizeCheck"
                         tools:text="00000000" />
                 </com.google.android.material.textfield.TextInputLayout>

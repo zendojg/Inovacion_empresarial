@@ -9,7 +9,7 @@ import java.text.DecimalFormat
 import java.text.ParseException
 
 object EdittextFormat {
-    fun edittextSum(
+    fun edittextBigSum(
         txt: EditText,
         editTexts: List<EditText>,
         resultEditText: EditText
@@ -50,6 +50,43 @@ object EdittextFormat {
         txt.addTextChangedListener(textWatcher)
         return ModelTexWatchers(txt, textWatcher)
     }
+
+    fun edittextSimpleSum(
+        txt: EditText,
+        editTexts: List<EditText>,
+        resultEditText: EditText
+    ): ModelTexWatchers {
+        val textWatcher = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                // No se requiere acción antes del cambio de texto.
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // No se requiere acción en el cambio de texto.
+            }
+            override fun afterTextChanged(s: Editable?) {
+                txt.removeTextChangedListener(this)
+                try {
+                    val originalText = if (!s.isNullOrEmpty()) s.toString() else "0"
+                    val intValue = originalText.toIntOrNull() ?: 0
+                    txt.setText(intValue.toString())
+                    txt.setSelection(originalText.length)
+                } catch (e: NumberFormatException) { txt.setText("0") }
+                txt.addTextChangedListener(this)
+                try {
+                    val sum = editTexts.fold(0) { acc, editText ->
+                        val text = editText.text.toString().replace(",", "")
+                        if (text.isNotBlank()) {
+                            acc + text.toInt()
+                        } else { acc }
+                    }
+                    resultEditText.setText(sum.toString())
+                } catch (e: NumberFormatException) { println(e) }
+            }
+        }
+        txt.addTextChangedListener(textWatcher)
+        return ModelTexWatchers(txt, textWatcher)
+    }
+
 
     fun edittextMiles(txt: EditText): ModelTexWatchers {
         val textWatcher = object : TextWatcher {

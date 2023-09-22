@@ -155,7 +155,7 @@ class FragModuloSecc01 : Fragment() {
                 checkSecc012D.isChecked,
                 )
             val returnList: ArrayList<String> = ArrayList()
-            if (!rbtSecc011Si.isChecked && !rbtSecc011No.isChecked)
+            if (rgroupSecc011.checkedRadioButtonId == -1)
                 returnList.add(CreateIncon.inconsistencia(ctx, "289") ?: "")
             if (rbtSecc011Si.isChecked) {
                 if (rgroupSecc0121.checkedRadioButtonId == -1)
