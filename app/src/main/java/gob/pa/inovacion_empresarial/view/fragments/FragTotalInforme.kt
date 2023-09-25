@@ -42,7 +42,7 @@ class FragTotalInforme : Fragment() {
     private lateinit var bindinginfo: ModuloTotalInfoBinding
     private lateinit var ctx: Context
     private val dvmInforme: DVModel by viewModels()
-    var aDialog: AlertDialog? = null
+    private var aDialog: AlertDialog? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?

@@ -167,7 +167,7 @@ class MainFragmentSearch : Fragment() {
     private fun viewFind(check: Boolean) {
         with (fragSearch){
             lyContainer.isVisible = !check
-            btSearch.isVisible = check
+            //btSearch.isVisible = check
             btdataSearch.isVisible = check
             btformSearch.isVisible = check
             versionsearch.isVisible = check

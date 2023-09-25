@@ -38,7 +38,6 @@ import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
-import gob.pa.inovacion_empresarial.service.room.RoomView
 import gob.pa.inovacion_empresarial.view.fragments.*
 import kotlinx.coroutines.launch
 import kotlin.collections.ArrayList
@@ -65,7 +64,6 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         setContentView(form.root)
     }
-
 
     override fun onResume() {
         super.onResume()
@@ -95,16 +93,13 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun onAction() {
         with (form) {
-
             btDrawerpager.setOnClickListener {
                 if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
                     drawerLayout.closeDrawer(GravityCompat.END, true)
                 } else  drawerLayout.openDrawer(GravityCompat.END, true)
             }
-
             if (Mob.authData?.rol == "E")  btsavepager.visibility = View.VISIBLE
              else btsavepager.visibility = View.INVISIBLE
-
 
             if (Mob.indiceFormulario != Mob.MENUP00) {
                 viewpager.setCurrentItem(Mob.indiceFormulario, false)
@@ -141,33 +136,31 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.menu_cap1 -> viewpager(Mob.CAP1P01)
-            R.id.menu_cap2 ->  viewpager(Mob.CAP2P02)
-            R.id.menu_cap3 ->  viewpager(Mob.CAP3P04)
-            R.id.menu_cap4 ->  viewpager(Mob.CAP4P05)
-            R.id.menu_cap5 ->  viewpager(Mob.CAP5P06)
-            R.id.menu_cap6 ->  viewpager(Mob.CAP6P08)
-            R.id.menu_cap7 ->  viewpager(Mob.CAP7P12)
-            R.id.menu_cap8 ->  viewpager(Mob.CAP8P15)
-            R.id.menu_cap9 ->  viewpager(Mob.CAP9P17)
-            R.id.menu_cap10 ->  viewpager(Mob.CAPXP19)
-
-            R.id.menu_mod1 -> viewpager(Mob.SEC1P20)
-            R.id.menu_mod2 ->  viewpager(Mob.SEC2P21)
-            R.id.menu_mod3 ->  viewpager(Mob.SEC3P22)
-            R.id.menu_mod4 ->  viewpager(Mob.SEC4P23)
-
-            R.id.nav_form ->  viewpager(Mob.OBSP24)
-            else -> viewpager(Mob.MENUP00)
-        }
+        val menuToIndexMap = mapOf(
+            R.id.menu_cap1 to Mob.CAP1P01,
+            R.id.menu_cap2 to Mob.CAP2P02,
+            R.id.menu_cap3 to Mob.CAP3P04,
+            R.id.menu_cap4 to Mob.CAP4P05,
+            R.id.menu_cap5 to Mob.CAP5P06,
+            R.id.menu_cap6 to Mob.CAP6P08,
+            R.id.menu_cap7 to Mob.CAP7P12,
+            R.id.menu_cap8 to Mob.CAP8P15,
+            R.id.menu_cap9 to Mob.CAP9P17,
+            R.id.menu_capx to Mob.CAPXP19,
+            R.id.menu_mod1 to Mob.SEC1P20,
+            R.id.menu_mod2 to Mob.SEC2P21,
+            R.id.menu_mod3 to Mob.SEC3P22,
+            R.id.menu_mod4 to Mob.SEC4P23,
+            R.id.nav_form to Mob.OBSP24
+        )
+        pageSave()
+        val pagerIndex = menuToIndexMap[item.itemId] ?: Mob.MENUP00
+        drawerLayout.closeDrawer(GravityCompat.END, true)
+        Mob.indiceFormulario = pagerIndex
+        form.viewpager.setCurrentItem(pagerIndex, false)
         return super.onOptionsItemSelected(item)
     }
-    private fun viewpager(pos: Int) {
-        drawerLayout.closeDrawer(GravityCompat.END, true)
-        Mob.indiceFormulario = pos
-        form.viewpager.setCurrentItem(pos, false)
-    }
+
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
             drawerLayout.closeDrawer(GravityCompat.END, true)
@@ -180,7 +173,6 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 btpositivo.text = getString(R.string.cancel)
                 btnegativo.text = getString(R.string.closeForm)
                 msgtitle.text = getString(R.string.aswernCloseApp)
-
                 if (Mob.authData?.rol == "E") msg1.text = getString(R.string.asnwernCloseApp2)
                 else msg1.visibility = View.GONE
                 msg2.visibility = View.GONE
@@ -198,7 +190,6 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
                 btnegativo.setOnClickListener {
                     dialog?.dismiss()
-
                     val intent = Intent(ctx, MainActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or
                             Intent.FLAG_ACTIVITY_CLEAR_TASK  or
@@ -262,40 +253,44 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    private fun pageSave(): List<String> {
+        //when (val page = supportFragmentManager.fragments.find { it.isVisible }) { }
+        return when (val page = Mob.arrEncuestas.find { it.isVisible }) {
+            is FragEncuestaCap01 -> page.savedCap()
+            is FragEncuestaCap02o1 -> page.saveCap()
+            is FragEncuestaCap02o2 -> page.saveCap()
+            is FragEncuestaCap03 -> page.saveCap()
+            is FragEncuestaCap04 -> page.saveCap()
+            is FragEncuestaCap05o1 -> page.saveCap()
+            is FragEncuestaCap05o2 -> page.saveCap()
+            is FragEncuestaCap06o1 -> page.saveCap()
+            is FragEncuestaCap06o2 -> page.saveCap()
+            is FragEncuestaCap06o3 -> page.saveCap()
+            is FragEncuestaCap06o4 -> page.saveCap()
+            is FragEncuestaCap07o1 -> page.saveCap()
+            is FragEncuestaCap07o2 -> page.saveCap()
+            is FragEncuestaCap07o3 -> page.saveCap()
+            is FragEncuestaCap08 -> page.saveCap()
+            is FragEncuestaCap08end -> page.saveCap()
+            is FragEncuestaCap09o1 -> page.saveCap()
+            is FragEncuestaCap09o2 -> page.saveCap()
+            is FragEncuestaCap10 -> page.saveCap()
+            is FragModuloSecc01 -> page.saveCap()
+            is FragModuloSecc02 -> page.saveCap()
+            is FragModuloSecc03 -> page.saveCap()
+            is FragModuloSecc04 -> page.saveCap()
+            is FragTotalInforme -> page.saveCap()
+            else -> ArrayList()
+        }
+    }
+
     private fun seeCaps(move: Boolean?) {
         hideKeyboard()
         val colorlb = if (form.viewpager.currentItem < Mob.SEC1P20) R.color.holo_blue_dark
         else  R.color.cream_darl
-        var listFaltantes: List<String> = ArrayList()
-        when (val page = supportFragmentManager.fragments.find { it.isVisible }) {
-            is FragEncuestaCap01 -> listFaltantes = page.savedCap()
-            is FragEncuestaCap02o1 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap02o2 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap03 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap04 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap05o1 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap05o2 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap06o1 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap06o2 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap06o3 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap06o4 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap07o1 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap07o2 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap07o3 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap08 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap08end -> listFaltantes = page.saveCap()
-            is FragEncuestaCap09o1 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap09o2 -> listFaltantes = page.saveCap()
-            is FragEncuestaCap10 -> listFaltantes = page.saveCap()
-            is FragModuloSecc01 -> listFaltantes = page.saveCap()
-            is FragModuloSecc02 -> listFaltantes = page.saveCap()
-            is FragModuloSecc03 -> listFaltantes = page.saveCap()
-            is FragModuloSecc04 -> listFaltantes = page.saveCap()
-            is FragTotalInforme -> listFaltantes = page.saveCap()
-        }
-
+        val listFaltantes: List<String> = pageSave()
         if (move != null && Mob.authData?.rol != "E") { moveTo(move)//--- No muestra inconsistencias
-        } else if (move != null && listFaltantes.isEmpty()) { moveTo(move) //-- mover normal
+        } else if (move != null && listFaltantes.isEmpty()) { moveTo(move) //-- mover por el form
         } else if (move == null) { //-- Guardar
             lifecycleScope.launch {
                 val colorBallom = ContextCompat.getColor(ctx, colorlb)
@@ -311,7 +306,6 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     alert.dismissWithDelay(Mob.TIMELONG2SEG)
                 }
             }
-
         } else  { //-- Inconsistencia
             val mesagePregunta = AlertDialog.Builder(this)
             val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)

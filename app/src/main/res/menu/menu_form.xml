@@ -53,7 +53,7 @@
                 android:fontFamily="sans-serif-condensed"
                 android:title="@string/cap09" />
             <item
-                android:id="@+id/menu_cap10"
+                android:id="@+id/menu_capx"
                 android:icon="@drawable/img_arrow_right"
                 android:fontFamily="sans-serif-condensed"
                 android:title="@string/cap10" />

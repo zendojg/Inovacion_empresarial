@@ -8,18 +8,18 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.viewpager2.widget.ViewPager2
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaModuloMenuBinding
-import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
+//import gob.pa.inovacion_empresarial.model.DVModel
+//import androidx.fragment.app.viewModels
 
 class FragMenu : Fragment() {
 
     private lateinit var formbinding: EncuestaModuloMenuBinding
     private lateinit var ctx: Context
-    private val dvmMenu: DVModel by viewModels()
+    //private val dvmMenu: DVModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,15 +28,12 @@ class FragMenu : Fragment() {
 
         formbinding = EncuestaModuloMenuBinding.inflate(layoutInflater)
         ctx = requireContext()
-
         formbinding.versionsearch.text = Mob.version
-
         return formbinding.root
     }
 
     override fun onResume() {
         super.onResume()
-
         action()
     }
 
@@ -50,7 +47,6 @@ class FragMenu : Fragment() {
                     layoutpiemain.visibility = View.GONE
                     btEncuestaMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_less)
                     btModuloMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_more)
-
 
                 } else { //-- contraer
                     layoutpiemain.visibility = View.VISIBLE
@@ -90,6 +86,9 @@ class FragMenu : Fragment() {
             btsec03main.setOnClickListener { viewpager(Mob.SEC3P22) }
             btsec04main.setOnClickListener { viewpager(Mob.SEC4P23) }
             btsec05main.setOnClickListener { viewpager(Mob.OBSP24) }
+
+            if (Mob.indiceFormulario < Mob.SEC1P20) btEncuestaMain.callOnClick()
+            else btModuloMain.callOnClick()
         }
     }
 
