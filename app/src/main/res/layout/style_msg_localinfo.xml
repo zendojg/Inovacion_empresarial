@@ -38,7 +38,7 @@
                 android:id="@+id/txtNcontrolLocally"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
+                android:layout_marginTop="17dp"
                 android:hint="@string/hint_ncontrolB"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -53,8 +53,10 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_shadow"
                     android:focusable="false"
+                    android:longClickable="true"
+                    android:textIsSelectable="true"
+                    android:inputType="none"
                     android:fontFamily="sans-serif-condensed"
-                    android:inputType="phone"
                     android:maxLength="6"
                     android:text="@string/cero"
                     android:textColor="@color/azul"
@@ -77,6 +79,9 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_shadow"
                     android:focusable="false"
+                    android:longClickable="true"
+                    android:textIsSelectable="true"
+                    android:inputType="none"
                     android:fontFamily="sans-serif-condensed"
                     android:textColor="@color/azul"
                     android:textSize="@dimen/text16"
@@ -99,8 +104,10 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_shadow"
                     android:focusable="false"
+                    android:longClickable="true"
+                    android:textIsSelectable="true"
+                    android:inputType="none"
                     android:fontFamily="sans-serif-condensed"
-                    android:inputType="textCapWords"
                     android:textColor="@color/azul"
                     android:textSize="@dimen/text16"
                     tools:text="Razón Social" />
@@ -122,8 +129,10 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_shadow"
                     android:focusable="false"
+                    android:longClickable="true"
+                    android:textIsSelectable="true"
+                    android:inputType="none"
                     android:fontFamily="sans-serif-condensed"
-                    android:inputType="textCapWords"
                     android:textColor="@color/azul"
                     android:textSize="@dimen/text16"
                     tools:text="Nombre del Local" />
@@ -201,6 +210,30 @@
                     tools:text="Omar Torrijos" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="2dp"
+                android:hint="@string/hint_dir"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout8"
+                app:startIconContentDescription="Corregimiento"
+                app:startIconDrawable="@drawable/img_gps1"
+                app:startIconTint="#306F90">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtDirLocal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_shadow"
+                    android:focusable="false"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="none"
+                    android:textColor="@color/azul"
+                    android:textSize="@dimen/text16"
+                    tools:text="Example direction" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btBackLocal"
@@ -241,12 +274,13 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
                 android:textSize="@dimen/text14"
                 android:textStyle="bold"
+                app:backgroundTint="@color/teal_700"
                 app:icon="@drawable/img_download"
                 app:iconPadding="7dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btBackLocal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout8"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout9"
                 tools:ignore="TouchTargetSizeCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

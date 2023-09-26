@@ -90,6 +90,7 @@
             android:id="@+id/layoutForms"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
             android:background="@drawable/background_border"
             app:layout_constraintEnd_toEndOf="@+id/scrollUser"
             app:layout_constraintStart_toStartOf="@+id/scrollUser"
@@ -100,12 +101,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
-                android:paddingHorizontal="7dp"
                 android:entries="@array/arr_typeForms"
                 android:fontFamily="sans-serif-condensed"
                 android:gravity="center"
                 android:minHeight="48dp"
+                android:paddingHorizontal="7dp"
                 android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                app:layout_constraintBottom_toTopOf="@+id/searchForms"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -114,14 +116,26 @@
                 android:id="@+id/searchForms"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="7dp"
-                android:layout_marginBottom="7dp"
+                android:layout_marginStart="7dp"
                 android:fontFamily="sans-serif-condensed"
                 android:queryHint="Búsqueda avanzada"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btextSearchForms"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/spinFormsType" />
+
+            <ImageButton
+                android:id="@+id/btextSearchForms"
+                android:layout_width="48dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center|end"
+                android:background="?attr/selectableItemBackground"
+                android:contentDescription="@string/buzqueda"
+                android:src="@drawable/img_expand_more"
+                app:layout_constraintBottom_toBottomOf="@+id/searchForms"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/searchForms"
+                app:layout_constraintTop_toBottomOf="@+id/spinFormsType"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
             <ProgressBar
                 android:id="@+id/barForms"
@@ -131,10 +145,112 @@
                 android:layout_marginHorizontal="7dp"
                 android:indeterminateOnly="true"
                 android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/searchForms"
+                tools:visibility="visible" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutSearchForm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:visibility="gone"
+                android:background="@drawable/background_border"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:visibility="visible" />
+                app:layout_constraintTop_toBottomOf="@+id/barForms">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtCap1_2ly"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="7dp"
+                    android:layout_marginTop="7dp"
+                    android:hint="@string/dist"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:startIconContentDescription="Distrito">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/txtCap1_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:inputType="none"
+                        android:text="@string/distSelect"
+                        android:textColor="#0277BD"
+                        android:textSize="16sp"
+                        tools:ignore="LabelFor" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/txtCap1_2ID"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:text="@string/cero"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtCap1_2ly"
+                    app:layout_constraintEnd_toEndOf="@+id/txtCap1_2ly"
+                    app:layout_constraintTop_toTopOf="@+id/txtCap1_2ly" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/txtCap1_3ly"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="7dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="7dp"
+                    android:hint="@string/corre"
+                    android:textColorHint="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtCap1_2ly"
+                    app:startIconContentDescription="Corregimiento">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/txtCap1_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        android:fontFamily="sans-serif-condensed"
+                        android:inputType="none"
+                        android:text="@string/correSelect"
+                        android:textColor="#0277BD"
+                        android:textSize="16sp"
+                        tools:ignore="LabelFor" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/txtCap1_3ID"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:text="@string/cero"
+                    android:textSize="15sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtCap1_3ly"
+                    app:layout_constraintEnd_toEndOf="@+id/txtCap1_3ly"
+                    app:layout_constraintTop_toTopOf="@+id/txtCap1_3ly" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

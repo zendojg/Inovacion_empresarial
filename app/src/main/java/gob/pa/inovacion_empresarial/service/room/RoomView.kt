@@ -7,8 +7,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class RoomView(dvmModel: DVModel, context: Context) {
-    var ctx: Context
-    var dvm: DVModel
+    private var dvm: DVModel
+    private var ctx: Context
     init {
         this.ctx = context
         this.dvm = dvmModel
@@ -31,8 +31,9 @@ class RoomView(dvmModel: DVModel, context: Context) {
         }
     }
 
-    suspend fun instance() {
-        roomInstance.dbFormDao()
+    suspend fun instance() { roomInstance.dbFormDao() }
+    suspend fun deleteForm(id: String, ncont: String) {
+        roomDB.dbFormDao().deleteForm(ncont, id)
     }
     suspend fun getForm(id: String, ncont: String) = roomDB.dbFormDao().getFormsbyID(ncont, id)
     suspend fun getAllForm() = roomDB.dbFormDao().getAllForms()
