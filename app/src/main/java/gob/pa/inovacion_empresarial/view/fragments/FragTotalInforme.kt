@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
@@ -18,6 +19,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.viewpager2.widget.ViewPager2
 import com.google.gson.Gson
 import com.google.gson.JsonParseException
 import com.google.gson.reflect.TypeToken
@@ -62,9 +64,6 @@ class FragTotalInforme : Fragment() {
         Mob.indiceFormulario = Mob.OBSP24
         fillOut()
     }
-//    override fun onPause() {
-//        super.onPause()
-//    }
 
     private fun fillOut() {
         val blank = "".toEditable()
@@ -72,11 +71,9 @@ class FragTotalInforme : Fragment() {
 
             txtInfoObsEncuesta.text = Mob.obsEncuesta?.toEditable() ?: blank
             txtInfoObsModulo.text = Mob.obsModulo?.toEditable() ?: blank
-
             txtnewRazon.text = Mob.condicion?.newRazon?.toEditable() ?: blank
             txtnewNcontrol.text = Mob.condicion?.newNcontrol?.toEditable() ?: blank
             txtespecifiqueCondicion.text = Mob.condicion?.especifique?.toEditable() ?: blank
-
             //txtespecifiqueCondicion.text = "".toEditable()
         }
         onAction()
@@ -84,11 +81,16 @@ class FragTotalInforme : Fragment() {
 
     private fun onAction() {
         with(bindinginfo) {
-
             if (Mob.authData?.rol != "E") {
                 btSendObs.isEnabled = false
                 btViewObs.isEnabled = false
                 btEnd.isVisible = true
+                txtCondicion.isEnabled = false
+                txtnewRazon.isFocusable = false
+                txtnewNcontrol.isFocusable = false
+                txtespecifiqueCondicion.isFocusable = false
+                txtInfoObsEncuesta.isFocusable = false
+                txtInfoObsModulo.isFocusable = false
             }
 
             if (lbcondicionID.text.isNullOrEmpty()) lbcondicionID.text = Mob.condicionID ?: ""
@@ -125,7 +127,7 @@ class FragTotalInforme : Fragment() {
             condicion.setDropDownViewResource(R.layout.style_list)
             txtCondicion.setAdapter(condicion)
             txtCondicion.setOnItemClickListener { _, _, pos, _ ->
-                Mob.condicionID = "0"+(pos + 1)
+                Mob.condicionID = "0" + (pos + 1)
                 lbcondicionID.text = Mob.condicionID
                 when (pos) {
                     Mob.CONDICION02 -> {
@@ -152,15 +154,18 @@ class FragTotalInforme : Fragment() {
             }
 
             btSendObs.setOnClickListener {
-                saveCap()
-                senFormulario(CreateForm.create())
+                if (Mob.authData?.rol == "E" && Functions.isOnline(ctx)) {
+                    saveCap()
+                    senFormulario(CreateForm.create())
+                } else if (!Functions.isOnline(ctx)){
+                    val color = ContextCompat.getColor(ctx, R.color.dark_red)
+                    msgBallom("Sin internet disponible", Mob.WIDTH160DP, color)
+                }
             }
             btEnd.setOnClickListener { endForm() }
 
         }
     }
-
-
 
     private fun senFormulario(form: ModelForm) {
         val screen = AlertDialog.Builder(ctx)
@@ -193,7 +198,8 @@ class FragTotalInforme : Fragment() {
                         }, (Mob.TIME800MS))
                     }
                     contains("400") -> {
-
+                        val color = ContextCompat.getColor(ctx, R.color.dark_red)
+                        msgBallom("Error en el cuestionario", Mob.WIDTH180DP, color)
                     }
                     contains("401") -> {
                         val color = ContextCompat.getColor(ctx, R.color.dark_red)
@@ -205,10 +211,14 @@ class FragTotalInforme : Fragment() {
                     }
                     contains("500") -> {
                         val color = ContextCompat.getColor(ctx, R.color.dark_red)
-                        msgBallom("Error en el servidor", Mob.WIDTH180DP, color)
+                        msgBallom("Error en el servidor", Mob.WIDTH160DP, color)
                     }
                     else -> {
-                        Toast.makeText(ctx, "${resp.server}", Toast.LENGTH_SHORT).show()
+                        if (resp.server.isNullOrEmpty()) {
+                            val color = ContextCompat.getColor(ctx, R.color.dark_red)
+                            msgBallom("Fuera de cobertura", Mob.WIDTH160DP, color)
+                        }
+                        else Toast.makeText(ctx, "${resp.server}", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -302,7 +312,9 @@ class FragTotalInforme : Fragment() {
 
     private fun msgBallom(msg: String, width: Int, color: Int) {
         val alert = Functions.msgBallom(msg, width, ctx, color)
-        alert.showAlignBottom(bindinginfo.guideline)
+        val localization = activity?.findViewById<View>(R.id.txtInfopager)
+        if (localization != null)  alert.showAlignBottom(localization)
+        else alert.showAlignBottom(bindinginfo.btEnd)
         alert.dismissWithDelay(Mob.TIMELONG4SEG)
     }
 

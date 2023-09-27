@@ -8,10 +8,8 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import android.widget.Spinner
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.google.android.material.textfield.TextInputLayout
 import gob.pa.inovacion_empresarial.databinding.ModuloSeccion03Binding
 import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.EdittextFormat
@@ -27,7 +25,6 @@ class FragModuloSecc03 : Fragment() {
     private lateinit var bindingmod3: ModuloSeccion03Binding
     private lateinit var ctx: Context
     private val textWatcherList = mutableListOf<ModelTexWatchers>()
-    private var rowEditTexts: List<EditText> = emptyList()
     private val decimalFormat = DecimalFormat("#,###")
 
     override fun onCreateView(
@@ -58,6 +55,9 @@ class FragModuloSecc03 : Fragment() {
             if (rbtSecc034ANo.isChecked) {
                 layoutSecc341.isVisible = false
                 layoutSecc35.isVisible = false
+            } else {
+                layoutSecc341.isVisible = true
+                layoutSecc35.isVisible = true
             }
             val radioGroups = listOf(
                 rgroupSecc034A,
@@ -76,9 +76,7 @@ class FragModuloSecc03 : Fragment() {
                 textViews[i].visibility =
                     if (radioButtons[i].isChecked) View.VISIBLE else View.INVISIBLE
             }
-
             rgroupSecc034.setOnCheckedListener(rbtSecc034Si, layoutSecc35)
-            rgroupSecc034.setOnCheckedListener(rbtSecc034Si, layoutSecc341)
 
             rgroupSecc034A.setOnCheckedListener(rbtSecc034ASi, txtSecc034Aly)
             rgroupSecc034B.setOnCheckedListener(rbtSecc034BSi, txtSecc034Bly)
@@ -97,13 +95,20 @@ class FragModuloSecc03 : Fragment() {
         }
     }
 
-    private fun RadioGroup.setOnCheckedListener(
-        radioButtonSi: RadioButton,
-        view: View
-    ) {
+    private fun RadioGroup.setOnCheckedListener(radioButton: RadioButton, view: View) {
         setOnCheckedChangeListener { _, id ->
             hideKeyboard()
-            view.visibility = if (id == radioButtonSi.id) View.VISIBLE else View.INVISIBLE
+            when (id) {
+                bindingmod3.rbtSecc034Si.id -> {
+                    bindingmod3.layoutSecc341.isVisible = true
+                    bindingmod3.layoutSecc35.isVisible = true
+                }
+                bindingmod3.rbtSecc034No.id -> {
+                    bindingmod3.layoutSecc341.isVisible = false
+                    bindingmod3.layoutSecc35.isVisible = false
+                }
+                else -> view.visibility = if (id == radioButton.id) View.VISIBLE else View.GONE
+            }
         }
     }
 
@@ -132,11 +137,10 @@ class FragModuloSecc03 : Fragment() {
             txtSecc034C.text = mod3?.v4check1cPorcent?.toEditable() ?: blank
             txtSecc034D.text = mod3?.v4check1dPorcent?.toEditable() ?: blank
             txtSecc034E.text = mod3?.v4check1ePorcent?.toEditable() ?: blank
-
             txtSecc034EOtro.text = mod3?.v4check1eOther?.toEditable() ?: blank
 
             txtSecc035.text = mod3?.v5txt?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+                ?.run { decimalFormat.format(this).toEditable() } ?: blank
         }
         Mob.seesecc3 = false
         onAction()
@@ -165,22 +169,28 @@ class FragModuloSecc03 : Fragment() {
                     false else null,
                 if (p4check && rbtSecc034ASi.isChecked) true else
                     if (p4check && rbtSecc034ANo.isChecked) false else null,
-                if (p4check && rbtSecc034ASi.isChecked) txtSecc034A.text.toString() else null,
+                if (p4check && rbtSecc034ASi.isChecked) txtSecc034A.text.toString()
+                    .ifEmpty { null } else null,
                 if (p4check && rbtSecc034BSi.isChecked) true else
                     if (p4check && rbtSecc034BNo.isChecked) false else null,
-                if (p4check && rbtSecc034BSi.isChecked) txtSecc034B.text.toString() else null,
+                if (p4check && rbtSecc034BSi.isChecked) txtSecc034B.text.toString()
+                    .ifEmpty { null } else null,
                 if (p4check && rbtSecc034CSi.isChecked) true else
                     if (p4check && rbtSecc034CNo.isChecked) false else null,
-                if (p4check && rbtSecc034CSi.isChecked) txtSecc034C.text.toString() else null,
+                if (p4check && rbtSecc034CSi.isChecked) txtSecc034C.text.toString()
+                    .ifEmpty { null } else null,
                 if (p4check && rbtSecc034DSi.isChecked) true else
                     if (p4check && rbtSecc034DNo.isChecked) false else null,
-                if (p4check && rbtSecc034DSi.isChecked) txtSecc034D.text.toString() else null,
+                if (p4check && rbtSecc034DSi.isChecked) txtSecc034D.text.toString()
+                    .ifEmpty { null } else null,
                 if (p4check && rbtSecc034ESi.isChecked) true else
                     if (p4check && rbtSecc034ENo.isChecked) false else null,
-                if (p4check && rbtSecc034ESi.isChecked) txtSecc034E.text.toString() else null,
-                if (p4check && rbtSecc034ESi.isChecked) txtSecc034EOtro.text.toString() else null,
-                if (p4check)
-                    txtSecc035.text.toString().replace(",", "").ifEmpty { null } else null,
+                if (p4check && rbtSecc034ESi.isChecked) txtSecc034E.text.toString()
+                    .ifEmpty { null } else null,
+                if (p4check && rbtSecc034ESi.isChecked) txtSecc034EOtro.text.toString()
+                    .ifEmpty { null } else null,
+                if (p4check) txtSecc035.text.toString().replace(",", "")
+                    .ifEmpty { null } else null,
                 Mob.capMod?.v6porcent1,//-----------
                 Mob.capMod?.v6porcent2,
                 Mob.capMod?.v6porcent3,

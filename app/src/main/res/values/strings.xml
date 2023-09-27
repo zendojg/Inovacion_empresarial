@@ -163,7 +163,7 @@
     <string name="cap_example">Capitulo xxxxxxxxxx xxxxxxxxxxxxxxx xxxxxxxxxxxxxx</string>
     <string name="guardar">Guardar</string>
     <string name="salir">Salir</string>
-    <string name="ncontrol">N° de control:   </string>
+    <string name="ncontrol">N° de control:</string>
     <string name="condiciones"><b><font color="#FF018786">CONDICIONES DE EMPADRONAMIENTO</font></b></string>
     <string name="inconsistencias"><b><font color="#218CBF">Inconsistencias:</font></b></string>
     <string name="ncontrolN"><b><font color="#218CBF">N° de control:</font></b></string>

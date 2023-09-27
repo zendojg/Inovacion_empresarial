@@ -55,7 +55,6 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         if (aDialog?.isShowing == true) aDialog?.dismiss()
-
     }
 
     override fun onResume() {

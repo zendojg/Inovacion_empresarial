@@ -54,7 +54,7 @@ class FragMenu : Fragment() {
                     btEncuestaMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_more)
                 }
             }
-            //-------------------------------------------------------------------------------------- " " Modulo
+            //----- " " Modulo
             btModuloMain.setOnClickListener {
                 if (!linearModuloMain.isVisible) { //-- expandir
                     linearModuloMain.visibility = View.VISIBLE
@@ -68,8 +68,8 @@ class FragMenu : Fragment() {
                     btModuloMain.icon = ContextCompat.getDrawable(ctx,R.drawable.img_expand_more)
                 }
             }
-            //--------------------------------------------------------------------------------------
-            //-------------------------------------------------------------------------------------- Comenzar Encuesta
+            //-----------------------
+            //----- Comenzar Encuesta
             btcap01main.setOnClickListener { viewpager(Mob.CAP1P01) }
             btcap02main.setOnClickListener { viewpager(Mob.CAP2P02) }
             btcap03main.setOnClickListener { viewpager(Mob.CAP3P04) }
@@ -80,15 +80,19 @@ class FragMenu : Fragment() {
             btcap08main.setOnClickListener { viewpager(Mob.CAP8P15) }
             btcap09main.setOnClickListener { viewpager(Mob.CAP9P17) }
             btcap10main.setOnClickListener { viewpager(Mob.CAPXP19) }
-            //-------------------------------------------------------------------------------------- Comenzar Modulo
+            //----- Comenzar Modulo
             btsec01main.setOnClickListener { viewpager(Mob.SEC1P20) }
             btsec02main.setOnClickListener { viewpager(Mob.SEC2P21) }
             btsec03main.setOnClickListener { viewpager(Mob.SEC3P22) }
             btsec04main.setOnClickListener { viewpager(Mob.SEC4P23) }
             btsec05main.setOnClickListener { viewpager(Mob.OBSP24) }
 
-            if (Mob.indiceFormulario < Mob.SEC1P20) btEncuestaMain.callOnClick()
-            else btModuloMain.callOnClick()
+
+            if (Mob.indiceFormulario < Mob.SEC1P20) {
+                if (!linearEncuestaMain.isVisible) btEncuestaMain.callOnClick()
+            } else {
+                if (!linearModuloMain.isVisible) btModuloMain.callOnClick()
+            }
         }
     }
 

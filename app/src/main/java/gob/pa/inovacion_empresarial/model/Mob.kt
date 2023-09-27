@@ -1,6 +1,7 @@
 package gob.pa.inovacion_empresarial.model
 
 import androidx.fragment.app.Fragment
+import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.view.fragments.*
 
 object Mob {
@@ -92,6 +93,51 @@ object Mob {
     const val SEC3P22:Int = 22
     const val SEC4P23:Int = 23
     const val OBSP24:Int = 24
+
+    val titleMapTxt = mapOf(
+        CAP1P01 to Triple(R.string.cap01, R.string.ctxt01, R.string.subcap000 ),
+        CAP2P02 to Triple(R.string.cap02, R.string.ctxt02, R.string.subcap021),
+        CAP2P03 to Triple(R.string.cap02, R.string.ctxt02, R.string.subcap022),
+        CAP3P04 to Triple(R.string.cap03, R.string.ctxt03, R.string.subcap000),
+        CAP4P05 to Triple(R.string.cap04, R.string.ctxt04, R.string.subcap000),
+        CAP5P06 to Triple(R.string.cap05, R.string.ctxt05, R.string.subcap051),
+        CAP5P07 to Triple(R.string.cap05, R.string.ctxt05, R.string.subcap052),
+        CAP6P08 to Triple(R.string.cap06, R.string.ctxt06, R.string.subcap061),
+        CAP6P09 to Triple(R.string.cap06, R.string.ctxt06, R.string.subcap062),
+        CAP6P10 to Triple(R.string.cap06, R.string.ctxt06, R.string.subcap063),
+        CAP6P11 to Triple(R.string.cap06, R.string.ctxt06, R.string.subcap064),
+        CAP7P12 to Triple(R.string.cap07, R.string.ctxt07, R.string.subcap001),
+        CAP7P13 to Triple(R.string.cap07, R.string.ctxt07, R.string.subcap002),
+        CAP7P14 to Triple(R.string.cap07, R.string.ctxt07, R.string.subcap003),
+        CAP8P15 to Triple(R.string.cap08, R.string.ctxt08, R.string.subcap001),
+        CAP8P16 to Triple(R.string.cap08, R.string.ctxt08, R.string.subcap002),
+        CAP9P17 to Triple(R.string.cap09, R.string.ctxt09, R.string.subcap001),
+        CAP9P18 to Triple(R.string.cap09, R.string.ctxt09, R.string.subcap002),
+        CAPXP19 to Triple(R.string.cap10, R.string.ctxt10, R.string.subcap000),
+        SEC1P20 to Triple(R.string.secc01, R.string.stxt01, R.string.subcap000),
+        SEC2P21 to Triple(R.string.secc02, R.string.stxt02, R.string.subcap000),
+        SEC3P22 to Triple(R.string.secc03, R.string.stxt03, R.string.subcap000),
+        SEC4P23 to Triple(R.string.secc04, R.string.stxt04, R.string.subcap000),
+        OBSP24 to Triple(R.string.informe, R.string.informetxt, R.string.subcap000)
+    )
+
+    val menuToIndexMap = mapOf(
+        R.id.menu_cap1 to CAP1P01,
+        R.id.menu_cap2 to CAP2P02,
+        R.id.menu_cap3 to CAP3P04,
+        R.id.menu_cap4 to CAP4P05,
+        R.id.menu_cap5 to CAP5P06,
+        R.id.menu_cap6 to CAP6P08,
+        R.id.menu_cap7 to CAP7P12,
+        R.id.menu_cap8 to CAP8P15,
+        R.id.menu_cap9 to CAP9P17,
+        R.id.menu_capx to CAPXP19,
+        R.id.menu_mod1 to SEC1P20,
+        R.id.menu_mod2 to SEC2P21,
+        R.id.menu_mod3 to SEC3P22,
+        R.id.menu_mod4 to SEC4P23,
+        R.id.nav_form to OBSP24
+    )
 
     val arrEncuestas: Array<Fragment> = arrayOf(    //----Contenedor de los Fragment del Form
         FragMenu(),             //--00--Menu
@@ -291,5 +337,4 @@ object Mob {
         capx = capx,
         capMod = capMod
     )
-
 }
