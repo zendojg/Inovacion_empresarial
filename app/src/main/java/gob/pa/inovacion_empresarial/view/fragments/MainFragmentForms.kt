@@ -35,7 +35,6 @@ import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelForm
-import gob.pa.inovacion_empresarial.service.room.DBform
 import gob.pa.inovacion_empresarial.service.room.RoomView
 import gob.pa.inovacion_empresarial.view.FormActivity
 import kotlinx.coroutines.launch
@@ -48,9 +47,8 @@ class MainFragmentForms : Fragment() {
     private lateinit var ctx: Context
     private lateinit var adpForms: AdapterForms
     private lateinit var room: RoomView
-    private var listinRecycler: List<ModelForm> = emptyList()
-    private var listofRoom: List<DBform> = emptyList()
-    private var listDistCorre = mutableListOf<Pair<String, String>>()
+    private var listofAllForms: List<ModelForm> = emptyList()
+    private var listProvDistCorre = mutableListOf<Triple<String, String, String>>()
     private val dvmForm: DVModel by viewModels()
     private var aDialog: AlertDialog? = null
 
@@ -71,7 +69,7 @@ class MainFragmentForms : Fragment() {
         super.onResume()
         room = RoomView(dvmForm, ctx)
         with (bindingForm){
-            adpForms = AdapterForms(listinRecycler) { windBottom(it) }
+            adpForms = AdapterForms(listofAllForms) { windBottom(it) }
             recyclerdata.layoutManager = LinearLayoutManager(ctx)
             recyclerdata.adapter = adpForms
         }
@@ -80,14 +78,16 @@ class MainFragmentForms : Fragment() {
 
     private fun onAction() {
         with (bindingForm){
-            btextSearchForms.setOnClickListener {
+            btexpandSearchForms.setOnClickListener {
                 if (layoutSearchForm.isVisible) {
+                    reset()
+                    adpForms.updateList(listofAllForms)
                     layoutSearchForm.isVisible = false
-                    btextSearchForms.setImageDrawable(
+                    btexpandSearchForms.setImageDrawable(
                         ContextCompat.getDrawable(ctx, R.drawable.img_expand_more))
                 } else {
                     layoutSearchForm.isVisible = true
-                    btextSearchForms.setImageDrawable(
+                    btexpandSearchForms.setImageDrawable(
                         ContextCompat.getDrawable(ctx, R.drawable.img_expand_less))
                 }
             }
@@ -111,74 +111,127 @@ class MainFragmentForms : Fragment() {
             })
             searchForms.setOnCloseListener {
                 searchForms.setQuery("", false)
-                adpForms.updateList(listinRecycler)
+                adpForms.updateList(listofAllForms)
                 false
+            }
+            autoDist.onItemClickListener = AdapterView.OnItemClickListener { adapter, _, pos, _ ->
+                lifecycleScope.launch {
+                    val prov = "08"
+                    val getDistID = room.getDistID(prov,adapter.getItemAtPosition(pos).toString())
+                    val listUpdate = listofAllForms.filter {
+                        it.cap1?.v01provtxt?.lowercase(Locale.getDefault())
+                            ?.contains(prov) == true &&
+                                it.cap1.v02disttxt?.lowercase(Locale.getDefault())
+                                    ?.contains(getDistID) == true
+                    }
+                    activity?.runOnUiThread {
+                        val hintDist = "Distrito: $getDistID"
+                        autoCorre.hint = getString(R.string.corre)
+                        autoCorre.setText(getString(R.string.corre), false)
+                        autoDistly.hint = hintDist
+                        adpForms.updateList(listUpdate)
+                    }
+                }
             }
         }
     }
-
+    private fun reset() {
+        with(bindingForm) {
+            autoDistly.hint = getString(R.string.dist)
+            autoCorre.hint = getString(R.string.corre)
+            autoDist.setText(getString(R.string.dist), false)
+            autoCorre.setText(getString(R.string.corre), false)
+            autoCorre.setAdapter(ArrayAdapter(ctx, R.layout.style_list, emptyArray<String>()))
+        }
+    }
     private fun spinnerSelection(position: Int) {
         with (bindingForm) {
-            var inco = 0
             barForms.visibility = View.VISIBLE
+            reset()
+            var conteoIncon = 0
             val user: String = Mob.authData?.user ?: ""
             val listUpdate: ArrayList<ModelForm> = ArrayList()
             lifecycleScope.launch {
-                if (position == 1 || position == 2) {
+                val localitation = mutableListOf<Triple<String, String, String>>()
+                if (position > 0) {
                     val retroData = dvmForm.formsGetUser(user)
                     if (position == 1) {
-                        listinRecycler = retroData?.body ?: ArrayList()
-                        for (i in listinRecycler) {
-                            listDistCorre.add(
-                                Pair(i.cap1?.v02disttxt ?: "0",
-                                     i.cap1?.v03corretxt ?: "0"))
-//                            listDist.add(i.cap1?.v02disttxt ?: "0")
-//                            listCorre.add(i.cap1?.v03corretxt ?: "0")
-                            if (i.tieneIncon == true) inco += 1
+                        listofAllForms = retroData?.body ?: ArrayList()
+                        for (i in listofAllForms) {
+                            localitation.add(Triple(
+                                    i.cap1?.v01provtxt ?: "0",
+                                    i.cap1?.v02disttxt ?: "0",
+                                    i.cap1?.v03corretxt ?: "0"
+                                )
+                            )
+                            if (i.tieneIncon == true) conteoIncon += 1
                         }
-                        txttotalInconForms.text = inco.toString()
-                        txttotalForms.text = listinRecycler.size.toString()
-                        adpForms.updateList(listinRecycler)
-                    } else {
+                        activity?.runOnUiThread {
+                            txttotalInconForms.text = conteoIncon.toString()
+                            txttotalForms.text = listofAllForms.size.toString()
+                            adpForms.updateList(listofAllForms)
+                        }
+                        listProvDistCorre = localitation
+                    } else { //-- position == 2
                         for (i in retroData?.body ?: ArrayList())
                             if (i.tieneIncon != null) {
                                 listUpdate.add(i)
-                                listDistCorre.add(
-                                    Pair(i.cap1?.v02disttxt ?: "0",
-                                         i.cap1?.v03corretxt ?: "0"))
-//                                listDist.add(i.cap1?.v02disttxt ?: "0")
-//                                listCorre.add(i.cap1?.v03corretxt ?: "0")
-                                if (i.tieneIncon == true) inco += 1
+                                localitation.add(
+                                    Triple(
+                                        i.cap1?.v01provtxt ?: "0",
+                                        i.cap1?.v02disttxt ?: "0",
+                                        i.cap1?.v03corretxt ?: "0"
+                                    )
+                                )
+                                if (i.tieneIncon == true) conteoIncon += 1
                             }
-                        listinRecycler = listUpdate
-                        txttotalInconForms.text = inco.toString()
-                        txttotalForms.text = listinRecycler.size.toString()
-                        adpForms.updateList(listinRecycler)
+                        listofAllForms = listUpdate
+                        activity?.runOnUiThread {
+                            txttotalInconForms.text = conteoIncon.toString()
+                            txttotalForms.text = listofAllForms.size.toString()
+                            adpForms.updateList(listofAllForms)
+                        }
+                        listProvDistCorre = localitation
                     }
 
                 } else {
-                    listofRoom = RoomView(dvmForm, ctx).getFormsUser(user)
+                    val listofRoom = RoomView(dvmForm, ctx).getFormsUser(user)
                     val gson = Gson()
                     val type: Type = object : TypeToken<ModelForm?>() {}.type
                     for (i in listofRoom) {
                         val listTest = gson.fromJson<ModelForm>(i.saveForm, type)
                         listUpdate.add(listTest)
                     }
-                    for (i in listUpdate) if (i.tieneIncon == true) inco += 1
-                    listinRecycler = listUpdate
-                    txttotalInconForms.text = inco.toString()
-                    txttotalForms.text = listinRecycler.size.toString()
-                    adpForms.updateList(listinRecycler)
+                    for (i in listUpdate) {
+                        localitation.add(
+                            Triple(
+                                i.cap1?.v01provtxt ?: "0",
+                                i.cap1?.v02disttxt ?: "0",
+                                i.cap1?.v03corretxt ?: "0"
+                            )
+                        )
+                        if (i.tieneIncon == true) conteoIncon += 1
+                    }
+                    listofAllForms = listUpdate
+                    txttotalInconForms.text = conteoIncon.toString()
+                    txttotalForms.text = listofAllForms.size.toString()
+                    adpForms.updateList(listofAllForms)
+
+                    listProvDistCorre = localitation
                 }
                 barForms.visibility = View.INVISIBLE
 
-                var arrayDist = emptyList<String>()
-                val arrayCorre = emptyList<String>()
-                for (i in listDistCorre) {
-                    arrayDist = listOf(room.getProvName(i.first))
-                    //arrayCorre = room.getDistName(i.second)
-                }
+                val arrayDist = room.getDist(listProvDistCorre[0].first)
+                var arrayCorre = emptyList<String>()
 
+//                for (i in listProvDistCorre) {
+//                    arrayDist = listOf(room.getDistName(i.first, i.second))
+//
+//                   // arrayCorre = listOf(room.getCorreID(i.first, i.second, i.third))
+//                }
+                println("--$listProvDistCorre")
+                println("--$arrayDist")
+                autoDist.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayDist))
             }
         }
     }
@@ -187,8 +240,9 @@ class MainFragmentForms : Fragment() {
             var inco = 0
             val listUpdate: ArrayList<ModelForm> = ArrayList()
             val search = query.lowercase(Locale.getDefault())
+            val listFilter = adpForms.list.ifEmpty { listofAllForms }
             listUpdate.addAll(
-                listinRecycler.filter {
+                listFilter.filter {
                     it.ncontrol?.lowercase(Locale.getDefault())?.contains(search) == true ||
                             it.cap2?.v05nameLtxt?.lowercase(Locale.getDefault())
                                 ?.contains(search) == true ||
@@ -318,8 +372,8 @@ class MainFragmentForms : Fragment() {
 
                     //------------ ADD DELETE IF NOT SEND FORM
                     aDialog?.dismiss()
-                    listinRecycler = listinRecycler.minus(item)
-                    adpForms.updateList(listinRecycler)
+                    listofAllForms = listofAllForms.minus(item)
+                    adpForms.updateList(listofAllForms)
                     msgBallon("Formulario eliminado")
                 } else { txt0styleFly.error = "Clave incorrecta" }
                 }, (Mob.TIME500MS))
