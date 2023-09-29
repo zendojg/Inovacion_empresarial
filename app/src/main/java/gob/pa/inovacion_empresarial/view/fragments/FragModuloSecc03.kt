@@ -52,12 +52,12 @@ class FragModuloSecc03 : Fragment() {
     private fun onAction() {
         with(bindingmod3) {
             scrollForm.isVisible = Mob.capMod?.v1check != false
-            if (rbtSecc034ANo.isChecked) {
-                layoutSecc341.isVisible = false
-                layoutSecc35.isVisible = false
-            } else {
+            if (rbtSecc034ASi.isChecked) {
                 layoutSecc341.isVisible = true
                 layoutSecc35.isVisible = true
+            } else {
+                layoutSecc341.isVisible = false
+                layoutSecc35.isVisible = false
             }
             val radioGroups = listOf(
                 rgroupSecc034A,
@@ -216,34 +216,35 @@ class FragModuloSecc03 : Fragment() {
             if (Mob.capMod?.v1check == true) {
                 if (rgroupSecc034.checkedRadioButtonId == -1)
                     returnList.add(CreateIncon.inconsistencia(ctx, "294") ?: "")
+                if (rbtSecc034Si.isChecked) {
+                    if (rgroupSecc034A.checkedRadioButtonId == -1)
+                        returnList.add(CreateIncon.inconsistencia(ctx, "295") ?: "")
+                    else if (rbtSecc034ASi.isChecked && txtSecc034A.text.isNullOrEmpty())
+                        returnList.add(CreateIncon.inconsistencia(ctx, "300") ?: "")
 
-                if (rgroupSecc034A.checkedRadioButtonId == -1)
-                    returnList.add(CreateIncon.inconsistencia(ctx, "295") ?: "")
-                else if (rbtSecc034ASi.isChecked && txtSecc034A.text.isNullOrEmpty())
-                    returnList.add(CreateIncon.inconsistencia(ctx, "300") ?: "")
+                    if (rgroupSecc034B.checkedRadioButtonId == -1)
+                        returnList.add(CreateIncon.inconsistencia(ctx, "296") ?: "")
+                    else if (rbtSecc034BSi.isChecked && txtSecc034B.text.isNullOrEmpty())
+                        returnList.add(CreateIncon.inconsistencia(ctx, "301") ?: "")
 
-                if (rgroupSecc034B.checkedRadioButtonId == -1)
-                    returnList.add(CreateIncon.inconsistencia(ctx, "296") ?: "")
-                else if (rbtSecc034BSi.isChecked && txtSecc034B.text.isNullOrEmpty())
-                    returnList.add(CreateIncon.inconsistencia(ctx, "301") ?: "")
+                    if (rgroupSecc034C.checkedRadioButtonId == -1)
+                        returnList.add(CreateIncon.inconsistencia(ctx, "297") ?: "")
+                    else if (rbtSecc034CSi.isChecked && txtSecc034C.text.isNullOrEmpty())
+                        returnList.add(CreateIncon.inconsistencia(ctx, "302") ?: "")
 
-                if (rgroupSecc034C.checkedRadioButtonId == -1)
-                    returnList.add(CreateIncon.inconsistencia(ctx, "297") ?: "")
-                else if (rbtSecc034CSi.isChecked && txtSecc034C.text.isNullOrEmpty())
-                    returnList.add(CreateIncon.inconsistencia(ctx, "302") ?: "")
+                    if (rgroupSecc034D.checkedRadioButtonId == -1)
+                        returnList.add(CreateIncon.inconsistencia(ctx, "298") ?: "")
+                    else if (rbtSecc034DSi.isChecked && txtSecc034D.text.isNullOrEmpty())
+                        returnList.add(CreateIncon.inconsistencia(ctx, "303") ?: "")
 
-                if (rgroupSecc034D.checkedRadioButtonId == -1)
-                    returnList.add(CreateIncon.inconsistencia(ctx, "298") ?: "")
-                else if (rbtSecc034DSi.isChecked && txtSecc034D.text.isNullOrEmpty())
-                    returnList.add(CreateIncon.inconsistencia(ctx, "303") ?: "")
+                    if (rgroupSecc034E.checkedRadioButtonId == -1)
+                        returnList.add(CreateIncon.inconsistencia(ctx, "299") ?: "")
+                    else if (rbtSecc034ESi.isChecked && txtSecc034E.text.isNullOrEmpty())
+                        returnList.add(CreateIncon.inconsistencia(ctx, "304") ?: "")
 
-                if (rgroupSecc034E.checkedRadioButtonId == -1)
-                    returnList.add(CreateIncon.inconsistencia(ctx, "299") ?: "")
-                else if (rbtSecc034ESi.isChecked && txtSecc034E.text.isNullOrEmpty())
-                    returnList.add(CreateIncon.inconsistencia(ctx, "304") ?: "")
-
-                if (txtSecc035.text.isNullOrEmpty() || txtSecc035.text.toString() == "0")
-                    returnList.add(CreateIncon.inconsistencia(ctx, "305") ?: "")
+                    if (txtSecc035.text.isNullOrEmpty() || txtSecc035.text.toString() == "0")
+                        returnList.add(CreateIncon.inconsistencia(ctx, "305") ?: "")
+                }
             } else if (Mob.capMod?.v1check == null)
                 returnList.add(CreateIncon.inconsistencia(ctx, "289") ?: "")
 

@@ -91,11 +91,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
-            android:paddingBottom="7dp"
             android:background="@drawable/background_border"
             app:layout_constraintEnd_toEndOf="@+id/scrollUser"
             app:layout_constraintStart_toStartOf="@+id/scrollUser"
             app:layout_constraintTop_toBottomOf="@+id/toolbarpager">
+
+
 
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinFormsType"
@@ -106,7 +107,7 @@
                 android:gravity="center"
                 android:minHeight="48dp"
                 android:paddingHorizontal="7dp"
-                android:theme="@android:style/Theme.Holo.Light.DarkActionBar"
+                android:layout_marginTop="7dp"
                 app:layout_constraintBottom_toTopOf="@+id/barForms"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -125,9 +126,9 @@
 
             <ImageButton
                 android:id="@+id/btexpand_search_forms"
-                android:layout_width="40dp"
+                android:layout_width="30dp"
                 android:layout_height="0dp"
-                android:layout_marginEnd="2dp"
+                android:layout_margin="7dp"
                 android:layout_gravity="center|end"
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/buzqueda"
@@ -164,11 +165,13 @@
                 app:layout_constraintTop_toBottomOf="@+id/searchForms"
                 tools:visibility="visible">
 
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/autoDistly"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="2dp"
                     android:hint="@string/dist"
                     android:textColorHint="@color/black"
                     app:layout_constraintEnd_toStartOf="@+id/autoCorrely"
@@ -198,6 +201,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/corre"
                     android:textColorHint="@color/black"
+                    android:layout_marginHorizontal="2dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/autoDistly"

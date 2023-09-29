@@ -79,7 +79,7 @@
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <ImageView
-                        android:id="@+id/btmenupager"
+                        android:id="@+id/btinconpager"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_gravity="center|end"
@@ -89,9 +89,10 @@
                         android:clickable="true"
                         android:contentDescription="@string/menu"
                         android:focusable="true"
-                        android:padding="4dp"
                         android:visibility="gone"
-                        app:srcCompat="@drawable/img_home"
+                        android:padding="4dp"
+                        app:srcCompat="@drawable/img_warning1"
+                        tools:visibility="visible"
                         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
                     <TextView

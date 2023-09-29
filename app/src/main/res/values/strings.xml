@@ -710,7 +710,7 @@
     <string name="btmoreinfo">Ver más información del formulario</string>
     <string name="btdelete">Borrar formulario seleccionado</string>
     <string name="deleteTittle">Eliminación de Formularios</string>
-    <string name="deleteSpec">Solo se podra eliminar formularios guardados en el DMC y que no han sido enviados.</string>
+    <string name="deleteSpec">La siguiente acción solo eliminara el formulario que ha sido guardado en el DMC.</string>
     <string name="delete">Eliminar</string>
     <string name="exitUser">Cerrar sesión</string>
     <string name="tittleWarningIncon">¡Aviso de inconsistencia!</string>

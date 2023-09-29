@@ -110,6 +110,7 @@ class MainFragmentSearch : Fragment() {
         val win = AlertDialog.Builder(ctx)
         aDialog = win.create()
         aDialog?.setCancelable(false)
+        aDialog?.show()
         fragSearch.barSearch.visibility = View.VISIBLE
         lifecycleScope.launch {
             val resp = dvmSearch.formGet(ncont)
@@ -144,7 +145,7 @@ class MainFragmentSearch : Fragment() {
                             errorMsg("Error: ${resp.code}")
                     }
                 }
-
+                aDialog?.dismiss()
             }
         }
     }

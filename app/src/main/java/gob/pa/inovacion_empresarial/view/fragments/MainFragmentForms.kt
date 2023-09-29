@@ -12,6 +12,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -48,7 +49,7 @@ class MainFragmentForms : Fragment() {
     private lateinit var adpForms: AdapterForms
     private lateinit var room: RoomView
     private var listofAllForms: List<ModelForm> = emptyList()
-    private var listProvDistCorre = mutableListOf<Triple<String, String, String>>()
+    private var listLocation = mutableListOf<Triple<String, String, String>>()
     private val dvmForm: DVModel by viewModels()
     private var aDialog: AlertDialog? = null
 
@@ -69,7 +70,7 @@ class MainFragmentForms : Fragment() {
         super.onResume()
         room = RoomView(dvmForm, ctx)
         with (bindingForm){
-            adpForms = AdapterForms(listofAllForms) { windBottom(it) }
+            adpForms = AdapterForms(listofAllForms) { popupBottom(it) }
             recyclerdata.layoutManager = LinearLayoutManager(ctx)
             recyclerdata.adapter = adpForms
         }
@@ -114,9 +115,9 @@ class MainFragmentForms : Fragment() {
                 adpForms.updateList(listofAllForms)
                 false
             }
-            autoDist.onItemClickListener = AdapterView.OnItemClickListener { adapter, _, pos, _ ->
+            autoDist.onItemClickListener = AdapterView.OnItemClickListener { adapter, _, pos, _ ->  //----- Optimizar este bloque
                 lifecycleScope.launch {
-                    val prov = "08"
+                    val prov = if (listLocation.isNotEmpty()) listLocation.last().first else ""
                     val getDistID = room.getDistID(prov,adapter.getItemAtPosition(pos).toString())
                     val listUpdate = listofAllForms.filter {
                         it.cap1?.v01provtxt?.lowercase(Locale.getDefault())
@@ -171,7 +172,7 @@ class MainFragmentForms : Fragment() {
                             txttotalForms.text = listofAllForms.size.toString()
                             adpForms.updateList(listofAllForms)
                         }
-                        listProvDistCorre = localitation
+                        listLocation = localitation
                     } else { //-- position == 2
                         for (i in retroData?.body ?: ArrayList())
                             if (i.tieneIncon != null) {
@@ -191,7 +192,7 @@ class MainFragmentForms : Fragment() {
                             txttotalForms.text = listofAllForms.size.toString()
                             adpForms.updateList(listofAllForms)
                         }
-                        listProvDistCorre = localitation
+                        listLocation = localitation
                     }
 
                 } else {
@@ -217,21 +218,14 @@ class MainFragmentForms : Fragment() {
                     txttotalForms.text = listofAllForms.size.toString()
                     adpForms.updateList(listofAllForms)
 
-                    listProvDistCorre = localitation
+                    listLocation = localitation
                 }
                 barForms.visibility = View.INVISIBLE
 
-                val arrayDist = room.getDist(listProvDistCorre[0].first)
-                var arrayCorre = emptyList<String>()
-
-//                for (i in listProvDistCorre) {
-//                    arrayDist = listOf(room.getDistName(i.first, i.second))
-//
-//                   // arrayCorre = listOf(room.getCorreID(i.first, i.second, i.third))
-//                }
-                println("--$listProvDistCorre")
-                println("--$arrayDist")
-                autoDist.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayDist))
+                if (listLocation.isNotEmpty()) {
+                    val arrayDist = room.getDist(listLocation.last().first)
+                    autoDist.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayDist))
+                }
             }
         }
     }
@@ -261,16 +255,16 @@ class MainFragmentForms : Fragment() {
         return true
     }
 
-    private fun windBottom(item: ModelForm) { //----------------------------------------------------------- ARREGLAR LA BUSQUEDA QUE TRAE UN LIST INCOMPLETO
+    private fun popupBottom(item: ModelForm) {
         val msgOpcions = AlertDialog.Builder(ctx)
         val bindmsg: StyleMsgPopupBinding =
             DataBindingUtil.inflate(LayoutInflater.from(ctx),
                 R.layout.style_msg_popup, null, false)
         val selection = bindingForm.spinFormsType.selectedItemPosition
+        val ncontrol = "N° de control: ${
+            Functions.ceroLeft(item.ncontrol ?: "0",Mob.FOR5DIGITS)}"
         with(bindmsg) {
             msgOpcions.setView(bindmsg.root)
-            val ncontrol = "N° de control: ${
-                Functions.ceroLeft(item.ncontrol ?: "0",Mob.FOR5DIGITS)}"
 
             msgtitle.text = ncontrol
             bt1.text = getString(R.string.btcarga)    //-- Cargar formulario
@@ -284,6 +278,7 @@ class MainFragmentForms : Fragment() {
             bt4.icon = ContextCompat.getDrawable(ctx, R.drawable.img_delete)
 
             if (selection == 1 || selection == 2) bt4.isEnabled = false
+            if (item.tieneIncon != true) bt3.isEnabled = false
             aDialog = msgOpcions.create()
             aDialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             aDialog?.window?.attributes?.windowAnimations =
@@ -294,16 +289,7 @@ class MainFragmentForms : Fragment() {
 
             bt1.setOnClickListener {
                 aDialog?.dismiss()
-                CreateForm.createLoad(item)
-                Mob.indiceFormulario = Mob.CAP1P01
-                Handler(Looper.getMainLooper()).postDelayed({
-                    activity?.finish()
-                    val intent = Intent(ctx, FormActivity::class.java)
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or
-                            Intent.FLAG_ACTIVITY_CLEAR_TASK  or
-                            Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
-                }, (Mob.TIME100MS))
+                chargeForm(item)
             }
 
             bt2.setOnClickListener {
@@ -315,18 +301,51 @@ class MainFragmentForms : Fragment() {
 
             bt3.setOnClickListener {
                 aDialog?.dismiss()
+                iconForm(item)
             }
 
             bt4.setOnClickListener {
                 aDialog?.dismiss()
                 Handler(Looper.getMainLooper()).postDelayed({
                     if (selection == 1 || selection == 2) msgBallon("Imposible borrar")
-                    else {
-
-                        deleteForm(item)
-                    }
+                    else deleteForm(item)
                 }, (Mob.TIME100MS))
             }
+        }
+    }
+    private fun iconForm(item: ModelForm) {
+        Toast.makeText(ctx, "Cargando inconsistencias...", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun chargeForm(item: ModelForm) {
+        fun charge(form: ModelForm) {
+            CreateForm.createLoad(form)
+            Mob.indiceFormulario = Mob.CAP1P01
+            Handler(Looper.getMainLooper()).postDelayed({
+                aDialog?.dismiss()
+                activity?.finish()
+                val intent = Intent(ctx, FormActivity::class.java)
+                intent.addFlags(
+                    Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                            Intent.FLAG_ACTIVITY_CLEAR_TASK or
+                            Intent.FLAG_ACTIVITY_NEW_TASK
+                )
+                startActivity(intent)
+            }, (Mob.TIME1S))
+        }
+        val selection = bindingForm.spinFormsType.selectedItemPosition
+        val win = AlertDialog.Builder(ctx)
+        aDialog = win.create()
+        aDialog?.setCancelable(false)
+        aDialog?.show()
+        bindingForm.barForms.isVisible = true
+        lifecycleScope.launch {
+            if (selection == 1 || selection == 2) {
+                val callForm = dvmForm.formGet(item.ncontrol ?: "0")
+                if (callForm?.code == 200 && callForm.body != null) {  //--------------------------- Mejorar control de errores con el server
+                    charge(callForm.body)
+                }
+            } else charge(item)
         }
     }
 
@@ -390,6 +409,7 @@ class MainFragmentForms : Fragment() {
     }
 
     private fun viewForm(item: ModelForm) {
+        val blank = "".toEditable()
         val msgForm = AlertDialog.Builder(ctx)
         val bindmsg: StyleMsgLocalinfoBinding =
             DataBindingUtil.inflate(
@@ -410,10 +430,10 @@ class MainFragmentForms : Fragment() {
                     txtDistLocal.text = distrito.toEditable()
                     txtCorreLocal.text = corregimiento.toEditable()
                     txtNcontrolLocal.text = ncontrol.toEditable()
-                    txtNameLocal.text = item.cap2?.v05nameLtxt?.toEditable() ?: "".toEditable()
-                    txtRazonLocal.text = item.cap2?.v06razontxt?.toEditable() ?: "".toEditable()
-                    txtRUCLocal.text = item.cap2?.v07ructxt?.toEditable() ?: "".toEditable()
-                    txtDirLocal.text = item.cap2?.v08dirtxt?.toEditable() ?: "".toEditable()
+                    txtNameLocal.text = item.cap2?.v05nameLtxt?.toEditable() ?: blank
+                    txtRazonLocal.text = item.cap2?.v06razontxt?.toEditable() ?: blank
+                    txtRUCLocal.text = item.cap2?.v07ructxt?.toEditable() ?: blank
+                    txtDirLocal.text = item.cap2?.v08dirtxt?.toEditable() ?: blank
 
                     aDialog = msgForm.create()
                     aDialog?.window?.attributes?.windowAnimations =
@@ -424,16 +444,7 @@ class MainFragmentForms : Fragment() {
                     btBackLocal.setOnClickListener { aDialog?.dismiss() }
                     btInconLocal.setOnClickListener {
                         aDialog?.dismiss()
-                        CreateForm.createLoad(item)
-                        Mob.indiceFormulario = 1
-                        Handler(Looper.getMainLooper()).postDelayed({
-                            activity?.finish()
-                            val intent = Intent(ctx, FormActivity::class.java)
-                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or
-                                    Intent.FLAG_ACTIVITY_CLEAR_TASK  or
-                                    Intent.FLAG_ACTIVITY_NEW_TASK)
-                            startActivity(intent)
-                        }, (Mob.TIME100MS))
+                        chargeForm(item)
                     }
                 }
             }
