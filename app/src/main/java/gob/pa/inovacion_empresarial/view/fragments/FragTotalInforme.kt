@@ -10,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
@@ -19,7 +18,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.viewpager2.widget.ViewPager2
 import com.google.gson.Gson
 import com.google.gson.JsonParseException
 import com.google.gson.reflect.TypeToken
@@ -32,7 +30,11 @@ import gob.pa.inovacion_empresarial.function.CreateForm
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.aString
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
-import gob.pa.inovacion_empresarial.model.*
+import gob.pa.inovacion_empresarial.model.DVModel
+import gob.pa.inovacion_empresarial.model.Mob
+import gob.pa.inovacion_empresarial.model.ModelCondicion
+import gob.pa.inovacion_empresarial.model.ModelForm
+import gob.pa.inovacion_empresarial.model.ModelResponse
 import gob.pa.inovacion_empresarial.service.room.RoomView
 import gob.pa.inovacion_empresarial.view.MainActivity
 import kotlinx.coroutines.launch

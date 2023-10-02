@@ -263,9 +263,10 @@ class FragModuloSecc04: Fragment() {
     private fun viewCap(): List<String> {
         with(bindingmod4) {
             val returnList: ArrayList<String> = ArrayList()
-            val porcentP6 = lb6nm100.text.toString().replace(",", "").toIntOrNull() ?: 0
-            val porcentP10 = txtSecc04105.text.toString().replace(",", "").toIntOrNull() ?: 0
-
+            val porcentP6 =
+                lb6nm100.text.toString().replace(",", "").toIntOrNull() ?: 0
+            val porcentP10 =
+                txtSecc04105.text.toString().replace(",", "").toIntOrNull() ?: 0
 
             if (Mob.capMod?.v1check == true) {
                 if (porcentP6 == 0)

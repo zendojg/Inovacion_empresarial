@@ -108,10 +108,17 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             btnextpager.setOnClickListener {
                 if (viewpager.currentItem == Mob.OBSP24) {
                     viewpager.setCurrentItem(Mob.MENUP00, false)
-                } else seeCaps(true)
+                } else {
+                    if (dialog?.isShowing != true) seeCaps(true)
+                }
             }
-            btbackpager.setOnClickListener { seeCaps(false) }
-            btmenupager.setOnClickListener { viewpager.setCurrentItem(0, false) }
+            btbackpager.setOnClickListener {
+                if (dialog?.isShowing != true) seeCaps(false)
+            }
+            btinconpager.setOnClickListener {
+
+
+            }
 
             viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
@@ -130,7 +137,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             btobspager.setOnClickListener {
                 if (form.viewpager.currentItem != Mob.OBSP24 ||
                     form.viewpager.currentItem != Mob.MENUP00)
-                    observation(form.viewpager.currentItem)
+                    if (dialog?.isShowing != true) observation(form.viewpager.currentItem)
             }
             btsavepager.setOnClickListener { seeCaps(null) }
         }
@@ -368,7 +375,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             btsavepager.setColorFilter(colorLetras)
             btobspager.setColorFilter(colorLetras)
             btDrawerpager.setColorFilter(colorLetras)
-            btmenupager.setColorFilter(colorLetras)
+            btinconpager.setColorFilter(colorLetras)
             btbackpager.setColorFilter(colorLetras)
             btnextpager.setColorFilter(colorLetras)
             txvtitlepager.setTextColor(colorLetras)

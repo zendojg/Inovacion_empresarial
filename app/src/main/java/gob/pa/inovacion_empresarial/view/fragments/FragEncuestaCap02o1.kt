@@ -1,6 +1,7 @@
 package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -40,6 +41,15 @@ class FragEncuestaCap02o1 : Fragment() {
 
     private fun onAction() {
         with(bindingcap2o1) {
+            if (Mob.formComp?.cap2?.v05nameLtxt.isNullOrEmpty()) txtCap25.setTextColor(Color.BLACK)
+            else txtCap25.isEnabled = false
+            if (Mob.formComp?.cap2?.v06razontxt.isNullOrEmpty()) txtCap26.setTextColor(Color.BLACK)
+            else txtCap26.isEnabled = false
+            if (Mob.formComp?.cap2?.v07ructxt.isNullOrEmpty()) txtCap27.setTextColor(Color.BLACK)
+            else txtCap27.isEnabled = false
+            if (Mob.formComp?.cap2?.v07dvtxt.isNullOrEmpty()) txtCap27DV.setTextColor(Color.BLACK)
+            else txtCap27DV.isEnabled = false
+
             frameCap29Tel2.isVisible = frameview
             btCap29Tel1.setOnClickListener {
                 frameCap29Tel2.visibility = View.VISIBLE
@@ -51,7 +61,6 @@ class FragEncuestaCap02o1 : Fragment() {
                 frameview = false
                 btCap29Tel1.isEnabled = true
             }
-            lowCap2o1.setOnClickListener { saveCap() }
         }
     }
 

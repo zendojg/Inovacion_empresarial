@@ -1,11 +1,9 @@
 package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
-import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +23,6 @@ import gob.pa.inovacion_empresarial.databinding.StyleMsgFormBinding
 import gob.pa.inovacion_empresarial.function.AppCache
 import gob.pa.inovacion_empresarial.function.CreateBackUp
 import gob.pa.inovacion_empresarial.function.Functions
-import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelForm
@@ -74,9 +71,8 @@ class MainFragmentData : Fragment() {
 
     private fun onAction() {
         with(bindingUser) {
-            btExitUser.setOnClickListener { logout() }
-
-            btrenewUser.setOnClickListener { renewData() }
+            btExitUser.setOnClickListener { if (aDialog?.isShowing != true) logout() }
+            btrenewUser.setOnClickListener { if (aDialog?.isShowing != true) renewData() }
             btbackUser.setOnClickListener {
                 val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
                 pager?.setCurrentItem(Mob.INIT01, true)

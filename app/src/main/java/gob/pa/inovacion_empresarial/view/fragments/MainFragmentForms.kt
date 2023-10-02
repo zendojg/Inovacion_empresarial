@@ -7,7 +7,10 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.*
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -40,8 +43,7 @@ import gob.pa.inovacion_empresarial.service.room.RoomView
 import gob.pa.inovacion_empresarial.view.FormActivity
 import kotlinx.coroutines.launch
 import java.lang.reflect.Type
-import java.util.*
-import kotlin.collections.ArrayList
+import java.util.Locale
 
 class MainFragmentForms : Fragment() {
     private lateinit var bindingForm: FragFormsMainBinding

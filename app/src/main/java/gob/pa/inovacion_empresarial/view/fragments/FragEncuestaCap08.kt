@@ -14,8 +14,8 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo08Binding
-import gob.pa.inovacion_empresarial.function.EdittextFormat
 import gob.pa.inovacion_empresarial.function.CreateIncon
+import gob.pa.inovacion_empresarial.function.EdittextFormat
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob

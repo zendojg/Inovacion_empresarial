@@ -28,7 +28,6 @@ import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelLog
 import kotlinx.coroutines.launch
-import java.text.DecimalFormat
 
 class MainFragmentLogin: Fragment() {
 

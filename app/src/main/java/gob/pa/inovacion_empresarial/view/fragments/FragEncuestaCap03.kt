@@ -41,9 +41,9 @@ class FragEncuestaCap03 : Fragment() {
         year22.setDropDownViewResource(R.layout.style_list)
 
         with(bindingcap3) {
-            txtCap3239.isVisible = rbtCap3239.isChecked
-            txtCap3256.isVisible = rbtCap3256.isChecked
-            linearCap324Continuar.isVisible = rbtCap324Si.isChecked
+            txtCap3239ly.isVisible = rbtCap3239.isChecked
+            txtCap3256ly.isVisible = rbtCap3256.isChecked
+            if (rbtCap324No.isChecked) linearCap324Continuar.isVisible = false
 
             txtCap322.setAdapter(year22)
             rgroupCap323.setOnCheckedChangeListener { _, id ->
@@ -58,16 +58,13 @@ class FragEncuestaCap03 : Fragment() {
             }
 
             rgroupCap325.setOnCheckedChangeListener { _, id ->
-                if (rbtCap3256.id == id) {
-                    txtCap3256ly.visibility = View.VISIBLE
-                } else txtCap3256ly.visibility = View.GONE
+                if (rbtCap3256.id == id) txtCap3256ly.visibility = View.VISIBLE
+                 else txtCap3256ly.visibility = View.GONE
             }
 
             rgroupCap325.setOnCheckedChangeListener { _, id ->
-                txtCap3256.isVisible = rbtCap3256.id == id
+                txtCap3256ly.isVisible = rbtCap3256.id == id
             }
-
-            lowCap3.setOnClickListener { saveCap() }
         }
     }
 
@@ -131,7 +128,8 @@ class FragEncuestaCap03 : Fragment() {
                 rbtCap3239.isChecked -> "9"
                 else -> null
             }
-            val txtCap3239Value = if (rbtCap3239.isChecked) txtCap3239.text.toString() else null
+            val txtCap3239Value =
+                if (rbtCap3239.isChecked) txtCap3239.text.toString().ifEmpty { null } else null
             val rbtCap324Value =
                 if (rbtCap324Si.isChecked) true else if (rbtCap324No.isChecked) false else null
             val rbtCap325Value = if (rbtCap324Si.isChecked) when {
@@ -146,7 +144,7 @@ class FragEncuestaCap03 : Fragment() {
 
             val txtCap3256Value =
                 if (rbtCap3256.isChecked && rbtCap324Value == true)
-                    txtCap3256.text.toString() else null
+                    txtCap3256.text.toString().ifEmpty { null } else null
             val txtCap326Value =
                 if (rbtCap324Value == true && txtCap326.text.toString().isNotEmpty())
                     txtCap326.text.toString() else null
@@ -187,7 +185,7 @@ class FragEncuestaCap03 : Fragment() {
             if (cap3?.v24check == true && cap3?.v27countrytxt.isNullOrEmpty())
                 returnList.add(CreateIncon.inconsistencia(ctx, "12") ?: "")
             icap03 = returnList.isNotEmpty()
-            println("---------Is not empty: $icap03--$cap3")
+            println("Cap3: incon:$icap03--$cap3")
             return returnList
         }
     }
