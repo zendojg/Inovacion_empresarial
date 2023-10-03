@@ -27,6 +27,9 @@ interface FormDao {
         prov: String
     ): String
 
+    @Query("DELETE FROM dbprovincia_table")
+    suspend fun deleteProv()
+
     //---- Distritos ------
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertDist(
@@ -53,6 +56,8 @@ interface FormDao {
         dist: String
     ): String
 
+    @Query("DELETE FROM dbdistritos_table")
+    suspend fun deleteDist()
 
     //---- Corregimientos ------
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -87,6 +92,8 @@ interface FormDao {
         corre: String
     ): String
 
+    @Query("DELETE FROM dbcorregimiento_table")
+    suspend fun deleteCorre()
 
     //---- Lugar Poblado ------
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -131,6 +138,8 @@ interface FormDao {
         lugarname: String
     ): String
 
+    @Query("DELETE FROM DBlugarP_table")
+    suspend fun deleteLugarP()
 
     //---- Formulario ------
     @Query("SELECT * FROM DBform_table")

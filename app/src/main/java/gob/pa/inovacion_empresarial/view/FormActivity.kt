@@ -38,9 +38,31 @@ import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
-import gob.pa.inovacion_empresarial.view.fragments.*
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap01
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap02o1
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap02o2
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap03
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap04
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap05o1
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap05o2
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap06o1
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap06o2
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap06o3
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap06o4
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap07o1
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap07o2
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap07o3
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap08
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap08end
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap09o1
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap09o2
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap10
+import gob.pa.inovacion_empresarial.view.fragments.FragModuloSecc01
+import gob.pa.inovacion_empresarial.view.fragments.FragModuloSecc02
+import gob.pa.inovacion_empresarial.view.fragments.FragModuloSecc03
+import gob.pa.inovacion_empresarial.view.fragments.FragModuloSecc04
+import gob.pa.inovacion_empresarial.view.fragments.FragTotalInforme
 import kotlinx.coroutines.launch
-import kotlin.collections.ArrayList
 
 class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -112,9 +134,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     if (dialog?.isShowing != true) seeCaps(true)
                 }
             }
-            btbackpager.setOnClickListener {
-                if (dialog?.isShowing != true) seeCaps(false)
-            }
+            btbackpager.setOnClickListener { if (dialog?.isShowing != true) seeCaps(false) }
             btinconpager.setOnClickListener {
 
 
@@ -176,9 +196,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 dialog = mesagePregunta.create()
                 dialog?.show()
 
-                btpositivo.setOnClickListener {
-                    dialog?.dismiss()
-                }
+                btpositivo.setOnClickListener { dialog?.dismiss() }
                 btnegativo.setOnClickListener {
                     dialog?.dismiss()
                     val intent = Intent(ctx, MainActivity::class.java)
@@ -279,7 +297,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val colorlb = if (form.viewpager.currentItem < Mob.SEC1P20) R.color.holo_blue_dark
         else  R.color.cream_darl
         val listFaltantes: List<String> = pageSave()
-        if (move != null && Mob.authData?.rol != "E")  moveTo(move)//--- No muestra inconsistencias
+        if (move != null && Mob.authData?.rol != "E")  moveTo(move) //--- No muestra inconsistencias
         else if (move != null && listFaltantes.isEmpty())  moveTo(move) //-- mover por el form
         else if (move == null) { //-- Guardar
             lifecycleScope.launch {

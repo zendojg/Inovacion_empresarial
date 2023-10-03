@@ -5,9 +5,6 @@ import android.os.Environment
 import gob.pa.inovacion_empresarial.R
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.io.File
-import java.io.FileOutputStream
-import java.lang.ClassCastException
 
 object CreateBackUp {
 

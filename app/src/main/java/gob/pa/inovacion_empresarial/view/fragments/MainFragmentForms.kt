@@ -118,9 +118,11 @@ class MainFragmentForms : Fragment() {
                 false
             }
             autoDist.onItemClickListener = AdapterView.OnItemClickListener { adapter, _, pos, _ ->  //----- Optimizar este bloque
+                searchForms.setQuery("", false)
                 lifecycleScope.launch {
                     val prov = if (listLocation.isNotEmpty()) listLocation.last().first else ""
-                    val getDistID = room.getDistID(prov,adapter.getItemAtPosition(pos).toString())
+                    val getDistID =
+                        room.getDistID(prov, adapter.getItemAtPosition(pos).toString())
                     val listUpdate = listofAllForms.filter {
                         it.cap1?.v01provtxt?.lowercase(Locale.getDefault())
                             ?.contains(prov) == true &&
@@ -129,15 +131,22 @@ class MainFragmentForms : Fragment() {
                     }
                     activity?.runOnUiThread {
                         val hintDist = "Distrito: $getDistID"
-                        autoCorre.hint = getString(R.string.corre)
-                        autoCorre.setText(getString(R.string.corre), false)
+                        autoCorre.let {
+                            it.hint = getString(R.string.corre)
+                            it.setText(getString(R.string.corre), false)
+                        }
                         autoDistly.hint = hintDist
                         adpForms.updateList(listUpdate)
                     }
                 }
             }
+
+
+
+
         }
     }
+
     private fun reset() {
         with(bindingForm) {
             autoDistly.hint = getString(R.string.dist)
@@ -147,6 +156,7 @@ class MainFragmentForms : Fragment() {
             autoCorre.setAdapter(ArrayAdapter(ctx, R.layout.style_list, emptyArray<String>()))
         }
     }
+
     private fun spinnerSelection(position: Int) {
         with (bindingForm) {
             barForms.visibility = View.VISIBLE
@@ -164,8 +174,7 @@ class MainFragmentForms : Fragment() {
                             localitation.add(Triple(
                                     i.cap1?.v01provtxt ?: "0",
                                     i.cap1?.v02disttxt ?: "0",
-                                    i.cap1?.v03corretxt ?: "0"
-                                )
+                                    i.cap1?.v03corretxt ?: "0")
                             )
                             if (i.tieneIncon == true) conteoIncon += 1
                         }

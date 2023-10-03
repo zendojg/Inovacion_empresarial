@@ -1,6 +1,5 @@
 package gob.pa.inovacion_empresarial.service.api
 
-import android.view.Display.Mode
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelAuth
 import gob.pa.inovacion_empresarial.model.ModelForm

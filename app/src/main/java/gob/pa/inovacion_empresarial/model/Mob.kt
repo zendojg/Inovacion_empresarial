@@ -2,7 +2,35 @@ package gob.pa.inovacion_empresarial.model
 
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
-import gob.pa.inovacion_empresarial.view.fragments.*
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap01
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap02o1
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap02o2
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap03
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap04
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap05o1
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap05o2
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap06o1
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap06o2
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap06o3
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap06o4
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap07o1
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap07o2
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap07o3
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap08
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap08end
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap09o1
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap09o2
+import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap10
+import gob.pa.inovacion_empresarial.view.fragments.FragMenu
+import gob.pa.inovacion_empresarial.view.fragments.FragModuloSecc01
+import gob.pa.inovacion_empresarial.view.fragments.FragModuloSecc02
+import gob.pa.inovacion_empresarial.view.fragments.FragModuloSecc03
+import gob.pa.inovacion_empresarial.view.fragments.FragModuloSecc04
+import gob.pa.inovacion_empresarial.view.fragments.FragTotalInforme
+import gob.pa.inovacion_empresarial.view.fragments.MainFragmentData
+import gob.pa.inovacion_empresarial.view.fragments.MainFragmentForms
+import gob.pa.inovacion_empresarial.view.fragments.MainFragmentLogin
+import gob.pa.inovacion_empresarial.view.fragments.MainFragmentSearch
 
 object Mob {
     const val URL = "http://172.16.9.27:5552/"          // urlLocal
