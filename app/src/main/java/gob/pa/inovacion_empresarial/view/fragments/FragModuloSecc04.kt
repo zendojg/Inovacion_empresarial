@@ -20,6 +20,7 @@ import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelMod
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
+import gob.pa.inovacion_empresarial.view.FormActivity
 import java.text.DecimalFormat
 
 class FragModuloSecc04: Fragment() {
@@ -39,8 +40,9 @@ class FragModuloSecc04: Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.SEC4P23
-        if (Mob.seesecc4) fillOut()
+        Mob.indiceFormulario = Mob.SEC4_P23
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.SEC4_P23 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
     override fun onPause() {
@@ -79,7 +81,7 @@ class FragModuloSecc04: Fragment() {
                                     row1EditTexts,
                                     lb6nm100))
                             }
-                        } else if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
+                        } else if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
                             for (modelTexWatcher in textWatcherList) {
                                 modelTexWatcher.editext.removeTextChangedListener(
                                     modelTexWatcher.watcher)
@@ -101,7 +103,7 @@ class FragModuloSecc04: Fragment() {
                                     row2EditTexts,
                                     txtSecc04105))
                             }
-                        } else if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
+                        } else if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
                             for (modelTexWatcher in textWatcherList) {
                                 modelTexWatcher.editext.removeTextChangedListener(
                                     modelTexWatcher.watcher)
@@ -146,7 +148,7 @@ class FragModuloSecc04: Fragment() {
             }
             txtSecc048.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
                 if (hasFocus) textWatcherList.add(EdittextFormat.edittextMiles(txtSecc048))
-                else if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
+                else if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
                     for (modelTextWatcher in textWatcherList) {
                         modelTextWatcher.editext.removeTextChangedListener(modelTextWatcher.watcher)
                     }
@@ -154,7 +156,7 @@ class FragModuloSecc04: Fragment() {
             }
             txtSecc049.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
                 if (hasFocus) textWatcherList.add(EdittextFormat.edittextMiles(txtSecc049))
-                else if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
+                else if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
                     for (modelTextWatcher in textWatcherList) {
                         modelTextWatcher.editext.removeTextChangedListener(modelTextWatcher.watcher)
                     }
@@ -193,9 +195,8 @@ class FragModuloSecc04: Fragment() {
             txtSecc04102.text = mod4?.v10porcent2?.toEditable() ?: "".toEditable()
             txtSecc04103.text = mod4?.v10porcent3?.toEditable() ?: "".toEditable()
             txtSecc04104.text = mod4?.v10porcent4?.toEditable() ?: "".toEditable()
-
         }
-        Mob.seesecc4 = false
+        Mob.infoCap.find { it.indexCap == Mob.SEC4_P23 }?.capView = true
         onAction()
     }
 
@@ -285,8 +286,8 @@ class FragModuloSecc04: Fragment() {
             } else if (Mob.capMod?.v1check == null)
                 returnList.add(CreateIncon.inconsistencia(ctx, "289") ?: "")
 
-            Mob.isecc4 = returnList.isNotEmpty()
-            println("Secc4: ${Mob.isecc4}--${Mob.capMod}")
+            Mob.infoCap.find { it.indexCap == Mob.SEC4_P23 }?.incons = returnList.isNotEmpty()
+            println("Secc4: --${Mob.capMod}")
             return returnList
         }
     }

@@ -16,6 +16,7 @@ import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap5
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
+import gob.pa.inovacion_empresarial.view.FormActivity
 import java.text.DecimalFormat
 
 
@@ -34,6 +35,7 @@ class FragEncuestaCap05o2 : Fragment() {
     
     private val textWatcherList = mutableListOf<ModelTexWatchers>()
     //private val dvmCap4: DVModel by viewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -44,8 +46,9 @@ class FragEncuestaCap05o2 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.CAP5P07
-        if (Mob.seecap05o2) fillOut()
+        Mob.indiceFormulario = Mob.CAP5_P07
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP5_P07 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
     override fun onPause() {
@@ -176,7 +179,7 @@ class FragEncuestaCap05o2 : Fragment() {
                         } else if (view.text.isNullOrEmpty()) { //---- CERO al cambiar y esta empty
                             view.text = "0".toEditable()
                         } else { //---- Limpiar Textwatchers del view si sobrepasan cierto limite
-                            if (textWatcherList.size > Mob.MAXTEXWATCHERMANYROWS) {
+                            if (textWatcherList.size > Mob.MAX_TEXWATCHER_MANY_ROWS) {
                                 for (modelTexWatcher in textWatcherList) {
                                     modelTexWatcher.editext.removeTextChangedListener(
                                         modelTexWatcher.watcher)
@@ -212,7 +215,7 @@ class FragEncuestaCap05o2 : Fragment() {
                         }
                         else if (view.text.isNullOrEmpty()) { view.text = "0".toEditable() }
                         else {
-                            if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
+                            if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
                                 for (modelTexWatcher in textWatcherList) {
                                     modelTexWatcher.editext.removeTextChangedListener(
                                         modelTexWatcher.watcher
@@ -231,17 +234,17 @@ class FragEncuestaCap05o2 : Fragment() {
         with(bindingcap5o2) {
             fillOut35(cap5)
 
-            txtCap536A2021.text = cap5?.v36txtempNac21?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap536A2021.text = cap5?.v36txtempNac21?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap536A2022.text = cap5?.v36txtempNac22?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap536A2022.text = cap5?.v36txtempNac22?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap536B2021.text = cap5?.v36txtempExt21?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap536B2021.text = cap5?.v36txtempExt21?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap536B2022.text = cap5?.v36txtempExt22?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap536B2022.text = cap5?.v36txtempExt22?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap53612021.text = cap5?.v36txtempT21?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap53612021.text = cap5?.v36txtempT21?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap53612022.text = cap5?.v36txtempT22?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap53612022.text = cap5?.v36txtempT22?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
             when (cap5?.v37check) {
@@ -272,100 +275,100 @@ class FragEncuestaCap05o2 : Fragment() {
             } else checkCap5384.isChecked = false
 
         }
-        Mob.seecap05o2 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAP5_P07 }?.capView = true
         onAction()
     }
 
     private fun fillOut35(cap5: ModelCap5?) {
         with(bindingcap5o2) {
-            txtCap535AHNac.text = cap5?.v35txthomNaca?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535AHNac.text = cap5?.v35txthomNaca?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // A Hombres
-            txtCap535AHExt.text = cap5?.v35txthomExta?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535AHExt.text = cap5?.v35txthomExta?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535AMNac.text = cap5?.v35txtmujNaca?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535AMNac.text = cap5?.v35txtmujNaca?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // A Mujeres
-            txtCap535AMExt.text = cap5?.v35txtmujExta?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535AMExt.text = cap5?.v35txtmujExta?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535BHNac.text = cap5?.v35txthomNacb?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535BHNac.text = cap5?.v35txthomNacb?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // B Hombres
-            txtCap535BHExt.text = cap5?.v35txthomExtb?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535BHExt.text = cap5?.v35txthomExtb?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535BMNac.text = cap5?.v35txtmujNacb?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535BMNac.text = cap5?.v35txtmujNacb?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // B Mujeres
-            txtCap535BMExt.text = cap5?.v35txtmujExtb?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535BMExt.text = cap5?.v35txtmujExtb?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535CHNac.text = cap5?.v35txthomNacc?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535CHNac.text = cap5?.v35txthomNacc?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // C Hombres
-            txtCap535CHExt.text = cap5?.v35txthomExtc?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535CHExt.text = cap5?.v35txthomExtc?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535CMNac.text = cap5?.v35txtmujNacc?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535CMNac.text = cap5?.v35txtmujNacc?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // C Mujeres
-            txtCap535CMExt.text = cap5?.v35txtmujExtc?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535CMExt.text = cap5?.v35txtmujExtc?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535DHNac.text = cap5?.v35txthomNacd?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535DHNac.text = cap5?.v35txthomNacd?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // D Hombres
-            txtCap535DHExt.text = cap5?.v35txthomExtd?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535DHExt.text = cap5?.v35txthomExtd?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535DMNac.text = cap5?.v35txtmujNacd?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535DMNac.text = cap5?.v35txtmujNacd?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // D Mujeres
-            txtCap535DMExt.text = cap5?.v35txtmujExtd?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535DMExt.text = cap5?.v35txtmujExtd?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535EHNac.text = cap5?.v35txthomNace?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535EHNac.text = cap5?.v35txthomNace?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // E Hombres
-            txtCap535EHExt.text = cap5?.v35txthomExte?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535EHExt.text = cap5?.v35txthomExte?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535EMNac.text = cap5?.v35txtmujNace?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535EMNac.text = cap5?.v35txtmujNace?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // E Mujeres
-            txtCap535EMExt.text = cap5?.v35txtmujExte?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535EMExt.text = cap5?.v35txtmujExte?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535FHNac.text = cap5?.v35txthomNacf?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535FHNac.text = cap5?.v35txthomNacf?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // F Hombres
-            txtCap535FHExt.text = cap5?.v35txthomExtf?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535FHExt.text = cap5?.v35txthomExtf?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535FMNac.text = cap5?.v35txtmujNacf?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535FMNac.text = cap5?.v35txtmujNacf?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // F Mujeres
-            txtCap535FMExt.text = cap5?.v35txtmujExtf?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535FMExt.text = cap5?.v35txtmujExtf?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535GHNac.text = cap5?.v35txthomNacg?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535GHNac.text = cap5?.v35txthomNacg?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // G Hombres
-            txtCap535GHExt.text = cap5?.v35txthomExtg?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535GHExt.text = cap5?.v35txthomExtg?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535GMNac.text = cap5?.v35txtmujNacg?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535GMNac.text = cap5?.v35txtmujNacg?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // G Mujeres
-            txtCap535GMExt.text = cap5?.v35txtmujExtg?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535GMExt.text = cap5?.v35txtmujExtg?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535HHNac.text = cap5?.v35txthomNach?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535HHNac.text = cap5?.v35txthomNach?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // H Hombres
-            txtCap535HHExt.text = cap5?.v35txthomExth?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535HHExt.text = cap5?.v35txthomExth?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap535HMNac.text = cap5?.v35txtmujNach?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535HMNac.text = cap5?.v35txtmujNach?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // H Mujeres
-            txtCap535HMExt.text = cap5?.v35txtmujExth?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap535HMExt.text = cap5?.v35txtmujExth?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap5351HNac.text = cap5?.v35txthomNacT?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap5351HNac.text = cap5?.v35txthomNacT?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // 1 Hombres
-            txtCap5351HExt.text = cap5?.v35txthomExtT?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap5351HExt.text = cap5?.v35txthomExtT?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
 
-            txtCap5351MNac.text = cap5?.v35txtmujNacT?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap5351MNac.text = cap5?.v35txtmujNacT?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // 1 Mujeres
-            txtCap5351MExt.text = cap5?.v35txtmujExtT?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap5351MExt.text = cap5?.v35txtmujExtT?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
         }
     }
@@ -504,8 +507,8 @@ class FragEncuestaCap05o2 : Fragment() {
             if (cap5?.v38check4 == true  && cap5?.v38txt4.isNullOrEmpty())
                 returnList.add(CreateIncon.inconsistencia(ctx,"43") ?: "")
 
-            icap05o2 = returnList.isNotEmpty()
-            println("Cap5-part2: $icap05o2--$cap5")
+            infoCap.find { it.indexCap == CAP5_P07 }?.incons = returnList.isNotEmpty()
+            println("Cap5-part2: --$cap5")
             return returnList
         }
     }

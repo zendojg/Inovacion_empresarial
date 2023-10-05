@@ -20,6 +20,7 @@ import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap7
 import gob.pa.inovacion_empresarial.model.ModelSpinLister
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
+import gob.pa.inovacion_empresarial.view.FormActivity
 import java.text.DecimalFormat
 
 class FragEncuestaCap07o2 : Fragment() {
@@ -32,7 +33,6 @@ class FragEncuestaCap07o2 : Fragment() {
     private var row2EditTexts: List<EditText> = emptyList()
     private val decimalFormat = DecimalFormat("#,###")
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -43,10 +43,8 @@ class FragEncuestaCap07o2 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.CAP7P13
-
-        with(bindingcap7o2) {
-
+        Mob.indiceFormulario = Mob.CAP7_P13
+        bindingcap7o2.apply {
             row1EditTexts = listOf(
                 txtCap753A2021, txtCap753B2021, txtCap753C2021, txtCap753D2021,
                 txtCap753E2021, txtCap753F2021, txtCap753G2021,)
@@ -54,10 +52,9 @@ class FragEncuestaCap07o2 : Fragment() {
             row2EditTexts = listOf(
                 txtCap753A2022, txtCap753B2022, txtCap753C2022, txtCap753D2022,
                 txtCap753E2022, txtCap753F2022, txtCap753G2022,)
-
         }
-
-        if (Mob.seecap07o2) fillOut()
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP7_P13 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
 
@@ -112,7 +109,7 @@ class FragEncuestaCap07o2 : Fragment() {
                                 textWatcherList.add(modelTexWatchers)
                             }
                         } else {
-                            if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
+                            if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
                                 for (modelTexWatcher in textWatcherList) {
                                     modelTexWatcher.editext.removeTextChangedListener(
                                         modelTexWatcher.watcher
@@ -154,45 +151,44 @@ class FragEncuestaCap07o2 : Fragment() {
 
     private fun fillOut() {
         val cap7 = Mob.formComp?.cap7
-        with(bindingcap7o2) {
+        bindingcap7o2.apply {
+            txtCap753A2021.text = cap7?.v53num21a?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+            txtCap753A2022.text = cap7?.v53num22a?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+            txtCap753B2021.text = cap7?.v53num21b?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+            txtCap753B2022.text = cap7?.v53num22b?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+            txtCap753C2021.text = cap7?.v53num21c?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+            txtCap753C2022.text = cap7?.v53num22c?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+            txtCap753D2021.text = cap7?.v53num21d?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+            txtCap753D2022.text = cap7?.v53num22d?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+            txtCap753E2021.text = cap7?.v53num21e?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+            txtCap753E2022.text = cap7?.v53num22e?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+            txtCap753F2021.text = cap7?.v53num21f?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+            txtCap753F2022.text = cap7?.v53num22f?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+            txtCap753G2021.text = cap7?.v53num21g?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+            txtCap753G2022.text = cap7?.v53num22g?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+            txtCap753GOtro.text = cap7?.v53txtgdesc?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
+                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
 
-            txtCap753A2021.text = cap7?.v53num21a?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap753T2021.text = cap7?.v53num1T21?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753A2022.text = cap7?.v53num22a?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753B2021.text = cap7?.v53num21b?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753B2022.text = cap7?.v53num22b?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753C2021.text = cap7?.v53num21c?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753C2022.text = cap7?.v53num22c?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753D2021.text = cap7?.v53num21d?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753D2022.text = cap7?.v53num22d?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753E2021.text = cap7?.v53num21e?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753E2022.text = cap7?.v53num22e?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753F2021.text = cap7?.v53num21f?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753F2022.text = cap7?.v53num22f?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753G2021.text = cap7?.v53num21g?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753G2022.text = cap7?.v53num22g?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753GOtro.text = cap7?.v53txtgdesc?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-
-            txtCap753T2021.text = cap7?.v53num1T21?.toDouble()?.toInt()?.takeIf { it > 0 }
-                ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
-            txtCap753T2022.text = cap7?.v53num1T22?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap753T2022.text = cap7?.v53num1T22?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
         }
-        Mob.seecap07o2 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAP7_P13 }?.capView = true
         onAction()
     }
 
@@ -332,9 +328,8 @@ class FragEncuestaCap07o2 : Fragment() {
             if (cap7?.v54txt15.isNullOrEmpty() && cap7?.v54txt15?.isNotEmpty() == true)
                 returnList.add(CreateIncon.inconsistencia(ctx, "130") ?: "")
 
-
-            icap07o2 = returnList.isNotEmpty()
-            println("---------Is not empty: $icap07o2--$cap7")
+            infoCap.find { it.indexCap == CAP7_P13 }?.incons = returnList.isNotEmpty()
+            println("Cap7_2: --$cap7")
             return returnList
         }
     }

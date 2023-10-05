@@ -34,6 +34,7 @@ class FragMenu : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        Mob.indiceFormulario = Mob.MENU_P00
         action()
     }
 
@@ -70,25 +71,25 @@ class FragMenu : Fragment() {
             }
             //-----------------------
             //----- Comenzar Encuesta
-            btcap01main.setOnClickListener { viewpager(Mob.CAP1P01) }
-            btcap02main.setOnClickListener { viewpager(Mob.CAP2P02) }
-            btcap03main.setOnClickListener { viewpager(Mob.CAP3P04) }
-            btcap04main.setOnClickListener { viewpager(Mob.CAP4P05) }
-            btcap05main.setOnClickListener { viewpager(Mob.CAP5P06) }
-            btcap06main.setOnClickListener { viewpager(Mob.CAP6P08) }
-            btcap07main.setOnClickListener { viewpager(Mob.CAP7P12) }
-            btcap08main.setOnClickListener { viewpager(Mob.CAP8P15) }
-            btcap09main.setOnClickListener { viewpager(Mob.CAP9P17) }
-            btcap10main.setOnClickListener { viewpager(Mob.CAPXP19) }
+            btcap01main.setOnClickListener { viewpager(Mob.CAP1_P01) }
+            btcap02main.setOnClickListener { viewpager(Mob.CAP2_P02) }
+            btcap03main.setOnClickListener { viewpager(Mob.CAP3_P04) }
+            btcap04main.setOnClickListener { viewpager(Mob.CAP4_P05) }
+            btcap05main.setOnClickListener { viewpager(Mob.CAP5_P06) }
+            btcap06main.setOnClickListener { viewpager(Mob.CAP6_P08) }
+            btcap07main.setOnClickListener { viewpager(Mob.CAP7_P12) }
+            btcap08main.setOnClickListener { viewpager(Mob.CAP8_P15) }
+            btcap09main.setOnClickListener { viewpager(Mob.CAP9_P17) }
+            btcap10main.setOnClickListener { viewpager(Mob.CAPX_P19) }
             //----- Comenzar Modulo
-            btsec01main.setOnClickListener { viewpager(Mob.SEC1P20) }
-            btsec02main.setOnClickListener { viewpager(Mob.SEC2P21) }
-            btsec03main.setOnClickListener { viewpager(Mob.SEC3P22) }
-            btsec04main.setOnClickListener { viewpager(Mob.SEC4P23) }
-            btsec05main.setOnClickListener { viewpager(Mob.OBSP24) }
+            btsec01main.setOnClickListener { viewpager(Mob.SEC1_P20) }
+            btsec02main.setOnClickListener { viewpager(Mob.SEC2_P21) }
+            btsec03main.setOnClickListener { viewpager(Mob.SEC3_P22) }
+            btsec04main.setOnClickListener { viewpager(Mob.SEC4_P23) }
+            btsec05main.setOnClickListener { viewpager(Mob.OBSE_P24) }
 
 
-            if (Mob.indiceFormulario < Mob.SEC1P20) {
+            if (Mob.indiceFormulario < Mob.SEC1_P20) {
                 if (!linearEncuestaMain.isVisible) btEncuestaMain.callOnClick()
             } else {
                 if (!linearModuloMain.isVisible) btModuloMain.callOnClick()

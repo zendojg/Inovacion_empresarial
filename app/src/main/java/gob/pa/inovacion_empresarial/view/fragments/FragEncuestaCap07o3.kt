@@ -15,13 +15,12 @@ import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap7
 import gob.pa.inovacion_empresarial.model.ModelSpinLister
+import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap07o3 : Fragment() {
 
     private lateinit var bindingcap7o3: EncuestaCapitulo07Part3Binding
     private lateinit var ctx: Context
-    private val spinList = mutableListOf<ModelSpinLister>()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -33,27 +32,32 @@ class FragEncuestaCap07o3 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-
-        Mob.indiceFormulario = Mob.CAP7P14
-        if (Mob.seecap07o3) fillOut()
+        Mob.indiceFormulario = Mob.CAP7_P14
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP7_P14 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
 
     private fun onAction() {
         with(bindingcap7o3) {
-            spinList.clear()
-            spinList.add(ModelSpinLister(spinCap7551A, Mob.cap7?.v55txt1a?.toIntOrNull() ?: 0))
-            spinList.add(ModelSpinLister(spinCap7551B, Mob.cap7?.v55txt1b?.toIntOrNull() ?: 0))
-            spinList.add(ModelSpinLister(spinCap7551C, Mob.cap7?.v55txt1c?.toIntOrNull() ?: 0))
-            spinList.add(ModelSpinLister(spinCap7552A, Mob.cap7?.v55txt2a?.toIntOrNull() ?: 0))
-            spinList.add(ModelSpinLister(spinCap7552B, Mob.cap7?.v55txt2b?.toIntOrNull() ?: 0))
-            spinList.add(ModelSpinLister(spinCap7552C, Mob.cap7?.v55txt2c?.toIntOrNull() ?: 0))
-            spinList.add(ModelSpinLister(spinCap7552D, Mob.cap7?.v55txt2d?.toIntOrNull() ?: 0))
-            spinList.add(ModelSpinLister(spinCap7553A, Mob.cap7?.v55txt3a?.toIntOrNull() ?: 0))
-            spinList.add(ModelSpinLister(spinCap7553B, Mob.cap7?.v55txt3b?.toIntOrNull() ?: 0))
-            spinList.add(ModelSpinLister(spinCap7554A, Mob.cap7?.v55txt4a?.toIntOrNull() ?: 0))
-            spinList.add(ModelSpinLister(spinCap7554B, Mob.cap7?.v55txt4b?.toIntOrNull() ?: 0))
-            spinList.add(ModelSpinLister(spinCap7554C, Mob.cap7?.v55txt4c?.toIntOrNull() ?: 0))
+            //val spinList = mutableListOf<ModelSpinLister>()
+            val v55txtFields = listOf(
+                Mob.cap7?.v55txt1a, Mob.cap7?.v55txt1b, Mob.cap7?.v55txt1c,
+                Mob.cap7?.v55txt2a, Mob.cap7?.v55txt2b, Mob.cap7?.v55txt2c, Mob.cap7?.v55txt2d,
+                Mob.cap7?.v55txt3a, Mob.cap7?.v55txt3b,
+                Mob.cap7?.v55txt4a, Mob.cap7?.v55txt4b, Mob.cap7?.v55txt4c
+            )
+
+            val spinFields = listOf(
+                spinCap7551A, spinCap7551B, spinCap7551C,
+                spinCap7552A, spinCap7552B, spinCap7552C, spinCap7552D,
+                spinCap7553A, spinCap7553B,
+                spinCap7554A, spinCap7554B, spinCap7554C
+            )
+            val spinList = v55txtFields.mapIndexed { index, v55txtField ->
+                val value = v55txtField?.toIntOrNull() ?: 0
+                ModelSpinLister(spinFields[index], value)
+            }.toMutableList()
 
             val imp55Adp = ArrayAdapter(ctx, R.layout.style_box, Mob.arrGrade)
             imp55Adp.setDropDownViewResource(R.layout.style_list)
@@ -85,7 +89,7 @@ class FragEncuestaCap07o3 : Fragment() {
     }
 
     private fun fillOut() {
-        Mob.seecap07o3 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAP7_P14 }?.capView = true
         onAction()
     }
 
@@ -208,8 +212,8 @@ class FragEncuestaCap07o3 : Fragment() {
             if (cap7?.v55txt4c.isNullOrEmpty() || cap7?.v55txt4c == "0")
                 returnList.add(CreateIncon.inconsistencia(ctx, "142") ?: "")
 
-            icap07o3 = returnList.isNotEmpty()
-            println("---------Is not empty: $icap07o3--$cap7")
+            infoCap.find { it.indexCap == CAP7_P14 }?.incons = returnList.isNotEmpty()
+            println("Cap7_part3: --$cap7")
             return returnList
         }
     }

@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -63,7 +65,7 @@ class FragTotalInforme : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.OBSP24
+        Mob.indiceFormulario = Mob.OBSE_P24
         fillOut()
     }
 
@@ -76,7 +78,6 @@ class FragTotalInforme : Fragment() {
             txtnewRazon.text = Mob.condicion?.newRazon?.toEditable() ?: blank
             txtnewNcontrol.text = Mob.condicion?.newNcontrol?.toEditable() ?: blank
             txtespecifiqueCondicion.text = Mob.condicion?.especifique?.toEditable() ?: blank
-            //txtespecifiqueCondicion.text = "".toEditable()
         }
         onAction()
     }
@@ -84,9 +85,9 @@ class FragTotalInforme : Fragment() {
     private fun onAction() {
         with(bindinginfo) {
             if (Mob.authData?.rol != "E") {
-                btSendObs.isEnabled = false
-                btViewObs.isEnabled = false
                 btEnd.isVisible = true
+                btSendObs.isEnabled = false
+                btViewForm.isEnabled = false
                 txtCondicion.isEnabled = false
                 txtnewRazon.isFocusable = false
                 txtnewNcontrol.isFocusable = false
@@ -97,23 +98,18 @@ class FragTotalInforme : Fragment() {
 
             if (lbcondicionID.text.isNullOrEmpty()) lbcondicionID.text = Mob.condicionID ?: ""
 
-            val idCondInt = try { (Mob.condicionID?.toInt() ?: 0) -1 }
-            catch (e: java.lang.NumberFormatException) { null }
-            txtCondicion.setText(Mob.arrCondicion[idCondInt ?: 0],false)
+            val idCondInt = Mob.condicionID?.toIntOrNull()?.takeIf { it > 0 }?.let { it - 1 }
+            txtCondicion.setText(Mob.arrCondicion.getOrElse(idCondInt ?: 0) { "" }, false)
 
             with(txtCondicion.text.toString()) {
                 when {
-                    contains(Mob.arrCondicion[Mob.CONDICION02]) -> {
+                    contains(Mob.arrCondicion[Mob.CONDICION_02]) ||
+                            contains(Mob.arrCondicion[Mob.CONDICION_04]) -> {
                         txtespecifiqueCondicionly.visibility = View.GONE
                         txtnewNcontrolly.visibility = View.VISIBLE
                         txtnewRazonly.visibility = View.VISIBLE
                     }
-                    contains(Mob.arrCondicion[Mob.CONDICION04]) -> {
-                        txtespecifiqueCondicionly.visibility = View.GONE
-                        txtnewNcontrolly.visibility = View.VISIBLE
-                        txtnewRazonly.visibility = View.VISIBLE
-                    }
-                    contains(Mob.arrCondicion[Mob.CONDICION08]) -> {
+                    contains(Mob.arrCondicion[Mob.CONDICION_08]) -> {
                         txtespecifiqueCondicionly.visibility = View.VISIBLE
                         txtnewNcontrolly.visibility = View.INVISIBLE
                         txtnewRazonly.visibility = View.GONE
@@ -125,111 +121,109 @@ class FragTotalInforme : Fragment() {
                     }
                 }
             }
-            val condicion = ArrayAdapter(ctx, R.layout.style_box, Mob.arrCondicion)
-            condicion.setDropDownViewResource(R.layout.style_list)
-            txtCondicion.setAdapter(condicion)
-            txtCondicion.setOnItemClickListener { _, _, pos, _ ->
-                Mob.condicionID = "0" + (pos + 1)
-                lbcondicionID.text = Mob.condicionID
-                when (pos) {
-                    Mob.CONDICION02 -> {
-                        txtespecifiqueCondicionly.visibility = View.GONE
-                        txtnewNcontrolly.visibility = View.VISIBLE
-                        txtnewRazonly.visibility = View.VISIBLE
-                    }
-                    Mob.CONDICION04 -> {
-                        txtespecifiqueCondicionly.visibility = View.GONE
-                        txtnewNcontrolly.visibility = View.VISIBLE
-                        txtnewRazonly.visibility = View.VISIBLE
-                    }
-                    Mob.CONDICION08 -> {
-                        txtespecifiqueCondicionly.visibility = View.VISIBLE
-                        txtnewNcontrolly.visibility = View.INVISIBLE
-                        txtnewRazonly.visibility = View.GONE
-                    }
-                    else -> {
-                        txtespecifiqueCondicionly.visibility = View.GONE
-                        txtnewNcontrolly.visibility = View.INVISIBLE
-                        txtnewRazonly.visibility = View.INVISIBLE
+            val condicionAdapter = ArrayAdapter(ctx, R.layout.style_box, Mob.arrCondicion)
+            condicionAdapter.setDropDownViewResource(R.layout.style_list)
+            txtCondicion.apply {
+                setAdapter(condicionAdapter)
+                setOnItemClickListener { _, _, pos, _ ->
+                    Mob.condicionID = "0" + (pos + 1)
+                    lbcondicionID.text = Mob.condicionID
+                    when (pos) {
+                        Mob.CONDICION_02, Mob.CONDICION_04  -> {
+                            txtespecifiqueCondicionly.visibility = View.GONE
+                            txtnewNcontrolly.visibility = View.VISIBLE
+                            txtnewRazonly.visibility = View.VISIBLE
+                        }
+                        Mob.CONDICION_08 -> {
+                            txtespecifiqueCondicionly.visibility = View.VISIBLE
+                            txtnewNcontrolly.visibility = View.INVISIBLE
+                            txtnewRazonly.visibility = View.GONE
+                        }
+                        else -> {
+                            txtespecifiqueCondicionly.visibility = View.GONE
+                            txtnewNcontrolly.visibility = View.INVISIBLE
+                            txtnewRazonly.visibility = View.INVISIBLE
+                        }
                     }
                 }
+
             }
+
+            txtInfoObsEncuesta.addTextChangedListener(object : TextWatcher {
+                override fun afterTextChanged(s: Editable?) { /* Empty */ }
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {/* Empty */}
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                Mob.obsEncuesta = s.toString()
+                }
+            })
+            txtInfoObsModulo.addTextChangedListener(object : TextWatcher {
+                override fun afterTextChanged(s: Editable?) { /* Empty */ }
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {/* Empty */}
+                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                    Mob.obsModulo = s.toString()
+                }
+            })
 
             btSendObs.setOnClickListener {
                 if (Mob.authData?.rol == "E" && Functions.isOnline(ctx)) {
-                    saveCap()
-                    senFormulario(CreateForm.create())
+                    saveCapInforme()
+                    sendFormulario(CreateForm.create())
                 } else if (!Functions.isOnline(ctx)){
                     val color = ContextCompat.getColor(ctx, R.color.dark_red)
-                    msgBallom("Sin internet disponible", Mob.WIDTH160DP, color)
+                    msgBallom("Sin red disponible", Mob.WIDTH160DP, color)
                 }
             }
+            btViewForm.setOnClickListener { reviewForm() }
             btEnd.setOnClickListener { endForm() }
 
         }
     }
 
-    private fun senFormulario(form: ModelForm) {
-        val screen = AlertDialog.Builder(ctx)
-        val screenBlack: AlertDialog = screen.create()
-        screenBlack.setCancelable(false)
+    private fun reviewForm() {
+        val inconsistencias = Mob.infoCap.all { !it.incons } //--- true = algún cap con incon
+        val viewCaps = Mob.infoCap.all { it.capView }        //--- true = todos los cap cargados
+
+
+    }
+
+    private fun sendFormulario(form: ModelForm) {
+        val screenBlack = AlertDialog.Builder(ctx)
+            .setCancelable(false)
+            .create()
         screenBlack.show()
+
         lifecycleScope.launch {
             bindinginfo.barInforme.visibility = View.VISIBLE
-            val resp = dvmInforme.sendForm(form)
-            savedForm(form)
-            with(resp.code) {
-                when {
-                    contains("java.net.UnknownHostException")  ||
-                            contains("java.net.ConnectException")  ||
-                            contains("java.net.SocketTimeoutException") -> {
-                        val color = ContextCompat.getColor(ctx, R.color.dark_red)
-                        msgBallom("Sin respuesta del servidor", Mob.WIDTH180DP, color)
-                    }
-                    contains("failed to connect to") -> {
-                        val color = ContextCompat.getColor(ctx, R.color.dark_red)
-                        msgBallom("No es posible conectar al servidor", Mob.WIDTH220DP, color)
-                    }
-                    contains("200")
-                    -> {
+            try {
+                val resp = dvmInforme.sendForm(form)
+                savedForm(form)
+
+                when (resp.code) {
+                    "200" -> {
                         Handler(Looper.getMainLooper()).postDelayed({
-                            val respGson: String = try {
-                                Gson().toJson(resp.body) as String
+                            val respGson: String = try { Gson().toJson(resp.body) as String
                             } catch (e: JsonParseException) { "" }
                             carga(respGson)
-                        }, (Mob.TIME800MS))
+                        }, Mob.TIME800MS)
                     }
-                    contains("400") -> {
-                        val color = ContextCompat.getColor(ctx, R.color.dark_red)
-                        msgBallom("Error en el cuestionario", Mob.WIDTH180DP, color)
-                    }
-                    contains("401") -> {
-                        val color = ContextCompat.getColor(ctx, R.color.dark_red)
-                        msgBallom("Sesión expirada", Mob.WIDTH160DP, color)
-                    }
-                    contains("404") -> {
-                        val color = ContextCompat.getColor(ctx, R.color.dark_red)
-                        msgBallom("Formulario no encontrado", Mob.WIDTH180DP, color)
-                    }
-                    contains("500") -> {
-                        val color = ContextCompat.getColor(ctx, R.color.dark_red)
-                        msgBallom("Error en el servidor", Mob.WIDTH160DP, color)
-                    }
+                    "400" -> msgBallom("Error en el cuestionario", Mob.WIDTH180DP, R.color.dark_red)
+                    "401" -> msgBallom("Sesión expirada", Mob.WIDTH160DP, R.color.dark_red)
+                    "404" -> msgBallom("Formulario no encontrado", Mob.WIDTH180DP, R.color.dark_red)
+                    "500" -> msgBallom("Error en el servidor", Mob.WIDTH160DP, R.color.dark_red)
                     else -> {
-                        if (resp.server.isNullOrEmpty()) {
-                            val color = ContextCompat.getColor(ctx, R.color.dark_red)
-                            msgBallom("Fuera de cobertura", Mob.WIDTH160DP, color)
-                        }
-                        else Toast.makeText(ctx, "${resp.server}", Toast.LENGTH_SHORT).show()
+                        if (resp.server.isNullOrEmpty())
+                            msgBallom("Fuera de cobertura", Mob.WIDTH160DP, R.color.dark_red)
+                         else Toast.makeText(ctx, resp.server, Toast.LENGTH_SHORT).show()
                     }
                 }
+            } catch (e: Exception) {
+                msgBallom("Error de red", Mob.WIDTH180DP, R.color.dark_red)
+            } finally {
+                Handler(Looper.getMainLooper()).postDelayed({
+                    screenBlack.dismiss()
+                    bindinginfo.barInforme.visibility = View.INVISIBLE
+                }, Mob.TIME800MS)
             }
-            Handler(Looper.getMainLooper()).postDelayed({
-                screenBlack.dismiss()
-                bindinginfo.barInforme.visibility = View.INVISIBLE
-            }, (Mob.TIME800MS))
-
-
         }
     }
 
@@ -258,7 +252,7 @@ class FragTotalInforme : Fragment() {
             bindSend.txt2styleFly.visibility = View.GONE
         } else bindSend.txtmsgStyle.text = getString(R.string.sendSuccessWithIncon)
 
-        val ncont = Functions.ceroLeft(jsonModel?.ncontrol?.toString() ?: "0", Mob.FOR5DIGITS)
+        val ncont = Functions.ceroLeft(jsonModel?.ncontrol?.toString() ?: "0", Mob.FOR_5_DIGITS)
         bindSend.txt1styleF.text = try { ncont.toEditable() }
         catch (e: RuntimeException) { "00".toEditable() }
 
@@ -270,8 +264,6 @@ class FragTotalInforme : Fragment() {
         aDialog = msgSend.create()
         aDialog?.setCancelable(false)
         aDialog?.show()
-
-
         aDialog?.window?.setGravity(Gravity.CENTER)
 
         bindSend.btEnd.setOnClickListener {
@@ -279,12 +271,10 @@ class FragTotalInforme : Fragment() {
             endForm()
         }
 
-
         bindSend.btCancel.setOnClickListener {
             aDialog?.dismiss()
             bindinginfo.btEnd.visibility = View.VISIBLE
         }
-
     }
 
     private fun endForm() {
@@ -310,8 +300,6 @@ class FragTotalInforme : Fragment() {
         }, (Mob.TIME800MS))
     }
 
-
-
     private fun msgBallom(msg: String, width: Int, color: Int) {
         val alert = Functions.msgBallom(msg, width, ctx, color)
         val localization = activity?.findViewById<View>(R.id.txtInfopager)
@@ -320,8 +308,9 @@ class FragTotalInforme : Fragment() {
         alert.dismissWithDelay(Mob.TIMELONG4SEG)
     }
 
-    fun saveCap(): List<String> {
+    fun saveCapInforme(): List<String> {
         with(bindinginfo) {
+
             Mob.condicion = ModelCondicion(
                 id = Mob.condicion?.id,
                 idcondi = lbcondicionID.text.toString().ifEmpty { null },

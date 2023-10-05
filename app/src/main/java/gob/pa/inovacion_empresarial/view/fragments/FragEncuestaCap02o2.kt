@@ -12,6 +12,7 @@ import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap2
+import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap02o2 : Fragment() {
 
@@ -32,8 +33,10 @@ class FragEncuestaCap02o2 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.CAP2P03
-        if (Mob.seecap02o2) fillOut()
+        Mob.indiceFormulario = Mob.CAP2_P03
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP2_P03 }
+
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
     private fun onAction() {
@@ -49,17 +52,6 @@ class FragEncuestaCap02o2 : Fragment() {
                 btCap219tel1.isEnabled = true
                 frameview = false
             }
-            lowCap2o2.setOnClickListener { saveCap() }
-//            txtCap221.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-//                if (!hasFocus && txtCap221.text.toString().isNotEmpty()) {
-//                    if (!txtCap221.text.toString().contains("@")) {
-//                        val alert = Functions.msgMark(
-//                            "Correo electronico inválido",190,ctx, Color.BLUE)
-//                        alert.showAlignBottom(txtCap221)
-//                        alert.dismissWithDelay(2000L)
-//                    }
-//                }
-//            }
         }
     }
 
@@ -76,7 +68,7 @@ class FragEncuestaCap02o2 : Fragment() {
             txtCap220.text = cap2?.v20celtxt?.toEditable() ?: blank
             frameview = !txtCap2192.text.isNullOrBlank()
         }
-        Mob.seecap02o2 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAP2_P03 }?.capView = true
         onAction()
     }
 
@@ -120,8 +112,8 @@ class FragEncuestaCap02o2 : Fragment() {
             if (cap2?.v17cargotxt.isNullOrEmpty() && cap2?.v16infonametxt?.isNotEmpty() == true)
                 returnList.add(CreateIncon.inconsistencia(ctx,"5") ?: "")
 
-            icap02o2 = returnList.isNotEmpty()
-            println("---------Is not empty: $icap02o2--$cap2")
+            infoCap.find { it.indexCap == CAP2_P03 }?.incons = returnList.isNotEmpty()
+            println("Cap2_par2: --$cap2")
             return returnList
         }
     }

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.skydoves.balloon.ArrowOrientation
 import com.skydoves.balloon.Balloon
 import com.skydoves.balloon.BalloonAnimation
+import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.model.Mob
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -21,12 +22,11 @@ import java.util.Date as fecha
 
 object Functions {
 
-    private const val ARROWSIZE = 10
-    private const val ARROWPOS = 0.5f
+//    private const val ARROWSIZE = 10
+//    private const val ARROWPOS = 0.5f
     private const val CORNER = 4f
-
-    private const val HEIGHTMARK = 50
     private const val HEIGHTBALLON = 28
+//    private const val HEIGHTMARK = 50
 
 //    fun msgMark(msg: String, width: Int, ctx: Context, color: Int): Balloon {
 //        return Balloon.Builder(ctx)
@@ -73,7 +73,7 @@ object Functions {
     }
 
     fun yearArray(): IntArray {
-        val initYear = Mob.INITIALYEAR
+        val initYear = Mob.INITIAL_YEAR
         val aYears: Int = ((myDate().aString("yyyy")).toInt())
         val years = IntArray(aYears + 1 - initYear)
         for (i in years.indices) {

@@ -12,6 +12,7 @@ import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.allFalse
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelMod
+import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragModuloSecc02 : Fragment() {
 
@@ -28,8 +29,9 @@ class FragModuloSecc02 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.SEC2P21
-        if (Mob.seesecc2) fillOut()
+        Mob.indiceFormulario = Mob.SEC2_P21
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.SEC2_P21 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
 
@@ -47,7 +49,7 @@ class FragModuloSecc02 : Fragment() {
             checkSecc233.isChecked = mod2?.v3check3 == true
             checkSecc234.isChecked = mod2?.v3check4 == true
         }
-        Mob.seesecc2 = false
+        Mob.infoCap.find { it.indexCap == Mob.SEC2_P21 }?.capView = true
         onAction()
     }
 
@@ -114,8 +116,8 @@ class FragModuloSecc02 : Fragment() {
             else if (Mob.capMod?.v1check == null)
                 returnList.add(CreateIncon.inconsistencia(ctx, "289") ?: "")
 
-            Mob.isecc2 = returnList.isNotEmpty()
-            println("Secc2: ${Mob.isecc2}--${Mob.capMod}")
+            Mob.infoCap.find { it.indexCap == Mob.SEC2_P21 }?.incons = returnList.isNotEmpty()
+            println("Secc2: --${Mob.capMod}")
             return returnList
         }
     }

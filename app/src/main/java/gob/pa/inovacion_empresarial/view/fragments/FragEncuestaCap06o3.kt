@@ -19,6 +19,7 @@ import gob.pa.inovacion_empresarial.function.Functions.allTrue
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap6
 import gob.pa.inovacion_empresarial.model.ModelSpinLister
+import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap06o3 : Fragment() {
 
@@ -38,8 +39,9 @@ class FragEncuestaCap06o3 : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        Mob.indiceFormulario = Mob.CAP6P10
-        if (Mob.seecap06o3) fillOut()
+        Mob.indiceFormulario = Mob.CAP6_P10
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP6_P10 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
 
@@ -132,7 +134,7 @@ class FragEncuestaCap06o3 : Fragment() {
                 cap6?.v46check22o3)
 
         }
-        Mob.seecap06o3 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAP6_P10 }?.capView = true
         onAction()
     }
 
@@ -247,8 +249,8 @@ class FragEncuestaCap06o3 : Fragment() {
                 returnList.add(CreateIncon.inconsistencia(ctx, "78") ?: "")
 
 
-            icap06o3 = returnList.isNotEmpty()
-            println("---------Is not empty: $icap06o3--$cap6")
+            infoCap.find { it.indexCap == CAP6_P10 }?.incons = returnList.isNotEmpty()
+            println("Cap6_part3: --$cap6")
             return returnList
         }
     }

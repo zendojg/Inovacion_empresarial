@@ -17,6 +17,7 @@ import gob.pa.inovacion_empresarial.function.Functions.allTrue
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap6
 import gob.pa.inovacion_empresarial.model.ModelSpinLister
+import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap06o4 : Fragment() {
     private lateinit var bindingcap6o4: EncuestaCapitulo064InovacionComercializacionBinding
@@ -34,10 +35,9 @@ class FragEncuestaCap06o4 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-
-
-        Mob.indiceFormulario = Mob.CAP6P11
-        if (Mob.seecap06o4) fillOut()
+        Mob.indiceFormulario = Mob.CAP6_P11
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP6_P11 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
 
@@ -141,7 +141,7 @@ class FragEncuestaCap06o4 : Fragment() {
                 }
             }
         }
-        Mob.seecap06o4 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAP6_P11 }?.capView = true
         onAction()
     }
 
@@ -242,8 +242,8 @@ class FragEncuestaCap06o4 : Fragment() {
             if (!check && cap6?.v49txtGrado1.isNullOrEmpty())
                 returnList.add(CreateIncon.inconsistencia(ctx, "89") ?: "")
 
-            icap06o4 = returnList.isNotEmpty()
-            println("Cap6-part4: incon:$icap06o4--$cap6")
+            infoCap.find { it.indexCap == CAP6_P11 }?.incons = returnList.isNotEmpty()
+            println("Cap6-part4: --$cap6")
             return returnList
         }
     }

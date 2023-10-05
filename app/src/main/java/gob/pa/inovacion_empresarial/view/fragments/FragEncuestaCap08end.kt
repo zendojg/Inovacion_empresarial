@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Spinner
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
@@ -15,28 +16,13 @@ import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap8
+import gob.pa.inovacion_empresarial.model.ModelSpinLister
+import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap08end : Fragment() {
 
     private lateinit var bindingcap8o2: EncuestaCapitulo08CoclusionBinding
     private lateinit var ctx: Context
-
-    private var indice1a = 0
-    private var indice1b = 0
-    private var indice1c = 0
-
-    private var indice2a = 0
-    private var indice2b = 0
-    private var indice2c = 0
-    private var indice2d = 0
-
-    private var indice3a = 0
-    private var indice3b = 0
-
-    private var indice4a = 0
-    private var indice4b = 0
-    private var indice4c = 0
-    private var indice4d = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -48,9 +34,9 @@ class FragEncuestaCap08end : Fragment() {
 
     override fun onResume() {
         super.onResume()
-
-        Mob.indiceFormulario = Mob.CAP8P16
-        if (Mob.seecap08o2) fillOut()
+        Mob.indiceFormulario = Mob.CAP8_P16
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP8_P16 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
 
@@ -58,165 +44,64 @@ class FragEncuestaCap08end : Fragment() {
         with(bindingcap8o2) {
             scrollForm.isVisible = Mob.cap8?.v56check != false
 
-            lowCap8o2.setOnClickListener { saveCap() }
             if (Mob.cap8?.v56check == true) tb58.isVisible = true
             else if (Mob.cap8?.v56check == false) tb58.isVisible = false
 
-            val grade58 = ArrayAdapter(ctx, R.layout.style_box, Mob.arrGrade)
-            grade58.setDropDownViewResource(R.layout.style_list)
 
-            spinCap8581A.adapter = grade58
-            spinCap8581B.adapter = grade58
-            spinCap8581C.adapter = grade58
-            spinCap8582A.adapter = grade58
-            spinCap8582B.adapter = grade58
-            spinCap8582C.adapter = grade58
-            spinCap8582D.adapter = grade58
-            spinCap8583A.adapter = grade58
-            spinCap8583B.adapter = grade58
-            spinCap8584A.adapter = grade58
-            spinCap8584B.adapter = grade58
-            spinCap8584C.adapter = grade58
-            spinCap8584D.adapter = grade58
+            val v58txtFields = listOf(
+                Mob.cap8?.v58num1a, Mob.cap8?.v58num1b, Mob.cap8?.v58num1c,
+                Mob.cap8?.v58num2a, Mob.cap8?.v58num2b, Mob.cap8?.v58num2c, Mob.cap8?.v58num2d,
+                Mob.cap8?.v58num3a, Mob.cap8?.v58num3b,
+                Mob.cap8?.v58num4a, Mob.cap8?.v58num4b, Mob.cap8?.v58num4c, Mob.cap8?.v58num4d
+            )
+            val spinFields = listOf(
+                spinCap8581A, spinCap8581B, spinCap8581C,
+                spinCap8582A, spinCap8582B, spinCap8582C, spinCap8582D,
+                spinCap8583A, spinCap8583B,
+                spinCap8584A, spinCap8584B, spinCap8584C, spinCap8584D
+            )
 
-            spinCap8581A.setSelection(indice1a)
-            spinCap8581B.setSelection(indice1b)
-            spinCap8581C.setSelection(indice1c)
-            spinCap8582A.setSelection(indice2a)
-            spinCap8582B.setSelection(indice2b)
-            spinCap8582C.setSelection(indice2c)
-            spinCap8582D.setSelection(indice2d)
-            spinCap8583A.setSelection(indice3a)
-            spinCap8583B.setSelection(indice3b)
-            spinCap8584A.setSelection(indice4a)
-            spinCap8584B.setSelection(indice4b)
-            spinCap8584C.setSelection(indice4c)
-            spinCap8584D.setSelection(indice4d)
+            val spinList = v58txtFields.mapIndexed { index, v58txtField ->
+                val value = v58txtField?.toIntOrNull() ?: 0
+                ModelSpinLister(spinFields[index], value)
+            }.toMutableList()
 
-            spinsAction()
-        }
-    }
+            val gradeImportance = ArrayAdapter(ctx, R.layout.style_box, Mob.arrGrade)
+            gradeImportance.setDropDownViewResource(R.layout.style_list)
 
-    private fun spinsAction() {
-        with(bindingcap8o2) {
-
-            spinCap8581A.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice1a = pos
+            for (index in 0 until tb58.childCount) {
+                val view = tb58.getChildAt(index)
+                if (view is Spinner) {
+                    view.adapter = gradeImportance
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
             }
-            spinCap8581B.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice1b = pos
-                }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
+            for (modelSpinLister in spinList) {
+                val spinner = modelSpinLister.spinner
+                val indice = modelSpinLister.indice
+                if (indice >= 0 && indice < spinner.adapter.count) { spinner.setSelection(indice) }
             }
-            spinCap8581C.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice1c = pos
-                }
 
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
-            }
-            spinCap8582A.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice2a = pos
+            for (modelSpinLister in spinList) {
+                val spinner = modelSpinLister.spinner
+                spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                    override fun onItemSelected(
+                        parent: AdapterView<*>?,
+                        view: View?,
+                        position: Int,
+                        id: Long
+                    ) { modelSpinLister.indice = position }
+                    override fun onNothingSelected(parent: AdapterView<*>?) { /* sin selección */ }
                 }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
-            }
-            spinCap8582B.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice2b = pos
-                }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
-            }
-            spinCap8582C.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice2c = pos
-                }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
-            }
-            spinCap8582D.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice2d = pos
-                }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
-            }
-            spinCap8583A.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice3a = pos
-                }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
-            }
-            spinCap8583B.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice3b = pos
-                }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
-            }
-            spinCap8582A.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice4a = pos
-                }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
-            }
-            spinCap8582B.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice4b = pos
-                }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
-            }
-            spinCap8582C.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice4c = pos
-                }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
-            }
-            spinCap8582D.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    indice4d = pos
-                }
-
-                override fun onNothingSelected(adp: AdapterView<*>?) {}
             }
         }
     }
 
     private fun fillOut() {
         val cap8 = Mob.formComp?.cap8
-
-        indice1a = try { cap8?.v58num1a?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }
-        indice1b = try { cap8?.v58num1b?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }
-        indice1c = try { cap8?.v58num1c?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }
-        indice2a = try { cap8?.v58num2a?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }
-        indice2b = try { cap8?.v58num2b?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }
-        indice2c = try { cap8?.v58num2c?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }
-        indice2d = try { cap8?.v58num2d?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }
-        indice3a = try { cap8?.v58num3a?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }
-        indice3b = try { cap8?.v58num3b?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }
-        indice4a = try { cap8?.v58num4a?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }
-        indice4b = try { cap8?.v58num4b?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }
-        indice4c = try { cap8?.v58num4c?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }
-        indice4d = try { cap8?.v58num4d?.toInt() ?: 0 } catch (e: NumberFormatException) { 0 }
-
         bindingcap8o2.txtCap8584DOtra.text = cap8?.v58desc4d?.toEditable() ?: "".toEditable()
-
-        Mob.seecap08o2 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAP8_P16 }?.capView = true
         onAction()
     }
-
 
     fun saveCap(): List<String> {
         with(bindingcap8o2) {
@@ -268,10 +153,10 @@ class FragEncuestaCap08end : Fragment() {
                     spinCap8584D.selectedItemPosition.toString(),
             )
         }
-        return viewCap()
+        return viewCap8part2()
     }
 
-    private fun viewCap(): List<String> {
+    private fun viewCap8part2(): List<String> {
         with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
             if (cap8?.v56check == true) {
@@ -308,12 +193,11 @@ class FragEncuestaCap08end : Fragment() {
                 else if (cap8?.v58desc4d.isNullOrBlank() && !cap8?.v58num4d.isNullOrEmpty())
                     returnList.add(CreateIncon.inconsistencia(ctx, "168") ?: "")
 
-
             } else if (cap8?.v56check == null) {
                 returnList.add(CreateIncon.inconsistencia(ctx, "610") ?: "")
+                infoCap.find { it.indexCap == CAP8_P16 }?.incons = returnList.isNotEmpty()
             }
-            icap08o2 = returnList.isNotEmpty()
-            println("Cap8-part2: $icap08o2--$cap8")
+            println("Cap8-part2: --$cap8")
             return returnList
         }
     }

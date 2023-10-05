@@ -10,7 +10,7 @@ import gob.pa.inovacion_empresarial.service.room.DBform
 import gob.pa.inovacion_empresarial.service.room.RoomView
 
 object  CreateForm {
-    fun create(): ModelForm {
+    fun create(): ModelForm {  //---- Devuelve un formulario
         with(Mob) {
             return ModelForm(
                 ncontrol = formComp?.ncontrol,
@@ -86,108 +86,63 @@ object  CreateForm {
     }
 
     fun resetLoad() {
-        with(Mob) {
+        Mob.apply {
             indiceFormulario = 0
             obsEncuesta = ""
             obsModulo = ""
-            obsTittle = ""
             condicionID = null
 
             //--  FORMULARIO
+            infoCap = mutableListOf()
+            for (capitulo in MENU_P00 until OBSE_P24) {
+                val internalInfo = Mob.InternalInfo(
+                    indexCap = capitulo,
+                    capView = false,
+                    incons = false
+                )
+                infoCap.add(internalInfo)
+            }
             sendForm = false
-            seecap01 = true
-            seecap02o1 = true
-            seecap02o2 = true
-            seecap03 = true
-            seecap04 = true
-            seecap05o1 = true
-            seecap05o2 = true
-            seecap0601 = true
-            seecap06o2 = true
-            seecap06o3 = true
-            seecap06o4 = true
-            seecap07o1 = true
-            seecap07o2 = true
-            seecap07o3 = true
-            seecap08o1 = true
-            seecap08o2 = true
-            seecap09o1 = true
-            seecap09o2 = true
-            seecap10 = true
 
-            seesecc1 = true
-            seesecc2 = true
-            seesecc3 = true
-            seesecc4 = true
-
-            icap01 = true
-            icap02o1 = true
-            icap02o2 = true
-            icap03 = true
-            icap04 = true
-            icap05o1 = true
-            icap05o2 = true
-            icap0601 = true
-            icap06o2 = true
-            icap06o3 = true
-            icap06o4 = true
-            icap07o1 = true
-            icap07o2 = true
-            icap07o3 = true
-            icap08o1 = true
-            icap08o2 = true
-            icap09o1 = true
-            icap09o2 = true
-            icap10 = true
-
-            isecc1 = true
-            isecc2 = true
-            isecc3 = true
-            isecc4 = true
-
-            resetForm()
-        }
-    }
-
-    private fun resetForm() {
-        Mob.cap1 = null
-        Mob.cap2 = null
-        Mob.cap3 = null
-        Mob.cap4 = null
-        Mob.cap5 = null
-        Mob.cap6 = null
-        Mob.cap7 = null
-        Mob.cap8 = null
-        Mob.cap9 = null
-        Mob.capx = null
-        Mob.capMod = null
-        Mob.condicion = null
-        Mob.formComp = ModelForm(
-            ncontrol = null,
-            obs = null,
-            cond = null,
-            act = null,
-            rev = null,
-            tieneIncon = null,
-            dateCreate = null,
-            dateMod = null,
-            dateModSup = null,
-            modSup = null,
-            creator = null,
-            mod = null,
-            condicion = null,
-            cap1 = null,
-            cap2 = null,
-            cap3 = null,
-            cap4 = null,
-            cap5 = null,
-            cap6 = null,
-            cap7 = null,
-            cap8 = null,
-            cap9 = null,
-            capx = null,
+            cap1 = null
+            cap2 = null
+            cap3 = null
+            cap4 = null
+            cap5 = null
+            cap6 = null
+            cap7 = null
+            cap8 = null
+            cap9 = null
+            capx = null
             capMod = null
-        )
+            condicion = null
+            formComp = ModelForm(
+                ncontrol = null,
+                obs = null,
+                cond = null,
+                act = null,
+                rev = null,
+                tieneIncon = null,
+                dateCreate = null,
+                dateMod = null,
+                dateModSup = null,
+                modSup = null,
+                creator = null,
+                mod = null,
+                condicion = null,
+                cap1 = null,
+                cap2 = null,
+                cap3 = null,
+                cap4 = null,
+                cap5 = null,
+                cap6 = null,
+                cap7 = null,
+                cap8 = null,
+                cap9 = null,
+                capx = null,
+                capMod = null
+            )
+        }
     }
 
 }

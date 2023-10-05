@@ -17,6 +17,7 @@ import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap1
 import gob.pa.inovacion_empresarial.service.room.RoomView
+import gob.pa.inovacion_empresarial.view.FormActivity
 import kotlinx.coroutines.launch
 
 class FragEncuestaCap01 : Fragment() {
@@ -51,8 +52,9 @@ class FragEncuestaCap01 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.CAP1P01
-        if (Mob.seecap01) fillOut()
+        Mob.indiceFormulario = Mob.CAP1_P01
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP1_P01 }
+        if (infoCap?.capView == false) fillOut()
         else seeData(false)
     }
 
@@ -85,8 +87,9 @@ class FragEncuestaCap01 : Fragment() {
         bindingcap1.txtCap13ID.text = idcorre
         bindingcap1.txtCap14ID.text = idlugarp
 
-        Mob.seecap01 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAP1_P01 }?.capView = true
         seeData(false)
+        println("--${Mob.infoCap}")
     }
 
     private fun seeData(editFields: Boolean) {
@@ -116,37 +119,34 @@ class FragEncuestaCap01 : Fragment() {
             if (idlugarp.isNotEmpty()) {
                 lugarp = room.getLPName(idprov, iddist, idcorre, idlugarp)
             }
-            updateUI()
+            activity?.runOnUiThread { updateUI() }
         }
         onAction()
     }
 
-
     private fun updateUI() {
-        activity?.runOnUiThread {
-            bindingcap1.apply {
-                txtCap11ID.text = idprov
-                txtCap12ID.text = iddist
-                txtCap13ID.text = idcorre
-                txtCap14ID.text = idlugarp
+        bindingcap1.apply {
+            txtCap11ID.text = idprov
+            txtCap12ID.text = iddist
+            txtCap13ID.text = idcorre
+            txtCap14ID.text = idlugarp
 
-                txtCap11.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayProv))
-                txtCap11.setText(prov, false)
+            txtCap11.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayProv))
+            txtCap11.setText(prov, false)
 
-                txtCap12.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayDist))
-                txtCap12.setText(dist, false)
+            txtCap12.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayDist))
+            txtCap12.setText(dist, false)
 
-                txtCap13.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayCorre))
-                txtCap13.setText(corre, false)
+            txtCap13.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayCorre))
+            txtCap13.setText(corre, false)
 
-                txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayLugarP))
-                txtCap14.setText(lugarp, false)
-            }
+            txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayLugarP))
+            txtCap14.setText(lugarp, false)
         }
     }
 
 
-    private fun cargaEmptys() {
+    private fun cargaEmptys() { //---- Reparar si se necesita, no carga bien los autocomplete
         val room = RoomView(dvmCap1, ctx)
 
         fun setupAdapterAndText(
@@ -224,10 +224,9 @@ class FragEncuestaCap01 : Fragment() {
             if (cap1?.v03corretxt.isNullOrEmpty()) {
                 returnList.add("Pregunta 3.  Corregimiento sin datos") }
 
-            icap01 = returnList.isNotEmpty()
-            println("Cap1: incon:$icap01--$cap1")
-            if (returnList.isNotEmpty()) seeData(icap01)
-
+            infoCap.find { it.indexCap == CAP1_P01 }?.incons = returnList.isNotEmpty()
+            println("Cap1:--$cap1")
+            //if (returnList.isNotEmpty()) seeData(returnList.isNotEmpty())
             return returnList
         }
     }

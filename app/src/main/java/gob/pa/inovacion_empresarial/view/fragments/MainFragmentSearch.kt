@@ -70,9 +70,7 @@ class MainFragmentSearch : Fragment() {
             txtNControllySearch.setStartIconOnClickListener {
                 if (!lyContainer.isVisible) { controlTxt() }
             }
-            btSearch.setOnClickListener {
-                controlTxt()
-            }
+            btSearch.setOnClickListener { controlTxt() }
             btcancelSearch.setOnClickListener { viewFind(true) }
             btdataSearch.setOnClickListener {
                 pager?.setCurrentItem(Mob.PAGE02, true)
@@ -89,7 +87,7 @@ class MainFragmentSearch : Fragment() {
                 txtNControllySearch.error = "Ingrese un N° de Control"
             } else {
                 val ncontrolReformat =
-                    Functions.ceroLeft(txtNControlSearch.text.toString(), Mob.FOR5DIGITS)
+                    Functions.ceroLeft(txtNControlSearch.text.toString(), Mob.FOR_5_DIGITS)
                 txtNControlSearch.text = ncontrolReformat.toEditable()
                 val ncont: Int = try {
                     txtNControlSearch.text.toString().toInt()
@@ -152,13 +150,10 @@ class MainFragmentSearch : Fragment() {
 
     private fun errorMsg(resp: String) {
         var errortxt = resp
-        errortxt = errortxt.replace("error", "")
         errortxt = errortxt.replace("NumComtrol", "N° de control")
-        errortxt = errortxt.replace(":", "")
-        errortxt = errortxt.replace("{", "")
-        errortxt = errortxt.replace("}", "")
-        errortxt = errortxt.replace("\"", "")
-        val widthtxt = (errortxt.length * Mob.SIZEAUTOCONTROL)
+        errortxt = errortxt.replace("error", "")
+        errortxt = errortxt.replace(Regex("[:{}\"]"), "")
+        val widthtxt = (errortxt.length * Mob.SIZE_AUTOCONTROL)
         val color = ContextCompat.getColor(ctx, R.color.dark_red)
         val alert = Functions.msgBallom(errortxt, widthtxt, ctx, color)
         alert.showAlignBottom(fragSearch.versionsearch)
@@ -196,7 +191,7 @@ class MainFragmentSearch : Fragment() {
                 }
             }
             btinitSearch.setOnClickListener {
-                Mob.indiceFormulario = Mob.CAP1P01
+                Mob.indiceFormulario = Mob.CAP1_P01
                 activity?.finish()
                 val intent = Intent(ctx, FormActivity::class.java)
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or

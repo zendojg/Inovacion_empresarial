@@ -13,6 +13,7 @@ import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap2
+import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap02o1 : Fragment() {
 
@@ -34,8 +35,9 @@ class FragEncuestaCap02o1 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.CAP2P02
-        if (Mob.seecap02o1) fillOut()
+        Mob.indiceFormulario = Mob.CAP2_P02
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP2_P02 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
 
@@ -86,7 +88,7 @@ class FragEncuestaCap02o1 : Fragment() {
 
             frameview = !txtCap292.text.isNullOrBlank()
         }
-        Mob.seecap02o1 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAP2_P02 }?.capView = true
         onAction()
     }
 
@@ -144,8 +146,8 @@ class FragEncuestaCap02o1 : Fragment() {
                     returnList.add(CreateIncon.inconsistencia(ctx,"4") ?: "")
                 }
             }
-            println("---------Is not empty: $icap02o1--$cap2")
-            icap02o1 = returnList.isNotEmpty()
+            infoCap.find { it.indexCap == CAP2_P02 }?.incons = returnList.isNotEmpty()
+            println("Cap2_part1:--$cap2")
             return returnList
         }
     }

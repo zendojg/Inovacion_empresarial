@@ -89,11 +89,9 @@ class MainActivity : AppCompatActivity() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 if (position != Mob.LOGIN0) validate() //--- CAMBIAR VERIFICADOR A PUNTOS CLAVES ---
-                if (position == Mob.INIT01) {
-                    lifecycleScope.launch {
-                        RoomView(dvmMain, ctx).viewRoom()
-                    }
-                }
+                if (position == Mob.INIT01)
+                    lifecycleScope.launch { RoomView(dvmMain, ctx).viewRoom() }
+
             }
         })
         main.btMainTest.setOnClickListener { validate() }

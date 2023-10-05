@@ -83,6 +83,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             myAdapter.addListFragment(Mob.arrEncuestas)
             form.viewpager.adapter = myAdapter
             form.viewpager.isUserInputEnabled = false
+            Mob.infoCap.find { it.indexCap == Mob.MENU_P00 }?.capView = true
         }
         setContentView(form.root)
     }
@@ -101,10 +102,11 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         form.navView.setNavigationItemSelectedListener(this)
 
         val ncontrol = "N° de control: ${Functions.ceroLeft(
-            Mob.formComp?.ncontrol ?: "0", Mob.FOR5DIGITS)}"
+            Mob.formComp?.ncontrol ?: "0", Mob.FOR_5_DIGITS)}"
         val headerNav = form.navView.getHeaderView(0)
         val headerbinding = MenuHeaderBinding.inflate(layoutInflater)
         headerNav.findViewById<TextView>(headerbinding.lbname.id)?.text = ncontrol
+
         onAction()
     }
 
@@ -123,13 +125,13 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             if (Mob.authData?.rol == "E")  btsavepager.visibility = View.VISIBLE
              else btsavepager.visibility = View.INVISIBLE
 
-            if (Mob.indiceFormulario != Mob.MENUP00) {
+            if (Mob.indiceFormulario != Mob.MENU_P00) {
                 viewpager.setCurrentItem(Mob.indiceFormulario, false)
                 spinPager(Mob.indiceFormulario)
             }
             btnextpager.setOnClickListener {
-                if (viewpager.currentItem == Mob.OBSP24) {
-                    viewpager.setCurrentItem(Mob.MENUP00, false)
+                if (viewpager.currentItem == Mob.OBSE_P24) {
+                    viewpager.setCurrentItem(Mob.MENU_P00, false)
                 } else {
                     if (dialog?.isShowing != true) seeCaps(true)
                 }
@@ -143,7 +145,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
-                    val shouldShowViews = (position != Mob.MENUP00)
+                    val shouldShowViews = (position != Mob.MENU_P00)
                     setVisibility(toolbarpager, shouldShowViews)
                     setVisibility(txvtitlepager2, shouldShowViews)
                     setVisibility(txvsubtitlepager, shouldShowViews)
@@ -155,8 +157,8 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
             })
             btobspager.setOnClickListener {
-                if (form.viewpager.currentItem != Mob.OBSP24 ||
-                    form.viewpager.currentItem != Mob.MENUP00)
+                if (form.viewpager.currentItem != Mob.OBSE_P24 ||
+                    form.viewpager.currentItem != Mob.MENU_P00)
                     if (dialog?.isShowing != true) observation(form.viewpager.currentItem)
             }
             btsavepager.setOnClickListener { seeCaps(null) }
@@ -165,7 +167,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         pageSave()
-        val pagerIndex = Mob.menuToIndexMap[item.itemId] ?: Mob.MENUP00
+        val pagerIndex = Mob.menuToIndexMap[item.itemId] ?: Mob.MENU_P00
         drawerLayout.closeDrawer(GravityCompat.END, true)
         Mob.indiceFormulario = pagerIndex
         form.viewpager.setCurrentItem(pagerIndex, false)
@@ -176,7 +178,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
             drawerLayout.closeDrawer(GravityCompat.END, true)
         } else
-        if (form.viewpager.currentItem == Mob.MENUP00) {
+        if (form.viewpager.currentItem == Mob.MENU_P00) {
             val mesagePregunta = AlertDialog.Builder(this)
             val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)
             val ctx = this
@@ -223,10 +225,14 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 btsaveobs.isEnabled = false
                 txtobs.isEnabled = false
             }
-            txvtittleobs.text = Mob.obsTittle
+
+            txvtittleobs.text =
+                if (form.viewpager.currentItem < Mob.SEC1_P20) "Encuesta de Innovación en Empresas"
+                else "Módulo de Comercio Electrónico"
+
             txtobs.imeOptions = EditorInfo.IME_ACTION_DONE
             txtobs.setRawInputType(InputType.TYPE_CLASS_TEXT)
-            if (position < Mob.SEC1P20) {
+            if (position < Mob.SEC1_P20) {
                 color = ContextCompat.getColor(ctx, R.color.holo_blue_dark)
                 txtobs.setText(Mob.obsEncuesta ?: "")
                 linearObs.setBackgroundResource(R.drawable.background_shadow_celpast)
@@ -247,10 +253,9 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             dialog?.show()
 
             btsaveobs.setOnClickListener {
-                if (form.viewpager.currentItem < Mob.SEC1P20)
+                if (form.viewpager.currentItem < Mob.SEC1_P20)
                     Mob.obsEncuesta = txtobs.text.toString()
                  else Mob.obsModulo = txtobs.text.toString()
-
                 dialog?.dismiss()
                 hideKeyboard()
             }
@@ -287,14 +292,14 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             is FragModuloSecc02 -> page.saveCap()
             is FragModuloSecc03 -> page.saveCap()
             is FragModuloSecc04 -> page.saveCap()
-            is FragTotalInforme -> page.saveCap()
+            is FragTotalInforme -> page.saveCapInforme()
             else -> ArrayList()
         }
     }
 
     private fun seeCaps(move: Boolean?) {
         hideKeyboard()
-        val colorlb = if (form.viewpager.currentItem < Mob.SEC1P20) R.color.holo_blue_dark
+        val colorlb = if (form.viewpager.currentItem < Mob.SEC1_P20) R.color.holo_blue_dark
         else  R.color.cream_darl
         val listFaltantes: List<String> = pageSave()
         if (move != null && Mob.authData?.rol != "E")  moveTo(move) //--- No muestra inconsistencias
@@ -309,7 +314,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 alert.showAlignBottom(form.txtInfopager)
                 alert.dismissWithDelay(Mob.TIMELONG2SEG)
             }
-        } else  { //-- Inconsistencia
+        } else { //-- Inconsistencia
             val mesagePregunta = AlertDialog.Builder(this)
             val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)
             with (bindmsg) {
@@ -344,20 +349,20 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun moveTo(move: Boolean) {
         if (move) {
-            if (form.viewpager.currentItem == Mob.CAP8P15 && Mob.cap8?.v56check == false) {
+            if (form.viewpager.currentItem == Mob.CAP8_P15 && Mob.cap8?.v56check == false) {
                 form.viewpager.setCurrentItem(form.viewpager.currentItem + 2, false)
             } else
-                if (form.viewpager.currentItem == Mob.SEC1P20 && Mob.capMod?.v1check == false) {
+                if (form.viewpager.currentItem == Mob.SEC1_P20 && Mob.capMod?.v1check == false) {
                     form.viewpager.setCurrentItem(
-                        form.viewpager.currentItem + Mob.JUMPMODULE1, false)
+                        form.viewpager.currentItem + Mob.JUMP_MODULE1, false)
                 } else form.viewpager.setCurrentItem(
                         form.viewpager.currentItem + 1, false)
         } else {
-            if (form.viewpager.currentItem == Mob.CAP9P17 && Mob.cap8?.v56check == false) {
+            if (form.viewpager.currentItem == Mob.CAP9_P17 && Mob.cap8?.v56check == false) {
                 form.viewpager.setCurrentItem(form.viewpager.currentItem - 2, false)
-            } else if (form.viewpager.currentItem == Mob.OBSP24 && Mob.capMod?.v1check == false) {
+            } else if (form.viewpager.currentItem == Mob.OBSE_P24 && Mob.capMod?.v1check == false) {
                     form.viewpager.setCurrentItem(
-                        form.viewpager.currentItem - Mob.JUMPMODULE1, false)
+                        form.viewpager.currentItem - Mob.JUMP_MODULE1, false)
                 } else form.viewpager.setCurrentItem(
                         form.viewpager.currentItem - 1, false)
         }
@@ -368,23 +373,21 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val colorFondo: Int
         with(form){
             when {
-                position == Mob.MENUP00 -> {
+                position == Mob.MENU_P00 -> {
                     colorFondo = ContextCompat.getColor(ctx, R.color.celeste)
                     colorLetras = Color.WHITE
                 }
-                position < Mob.SEC1P20 -> {
-                    Mob.obsTittle = "Encuesta  de Innovación en Empresas"
+                position < Mob.SEC1_P20 -> {
                     btobspager.visibility = View.VISIBLE
                     colorLetras = (Color.WHITE)
                     colorFondo = ContextCompat.getColor(ctx, R.color.holo_blue_dark)
                 }
-                position == Mob.OBSP24 -> {
+                position == Mob.OBSE_P24 -> {
                     btobspager.visibility = View.INVISIBLE
                     colorLetras = (Color.WHITE)
                     colorFondo = ContextCompat.getColor(ctx, R.color.teal_700)
                 }
                 else -> {
-                    Mob.obsTittle = "Módulo de Comercio Electrónico"
                     btobspager.visibility = View.VISIBLE
                     colorLetras = (Color.DKGRAY)
                     colorFondo = ContextCompat.getColor(ctx, R.color.cream_pastel)
@@ -402,12 +405,6 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             window.statusBarColor = colorFondo
             constraintpager.setBackgroundColor(colorFondo)
             toolbarpager.setBackgroundColor(colorFondo)
-        }
-        encuestaTittle(position)
-    }
-
-    private fun encuestaTittle(position: Int) {
-        with(form){
 
             val title = Mob.titleMapTxt[position]?.first
             val title2 = Mob.titleMapTxt[position]?.second
@@ -415,14 +412,14 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             txvtitlepager.text = getString(title ?: R.string.cap_test)
             txvtitlepager2.text = getString(title2 ?: R.string.ctxt_test)
 
-            if (position != Mob.OBSP24)
+            if (position != Mob.OBSE_P24)
                 txvsubtitlepager.text = getString(subtitle ?: R.string.subcap_test)
-            else {
-                var ncontrol: String = getString(R.string.ncontrol)
-                if (Mob.formComp?.ncontrol != null)
-                    ncontrol += Functions.ceroLeft((Mob.formComp?.ncontrol ?: "0"), Mob.FOR5DIGITS)
+            else if (Mob.formComp?.ncontrol != null) {
+                val ncontrol = "${getString(R.string.ncontrol)}  ${
+                    Functions.ceroLeft((Mob.formComp?.ncontrol ?: "0"), Mob.FOR_5_DIGITS)}"
                 txvsubtitlepager.text = ncontrol
             }
+
         }
     }
 }

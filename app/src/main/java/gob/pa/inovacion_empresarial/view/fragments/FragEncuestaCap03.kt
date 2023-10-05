@@ -15,6 +15,7 @@ import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap3
+import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap03 : Fragment() {
 
@@ -31,8 +32,9 @@ class FragEncuestaCap03 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.CAP3P04
-        if (Mob.seecap03) fillOut()
+        Mob.indiceFormulario = Mob.CAP3_P04
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP3_P04 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
 
@@ -107,7 +109,7 @@ class FragEncuestaCap03 : Fragment() {
             txtCap326.text = cap3?.v26nametxt?.toEditable() ?: "".toEditable()
             txtCap327.text = cap3?.v27countrytxt?.toEditable() ?: "".toEditable()
         }
-        Mob.seecap03 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAP3_P04 }?.capView = true
         onAction()
     }
 
@@ -184,8 +186,10 @@ class FragEncuestaCap03 : Fragment() {
                 returnList.add(CreateIncon.inconsistencia(ctx, "11") ?: "")
             if (cap3?.v24check == true && cap3?.v27countrytxt.isNullOrEmpty())
                 returnList.add(CreateIncon.inconsistencia(ctx, "12") ?: "")
-            icap03 = returnList.isNotEmpty()
-            println("Cap3: incon:$icap03--$cap3")
+
+
+            infoCap.find { it.indexCap == CAP3_P04 }?.incons = returnList.isNotEmpty()
+            println("Cap3: --$cap3")
             return returnList
         }
     }

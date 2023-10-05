@@ -15,6 +15,7 @@ import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap5
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
+import gob.pa.inovacion_empresarial.view.FormActivity
 import java.text.DecimalFormat
 
 class FragEncuestaCap05o1 : Fragment() {
@@ -35,8 +36,9 @@ class FragEncuestaCap05o1 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.CAP5P06
-        if (Mob.seecap05o1) fillOut()
+        Mob.indiceFormulario = Mob.CAP5_P06
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP5_P06 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
 
@@ -91,7 +93,7 @@ class FragEncuestaCap05o1 : Fragment() {
                         } else if (view.text.isNullOrEmpty()) {
                             view.text = "0".toEditable()
                         } else {
-                            if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
+                            if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
                                 for (modelTexWatcher in textWatcherList) {
                                     modelTexWatcher.editext.removeTextChangedListener(
                                         modelTexWatcher.watcher
@@ -110,20 +112,18 @@ class FragEncuestaCap05o1 : Fragment() {
         with(bindingcap5o1) {
             val decimalFormat = DecimalFormat("#,###")
 
-            txtCap53012021.text = cap5?.v30txt21T?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap53012021.text = cap5?.v30txt21T?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap53012022.text = cap5?.v30txt22T?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap53012022.text = cap5?.v30txt22T?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap530A2021.text = cap5?.v30txt21a?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap530A2021.text = cap5?.v30txt21a?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap530A2022.text = cap5?.v30txt22a?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap530A2022.text = cap5?.v30txt22a?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap530B2021.text = cap5?.v30txt21b?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap530B2021.text = cap5?.v30txt21b?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            txtCap530B2022.text = cap5?.v30txt22b?.toDouble()?.toInt()?.takeIf { it > 0 }
+            txtCap530B2022.text = cap5?.v30txt22b?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
-            fillOut31(cap5)
-            fillOut32(cap5)
 
             txtCap53312021.text = cap5?.v33txt1s21?.toEditable() ?: "".toEditable()
             txtCap53322021.text = cap5?.v33txt2s21?.toEditable() ?: "".toEditable()
@@ -133,16 +133,8 @@ class FragEncuestaCap05o1 : Fragment() {
             txtCap53322022.text = cap5?.v33txt2s22?.toEditable() ?: "".toEditable()
             txtCap53332022.text = cap5?.v33txt3s22?.toEditable() ?: "".toEditable()
 
-            fillOut34(cap5)
-            Mob.seecap05o1 = false
-            onAction()
-        }
-    }
-
-    private fun fillOut31(cap5: ModelCap5?) {
-        with(bindingcap5o1) {
             when {
-                cap5?.v31check21a == true -> rbtCap531A2021.isChecked = true
+                cap5?.v31check21a == true -> rbtCap531A2021.isChecked = true //--- Mejorable con map
                 cap5?.v31check21b == true -> rbtCap531B2021.isChecked = true
                 cap5?.v31check21c == true -> rbtCap531C2021.isChecked = true
                 cap5?.v31check21d == true -> rbtCap531D2021.isChecked = true
@@ -157,10 +149,7 @@ class FragEncuestaCap05o1 : Fragment() {
                 cap5?.v31check22e == true -> rbtCap531E2022.isChecked = true
                 else -> { rgroupCap5312022.clearCheck() }
             }
-        }
-    }
-    private fun fillOut32(cap5: ModelCap5?) {
-        with(bindingcap5o1) {
+
             when (cap5?.v32check21) {
                 true -> rbtCap532ASi.isChecked = true
                 false -> rbtCap532ANo.isChecked = true
@@ -171,10 +160,7 @@ class FragEncuestaCap05o1 : Fragment() {
                 false -> rbtCap532BNo.isChecked = true
                 else ->  rgroupCap532b.clearCheck()
             }
-        }
-    }
-    private fun fillOut34(cap5: ModelCap5?) {
-        with(bindingcap5o1) {
+
             when {
                 cap5?.v34check1o21 == true -> rbtCap53412021.isChecked = true
                 cap5?.v34check2o21 == true -> rbtCap53422021.isChecked = true
@@ -187,6 +173,9 @@ class FragEncuestaCap05o1 : Fragment() {
                 cap5?.v34check3o22 == true -> rbtCap53432022.isChecked = true
                 else ->  rgroupCap5342022.clearCheck()
             }
+
+            Mob.infoCap.find { it.indexCap == Mob.CAP5_P06 }?.capView = true
+            onAction()
         }
     }
 
@@ -319,9 +308,8 @@ class FragEncuestaCap05o1 : Fragment() {
                 !cap5?.v30txt22T.isNullOrEmpty() && cap5?.v30txt22T != "0")
                 returnList.add(CreateIncon.inconsistencia(ctx, "602") ?: "")
 
-
-            icap05o1 = returnList.isNotEmpty()
-            println("Cap5-part1: $icap05o1--$cap5")
+            infoCap.find { it.indexCap == CAP5_P06 }?.incons = returnList.isNotEmpty()
+            println("Cap5-part1: --$cap5")
             return returnList
         }
     }

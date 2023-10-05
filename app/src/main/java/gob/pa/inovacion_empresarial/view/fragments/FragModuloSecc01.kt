@@ -14,6 +14,7 @@ import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelMod
+import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragModuloSecc01 : Fragment() {
     private lateinit var bindingmod1: ModuloSeccion01Binding
@@ -29,8 +30,9 @@ class FragModuloSecc01 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.SEC1P20
-        if (Mob.seesecc1) fillOut()
+        Mob.indiceFormulario = Mob.SEC1_P20
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.SEC1_P20 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
 
@@ -80,7 +82,7 @@ class FragModuloSecc01 : Fragment() {
             txtSecc012DOtra.text = mod1?.v2txtDesc1d?.toEditable() ?: "".toEditable()
             checkSecc0122.isChecked = mod1?.v2check2 == true
         }
-        Mob.seesecc1 = false
+        Mob.infoCap.find { it.indexCap == Mob.SEC1_P20 }?.capView = true
         onAction()
     }
 
@@ -165,8 +167,8 @@ class FragModuloSecc01 : Fragment() {
             } else if (rbtSecc011No.isChecked && !checkSecc0122.isChecked)
                 returnList.add(CreateIncon.inconsistencia(ctx, "292") ?: "")
 
-            Mob.isecc1 = returnList.isNotEmpty()
-            println("Secc1: ${Mob.isecc1}--${Mob.capMod}")
+            Mob.infoCap.find { it.indexCap == Mob.SEC1_P20 }?.incons = returnList.isNotEmpty()
+            println("Secc1: --${Mob.capMod}")
             return returnList
         }
     }

@@ -88,7 +88,7 @@
                 android:paddingBottom="8dp"
                 app:endIconMode="clear_text"
                 app:errorEnabled="true"
-                app:helperText="Búsqueda del número de control"
+                app:helperText="Ingrese un número de control para su búzqueda"
                 app:helperTextTextAppearance="@style/TextLabel2"
                 app:errorTextAppearance="@style/TextLabel2"
                 app:helperTextTextColor="@color/white"

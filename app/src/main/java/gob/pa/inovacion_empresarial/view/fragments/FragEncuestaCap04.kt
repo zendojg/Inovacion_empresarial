@@ -12,6 +12,7 @@ import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap4
+import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap04 : Fragment() {
 
@@ -34,8 +35,9 @@ class FragEncuestaCap04 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.CAP4P05
-        if (Mob.seecap04) fillOut()
+        Mob.indiceFormulario = Mob.CAP4_P05
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP4_P05 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
     private fun onAction() {
@@ -106,7 +108,7 @@ class FragEncuestaCap04 : Fragment() {
             frameview3 = !txtCap4293.text.isNullOrEmpty()
             frameview4 = !txtCap4294.text.isNullOrEmpty()
         }
-        Mob.seecap04 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAP4_P05 }?.capView = true
         onAction()
     }
 
@@ -147,8 +149,9 @@ class FragEncuestaCap04 : Fragment() {
             if (cap4?.v29cinu4txt?.isNotEmpty() == true && cap4?.v29act4txt.isNullOrEmpty())
                 returnList.add(CreateIncon.inconsistencia(ctx,"203") ?: "")
 
-            icap02o1 = returnList.isNotEmpty()
-            println("---------Is not empty: $icap02o2--$cap2")
+
+            infoCap.find { it.indexCap == CAP4_P05 }?.incons = returnList.isNotEmpty()
+            println("Cap4: --$cap4")
             return returnList
         }
     }

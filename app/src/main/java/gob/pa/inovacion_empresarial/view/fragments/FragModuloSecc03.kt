@@ -17,6 +17,7 @@ import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelMod
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
+import gob.pa.inovacion_empresarial.view.FormActivity
 import java.text.DecimalFormat
 
 class FragModuloSecc03 : Fragment() {
@@ -36,8 +37,9 @@ class FragModuloSecc03 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.SEC3P22
-        if (Mob.seesecc3) fillOut()
+        Mob.indiceFormulario = Mob.SEC3_P22
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.SEC3_P22 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
     override fun onPause() {
@@ -85,7 +87,7 @@ class FragModuloSecc03 : Fragment() {
 
             txtSecc035.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
                 if (hasFocus) textWatcherList.add(EdittextFormat.edittextMiles(txtSecc035))
-                else if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
+                else if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
                     for (modelTextWatcher in textWatcherList) {
                         modelTextWatcher.editext.removeTextChangedListener(modelTextWatcher.watcher)
                     }
@@ -141,7 +143,7 @@ class FragModuloSecc03 : Fragment() {
             txtSecc035.text = mod3?.v5txt?.toDouble()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: blank
         }
-        Mob.seesecc3 = false
+        Mob.infoCap.find { it.indexCap == Mob.SEC3_P22 }?.capView = true
         onAction()
     }
 
@@ -247,8 +249,8 @@ class FragModuloSecc03 : Fragment() {
             } else if (Mob.capMod?.v1check == null)
                 returnList.add(CreateIncon.inconsistencia(ctx, "289") ?: "")
 
-            Mob.isecc3 = returnList.isNotEmpty()
-            println("Secc3: ${Mob.isecc3}--${Mob.capMod}")
+            Mob.infoCap.find { it.indexCap == Mob.SEC3_P22 }?.incons = returnList.isNotEmpty()
+            println("Secc3: --${Mob.capMod}")
             return returnList
         }
     }

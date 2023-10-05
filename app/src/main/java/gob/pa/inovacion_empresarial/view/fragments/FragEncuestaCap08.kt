@@ -22,6 +22,7 @@ import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap8
 import gob.pa.inovacion_empresarial.model.ModelSpinLister
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
+import gob.pa.inovacion_empresarial.view.FormActivity
 import java.text.DecimalFormat
 
 class FragEncuestaCap08 : Fragment() {
@@ -42,9 +43,9 @@ class FragEncuestaCap08 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-
-        Mob.indiceFormulario = Mob.CAP8P15
-        if (Mob.seecap08o1) fillOut()
+        Mob.indiceFormulario = Mob.CAP8_P15
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP8_P15 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
 
@@ -93,7 +94,7 @@ class FragEncuestaCap08 : Fragment() {
                                 textWatcherList.add(EdittextFormat.edittextMiles(editText))
                         }
                         else {
-                            if (textWatcherList.size > Mob.MAXTEXWATCHER4ROWS) {
+                            if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
                                 for (modelTexWatcher in textWatcherList) {
                                     modelTexWatcher.editext.removeTextChangedListener(
                                         modelTexWatcher.watcher
@@ -171,7 +172,7 @@ class FragEncuestaCap08 : Fragment() {
                     ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable()
             }
         }
-        Mob.seecap08o1 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAP8_P15 }?.capView = true
         onAction()
     }
 
@@ -252,7 +253,6 @@ class FragEncuestaCap08 : Fragment() {
                 if (cap8?.v57num1b.isNullOrEmpty() || cap8?.v57num1b == "0")
                     returnList.add(CreateIncon.inconsistencia(ctx, "145") ?: "")
 
-
                 if (!cap8?.v57desc1c.isNullOrEmpty()) {
                     if (cap8?.v57num1c.isNullOrEmpty() || cap8?.v57num1c == "0")
                         returnList.add(CreateIncon.inconsistencia(ctx, "146") ?: "")
@@ -260,12 +260,10 @@ class FragEncuestaCap08 : Fragment() {
                     if (!cap8?.v57desc2c.isNullOrEmpty())
                         returnList.add(CreateIncon.inconsistencia(ctx, "146") ?: "")
 
-
                 if (cap8?.v57num2a.isNullOrEmpty() || cap8?.v57num2a == "0")
                     returnList.add(CreateIncon.inconsistencia(ctx, "147") ?: "")
                 if (cap8?.v57num2b.isNullOrEmpty() || cap8?.v57num2b == "0")
                     returnList.add(CreateIncon.inconsistencia(ctx, "148") ?: "")
-
 
                 if (!cap8?.v57desc2c.isNullOrEmpty()) {
                     if (cap8?.v57num2c.isNullOrEmpty() || cap8?.v57num2c == "0")
@@ -273,7 +271,6 @@ class FragEncuestaCap08 : Fragment() {
                 } else if (!cap8?.v57num2c.isNullOrEmpty() || cap8?.v57num2c != "0")
                     if (!cap8?.v57desc2c.isNullOrEmpty())
                         returnList.add(CreateIncon.inconsistencia(ctx, "149") ?: "")
-
 
                 if (cap8?.v57num1a == "2" && cap8?.v57monto1a.isNullOrEmpty())
                     returnList.add(CreateIncon.inconsistencia(ctx, "150") ?: "")
@@ -288,9 +285,9 @@ class FragEncuestaCap08 : Fragment() {
                     returnList.add(CreateIncon.inconsistencia(ctx, "154") ?: "")
                 if (cap8?.v57num2c == "2" && cap8?.v57monto2a.isNullOrEmpty())
                     returnList.add(CreateIncon.inconsistencia(ctx, "155") ?: "")
+                infoCap.find { it.indexCap == CAP8_P15 }?.incons = returnList.isNotEmpty()
             }
-            icap08o1 = returnList.isNotEmpty()
-            println("---------Is not empty: $icap08o1--$cap8")
+            println("Cap8_1:--$cap8")
             return returnList
         }
     }

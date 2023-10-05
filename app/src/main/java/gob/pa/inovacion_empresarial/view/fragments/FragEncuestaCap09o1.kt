@@ -13,6 +13,7 @@ import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap9
+import gob.pa.inovacion_empresarial.view.FormActivity
 
 
 class FragEncuestaCap09o1 : Fragment() {
@@ -31,8 +32,9 @@ class FragEncuestaCap09o1 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.CAP9P17
-        if (Mob.seecap09o1) fillOut()
+        Mob.indiceFormulario = Mob.CAP9_P17
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP9_P17 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
 
@@ -132,7 +134,7 @@ class FragEncuestaCap09o1 : Fragment() {
                 }
             }
         }
-        Mob.seecap09o1 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAP9_P17 }?.capView = true
         onAction()
     }
 
@@ -211,9 +213,8 @@ class FragEncuestaCap09o1 : Fragment() {
                 if (rgroupCap9618.checkedRadioButtonId == -1)
                     returnList.add(CreateIncon.inconsistencia(ctx, "179") ?: "")
             }
-
-            Mob.icap09o1 = returnList.isNotEmpty()
-            println("Cap9-part1: ${Mob.icap09o1}--${Mob.cap9}")
+            Mob.infoCap.find { it.indexCap == Mob.CAP9_P17 }?.incons = returnList.isNotEmpty()
+            println("Cap9-part1: --${Mob.cap9}")
             return returnList
         }
     }

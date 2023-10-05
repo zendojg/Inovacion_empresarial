@@ -19,6 +19,7 @@ import gob.pa.inovacion_empresarial.function.Functions.allTrue
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap6
 import gob.pa.inovacion_empresarial.model.ModelSpinLister
+import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap06o2 : Fragment() {
 
@@ -38,8 +39,9 @@ class FragEncuestaCap06o2 : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        Mob.indiceFormulario = Mob.CAP6P09
-        if (Mob.seecap06o2) fillOut()
+        Mob.indiceFormulario = Mob.CAP6_P09
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAP6_P09 }
+        if (infoCap?.capView == false) fillOut()
         else onAction()
     }
 
@@ -125,25 +127,17 @@ class FragEncuestaCap06o2 : Fragment() {
     private fun fillOut() {
         val cap6 = Mob.formComp?.cap6
         with(bindingcap6o2) {
-            setRadioButtonState(rbtCap6421Si2021, rbtCap6421No2021, rgroupCap64212021,
-                cap6?.v42check21o1)
-            setRadioButtonState(rbtCap6421Si2022, rbtCap6421No2022, rgroupCap64212022,
-                cap6?.v42check22o1)
+            setRBState(rbtCap6421Si2021, rbtCap6421No2021, rgroupCap64212021, cap6?.v42check21o1)
+            setRBState(rbtCap6421Si2022, rbtCap6421No2022, rgroupCap64212022, cap6?.v42check22o1)
 
-            setRadioButtonState(rbtCap6422Si2021, rbtCap6422No2021, rgroupCap64222021,
-                cap6?.v42check21o2)
-            setRadioButtonState(rbtCap6422Si2022, rbtCap6422No2022, rgroupCap64222022,
-                cap6?.v42check22o2)
+            setRBState(rbtCap6422Si2021, rbtCap6422No2021, rgroupCap64222021, cap6?.v42check21o2)
+            setRBState(rbtCap6422Si2022, rbtCap6422No2022, rgroupCap64222022, cap6?.v42check22o2)
 
-            setRadioButtonState(rbtCap6423Si2021, rbtCap6423No2021, rgroupCap64232021,
-                cap6?.v42check21o3)
-            setRadioButtonState(rbtCap6423Si2022, rbtCap6423No2022, rgroupCap64232022,
-                cap6?.v42check22o3)
+            setRBState(rbtCap6423Si2021, rbtCap6423No2021, rgroupCap64232021, cap6?.v42check21o3)
+            setRBState(rbtCap6423Si2022, rbtCap6423No2022, rgroupCap64232022, cap6?.v42check22o3)
 
-            setRadioButtonState(rbtCap6431Si, rbtCap6431No, rgroupCap6431,
-                cap6?.v43check1)
-            setRadioButtonState(rbtCap6432Si, rbtCap6432No, rgroupCap6432,
-                cap6?.v43check2)
+            setRBState(rbtCap6431Si, rbtCap6431No, rgroupCap6431, cap6?.v43check1)
+            setRBState(rbtCap6432Si, rbtCap6432No, rgroupCap6432, cap6?.v43check2)
 
             when (cap6?.v44check) {
                 "1" -> rbtCap6441.isChecked = true
@@ -154,11 +148,11 @@ class FragEncuestaCap06o2 : Fragment() {
             }
 
         }
-        Mob.seecap06o2 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAP6_P09 }?.capView = true
         onAction()
     }
 
-    private fun setRadioButtonState(
+    private fun setRBState(
         radioButtonYes: RadioButton,
         radioButtonNo: RadioButton,
         radioGroup: RadioGroup,
@@ -287,8 +281,8 @@ class FragEncuestaCap06o2 : Fragment() {
             if (!check && cap6?.v45txtGrado6.isNullOrEmpty())
                 returnList.add(CreateIncon.inconsistencia(ctx, "66") ?: "")
 
-            icap06o2 = returnList.isNotEmpty()
-            println("---------Is not empty: $icap06o2--$cap6")
+            infoCap.find { it.indexCap == CAP6_P09 }?.incons = returnList.isNotEmpty()
+            println("Cap6_part2: --$cap6")
             return returnList
         }
     }

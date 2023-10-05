@@ -10,6 +10,7 @@ import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo10Binding
 import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap10
+import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap10 : Fragment() {
 
@@ -26,11 +27,11 @@ class FragEncuestaCap10 : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        Mob.indiceFormulario = Mob.CAPXP19
-        if (Mob.seecap10) fillOut()
+        Mob.indiceFormulario = Mob.CAPX_P19
+        val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAPX_P19 }
+        if (infoCap?.capView == false) fillOut()
 //        else onAction()
     }
-
 //    private fun onAction() {
 //    }
 
@@ -51,7 +52,7 @@ class FragEncuestaCap10 : Fragment() {
                 }
             }
         }
-        Mob.seecap10 = false
+        Mob.infoCap.find { it.indexCap == Mob.CAPX_P19 }?.capView = true
 //        onAction()
     }
 
@@ -81,8 +82,8 @@ class FragEncuestaCap10 : Fragment() {
             if (rgroupCap10664.checkedRadioButtonId == -1)
                 returnList.add(CreateIncon.inconsistencia(ctx, "194") ?: "")
 
-            Mob.icap10 = returnList.isNotEmpty()
-            println("---------Is not empty: ${Mob.icap10}--${Mob.capx}")
+            Mob.infoCap.find { it.indexCap == Mob.CAPX_P19 }?.incons = returnList.isNotEmpty()
+            println("Cap10: --${Mob.capx}")
             return returnList
         }
     }

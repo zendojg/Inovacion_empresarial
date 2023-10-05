@@ -273,7 +273,7 @@ class MainFragmentForms : Fragment() {
                 R.layout.style_msg_popup, null, false)
         val selection = bindingForm.spinFormsType.selectedItemPosition
         val ncontrol = "N° de control: ${
-            Functions.ceroLeft(item.ncontrol ?: "0",Mob.FOR5DIGITS)}"
+            Functions.ceroLeft(item.ncontrol ?: "0",Mob.FOR_5_DIGITS)}"
         with(bindmsg) {
             msgOpcions.setView(bindmsg.root)
 
@@ -331,7 +331,7 @@ class MainFragmentForms : Fragment() {
     private fun chargeForm(item: ModelForm) {
         fun charge(form: ModelForm) {
             CreateForm.createLoad(form)
-            Mob.indiceFormulario = Mob.CAP1P01
+            Mob.indiceFormulario = Mob.CAP1_P01
             Handler(Looper.getMainLooper()).postDelayed({
                 aDialog?.dismiss()
                 activity?.finish()
@@ -428,7 +428,7 @@ class MainFragmentForms : Fragment() {
                 R.layout.style_msg_localinfo, null, false)
         msgForm.setView(bindmsg.root)
         lifecycleScope.launch {
-            val ncontrol = Functions.ceroLeft(item.ncontrol ?: "0",Mob.FOR5DIGITS)
+            val ncontrol = Functions.ceroLeft(item.ncontrol ?: "0",Mob.FOR_5_DIGITS)
             val provincia = room.getProvName(item.cap1?.v01provtxt ?: "0")
             val distrito = room.getDistName(item.cap1?.v01provtxt ?: "0",
                 item.cap1?.v02disttxt ?: "0")
