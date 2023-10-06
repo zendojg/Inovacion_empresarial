@@ -1,12 +1,13 @@
 package gob.pa.inovacion_empresarial.function
 
 import android.content.Context
+import gob.pa.inovacion_empresarial.model.Mob
 import org.json.JSONArray
 import java.io.IOException
 import java.nio.charset.Charset
 
 object CreateIncon {
-
+    //--- Devuelve una inconsistencia de "inconsistencias.json"
     fun inconsistencia(ctx: Context, searchPAUTA: String): String? {
         var resultText: String? = null
         try {
@@ -26,5 +27,21 @@ object CreateIncon {
             }
         } catch (e: IOException) { e.printStackTrace() }
         return resultText
+    }
+    fun reviewIncons(): List<Int> { //----- Devuelve los capitulos con inconsistencias
+        val inconsistencias = Mob.infoCap.all { !it.incons } //--- true = algún cap con incon
+        return if (inconsistencias) {
+            Mob.infoCap
+                .filter { it.incons }
+                .map { it.indexCap }
+        } else emptyList()
+    }
+    fun reviewCaps(): List<Int> {  //----- Devuelve los capitulos que no sean han abierto
+        val viewCaps = Mob.infoCap.all { it.capView }        //--- true = todos los cap cargados
+        return if (viewCaps) {
+            Mob.infoCap
+                .filter { it.capView }
+                .map { it.indexCap }
+        } else emptyList()
     }
 }

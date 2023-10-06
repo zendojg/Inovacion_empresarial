@@ -80,7 +80,6 @@ object AppCache {
         editor.apply()
     }
 
-
     //-----// All data
     fun getAny(ctx: Context, name: String): Any? {
         return ctx.getSharedPreferences(

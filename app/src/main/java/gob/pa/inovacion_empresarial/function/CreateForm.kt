@@ -10,8 +10,8 @@ import gob.pa.inovacion_empresarial.service.room.DBform
 import gob.pa.inovacion_empresarial.service.room.RoomView
 
 object  CreateForm {
-    fun create(): ModelForm {  //---- Devuelve un formulario
-        with(Mob) {
+    fun create(): ModelForm {  //---- Rellena con nueva información y devuelve un formulario
+        Mob.apply {
             return ModelForm(
                 ncontrol = formComp?.ncontrol,
                 obs = obsEncuesta, //---------
@@ -41,11 +41,11 @@ object  CreateForm {
         }
     }
 
-    fun createObDB(): DBform {
+    fun createObDB(): DBform { //---- Crea un archivo DB con los datos del formulario
         val form = create()
         val formString = Gson().toJson(form)
         val idrandom = "RECOVERY-${(100000..999999).random()}"
-        with(Mob) {
+        Mob.apply {
             return DBform(
                 idNControl = form.ncontrol ?: idrandom,
                 idUser = authData?.user ?: "E_recovery",
@@ -64,8 +64,8 @@ object  CreateForm {
     //fun rechargeCap1() = Mob.formComp?.cap1
     //fun rechargeCap2() = Mob.formComp?.cap2
 
-    fun createLoad(form: ModelForm?) {
-        with(Mob) {
+    fun createLoad(form: ModelForm?) { //-- Crea la carga de trabajo
+        Mob.apply {
             formComp = form
             cap1 = form?.cap1
             cap2 = form?.cap2
@@ -85,7 +85,7 @@ object  CreateForm {
         }
     }
 
-    fun resetLoad() {
+    fun resetLoad() { //---- Reinicia las variables y objetos
         Mob.apply {
             indiceFormulario = 0
             obsEncuesta = ""

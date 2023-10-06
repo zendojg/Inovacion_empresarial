@@ -29,6 +29,7 @@ import gob.pa.inovacion_empresarial.databinding.StyleMsgFormBinding
 import gob.pa.inovacion_empresarial.function.AppCache
 import gob.pa.inovacion_empresarial.function.CreateBackUp
 import gob.pa.inovacion_empresarial.function.CreateForm
+import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.function.Functions.aString
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
@@ -151,16 +152,18 @@ class FragTotalInforme : Fragment() {
 
             txtInfoObsEncuesta.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) { /* Empty */ }
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {/* Empty */}
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int)
+                {/* Empty */}
                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                Mob.obsEncuesta = s.toString()
+                Mob.obsEncuesta = s.toString() //-- Reescribe las observaciones de la encuesta
                 }
             })
             txtInfoObsModulo.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) { /* Empty */ }
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {/* Empty */}
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int)
+                {/* Empty */}
                 override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                    Mob.obsModulo = s.toString()
+                    Mob.obsModulo = s.toString() //-- Reescribe las observaciones del módulo
                 }
             })
 
@@ -169,7 +172,7 @@ class FragTotalInforme : Fragment() {
                     saveCapInforme()
                     sendFormulario(CreateForm.create())
                 } else if (!Functions.isOnline(ctx)){
-                    val color = ContextCompat.getColor(ctx, R.color.dark_red)
+                    val color = ContextCompat.getColor(ctx, R.color.teal_700)
                     msgBallom("Sin red disponible", Mob.WIDTH160DP, color)
                 }
             }
@@ -180,9 +183,8 @@ class FragTotalInforme : Fragment() {
     }
 
     private fun reviewForm() {
-        val inconsistencias = Mob.infoCap.all { !it.incons } //--- true = algún cap con incon
-        val viewCaps = Mob.infoCap.all { it.capView }        //--- true = todos los cap cargados
-
+        val inconsistencias = CreateIncon.reviewIncons()
+        val reviewCaps = CreateIncon.reviewCaps()
 
     }
 
@@ -206,18 +208,18 @@ class FragTotalInforme : Fragment() {
                             carga(respGson)
                         }, Mob.TIME800MS)
                     }
-                    "400" -> msgBallom("Error en el cuestionario", Mob.WIDTH180DP, R.color.dark_red)
-                    "401" -> msgBallom("Sesión expirada", Mob.WIDTH160DP, R.color.dark_red)
+                    "400" -> msgBallom("Error en el cuestionario", Mob.WIDTH180DP, R.color.dark_pink)
+                    "401" -> msgBallom("Sesión expirada", Mob.WIDTH160DP, R.color.blue_dark)
                     "404" -> msgBallom("Formulario no encontrado", Mob.WIDTH180DP, R.color.dark_red)
                     "500" -> msgBallom("Error en el servidor", Mob.WIDTH160DP, R.color.dark_red)
                     else -> {
                         if (resp.server.isNullOrEmpty())
-                            msgBallom("Fuera de cobertura", Mob.WIDTH160DP, R.color.dark_red)
+                            msgBallom("Fuera de cobertura", Mob.WIDTH160DP, R.color.teal_700)
                          else Toast.makeText(ctx, resp.server, Toast.LENGTH_SHORT).show()
                     }
                 }
             } catch (e: Exception) {
-                msgBallom("Error de red", Mob.WIDTH180DP, R.color.dark_red)
+                msgBallom("Error de red", Mob.WIDTH160DP, R.color.teal_700)
             } finally {
                 Handler(Looper.getMainLooper()).postDelayed({
                     screenBlack.dismiss()
