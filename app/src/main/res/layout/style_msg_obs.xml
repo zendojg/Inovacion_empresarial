@@ -53,7 +53,6 @@
                         android:paddingHorizontal="10dp"
                         android:text="Encuesta o Módulo"
                         android:textSize="16sp" />
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -64,6 +63,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:minHeight="200dp"
+                android:maxHeight="300dp"
                 android:paddingHorizontal="17dp"
                 android:gravity="start"
                 android:paddingVertical="10dp"
@@ -111,7 +111,7 @@
                 android:text="@string/guardar"
                 android:textAllCaps="false"
                 android:textStyle="bold"
-                android:drawableEnd="@drawable/img_save_black"
+                android:drawableEnd="@drawable/img_save"
                 android:drawableTint="@color/white" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>

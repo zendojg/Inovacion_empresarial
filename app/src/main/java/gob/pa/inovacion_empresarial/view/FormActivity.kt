@@ -8,7 +8,9 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.text.Editable
 import android.text.InputType
+import android.text.TextWatcher
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
@@ -137,10 +139,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
             }
             btbackpager.setOnClickListener { if (dialog?.isShowing != true) seeCaps(false) }
-            btinconpager.setOnClickListener {
-
-
-            }
+            btinconpager.setOnClickListener { /* Para ver inconsistencias, el bt esta invisible */}
 
             viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
@@ -217,6 +216,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun observation(position: Int) {
         val mesagePregunta = AlertDialog.Builder(this)
+
         val bindmsg: StyleMsgObsBinding = StyleMsgObsBinding.inflate(layoutInflater)
         val color: Int
         mesagePregunta.setView(bindmsg.root)

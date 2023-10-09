@@ -29,19 +29,20 @@ object CreateIncon {
         return resultText
     }
     fun reviewIncons(): List<Int> { //----- Devuelve los capitulos con inconsistencias
-        val inconsistencias = Mob.infoCap.all { !it.incons } //--- true = algún cap con incon
-        return if (inconsistencias) {
-            Mob.infoCap
+        //val inconsistencias = Mob.infoCap.all { !it.incons } //--- true = algún cap con incon
+        val indice = Mob.infoCap
+            .filter { it.incons }
+            .map { it.indexCap }
+        val valoresCorrespondientes = indice.mapNotNull { Mob.titleMapTxt[it] }
+        println(valoresCorrespondientes)
+        return Mob.infoCap
                 .filter { it.incons }
                 .map { it.indexCap }
-        } else emptyList()
     }
     fun reviewCaps(): List<Int> {  //----- Devuelve los capitulos que no sean han abierto
-        val viewCaps = Mob.infoCap.all { it.capView }        //--- true = todos los cap cargados
-        return if (viewCaps) {
-            Mob.infoCap
-                .filter { it.capView }
+        //val viewCaps = Mob.infoCap.all { it.capView }        //--- true = todos los cap cargados
+        return Mob.infoCap
+                .filter { !it.capView }
                 .map { it.indexCap }
-        } else emptyList()
     }
 }

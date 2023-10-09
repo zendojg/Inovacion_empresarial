@@ -25,6 +25,7 @@ import com.google.gson.JsonParseException
 import com.google.gson.reflect.TypeToken
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.ModuloTotalInfoBinding
+import gob.pa.inovacion_empresarial.databinding.StyleMsgAlertBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgFormBinding
 import gob.pa.inovacion_empresarial.function.AppCache
 import gob.pa.inovacion_empresarial.function.CreateBackUp
@@ -147,25 +148,7 @@ class FragTotalInforme : Fragment() {
                         }
                     }
                 }
-
             }
-
-            txtInfoObsEncuesta.addTextChangedListener(object : TextWatcher {
-                override fun afterTextChanged(s: Editable?) { /* Empty */ }
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int)
-                {/* Empty */}
-                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                Mob.obsEncuesta = s.toString() //-- Reescribe las observaciones de la encuesta
-                }
-            })
-            txtInfoObsModulo.addTextChangedListener(object : TextWatcher {
-                override fun afterTextChanged(s: Editable?) { /* Empty */ }
-                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int)
-                {/* Empty */}
-                override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                    Mob.obsModulo = s.toString() //-- Reescribe las observaciones del módulo
-                }
-            })
 
             btSendObs.setOnClickListener {
                 if (Mob.authData?.rol == "E" && Functions.isOnline(ctx)) {
@@ -178,14 +161,47 @@ class FragTotalInforme : Fragment() {
             }
             btViewForm.setOnClickListener { reviewForm() }
             btEnd.setOnClickListener { endForm() }
-
         }
     }
 
     private fun reviewForm() {
         val inconsistencias = CreateIncon.reviewIncons()
         val reviewCaps = CreateIncon.reviewCaps()
+        val msgSend = AlertDialog.Builder(ctx)
+        val bindSend: StyleMsgAlertBinding =
+            DataBindingUtil.inflate(LayoutInflater.from(context),
+                R.layout.style_msg_alert, null, false)
+        msgSend.setView(bindSend.root)
+        println(inconsistencias)
+        println(reviewCaps)
+        bindSend.apply {
+            msg2.visibility = View.GONE
+            msg6.visibility = View.VISIBLE
+            btnegativo.visibility = View.GONE
 
+            msgtitle.text = "Resumen del formulario"
+            when {
+                inconsistencias.isNotEmpty() -> {
+                    msg1.text = "Capítulos con incosistencias registradas:"
+                    msg6.text = inconsistencias.joinToString("\n\n").toEditable()
+                }
+                reviewCaps.isNotEmpty() -> {
+                    msg1.text = "Capítulos sin previsualizar:"
+                    msg6.text = reviewCaps.joinToString("\n\n").toEditable()
+                }
+                else -> {
+                    msg1.text = "Formulario completo"
+                    msg6.visibility = View.GONE
+                }
+            }
+            aDialog = msgSend.create()
+            aDialog?.setCancelable(false)
+            aDialog?.show()
+            aDialog?.window?.setGravity(Gravity.CENTER)
+            btpositivo.setOnClickListener {
+                aDialog?.dismiss()
+            }
+        }
     }
 
     private fun sendFormulario(form: ModelForm) {
@@ -312,6 +328,8 @@ class FragTotalInforme : Fragment() {
 
     fun saveCapInforme(): List<String> {
         with(bindinginfo) {
+            Mob.obsEncuesta = txtInfoObsEncuesta.text.toString().ifEmpty { null }
+            Mob.obsModulo = txtInfoObsModulo.text.toString().ifEmpty { null }
 
             Mob.condicion = ModelCondicion(
                 id = Mob.condicion?.id,
@@ -323,6 +341,6 @@ class FragTotalInforme : Fragment() {
                 ncontrol = Mob.condicion?.ncontrol
             )
         }
-        return emptyList()
+        return emptyList() // Controlar condiciones 02, 04 y 08 que contenga sus datos
     }
 }
