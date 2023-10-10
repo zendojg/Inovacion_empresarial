@@ -177,17 +177,31 @@ class FragTotalInforme : Fragment() {
         bindSend.apply {
             msg2.visibility = View.GONE
             msg6.visibility = View.VISIBLE
+            btpositivo.text = getString(R.string.done)
+            btpositivo.backgroundTintList = ContextCompat.getColorStateList(ctx, R.color.celeste)
             btnegativo.visibility = View.GONE
 
             msgtitle.text = "Resumen del formulario"
             when {
                 inconsistencias.isNotEmpty() -> {
-                    msg1.text = "Capítulos con incosistencias registradas:"
-                    msg6.text = inconsistencias.joinToString("\n\n").toEditable()
+                    for (list in inconsistencias) {
+                        msg1.text = "Capítulos con incosistencias registradas:"
+                        val desc = if (getString(list.third) == "") ""
+                        else " - ${getString(list.third)}"
+                        val txt =
+                            "${msg6.text}${getString(list.first)}${desc}\n\n"
+                        msg6.text = txt.toEditable()
+                    }
                 }
                 reviewCaps.isNotEmpty() -> {
-                    msg1.text = "Capítulos sin previsualizar:"
-                    msg6.text = reviewCaps.joinToString("\n\n").toEditable()
+                    msg1.text = "Capítulos sin previa carga o previsualización:"
+                    for (list in reviewCaps) {
+                        val desc = if (getString(list.third) == "") ""
+                        else " - ${getString(list.third)}"
+                        val txt =
+                            "${msg6.text}${getString(list.first)}${desc}\n\n"
+                        msg6.text = txt.toEditable()
+                    }
                 }
                 else -> {
                     msg1.text = "Formulario completo"
@@ -247,7 +261,7 @@ class FragTotalInforme : Fragment() {
 
     private suspend fun savedForm(form: ModelForm): Long {
         val nameForm: String
-        with(Mob) {
+        Mob.apply {
             nameForm = "${authData?.user ?: USERTEST}*${Functions.myDate().aString(DATEFORMAT)}"
         }
         AppCache.formSAVE(ctx, form, nameForm)
@@ -330,6 +344,7 @@ class FragTotalInforme : Fragment() {
         with(bindinginfo) {
             Mob.obsEncuesta = txtInfoObsEncuesta.text.toString().ifEmpty { null }
             Mob.obsModulo = txtInfoObsModulo.text.toString().ifEmpty { null }
+            Mob.capMod?.observaciones = Mob.obsModulo
 
             Mob.condicion = ModelCondicion(
                 id = Mob.condicion?.id,

@@ -412,7 +412,7 @@ data class ModelMod(
     @SerializedName("porcentEnCostoOGastoSoftware")                             val v10porcent2: String?,
     @SerializedName("porcentEnCostoOGastoConsultoriaTIC")                       val v10porcent3: String?,
     @SerializedName("porcentEnCostoOGastoOtro")                                 val v10porcent4: String?,
-    @SerializedName("observaciones")                                            val observaciones: String?,
+    @SerializedName("observaciones") var observaciones: String?,
     @SerializedName("numControl")                                               val numControl: Int?)
 
 data class ModelCondicion(

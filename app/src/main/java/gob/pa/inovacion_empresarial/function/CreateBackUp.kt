@@ -1,38 +1,22 @@
 package gob.pa.inovacion_empresarial.function
 
+import android.content.ContentValues
 import android.content.Context
 import android.os.Environment
+import android.provider.MediaStore
 import gob.pa.inovacion_empresarial.R
+import gob.pa.inovacion_empresarial.function.Functions.aString
+import gob.pa.inovacion_empresarial.model.Mob
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.io.IOException
 
 object CreateBackUp {
-
     suspend fun saved(ctx: Context) = withContext(Dispatchers.IO)  {
         val sharedPreferences = ctx.getSharedPreferences(
             ctx.getString(R.string.sharedPreferencesKey), Context.MODE_PRIVATE)
-        val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
-
-        val storageState = Environment.getExternalStorageState()
-        if (Environment.MEDIA_MOUNTED == storageState) {
-            // El almacenamiento externo está disponible y montado
-        } else {
-            // El almacenamiento externo no está disponible o no está montado
-        }
-
-
         val sharedIds = sharedPreferences.all.map { it.key }
-//        val sharedValues = sharedPreferences.all.map { it.value }
-//        if (keys) {
-//            val fileDir = File(dir, "EIE_registro.txt")
-//            FileOutputStream(fileDir).use {
-//                it.write(sharedIds.joinToString("\n").toByteArray())
-//            }
-//            val fileValues = File(dir, "EIE_data.txt")
-//            FileOutputStream(fileValues).use {
-//                it.write(sharedValues.joinToString("\n").toByteArray())
-//            }
-//        }
+
         val lista: ArrayList<String> = ArrayList()
         for (i in sharedIds) {
             val data: String? = try { AppCache.getAny(ctx,i).toString() }
@@ -44,14 +28,41 @@ object CreateBackUp {
             } else
                 lista.add("$i*${data ?: ""}")
         }
+
+        val name = "EIE_${Functions.myDate().aString(Mob.DATEFORMATFORDOC)}.txt"
+        val contentValues = ContentValues().apply {
+            put(MediaStore.MediaColumns.DISPLAY_NAME, name)
+            put(MediaStore.MediaColumns.MIME_TYPE, "text/plain")
+            put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_DOCUMENTS)
+        }
+        val contentResolver = ctx.contentResolver
+        val uri = contentResolver.insert(MediaStore.Files.getContentUri("external"), contentValues)
+        uri?.let { documentUri ->
+            try {
+                contentResolver.openOutputStream(documentUri)?.use { outputStream ->
+                    lista.forEach { item ->
+                        outputStream.write(item.toByteArray())
+                        outputStream.write("\n".toByteArray())
+                    }
+                }
+            } catch (e: IOException) { e.printStackTrace() }
+        }
+//        val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
 //        val fileBackUp = File(dir, "EIE_backup.txt")
-//        FileOutputStream(fileBackUp).use {
-//            it.write(lista.joinToString("\n").toByteArray())
+
+//        try {
+//            BufferedWriter(FileWriter(fileBackUp)).use { writer ->
+//                lista.forEach { item ->
+//                    writer.write(item)
+//                    writer.newLine()
+//                }
+//            }
+//        } catch (e: IOException) {
+//            e.printStackTrace()
 //        }
-    }
 
-
-    fun savedQuestion() {
-
+//        FileOutputStream(fileBackUp).use {
+//           it.write(lista.joinToString("\n").toByteArray())
+//        }
     }
 }

@@ -87,7 +87,6 @@ object EdittextFormat {
         return ModelTexWatchers(txt, textWatcher)
     }
 
-
     fun edittextMiles(txt: EditText): ModelTexWatchers {
         val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -112,5 +111,4 @@ object EdittextFormat {
         txt.addTextChangedListener(textWatcher)
         return ModelTexWatchers(txt, textWatcher)
     }
-
 }

@@ -101,7 +101,7 @@
             android:gravity="start"
             android:importantForAutofill="no"
             android:inputType="textMultiLine"
-            android:maxHeight="300dp"
+            android:maxHeight="350dp"
             android:overScrollMode="always"
             android:paddingTop="17dp"
             android:scrollbarStyle="insideInset"

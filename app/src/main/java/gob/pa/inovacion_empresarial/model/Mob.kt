@@ -46,7 +46,9 @@ object Mob {
     const val APIFORMUSER = "api/Cuestionario/enc/"
 
     const val USERTEST:String = "USUARIO SIN INDENTIFICADOR"
-    const val DATEFORMAT:String = "yyyy-MM-dd HH:mm:ss a"
+    const val DATEFORMAT:String = "yyyy-MM-dd HH:mm:ss"
+    const val DATEFORMATFORDOC:String = "yyyy-MM-dd__HH.mm.ss"
+
     const val PORCENT100:Int = 100
     const val LIMITMSG:Int = 50
     const val SIZE_AUTOCONTROL:Int = 7

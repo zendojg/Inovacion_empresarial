@@ -28,21 +28,19 @@ object CreateIncon {
         } catch (e: IOException) { e.printStackTrace() }
         return resultText
     }
-    fun reviewIncons(): List<Int> { //----- Devuelve los capitulos con inconsistencias
-        //val inconsistencias = Mob.infoCap.all { !it.incons } //--- true = algún cap con incon
+
+    fun reviewCaps(): List<Triple<Int, Int, Int>> {  //----- Devuelve los capitulos que no sean han abierto
+        //val viewCaps = Mob.infoCap.all { it.capView }        //--- true = todos los cap cargados
+        val indice = Mob.infoCap
+                .filter { !it.capView }
+                .map { it.indexCap }
+        return indice.mapNotNull { Mob.titleMapTxt[it] }
+    }
+
+    fun reviewIncons():  List<Triple<Int, Int, Int>> { //----- Devuelve los capitulos con inconsistencias
         val indice = Mob.infoCap
             .filter { it.incons }
             .map { it.indexCap }
-        val valoresCorrespondientes = indice.mapNotNull { Mob.titleMapTxt[it] }
-        println(valoresCorrespondientes)
-        return Mob.infoCap
-                .filter { it.incons }
-                .map { it.indexCap }
-    }
-    fun reviewCaps(): List<Int> {  //----- Devuelve los capitulos que no sean han abierto
-        //val viewCaps = Mob.infoCap.all { it.capView }        //--- true = todos los cap cargados
-        return Mob.infoCap
-                .filter { !it.capView }
-                .map { it.indexCap }
+        return indice.mapNotNull { Mob.titleMapTxt[it] }
     }
 }

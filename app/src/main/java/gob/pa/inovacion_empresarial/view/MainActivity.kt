@@ -1,5 +1,7 @@
 package gob.pa.inovacion_empresarial.view
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -9,6 +11,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
@@ -49,6 +52,7 @@ class MainActivity : AppCompatActivity() {
 //        decorView.systemUiVisibility =
 //            decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
         window.statusBarColor = ContextCompat.getColor(this, R.color.celeste)
+
     }
     override fun onPause() {
         super.onPause()
@@ -158,5 +162,6 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+
 
 }
