@@ -118,7 +118,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun onAction() {
-        with (form) {
+        form.apply {
             btDrawerpager.setOnClickListener {
                 if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
                     drawerLayout.closeDrawer(GravityCompat.END, true)
@@ -300,6 +300,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private fun seeCaps(move: Boolean?) {
         hideKeyboard()
         val colorlb = if (form.viewpager.currentItem < Mob.SEC1_P20) R.color.holo_blue_dark
+        else if (form.viewpager.currentItem == Mob.OBSE_P24) R.color.teal_700
         else  R.color.cream_darl
         val listFaltantes: List<String> = pageSave()
         if (move != null && Mob.authData?.rol != "E")  moveTo(move) //--- No muestra inconsistencias
@@ -317,7 +318,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         } else { //-- Inconsistencia
             val mesagePregunta = AlertDialog.Builder(this)
             val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)
-            with (bindmsg) {
+            bindmsg.apply {
                 btpositivo.text = getString(R.string.cancel)
                 msgtitle.text = getString(R.string.tittleWarningIncon)
                 msg1.text = getString(R.string.msgWarningIncon)
@@ -348,23 +349,35 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     private fun moveTo(move: Boolean) {
-        if (move) {
-            if (form.viewpager.currentItem == Mob.CAP8_P15 && Mob.cap8?.v56check == false) {
-                form.viewpager.setCurrentItem(form.viewpager.currentItem + 2, false)
-            } else
-                if (form.viewpager.currentItem == Mob.SEC1_P20 && Mob.capMod?.v1check == false) {
-                    form.viewpager.setCurrentItem(
-                        form.viewpager.currentItem + Mob.JUMP_MODULE1, false)
-                } else form.viewpager.setCurrentItem(
-                        form.viewpager.currentItem + 1, false)
-        } else {
-            if (form.viewpager.currentItem == Mob.CAP9_P17 && Mob.cap8?.v56check == false) {
-                form.viewpager.setCurrentItem(form.viewpager.currentItem - 2, false)
-            } else if (form.viewpager.currentItem == Mob.OBSE_P24 && Mob.capMod?.v1check == false) {
-                    form.viewpager.setCurrentItem(
-                        form.viewpager.currentItem - Mob.JUMP_MODULE1, false)
-                } else form.viewpager.setCurrentItem(
-                        form.viewpager.currentItem - 1, false)
+        form.apply {
+            btobspager.isEnabled = false
+            btsavepager.isEnabled = false
+            if (move) {
+                if (viewpager.currentItem == Mob.CAP8_P15 && Mob.cap8?.v56check == false) {
+                    viewpager.setCurrentItem(viewpager.currentItem + 2, false)
+                } else
+                    if (viewpager.currentItem == Mob.SEC1_P20 && Mob.capMod?.v1check == false) {
+                        viewpager.setCurrentItem(
+                            viewpager.currentItem + Mob.JUMP_MODULE1, false
+                        )
+                    } else viewpager.setCurrentItem(
+                        viewpager.currentItem + 1, false
+                    )
+            } else {
+                if (viewpager.currentItem == Mob.CAP9_P17 && Mob.cap8?.v56check == false) {
+                    viewpager.setCurrentItem(viewpager.currentItem - 2, false)
+                } else if (viewpager.currentItem == Mob.OBSE_P24 && Mob.capMod?.v1check == false) {
+                    viewpager.setCurrentItem(
+                        viewpager.currentItem - Mob.JUMP_MODULE1, false
+                    )
+                } else viewpager.setCurrentItem(
+                    viewpager.currentItem - 1, false
+                )
+            }
+            Handler(Looper.getMainLooper()).postDelayed({
+                btobspager.isEnabled = true
+                btsavepager.isEnabled = true
+            }, (Mob.TIME500MS))
         }
     }
 

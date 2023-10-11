@@ -202,6 +202,7 @@ class FragModuloSecc04: Fragment() {
 
     fun saveCap(): List<String> {
         with (bindingmod4) {
+
             Mob.capMod = ModelMod(
                 Mob.capMod?.id,
                 Mob.capMod?.v1check,

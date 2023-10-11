@@ -122,6 +122,7 @@
                 android:overScrollMode="always"
                 android:scrollbarStyle="insideInset"
                 android:scrollbars="vertical"
+                android:fadeScrollbars="false"
                 android:paddingTop="30dp"
                 android:paddingBottom="10dp"
                 android:gravity="start"

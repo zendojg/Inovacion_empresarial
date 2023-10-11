@@ -12,13 +12,11 @@ import androidx.fragment.app.Fragment
 import com.skydoves.balloon.ArrowOrientation
 import com.skydoves.balloon.Balloon
 import com.skydoves.balloon.BalloonAnimation
-import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.model.Mob
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
 import java.util.Date as fecha
-
 
 object Functions {
 

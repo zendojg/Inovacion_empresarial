@@ -72,6 +72,7 @@
                 android:inputType="textMultiLine"
                 android:overScrollMode="always"
                 android:scrollbarStyle="insideInset"
+                android:fadeScrollbars="false"
                 android:scrollbars="vertical"
                 tools:text="xxxxxxxxxxxxxxx\nxxxxxxxxxxxxxxxx\nxxxxxxxxxxxxxxxxxx"
                 tools:ignore="LabelFor,SpeakableTextPresentCheck"

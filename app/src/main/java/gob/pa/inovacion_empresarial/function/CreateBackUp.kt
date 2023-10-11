@@ -12,6 +12,7 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 
 object CreateBackUp {
+    //-- Genera un archivo con todos los formularios, llamado EIE+fecha de texto plano
     suspend fun saved(ctx: Context) = withContext(Dispatchers.IO)  {
         val sharedPreferences = ctx.getSharedPreferences(
             ctx.getString(R.string.sharedPreferencesKey), Context.MODE_PRIVATE)
@@ -49,7 +50,7 @@ object CreateBackUp {
         }
 //        val dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS)
 //        val fileBackUp = File(dir, "EIE_backup.txt")
-
+//
 //        try {
 //            BufferedWriter(FileWriter(fileBackUp)).use { writer ->
 //                lista.forEach { item ->
@@ -60,7 +61,7 @@ object CreateBackUp {
 //        } catch (e: IOException) {
 //            e.printStackTrace()
 //        }
-
+//
 //        FileOutputStream(fileBackUp).use {
 //           it.write(lista.joinToString("\n").toByteArray())
 //        }

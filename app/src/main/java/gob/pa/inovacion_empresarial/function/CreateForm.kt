@@ -64,7 +64,7 @@ object  CreateForm {
     //fun rechargeCap1() = Mob.formComp?.cap1
     //fun rechargeCap2() = Mob.formComp?.cap2
 
-    fun createLoad(form: ModelForm?) { //-- Crea la carga de trabajo
+    fun createLoad(form: ModelForm?) { //-- Crea la carga de trabajo para todos los cap
         Mob.apply {
             formComp = form
             cap1 = form?.cap1

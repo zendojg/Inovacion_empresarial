@@ -29,7 +29,7 @@ object CreateIncon {
         return resultText
     }
 
-    fun reviewCaps(): List<Triple<Int, Int, Int>> {  //----- Devuelve los capitulos que no sean han abierto
+    fun reviewCaps(): List<Triple<Int, Int, Int>> { //------ Devuelve capitulos que no se cargaron
         //val viewCaps = Mob.infoCap.all { it.capView }        //--- true = todos los cap cargados
         val indice = Mob.infoCap
                 .filter { !it.capView }
@@ -37,7 +37,7 @@ object CreateIncon {
         return indice.mapNotNull { Mob.titleMapTxt[it] }
     }
 
-    fun reviewIncons():  List<Triple<Int, Int, Int>> { //----- Devuelve los capitulos con inconsistencias
+    fun reviewIncons():  List<Triple<Int, Int, Int>> { //-- Devuelve capitulos con inconsistencias
         val indice = Mob.infoCap
             .filter { it.incons }
             .map { it.indexCap }

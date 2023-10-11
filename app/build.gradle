@@ -13,8 +13,8 @@ android {
         applicationId "gob.pa.inovacion_empresarial"
         minSdk 24
         targetSdk 32
-        versionCode 4
-        versionName "0.96"
+        versionCode 5
+        versionName "0.97"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -32,7 +32,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures{
+    buildFeatures {
         dataBinding  true
         viewBinding  true
     }

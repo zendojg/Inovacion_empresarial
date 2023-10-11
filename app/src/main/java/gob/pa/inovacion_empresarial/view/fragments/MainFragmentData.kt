@@ -87,7 +87,7 @@ class MainFragmentData : Fragment() {
                 Handler(Looper.getMainLooper()).postDelayed({
                     bindingUser.barUser.visibility = View.INVISIBLE
                     aDialog?.dismiss()
-                    msgBallon("Respaldo actualizado")
+                    msgBallon("Nuevo respaldo creado")
                 }, (Mob.TIME1S))
             }
         }
@@ -135,12 +135,30 @@ class MainFragmentData : Fragment() {
                     aDialog?.setCancelable(false)
                     aDialog?.show()
                     Handler(Looper.getMainLooper()).postDelayed({
-                        //-------------------------------------------------------------------------- UPDATE
-
-                        aDialog?.dismiss()
-                        bindingUser.barUser.visibility = View.INVISIBLE
-                        msgBallon("Datos actualizados")
-
+                        lifecycleScope.launch {
+                            aDialog?.dismiss()
+                            when (dvmUser.validate()) {
+                                true -> {
+                                    RoomView(dvmUser, ctx).viewRoom(true)
+                                    activity?.runOnUiThread {
+                                        bindingUser.barUser.visibility = View.INVISIBLE
+                                        msgBallon("Datos actualizados")
+                                    }
+                                }
+                                false -> {
+                                    activity?.runOnUiThread {
+                                        bindingUser.barUser.visibility = View.INVISIBLE
+                                        msgBallon("Sesión expirada")
+                                    }
+                                }
+                                else -> {
+                                    activity?.runOnUiThread {
+                                        bindingUser.barUser.visibility = View.INVISIBLE
+                                        msgBallon("No es posible actualizar")
+                                    }
+                                }
+                            }
+                        }
                     }, (Mob.TIME1S))
                 } else { txt0styleFly.error = "Clave incorrecta" }
             }

@@ -1,12 +1,11 @@
 package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +14,6 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -87,7 +85,7 @@ class FragTotalInforme : Fragment() {
     private fun onAction() {
         with(bindinginfo) {
             if (Mob.authData?.rol != "E") {
-                btEnd.isVisible = true
+                btEnd.visibility = View.VISIBLE
                 btSendObs.isEnabled = false
                 btViewForm.isEnabled = false
                 txtCondicion.isEnabled = false
@@ -177,34 +175,36 @@ class FragTotalInforme : Fragment() {
         bindSend.apply {
             msg2.visibility = View.GONE
             msg6.visibility = View.VISIBLE
+            msg6.setTextColor(ContextCompat.getColorStateList(ctx, R.color.blue_dark))
+
             btpositivo.text = getString(R.string.done)
-            btpositivo.backgroundTintList = ContextCompat.getColorStateList(ctx, R.color.celeste)
+            btpositivo.backgroundTintList = ContextCompat.getColorStateList(ctx, R.color.blue_dark)
+            btpositivo.setTextColor(ContextCompat.getColorStateList(ctx, R.color.white))
+            btpositivo.iconTint = ContextCompat.getColorStateList(ctx, R.color.white)
             btnegativo.visibility = View.GONE
 
-            msgtitle.text = "Resumen del formulario"
+            msgtitle.text = getString(R.string.resumenForm)
             when {
                 inconsistencias.isNotEmpty() -> {
                     for (list in inconsistencias) {
                         msg1.text = "Capítulos con incosistencias registradas:"
                         val desc = if (getString(list.third) == "") ""
                         else " - ${getString(list.third)}"
-                        val txt =
-                            "${msg6.text}${getString(list.first)}${desc}\n\n"
+                        val txt = "${msg6.text}${getString(list.first)}${desc}\n\n"
                         msg6.text = txt.toEditable()
                     }
                 }
                 reviewCaps.isNotEmpty() -> {
-                    msg1.text = "Capítulos sin previa carga o previsualización:"
+                    msg1.text = "Sin inconsistencias registradas\nCapítulos no previsualizados:"
                     for (list in reviewCaps) {
                         val desc = if (getString(list.third) == "") ""
                         else " - ${getString(list.third)}"
-                        val txt =
-                            "${msg6.text}${getString(list.first)}${desc}\n\n"
+                        val txt = "${msg6.text}${getString(list.first)}${desc}\n\n"
                         msg6.text = txt.toEditable()
                     }
                 }
                 else -> {
-                    msg1.text = "Formulario completo"
+                    msg1.text = "Formulario completo\n\n"
                     msg6.visibility = View.GONE
                 }
             }
@@ -212,6 +212,7 @@ class FragTotalInforme : Fragment() {
             aDialog?.setCancelable(false)
             aDialog?.show()
             aDialog?.window?.setGravity(Gravity.CENTER)
+
             btpositivo.setOnClickListener {
                 aDialog?.dismiss()
             }

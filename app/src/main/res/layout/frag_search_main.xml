@@ -328,7 +328,7 @@
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:backgroundTint="@color/white"
-                    app:icon="@drawable/img_start"
+                    app:icon="@drawable/img_playlist_play"
                     app:iconPadding="7dp"
                     app:iconTint="#306F90"
                     app:layout_constraintBottom_toBottomOf="parent"

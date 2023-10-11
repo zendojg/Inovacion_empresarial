@@ -16,29 +16,17 @@ interface ApiService {
     //--  LOGIN
     @POST(Mob.APIAUTH)
     fun loginResp(@Body bodyLog: ModelLog): Call<ModelAuth>
-    //--  TOKEN
-//    @GET(Mob.APIAUTH)
-//    suspend fun loginToken(): Response<Void>
-
-
-    @GET ("${Mob.APIGETFORM}{id}")//--  Formulario GET
-    suspend fun getForm(@Path("id") id:String): Response<ModelForm>
-
-    @GET ("${Mob.APIFORMUSER}{id}")//--  Formulario GET
-    suspend fun getFormsUser(@Path("id") id:String): Response<List<ModelForm>>
-
+    @GET ("${Mob.APIGETFORM}{id}")
+    suspend fun getForm(@Path("id") id:String): Response<ModelForm> //--  Formulario GET
+    @GET ("${Mob.APIFORMUSER}{id}")
+    suspend fun getFormsUser(@Path("id") id:String): Response<List<ModelForm>> //--  Formulario GET
 
     //--------------------------  DESCARGA PARA DB
-    @GET (Mob.APIPROV)//--------  Provincia
-    suspend fun getProv(): Response<List<DBprovincia>>
-    @GET (Mob.APIDIST)//--------  Distrito
-    suspend fun getDistrito(): Response<List<DBdistritos>>
-    @GET (Mob.APICORRE) //------  Corregimiento
-    suspend fun getCorre(): Response<List<DBcorregimiento>>
-    @GET (Mob.APILUGARP) //-----  Lugar Poblado
-    suspend fun getLugarP(): Response<List<DBlugarP>>
+    @GET (Mob.APIPROV) suspend fun getProv(): Response<List<DBprovincia>> //---------  Provincia
+    @GET (Mob.APIDIST) suspend fun getDistrito(): Response<List<DBdistritos>>//------  Distrito
+    @GET (Mob.APICORRE) suspend fun getCorre(): Response<List<DBcorregimiento>>//----  Corregimiento
+    @GET (Mob.APILUGARP) suspend fun getLugarP(): Response<List<DBlugarP>> //--------  Lugar Poblado
+    @PUT (Mob.APIUPDATEFORM) suspend fun sendForm(@Body form: ModelForm): Response<Any>
 
-    @PUT (Mob.APIUPDATEFORM)
-    suspend fun sendForm(@Body form: ModelForm): Response<Any>
 
 }
