@@ -34,7 +34,7 @@ class MainFragmentData : Fragment() {
     private lateinit var bindingUser: FragUserMainBinding
     private lateinit var ctx: Context
     private val dvmUser: DVModel by viewModels()
-    var aDialog: AlertDialog? = null
+    private var aDialog: AlertDialog? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -49,28 +49,18 @@ class MainFragmentData : Fragment() {
     }
     override fun onResume() {
         super.onResume()
-        fillOut()
-    }
-
-    private fun fillOut() {
-        val rol = when (Mob.authData?.rol) {
-            "E" -> "Empadronador"
-            "S" -> "Supervisor"
-            else -> "Desconocido?"
-        }
-        val expira = Mob.authData?.result?.infotoken?.expire?.split("T")
-        with(bindingUser) {
+        bindingUser.apply {
+            val expira = Mob.authData?.result?.infotoken?.expire?.split("T")
+            val rol = when (Mob.authData?.rol) {
+                "E" -> "Empadronador"
+                "S" -> "Supervisor"
+                else -> "Usuario"
+            }
             lbROLUser.text = rol
             lbuserUser.text = Mob.authData?.user ?: "Desconocido"
             lbnameUser.text = Mob.authData?.name ?: "Desconocido"
             lbfechaUser.text = expira?.get(0) ?: "0/0/0"
-        }
-        actividad()
-        onAction()
-    }
 
-    private fun onAction() {
-        with(bindingUser) {
             btExitUser.setOnClickListener { if (aDialog?.isShowing != true) logout() }
             btrenewUser.setOnClickListener { if (aDialog?.isShowing != true) renewData() }
             btbackUser.setOnClickListener {
@@ -90,6 +80,8 @@ class MainFragmentData : Fragment() {
                     msgBallon("Nuevo respaldo creado")
                 }, (Mob.TIME1S))
             }
+            bindingUser.barUser.visibility = View.VISIBLE
+            lifecycleScope.launch { actividad() }
         }
     }
 
@@ -100,7 +92,7 @@ class MainFragmentData : Fragment() {
                 LayoutInflater.from(ctx),
                 R.layout.style_msg_form, null, false
             )
-        with(bindSend) {
+        bindSend.apply {
             lbtittlestyleF.text = getString(R.string.renewtittle)
             txtmsgStyle.text = getString(R.string.warningRenew)
             txt1styleF.visibility = View.GONE
@@ -120,10 +112,7 @@ class MainFragmentData : Fragment() {
             btEnd.backgroundTintList =
                 ContextCompat.getColorStateList(ctx, R.color.holo_blue_dark)
 
-            btCancel.setOnClickListener {
-
-                aDialog?.dismiss()
-            }
+            btCancel.setOnClickListener { aDialog?.dismiss() }
             btEnd.setOnClickListener {
                 if (txt0styleF.text.isNullOrEmpty()) {
                     txt0styleFly.error = "Ingrese la clave de acceso"
@@ -135,8 +124,8 @@ class MainFragmentData : Fragment() {
                     aDialog?.setCancelable(false)
                     aDialog?.show()
                     Handler(Looper.getMainLooper()).postDelayed({
+                        aDialog?.dismiss()
                         lifecycleScope.launch {
-                            aDialog?.dismiss()
                             when (dvmUser.validate()) {
                                 true -> {
                                     RoomView(dvmUser, ctx).viewRoom(true)
@@ -192,7 +181,7 @@ class MainFragmentData : Fragment() {
             btpositivo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
             btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_logout)
             btnegativo.backgroundTintList =
-                ContextCompat.getColorStateList(ctx, R.color.teal_700)
+                ContextCompat.getColorStateList(ctx, R.color.dark_pink)
             btpositivo.setOnClickListener { aDialog?.dismiss() }
             btnegativo.setOnClickListener {
                 aDialog?.dismiss()
@@ -204,36 +193,34 @@ class MainFragmentData : Fragment() {
         }
     }
 
-    private fun actividad() {
-        bindingUser.barUser.visibility = View.VISIBLE
-        lifecycleScope.launch {
-            if (!Mob.authData?.user.isNullOrEmpty()) {
-                val retroData = dvmUser.formsGetUser(Mob.authData?.user!!)
-                val asign: Int = retroData?.body?.size ?: 0
-                val roomData = RoomView(dvmUser, ctx).getFormsUser(Mob.authData?.user!!)
-                var sendForms = 0
-                var notsendForms = 0
-                if  (!retroData?.body.isNullOrEmpty()) {
-                    for (i in retroData?.body!!) { if (i.tieneIncon != null) sendForms += 1 }
-                }
-                for (i in roomData) {
-                    val type: Type = object : TypeToken<ModelForm?>() {}.type
-                    val listTest = Gson().fromJson<ModelForm>(i.saveForm, type)
-                    if (listTest.tieneIncon == null) notsendForms += 1
-                }
-                activity?.runOnUiThread {
-                    Handler(Looper.getMainLooper()).postDelayed({
-                        with (bindingUser){
-                            barUser.visibility = View.INVISIBLE
-                            txtnotsendUser.text = notsendForms.toString()
-                            txtsendUser.text = sendForms.toString()
-                            txtasignFormUser.text = asign.toString()
-                            txtsavedmUser.text = roomData.size.toString()
-                            txtcomplettoday.text = "0"  //------------------------------------------ AGREGAR
-                            txtcompletweek.text = "0"
-                        }
-                    }, (Mob.TIME500MS))
-                }
+    private suspend fun actividad() {
+        if (!Mob.authData?.user.isNullOrEmpty()) {
+            val retroData = dvmUser.formsGetUser(Mob.authData?.user!!)
+            val asign: Int = retroData?.body?.size ?: 0
+            val roomData = RoomView(dvmUser, ctx).getFormsUser(Mob.authData?.user!!)
+            var sendForms = 0
+            var notsendForms = 0
+            if (!retroData?.body.isNullOrEmpty()) {
+                for (i in retroData?.body!!)
+                    if (i.tieneIncon != null) sendForms += 1
+            }
+            for (i in roomData) {
+                val type: Type = object : TypeToken<ModelForm?>() {}.type
+                val listTest = Gson().fromJson<ModelForm>(i.saveForm, type)
+                if (listTest.tieneIncon == null) notsendForms += 1
+            }
+            activity?.runOnUiThread {
+                Handler(Looper.getMainLooper()).postDelayed({
+                    bindingUser.apply {
+                        barUser.visibility = View.INVISIBLE
+                        txtnotsendUser.text = notsendForms.toString()
+                        txtsendUser.text = sendForms.toString()
+                        txtasignFormUser.text = asign.toString()
+                        txtsavedmUser.text = roomData.size.toString()
+                        txtcomplettoday.text = "0"  //-------------------------------------- AGREGAR
+                        txtcompletweek.text = "0"
+                    }
+                }, (Mob.TIME500MS))
             }
         }
     }

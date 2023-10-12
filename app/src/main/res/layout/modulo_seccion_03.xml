@@ -39,7 +39,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-
                 <TextView
                     android:id="@+id/lb4nm"
                     android:layout_width="wrap_content"
@@ -102,8 +101,6 @@
                     android:layout_height="wrap_content"
                     android:animateLayoutChanges="true"
                     android:layout_marginTop="15dp"
-                    android:visibility="gone"
-                    tools:visibility="visible"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/rgroupSecc03_4"
                     >
@@ -498,9 +495,6 @@
                             tools:ignore="TouchTargetSizeCheck" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -568,7 +562,6 @@
                         tools:ignore="TouchTargetSizeCheck"
                         tools:text="00000000" />
                 </com.google.android.material.textfield.TextInputLayout>
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

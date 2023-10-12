@@ -1,5 +1,6 @@
 package gob.pa.inovacion_empresarial.view.fragments
 
+import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -335,13 +336,18 @@ class MainFragmentForms : Fragment() {
             Handler(Looper.getMainLooper()).postDelayed({
                 aDialog?.dismiss()
                 activity?.finish()
+                val options = ActivityOptions.makeCustomAnimation(
+                    ctx,
+                    R.animator.slide_in_from_right,
+                    R.animator.slide_out_to_left
+                )
                 val intent = Intent(ctx, FormActivity::class.java)
                 intent.addFlags(
                     Intent.FLAG_ACTIVITY_CLEAR_TOP or
                             Intent.FLAG_ACTIVITY_CLEAR_TASK or
                             Intent.FLAG_ACTIVITY_NEW_TASK
                 )
-                startActivity(intent)
+                startActivity(intent, options.toBundle())
             }, (Mob.TIME1S))
         }
         val selection = bindingForm.spinFormsType.selectedItemPosition

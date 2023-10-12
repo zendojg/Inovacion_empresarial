@@ -14,7 +14,6 @@ import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelMod
-import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragModuloSecc01 : Fragment() {
     private lateinit var bindingmod1: ModuloSeccion01Binding
@@ -37,15 +36,15 @@ class FragModuloSecc01 : Fragment() {
     }
 
     private fun onAction() {
-        with(bindingmod1) {
-            if (rbtSecc011No.isChecked) {
-                linearSecc012.isVisible = false
-            }
+        bindingmod1.apply {
+            if (rbtSecc011No.isChecked) linearSecc012.isVisible = false
+            if (checkSecc012D.isChecked) txtSecc012DOtra.isVisible = true
+
             rgroupSecc011.setOnCheckedChangeListener { _, id ->
                 hideKeyboard()
                 when (id) {
-                    rbtSecc011Si.id -> { linearSecc012.isVisible = true }
-                    rbtSecc011No.id -> { linearSecc012.isVisible = false }
+                    rbtSecc011Si.id -> linearSecc012.isVisible = true
+                    rbtSecc011No.id -> linearSecc012.isVisible = false
                 }
             }
             if (rbtSecc012Si.isChecked) linearSecc0121.isVisible = true
@@ -64,7 +63,7 @@ class FragModuloSecc01 : Fragment() {
 
     private fun fillOut() {
         val mod1 = Mob.formComp?.capMod
-        with(bindingmod1) {
+        bindingmod1.apply {
             when (mod1?.v1check) {
                 true -> rbtSecc011Si.isChecked = true
                 false -> rbtSecc011No.isChecked = true
@@ -88,59 +87,60 @@ class FragModuloSecc01 : Fragment() {
 
     fun saveCap(): List<String> {
         with (bindingmod1) {
+            val check = rbtSecc011Si.isChecked
             Mob.capMod = ModelMod(
                 Mob.capMod?.id,
-                if (rbtSecc011Si.isChecked) true else if (rbtSecc011No.isChecked) false else null,
+                if (check) true else if (rbtSecc011No.isChecked) false else null,
                 if (Mob.capMod?.v1check == true && rbtSecc012Si.isChecked) true else
                     if (Mob.capMod?.v1check == true && rbtSecc012No.isChecked) false else null,
-                if (Mob.capMod?.v1check == true &&
+                if (check &&
                     rbtSecc012Si.isChecked &&
                     checkSecc012A.isChecked) true else null,
-                if (Mob.capMod?.v1check == true &&
+                if (check &&
                     rbtSecc012Si.isChecked &&
                     checkSecc012B.isChecked) true else null,
-                if (Mob.capMod?.v1check == true &&
+                if (check &&
                     rbtSecc012Si.isChecked &&
                     checkSecc012C.isChecked) true else null,
-                if (Mob.capMod?.v1check == true &&
+                if (check &&
                     rbtSecc012Si.isChecked &&
                     checkSecc012D.isChecked) true else null,
-                if (Mob.capMod?.v1check == true &&
+                if (check &&
                     rbtSecc012Si.isChecked &&
                     checkSecc012D.isChecked)
                     txtSecc012DOtra.text.toString().ifEmpty { null } else null,
-                if (Mob.capMod?.v1check == true && checkSecc0122.isChecked) true else null,
+                if (check && checkSecc0122.isChecked) true else null,
                 //Mob.capMod?.v2txtnull: String?,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v3check1 else null,//---------
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v3check2 else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v3check3 else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v3check4 else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v4check else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v4check1a else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v4check1aPorcent else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v4check1b else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v4check1bPorcent else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v4check1c else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v4check1cPorcent else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v4check1d else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v4check1dPorcent else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v4check1e else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v4check1ePorcent else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v4check1eOther else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v5txt else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v6porcent1 else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v6porcent2 else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v6porcent3 else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v6porcent4 else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v7check else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v8txt else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v9check else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v9txt else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v10porcent1 else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v10porcent2 else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v10porcent3 else null,
-                if (Mob.capMod?.v1check == true) Mob.capMod?.v10porcent4 else null,
-                if (Mob.capMod?.v1check == true) Mob.obsModulo else null,
+                if (check) Mob.capMod?.v3check1 else null,//---------
+                if (check) Mob.capMod?.v3check2 else null,
+                if (check) Mob.capMod?.v3check3 else null,
+                if (check) Mob.capMod?.v3check4 else null,
+                if (check) Mob.capMod?.v4check else null,
+                if (check) Mob.capMod?.v4check1a else null,
+                if (check) Mob.capMod?.v4check1aPorcent else null,
+                if (check) Mob.capMod?.v4check1b else null,
+                if (check) Mob.capMod?.v4check1bPorcent else null,
+                if (check) Mob.capMod?.v4check1c else null,
+                if (check) Mob.capMod?.v4check1cPorcent else null,
+                if (check) Mob.capMod?.v4check1d else null,
+                if (check) Mob.capMod?.v4check1dPorcent else null,
+                if (check) Mob.capMod?.v4check1e else null,
+                if (check) Mob.capMod?.v4check1ePorcent else null,
+                if (check) Mob.capMod?.v4check1eOther else null,
+                if (check) Mob.capMod?.v5txt else null,
+                if (check) Mob.capMod?.v6porcent1 else null,
+                if (check) Mob.capMod?.v6porcent2 else null,
+                if (check) Mob.capMod?.v6porcent3 else null,
+                if (check) Mob.capMod?.v6porcent4 else null,
+                if (check) Mob.capMod?.v7check else null,
+                if (check) Mob.capMod?.v8txt else null,
+                if (check) Mob.capMod?.v9check else null,
+                if (check) Mob.capMod?.v9txt else null,
+                if (check) Mob.capMod?.v10porcent1 else null,
+                if (check) Mob.capMod?.v10porcent2 else null,
+                if (check) Mob.capMod?.v10porcent3 else null,
+                if (check) Mob.capMod?.v10porcent4 else null,
+                if (check) Mob.obsModulo else null,
                 Mob.capMod?.numControl
             )
         }

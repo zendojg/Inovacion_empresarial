@@ -51,12 +51,12 @@ class FragModuloSecc03 : Fragment() {
         textWatcherList.clear()
     }
     private fun onAction() {
-        with(bindingmod3) {
+        bindingmod3.apply {
             scrollForm.isVisible = Mob.capMod?.v1check != false
             if (rbtSecc034ASi.isChecked) {
                 layoutSecc341.isVisible = true
                 layoutSecc35.isVisible = true
-            } else {
+            } else if (rbtSecc034ANo.isChecked){
                 layoutSecc341.isVisible = false
                 layoutSecc35.isVisible = false
             }
