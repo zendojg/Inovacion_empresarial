@@ -296,7 +296,7 @@
                     android:textStyle="bold"
                     app:backgroundTint="@color/white"
                     app:icon="@drawable/img_close"
-                    app:iconPadding="7dp"
+                    app:iconPadding="12dp"
                     app:iconTint="#306F90"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/btinitSearch"
@@ -325,11 +325,11 @@
                     android:textAllCaps="false"
                     android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
                     android:textColor="#666666"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textStyle="bold"
                     app:backgroundTint="@color/white"
                     app:icon="@drawable/img_playlist_play"
-                    app:iconPadding="7dp"
+                    app:iconPadding="14dp"
                     app:iconTint="#306F90"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -410,8 +410,6 @@
             app:layout_constraintTop_toBottomOf="@+id/btdataSearch"
             app:strokeColor="@color/blue_dark"
             app:strokeWidth="1dp" />
-
-
 
         <ImageView
             android:id="@+id/img_senacytsearch"

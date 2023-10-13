@@ -36,9 +36,7 @@ class RoomView(dvmModel: DVModel, context: Context) {
     }
 
     suspend fun instance() { roomInstance.dbFormDao() }
-    suspend fun deleteForm(id: String, ncont: String) {
-        roomDB.dbFormDao().deleteForm(ncont, id)
-    }
+    suspend fun deleteForm(id: String, ncont: String) = roomDB.dbFormDao().deleteForm(ncont, id)
     suspend fun getForm(id: String, ncont: String) = roomDB.dbFormDao().getFormsbyID(ncont, id)
     suspend fun getAllForm() = roomDB.dbFormDao().getAllForms()
     suspend fun getFormsUser(idUser: String) = roomDB.dbFormDao().getFormsUser(idUser)

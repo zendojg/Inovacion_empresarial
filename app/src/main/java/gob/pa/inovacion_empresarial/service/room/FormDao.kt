@@ -163,7 +163,7 @@ interface FormDao {
     suspend fun deleteForm(
         nControl: String,
         idUser: String
-    )
+    ): Int
 
 
 }

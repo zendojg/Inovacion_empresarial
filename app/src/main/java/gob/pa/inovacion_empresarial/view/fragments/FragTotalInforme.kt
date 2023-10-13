@@ -175,10 +175,10 @@ class FragTotalInforme : Fragment() {
         bindSend.apply {
             msg2.visibility = View.GONE
             msg6.visibility = View.VISIBLE
-            msg6.setTextColor(ContextCompat.getColorStateList(ctx, R.color.blue_dark))
+            msg6.setTextColor(ContextCompat.getColorStateList(ctx, R.color.teal_900))
 
             btpositivo.text = getString(R.string.done)
-            btpositivo.backgroundTintList = ContextCompat.getColorStateList(ctx, R.color.blue_dark)
+            btpositivo.backgroundTintList = ContextCompat.getColorStateList(ctx, R.color.teal_700)
             btpositivo.setTextColor(ContextCompat.getColorStateList(ctx, R.color.white))
             btpositivo.iconTint = ContextCompat.getColorStateList(ctx, R.color.white)
             btnegativo.visibility = View.GONE

@@ -81,20 +81,7 @@ class MainFragmentForms : Fragment() {
     }
 
     private fun onAction() {
-        with (bindingForm){
-            btexpandSearchForms.setOnClickListener {
-                if (layoutSearchForm.isVisible) {
-                    reset()
-                    adpForms.updateList(listofAllForms)
-                    layoutSearchForm.isVisible = false
-                    btexpandSearchForms.setImageDrawable(
-                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_more))
-                } else {
-                    layoutSearchForm.isVisible = true
-                    btexpandSearchForms.setImageDrawable(
-                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_less))
-                }
-            }
+        bindingForm.apply {
             btbackForm.setOnClickListener {
                 val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
                 pager?.setCurrentItem(Mob.INIT01, true)
@@ -118,50 +105,58 @@ class MainFragmentForms : Fragment() {
                 adpForms.updateList(listofAllForms)
                 false
             }
-            autoDist.onItemClickListener = AdapterView.OnItemClickListener { adapter, _, pos, _ ->  //----- Optimizar este bloque
-                searchForms.setQuery("", false)
-                lifecycleScope.launch {
-                    val prov = if (listLocation.isNotEmpty()) listLocation.last().first else ""
-                    val getDistID =
-                        room.getDistID(prov, adapter.getItemAtPosition(pos).toString())
-                    val listUpdate = listofAllForms.filter {
-                        it.cap1?.v01provtxt?.lowercase(Locale.getDefault())
-                            ?.contains(prov) == true &&
-                                it.cap1.v02disttxt?.lowercase(Locale.getDefault())
-                                    ?.contains(getDistID) == true
-                    }
-                    activity?.runOnUiThread {
-                        val hintDist = "Distrito: $getDistID"
-                        autoCorre.let {
-                            it.hint = getString(R.string.corre)
-                            it.setText(getString(R.string.corre), false)
-                        }
-                        autoDistly.hint = hintDist
-                        adpForms.updateList(listUpdate)
-                    }
-                }
-            }
-
-
-
-
+//            btexpandSearchForms.setOnClickListener {
+//                if (layoutSearchForm.isVisible) {
+//                    //reset()
+//                    adpForms.updateList(listofAllForms)
+//                    layoutSearchForm.isVisible = false
+//                    btexpandSearchForms.setImageDrawable(
+//                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_more))
+//                } else {
+//                    layoutSearchForm.isVisible = true
+//                    btexpandSearchForms.setImageDrawable(
+//                        ContextCompat.getDrawable(ctx, R.drawable.img_expand_less))
+//                }
+//            }
+//            autoDist.onItemClickListener = AdapterView.OnItemClickListener { adapter, _, pos, _ ->
+//                searchForms.setQuery("", false)
+//                lifecycleScope.launch {
+//                    val prov = if (listLocation.isNotEmpty()) listLocation.last().first else ""
+//                    val getDistID =
+//                        room.getDistID(prov, adapter.getItemAtPosition(pos).toString())
+//                    val listUpdate = listofAllForms.filter {
+//                        it.cap1?.v01provtxt?.lowercase(Locale.getDefault())
+//                            ?.contains(prov) == true &&
+//                                it.cap1.v02disttxt?.lowercase(Locale.getDefault())
+//                                    ?.contains(getDistID) == true
+//                    }
+//                    activity?.runOnUiThread {
+//                        val hintDist = "Distrito: $getDistID"
+//                        autoCorre.let {
+//                            it.hint = getString(R.string.corre)
+//                            it.setText(getString(R.string.corre), false)
+//                        }
+//                        autoDistly.hint = hintDist
+//                        adpForms.updateList(listUpdate)
+//                    }
+//                }
+//            } //----- Agregar onItemClickListener para corregimientos
         }
     }
 
-    private fun reset() {
-        with(bindingForm) {
-            autoDistly.hint = getString(R.string.dist)
-            autoCorre.hint = getString(R.string.corre)
-            autoDist.setText(getString(R.string.dist), false)
-            autoCorre.setText(getString(R.string.corre), false)
-            autoCorre.setAdapter(ArrayAdapter(ctx, R.layout.style_list, emptyArray<String>()))
-        }
-    }
+//    private fun reset() {
+//        with(bindingForm) {
+//            autoDistly.hint = getString(R.string.dist)
+//            autoCorre.hint = getString(R.string.corre)
+//            autoDist.setText(getString(R.string.dist), false)
+//            autoCorre.setText(getString(R.string.corre), false)
+//            autoCorre.setAdapter(ArrayAdapter(ctx, R.layout.style_list, emptyArray<String>()))
+//        }
+//    }
 
-    private fun spinnerSelection(position: Int) {
+    private fun spinnerSelection(position: Int) { //-- Selector de formularios
         with (bindingForm) {
-            barForms.visibility = View.VISIBLE
-            reset()
+            barForms.visibility = View.VISIBLE    //reset()
             var conteoIncon = 0
             val user: String = Mob.authData?.user ?: ""
             val listUpdate: ArrayList<ModelForm> = ArrayList()
@@ -229,7 +224,6 @@ class MainFragmentForms : Fragment() {
                     txttotalInconForms.text = conteoIncon.toString()
                     txttotalForms.text = listofAllForms.size.toString()
                     adpForms.updateList(listofAllForms)
-
                     listLocation = localitation
                 }
                 barForms.visibility = View.INVISIBLE
@@ -246,9 +240,12 @@ class MainFragmentForms : Fragment() {
             var inco = 0
             val listUpdate: ArrayList<ModelForm> = ArrayList()
             val search = query.lowercase(Locale.getDefault())
+
             val listFilter = adpForms.list.ifEmpty { listofAllForms }
             listUpdate.addAll(
-                listFilter.filter {
+                if (search == "inconsistencia")
+                     listFilter.filter { it.tieneIncon == true }
+                else listFilter.filter {
                     it.ncontrol?.lowercase(Locale.getDefault())?.contains(search) == true ||
                             it.cap2?.v05nameLtxt?.lowercase(Locale.getDefault())
                                 ?.contains(search) == true ||
@@ -277,18 +274,42 @@ class MainFragmentForms : Fragment() {
             Functions.ceroLeft(item.ncontrol ?: "0",Mob.FOR_5_DIGITS)}"
         with(bindmsg) {
             msgOpcions.setView(bindmsg.root)
-
             msgtitle.text = ncontrol
-            bt1.text = getString(R.string.btcarga)    //-- Cargar formulario
-            bt2.text = getString(R.string.btmoreinfo) //-- Ver formulario completo
-            bt3.text = getString(R.string.viewIncon)  //-- Ver Inconsistencias
-            bt4.text = getString(R.string.btdelete)   //-- Borrar formulario
-
-            bt1.icon = ContextCompat.getDrawable(ctx, R.drawable.img_download)
-            bt2.icon = ContextCompat.getDrawable(ctx, R.drawable.img_formulario)
-            bt3.icon = ContextCompat.getDrawable(ctx, R.drawable.img_warning1)
-            bt4.icon = ContextCompat.getDrawable(ctx, R.drawable.img_delete)
-
+            bt1.apply { //-- Cargar formulario
+                text = getString(R.string.btcarga)
+                icon = ContextCompat.getDrawable(ctx, R.drawable.img_download)
+                setOnClickListener {
+                    aDialog?.dismiss()
+                    chargeForm(item)
+                }
+            }
+            bt2.apply { //-- Ver formulario completo
+                text = getString(R.string.btmoreinfo)
+                icon = ContextCompat.getDrawable(ctx, R.drawable.img_formulario)
+                setOnClickListener {
+                    aDialog?.dismiss()
+                    Handler(Looper.getMainLooper()).postDelayed({ viewForm(item) }, (Mob.TIME100MS))
+                }
+            }
+            bt3.apply { //-- Ver Inconsistencias
+                text = getString(R.string.viewIncon)
+                icon = ContextCompat.getDrawable(ctx, R.drawable.img_warning1)
+                setOnClickListener {
+                    aDialog?.dismiss()
+                    iconForm(item)
+                }
+            }
+            bt4.apply { //-- Borrar formulario
+                text = getString(R.string.btdelete)
+                icon = ContextCompat.getDrawable(ctx, R.drawable.img_delete)
+                setOnClickListener {
+                    aDialog?.dismiss()
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        if (selection == 1 || selection == 2) msgBallon("Imposible borrar")
+                        else deleteForm(item)
+                    }, (Mob.TIME100MS))
+                }
+            }
             if (selection == 1 || selection == 2) bt4.isEnabled = false
             if (item.tieneIncon != true) bt3.isEnabled = false
             aDialog = msgOpcions.create()
@@ -298,31 +319,6 @@ class MainFragmentForms : Fragment() {
             aDialog?.window?.setGravity(Gravity.BOTTOM)
             //aDialog?.setCancelable(false)
             aDialog?.show()
-
-            bt1.setOnClickListener {
-                aDialog?.dismiss()
-                chargeForm(item)
-            }
-
-            bt2.setOnClickListener {
-                aDialog?.dismiss()
-                Handler(Looper.getMainLooper()).postDelayed({
-                    viewForm(item)
-                }, (Mob.TIME100MS))
-            }
-
-            bt3.setOnClickListener {
-                aDialog?.dismiss()
-                iconForm(item)
-            }
-
-            bt4.setOnClickListener {
-                aDialog?.dismiss()
-                Handler(Looper.getMainLooper()).postDelayed({
-                    if (selection == 1 || selection == 2) msgBallon("Imposible borrar")
-                    else deleteForm(item)
-                }, (Mob.TIME100MS))
-            }
         }
     }
     private fun iconForm(item: ModelForm) {
@@ -359,7 +355,8 @@ class MainFragmentForms : Fragment() {
         lifecycleScope.launch {
             if (selection == 1 || selection == 2) {
                 val callForm = dvmForm.formGet(item.ncontrol ?: "0")
-                if (callForm?.code == 200 && callForm.body != null) {  //--------------------------- Mejorar control de errores con el server
+                if (callForm?.code == 200 && callForm.body != null) {
+                    //--------------------------- Mejorar control de errores con el server
                     charge(callForm.body)
                 }
             } else charge(item)
@@ -405,12 +402,22 @@ class MainFragmentForms : Fragment() {
                     aDialog = screen.create()
                     aDialog?.setCancelable(false)
                     aDialog?.show()
+                    lifecycleScope.launch{
+                        val deleteResponse = RoomView(dvmForm, ctx).deleteForm(
+                            Mob.authData?.user ?: "",
+                            item.ncontrol ?: ""
+                        )
+                        if (deleteResponse > 0) activity?.runOnUiThread {
+                            aDialog?.dismiss()
+                            listofAllForms = listofAllForms.minus(item)
+                            adpForms.updateList(listofAllForms)
+                            msgBallon("Formulario eliminado")
+                        } else  activity?.runOnUiThread {
+                            aDialog?.dismiss()
+                            msgBallon("Imposible eliminar")
+                        }
 
-                    //------------ ADD DELETE IF NOT SEND FORM
-                    aDialog?.dismiss()
-                    listofAllForms = listofAllForms.minus(item)
-                    adpForms.updateList(listofAllForms)
-                    msgBallon("Formulario eliminado")
+                    }
                 } else { txt0styleFly.error = "Clave incorrecta" }
                 }, (Mob.TIME500MS))
             }
@@ -467,7 +474,4 @@ class MainFragmentForms : Fragment() {
             }
         }
     }
-
-
-
 }

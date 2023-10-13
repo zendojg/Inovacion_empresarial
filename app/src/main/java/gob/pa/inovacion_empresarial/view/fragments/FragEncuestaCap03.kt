@@ -166,7 +166,6 @@ class FragEncuestaCap03 : Fragment() {
                 txtCap326Value,
                 txtCap327Value
             )
-
             return viewCap()
         }
     }

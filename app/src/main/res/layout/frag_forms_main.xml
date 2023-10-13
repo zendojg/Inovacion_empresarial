@@ -96,8 +96,6 @@
             app:layout_constraintStart_toStartOf="@+id/scrollUser"
             app:layout_constraintTop_toBottomOf="@+id/toolbarpager">
 
-
-
             <androidx.appcompat.widget.AppCompatSpinner
                 android:id="@+id/spinFormsType"
                 android:layout_width="match_parent"
@@ -118,7 +116,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:fontFamily="sans-serif-condensed"
                 android:queryHint="Búsqueda avanzada"
                 app:layout_constraintEnd_toStartOf="@+id/btexpand_search_forms"
                 app:layout_constraintStart_toStartOf="parent"
@@ -133,6 +130,8 @@
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/buzqueda"
                 android:src="@drawable/img_expand_more"
+                android:visibility="gone"
+                tools:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="@+id/searchForms"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/searchForms"
@@ -165,7 +164,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/searchForms"
                 tools:visibility="visible">
 
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/autoDistly"
                     style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
@@ -174,6 +172,8 @@
                     android:layout_marginHorizontal="2dp"
                     android:hint="@string/dist"
                     android:textColorHint="@color/black"
+                    android:visibility="gone"
+                    tools:visibility="visible"
                     app:layout_constraintEnd_toStartOf="@+id/autoCorrely"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -201,6 +201,8 @@
                     android:hint="@string/corre"
                     android:textColorHint="@color/black"
                     android:layout_marginHorizontal="2dp"
+                    android:visibility="gone"
+                    tools:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/autoDistly"
@@ -289,7 +291,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guidelineForm"
