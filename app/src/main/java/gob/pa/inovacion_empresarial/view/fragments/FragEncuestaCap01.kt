@@ -90,6 +90,9 @@ class FragEncuestaCap01 : Fragment() {
         Mob.infoCap.find { it.indexCap == Mob.CAP1_P01 }?.capView = true
         seeData(false)
         println("--${Mob.infoCap}")
+
+
+
     }
 
     private fun seeData(editFields: Boolean) {
@@ -102,47 +105,42 @@ class FragEncuestaCap01 : Fragment() {
             } else { arrayProv = emptyArray() }
 
             if (idprov.isEmpty()) return@launch
-
             prov = room.getProvName(idprov)
             arrayDist = if (editFields) room.getDist(idprov) else emptyArray()
 
             if (iddist.isEmpty()) return@launch
-
             dist = room.getDistName(idprov, iddist)
             arrayCorre = if (editFields) room.getCorre(idprov, iddist) else emptyArray()
 
             if (idcorre.isEmpty()) return@launch
-
             corre = room.getCorreName(idprov, iddist, idcorre)
             arrayLugarP = room.getLugarP(idprov, iddist, idcorre)
 
             if (idlugarp.isNotEmpty()) {
                 lugarp = room.getLPName(idprov, iddist, idcorre, idlugarp)
             }
-            activity?.runOnUiThread { updateUI() }
+            activity?.runOnUiThread {
+                bindingcap1.apply {
+                    txtCap11ID.text = idprov
+                    txtCap12ID.text = iddist
+                    txtCap13ID.text = idcorre
+                    txtCap14ID.text = idlugarp
+
+                    txtCap11.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayProv))
+                    txtCap11.setText(prov, false)
+
+                    txtCap12.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayDist))
+                    txtCap12.setText(dist, false)
+
+                    txtCap13.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayCorre))
+                    txtCap13.setText(corre, false)
+
+                    txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayLugarP))
+                    txtCap14.setText(lugarp, false)
+                }
+            }
         }
         onAction()
-    }
-
-    private fun updateUI() {
-        bindingcap1.apply {
-            txtCap11ID.text = idprov
-            txtCap12ID.text = iddist
-            txtCap13ID.text = idcorre
-            txtCap14ID.text = idlugarp
-
-            txtCap11.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayProv))
-            txtCap11.setText(prov, false)
-
-            txtCap12.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayDist))
-            txtCap12.setText(dist, false)
-
-            txtCap13.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayCorre))
-            txtCap13.setText(corre, false)
-
-            txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayLugarP))
-            txtCap14.setText(lugarp, false)
-        }
     }
 
 
