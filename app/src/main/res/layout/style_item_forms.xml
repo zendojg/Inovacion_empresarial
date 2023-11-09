@@ -174,7 +174,7 @@
                 android:animateLayoutChanges="true"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@drawable/img_save_solid" />
+                app:srcCompat="@drawable/img_formedit" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -10,7 +10,9 @@ import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelForm
 
-class AdapterForms(var list: List<ModelForm>, private val onItemClick:(ModelForm) -> Unit):
+class AdapterForms(
+    var list: List<ModelForm>,
+    private val onItemClick:(ModelForm) -> Unit):
     RecyclerView.Adapter<AdapterForms.FormViewHolder>() {
 
     override fun getItemCount() = list.size

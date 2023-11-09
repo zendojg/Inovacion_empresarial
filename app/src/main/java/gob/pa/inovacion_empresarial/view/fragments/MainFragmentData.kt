@@ -129,24 +129,13 @@ class MainFragmentData : Fragment() {
                             when (dvmUser.validate()) {
                                 true -> {
                                     RoomView(dvmUser, ctx).viewRoom(true)
-                                    activity?.runOnUiThread {
-                                        bindingUser.barUser.visibility = View.INVISIBLE
-                                        msgBallon("Datos actualizados")
-                                    }
+                                    msgBallon("Datos actualizados")
                                 }
-                                false -> {
-                                    activity?.runOnUiThread {
-                                        bindingUser.barUser.visibility = View.INVISIBLE
-                                        msgBallon("Sesión expirada")
-                                    }
-                                }
-                                else -> {
-                                    activity?.runOnUiThread {
-                                        bindingUser.barUser.visibility = View.INVISIBLE
-                                        msgBallon("No es posible actualizar")
-                                    }
-                                }
+                                false -> { msgBallon("Sesión expirada") }
+                                else -> { msgBallon("No es posible actualizar") }
+
                             }
+                            activity?.runOnUiThread { bindingUser.barUser.visibility = View.INVISIBLE }
                         }
                     }, (Mob.TIME1S))
                 } else { txt0styleFly.error = "Clave incorrecta" }

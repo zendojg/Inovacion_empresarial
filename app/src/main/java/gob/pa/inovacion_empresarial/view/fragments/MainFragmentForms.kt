@@ -356,14 +356,14 @@ class MainFragmentForms : Fragment() {
             if (selection == 1 || selection == 2) {
                 val callForm = dvmForm.formGet(item.ncontrol ?: "0")
                 if (callForm?.code == 200 && callForm.body != null) {
-                    //--------------------------- Mejorar control de errores con el server
+                    //--------------------------- Agregar mas controles de errores con el server
                     charge(callForm.body)
                 }
             } else charge(item)
         }
     }
 
-    private fun deleteForm(item: ModelForm) {
+    private fun deleteForm(item: ModelForm) { // --- Mensaje de alerta de elimnacion de formulario
         val msgLogout = AlertDialog.Builder(ctx)
         val bindSend: StyleMsgFormBinding =
             DataBindingUtil.inflate(
@@ -407,7 +407,7 @@ class MainFragmentForms : Fragment() {
                             Mob.authData?.user ?: "",
                             item.ncontrol ?: ""
                         )
-                        if (deleteResponse > 0) activity?.runOnUiThread {
+                        if (deleteResponse > 0) activity?.runOnUiThread { // -- Formulario Eliminado
                             aDialog?.dismiss()
                             listofAllForms = listofAllForms.minus(item)
                             adpForms.updateList(listofAllForms)
