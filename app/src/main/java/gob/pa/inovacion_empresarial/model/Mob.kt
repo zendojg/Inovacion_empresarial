@@ -276,12 +276,10 @@ object Mob {
     var infoCap: MutableList<InternalInfo> = mutableListOf()
     init {
         for (capitulo in MENU_P00 until OBSE_P24) {
-            val internalInfo = InternalInfo(
+            infoCap.add(InternalInfo(
                 indexCap = capitulo,
                 capView = false,
-                incons = false
-            )
-            infoCap.add(internalInfo)
+                incons = false))
         }
     }
 

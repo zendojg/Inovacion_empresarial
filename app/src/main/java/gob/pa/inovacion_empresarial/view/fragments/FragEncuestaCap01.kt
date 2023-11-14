@@ -38,7 +38,6 @@ class FragEncuestaCap01 : Fragment() {
     private var nameDist: String = ""
     private var nameCorre: String = ""
     private var nameLugarp: String = ""
-    private val cap1 = Mob.formComp?.cap1
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -62,59 +61,33 @@ class FragEncuestaCap01 : Fragment() {
     private fun onAction() {
         val room = RoomView(dvmCap1, ctx)
         bindingcap1.apply {
-            txtCap11.onItemClickListener = AdapterView.OnItemClickListener { parent, _, pos, _ ->
+            txtCap11.onItemClickListener = AdapterView.OnItemClickListener { adapter, _, pos, _ ->
                 if (txtCap11.isPopupShowing) lifecycleScope.launch {
-                    println("------------IS SHOWING 1")
-                    idprov = room.getProvID(parent.getItemAtPosition(pos).toString())
+                    idprov = room.getProvID(adapter.getItemAtPosition(pos).toString())
                     arrayDist = room.getDist(idprov)
-                    iddist = ""
-                    idcorre = ""
-                    idlugarp = ""
-                    activity?.runOnUiThread {
-                        txtCap11ID.text = idprov
-                        txtCap12ID.text = iddist
-                        txtCap13ID.text = idcorre
-                        txtCap14ID.text = idlugarp
-                        txtCap12.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayDist))
-                        txtCap13.setAdapter(ArrayAdapter(ctx, R.layout.style_list, emptyArray))
-                        txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, emptyArray))
-                        txtCap12.setText("", false)
-                        txtCap13.setText("", false)
-                        txtCap14.setText("", false)
-                    }
+                    activity?.runOnUiThread { autocomplete(txtCap11) }
                 }
             }
 
-            txtCap12.onItemClickListener = AdapterView.OnItemClickListener { parent, _, pos, _ ->
+            txtCap12.onItemClickListener = AdapterView.OnItemClickListener { adapter, _, pos, _ ->
                 if (txtCap12.isPopupShowing) lifecycleScope.launch {
-                    println("------------IS SHOWING 2")
-                    iddist = room.getDistID(idprov, parent.getItemAtPosition(pos).toString())
+                    iddist = room.getDistID(idprov, adapter.getItemAtPosition(pos).toString())
                     arrayCorre = room.getCorre(idprov, iddist)
-                    idcorre = ""
-                    idlugarp = ""
                     activity?.runOnUiThread {
                         txtCap12ID.text = iddist
-                        txtCap13ID.text = idcorre
-                        txtCap14ID.text = idlugarp
-                        txtCap13.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayCorre))
-                        txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, emptyArray))
-                        txtCap13.setText("", false)
-                        txtCap14.setText("", false)
+                        autocomplete(txtCap12)
                     }
                 }
             }
 
-            txtCap13.onItemClickListener = AdapterView.OnItemClickListener { parent, _, pos, _ ->
+            txtCap13.onItemClickListener = AdapterView.OnItemClickListener { adapter, _, pos, _ ->
                 if (txtCap13.isPopupShowing) lifecycleScope.launch {
-                    println("------------IS SHOWING 3")
-                    idcorre = room.getCorreID(idprov, iddist, parent.getItemAtPosition(pos).toString())
+                    idcorre = room.getCorreID(idprov, iddist,
+                        adapter.getItemAtPosition(pos).toString())
                     arrayLugarP = room.getLugarP(idprov, iddist, idcorre)
-                    idlugarp = ""
                     activity?.runOnUiThread {
                         txtCap13ID.text = idcorre
-                        txtCap14ID.text = idlugarp
-                        txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayLugarP))
-                        txtCap14.setText("", false)
+                        autocomplete(txtCap13)
                     }
                 }
             }
@@ -129,39 +102,35 @@ class FragEncuestaCap01 : Fragment() {
         }
     }
 
-    private fun autocomplete(autoCmpt: AutoCompleteTextView) {  //---------------------------------------------- Mejorar
+    private fun autocomplete(autoCmpt: AutoCompleteTextView) {
         with(bindingcap1) {
-            when (autoCmpt) {
-                txtCap11 -> {
-                    iddist = ""
+            if (listOf(txtCap11, txtCap12, txtCap13).any { it == autoCmpt }) { //-- All corre
+                idlugarp = ""
+                txtCap14ID.text = idlugarp
+                txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list,
+                    if (autoCmpt == txtCap13) arrayLugarP else emptyArray))
+                txtCap14.setText("", false)
+                if (listOf(txtCap11, txtCap12).any { it == autoCmpt }) {  //-- Dist
                     idcorre = ""
-                    idlugarp = ""
-                }
-                txtCap12 -> {
-                    idcorre = ""
-                    idlugarp = ""
-                }
-                txtCap13 -> {
-                    idlugarp = ""
+                    txtCap13ID.text = idcorre
+                    txtCap13.setAdapter(ArrayAdapter(ctx, R.layout.style_list,
+                        if (autoCmpt == txtCap12) arrayCorre else emptyArray))
+                    txtCap13.setText("", false)
+                    if (txtCap11 == autoCmpt) {  //-- Prov
+                        iddist = ""
+                        txtCap12ID.text = iddist
+                        txtCap11ID.text = idprov
+                        txtCap12.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayDist))
+                        txtCap12.setText("", false)
+                    }
                 }
             }
-
-            txtCap11ID.text = idprov
-            txtCap12ID.text = iddist
-            txtCap13ID.text = idcorre
-            txtCap14ID.text = idlugarp
-
-            txtCap12.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayDist))
-            txtCap13.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayCorre))
-            txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayLugarP))
-
-            txtCap12.setText("", false)
-            txtCap13.setText("", false)
-            txtCap14.setText("", false)
         }
     }
 
     private fun fillOut() {
+        val cap1 = Mob.formComp?.cap1
+        arrayProv = emptyArray()
         arrayDist = emptyArray()
         arrayCorre = emptyArray()
         arrayLugarP = emptyArray()
@@ -183,17 +152,17 @@ class FragEncuestaCap01 : Fragment() {
 
     private fun seeData() {
         val room = RoomView(dvmCap1, ctx)
-
+        val cap1 = Mob.formComp?.cap1
         lifecycleScope.launch {
             nameProv = room.getProvName(idprov)
             nameDist = room.getDistName(idprov, iddist)
             nameCorre = room.getCorreName(idprov, iddist, idcorre)
             nameLugarp = room.getLPName(idprov, iddist, idcorre, idlugarp)
 
-            arrayProv = room.getProv()
-            arrayDist = room.getDist(idprov)
-            arrayCorre = room.getCorre(idprov, iddist)
-            arrayLugarP = room.getLugarP(idprov, iddist, idcorre)
+            if (arrayProv.isEmpty()) arrayProv = room.getProv()
+            if (arrayDist.isEmpty()) arrayDist = room.getDist(idprov)
+            if (arrayCorre.isEmpty()) arrayCorre = room.getCorre(idprov, iddist)
+            if (arrayLugarP.isEmpty()) arrayLugarP = room.getLugarP(idprov, iddist, idcorre)
 
             activity?.runOnUiThread {
                 bindingcap1.apply {
@@ -202,17 +171,16 @@ class FragEncuestaCap01 : Fragment() {
                     txtCap13ID.text = idcorre
                     txtCap14ID.text = idlugarp
 
-
                     txtCap11.setAdapter(ArrayAdapter(ctx, R.layout.style_list,
                         if (cap1?.v01provtxt.isNullOrEmpty()) arrayProv else emptyArray))
                     txtCap11.setText(nameProv, false)
 
                     txtCap12.setAdapter(ArrayAdapter(ctx, R.layout.style_list,
-                        if (iddist.isEmpty()) arrayDist else emptyArray))
+                        if (cap1?.v02disttxt.isNullOrEmpty()) arrayDist else emptyArray))
                     txtCap12.setText(nameDist, false)
 
                     txtCap13.setAdapter(ArrayAdapter(ctx, R.layout.style_list,
-                        if (idcorre.isEmpty()) arrayCorre else emptyArray))
+                        if (cap1?.v03corretxt.isNullOrEmpty()) arrayCorre else emptyArray))
                     txtCap13.setText(nameCorre, false)
 
                     txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayLugarP))
@@ -249,9 +217,7 @@ class FragEncuestaCap01 : Fragment() {
 
             infoCap.find { it.indexCap == CAP1_P01 }?.incons = returnList.isNotEmpty()
             println("Cap1:--$cap1")
-            //if (returnList.isNotEmpty()) seeData(returnList.isNotEmpty())
             return returnList
         }
     }
-
 }

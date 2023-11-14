@@ -121,7 +121,7 @@ class MainFragmentSearch : Fragment() {
                         CreateForm.createLoad(resp.body)
                         viewFind(false)
                     }
-                    Mob.CODE401 -> {
+                    Mob.CODE401 -> activity?.runOnUiThread {
                         val bttest = activity?.findViewById<Button>(R.id.btMainTest)
                         val waitBar = activity?.findViewById<ProgressBar>(R.id.barMain)
                         waitBar?.visibility = View.VISIBLE
