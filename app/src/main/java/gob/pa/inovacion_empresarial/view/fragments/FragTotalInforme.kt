@@ -186,8 +186,8 @@ class FragTotalInforme : Fragment() {
             msgtitle.text = getString(R.string.resumenForm)
             when {
                 inconsistencias.isNotEmpty() -> {
+                    msg1.text = "Capítulos con incosistencias registradas:"
                     for (list in inconsistencias) {
-                        msg1.text = "Capítulos con incosistencias registradas:"
                         val desc = if (getString(list.third) == "") ""
                         else " - ${getString(list.third)}"
                         val txt = "${msg6.text}${getString(list.first)}${desc}\n\n"

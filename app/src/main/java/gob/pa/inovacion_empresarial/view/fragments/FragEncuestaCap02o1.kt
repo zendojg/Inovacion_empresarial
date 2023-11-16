@@ -17,7 +17,6 @@ import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap02o1 : Fragment() {
 
-
     private lateinit var bindingcap2o1: EncuestaCapitulo021DatosDeLaEmpresaBinding
     private lateinit var ctx: Context
     private var frameview = false
@@ -95,23 +94,23 @@ class FragEncuestaCap02o1 : Fragment() {
     fun saveCap(): List<String> {
         with (bindingcap2o1) {
             Mob.cap2 = ModelCap2(
-                Mob.formComp?.cap2?.id,
-                Mob.formComp?.cap2?.ncontrol,
-                txtCap25.text.toString().ifEmpty { null },
-                txtCap26.text.toString().ifEmpty { null },
-                txtCap27.text.toString().ifEmpty { null },
-                txtCap27DV.text.toString().ifEmpty { null },
-                txtCap28.text.toString().ifEmpty { null },
-                txtCap281.text.toString().ifEmpty { null },
-                txtCap291.text.toString().ifEmpty { null },
-                if (frameview) txtCap292.text.toString().ifEmpty { null } else null,
-                txtCap210.text.toString().ifEmpty { null },
-                txtCap211.text.toString().ifEmpty { null },
-                txtCap212.text.toString().ifEmpty { null },
-                txtCap213.text.toString().ifEmpty { null },
-                txtCap214.text.toString().ifEmpty { null },
-                txtCap215.text.toString().ifEmpty { null },
-                txtCap2151.text.toString().ifEmpty { null },
+                id = Mob.formComp?.cap2?.id,
+                ncontrol = Mob.formComp?.cap2?.ncontrol,
+                v05nameLtxt = txtCap25.text.toString().ifEmpty { null },
+                v06razontxt = txtCap26.text.toString().ifEmpty { null },
+                v07ructxt = txtCap27.text.toString().ifEmpty { null },
+                v07dvtxt = txtCap27DV.text.toString().ifEmpty { null },
+                v08dirtxt = txtCap28.text.toString().ifEmpty { null },
+                v08dirreftxt = txtCap281.text.toString().ifEmpty { null },
+                v09tel1txt = txtCap291.text.toString().ifEmpty { null },
+                v09tel2txt = if (frameview) txtCap292.text.toString().ifEmpty { null } else null,
+                v10celtxt = txtCap210.text.toString().ifEmpty { null },
+                v11emailtxt = txtCap211.text.toString().ifEmpty { null },
+                v12webtxt = txtCap212.text.toString().ifEmpty { null },
+                v13nclavetxt = txtCap213.text.toString().ifEmpty { null },
+                v14nlNum = txtCap214.text.toString().ifEmpty { null },
+                v15nlNumPma = txtCap215.text.toString().ifEmpty { null },
+                v15nlNumProv =txtCap2151.text.toString().ifEmpty { null },
                 Mob.cap2?.v16infonametxt,
                 Mob.cap2?.v17cargotxt,
                 Mob.cap2?.v18dirtxt,
@@ -125,7 +124,7 @@ class FragEncuestaCap02o1 : Fragment() {
         }
     }
     private fun viewCap(): List<String> {
-        with (Mob) {
+        with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
             if (cap2?.v14nlNum.isNullOrEmpty()) {
                 returnList.add(CreateIncon.inconsistencia(ctx,"604") ?: "")

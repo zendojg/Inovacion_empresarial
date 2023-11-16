@@ -20,12 +20,12 @@ interface FormDao {
     @Query("SELECT ProvNombre FROM dbprovincia_table WHERE ProvinciaId = :idProv")
     suspend fun getProvName(
         idProv: String
-    ): String
+    ): String?
 
     @Query("SELECT ProvinciaId FROM dbprovincia_table WHERE ProvNombre = :prov")
     suspend fun getProvID(
         prov: String
-    ): String
+    ): String?
 
     @Query("DELETE FROM dbprovincia_table")
     suspend fun deleteProv()
@@ -43,7 +43,7 @@ interface FormDao {
     suspend fun getDistName(
         idProv: String,
         idDist: String
-    ): String
+    ): String?
 
     @Query("SELECT DistNombre FROM dbdistritos_table WHERE ProvinciaId = :idProv")
     suspend fun getDistArrayByID(
@@ -54,7 +54,7 @@ interface FormDao {
     suspend fun getDistID(
         idProv: String,
         dist: String
-    ): String
+    ): String?
 
     @Query("DELETE FROM dbdistritos_table")
     suspend fun deleteDist()
@@ -74,7 +74,7 @@ interface FormDao {
         idProv: String,
         idDist: String,
         idCorre: String
-    ): String
+    ): String?
 
     @Query("SELECT CorreNombre FROM dbcorregimiento_table WHERE ProvinciaId = :idProv AND DistritoId = :idDist")
     suspend fun getCorreArrayByID(
@@ -90,7 +90,7 @@ interface FormDao {
         idProv: String,
         idDist: String,
         corre: String
-    ): String
+    ): String?
 
     @Query("DELETE FROM dbcorregimiento_table")
     suspend fun deleteCorre()
@@ -104,17 +104,15 @@ interface FormDao {
     @Query("SELECT lugarPobNombre FROM DBlugarP_table LIMIT 20")
     suspend fun getLugarPVer(): Array<String>
 
-    @Query(
-        "SELECT lugarPobNombre FROM DBlugarP_table " +
+    @Query("SELECT lugarPobNombre FROM DBlugarP_table " +
                 "WHERE lugarPobladoId = :idLugar AND corregimientoId = :idcorre " +
-                "AND  distritoId = :idDist AND provinciaId = :idProv"
-    )
+                "AND  distritoId = :idDist AND provinciaId = :idProv")
     suspend fun getLugarPName(
         idProv: String,
         idDist: String,
         idcorre: String,
         idLugar: String
-    ): String
+    ): String?
 
     @Query(
         "SELECT lugarPobNombre FROM DBlugarP_table " +
@@ -136,7 +134,7 @@ interface FormDao {
         idDist: String,
         idcorre: String,
         lugarname: String
-    ): String
+    ): String?
 
     @Query("DELETE FROM DBlugarP_table")
     suspend fun deleteLugarP()
@@ -157,15 +155,13 @@ interface FormDao {
     suspend fun getFormsbyID(
         nControl: String,
         idUser: String
-    ): DBform
+    ): DBform?
 
     @Query("DELETE FROM DBform_table WHERE ncontrol = :nControl AND idUser = :idUser")
     suspend fun deleteForm(
         nControl: String,
         idUser: String
-    ): Int
-
-
+    ): Int?
 }
 
 

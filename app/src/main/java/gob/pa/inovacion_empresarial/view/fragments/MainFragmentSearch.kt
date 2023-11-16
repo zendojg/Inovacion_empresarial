@@ -27,6 +27,7 @@ import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.view.FormActivity
 import kotlinx.coroutines.launch
+import pl.droidsonroids.gif.GifImageView
 
 class MainFragmentSearch : Fragment() {
 
@@ -123,7 +124,7 @@ class MainFragmentSearch : Fragment() {
                     }
                     Mob.CODE401 -> activity?.runOnUiThread {
                         val bttest = activity?.findViewById<Button>(R.id.btMainTest)
-                        val waitBar = activity?.findViewById<ProgressBar>(R.id.barMain)
+                        val waitBar = activity?.findViewById<GifImageView>(R.id.barMain)
                         waitBar?.visibility = View.VISIBLE
                         bttest?.callOnClick()
                         if (!resp.resp.isNullOrEmpty()) errorMsg(resp.resp)

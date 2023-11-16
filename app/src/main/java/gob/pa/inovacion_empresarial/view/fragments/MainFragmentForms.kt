@@ -405,8 +405,7 @@ class MainFragmentForms : Fragment() {
                     lifecycleScope.launch{
                         val deleteResponse = RoomView(dvmForm, ctx).deleteForm(
                             Mob.authData?.user ?: "",
-                            item.ncontrol ?: ""
-                        )
+                            item.ncontrol ?: "")  ?: 0
                         if (deleteResponse > 0) activity?.runOnUiThread { // -- Formulario Eliminado
                             aDialog?.dismiss()
                             listofAllForms = listofAllForms.minus(item)
@@ -442,12 +441,13 @@ class MainFragmentForms : Fragment() {
         msgForm.setView(bindmsg.root)
         lifecycleScope.launch {
             val ncontrol = Functions.ceroLeft(item.ncontrol ?: "0",Mob.FOR_5_DIGITS)
-            val provincia = room.getProvName(item.cap1?.v01provtxt ?: "0")
+            val provincia = room.getProvName(item.cap1?.v01provtxt ?: "0") ?: ""
             val distrito = room.getDistName(item.cap1?.v01provtxt ?: "0",
-                item.cap1?.v02disttxt ?: "0")
+                item.cap1?.v02disttxt ?: "0") ?: ""
             val corregimiento = room.getCorreName(item.cap1?.v01provtxt ?: "0",
-                item.cap1?.v02disttxt ?: "0", item.cap1?.v03corretxt ?: "0")
+                item.cap1?.v02disttxt ?: "0", item.cap1?.v03corretxt ?: "0") ?: ""
             activity?.runOnUiThread {
+                println("----$provincia----$distrito-----$corregimiento")
                 with(bindmsg) {
                     if (item.tieneIncon == true) lbtittlestyleF.setTextColor(Color.RED)
                     txtProvLocal.text = provincia.toEditable()

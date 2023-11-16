@@ -29,10 +29,10 @@ class RoomView(dvmModel: DVModel, context: Context) {
         val correRoom = roomDB.dbFormDao().getCorrVer()
         val lugarRoom = roomDB.dbFormDao().getLugarPVer()
 
-        if (proRoom.isEmpty() || update) roomDB.dbFormDao().insertProv(dvm.getProv())
-        if (distRoom.isEmpty() || update) roomDB.dbFormDao().insertDist(dvm.getDist())
-        if (correRoom.isEmpty() || update) roomDB.dbFormDao().insertCorre(dvm.getCorre())
-        if (lugarRoom.isEmpty() || update) roomDB.dbFormDao().insertLugarP(dvm.getLugarP())
+        if (proRoom.isNullOrEmpty() || update) roomDB.dbFormDao().insertProv(dvm.getProv())
+        if (distRoom.isNullOrEmpty() || update) roomDB.dbFormDao().insertDist(dvm.getDist())
+        if (correRoom.isNullOrEmpty() || update) roomDB.dbFormDao().insertCorre(dvm.getCorre())
+        if (lugarRoom.isNullOrEmpty() || update) roomDB.dbFormDao().insertLugarP(dvm.getLugarP())
     }
 
     suspend fun instance() { roomInstance.dbFormDao() }

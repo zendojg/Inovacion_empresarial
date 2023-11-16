@@ -63,7 +63,7 @@ class FragEncuestaCap01 : Fragment() {
         bindingcap1.apply {
             txtCap11.onItemClickListener = AdapterView.OnItemClickListener { adapter, _, pos, _ ->
                 if (txtCap11.isPopupShowing) lifecycleScope.launch {
-                    idprov = room.getProvID(adapter.getItemAtPosition(pos).toString())
+                    idprov = room.getProvID(adapter.getItemAtPosition(pos).toString()) ?: ""
                     arrayDist = room.getDist(idprov)
                     activity?.runOnUiThread { autocomplete(txtCap11) }
                 }
@@ -71,7 +71,7 @@ class FragEncuestaCap01 : Fragment() {
 
             txtCap12.onItemClickListener = AdapterView.OnItemClickListener { adapter, _, pos, _ ->
                 if (txtCap12.isPopupShowing) lifecycleScope.launch {
-                    iddist = room.getDistID(idprov, adapter.getItemAtPosition(pos).toString())
+                    iddist = room.getDistID(idprov, adapter.getItemAtPosition(pos).toString()) ?: ""
                     arrayCorre = room.getCorre(idprov, iddist)
                     activity?.runOnUiThread {
                         txtCap12ID.text = iddist
@@ -83,7 +83,7 @@ class FragEncuestaCap01 : Fragment() {
             txtCap13.onItemClickListener = AdapterView.OnItemClickListener { adapter, _, pos, _ ->
                 if (txtCap13.isPopupShowing) lifecycleScope.launch {
                     idcorre = room.getCorreID(idprov, iddist,
-                        adapter.getItemAtPosition(pos).toString())
+                        adapter.getItemAtPosition(pos).toString()) ?: ""
                     arrayLugarP = room.getLugarP(idprov, iddist, idcorre)
                     activity?.runOnUiThread {
                         txtCap13ID.text = idcorre
@@ -95,7 +95,7 @@ class FragEncuestaCap01 : Fragment() {
             txtCap14.onItemClickListener = AdapterView.OnItemClickListener { adapter, _, pos, _ ->
                 lifecycleScope.launch {
                     idlugarp = room.getLPID(idprov, iddist, idcorre,
-                        adapter.getItemAtPosition(pos).toString())
+                        adapter.getItemAtPosition(pos).toString()) ?: ""
                     activity?.runOnUiThread { txtCap14ID.text = idlugarp }
                 }
             }
@@ -110,20 +110,22 @@ class FragEncuestaCap01 : Fragment() {
                 txtCap14.setAdapter(ArrayAdapter(ctx, R.layout.style_list,
                     if (autoCmpt == txtCap13) arrayLugarP else emptyArray))
                 txtCap14.setText("", false)
-                if (listOf(txtCap11, txtCap12).any { it == autoCmpt }) {  //-- Dist
-                    idcorre = ""
-                    txtCap13ID.text = idcorre
-                    txtCap13.setAdapter(ArrayAdapter(ctx, R.layout.style_list,
-                        if (autoCmpt == txtCap12) arrayCorre else emptyArray))
-                    txtCap13.setText("", false)
-                    if (txtCap11 == autoCmpt) {  //-- Prov
-                        iddist = ""
-                        txtCap12ID.text = iddist
-                        txtCap11ID.text = idprov
-                        txtCap12.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayDist))
-                        txtCap12.setText("", false)
-                    }
-                }
+                if (txtCap13 == autoCmpt) return@with
+            }
+            if (listOf(txtCap11, txtCap12).any { it == autoCmpt }) {  //-- Dist
+                idcorre = ""
+                txtCap13ID.text = idcorre
+                txtCap13.setAdapter(ArrayAdapter(ctx, R.layout.style_list,
+                    if (autoCmpt == txtCap12) arrayCorre else emptyArray))
+                txtCap13.setText("", false)
+                if (txtCap12 == autoCmpt) return@with
+            }
+            if (txtCap11 == autoCmpt) {  //-- Prov
+                iddist = ""
+                txtCap12ID.text = iddist
+                txtCap11ID.text = idprov
+                txtCap12.setAdapter(ArrayAdapter(ctx, R.layout.style_list, arrayDist))
+                txtCap12.setText("", false)
             }
         }
     }
@@ -154,10 +156,10 @@ class FragEncuestaCap01 : Fragment() {
         val room = RoomView(dvmCap1, ctx)
         val cap1 = Mob.formComp?.cap1
         lifecycleScope.launch {
-            nameProv = room.getProvName(idprov)
-            nameDist = room.getDistName(idprov, iddist)
-            nameCorre = room.getCorreName(idprov, iddist, idcorre)
-            nameLugarp = room.getLPName(idprov, iddist, idcorre, idlugarp)
+            nameProv = room.getProvName(idprov) ?: ""
+            nameDist = room.getDistName(idprov, iddist) ?: ""
+            nameCorre = room.getCorreName(idprov, iddist, idcorre) ?: ""
+            nameLugarp = room.getLPName(idprov, iddist, idcorre, idlugarp) ?: ""
 
             if (arrayProv.isEmpty()) arrayProv = room.getProv()
             if (arrayDist.isEmpty()) arrayDist = room.getDist(idprov)
@@ -216,7 +218,7 @@ class FragEncuestaCap01 : Fragment() {
                 returnList.add("Pregunta 3.  Corregimiento sin datos") }
 
             infoCap.find { it.indexCap == CAP1_P01 }?.incons = returnList.isNotEmpty()
-            println("Cap1:--$cap1")
+            //println("Cap1:--$cap1")
             return returnList
         }
     }
