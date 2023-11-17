@@ -170,8 +170,6 @@ class FragTotalInforme : Fragment() {
             DataBindingUtil.inflate(LayoutInflater.from(context),
                 R.layout.style_msg_alert, null, false)
         msgSend.setView(bindSend.root)
-        println(inconsistencias)
-        println(reviewCaps)
         bindSend.apply {
             msg2.visibility = View.GONE
             msg6.visibility = View.VISIBLE

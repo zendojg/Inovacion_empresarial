@@ -34,8 +34,9 @@ import gob.pa.inovacion_empresarial.view.fragments.MainFragmentLogin
 import gob.pa.inovacion_empresarial.view.fragments.MainFragmentSearch
 
 object Mob {
+    //------- Valores de conexión
     const val URL = "http://172.16.9.27:5552/"          // urlLocal
-
+    //-------
     const val APIAUTH = "api/Auth/login"
     const val APIPROV = "api/Catalogo/prov"
     const val APIDIST = "api/Catalogo/dist"
@@ -44,21 +45,24 @@ object Mob {
     const val APIGETFORM = "api/Cuestionario/full/"
     const val APIUPDATEFORM = "api/Cuestionario/update"
     const val APIFORMUSER = "api/Cuestionario/enc/"
+    const val APIINCONSISTENCIAS = "api/Inconsistencia/"
 
+    //------- Valores de UI
     const val USERTEST:String = "USUARIO SIN INDENTIFICADOR"
     const val DATEFORMAT:String = "yyyy-MM-dd HH:mm:ss"
     const val DATEFORMATFORDOC:String = "yyyy-MM-dd__HH.mm.ss"
-
+    //-------
     const val PORCENT100:Int = 100
     const val LIMITMSG:Int = 50
     const val SIZE_AUTOCONTROL:Int = 7
     const val FOR_5_DIGITS:Int = 4
     const val MAX_TEXWATCHER_4ROWS:Int = 6
     const val MAX_TEXWATCHER_MANY_ROWS:Int = 9
-
+    //-------
     const val JUMP_MODULE1:Int = 4
     const val INITIAL_YEAR:Int = 1900
-
+    var pass: String? = "12345" //---- Password para los accesos a delete y update
+    //-------
     const val CHECK1Y2021:Int = 0
     const val CHECK1Y2022:Int = 1
     const val CHECK2Y2021:Int = 2
@@ -127,8 +131,8 @@ object Mob {
     const val SEC4_P23:Int = 23
     const val OBSE_P24:Int = 24
 
-    val titleMapTxt = mapOf(
-        CAP1_P01 to Triple(R.string.cap01, R.string.ctxt01, R.string.subcap000 ),
+    val titleMapTxt: Map<Int, Triple<Int, Int, Int>> = mapOf(
+        CAP1_P01 to Triple(R.string.cap01, R.string.ctxt01, R.string.subcap000),
         CAP2_P02 to Triple(R.string.cap02, R.string.ctxt02, R.string.subcap021),
         CAP2_P03 to Triple(R.string.cap02, R.string.ctxt02, R.string.subcap022),
         CAP3_P04 to Triple(R.string.cap03, R.string.ctxt03, R.string.subcap000),
@@ -209,8 +213,6 @@ object Mob {
         MainFragmentForms()     //--03--c04
     )
 
-    val empArr: Array<Fragment> = emptyArray()
-
     //------- Lista de las Condiciones
     const val CONDICION_02:Int = 1
     const val CONDICION_04:Int = 3
@@ -245,7 +247,6 @@ object Mob {
     const val IMPORTANCIANOTSELECT:Int = 0
     val arrImp: Array<String> = arrayOf("*","1","2","3","4","5")
 
-    var pass: String? = "12345" //---- Password para los accesos a delete y update
 
     //------ Variables del formulario ------
     var mainWindow = 1              //-----Indice del Main

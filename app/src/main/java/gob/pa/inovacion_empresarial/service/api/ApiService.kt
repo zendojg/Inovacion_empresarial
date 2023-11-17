@@ -16,10 +16,12 @@ interface ApiService {
     //--  LOGIN
     @POST(Mob.APIAUTH)
     fun loginResp(@Body bodyLog: ModelLog): Call<ModelAuth>
-    @GET ("${Mob.APIGETFORM}{id}")
-    suspend fun getForm(@Path("id") id:String): Response<ModelForm> //--  Formulario GET
-    @GET ("${Mob.APIFORMUSER}{id}")
-    suspend fun getFormsUser(@Path("id") id:String): Response<List<ModelForm>> //--  Formulario GET
+    @GET ("${Mob.APIGETFORM}{id}") //--  Formulario GET
+    suspend fun getForm(@Path("id") id:String): Response<ModelForm>
+    @GET ("${Mob.APIFORMUSER}{id}") //--  Formulario GET
+    suspend fun getFormsUser(@Path("id") id:String): Response<List<ModelForm>>
+    @GET ("${Mob.APIINCONSISTENCIAS}{nctrl}") //--  Inconsistencias GET
+    suspend fun getInconsistencias(@Path("nctrl") nctrl:String): Response<Any>
 
     //--------------------------  DESCARGA PARA DB
     @GET (Mob.APIPROV) suspend fun getProv(): Response<List<DBprovincia>> //---------  Provincia

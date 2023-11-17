@@ -1,14 +1,7 @@
 package gob.pa.inovacion_empresarial.model
 
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
-import android.view.View
-import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.lifecycleScope
-import gob.pa.inovacion_empresarial.R
-import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.service.api.ApiBuilder
 import gob.pa.inovacion_empresarial.service.api.ApiService
 import gob.pa.inovacion_empresarial.service.room.DBcorregimiento
@@ -16,7 +9,6 @@ import gob.pa.inovacion_empresarial.service.room.DBdistritos
 import gob.pa.inovacion_empresarial.service.room.DBlugarP
 import gob.pa.inovacion_empresarial.service.room.DBprovincia
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 import retrofit2.awaitResponse
@@ -24,24 +16,24 @@ import java.io.IOException
 
 class DVModel: ViewModel() {
     //---- PRUEBA DE TOKEN
-    suspend fun seeToken(): ModelResp? { //--  VERIFICADOR DE TOKEN INVENTADO
-        val msg: String?
-        val retrofit = ApiBuilder.ServiceBuilder.buildService(ApiService::class.java)
-
-        val response = try {
-            retrofit.getProv()
-        } catch (e: IOException) {
-            Log.e("-- Response error: ", e.message.toString())
-            return null
-        }
-        msg = if (response.errorBody() != null)
-            (response.errorBody()!!.charStream().readText()) else null
-
-        return ModelResp(
-            code = response.code(),
-            msg = msg)
-    }
     suspend fun validate(): Boolean? { //-------- Validador de TOKEN
+        suspend fun seeToken(): ModelResp? { //--  VERIFICADOR DE TOKEN INVENTADO
+            val msg: String?
+            val retrofit = ApiBuilder.ServiceBuilder.buildService(ApiService::class.java)
+
+            val response = try {
+                retrofit.getProv()
+            } catch (e: IOException) {
+                Log.e("-- Response error: ", e.message.toString())
+                return null
+            }
+            msg = if (response.errorBody() != null)
+                (response.errorBody()!!.charStream().readText()) else null
+
+            return ModelResp(
+                code = response.code(),
+                msg = msg)
+        }
         val resp = seeToken()
         Log.i("RESP----", "\nCODE: ${resp?.code}\nMSG: ${resp?.msg}\n")
         return when (resp?.code) {
@@ -63,7 +55,7 @@ class DVModel: ViewModel() {
             return null
         }
         resp = if (response.errorBody() != null)
-            (response.errorBody()!!.charStream().readText()) else null
+                (response.errorBody()!!.charStream().readText()) else null
 
         return ModelAuthResp(
             code = response.code(),

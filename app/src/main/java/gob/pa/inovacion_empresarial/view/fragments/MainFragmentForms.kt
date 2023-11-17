@@ -16,7 +16,6 @@ import android.view.inputmethod.EditorInfo
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -31,6 +30,7 @@ import com.google.gson.reflect.TypeToken
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.adapters.AdapterForms
 import gob.pa.inovacion_empresarial.databinding.FragFormsMainBinding
+import gob.pa.inovacion_empresarial.databinding.StyleMsgAlertBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgFormBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgLocalinfoBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgPopupBinding
@@ -296,7 +296,7 @@ class MainFragmentForms : Fragment() {
                 icon = ContextCompat.getDrawable(ctx, R.drawable.img_warning1)
                 setOnClickListener {
                     aDialog?.dismiss()
-                    iconForm(item)
+                    Handler(Looper.getMainLooper()).postDelayed({ iconForm(item) }, (Mob.TIME100MS))
                 }
             }
             bt4.apply { //-- Borrar formulario
@@ -322,7 +322,14 @@ class MainFragmentForms : Fragment() {
         }
     }
     private fun iconForm(item: ModelForm) {
-        Toast.makeText(ctx, "Cargando inconsistencias...", Toast.LENGTH_SHORT).show()
+        val msgSend = AlertDialog.Builder(ctx)
+        val bindSend: StyleMsgAlertBinding =
+            DataBindingUtil.inflate(LayoutInflater.from(context),
+                R.layout.style_msg_alert, null, false)
+        msgSend.setView(bindSend.root)
+        bindSend.apply {
+
+        }
     }
 
     private fun chargeForm(item: ModelForm) {
@@ -355,7 +362,7 @@ class MainFragmentForms : Fragment() {
         lifecycleScope.launch {
             if (selection == 1 || selection == 2) {
                 val callForm = dvmForm.formGet(item.ncontrol ?: "0")
-                if (callForm?.code == 200 && callForm.body != null) {
+                if (callForm?.code == Mob.CODE200 && callForm.body != null) {
                     //--------------------------- Agregar mas controles de errores con el server
                     charge(callForm.body)
                 }
@@ -432,7 +439,6 @@ class MainFragmentForms : Fragment() {
     }
 
     private fun viewForm(item: ModelForm) {
-        val blank = "".toEditable()
         val msgForm = AlertDialog.Builder(ctx)
         val bindmsg: StyleMsgLocalinfoBinding =
             DataBindingUtil.inflate(
@@ -447,9 +453,9 @@ class MainFragmentForms : Fragment() {
             val corregimiento = room.getCorreName(item.cap1?.v01provtxt ?: "0",
                 item.cap1?.v02disttxt ?: "0", item.cap1?.v03corretxt ?: "0") ?: ""
             activity?.runOnUiThread {
-                println("----$provincia----$distrito-----$corregimiento")
                 with(bindmsg) {
                     if (item.tieneIncon == true) lbtittlestyleF.setTextColor(Color.RED)
+                    val blank = "".toEditable()
                     txtProvLocal.text = provincia.toEditable()
                     txtDistLocal.text = distrito.toEditable()
                     txtCorreLocal.text = corregimiento.toEditable()
