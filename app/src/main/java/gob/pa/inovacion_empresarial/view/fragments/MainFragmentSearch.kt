@@ -124,26 +124,23 @@ class MainFragmentSearch : Fragment() {
                     }
                     Mob.CODE401 -> activity?.runOnUiThread {
                         val bttest = activity?.findViewById<Button>(R.id.btMainTest)
-                        val waitBar = activity?.findViewById<GifImageView>(R.id.barMain)
-                        waitBar?.visibility = View.VISIBLE
                         bttest?.callOnClick()
-                        if (!resp.resp.isNullOrEmpty()) errorMsg(resp.resp)
+                        if (!resp.resp.isNullOrEmpty()) errorMsg("Error: ${resp.code}")
                     }
                     Mob.CODE403, Mob.CODE404 -> {
-                        if (!resp.resp.isNullOrEmpty()) errorMsg(resp.resp)
+                        if (!resp.resp.isNullOrEmpty())
+                             errorMsg("Error ${resp.code}: ${resp.resp}")
                         else errorMsg("Error: ${resp.code}")
                     }
 
                     Mob.CODE500 -> {
                         if (!resp.resp.isNullOrEmpty()) {
-                            if (resp.resp.length < Mob.LIMITMSG) errorMsg(resp.resp)
+                            if (resp.resp.length < Mob.LIMITMSG)
+                                 errorMsg("Error ${resp.code}: ${resp.resp}")
                             else errorMsg("Error en el servidor (500)")
                         }
                     }
-                    else -> {
-                        if (!resp.code?.toString().isNullOrEmpty())
-                            errorMsg("Error: ${resp.code}")
-                    }
+                    else -> { errorMsg("Error: ${resp.code}") }
                 }
                 aDialog?.dismiss()
             }

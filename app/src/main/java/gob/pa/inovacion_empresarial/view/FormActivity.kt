@@ -170,6 +170,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.closeDrawer(GravityCompat.END, true)
         Mob.indiceFormulario = pagerIndex
         form.viewpager.setCurrentItem(pagerIndex, false)
+        //if (pagerIndex == Mob.MENU_P00) onBackPressed()
         return super.onOptionsItemSelected(item)
     }
 

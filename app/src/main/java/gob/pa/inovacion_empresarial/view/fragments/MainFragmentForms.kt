@@ -26,6 +26,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.google.gson.Gson
+import com.google.gson.JsonParseException
 import com.google.gson.reflect.TypeToken
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.adapters.AdapterForms
@@ -40,6 +41,7 @@ import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelForm
+import gob.pa.inovacion_empresarial.model.ModelResponse
 import gob.pa.inovacion_empresarial.service.room.RoomView
 import gob.pa.inovacion_empresarial.view.FormActivity
 import kotlinx.coroutines.launch
@@ -105,7 +107,8 @@ class MainFragmentForms : Fragment() {
                 adpForms.updateList(listofAllForms)
                 false
             }
-//            btexpandSearchForms.setOnClickListener {
+
+//            btexpandSearchForms.setOnClickListener {  //
 //                if (layoutSearchForm.isVisible) {
 //                    //reset()
 //                    adpForms.updateList(listofAllForms)
@@ -154,7 +157,8 @@ class MainFragmentForms : Fragment() {
 //        }
 //    }
 
-    private fun spinnerSelection(position: Int) { //-- Selector de formularios
+    //---- Selector de formularios, room o servidor
+    private fun spinnerSelection(position: Int) {
         with (bindingForm) {
             barForms.visibility = View.VISIBLE    //reset()
             var conteoIncon = 0
@@ -235,6 +239,8 @@ class MainFragmentForms : Fragment() {
             }
         }
     }
+
+    //---- Filtro de busqueda del recyclerview para lista cargada
     private fun search(query: String?): Boolean {
         if (!query.isNullOrEmpty()) {
             var inco = 0
@@ -264,6 +270,7 @@ class MainFragmentForms : Fragment() {
         return true
     }
 
+    //---- Ventana de opciones para los formularios
     private fun popupBottom(item: ModelForm) {
         val msgOpcions = AlertDialog.Builder(ctx)
         val bindmsg: StyleMsgPopupBinding =
@@ -275,7 +282,7 @@ class MainFragmentForms : Fragment() {
         with(bindmsg) {
             msgOpcions.setView(bindmsg.root)
             msgtitle.text = ncontrol
-            bt1.apply { //-- Cargar formulario
+            bt1.apply { //---- Cargar formulario
                 text = getString(R.string.btcarga)
                 icon = ContextCompat.getDrawable(ctx, R.drawable.img_download)
                 setOnClickListener {
@@ -283,7 +290,7 @@ class MainFragmentForms : Fragment() {
                     chargeForm(item)
                 }
             }
-            bt2.apply { //-- Ver formulario completo
+            bt2.apply { //---- Ver formulario completo
                 text = getString(R.string.btmoreinfo)
                 icon = ContextCompat.getDrawable(ctx, R.drawable.img_formulario)
                 setOnClickListener {
@@ -291,15 +298,16 @@ class MainFragmentForms : Fragment() {
                     Handler(Looper.getMainLooper()).postDelayed({ viewForm(item) }, (Mob.TIME100MS))
                 }
             }
-            bt3.apply { //-- Ver Inconsistencias
+            bt3.apply { //---- Ver Inconsistencias
                 text = getString(R.string.viewIncon)
                 icon = ContextCompat.getDrawable(ctx, R.drawable.img_warning1)
                 setOnClickListener {
                     aDialog?.dismiss()
-                    Handler(Looper.getMainLooper()).postDelayed({ iconForm(item) }, (Mob.TIME100MS))
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        lifecycleScope.launch { iconForm(item) } }, (Mob.TIME100MS))
                 }
             }
-            bt4.apply { //-- Borrar formulario
+            bt4.apply { //---- Borrar formulario
                 text = getString(R.string.btdelete)
                 icon = ContextCompat.getDrawable(ctx, R.drawable.img_delete)
                 setOnClickListener {
@@ -321,17 +329,8 @@ class MainFragmentForms : Fragment() {
             aDialog?.show()
         }
     }
-    private fun iconForm(item: ModelForm) {
-        val msgSend = AlertDialog.Builder(ctx)
-        val bindSend: StyleMsgAlertBinding =
-            DataBindingUtil.inflate(LayoutInflater.from(context),
-                R.layout.style_msg_alert, null, false)
-        msgSend.setView(bindSend.root)
-        bindSend.apply {
 
-        }
-    }
-
+    //---- Carga del fomulario completa
     private fun chargeForm(item: ModelForm) {
         fun charge(form: ModelForm) {
             CreateForm.createLoad(form)
@@ -370,74 +369,7 @@ class MainFragmentForms : Fragment() {
         }
     }
 
-    private fun deleteForm(item: ModelForm) { // --- Mensaje de alerta de elimnacion de formulario
-        val msgLogout = AlertDialog.Builder(ctx)
-        val bindSend: StyleMsgFormBinding =
-            DataBindingUtil.inflate(
-                LayoutInflater.from(ctx),
-                R.layout.style_msg_form, null, false
-            )
-        with(bindSend) {
-            lbtittlestyleF.text = getString(R.string.deleteTittle)
-            txtmsgStyle.text = getString(R.string.deleteSpec)
-            txt1styleF.visibility = View.GONE
-            txt2styleFly.visibility = View.GONE
-            txt0styleFly.visibility = View.VISIBLE
-            txtmsgStyle.visibility = View.VISIBLE
-
-            msgLogout.setView(view)
-            msgLogout.setView(bindSend.root)
-            aDialog = msgLogout.create()
-            aDialog?.setCancelable(false)
-            aDialog?.show()
-
-            btEnd.text = getString(R.string.delete)
-            btCancel.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
-            btEnd.icon = ContextCompat.getDrawable(ctx, R.drawable.img_delete)
-            btEnd.backgroundTintList =
-                ContextCompat.getColorStateList(ctx, R.color.dark_red)
-
-            btCancel.setOnClickListener { aDialog?.dismiss() }
-            btEnd.setOnClickListener {
-                txt0styleF.imeOptions = EditorInfo.IME_ACTION_DONE
-                Handler(Looper.getMainLooper()).postDelayed({
-                if (txt0styleF.text.isNullOrEmpty()) {
-                    txt0styleFly.error = "Ingrese la clave de acceso"
-                } else if (txt0styleF.text.toString() == Mob.pass) {
-                    aDialog?.dismiss()
-                    val screen = AlertDialog.Builder(ctx)
-                    aDialog = screen.create()
-                    aDialog?.setCancelable(false)
-                    aDialog?.show()
-                    lifecycleScope.launch{
-                        val deleteResponse = RoomView(dvmForm, ctx).deleteForm(
-                            Mob.authData?.user ?: "",
-                            item.ncontrol ?: "")  ?: 0
-                        if (deleteResponse > 0) activity?.runOnUiThread { // -- Formulario Eliminado
-                            aDialog?.dismiss()
-                            listofAllForms = listofAllForms.minus(item)
-                            adpForms.updateList(listofAllForms)
-                            msgBallon("Formulario eliminado")
-                        } else  activity?.runOnUiThread {
-                            aDialog?.dismiss()
-                            msgBallon("Imposible eliminar")
-                        }
-
-                    }
-                } else { txt0styleFly.error = "Clave incorrecta" }
-                }, (Mob.TIME500MS))
-            }
-        }
-    }
-
-    private fun msgBallon(msg: String) {
-        Handler(Looper.getMainLooper()).postDelayed({
-            val alert = Functions.msgBallom(msg, Mob.WIDTH160DP, ctx, R.color.dark_red)
-            alert.showAlignBottom(bindingForm.txtwarningForm)
-            alert.dismissWithDelay(Mob.TIMELONG2SEG)
-        }, (Mob.TIME500MS))
-    }
-
+    //---- Previsualización del formulario
     private fun viewForm(item: ModelForm) {
         val msgForm = AlertDialog.Builder(ctx)
         val bindmsg: StyleMsgLocalinfoBinding =
@@ -479,5 +411,130 @@ class MainFragmentForms : Fragment() {
                 }
             }
         }
+    }
+
+    //---- Carga de inconsistencias
+    private suspend fun iconForm(item: ModelForm) {
+        val resp = dvmForm.getIncon(item.ncontrol ?: "")
+        val respGson: String = try { Gson().toJson(resp.body) as String
+        } catch (e: JsonParseException) { "" }
+        val type: Type = object : TypeToken<ModelResponse?>() {}.type
+        val jsonModel: ModelResponse? = Gson().fromJson<ModelResponse>(respGson, type)
+
+         if (jsonModel != null) activity?.runOnUiThread {
+             val msgSend = AlertDialog.Builder(ctx)
+             val bindSend: StyleMsgAlertBinding =
+                 DataBindingUtil.inflate(LayoutInflater.from(context),
+                     R.layout.style_msg_alert, null, false)
+             msgSend.setView(bindSend.root)
+             val ncont = Functions.ceroLeft(jsonModel.ncontrol?.toString() ?: "0", Mob.FOR_5_DIGITS)
+             val tittle = "Número de control: $ncont"
+             bindSend.apply {
+                 msgtitle.text = tittle
+                 msg1.text = getString(R.string.registerIncon)
+                 msg2.visibility = View.GONE
+                 msg6.apply {
+                     visibility = View.VISIBLE
+                     text = jsonModel.inconsistencias?.joinToString("\n\n")?.toEditable()
+                 }
+                 btnegativo.apply {
+                     icon = ContextCompat.getDrawable(ctx, R.drawable.img_download)
+                     text = getString(R.string.btcarga)
+                     setOnClickListener {
+                         aDialog?.dismiss()
+                         chargeForm(item)
+                     }
+                 }
+                 btpositivo.apply {
+                     icon = ContextCompat.getDrawable(ctx, R.drawable.img_close)
+                     text = getString(R.string.cancel)
+                     setOnClickListener { aDialog?.dismiss() }
+                 }
+             }
+             aDialog = msgSend.create()
+             aDialog?.show()
+         }
+         else if (!resp.server.isNullOrEmpty()) {
+             val msg = resp.server.replace("warningMessage", "")
+                 .replace("numero", "n°")
+                 .replace(":", "")
+                 .replace("\"", "")
+                 .replace("{", "")
+                 .replace("}", "")
+             msgBallon(msg)
+         } else { msgBallon("Error: ${resp.code}") }
+    }
+
+    //---- Borrado del formulario
+    private fun deleteForm(item: ModelForm) {
+        val msgLogout = AlertDialog.Builder(ctx)
+        val bindSend: StyleMsgFormBinding =
+            DataBindingUtil.inflate(
+                LayoutInflater.from(ctx),
+                R.layout.style_msg_form, null, false
+            )
+        with(bindSend) {
+            lbtittlestyleF.text = getString(R.string.deleteTittle)
+            txtmsgStyle.text = getString(R.string.deleteSpec)
+            txt1styleF.visibility = View.GONE
+            txt2styleFly.visibility = View.GONE
+            txt0styleFly.visibility = View.VISIBLE
+            txtmsgStyle.visibility = View.VISIBLE
+
+            msgLogout.setView(view)
+            msgLogout.setView(bindSend.root)
+            aDialog = msgLogout.create()
+            aDialog?.setCancelable(false)
+            aDialog?.show()
+
+            btEnd.text = getString(R.string.delete)
+            btCancel.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
+            btEnd.icon = ContextCompat.getDrawable(ctx, R.drawable.img_delete)
+            btEnd.backgroundTintList =
+                ContextCompat.getColorStateList(ctx, R.color.dark_red)
+
+            btCancel.setOnClickListener { aDialog?.dismiss() }
+            btEnd.setOnClickListener {
+                txt0styleF.imeOptions = EditorInfo.IME_ACTION_DONE
+                Handler(Looper.getMainLooper()).postDelayed({
+                    if (txt0styleF.text.isNullOrEmpty()) {
+                        txt0styleFly.error = "Ingrese la clave de acceso"
+                    } else if (txt0styleF.text.toString() == Mob.pass) {
+                        aDialog?.dismiss()
+                        val screen = AlertDialog.Builder(ctx)
+                        aDialog = screen.create()
+                        aDialog?.setCancelable(false)
+                        aDialog?.show()
+                        lifecycleScope.launch{
+                            val deleteResponse = RoomView(dvmForm, ctx).deleteForm(
+                                Mob.authData?.user ?: "",
+                                item.ncontrol ?: "")  ?: 0
+                            if (deleteResponse > 0) activity?.runOnUiThread { //-- Deleted
+                                btCancel.isClickable = false
+                                btEnd.isClickable = false
+                                listofAllForms = listofAllForms.minus(item)
+                                adpForms.updateList(listofAllForms)
+                                aDialog?.dismiss()
+                                msgBallon("Formulario eliminado")
+                            } else  activity?.runOnUiThread {
+                                aDialog?.dismiss()
+                                msgBallon("Imposible eliminar")
+                            }
+
+                        }
+                    } else { txt0styleFly.error = "Clave incorrecta" }
+                }, (Mob.TIME500MS))
+            }
+        }
+    }
+
+    //---- toast personalizado
+    private fun msgBallon(msg: String) {
+        val medida = msg.length * 7
+        Handler(Looper.getMainLooper()).postDelayed({
+            val alert = Functions.msgBallom(msg, medida, ctx, R.color.dark_red)
+            alert.showAlignBottom(bindingForm.txtwarningForm)
+            alert.dismissWithDelay(Mob.TIMELONG2SEG)
+        }, (Mob.TIME500MS))
     }
 }

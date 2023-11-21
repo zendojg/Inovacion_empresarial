@@ -720,6 +720,7 @@
     <string name="navigation_drawer_toggle">Menú de navegación</string>
     <string name="lb10m5">PORCENTAJE TOTAL:</string>
     <string name="viewIncon">Ver inconsistencias</string>
+    <string name="registerIncon">Inconsistencias registradas</string>
     <string name="buzqueda">Búzqueda avanzada</string>
     <string name="resumenForm">Resumen del formulario</string>
 

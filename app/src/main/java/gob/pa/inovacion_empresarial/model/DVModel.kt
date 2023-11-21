@@ -16,11 +16,10 @@ import java.io.IOException
 
 class DVModel: ViewModel() {
     //---- PRUEBA DE TOKEN
-    suspend fun validate(): Boolean? { //-------- Validador de TOKEN
-        suspend fun seeToken(): ModelResp? { //--  VERIFICADOR DE TOKEN INVENTADO
+    suspend fun validate(): Boolean? {       //--- Validador de TOKEN
+        suspend fun seeToken(): ModelResp? { //--- VERIFICADOR DE TOKEN INVENTADO
             val msg: String?
             val retrofit = ApiBuilder.ServiceBuilder.buildService(ApiService::class.java)
-
             val response = try {
                 retrofit.getProv()
             } catch (e: IOException) {
@@ -112,9 +111,7 @@ class DVModel: ViewModel() {
             val respuesta: Response<List<DBprovincia>> =
                 ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getProv()
             respuesta.body() ?: emptyList()
-        } catch (e: IOException) {
-            emptyList()
-        }
+        } catch (e: IOException) { emptyList() }
     }
 
     //---- DOWNLOAD DISTRITOS
@@ -123,9 +120,7 @@ class DVModel: ViewModel() {
             val respuesta: Response<List<DBdistritos>> =
                 ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getDistrito()
             respuesta.body() ?: emptyList()
-        } catch (e: IOException) {
-            emptyList()
-        }
+        } catch (e: IOException) { emptyList() }
     }
 
     //---- DOWNLOAD CORREGIMIENTOS
@@ -134,9 +129,7 @@ class DVModel: ViewModel() {
             val respuesta: Response<List<DBcorregimiento>> =
                 ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getCorre()
             respuesta.body() ?: emptyList()
-        } catch (e: IOException) {
-            emptyList()
-        }
+        } catch (e: IOException) { emptyList() }
     }
 
     //---- DOWNLOAD LUGAR POBLADO
@@ -145,9 +138,7 @@ class DVModel: ViewModel() {
             val respuesta: Response<List<DBlugarP>> =
                 ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getLugarP()
             respuesta.body() ?: emptyList()
-        } catch (e: IOException) {
-            emptyList()
-        }
+        } catch (e: IOException) { emptyList() }
     }
 
 
@@ -157,6 +148,28 @@ class DVModel: ViewModel() {
         val body = try {
             val resp =
                 ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).sendForm(form)
+            serverResp = if (resp.errorBody() != null) (resp.errorBody()!!.charStream().readText())
+            else null
+            code = resp.code().toString()
+            resp.body()
+        } catch (e: IOException) {
+            Log.e("-- Response error: ", e.message.toString())
+            serverResp = null
+            code = "0"
+            null
+        }
+        return ModelFormSend(
+            code = code,
+            server = serverResp,
+            body = body
+        )
+    }
+
+    suspend fun getIncon(ncrt: String): ModelFormSend {
+        var code: String
+        var serverResp: String?
+        val body = try {
+            val resp = ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getIncon(ncrt)
             serverResp = if (resp.errorBody() != null) (resp.errorBody()!!.charStream().readText())
             else null
             code = resp.code().toString()
