@@ -96,9 +96,9 @@
 
         <item
             android:id="@+id/menu_exit"
-            android:icon="@drawable/img_close"
+            android:icon="@drawable/img_format_list"
             android:fontFamily="sans-serif-condensed"
-            android:title="Salir del formulario" />
+            android:title="Menu/Salir del formulario" />
     </group>
 
 </menu>

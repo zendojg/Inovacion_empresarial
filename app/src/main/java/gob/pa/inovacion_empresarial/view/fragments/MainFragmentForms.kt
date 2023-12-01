@@ -160,7 +160,7 @@ class MainFragmentForms : Fragment() {
     //---- Selector de formularios, room o servidor
     private fun spinnerSelection(position: Int) {
         with (bindingForm) {
-            barForms.visibility = View.VISIBLE    //reset()
+            barForms.visibility = View.VISIBLE
             var conteoIncon = 0
             val user: String = Mob.authData?.user ?: ""
             val listUpdate: ArrayList<ModelForm> = ArrayList()
@@ -319,7 +319,7 @@ class MainFragmentForms : Fragment() {
                 }
             }
             if (selection == 1 || selection == 2) bt4.isEnabled = false
-            if (item.tieneIncon != true) bt3.isEnabled = false
+            //if (item.tieneIncon != true) bt3.isEnabled = false
             aDialog = msgOpcions.create()
             aDialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             aDialog?.window?.attributes?.windowAnimations =
@@ -415,6 +415,7 @@ class MainFragmentForms : Fragment() {
 
     //---- Carga de inconsistencias
     private suspend fun iconForm(item: ModelForm) {
+        bindingForm.barForms.visibility = View.VISIBLE
         val resp = dvmForm.getIncon(item.ncontrol ?: "")
         val respGson: String = try { Gson().toJson(resp.body) as String
         } catch (e: JsonParseException) { "" }
@@ -456,13 +457,15 @@ class MainFragmentForms : Fragment() {
          }
          else if (!resp.server.isNullOrEmpty()) {
              val msg = resp.server.replace("warningMessage", "")
-                 .replace("numero", "n°")
-                 .replace(":", "")
+                 .replace("Inconsistencias no encontradas para el numero de",
+                     "Sin inconsistencias para n°")
                  .replace("\"", "")
+                 .replace(":", "")
                  .replace("{", "")
                  .replace("}", "")
              msgBallon(msg)
          } else { msgBallon("Error: ${resp.code}") }
+        bindingForm.barForms.visibility = View.INVISIBLE
     }
 
     //---- Borrado del formulario
@@ -487,43 +490,47 @@ class MainFragmentForms : Fragment() {
             aDialog?.setCancelable(false)
             aDialog?.show()
 
-            btEnd.text = getString(R.string.delete)
-            btCancel.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
-            btEnd.icon = ContextCompat.getDrawable(ctx, R.drawable.img_delete)
-            btEnd.backgroundTintList =
-                ContextCompat.getColorStateList(ctx, R.color.dark_red)
+            btCancel.apply {
+                text = getString(R.string.cancel)
+                icon = ContextCompat.getDrawable(ctx, R.drawable.img_close)
+                setOnClickListener { aDialog?.dismiss() }
+            }
+            btEnd.apply {
+                text = getString(R.string.delete)
+                backgroundTintList =
+                    ContextCompat.getColorStateList(ctx, R.color.dark_red)
+                icon = ContextCompat.getDrawable(ctx, R.drawable.img_delete)
+                setOnClickListener {
+                    txt0styleF.imeOptions = EditorInfo.IME_ACTION_DONE
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        if (txt0styleF.text.isNullOrEmpty()) {
+                            txt0styleFly.error = "Ingrese la clave de acceso"
+                        } else if (txt0styleF.text.toString() == Mob.pass) {
+                            aDialog?.dismiss()
+                            val screen = AlertDialog.Builder(ctx)
+                            aDialog = screen.create()
+                            aDialog?.setCancelable(false)
+                            aDialog?.show()
+                            lifecycleScope.launch{
+                                val deleteResponse = RoomView(dvmForm, ctx).deleteForm(
+                                    Mob.authData?.user ?: "",
+                                    item.ncontrol ?: "")  ?: 0
+                                if (deleteResponse > 0) activity?.runOnUiThread { //-- Deleted
+                                    btCancel.isClickable = false
+                                    btEnd.isClickable = false
+                                    listofAllForms = listofAllForms.minus(item)
+                                    adpForms.updateList(listofAllForms)
+                                    aDialog?.dismiss()
+                                    msgBallon("Formulario eliminado")
+                                } else  activity?.runOnUiThread {
+                                    aDialog?.dismiss()
+                                    msgBallon("Imposible eliminar")
+                                }
 
-            btCancel.setOnClickListener { aDialog?.dismiss() }
-            btEnd.setOnClickListener {
-                txt0styleF.imeOptions = EditorInfo.IME_ACTION_DONE
-                Handler(Looper.getMainLooper()).postDelayed({
-                    if (txt0styleF.text.isNullOrEmpty()) {
-                        txt0styleFly.error = "Ingrese la clave de acceso"
-                    } else if (txt0styleF.text.toString() == Mob.pass) {
-                        aDialog?.dismiss()
-                        val screen = AlertDialog.Builder(ctx)
-                        aDialog = screen.create()
-                        aDialog?.setCancelable(false)
-                        aDialog?.show()
-                        lifecycleScope.launch{
-                            val deleteResponse = RoomView(dvmForm, ctx).deleteForm(
-                                Mob.authData?.user ?: "",
-                                item.ncontrol ?: "")  ?: 0
-                            if (deleteResponse > 0) activity?.runOnUiThread { //-- Deleted
-                                btCancel.isClickable = false
-                                btEnd.isClickable = false
-                                listofAllForms = listofAllForms.minus(item)
-                                adpForms.updateList(listofAllForms)
-                                aDialog?.dismiss()
-                                msgBallon("Formulario eliminado")
-                            } else  activity?.runOnUiThread {
-                                aDialog?.dismiss()
-                                msgBallon("Imposible eliminar")
                             }
-
-                        }
-                    } else { txt0styleFly.error = "Clave incorrecta" }
-                }, (Mob.TIME500MS))
+                        } else { txt0styleFly.error = "Clave incorrecta" }
+                    }, (Mob.TIME500MS))
+                }
             }
         }
     }
@@ -535,6 +542,6 @@ class MainFragmentForms : Fragment() {
             val alert = Functions.msgBallom(msg, medida, ctx, R.color.dark_red)
             alert.showAlignBottom(bindingForm.txtwarningForm)
             alert.dismissWithDelay(Mob.TIMELONG2SEG)
-        }, (Mob.TIME500MS))
+        }, (Mob.TIME1S))
     }
 }

@@ -699,7 +699,7 @@
     <string name="sessionexp">La sesión expira:</string>
     <string name="city">city</string>
     <string name="rolExample">:Rol del Usuario:</string>
-    <string name="dmcsaved">Encuestas guardads en el DMC</string>
+    <string name="dmcsaved">Encuestas en el DMC</string>
     <string name="warningRenew">La siguiente acción actualizara los datos internos de la aplicación desde el servidor</string>
     <string name="todo">TODO</string>
     <string name="textTest">XXXxxxxxxx XXxxxxxxxx</string>

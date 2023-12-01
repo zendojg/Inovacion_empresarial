@@ -1,6 +1,7 @@
 package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -29,6 +30,9 @@ import gob.pa.inovacion_empresarial.model.ModelForm
 import gob.pa.inovacion_empresarial.service.room.RoomView
 import kotlinx.coroutines.launch
 import java.lang.reflect.Type
+import java.time.DayOfWeek
+import java.time.LocalDate
+import java.time.temporal.ChronoUnit
 
 class MainFragmentData : Fragment() {
     private lateinit var bindingUser: FragUserMainBinding
@@ -73,12 +77,19 @@ class MainFragmentData : Fragment() {
                 aDialog = screen.create()
                 aDialog?.setCancelable(false)
                 aDialog?.show()
-                lifecycleScope.launch { CreateBackUp.saved(ctx) }
-                Handler(Looper.getMainLooper()).postDelayed({
-                    bindingUser.barUser.visibility = View.INVISIBLE
-                    aDialog?.dismiss()
-                    msgBallon("Nuevo respaldo creado")
-                }, (Mob.TIME1S))
+                lifecycleScope.launch {
+                    if (CreateBackUp.saved(ctx)) Handler(Looper.getMainLooper()).postDelayed({
+                        bindingUser.barUser.visibility = View.INVISIBLE
+                        aDialog?.dismiss()
+                        msgBallon("Nuevo respaldo creado")
+                    }, (Mob.TIME1S))
+                    else {
+                        bindingUser.barUser.visibility = View.INVISIBLE
+                        aDialog?.dismiss()
+                        msgBallon("Error de respaldo!")
+                    }
+                }
+
             }
             bindingUser.barUser.visibility = View.VISIBLE
             lifecycleScope.launch { actividad() }
@@ -131,9 +142,8 @@ class MainFragmentData : Fragment() {
                                     RoomView(dvmUser, ctx).viewRoom(true)
                                     msgBallon("Datos actualizados")
                                 }
-                                false -> { msgBallon("Sesión expirada") }
-                                else -> { msgBallon("No es posible actualizar") }
-
+                                false ->  msgBallon("Sesión expirada")
+                                else  ->  msgBallon("No es posible actualizar")
                             }
                             activity?.runOnUiThread { bindingUser.barUser.visibility = View.INVISIBLE }
                         }
@@ -184,19 +194,43 @@ class MainFragmentData : Fragment() {
 
     private suspend fun actividad() {
         if (!Mob.authData?.user.isNullOrEmpty()) {
-            val retroData = dvmUser.formsGetUser(Mob.authData?.user!!)
-            val asign: Int = retroData?.body?.size ?: 0
-            val roomData = RoomView(dvmUser, ctx).getFormsUser(Mob.authData?.user!!)
             var sendForms = 0
             var notsendForms = 0
-            if (!retroData?.body.isNullOrEmpty()) {
-                for (i in retroData?.body!!)
-                    if (i.tieneIncon != null) sendForms += 1
-            }
-            for (i in roomData) {
+
+            val dateNow: MutableList<String?> = mutableListOf()
+            val dateWeek: MutableList<String?> = mutableListOf()
+            val dateToday = if(Build.VERSION.SDK_INT >= Mob.VERSION) LocalDate.now() else null
+
+            val roomDMC = RoomView(dvmUser, ctx).getFormsUser(Mob.authData?.user ?: "")
+            val retroSERVER = dvmUser.formsGetUser(Mob.authData?.user ?: "")
+            val listAsign: Int = retroSERVER?.body?.size ?: 0
+
+
+            if (!retroSERVER?.body.isNullOrEmpty()) /*-- contador de forms enviados --*/
+                for (i in retroSERVER?.body!!) if (i.tieneIncon != null) sendForms += 1
+
+            for (i in roomDMC) { /*-- contador y enlistador de forms en el DMC --*/
                 val type: Type = object : TypeToken<ModelForm?>() {}.type
                 val listTest = Gson().fromJson<ModelForm>(i.saveForm, type)
-                if (listTest.tieneIncon == null) notsendForms += 1
+                val onlyDate = i.saveDate?.split(" ")?.get(0)
+
+
+                val dateForm = if(Build.VERSION.SDK_INT >= Mob.VERSION)
+                    LocalDate.parse(onlyDate ?: "0-0-0") else null
+
+
+                /*--
+                val semanasDesdeUltimoLunes = if(Build.VERSION.SDK_INT >= Mob.VERSION)
+                    ChronoUnit.WEEKS.between(dateForm?.with(DayOfWeek.MONDAY), dateForm).toInt()
+                else null*/
+
+
+                if (dateForm == dateToday && dateForm != null) dateNow += i.saveDate
+
+                if(Build.VERSION.SDK_INT >= Mob.VERSION)
+                    if(dateForm?.isAfter(dateToday?.minus(7, ChronoUnit.DAYS)) == true)
+                        dateWeek += i.saveDate
+                if (listTest.tieneIncon == null) notsendForms += 1 //--- contar no editados
             }
             activity?.runOnUiThread {
                 Handler(Looper.getMainLooper()).postDelayed({
@@ -204,10 +238,10 @@ class MainFragmentData : Fragment() {
                         barUser.visibility = View.INVISIBLE
                         txtnotsendUser.text = notsendForms.toString()
                         txtsendUser.text = sendForms.toString()
-                        txtasignFormUser.text = asign.toString()
-                        txtsavedmUser.text = roomData.size.toString()
-                        txtcomplettoday.text = "0"  //-------------------------------------- AGREGAR
-                        txtcompletweek.text = "0"
+                        txtasignFormUser.text = listAsign.toString()
+                        txtsavedmUser.text = roomDMC.size.toString()
+                        txtcomplettoday.text = dateNow.size.toString()
+                        txtcompletweek.text = dateWeek.size.toString()
                     }
                 }, (Mob.TIME500MS))
             }

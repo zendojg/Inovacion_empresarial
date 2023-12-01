@@ -51,6 +51,7 @@ object Mob {
     const val USERTEST:String = "USUARIO SIN INDENTIFICADOR"
     const val DATEFORMAT:String = "yyyy-MM-dd HH:mm:ss"
     const val DATEFORMATFORDOC:String = "yyyy-MM-dd__HH.mm.ss"
+    const val VERSION:Int = 26
     //-------
     const val PORCENT100:Int = 100
     const val LIMITMSG:Int = 50
@@ -80,7 +81,6 @@ object Mob {
     //------- TIMES
     const val TIMELONG2SEG:Long = 2000L
     const val TIMELONG4SEG:Long = 4000L
-    const val TIMELONG6SEG:Long = 6000L
     const val TIME10MS:Long = 10
     const val TIME100MS:Long = 100
     const val TIME360MS:Long = 360

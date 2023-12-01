@@ -4,243 +4,260 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
+        android:gravity="center_horizontal"
+        android:background="@drawable/foreground_back"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:background="@drawable/foreground_back"
-            tools:ignore="HardcodedText">
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="220dp"
-                android:layout_height="80dp"
-                android:contentDescription="Secretaria Nacional de Ciencia, Tecnología e Innovación"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo_senacyt" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="DIRECTORIO DE EMPRESAS Y LOCALES"
-                android:textColor="@color/blue_dark"
-                android:textSize="@dimen/text18"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                app:layout_constraintStart_toStartOf="@+id/imageView2"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:text="CONTRALORÍA GENERAL DE LA REPÚBLICA"
-                android:textColor="@color/blue_dark"
-                android:textSize="@dimen/text12"
-                app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                app:layout_constraintStart_toStartOf="@+id/imageView2"
-                app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="Instituto Nacional de Estadística y Censo"
-                android:textColor="@color/blue_dark"
-                android:textSize="@dimen/text12"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="@+id/imageView2"
-                app:layout_constraintStart_toStartOf="@+id/imageView2"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-
-            <ImageView
-                android:id="@+id/img_Alogin"
-                android:layout_width="100dp"
-                android:layout_height="80dp"
-                android:contentDescription="Instituto Nacional de Estadística y Censo"
-                app:layout_constraintBottom_toTopOf="@+id/textView9"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:srcCompat="@drawable/logo_inec" />
-
-
-            <TextView
-                android:id="@+id/textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:paddingHorizontal="30dp"
-                android:text="@string/subtittle2Main"
-                android:textSize="@dimen/text10"
-                app:layout_constraintBottom_toTopOf="@+id/textView10"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center"
-                android:text="@string/subtittle3Main"
-                android:textSize="@dimen/text10"
-                android:layout_marginBottom="17dp"
-                app:layout_constraintBottom_toBottomOf="parent" />
-
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:gravity="center"
-                android:paddingHorizontal="50dp"
-                android:paddingVertical="20dp"
-                app:layout_constraintBottom_toTopOf="@+id/img_Alogin"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-                <!-- 15.55555555555555555 -->
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                tools:ignore="HardcodedText">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txtuserlyLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start|center_vertical"
-                    android:hint="@string/hint_user"
-                    android:textColorHint="#336E94"
-                    app:endIconMode="clear_text"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:startIconContentDescription="Empadronador"
-                    app:startIconDrawable="@drawable/img_person">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtuserLogin"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@android:color/transparent"
-                        android:fontFamily="sans-serif-condensed"
-                        android:inputType="textVisiblePassword|textCapCharacters"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:singleLine="true"
-                        android:textColor="@color/blue_dark"
-                        android:textSize="@dimen/text16"
-                        app:errorEnabled="true"
-                        tools:text="Usuario" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/txtpasslyLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start|center_vertical"
-                    android:hint="@string/hint_pass"
-                    android:textColorHint="#336E94"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtuserlyLogin"
-                    app:startIconContentDescription="Contraseña"
-                    app:startIconDrawable="@drawable/img_lock">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/txtpassLogin"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="5dp"
-                        android:background="@android:color/transparent"
-                        android:fontFamily="sans-serif-condensed"
-                        android:imeOptions="actionDone"
-                        android:inputType="textPassword"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:textColor="@color/blue_dark"
-                        android:textSize="@dimen/text16"
-                        app:errorEnabled="true"
-                        tools:text="Empadronador" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <CheckBox
-                    android:id="@+id/checkLogin"
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineTop"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="Recordarme"
-                    android:textColor="#37799E"
-                    android:textSize="@dimen/text12"
-                    app:layout_constraintStart_toStartOf="@+id/txtpasslyLogin"
-                    app:layout_constraintTop_toBottomOf="@+id/txtpasslyLogin" />
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.15"
+                    />
 
-                <ProgressBar
-                    android:id="@+id/barLogin"
-                    style="?android:attr/progressBarStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:visibility="gone"
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="220dp"
+                    android:layout_height="80dp"
+                    android:contentDescription="Secretaria Nacional de Ciencia, Tecnología e Innovación"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/txtpasslyLogin"
-                    tools:visibility="visible" />
-
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="2dp"
-                    android:drawableEnd="@drawable/img_login"
-                    android:ellipsize="end"
-                    android:fontFamily="sans-serif-condensed"
-                    android:maxLines="1"
-                    android:text="Iniciar Sesión"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/text12"
-                    android:textStyle="bold"
-                    app:backgroundTint="@android:color/holo_blue_dark"
-                    app:icon="@drawable/img_login"
-                    app:iconPadding="-30dp"
-                    app:iconTint="@color/white"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/checkLogin" />
+                    app:layout_constraintTop_toTopOf="@+id/guidelineTop"
+                    app:srcCompat="@drawable/logo_senacyt" />
 
                 <TextView
-                    android:id="@+id/lbversionLogin"
+                    android:id="@+id/textView11"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="Version: 0.0.0"
-                    android:textColor="#37799E"
+                    android:gravity="center"
+                    android:text="DIRECTORIO DE EMPRESAS Y LOCALES"
+                    android:textColor="@color/blue_dark"
+                    android:textSize="@dimen/text18"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="CONTRALORÍA GENERAL DE LA REPÚBLICA"
+                    android:textColor="@color/blue_dark"
                     android:textSize="@dimen/text12"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center"
+                    android:text="Instituto Nacional de Estadística y Censo"
+                    android:textColor="@color/blue_dark"
+                    android:textSize="@dimen/text12"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView2"
+                    app:layout_constraintStart_toStartOf="@+id/imageView2"
+                    app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineMiddle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.47"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:gravity="center"
+                    android:paddingHorizontal="50dp"
+                    android:paddingVertical="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btLogin"
-                    tools:ignore="SmallSp" />
+                    app:layout_constraintTop_toBottomOf="@+id/guidelineMiddle">
+                    <!-- 15.55555555555555555 -->
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtuserlyLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:hint="@string/hint_user"
+                        android:textColorHint="#336E94"
+                        app:endIconMode="clear_text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:startIconContentDescription="Empadronador"
+                        app:startIconDrawable="@drawable/img_person">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtuserLogin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="sans-serif-condensed"
+                            android:inputType="textVisiblePassword|textCapCharacters"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:singleLine="true"
+                            android:textColor="@color/blue_dark"
+                            android:textSize="@dimen/text16"
+                            app:errorEnabled="true"
+                            tools:text="Usuario" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/txtpasslyLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center_vertical"
+                        android:hint="@string/hint_pass"
+                        android:textColorHint="#336E94"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtuserlyLogin"
+                        app:startIconContentDescription="Contraseña"
+                        app:startIconDrawable="@drawable/img_lock">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/txtpassLogin"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginVertical="5dp"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="sans-serif-condensed"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPassword"
+                            android:lines="1"
+                            android:maxLines="1"
+                            android:textColor="@color/blue_dark"
+                            android:textSize="@dimen/text16"
+                            app:errorEnabled="true"
+                            tools:text="Empadronador" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <CheckBox
+                        android:id="@+id/checkLogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Recordarme"
+                        android:textColor="#37799E"
+                        android:textSize="@dimen/text12"
+                        app:layout_constraintStart_toStartOf="@+id/txtpasslyLogin"
+                        app:layout_constraintTop_toBottomOf="@+id/txtpasslyLogin" />
+
+                    <ProgressBar
+                        android:id="@+id/barLogin"
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtpasslyLogin"
+                        tools:visibility="visible" />
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btLogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="2dp"
+                        android:drawableEnd="@drawable/img_login"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif-condensed"
+                        android:maxLines="1"
+                        android:text="Iniciar Sesión"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text12"
+                        android:textStyle="bold"
+                        app:backgroundTint="@android:color/holo_blue_dark"
+                        app:icon="@drawable/img_login"
+                        app:iconPadding="-30dp"
+                        app:iconTint="@color/white"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/checkLogin" />
+
+                    <TextView
+                        android:id="@+id/lbversionLogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Version: 0.0.0"
+                        android:textColor="#37799E"
+                        android:textSize="@dimen/text12"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btLogin"
+                        tools:ignore="SmallSp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
-    </ScrollView>
+        <ImageView
+            android:id="@+id/img_Alogin"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:contentDescription="Instituto Nacional de Estadística y Censo"
+            app:srcCompat="@drawable/logo_inec" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:paddingHorizontal="30dp"
+            android:text="@string/subtittle2Main"
+            android:textSize="@dimen/text10"
+            app:layout_constraintBottom_toTopOf="@+id/textView10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center"
+            android:text="@string/subtittle3Main"
+            android:textSize="@dimen/text10"
+            android:layout_marginBottom="17dp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </LinearLayout>
 
 </layout>

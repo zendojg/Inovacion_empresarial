@@ -415,27 +415,41 @@
 
                     <ImageView
                         android:id="@+id/imageView5"
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
                         android:contentDescription="@string/guardadas"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/lineMidUser"
-                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/imageView1"
                         app:srcCompat="@drawable/img_phone_android_48"
                         app:tint="@color/blue_dark" />
+
+                    <TextView
+                        android:id="@+id/lblphone2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:animateLayoutChanges="true"
+                        android:layout_marginStart="11dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/dmcsaved"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/imageView5"
+                        app:layout_constraintTop_toTopOf="@+id/lbsend1" />
 
                     <TextView
                         android:id="@+id/lblphone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
+                        android:layout_marginStart="11dp"
                         android:animateLayoutChanges="true"
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/guardadas"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="@+id/imageView5"
-                        app:layout_constraintTop_toBottomOf="@+id/lbsend1" />
+                        app:layout_constraintTop_toTopOf="@+id/lblbsend2" />
+
 
                     <TextView
                         android:id="@+id/txtsavedmUser"
@@ -451,18 +465,6 @@
                         app:layout_constraintTop_toTopOf="@+id/lblphone"
                         tools:text="0" />
 
-                    <TextView
-                        android:id="@+id/lblphone2"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:animateLayoutChanges="true"
-                        android:fontFamily="sans-serif-condensed"
-                        android:text="@string/dmcsaved"
-                        android:textSize="12sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/lblphone"
-                        app:layout_constraintTop_toBottomOf="@+id/lblphone" />
-
 
                     <TextView
                         android:id="@+id/lblcomplettoday"
@@ -471,8 +473,8 @@
                         android:layout_marginTop="27dp"
                         android:animateLayoutChanges="true"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="Completadas hoy:"
-                        android:textSize="12sp"
+                        android:text="Guardadas hoy:"
+                        android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="@+id/lineMidUser"
                         app:layout_constraintTop_toBottomOf="@+id/txtnotsendUser" />
 
@@ -484,7 +486,7 @@
                         android:animateLayoutChanges="true"
                         android:fontFamily="sans-serif-condensed"
                         tools:text="0"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="@+id/lblcomplettoday"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/lblcomplettoday"
@@ -496,8 +498,8 @@
                         android:layout_height="wrap_content"
                         android:animateLayoutChanges="true"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="Completadas en la semana:"
-                        android:textSize="12sp"
+                        android:text="Editadas en la semana:"
+                        android:textSize="14sp"
                         app:layout_constraintStart_toStartOf="@+id/lineMidUser"
                         app:layout_constraintTop_toBottomOf="@+id/txtcomplettoday" />
 
@@ -509,7 +511,7 @@
                         android:animateLayoutChanges="true"
                         android:fontFamily="sans-serif-condensed"
                         tools:text="0"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="@+id/lblcompletweek"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/lblcompletweek"
