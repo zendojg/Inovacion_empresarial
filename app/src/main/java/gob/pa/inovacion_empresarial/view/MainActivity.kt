@@ -91,10 +91,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val dialogBack = AlertDialog.Builder(this)
-        val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)
-
         if (pagerMain.currentItem == Mob.INIT01 || pagerMain.currentItem == Mob.LOGIN0) {
+            val dialogBack = AlertDialog.Builder(this)
+            val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)
             with (bindmsg) {
                 btpositivo.text = getString(R.string.cancel)
                 btnegativo.text = getString(R.string.close)

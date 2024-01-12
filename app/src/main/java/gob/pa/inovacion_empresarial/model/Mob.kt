@@ -35,7 +35,9 @@ import gob.pa.inovacion_empresarial.view.fragments.MainFragmentSearch
 
 object Mob {
     //------- Valores de conexión
-    const val URL = "http://172.16.9.27:5552/"          // urlLocal
+    private const val URLlocal = "http://172.16.9.27:5552/"
+    private const val URLTest = "http://172.16.9.27:5552/"
+    var URL = URLlocal
     //-------
     const val APIAUTH = "api/Auth/login"
     const val APIPROV = "api/Catalogo/prov"
