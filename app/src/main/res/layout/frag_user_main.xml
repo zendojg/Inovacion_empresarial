@@ -7,8 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/foreground_back">
+        android:layout_height="match_parent">
 
 
         <androidx.appcompat.widget.Toolbar
@@ -34,7 +33,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:layout_marginStart="5dp"
                     android:text="@string/datUser"
-                    android:textColor="@color/white"
+                    android:textColor="@color/blue_dark"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -49,7 +48,7 @@
                     android:animateLayoutChanges="true"
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/rolExample"
-                    android:textColor="@color/white"
+                    android:textColor="@color/blue_dark"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -68,7 +67,7 @@
                     android:contentDescription="@string/back"
                     android:focusable="true"
                     android:padding="5dp"
-                    app:tint="@color/white"
+                    app:tint="@color/blue_dark"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/btsaveUser"
                     app:layout_constraintTop_toTopOf="parent"

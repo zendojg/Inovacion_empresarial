@@ -7,8 +7,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/foreground_back">
+        android:layout_height="match_parent">
 
 
         <androidx.appcompat.widget.Toolbar
@@ -32,8 +31,8 @@
                     android:layout_marginStart="5dp"
                     android:animateLayoutChanges="true"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="Formularios:"
-                    android:textColor="@color/white"
+                    android:text="Lista de formularios:"
+                    android:textColor="@color/blue_dark"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -57,7 +56,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/img_backarr"
                     tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
-                    app:tint="@color/white" />
+                    app:tint="@color/blue_dark" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

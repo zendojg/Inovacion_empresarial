@@ -8,7 +8,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
-        android:background="@drawable/foreground_back"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.Guideline
@@ -22,7 +21,7 @@
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="220dp"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             android:contentDescription="Secretaria Nacional de Ciencia, Tecnología e Innovación"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -33,9 +32,10 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/oswaldregular"
             android:gravity="center"
-            android:text="DIRECTORIO DE EMPRESAS Y LOCALES"
+            android:text="ENCUESTA DE INNOVACIÓN EN EMPRESAS"
             android:textColor="@color/blue_dark"
             android:textSize="@dimen/text18"
             android:textStyle="bold"
@@ -50,6 +50,7 @@
             android:fontFamily="sans-serif-condensed"
             android:text="CONTRALORÍA GENERAL DE LA REPÚBLICA"
             android:textColor="@color/blue_dark"
+            android:textStyle="bold"
             android:textSize="@dimen/text12"
             app:layout_constraintEnd_toEndOf="@+id/imageView2"
             app:layout_constraintStart_toStartOf="@+id/imageView2"
@@ -211,8 +212,9 @@
 
         <ImageView
             android:id="@+id/img_Alogin"
-            android:layout_width="100dp"
-            android:layout_height="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:layout_marginBottom="7dp"
             android:contentDescription="Instituto Nacional de Estadística y Censo"
             app:layout_constraintBottom_toTopOf="@+id/textView9"
             app:layout_constraintEnd_toEndOf="parent"

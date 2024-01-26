@@ -8,8 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:animateLayoutChanges="true"
-        android:background="@drawable/foreground_back">
+        android:animateLayoutChanges="true">
 
         <ImageView
             android:id="@+id/imgCITYsearch"
@@ -27,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="20dp"
+            android:layout_marginTop="20dp"
             android:animateLayoutChanges="true"
             android:gravity="center"
             android:orientation="vertical"
@@ -35,12 +34,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+
+            <ImageView
+                android:id="@+id/img_Alogin"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:contentDescription="@string/inec"
+                app:layout_constraintBottom_toTopOf="@+id/lbtittleLogin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/logo_senacyt" />
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/oswaldregular"
                 android:text="@string/encuestatitle"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_dark"
                 android:textSize="@dimen/text20"
                 android:textStyle="bold" />
 
@@ -49,19 +61,10 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-condensed"
                 android:text="@string/tittle1Main"
-                android:textColor="@color/white"
+                android:textColor="@color/blue_dark"
                 android:textSize="@dimen/text12"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:text="@string/subtittle1Main"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text12"
-                android:textStyle="bold"
-                android:visibility="gone" />
         </LinearLayout>
 
         <LinearLayout
@@ -69,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="25dp"
             android:animateLayoutChanges="true"
             android:background="@drawable/background_shadow_holoblue2"
             android:orientation="vertical"
@@ -414,13 +417,13 @@
         <ImageView
             android:id="@+id/img_senacytsearch"
             android:layout_width="wrap_content"
-            android:layout_height="65dp"
+            android:layout_height="55dp"
             android:layout_marginTop="50dp"
             android:contentDescription="@string/senacyt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/guidelineSearch"
-            app:srcCompat="@drawable/logo_senacyt" />
+            app:srcCompat="@drawable/logo_inec" />
 
         <TextView
             android:id="@+id/versionsearch"

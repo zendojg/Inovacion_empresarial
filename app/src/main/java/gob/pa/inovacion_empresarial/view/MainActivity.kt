@@ -37,8 +37,7 @@ class MainActivity : AppCompatActivity() {
         main = ActivityMainBinding.inflate(layoutInflater)
         setContentView((main.root))
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        Mob.version = ("Versión: " + this.packageManager.getPackageInfo
-            (this.packageName, 0).versionName)
+        Mob.version = ("Versión: " + this.packageManager.getPackageInfo(this.packageName, 0).versionName)
         pagerMain = main.viewpagerMain
         pagerMain.isUserInputEnabled = false
         pagerMain.adapter = AdapterPagerMain(Mob.arrMain, supportFragmentManager, lifecycle)

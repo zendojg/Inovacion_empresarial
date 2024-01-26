@@ -1,5 +1,9 @@
 <resources>
 
+    <string name="PMA">REPÚBLICA DE PANAMÁ</string>
+    <string name="CGR">CONTRALORÍA GENERAL DE LA REPÚBLICA</string>
+    <string name="INEC">INSTITUTO NACIONAL DE ESTADÍSTICA Y CENSO</string>
+    <string name="inec">Instituto Nacional de Estadística y Censo</string>
 
     <string name="c01">Capítulo I.  Localización de la Empresa</string>
     <string name="c02">Capítulo II.  Datos de la Empresa y del Informante</string>
