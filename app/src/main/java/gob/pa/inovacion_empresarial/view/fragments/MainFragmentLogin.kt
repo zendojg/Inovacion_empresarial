@@ -131,16 +131,18 @@ class MainFragmentLogin: Fragment() {
 
         lifecycleScope.launch {
             val resp = dvmLogin.loginCall(login)
+            fun msgResp(msg: String) {
+                val color = ContextCompat.getColor(ctx, R.color.dark_red)
+                val alert = Functions.msgBallom(msg, Mob.WIDTH180DP, ctx, color)
+                alert.showAlignBottom(fragLogin.btLogin)
+                alert.dismissWithDelay(Mob.TIMELONG2SEG)
+            }
             if (resp != null) {
                 if (!resp.msg.isNullOrEmpty()) {
                     Handler(Looper.getMainLooper()).postDelayed({
                         var errortxt = resp.msg
                         if (errortxt.contains("No se encontró datos para la credencial")) {
-                            val color = ContextCompat.getColor(ctx, R.color.dark_red)
-                            val alert = Functions.msgBallom(
-                                "Usuario o Contraseña inválida", Mob.WIDTH180DP, ctx, color)
-                            alert.showAlignBottom(fragLogin.btLogin)
-                            alert.dismissWithDelay(Mob.TIMELONG2SEG)
+                            msgResp("Usuario o Contraseña inválida")
                         } else {
                             errortxt = errortxt.replace("error", "")
                             errortxt = errortxt.replace(":", "")
@@ -152,6 +154,7 @@ class MainFragmentLogin: Fragment() {
                     }, (Mob.TIME800MS))
                 } else {
                     when (resp.code) {
+
                         Mob.CODE200 -> { // --- LOGIN OK
                             Mob.authData = resp.body
                             if (fragLogin.checkLogin.isChecked) {
@@ -165,10 +168,11 @@ class MainFragmentLogin: Fragment() {
                                 pager?.setCurrentItem(Mob.INIT01, true)
                             }, (Mob.TIME500MS))
                         }
-                        Mob.CODE401 -> {}
-                        Mob.CODE403 -> {}
-                        Mob.CODE404 -> {}
-                        Mob.CODE500 -> {}
+                        Mob.CODE401 -> { msgResp("Usuario no autorizado") }
+                        Mob.CODE403 -> { msgResp("Sin permiso a datos solicitados") }
+                        Mob.CODE404 -> { msgResp("Usuario no encontrada") }
+                        Mob.CODE500 -> { msgResp("Error en el servidor") }
+                        else -> { msgResp("Error: ${resp.code}") }
                         //----- ADD MORE ERRORS
                     }
                 }

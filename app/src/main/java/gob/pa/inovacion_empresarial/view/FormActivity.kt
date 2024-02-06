@@ -75,6 +75,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private var dialog: AlertDialog? = null
     private val dvmForm: DVModel by viewModels()
     private val ctx: Context = this
+    private var pagerIndex: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -166,22 +167,20 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         pageSave()
-        val pagerIndex = Mob.menuToIndexMap[item.itemId] ?: Mob.MENU_P00
+        pagerIndex = Mob.menuToIndexMap[item.itemId] ?: Mob.MENU_P00
         drawerLayout.closeDrawer(GravityCompat.END, true)
-        Mob.indiceFormulario = pagerIndex
-        form.viewpager.setCurrentItem(pagerIndex, false)
-        //if (pagerIndex == Mob.MENU_P00) onBackPressed()
+        Mob.indiceFormulario = pagerIndex ?: Mob.MENU_P00
+        if (pagerIndex == Mob.MENU_P00) onBackPressed()
+        else form.viewpager.setCurrentItem(pagerIndex ?: Mob.MENU_P00, false)
         return super.onOptionsItemSelected(item)
     }
 
     override fun onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
-            drawerLayout.closeDrawer(GravityCompat.END, true)
-        } else
-        if (form.viewpager.currentItem == Mob.MENU_P00) {
+        if (form.viewpager.currentItem == Mob.MENU_P00 || pagerIndex == Mob.MENU_P00) {
             val mesagePregunta = AlertDialog.Builder(this)
             val bindmsg: StyleMsgAlertBinding = StyleMsgAlertBinding.inflate(layoutInflater)
             val ctx = this
+            pagerIndex = null
             with (bindmsg) {
                 btpositivo.text = getString(R.string.cancel)
                 btnegativo.text = getString(R.string.closeForm)
@@ -190,7 +189,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 else msg1.visibility = View.GONE
                 msg2.visibility = View.GONE
                 btpositivo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
-                btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_deleteview)
+                btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_close)
                 btnegativo.backgroundTintList =
                     ContextCompat.getColorStateList(ctx, R.color.dark_pink)
 
@@ -212,6 +211,8 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     }, (Mob.TIME500MS))
                 }
             }
+        } else if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
+            drawerLayout.closeDrawer(GravityCompat.END, true)
         } else seeCaps(false)
     }
 

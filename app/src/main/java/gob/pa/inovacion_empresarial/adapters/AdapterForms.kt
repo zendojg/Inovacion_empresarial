@@ -1,5 +1,6 @@
 package gob.pa.inovacion_empresarial.adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.view.isVisible
@@ -37,7 +38,22 @@ class AdapterForms(
                 else txtconditionRC.text = "Sin condición asignada"
 
                 txtrazonRC.text = form.cap2?.v06razontxt ?: "No registrada"
-                lbinconsistenciasRC.isVisible = form.tieneIncon == true
+
+                lbinconsistenciasRC.apply {
+                    when (form.tieneIncon) {
+                        false -> isVisible = false
+                        true -> {
+                            text = "con Inconsistencias"
+                            setTextColor(Color.parseColor("#873945")) // rojo
+                            isVisible = true
+                        }
+                        else -> {
+                            text = "Sin modificar"
+                            setTextColor(Color.parseColor("#4d6b73")) // azul
+                            isVisible = true
+                        }
+                    }
+                }
 
                 layoutItemForm.setOnClickListener {
                     //layoutItemForm.setBackgroundResource(R.drawable.background_shadow_holoblue2)

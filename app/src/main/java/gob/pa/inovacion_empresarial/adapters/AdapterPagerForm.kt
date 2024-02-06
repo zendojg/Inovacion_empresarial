@@ -19,6 +19,4 @@ class AdapterPagerForm(
         return fragmentList[position]
     }
 
-
-
 }

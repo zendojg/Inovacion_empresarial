@@ -378,7 +378,7 @@
                 android:layout_marginVertical="7dp"
                 android:layout_marginHorizontal="2dp"
                 android:paddingBottom="3dp"
-                app:helperText="(Solo para empresas de Zona Libre de Cólon)"
+                app:helperText="(Solo para empresas de Zona Libre de Colón)"
                 app:helperTextTextAppearance="@style/TextLabel2"
                 app:helperTextTextColor="@android:color/holo_blue_dark"
                 app:layout_constraintTop_toBottomOf="@+id/txtCap2_12ly"

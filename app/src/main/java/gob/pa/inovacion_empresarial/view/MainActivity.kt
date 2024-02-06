@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         main = ActivityMainBinding.inflate(layoutInflater)
         setContentView((main.root))
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        Mob.version = ("Versión: " + this.packageManager.getPackageInfo(this.packageName, 0).versionName)
+        Mob.version = "Versión: ${packageManager.getPackageInfo(packageName, 0).versionName}"
         pagerMain = main.viewpagerMain
         pagerMain.isUserInputEnabled = false
         pagerMain.adapter = AdapterPagerMain(Mob.arrMain, supportFragmentManager, lifecycle)
@@ -59,12 +59,11 @@ class MainActivity : AppCompatActivity() {
                 main.barMain.visibility = View.GONE
                 pagerMain.setCurrentItem(movePage, false)
                 pagerMain.visibility = View.VISIBLE
-            }, (Mob.TIME2S))
+            }, (Mob.TIME1S))
         }
         val remember = AppCache.remGET(this)
-        val tokenIsNull = Mob.authData?.result?.token.isNullOrEmpty()
 
-        if (tokenIsNull && !remember) moveByToken(false)
+        if (Mob.authData?.result?.token.isNullOrEmpty() && !remember) moveByToken(false)
         else {
             if (remember) Mob.authData = AppCache.loginGET(this)
             if (Mob.authData?.result?.token.isNullOrEmpty()) moveByToken(false)

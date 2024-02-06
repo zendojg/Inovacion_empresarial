@@ -169,9 +169,6 @@
                         android:minHeight="40dp"
                         android:layout_gravity="fill"
                         android:background="@drawable/background_shadow_celpast"
-                        android:fontFamily="sans-serif-condensed"
-                        android:gravity="center"
-                        android:paddingVertical="20dp"
                         tools:srcCompat="@drawable/img_check"
                         android:contentDescription="@string/p38txtdesc2" />
 

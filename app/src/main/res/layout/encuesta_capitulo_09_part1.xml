@@ -131,11 +131,11 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center"
                         android:inputType="number"
-                        android:maxLength="2"
+                        android:maxLength="4"
                         android:minWidth="100dp"
                         android:textSize="14sp"
                         tools:ignore="TouchTargetSizeCheck"
-                        tools:text="000" />
+                        tools:text="@string/_00000" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

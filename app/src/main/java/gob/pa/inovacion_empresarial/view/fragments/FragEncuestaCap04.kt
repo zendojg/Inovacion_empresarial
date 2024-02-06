@@ -49,37 +49,39 @@ class FragEncuestaCap04 : Fragment() {
                     txtCap428.isFocusable = true
                 }
             }
+
             layoutCap4292.isVisible = frameview2
             layoutCap4293.isVisible = frameview3
             layoutCap4294.isVisible = frameview4
-             if (frameview2 || frameview3 || frameview4)
-                 btCap429Remove.visibility = View.VISIBLE
-            else btCap429Remove.visibility = View.GONE
+            btCap429Remove.isVisible = frameview2 || frameview3 || frameview4
 
             btCap429Plus.setOnClickListener {
                 if (!layoutCap4292.isVisible) {
-                    layoutCap4292.visibility = View.VISIBLE
-                    btCap429Remove.visibility = View.VISIBLE
+                    layoutCap4292.isVisible = true
+                    frameview2 = true
+                    btCap429Remove.isVisible = true
                 } else if (!layoutCap4293.isVisible) {
-                    layoutCap4293.visibility = View.VISIBLE
+                    layoutCap4293.isVisible = true
+                    frameview3 = true
                 } else if (!layoutCap4294.isVisible) {
-                    layoutCap4294.visibility = View.VISIBLE
+                    layoutCap4294.isVisible = true
+                    frameview4 = true
                 }
             }
 
             btCap429Remove.setOnClickListener {
                 when {
                     layoutCap4294.isVisible -> {
-                        layoutCap4294.visibility = View.GONE
+                        layoutCap4294.isVisible = false
                         frameview4 = false
                     }
                     layoutCap4293.isVisible -> {
-                        layoutCap4293.visibility = View.GONE
+                        layoutCap4293.isVisible = false
                         frameview3 = false
                     }
                     layoutCap4292.isVisible -> {
-                        layoutCap4292.visibility = View.GONE
-                        btCap429Remove.visibility = View.GONE
+                        layoutCap4292.isVisible = false
+                        btCap429Remove.isVisible = false
                         frameview2 = false
                     }
                 }

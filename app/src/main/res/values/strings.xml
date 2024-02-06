@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="PMA">REPÚBLICA DE PANAMÁ</string>
     <string name="CGR">CONTRALORÍA GENERAL DE LA REPÚBLICA</string>
@@ -342,10 +342,10 @@
     <string name="hint27">Nombre del País:</string>
     <string name="hint28"><b>21. Correo electrónico del informante:</b></string>
 
-    <string name="p22txt">¿En qué año inicio operaciones la empresa en nuestro país?</string>
+    <string name="p22txt">¿En qué año inició operaciones la empresa en nuestro país?</string>
     <string name="hint_otheRef">1. Otras referencias:</string>
     <string name="hint15_morelocal">y cuántos en otras provincias?</string>
-    <string name="p23txt">¿Cúal es la naturaleza jurídica de la empresa?</string>
+    <string name="p23txt">¿Cuál es la naturaleza jurídica de la empresa?</string>
     <string name="check23_1">1. Individual o natural</string>
     <string name="check23_2">2. Sociedad Anónima</string>
     <string name="check23_3">3. Sociedad Civil</string>
@@ -363,7 +363,7 @@
     <string name="check25_1">1. Grupo empresarial?</string>
     <string name="check25_2">2. Holding?</string>
     <string name="check25_3">3. Filial?</string>
-    <string name="check25_4">4. Subsidiadas?</string>
+    <string name="check25_4">4. Subsidiarias?</string>
     <string name="check25_5">5. No sabe?</string>
     <string name="check25_6">6. Otra?</string>
     <string name="txt25_6">Especifique</string>
@@ -427,7 +427,7 @@
     <string name="lb36desc">Empleados según origen</string>
     <string name="lb36t1">1. Total (suma de a + b)</string>
     <string name="lb36nac">a. Nacional</string>
-    <string name="lb36ext">b. Extrangero</string>
+    <string name="lb36ext">b. Extranjero</string>
     <string name="p37txt">¿En el 2022, ¿la empresa contaba con personal, oficina, sección, departamento o laboratorio para desarrollar labores de innovación?</string>
     <string name="p37si">Sí.....<b>1.(Continúe)</b></string>
     <string name="p37no">No....<b>2.(Pase al Cap. VI, pregunta 39)</b></string>
@@ -448,7 +448,7 @@
     <string name="not3">No (3)</string>
     <string name="p39tbdesc2">Servicios nuevos o significativamente mejorados.</string>
     <string name="lb39_desclast">Sí respondió No a todas las opciones, pase a la pregunta 42</string>
-    <string name="p40txt">¿Como fue la innovación del producto…</string>
+    <string name="p40txt">¿Cómo fue la innovación del producto…</string>
     <string name="p40tb1">1. Nueva para su mercado?</string>
     <string name="p40tb2">2. Solo nueva para la empresa?</string>
     <string name="p41txt">¿Quién desarrolló esta innovación de producto?</string>
@@ -472,7 +472,7 @@
     <string name="p45desc4">Aumentar la capacidad y/o flexibilidad para la producción de bienes y servicios?</string>
     <string name="p45desc5">Reducción de costos por unidad producida? <b>(Laboral, consumo de materiales y de energia, entre otros)</b>.</string>
     <string name="p45desc6">Reducción de impacto medioambiental o mejora la sanidad y la seguridad?</string>
-    <string name="cap6tittle3">UNA <u>INNOVACIÓN ORGANIZACIONAL</u> ES LA INTRODUCCIÓN DE NUEVA METODOLOGÍA EN LA PRACTICA DEL NEGOCIO (INCLUYENDO ADMINISTRACIÓN DEL CONOCIMIENTO), LA ORGANIZACIÓN DEL LUGAR DE TRABAJO O LAS RELACIONES EXTERNAS QUE NO HAN SIDO USADAS EN LA EMPRESA ANTERIORENTE</string>
+    <string name="cap6tittle3">UNA <u>INNOVACIÓN ORGANIZACIONAL</u> ES LA INTRODUCCIÓN DE NUEVA METODOLOGÍA EN LA PRÁCTICA DEL NEGOCIO (INCLUYENDO ADMINISTRACIÓN DEL CONOCIMIENTO), LA ORGANIZACIÓN DEL LUGAR DE TRABAJO O LAS RELACIONES EXTERNAS QUE NO HAN SIDO USADAS EN LA EMPRESA ANTERIORMENTE</string>
     <string name="p46txt">¿Durante el 2021 y 2022, su empresa introdujo?\n\n<font color="#ff0099cc">MARQUE SU RESPUESTA PARA CADA AÑO</font></string>
     <string name="p46desc1">Nuevas prácticas de negocios para la organización de procesos <font color="#3C54BB">(administración de abastecimiento, reingeniería de procesos, gestión de calidad, entre otras)</font>.</string>
     <string name="p46desc2">Nuevos métodos de la organización de responsabilidades y toma de decisiones <font color="#3C54BB">(nuevo sistema de gestión de responsabilidades, reestructuraciones, sistemas de capacitación, entre otros)</font>.</string>
@@ -532,7 +532,7 @@
     <string name="tb54desc7">7. Tamaño inadecuado del mercado.</string>
     <string name="tb54desc8">8. Desconocimiento de los apoyos gubernamentales para proyectos de innovación.</string>
     <string name="tb54desc9">9. Dificultad para acceder a apoyos gubernamentales.</string>
-    <string name="tb54desc10">10. Deficiencias, dificultades burocráticas, alto costoal sistema de protección a la propiedad intelectual.</string>
+    <string name="tb54desc10" tools:ignore="Typos">10. Deficiencias, dificultades burocráticas, alto costo al sistema de protección a la propiedad intelectual.</string>
     <string name="tb54desc11">11. Dificultades de acceso o costo excesivo del financiamiento a la innovación.</string>
     <string name="tb54desc12">12. Insuficientes incentivos a la innovación en la actividad económica desarrollada por la empresa.</string>
     <string name="tb54desc13">13. Insuficientes incentivos a la innovación por baja receptividad de la demanda.</string>
@@ -541,9 +541,9 @@
     <string name="otheract">Otras actividades:</string>
     <string name="lb53txt">En el 2021 y 2022, ¿cuál fue el gasto realizado en las actividades de innovación. (Excluyendo el gasto de I+D)?</string>
     <string name="tb53a">Adquisición de maquinaria, equipos y software para la innovación.</string>
-    <string name="tb53b">Adquisición de conocimiento externos para la innovación <font color="black">(patentes, derechos de propiedad intelectual, licencias, know-how)</font>.</string>
+    <string name="tb53b">Adquisición de conocimiento externos para la innovación <font color="black" tools:ignore="Typos">(patentes, derechos de propiedad intelectual, licencias, know-how)</font>.</string>
     <string name="tb53c">Capacitación para la innovación <font color="black">(formación interna o externa de su personal, destinado específicamente al desarrollo o introducción de productos o procesos nuevos o mejorados de manera significativa)</font>.</string>
-    <string name="tb53d">Introducción de innovaciones al mercado para la innovación <font color="black">(incluye investigación de mercado, campañas de publicidd)</font>.</string>
+    <string name="tb53d">Introducción de innovaciones al mercado para la innovación <font color="black">(incluye investigación de mercado, campañas de publicidad)</font>.</string>
     <string name="tb53e">Diseño para la innovación <font color="black">(se refiere a la forma de los productos y no a sus especificaciones técnicas u otras características funcionales o de utilización)</font>.</string>
     <string name="tb53f">Instalación y puesta a punto de nuevos equipos para la innovación <font color="black">(puesta en marcha de la producción)</font>.</string>
     <string name="tb53total">Total <font color="black">(Suma de a + b + c + d + e + f + g)</font></string>
@@ -567,7 +567,7 @@
     <string name="lb56txt">¿Conoce la empresa que existen instituciones públicas, privadas y organismos internacionales que prestan apoyo para realizar actividades de innovación?</string>
     <string name="check56si">Sí.....<b>1.(Continúe)</b></string>
     <string name="check56no">No....<b>2.(Pase al capítulo IX, pregunta 59)</b></string>
-    <string name="lb57txt">En el 2022, ¿la empresa solicitó subsidios, créditos o beneficios para financiar actividades de innovación a instituciones nacionales o inernacionales?</string>
+    <string name="lb57txt">En el 2022, ¿la empresa solicitó subsidios, créditos o beneficios para financiar actividades de innovación a instituciones nacionales o internacionales?</string>
     <string name="monto">(4) Monto obtenido en balboas</string>
     <string name="tb571">Instituciones nacionales:</string>
     <string name="tb57a1">Autoridad de la pequeña y Mediana Empresa (Ampyme)</string>
@@ -576,7 +576,7 @@
     <string name="tb572">Organismos Internacionales:</string>
     <string name="tb57a2">Banco Interamericano de Desarrollo (BID)</string>
     <string name="tb57b2">Banco Mundial</string>
-    <string name="lb58txt">En el 2021 y/o 2022, ¿cuál fue el origen de los recursos de financiamiento de la empresa para las actividades de innovación y señale según la importancia de aquellas que utilizo?</string>
+    <string name="lb58txt">En el 2021 y/o 2022, ¿cuál fue el origen de los recursos de financiamiento de la empresa para las actividades de innovación y señale según la importancia de aquellas que utilizó?</string>
     <string name="tb58a1">Propios de la empresa mediante reinversión de utilidades</string>
     <string name="tb58b1">Propios de la empresa mediante aporte de los socios</string>
     <string name="tb58c1">Mediante aporte de la caza matriz</string>
@@ -609,7 +609,7 @@
     <string name="p61yes2">2. Patente</string>
     <string name="p61yes3">3. Modelo de utilidad</string>
     <string name="p61yes4">4. Diseño industrial</string>
-    <string name="p61yes5">5. Derecho de autor</string>
+    <string name="p61yes5" tools:ignore="Typos">5. Derecho de autor</string>
     <string name="p61yes6">6. Denominación de origen</string>
     <string name="p61yes7">7. Cláusula de confidencialidad para los empleados</string>
     <string name="p61yes8">8. Contratos de confidencialidad con poveedores y/o clientes</string>
@@ -631,14 +631,14 @@
     <string name="txt65n1">1. Norma de calidad:</string>
     <string name="txt65n2">2. Norma de calidad:</string>
     <string name="year_obt">Año de obtención</string>
-    <string name="p66txt">¿En los próximos dos años, piensa realizar alguna de las siguientes ennovaciones?</string>
+    <string name="p66txt">¿En los próximos dos años, piensa realizar alguna de las siguientes innovaciones?</string>
     <string name="tb66desc">Intervalos de ingresos</string>
     <string name="tb66desc1">Innovaciones de productos (bienes o servicios).</string>
     <string name="tb66desc2">Innovaciones de procesos.</string>
     <string name="tb66desc3">Innovaciones organizacionales</string>
     <string name="tb66desc4">Innovaciones de comercialización.</string>
 
-    <string name="p1txtm">En el 2022, ¿utilizo su empresa Internet para el desarrollo de sus actividades?</string>
+    <string name="p1txtm">En el 2022, ¿utilizó su empresa Internet para el desarrollo de sus actividades?</string>
     <string name="noMod">No....<b>2.(Finalizar la entrevista del módulo)</b></string>
     <string name="moduloref">PERÍODO DE REFERENCIA 2022</string>
     <string name="p2txtm">¿Qué tipo de conexión utilizó para acceder a internet…</string>
@@ -675,7 +675,7 @@
     <string name="p7txtm">¿Realizó su empresa ventas de bienes y/o servicios, a tráves de medios electrónicos?\n<font color="#705727">(Los mencionados en la Sección 3, pregunta 4.1)</font></string>
     <string name="p8txtm">¿Cúal fue el total de las ventas de bienes y/o servicios realizadas a tráves de medios electrónicos?</string>
     <string name="p8hintm">Valor en Balboas, omita los centésimos</string>
-    <string name="p9txtm">En el 2022, ¿utilizo su empresa Internet para el desarrollo de sus actividades?</string>
+    <string name="p9txtm">En el 2022, ¿realizó su empresa costos y/o gastos en Tecnologías de la Información y las Comunicaciones (TIC)?</string>
     <string name="p9mno">No....<b>2.(Finalizar la entrevista)</b></string>
     <string name="p10txtm">De estos costos y gastos realizados por la empresa, en TIC, indique según porcentaje, ¿cúales corresponden a…</string>
     <string name="lb10m1">1. Hardware <font color="#705727">(CPU, monitor, teclado, ratón, impresora, disco, CD, DVD, motherboard, RAM y otros)</font>?</string>
