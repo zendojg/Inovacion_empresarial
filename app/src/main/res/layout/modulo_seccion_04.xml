@@ -448,6 +448,8 @@
                     android:layout_marginTop="10dp"
                     android:hint="@string/p8hintm"
                     android:textColorHint="#9C6E36"
+                    android:visibility="gone"
+                    tools:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/rgroupSecc04_9">

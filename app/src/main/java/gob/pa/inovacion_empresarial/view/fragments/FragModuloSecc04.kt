@@ -116,8 +116,8 @@ class FragModuloSecc04: Fragment() {
                 override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {/**/}
                 override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {/**/}
                 override fun afterTextChanged(s: Editable?) {
-                    colorTxt()
                     textWatcherList.add(ModelTexWatchers(lb6nm100, this))
+                    colorTxt()
                 }
             })
 
@@ -132,6 +132,9 @@ class FragModuloSecc04: Fragment() {
             if (rbtSecc049No.isChecked) {
                 txtSecc049ly.isVisible = false
                 layoutSecc410.isVisible = false
+            } else if (rbtSecc049Si.isChecked) {
+                txtSecc049ly.isVisible = true
+                layoutSecc410.isVisible = true
             }
             rgroupSecc049.setOnCheckedChangeListener { _, id ->
                 hideKeyboard()

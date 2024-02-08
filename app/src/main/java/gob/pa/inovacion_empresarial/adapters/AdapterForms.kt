@@ -32,8 +32,10 @@ class AdapterForms(
                 txtrucRC.text = form.cap2?.v07ructxt ?: "0-0-0"
                 lbnameLRC.text = form.cap2?.v05nameLtxt ?: "Desconocido"
 
+
                 if (form.cond != null) txtconditionRC.text = try {
-                    Mob.arrCondicion[form.cond.toInt() - 1]
+                    val indexCond = if (form.cond.toInt() > 0) form.cond.toInt().minus(1) else 8
+                    Mob.arrCondicion[indexCond]
                 } catch (e: java.lang.NumberFormatException) { "Valor desconocido" }
                 else txtconditionRC.text = "Sin condición asignada"
 

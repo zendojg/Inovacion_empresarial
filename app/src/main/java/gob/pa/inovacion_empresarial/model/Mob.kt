@@ -227,7 +227,8 @@ object Mob {
         "Rehúsa",
         "No localizada",
         "No operó",
-        "Otra condición (Especifique)"
+        "Otra condición (Especifique)",
+        "Sin especificar"
     )
 
     const val GRADENOTSELECT:Int = 0

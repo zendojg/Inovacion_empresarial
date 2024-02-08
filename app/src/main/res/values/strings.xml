@@ -677,7 +677,7 @@
     <string name="p8hintm">Valor en Balboas, omita los centésimos</string>
     <string name="p9txtm">En el 2022, ¿realizó su empresa costos y/o gastos en Tecnologías de la Información y las Comunicaciones (TIC)?</string>
     <string name="p9mno">No....<b>2.(Finalizar la entrevista)</b></string>
-    <string name="p10txtm">De estos costos y gastos realizados por la empresa, en TIC, indique según porcentaje, ¿cúales corresponden a…</string>
+    <string name="p10txtm">De estos costos y gastos realizados por la empresa, en TIC, indique según <u>porcentaje</u>, ¿cúales corresponden a…</string>
     <string name="lb10m1">1. Hardware <font color="#705727">(CPU, monitor, teclado, ratón, impresora, disco, CD, DVD, motherboard, RAM y otros)</font>?</string>
     <string name="lb10m2">2. Software <font color="#705727">(sistema operativo,aplicaciones, navegadores web, juegos, programas, licencias y otros)</font>?</string>
     <string name="lb10m3">3. Servicios de consultoria de TIC?</string>
