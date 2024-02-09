@@ -184,7 +184,7 @@ class FragTotalInforme : Fragment() {
             msgtitle.text = getString(R.string.resumenForm)
             when {
                 inconsistencias.isNotEmpty() -> {
-                    msg1.text = "Capítulos con incosistencias registradas:"
+                    msg1.text = getString(R.string.msgInfoIncoReg)
                     for (list in inconsistencias) {
                         val desc = if (getString(list.third) == "") ""
                         else " - ${getString(list.third)}"
@@ -193,7 +193,7 @@ class FragTotalInforme : Fragment() {
                     }
                 }
                 reviewCaps.isNotEmpty() -> {
-                    msg1.text = "Sin inconsistencias registradas\nCapítulos no previsualizados:"
+                    msg1.text = getString(R.string.msgInfoCapNoPre)
                     for (list in reviewCaps) {
                         val desc = if (getString(list.third) == "") ""
                         else " - ${getString(list.third)}"
@@ -202,7 +202,7 @@ class FragTotalInforme : Fragment() {
                     }
                 }
                 else -> {
-                    msg1.text = "Formulario completo\n\n"
+                    msg1.text = getString(R.string.msgInfoFormComp)
                     msg6.visibility = View.GONE
                 }
             }
@@ -237,18 +237,18 @@ class FragTotalInforme : Fragment() {
                             carga(respGson)
                         }, Mob.TIME800MS)
                     }
-                    "400" -> msgBallom("Error en el cuestionario", Mob.WIDTH180DP, R.color.dark_pink)
-                    "401" -> msgBallom("Sesión expirada", Mob.WIDTH160DP, R.color.blue_dark)
-                    "404" -> msgBallom("Formulario no encontrado", Mob.WIDTH180DP, R.color.dark_red)
-                    "500" -> msgBallom("Error en el servidor", Mob.WIDTH160DP, R.color.dark_red)
+                    "400" -> msgBallom(getString(R.string.msgInforme400), Mob.WIDTH180DP, R.color.dark_pink)
+                    "401" -> msgBallom(getString(R.string.msgInforme401), Mob.WIDTH160DP, R.color.blue_dark)
+                    "404" -> msgBallom(getString(R.string.msgInforme404), Mob.WIDTH180DP, R.color.dark_red)
+                    "500" -> msgBallom(getString(R.string.msgInforme500), Mob.WIDTH160DP, R.color.dark_red)
                     else -> {
                         if (resp.server.isNullOrEmpty())
-                            msgBallom("Fuera de cobertura", Mob.WIDTH160DP, R.color.teal_700)
+                            msgBallom(getString(R.string.msgInformeNoResp), Mob.WIDTH160DP, R.color.teal_700)
                          else Toast.makeText(ctx, resp.server, Toast.LENGTH_SHORT).show()
                     }
                 }
             } catch (e: Exception) {
-                msgBallom("Error de red", Mob.WIDTH160DP, R.color.teal_700)
+                msgBallom(getString(R.string.msgInformeNoRed), Mob.WIDTH160DP, R.color.teal_700)
             } finally {
                 Handler(Looper.getMainLooper()).postDelayed({
                     screenBlack.dismiss()

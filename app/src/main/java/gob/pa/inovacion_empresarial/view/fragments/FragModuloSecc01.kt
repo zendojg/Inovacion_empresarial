@@ -162,10 +162,11 @@ class FragModuloSecc01 : Fragment() {
             if (rbtSecc011Si.isChecked) {
                 if (rgroupSecc0121.checkedRadioButtonId == -1)
                     returnList.add(CreateIncon.inconsistencia(ctx, "290") ?: "")
-                else if (rbtSecc011Si.isChecked && allCheckSecc01P2.allFalse())
+                else if (rbtSecc012Si.isChecked && allCheckSecc01P2.allFalse())
                     returnList.add(CreateIncon.inconsistencia(ctx, "291") ?: "")
-            } else if (rbtSecc011No.isChecked && !checkSecc0122.isChecked)
-                returnList.add(CreateIncon.inconsistencia(ctx, "292") ?: "")
+                else if (rbtSecc012No.isChecked && !checkSecc0122.isChecked)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "292") ?: "")
+            }
 
             Mob.infoCap.find { it.indexCap == Mob.SEC1_P20 }?.incons = returnList.isNotEmpty()
             println("Secc1: --${Mob.capMod}")

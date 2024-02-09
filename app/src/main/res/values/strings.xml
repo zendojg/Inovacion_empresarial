@@ -729,4 +729,15 @@
     <string name="resumenForm">Resumen del formulario</string>
 
 
+    <string name="msgInfoIncoReg">Capítulos con incosistencias registradas:</string>
+    <string name="msgInfoCapNoPre">Sin inconsistencias registradas\nCapítulos no previsualizados:</string>
+    <string name="msgInfoFormComp">Formulario completo\n\n</string>
+
+    <string name="msgInforme400">Cuestionario incompleto</string>
+    <string name="msgInforme401">Sesión expirada</string>
+    <string name="msgInforme404">Formulario no encontrado</string>
+    <string name="msgInforme500">Error en el servidor</string>
+    <string name="msgInformeNoResp">Fuera de cobertura</string>
+    <string name="msgInformeNoRed">Error de red</string>
+
 </resources>
