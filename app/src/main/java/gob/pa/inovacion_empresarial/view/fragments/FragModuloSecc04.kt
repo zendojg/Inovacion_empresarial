@@ -276,7 +276,7 @@ class FragModuloSecc04: Fragment() {
             if (Mob.capMod?.v1check == true) {
                 if (porcentP6 == 0)
                     returnList.add(CreateIncon.inconsistencia(ctx, "306") ?: "")
-                else if (porcentP6 != 100)
+                else if (porcentP6 != Mob.PORCENT100)
                     returnList.add(CreateIncon.inconsistencia(ctx, "307") ?: "")
                 if (rgroupSecc047.checkedRadioButtonId == -1)
                     returnList.add(CreateIncon.inconsistencia(ctx, "308") ?: "")
@@ -284,14 +284,14 @@ class FragModuloSecc04: Fragment() {
                     returnList.add(CreateIncon.inconsistencia(ctx, "309") ?: "")
                 if (rgroupSecc049.checkedRadioButtonId == -1)
                     returnList.add(CreateIncon.inconsistencia(ctx, "310") ?: "")
-                if (porcentP10 != 100)
+                if (porcentP10 != Mob.PORCENT100)
                     returnList.add(CreateIncon.inconsistencia(ctx, "311") ?: "")
 
             } else if (Mob.capMod?.v1check == null)
                 returnList.add(CreateIncon.inconsistencia(ctx, "289") ?: "")
 
             Mob.infoCap.find { it.indexCap == Mob.SEC4_P23 }?.incons = returnList.isNotEmpty()
-            println("Secc4: --${Mob.capMod}")
+            //println("Secc4: --${Mob.capMod}")
             return returnList
         }
     }

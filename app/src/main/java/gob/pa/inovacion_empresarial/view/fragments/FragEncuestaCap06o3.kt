@@ -250,7 +250,7 @@ class FragEncuestaCap06o3 : Fragment() {
 
 
             infoCap.find { it.indexCap == CAP6_P10 }?.incons = returnList.isNotEmpty()
-            println("Cap6_part3: --$cap6")
+            //println("Cap6_part3: --$cap6")
             return returnList
         }
     }

@@ -198,7 +198,7 @@ class FragEncuestaCap06o1 : Fragment() {
                 returnList.add(CreateIncon.inconsistencia(ctx, "49") ?: "")
 
             infoCap.find { it.indexCap == CAP6_P08 }?.incons = returnList.isNotEmpty()
-            println("Cap6_part1: --$cap6")
+            //println("Cap6_part1: --$cap6")
             return returnList
         }
     }

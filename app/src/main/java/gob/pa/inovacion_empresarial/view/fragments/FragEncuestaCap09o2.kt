@@ -237,7 +237,7 @@ class FragEncuestaCap09o2 : Fragment() {
                 }
             }
             Mob.infoCap.find { it.indexCap == Mob.CAP9_P18 }?.incons = returnList.isNotEmpty()
-            println("Cap9-part2: --${Mob.cap9}")
+            //println("Cap9-part2: --${Mob.cap9}")
             return returnList
         }
     }

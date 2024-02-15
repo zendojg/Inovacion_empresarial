@@ -2,7 +2,6 @@ package gob.pa.inovacion_empresarial.model
 
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.R
-import gob.pa.inovacion_empresarial.view.FormActivity
 import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap01
 import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap02o1
 import gob.pa.inovacion_empresarial.view.fragments.FragEncuestaCap02o2
@@ -35,19 +34,21 @@ import gob.pa.inovacion_empresarial.view.fragments.MainFragmentSearch
 
 object Mob {
     //------- Valores de conexión
-    private const val URLlocal = "http://172.16.9.27:5552/"
-    private const val URLTest = "http://172.16.9.27:5552/"
-    var URL = URLlocal
+    private const val URLINEC = "https://www.inec.gob.pa/"
+    //private const val URLlocal = "http://172.16.9.27:5552/"
+    private const val URLapi = "inno-api/api"
+    //private const val URLapi2 = "api"
+    var URL = URLINEC
     //-------
-    const val APIAUTH = "api/Auth/login"
-    const val APIPROV = "api/Catalogo/prov"
-    const val APIDIST = "api/Catalogo/dist"
-    const val APICORRE = "api/Catalogo/corr"
-    const val APILUGARP = "api/Catalogo/lug"
-    const val APIGETFORM = "api/Cuestionario/full/"
-    const val APIUPDATEFORM = "api/Cuestionario/update"
-    const val APIFORMUSER = "api/Cuestionario/enc/"
-    const val APIINCONSISTENCIAS = "api/Inconsistencia/"
+    const val APIAUTH = "${URLapi}/Auth/login"
+    const val APIPROV = "${URLapi}/Catalogo/prov"
+    const val APIDIST = "${URLapi}/Catalogo/dist"
+    const val APICORRE = "${URLapi}/Catalogo/corr"
+    const val APILUGARP = "${URLapi}/Catalogo/lug"
+    const val APIGETFORM = "${URLapi}/Cuestionario/full/"
+    const val APIUPDATEFORM = "${URLapi}/Cuestionario/update"
+    const val APIFORMUSER = "${URLapi}/Cuestionario/enc/"
+    const val APIINCONSISTENCIAS = "${URLapi}/Inconsistencia/"
 
     //------- Valores de UI
     const val USERTEST:String = "USUARIO SIN INDENTIFICADOR"
@@ -64,7 +65,7 @@ object Mob {
     //-------
     const val JUMP_MODULE1:Int = 4
     const val INITIAL_YEAR:Int = 1900
-    var pass: String? = "12345" //---- Password para los accesos a delete y update
+    var pass: String? = "eie22-23" //---- Password para los accesos a delete y update
     //-------
     const val CHECK1Y2021:Int = 0
     const val CHECK1Y2022:Int = 1

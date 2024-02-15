@@ -167,9 +167,7 @@ class FragModuloSecc01 : Fragment() {
                 else if (rbtSecc012No.isChecked && !checkSecc0122.isChecked)
                     returnList.add(CreateIncon.inconsistencia(ctx, "292") ?: "")
             }
-
             Mob.infoCap.find { it.indexCap == Mob.SEC1_P20 }?.incons = returnList.isNotEmpty()
-            println("Secc1: --${Mob.capMod}")
             return returnList
         }
     }

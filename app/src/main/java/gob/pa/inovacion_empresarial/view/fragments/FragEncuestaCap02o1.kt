@@ -146,7 +146,7 @@ class FragEncuestaCap02o1 : Fragment() {
                 }
             }
             infoCap.find { it.indexCap == CAP2_P02 }?.incons = returnList.isNotEmpty()
-            println("Cap2_part1:--$cap2")
+            //println("Cap2_part1:--$cap2")
             return returnList
         }
     }
