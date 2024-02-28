@@ -63,62 +63,13 @@
                     android:textSize="@dimen/text16" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_ruc"
-                app:layout_constraintTop_toBottomOf="@+id/txtNcontrolLocally"
-                app:startIconContentDescription="RUC"
-                app:startIconDrawable="@drawable/img_idcheck"
-                app:startIconTint="#306F90">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtRUCLocal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_shadow"
-                    android:focusable="false"
-                    android:longClickable="true"
-                    android:textIsSelectable="true"
-                    android:inputType="none"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textColor="@color/azul"
-                    android:textSize="@dimen/text16"
-                    tools:text="000000000000-00000000-000000000000" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_razon"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
-                app:startIconContentDescription="Establecimiento"
-                app:startIconDrawable="@drawable/img_local06"
-                app:startIconTint="#306F90">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtRazonLocal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_shadow"
-                    android:focusable="false"
-                    android:longClickable="true"
-                    android:textIsSelectable="true"
-                    android:inputType="none"
-                    android:fontFamily="sans-serif-condensed"
-                    android:textColor="@color/azul"
-                    android:textSize="@dimen/text16"
-                    tools:text="Razón Social" />
-            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/textInputLayout5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/hin_nameL"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+                app:layout_constraintTop_toBottomOf="@+id/txtNcontrolLocally"
                 app:startIconContentDescription="Establecimiento"
                 app:startIconDrawable="@drawable/img_local08"
                 app:startIconTint="#306F90">
@@ -139,75 +90,53 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout6"
+                android:id="@+id/textInputLayout4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="2dp"
-                android:hint="@string/hint_prov"
+                android:hint="@string/hint_razon"
                 app:layout_constraintTop_toBottomOf="@+id/textInputLayout5"
-                app:startIconContentDescription="Localización"
-                app:startIconDrawable="@drawable/img_gps1"
+                app:startIconContentDescription="Establecimiento"
+                app:startIconDrawable="@drawable/img_local06"
                 app:startIconTint="#306F90">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtProvLocal"
+                    android:id="@+id/txtRazonLocal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_shadow"
                     android:focusable="false"
-                    android:fontFamily="sans-serif-condensed"
+                    android:longClickable="true"
+                    android:textIsSelectable="true"
                     android:inputType="none"
+                    android:fontFamily="sans-serif-condensed"
                     android:textColor="@color/azul"
                     android:textSize="@dimen/text16"
-                    tools:text="Panamá" />
+                    tools:text="Razón Social" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout7"
+                android:id="@+id/textInputLayout3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="2dp"
-                android:hint="@string/hint_dist"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
-                app:startIconContentDescription="Distrito"
-                app:startIconDrawable="@drawable/img_gps1"
+                android:hint="@string/hint_ruc"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout4"
+                app:startIconContentDescription="RUC"
+                app:startIconDrawable="@drawable/img_idcheck"
                 app:startIconTint="#306F90">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtDistLocal"
+                    android:id="@+id/txtRUCLocal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/background_shadow"
                     android:focusable="false"
-                    android:fontFamily="sans-serif-condensed"
+                    android:longClickable="true"
+                    android:textIsSelectable="true"
                     android:inputType="none"
-                    android:textColor="@color/azul"
-                    android:textSize="@dimen/text16"
-                    tools:text="San Miguelito" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayout8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="2dp"
-                android:hint="@string/hint_corre"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
-                app:startIconContentDescription="Corregimiento"
-                app:startIconDrawable="@drawable/img_gps1"
-                app:startIconTint="#306F90">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtCorreLocal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/background_shadow"
-                    android:focusable="false"
                     android:fontFamily="sans-serif-condensed"
-                    android:inputType="none"
                     android:textColor="@color/azul"
-                    android:textSize="@dimen/text16"
-                    tools:text="Omar Torrijos" />
+                    android:textSize="@dimen/text14"
+                    tools:text="000000000000-00000000-000000000000" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -216,8 +145,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="2dp"
                 android:hint="@string/hint_dir"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout8"
-                app:startIconContentDescription="Corregimiento"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout3"
+                app:startIconContentDescription="Localización"
                 app:startIconDrawable="@drawable/img_gps1"
                 app:startIconTint="#306F90">
 
@@ -232,6 +161,78 @@
                     android:textColor="@color/azul"
                     android:textSize="@dimen/text16"
                     tools:text="Example direction" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="2dp"
+                android:hint="@string/hint_tel"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout9"
+                app:startIconContentDescription="Localización"
+                app:startIconDrawable="@drawable/img_tel"
+                app:startIconTint="#306F90">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtTel1Local"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_shadow"
+                    android:focusable="false"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="none"
+                    android:textColor="@color/azul"
+                    android:textSize="@dimen/text16"
+                    tools:text="000-000" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="2dp"
+                android:hint="@string/hint_tel"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
+                app:startIconContentDescription="Distrito"
+                app:startIconDrawable="@drawable/img_tel"
+                app:startIconTint="#306F90">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtTel2Local"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_shadow"
+                    android:focusable="false"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="none"
+                    android:textColor="@color/azul"
+                    android:textSize="@dimen/text16"
+                    tools:text="000-000" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputLayout8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="2dp"
+                android:hint="@string/mail"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+                app:startIconContentDescription="Corregimiento"
+                app:startIconDrawable="@drawable/img_email"
+                app:startIconTint="#306F90">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtEmailLocal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/background_shadow"
+                    android:focusable="false"
+                    android:fontFamily="sans-serif-condensed"
+                    android:inputType="none"
+                    android:textColor="@color/azul"
+                    android:textSize="@dimen/text16"
+                    tools:text="email@.com" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -280,7 +281,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btBackLocal"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textInputLayout9"
+                app:layout_constraintTop_toBottomOf="@+id/textInputLayout8"
                 tools:ignore="TouchTargetSizeCheck" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

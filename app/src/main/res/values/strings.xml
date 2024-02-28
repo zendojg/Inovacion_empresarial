@@ -13,7 +13,7 @@
     <string name="c06">Capítulo VI.  Innovación de productos, de procesos, organizacional y de Comercialización</string>
     <string name="c07">Capítulo VII.  Actividades Innovativas, Gastos, factores y Dificultades para Innovar</string>
     <string name="c08">Capítulo VIII.  Fuente de Financiamiento para las Actividades de Innovación</string>
-    <string name="c09">Capítulo IX.  Patentes, Derechos de Propiedad intelectual, Marca y Normas de Calidad</string>
+    <string name="c09" tools:ignore="Typos">Capítulo IX.  Patentes, Derechos de Propiedad intelectual, Marca y Normas de Calidad</string>
     <string name="c10">Capítulo X.  Perspectivas de Innovaciones Futuras</string>
 
     <string name="cap01"><font falmily="sans-serif-condensed">Capítulo I.</font></string>
@@ -36,7 +36,7 @@
     <string name="ctxt06">Innovación de productos, de procesos, organizacional y de Comercialización</string>
     <string name="ctxt07">Actividades Innovativas, Gastos, factores y Dificultades para Innovar</string>
     <string name="ctxt08">Fuente de Financiamiento para las Actividades de Innovación</string>
-    <string name="ctxt09">Patentes, Derechos de propiedad intelectual, marca y normas de calidad</string>
+    <string name="ctxt09" tools:ignore="Typos">Patentes, Derechos de propiedad intelectual, marca y normas de calidad</string>
     <string name="ctxt10">Perspectivas de Innovaciones Futuras</string>
     <string name="ctxt_test">Título del capítulo. mensaje de prueba .....</string>
 
@@ -92,7 +92,7 @@
     <string name="closeSesion">¿Desea cerrar la sesión actual?</string>
     <string name="claveaccess"><b>Clave de acceso:</b></string>
 
-    <string name="emailCharacters">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz._@0123456789</string>
+    <string name="emailCharacters">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz._-@0123456789;</string>
     <string-array name="emptyArr" />
 
     <string name="hint_condicion"><b>Condición</b></string>
@@ -100,7 +100,9 @@
     <string name="hint_ruc"><b>RUC</b></string>
     <string name="hint_razon"><b>Razón Social</b></string>
     <string name="hint_ncapt"><b>N° captura</b></string>
-    <string name="hin_nameL"><b>Nombre del Establecimiento</b></string>
+    <string name="hin_nameL"><b>Nombre comercial</b></string>
+    <string name="hint_tel"><b>Teléfono:</b></string>
+    <string name="mail"><b>Correo/Email:</b></string>
     <string name="hint_prov"><b>Provincia</b></string>
     <string name="hint_dist"><b>Distrito</b></string>
     <string name="hint_corre"><b>Corregimiento</b></string>
@@ -327,7 +329,7 @@
     <string name="hint13"><b>13. Número de clave:</b></string>
     <string name="hint14"><b>14. Número de Locales que conforman la empresa:</b></string>
     <string name="p15"><b>15. De estos locales</b></string>
-    <string name="hint15"><b> ¿Cuántos se encuentran en la ciudad de Panamá </b></string>
+    <string name="hint15"><b> ¿Cuántos se encuentran en la provincia de Panamá </b></string>
 
     <string name="hint16"><b>16. Nombre del Informante:</b></string>
     <string name="hint17"><b>17. Cargo:</b></string>
@@ -373,7 +375,7 @@
     <string name="hint28_act">Actividad económica</string>
     <string name="p29txt">En el <b><font color="#3C54BB">2022</font></b>, ¿cuáles fueron las actividades económicas <b><font color="#3C54BB">secundarias</font></b> que desarrolló la empresa?</string>
     <string name="txt28_desc">Describa de manera breve, pero lo suficientemente clara, la principal actividad económica de la empresa.</string>
-    <string name="hint_cinu">CINU Rev. 4.1</string>
+    <string name="hint_cinu">CINU Rev. 4.0</string>
     <string name="hint_actsec">Actividad secundaria</string>
     <string name="lb_30_2"><b>Ventas Netas</b>\n(Valor en balboas, omita los centésimos)</string>
     <string name="p30txt">En el 2021 y 2022, ¿cuál fue el total de las <u>ventas netas de la empresa</u>\n\n<b><font color="#3C54BB">(Considere las ventas nacionales más las exportaciones).</font></b></string>
@@ -739,5 +741,4 @@
     <string name="msgInforme500">Error en el servidor</string>
     <string name="msgInformeNoResp">Fuera de cobertura</string>
     <string name="msgInformeNoRed">Error de red</string>
-
 </resources>

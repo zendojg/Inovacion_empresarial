@@ -8,9 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.Editable
 import android.text.InputType
-import android.text.TextWatcher
 import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
@@ -105,7 +103,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         form.navView.setNavigationItemSelectedListener(this)
 
         val ncontrol = "N° de control: ${Functions.ceroLeft(
-            Mob.formComp?.ncontrol ?: "0", Mob.FOR_5_DIGITS)}"
+            Mob.formComp?.ncontrol ?: "0", Mob.CERO_COUNTLEFT)}"
         val headerNav = form.navView.getHeaderView(0)
         val headerbinding = MenuHeaderBinding.inflate(layoutInflater)
         headerNav.findViewById<TextView>(headerbinding.lbname.id)?.text = ncontrol
@@ -232,8 +230,8 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 if (form.viewpager.currentItem < Mob.SEC1_P20) "Encuesta de Innovación en Empresas"
                 else "Módulo de Comercio Electrónico"
 
-            txtobs.imeOptions = EditorInfo.IME_ACTION_DONE
-            txtobs.setRawInputType(InputType.TYPE_CLASS_TEXT)
+            //txtobs.imeOptions = EditorInfo.IME_ACTION_DONE
+            //txtobs.setRawInputType(InputType.TYPE_CLASS_TEXT)
             if (position < Mob.SEC1_P20) {
                 color = ContextCompat.getColor(ctx, R.color.holo_blue_dark)
                 txtobs.setText(Mob.obsEncuesta ?: "")
@@ -431,7 +429,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 txvsubtitlepager.text = getString(subtitle ?: R.string.subcap_test)
             else if (Mob.formComp?.ncontrol != null) {
                 val ncontrol = "${getString(R.string.ncontrol)}  ${
-                    Functions.ceroLeft((Mob.formComp?.ncontrol ?: "0"), Mob.FOR_5_DIGITS)}"
+                    Functions.ceroLeft((Mob.formComp?.ncontrol ?: "0"), Mob.CERO_COUNTLEFT)}"
                 txvsubtitlepager.text = ncontrol
             }
 

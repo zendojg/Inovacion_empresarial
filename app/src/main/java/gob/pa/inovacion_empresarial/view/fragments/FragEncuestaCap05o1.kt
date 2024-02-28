@@ -15,7 +15,6 @@ import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap5
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
-import gob.pa.inovacion_empresarial.view.FormActivity
 import java.text.DecimalFormat
 
 class FragEncuestaCap05o1 : Fragment() {
@@ -50,7 +49,7 @@ class FragEncuestaCap05o1 : Fragment() {
             edittext.onFocusChangeListener = null
 
         for (modelTexWatcher in textWatcherList) {
-            modelTexWatcher.editext.removeTextChangedListener(modelTexWatcher.watcher)
+            modelTexWatcher.edittext.removeTextChangedListener(modelTexWatcher.watcher)
         }
         textWatcherList.clear()
     }
@@ -95,7 +94,7 @@ class FragEncuestaCap05o1 : Fragment() {
                         } else {
                             if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
                                 for (modelTexWatcher in textWatcherList) {
-                                    modelTexWatcher.editext.removeTextChangedListener(
+                                    modelTexWatcher.edittext.removeTextChangedListener(
                                         modelTexWatcher.watcher
                                     )
                                 }

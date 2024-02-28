@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Button
-import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
@@ -27,7 +26,6 @@ import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.view.FormActivity
 import kotlinx.coroutines.launch
-import pl.droidsonroids.gif.GifImageView
 
 class MainFragmentSearch : Fragment() {
 
@@ -89,7 +87,7 @@ class MainFragmentSearch : Fragment() {
                 txtNControllySearch.error = "Ingrese un N° de Control"
             } else {
                 val ncontrolReformat =
-                    Functions.ceroLeft(txtNControlSearch.text.toString(), Mob.FOR_5_DIGITS)
+                    Functions.ceroLeft(txtNControlSearch.text.toString(), Mob.CERO_COUNTLEFT)
                 txtNControlSearch.text = ncontrolReformat.toEditable()
                 val ncont: Int = try {
                     txtNControlSearch.text.toString().toInt()
@@ -135,7 +133,7 @@ class MainFragmentSearch : Fragment() {
 
                     Mob.CODE500 -> {
                         if (!resp.resp.isNullOrEmpty()) {
-                            if (resp.resp.length < Mob.LIMITMSG)
+                            if (resp.resp.length < Mob.LENGHT_MSG)
                                  errorMsg("Error ${resp.code}: ${resp.resp}")
                             else errorMsg("Error en el servidor (500)")
                         }

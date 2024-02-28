@@ -17,7 +17,6 @@ import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelMod
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
-import gob.pa.inovacion_empresarial.view.FormActivity
 import java.text.DecimalFormat
 
 class FragModuloSecc03 : Fragment() {
@@ -46,7 +45,7 @@ class FragModuloSecc03 : Fragment() {
         super.onPause()
 
         for (modelTexWatcher in textWatcherList) {
-            modelTexWatcher.editext.removeTextChangedListener(modelTexWatcher.watcher)
+            modelTexWatcher.edittext.removeTextChangedListener(modelTexWatcher.watcher)
         }
         textWatcherList.clear()
     }
@@ -89,7 +88,7 @@ class FragModuloSecc03 : Fragment() {
                 if (hasFocus) textWatcherList.add(EdittextFormat.edittextMiles(txtSecc035))
                 else if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
                     for (modelTextWatcher in textWatcherList) {
-                        modelTextWatcher.editext.removeTextChangedListener(modelTextWatcher.watcher)
+                        modelTextWatcher.edittext.removeTextChangedListener(modelTextWatcher.watcher)
                     }
                 }
             }

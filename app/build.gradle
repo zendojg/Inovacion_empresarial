@@ -13,8 +13,8 @@ android {
         applicationId "gob.pa.inovacion_empresarial"
         minSdk 24
         targetSdk 32
-        versionCode 7
-        versionName "1.0.0"
+        versionCode 8
+        versionName "1.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -278,7 +278,7 @@ class MainFragmentForms : Fragment() {
                 R.layout.style_msg_popup, null, false)
         val selection = bindingForm.spinFormsType.selectedItemPosition
         val ncontrol = "N° de control: ${
-            Functions.ceroLeft(item.ncontrol ?: "0",Mob.FOR_5_DIGITS)}"
+            Functions.ceroLeft(item.ncontrol ?: "0",Mob.CERO_COUNTLEFT)}"
         with(bindmsg) {
             msgOpcions.setView(bindmsg.root)
             msgtitle.text = ncontrol
@@ -378,19 +378,17 @@ class MainFragmentForms : Fragment() {
                 R.layout.style_msg_localinfo, null, false)
         msgForm.setView(bindmsg.root)
         lifecycleScope.launch {
-            val ncontrol = Functions.ceroLeft(item.ncontrol ?: "0",Mob.FOR_5_DIGITS)
-            val provincia = room.getProvName(item.cap1?.v01provtxt ?: "0") ?: ""
-            val distrito = room.getDistName(item.cap1?.v01provtxt ?: "0",
-                item.cap1?.v02disttxt ?: "0") ?: ""
-            val corregimiento = room.getCorreName(item.cap1?.v01provtxt ?: "0",
-                item.cap1?.v02disttxt ?: "0", item.cap1?.v03corretxt ?: "0") ?: ""
+            val ncontrol = Functions.ceroLeft(item.ncontrol ?: "0",Mob.CERO_COUNTLEFT)
+            val tel1 = item.cap2?.v09tel1txt ?: "No registrado"
+            val tel2 = item.cap2?.v09tel2txt ?: "No registrado"
+            val email = item.cap2?.v11emailtxt ?: "No registrado"
             activity?.runOnUiThread {
                 with(bindmsg) {
                     if (item.tieneIncon == true) lbtittlestyleF.setTextColor(Color.RED)
                     val blank = "".toEditable()
-                    txtProvLocal.text = provincia.toEditable()
-                    txtDistLocal.text = distrito.toEditable()
-                    txtCorreLocal.text = corregimiento.toEditable()
+                    txtTel1Local.text = tel1.toEditable()
+                    txtTel2Local.text = tel2.toEditable()
+                    txtEmailLocal.text = email.toEditable()
                     txtNcontrolLocal.text = ncontrol.toEditable()
                     txtNameLocal.text = item.cap2?.v05nameLtxt?.toEditable() ?: blank
                     txtRazonLocal.text = item.cap2?.v06razontxt?.toEditable() ?: blank
@@ -428,7 +426,7 @@ class MainFragmentForms : Fragment() {
                  DataBindingUtil.inflate(LayoutInflater.from(context),
                      R.layout.style_msg_alert, null, false)
              msgSend.setView(bindSend.root)
-             val ncont = Functions.ceroLeft(jsonModel.ncontrol?.toString() ?: "0", Mob.FOR_5_DIGITS)
+             val ncont = Functions.ceroLeft(jsonModel.ncontrol?.toString() ?: "0", Mob.CERO_COUNTLEFT)
              val tittle = "Número de control: $ncont"
              bindSend.apply {
                  msgtitle.text = tittle

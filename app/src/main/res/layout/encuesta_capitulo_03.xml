@@ -489,11 +489,8 @@
                             android:background="@drawable/background_shadow"
                             android:drawableTint="@android:color/holo_blue_dark"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="textCapWords"
+                            android:inputType="textCapCharacters"
                             android:imeOptions="actionDone"
-                            android:lines="1"
-                            android:maxLines="1"
-                            android:singleLine="true"
                             tools:ignore="TextContrastCheck"
                             tools:text="Nombre de la Organización" />
                     </com.google.android.material.textfield.TextInputLayout>
@@ -552,10 +549,7 @@
                             android:drawableTint="@android:color/holo_blue_dark"
                             android:fontFamily="sans-serif-condensed"
                             android:imeOptions="actionDone"
-                            android:inputType="textCapWords"
-                            android:lines="1"
-                            android:maxLines="1"
-                            android:singleLine="true"
+                            android:inputType="textCapCharacters"
                             tools:ignore="TextContrastCheck"
                             tools:text="Nombre del país" />
                     </com.google.android.material.textfield.TextInputLayout>

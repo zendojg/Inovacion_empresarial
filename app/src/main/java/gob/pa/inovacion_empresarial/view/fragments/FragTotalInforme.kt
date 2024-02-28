@@ -1,7 +1,6 @@
 package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
@@ -283,7 +282,7 @@ class FragTotalInforme : Fragment() {
             bindSend.txt2styleFly.visibility = View.GONE
         } else bindSend.txtmsgStyle.text = getString(R.string.sendSuccessWithIncon)
 
-        val ncont = Functions.ceroLeft(jsonModel?.ncontrol?.toString() ?: "0", Mob.FOR_5_DIGITS)
+        val ncont = Functions.ceroLeft(jsonModel?.ncontrol?.toString() ?: "0", Mob.CERO_COUNTLEFT)
         bindSend.txt1styleF.text = try { ncont.toEditable() }
         catch (e: RuntimeException) { "00".toEditable() }
 

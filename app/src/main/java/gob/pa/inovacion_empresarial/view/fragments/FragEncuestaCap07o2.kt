@@ -20,7 +20,6 @@ import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap7
 import gob.pa.inovacion_empresarial.model.ModelSpinLister
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
-import gob.pa.inovacion_empresarial.view.FormActivity
 import java.text.DecimalFormat
 
 class FragEncuestaCap07o2 : Fragment() {
@@ -66,7 +65,7 @@ class FragEncuestaCap07o2 : Fragment() {
             edittext.onFocusChangeListener = null
 
         for (modelTexWatcher in textWatcherList) {
-            modelTexWatcher.editext.removeTextChangedListener(modelTexWatcher.watcher)
+            modelTexWatcher.edittext.removeTextChangedListener(modelTexWatcher.watcher)
         }
         textWatcherList.clear()
     }
@@ -111,7 +110,7 @@ class FragEncuestaCap07o2 : Fragment() {
                         } else {
                             if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
                                 for (modelTexWatcher in textWatcherList) {
-                                    modelTexWatcher.editext.removeTextChangedListener(
+                                    modelTexWatcher.edittext.removeTextChangedListener(
                                         modelTexWatcher.watcher
                                     )
                                 }
@@ -323,8 +322,10 @@ class FragEncuestaCap07o2 : Fragment() {
                 returnList.add(CreateIncon.inconsistencia(ctx, "128") ?: "")
             if (cap7?.v54txt14.isNullOrEmpty())
                 returnList.add(CreateIncon.inconsistencia(ctx, "129") ?: "")
+
             if (cap7?.v54txt15.isNullOrEmpty())
                 returnList.add(CreateIncon.inconsistencia(ctx, "130") ?: "")
+
             if (cap7?.v54txt15.isNullOrEmpty() && cap7?.v54txt15?.isNotEmpty() == true)
                 returnList.add(CreateIncon.inconsistencia(ctx, "130") ?: "")
 

@@ -16,7 +16,6 @@ import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap5
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
-import gob.pa.inovacion_empresarial.view.FormActivity
 import java.text.DecimalFormat
 
 
@@ -69,7 +68,7 @@ class FragEncuestaCap05o2 : Fragment() {
             edittext.onFocusChangeListener = null
 
         for (modelTexWatcher in textWatcherList) {
-            modelTexWatcher.editext.removeTextChangedListener(modelTexWatcher.watcher)
+            modelTexWatcher.edittext.removeTextChangedListener(modelTexWatcher.watcher)
         }
         textWatcherList.clear()
     }
@@ -98,7 +97,7 @@ class FragEncuestaCap05o2 : Fragment() {
             row1EditTexts36 = listOf(txtCap536A2021, txtCap536B2021)
             row2EditTexts36 = listOf(txtCap536A2022, txtCap536B2022)
 
-            layoutCap538.isVisible = rbtCap537Si.isChecked
+            if (rbtCap537No.isChecked) layoutCap538.isVisible = false
             txtCap5381.isVisible = checkCap5381.isChecked
             txtCap5382.isVisible = checkCap5382.isChecked
             txtCap5383.isVisible = checkCap5383.isChecked
@@ -181,7 +180,7 @@ class FragEncuestaCap05o2 : Fragment() {
                         } else { //---- Limpiar Textwatchers del view si sobrepasan cierto limite
                             if (textWatcherList.size > Mob.MAX_TEXWATCHER_MANY_ROWS) {
                                 for (modelTexWatcher in textWatcherList) {
-                                    modelTexWatcher.editext.removeTextChangedListener(
+                                    modelTexWatcher.edittext.removeTextChangedListener(
                                         modelTexWatcher.watcher)
                                 }
                             }
@@ -217,7 +216,7 @@ class FragEncuestaCap05o2 : Fragment() {
                         else {
                             if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
                                 for (modelTexWatcher in textWatcherList) {
-                                    modelTexWatcher.editext.removeTextChangedListener(
+                                    modelTexWatcher.edittext.removeTextChangedListener(
                                         modelTexWatcher.watcher
                                     )
                                 }

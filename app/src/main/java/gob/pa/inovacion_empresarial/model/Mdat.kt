@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 
 //-- Texwatcher reset
 data class ModelTexWatchers(
-    val editext: EditText,
+    val edittext: EditText,
     val watcher: TextWatcher
 )
 data class ModelSpinLister(

@@ -96,7 +96,7 @@ class FragEncuestaCap07o1 : Fragment() {
             spinList.add(ModelSpinLister(spinCap75214, Mob.cap7?.v52txt14?.toIntOrNull() ?: 0))
             spinList.add(ModelSpinLister(spinCap75215, Mob.cap7?.v52txt15?.toIntOrNull() ?: 0))
 
-            layoutCap751.isVisible = rbtCap750Si.isChecked
+            if (rbtCap750No.isChecked) layoutCap751.isVisible = false
             txtCap75112021ly.isVisible = rbtCap7511Si2021.isChecked
             txtCap75112022ly.isVisible = rbtCap7511Si2022.isChecked
             txtCap75122021ly.isVisible = rbtCap7512Si2021.isChecked

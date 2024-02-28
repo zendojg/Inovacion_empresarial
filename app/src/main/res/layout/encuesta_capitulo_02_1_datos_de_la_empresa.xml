@@ -42,7 +42,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:fontFamily="sans-serif-condensed"
-                    android:inputType="textCapWords"
+                    android:inputType="textCapCharacters"
                     android:textColor="#0277BD"
                     tools:ignore="TouchTargetSizeCheck"
                     tools:text="Local Name" />
@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:fontFamily="sans-serif-condensed"
-                    android:inputType="textCapWords"
+                    android:inputType="textCapCharacters"
                     android:textColor="#0277BD"
                     tools:ignore="TouchTargetSizeCheck"
                     tools:text="Nombre del Propietario" />
@@ -168,21 +168,17 @@
                         android:background="@drawable/background_shadow"
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:singleLine="true"
+                        android:inputType="textCapCharacters"
                         tools:ignore="TextContrastCheck"
                         tools:text="Dirección del local" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginTop="5dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="17dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="5dp"
                     android:layout_weight="6"
                     android:hint="@string/hint_otheRef">
                     <com.google.android.material.textfield.TextInputEditText
@@ -222,8 +218,8 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
-                        android:inputType="numberSigned"
-                        android:maxLength="20"
+                        android:inputType="phone"
+                        android:maxLength="11"
                         tools:text="0000-0000" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -270,8 +266,8 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
-                        android:inputType="numberSigned"
-                        android:maxLength="20"
+                        android:inputType="phone"
+                        android:maxLength="11"
                         tools:text="0000-0000" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -312,7 +308,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:fontFamily="sans-serif-condensed"
-                    android:inputType="numberSigned"
+                    android:inputType="phone"
                     tools:ignore="TouchTargetSizeCheck"
                     tools:text="0000-0000" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -446,11 +442,10 @@
                     android:textStyle="bold" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="3dp"
-                    android:layout_marginHorizontal="5dp"
+                    android:layout_marginStart="17dp"
                     android:hint="@string/hint15">
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/txtCap2_15"
@@ -466,12 +461,10 @@
 
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginVertical="5dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="37dp"
                     android:layout_weight="6"
                     android:hint="@string/hint15_morelocal"
                     app:startIconContentDescription="Localización">

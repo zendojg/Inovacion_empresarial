@@ -57,15 +57,17 @@ object Mob {
     const val VERSION:Int = 26
     //-------
     const val PORCENT100:Int = 100
-    const val LIMITMSG:Int = 50
+    const val LENGHT_MSG:Int = 50
     const val SIZE_AUTOCONTROL:Int = 7
-    const val FOR_5_DIGITS:Int = 4
+    const val CERO_COUNTLEFT:Int = 4
     const val MAX_TEXWATCHER_4ROWS:Int = 6
     const val MAX_TEXWATCHER_MANY_ROWS:Int = 9
+    const val MIN_LENGHTDIR: Int = 8
+    const val MIN_LENGHTTEL: Int = 7
     //-------
     const val JUMP_MODULE1:Int = 4
     const val INITIAL_YEAR:Int = 1900
-    var pass: String? = "eie22-23" //---- Password para los accesos a delete y update
+    var pass: String? = "eie2122" //---- Password para los accesos a delete y update
     //-------
     const val CHECK1Y2021:Int = 0
     const val CHECK1Y2022:Int = 1

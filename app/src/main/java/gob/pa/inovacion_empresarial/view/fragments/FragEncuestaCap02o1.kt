@@ -13,7 +13,6 @@ import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap2
-import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap02o1 : Fragment() {
 
@@ -101,7 +100,7 @@ class FragEncuestaCap02o1 : Fragment() {
                 v07ructxt = txtCap27.text.toString().ifEmpty { null },
                 v07dvtxt = txtCap27DV.text.toString().ifEmpty { null },
                 v08dirtxt = txtCap28.text.toString().ifEmpty { null },
-                v08dirreftxt = txtCap281.text.toString().ifEmpty { null },
+                v08dirreftxt = txtCap281.text.toString().ifEmpty { "Sin anotar" },
                 v09tel1txt = txtCap291.text.toString().ifEmpty { null },
                 v09tel2txt = if (frameview) txtCap292.text.toString().ifEmpty { null } else null,
                 v10celtxt = txtCap210.text.toString().ifEmpty { null },
@@ -126,10 +125,14 @@ class FragEncuestaCap02o1 : Fragment() {
     private fun viewCap(): List<String> {
         with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
-            if (cap2?.v14nlNum.isNullOrEmpty()) {
+
+            if (cap2?.v08dirtxt.isNullOrEmpty() || (cap2?.v08dirtxt?.length ?: 0) < MIN_LENGHTDIR)
+                returnList.add(CreateIncon.inconsistencia(ctx,"607") ?: "")
+            if (cap2?.v09tel1txt.isNullOrEmpty() || (cap2?.v09tel1txt?.length ?: 0) < MIN_LENGHTTEL)
+                returnList.add(CreateIncon.inconsistencia(ctx,"608") ?: "")
+
+            if (cap2?.v14nlNum.isNullOrEmpty() || cap2?.v14nlNum == "0") {
                 returnList.add(CreateIncon.inconsistencia(ctx,"604") ?: "")
-            } else if (cap2?.v14nlNum == "0") {
-                returnList.add(CreateIncon.inconsistencia(ctx,"605") ?: "")
             } else  {
                 val p14 = try { cap2?.v14nlNum?.toInt() ?: 0 }
                 catch (e: NumberFormatException) { 0 }
@@ -138,6 +141,7 @@ class FragEncuestaCap02o1 : Fragment() {
                 val p15b = try { cap2?.v15nlNumProv?.toInt() ?: 0 }
                 catch (e: NumberFormatException) { 0 }
                 val p15 = p15a + p15b
+
                 if (p15 == 0) {
                     returnList.add(CreateIncon.inconsistencia(ctx,"606") ?: "")
                 }

@@ -47,6 +47,7 @@
                     android:background="@drawable/background_shadow"
                     android:drawableTint="@android:color/holo_blue_dark"
                     android:fontFamily="sans-serif-condensed"
+                    android:inputType="textCapCharacters"
                     android:imeOptions="actionDone"
                     android:lines="1"
                     android:maxLines="1"
@@ -74,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:fontFamily="sans-serif-condensed"
-                    android:inputType="textCapWords"
+                    android:inputType="textCapCharacters"
                     tools:ignore="TouchTargetSizeCheck"
                     tools:text="Trabajo o cargo" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -109,20 +110,16 @@
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
                         android:imeOptions="actionDone"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:singleLine="true"
+                        android:inputType="textCapCharacters"
                         tools:ignore="TextContrastCheck"
                         tools:text="Dirección del Informante" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_marginVertical="5dp"
+                    android:layout_marginVertical="7dp"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="5dp"
                     android:layout_weight="6"
                     android:hint="@string/hint_otheRef">
 
@@ -163,7 +160,7 @@
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="phone"
-                        android:maxLength="20"
+                        android:maxLength="11"
                         tools:text="0000-0000" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -209,7 +206,7 @@
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="phone"
-                        android:maxLength="20"
+                        android:maxLength="11"
                         tools:text="0000-0000" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -250,6 +247,7 @@
                     android:backgroundTint="@color/white"
                     android:fontFamily="sans-serif-condensed"
                     android:inputType="phone"
+                    android:maxLength="11"
                     tools:ignore="TouchTargetSizeCheck"
                     tools:text="0000-0000" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -280,12 +278,33 @@
                     tools:text="correo@email.com" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <TextView
+                android:id="@+id/lbanotation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:layout_marginTop="17dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:paddingHorizontal="27dp"
+                android:paddingVertical="7dp"
+                android:text="Para ingresar más Informantes debe agregarlos en observaciones con sus respectiva información del capítulo"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtCap2_21ly"
+                tools:ignore="TextContrastCheck">
+            </TextView>
+
+
             <View
                 android:id="@+id/lowCap2o2"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:visibility="invisible"
-                app:layout_constraintTop_toBottomOf="@+id/txtCap2_21ly"
+                app:layout_constraintTop_toBottomOf="@+id/lbanotation"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"/>
 

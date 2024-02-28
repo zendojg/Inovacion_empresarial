@@ -1261,20 +1261,26 @@
     "PAUTA": 603,
     "TEXTO": "Pregunta 35.  Debe ingresar el número de personas que trabajan en la empresa"
   },
-
   {
     "PAUTA": 604,
-    "TEXTO": "Pregunta 14. Número de locales esta vacio"
-  },
-  {
-    "PAUTA": 605,
     "TEXTO": "Pregunta 14. El número de locales debe ser mayor a 0"
   },
   {
-    "PAUTA": 606,
-    "TEXTO": "Pregunta 15. El número de locales debe ser mayor a 0"
+    "PAUTA": 605,
+    "TEXTO": "Pregunta 15.1 y 15.2 La suma de locales no coinciden con la pregunta 14"
   },
-
+  {
+    "PAUTA": 606,
+    "TEXTO": "Pregunta 15.1 y 15.2 La cantidad de locales debe ser mayor a 0"
+  },
+  {
+    "PAUTA": 607,
+    "TEXTO": "Pregunta 8. Debe ingresar una dirección válida"
+  },
+  {
+    "PAUTA": 608,
+    "TEXTO": "Pregunta 9. Debe ingresar un número de teléfono"
+  },
 
 
   {
