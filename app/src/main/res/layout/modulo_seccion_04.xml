@@ -84,6 +84,7 @@
                     android:id="@+id/linearSecc4_6_txt"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
                     android:orientation="vertical"
                     app:layout_constraintEnd_toStartOf="@+id/txtBranch"
                     app:layout_constraintStart_toStartOf="parent"
@@ -179,7 +180,7 @@
 
                 <EditText
                     android:id="@+id/lb6nm100"
-                    android:layout_width="60dp"
+                    android:layout_width="57dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@android:color/transparent"
                     android:ellipsize="end"
@@ -190,12 +191,13 @@
                     android:importantForAutofill="no"
                     android:inputType="number"
                     android:maxLines="1"
-                    android:text="@string/porc100"
+                    android:text="@string/cero"
                     android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/linearSecc4_6_txt"
                     app:layout_constraintEnd_toStartOf="@+id/lb6nmporcent"
                     app:layout_constraintTop_toTopOf="@+id/linearSecc4_6_txt"
+                    tools:text="100"
                     tools:ignore="LabelFor" />
 
                 <TextView
@@ -217,7 +219,7 @@
                     android:layout_marginTop="30dp"
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/p6mdescend"
-                    android:textColor="#D8B18B"
+                    android:textColor="#D5A679"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="@+id/lb6txtm"
                     app:layout_constraintTop_toBottomOf="@+id/linearSecc4_6_txt"
@@ -737,13 +739,14 @@
                     android:importantForAutofill="no"
                     android:inputType="number"
                     android:paddingVertical="7dp"
-                    android:text="@string/porc100"
+                    android:text="@string/cero"
                     android:textSize="17sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_weight="0.9"
                     app:layout_constraintStart_toEndOf="@+id/lb10m1"
                     app:layout_constraintTop_toBottomOf="@+id/rbtSecc04_10_4ly"
+                    tools:text="100"
                     tools:ignore="LabelFor" />
 
 
@@ -754,7 +757,7 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="sans-serif-condensed"
                     android:text="@string/p6mdescend"
-                    android:textColor="#D8B18B"
+                    android:textColor="#D5A679"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/lb10txtm"

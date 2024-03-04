@@ -49,6 +49,7 @@ class FragEncuestaCap06o3 : Fragment() {
         fun check46() { bindingcap6o3.layoutCap647.isVisible = !checkNo46.allTrue() }
 
         with(bindingcap6o3) {
+            scrollForm.smoothScrollTo(0,0)
             spinList.clear()
             spinList.add(ModelSpinLister(spinCap6471, Mob.cap6?.v47txtGrado1?.toIntOrNull() ?: 0))
             spinList.add(ModelSpinLister(spinCap6472, Mob.cap6?.v47txtGrado2?.toIntOrNull() ?: 0))

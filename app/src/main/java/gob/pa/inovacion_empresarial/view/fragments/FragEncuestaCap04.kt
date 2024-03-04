@@ -43,6 +43,7 @@ class FragEncuestaCap04 : Fragment() {
     private fun onAction() {
         with(bindingcap4) {
 
+            scrollForm.smoothScrollTo(0,0)
             txtCap428.onFocusChangeListener = View.OnFocusChangeListener { _, _ ->
                 if (txtCap428.text.toString().isEmpty()) {
                     txtCap428.isEnabled = true

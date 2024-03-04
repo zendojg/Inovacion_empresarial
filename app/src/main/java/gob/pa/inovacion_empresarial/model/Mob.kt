@@ -61,7 +61,7 @@ object Mob {
     const val SIZE_AUTOCONTROL:Int = 7
     const val CERO_COUNTLEFT:Int = 4
     const val MAX_TEXWATCHER_4ROWS:Int = 6
-    const val MAX_TEXWATCHER_MANY_ROWS:Int = 9
+    const val MAX_TEXWATCHER_MANY_ROWS:Int = 15
     const val MIN_LENGHTDIR: Int = 8
     const val MIN_LENGHTTEL: Int = 7
     //-------

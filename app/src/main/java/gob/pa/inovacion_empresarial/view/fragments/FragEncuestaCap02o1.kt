@@ -41,6 +41,7 @@ class FragEncuestaCap02o1 : Fragment() {
 
     private fun onAction() {
         with(bindingcap2o1) {
+            scrollForm.smoothScrollTo(0,0)
             if (Mob.formComp?.cap2?.v05nameLtxt.isNullOrEmpty()) txtCap25.setTextColor(Color.BLACK)
             else txtCap25.isEnabled = false
             if (Mob.formComp?.cap2?.v06razontxt.isNullOrEmpty()) txtCap26.setTextColor(Color.BLACK)

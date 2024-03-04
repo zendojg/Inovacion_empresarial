@@ -71,6 +71,7 @@ class FragEncuestaCap07o2 : Fragment() {
     }
     private fun onAction() {
         with(bindingcap7o2) {
+            scrollForm.smoothScrollTo(0,0)
             spinList.clear()
             spinList.add(ModelSpinLister(spinCap7541, Mob.cap7?.v54txt01?.toIntOrNull() ?: 0))
             spinList.add(ModelSpinLister(spinCap7542, Mob.cap7?.v54txt02?.toIntOrNull() ?: 0))

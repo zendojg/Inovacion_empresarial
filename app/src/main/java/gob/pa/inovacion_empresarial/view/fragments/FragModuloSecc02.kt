@@ -38,6 +38,7 @@ class FragModuloSecc02 : Fragment() {
     private fun onAction() {
         with(bindingmod2) {
             scrollForm.isVisible = Mob.capMod?.v1check != false
+            scrollForm.smoothScrollTo(0,0)
         }
     }
 

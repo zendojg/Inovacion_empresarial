@@ -1281,7 +1281,10 @@
     "PAUTA": 608,
     "TEXTO": "Pregunta 9. Debe ingresar un número de teléfono"
   },
-
+  {
+    "PAUTA": 609,
+    "TEXTO": "Pregunta 4.1.   d).  Otro medio utilizado para realizar ventas en línea, no tiene descripción."
+  },
 
   {
     "PAUTA": 610,

@@ -62,6 +62,7 @@ import gob.pa.inovacion_empresarial.view.fragments.FragModuloSecc02
 import gob.pa.inovacion_empresarial.view.fragments.FragModuloSecc03
 import gob.pa.inovacion_empresarial.view.fragments.FragModuloSecc04
 import gob.pa.inovacion_empresarial.view.fragments.FragTotalInforme
+import kotlinx.android.synthetic.main.modulo_seccion_02.view.scrollForm
 import kotlinx.coroutines.launch
 
 class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {

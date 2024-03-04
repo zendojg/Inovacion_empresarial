@@ -56,6 +56,7 @@ class FragEncuestaCap05o1 : Fragment() {
 
     private fun onAction() {
         with(bindingcap5o1) {
+            scrollForm.smoothScrollTo(0,0)
             row1EditTexts = listOf(txtCap530A2021, txtCap530B2021)
             row2EditTexts = listOf(txtCap530A2022, txtCap530B2022)
             layoutCap5332021.isVisible = rbtCap532ASi.isChecked

@@ -61,6 +61,7 @@ class FragEncuestaCap01 : Fragment() {
     private fun onAction() {
         val room = RoomView(dvmCap1, ctx)
         bindingcap1.apply {
+            scrollForm.smoothScrollTo(0,0)
             txtCap11.onItemClickListener = AdapterView.OnItemClickListener { adapter, _, pos, _ ->
                 if (txtCap11.isPopupShowing) lifecycleScope.launch {
                     idprov = room.getProvID(adapter.getItemAtPosition(pos).toString()) ?: ""

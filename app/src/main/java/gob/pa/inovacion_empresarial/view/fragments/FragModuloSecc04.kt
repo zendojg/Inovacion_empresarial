@@ -48,22 +48,26 @@ class FragModuloSecc04: Fragment() {
         super.onPause()
         for (edittext in row1EditTexts)
             edittext.onFocusChangeListener = null
+        for (edittext in row2EditTexts)
+            edittext.onFocusChangeListener = null
 
         for (modelTexWatcher in textWatcherList) {
             modelTexWatcher.edittext.removeTextChangedListener(modelTexWatcher.watcher)
         }
         row1EditTexts = emptyList()
+        row2EditTexts = emptyList()
         textWatcherList.clear()
     }
 
     private fun onAction() {
         with(bindingmod4) {
             scrollForm.isVisible = Mob.capMod?.v1check != false
+            scrollForm.smoothScrollTo(0,0)
             row1EditTexts = listOf(txtSecc046p1, txtSecc046p2, txtSecc046p3, txtSecc046p4)
             row2EditTexts = listOf(txtSecc04101, txtSecc04102, txtSecc04103, txtSecc04104)
 
             fun colorTxt() {
-                val p6porcent = lb6nm100.text?.toString()?.replace(",", "")?.toInt()
+                val p6porcent = lb6nm100.text?.toString()?.toInt()
                 if (p6porcent != Mob.PORCENT100) lb6nm100.setTextColor(Color.RED)
                 else lb6nm100.setTextColor(Color.GREEN)
             }
@@ -72,21 +76,23 @@ class FragModuloSecc04: Fragment() {
                 val view = linearSecc46Txt.getChildAt(index)
                 if (view is TextInputLayout) {
                     val editText = view.editText
-                    editText?.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-                        if (hasFocus) {
-                            if (row1EditTexts.contains(editText) && editText != null) {
-                                textWatcherList.add(EdittextFormat.edittextBigSum(
-                                    editText,
-                                    row1EditTexts,
-                                    lb6nm100))
-                            }
-                        } else if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
-                            for (modelTexWatcher in textWatcherList) {
-                                modelTexWatcher.edittext.removeTextChangedListener(
-                                    modelTexWatcher.watcher)
-                            }
+//                    val foundItem = textWatcherList.find { it.edittext == editText }
+//                    if (foundItem == null)
+                    editText?.onFocusChangeListener =
+                        View.OnFocusChangeListener { _, hasFocus ->
+                            if (hasFocus) {
+                                if (row1EditTexts.contains(editText) && editText != null) {
+                                    textWatcherList.add(
+                                        EdittextFormat.edittextSum100(
+                                            editText,
+                                            row1EditTexts,
+                                            lb6nm100
+                                        )
+                                    )
+                                }
+                            } else if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS)
+                                deleteWatchers()
                         }
-                    }
                 }
             }
 
@@ -94,20 +100,18 @@ class FragModuloSecc04: Fragment() {
                 val view = layoutSecc410.getChildAt(index)
                 if (view is TextInputLayout) {
                     val editText = view.editText
+//                    val foundItem = textWatcherList.find { it.edittext == editText }
+//                    if (foundItem == null)
                     editText?.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
                         if (hasFocus) {
                             if (row2EditTexts.contains(editText) && editText != null) {
-                                textWatcherList.add(EdittextFormat.edittextBigSum(
+                                textWatcherList.add(EdittextFormat.edittextSum100(
                                     editText,
                                     row2EditTexts,
                                     txtSecc04105))
                             }
-                        } else if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
-                            for (modelTexWatcher in textWatcherList) {
-                                modelTexWatcher.edittext.removeTextChangedListener(
-                                    modelTexWatcher.watcher)
-                            }
-                        }
+                        } else if (textWatcherList.size > Mob.MAX_TEXWATCHER_MANY_ROWS)
+                            deleteWatchers()
                     }
                 }
             }
@@ -149,21 +153,26 @@ class FragModuloSecc04: Fragment() {
                 }
             }
             txtSecc048.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-                if (hasFocus) textWatcherList.add(EdittextFormat.edittextMiles(txtSecc048))
-                else if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
-                    for (modelTextWatcher in textWatcherList) {
-                        modelTextWatcher.edittext.removeTextChangedListener(modelTextWatcher.watcher)
-                    }
-                }
+                if (hasFocus) {
+//                    val foundItem = textWatcherList.find { it.edittext == txtSecc048 }
+//                    if (foundItem == null)
+                    textWatcherList.add(EdittextFormat.edittextMiles(txtSecc048))
+                } else if (textWatcherList.size > Mob.MAX_TEXWATCHER_MANY_ROWS) deleteWatchers()
             }
             txtSecc049.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-                if (hasFocus) textWatcherList.add(EdittextFormat.edittextMiles(txtSecc049))
-                else if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
-                    for (modelTextWatcher in textWatcherList) {
-                        modelTextWatcher.edittext.removeTextChangedListener(modelTextWatcher.watcher)
-                    }
-                }
+                if (hasFocus) {
+//                    val foundItem = textWatcherList.find { it.edittext == txtSecc049 }
+//                    if (foundItem == null)
+                    textWatcherList.add(EdittextFormat.edittextMiles(txtSecc049))
+                } else if (textWatcherList.size > Mob.MAX_TEXWATCHER_MANY_ROWS) deleteWatchers()
             }
+        }
+    }
+
+    private fun deleteWatchers() {
+        for (modelTextWatcher in textWatcherList) {
+            if (modelTextWatcher.edittext != bindingmod4.lb6nm100)
+                modelTextWatcher.edittext.removeTextChangedListener(modelTextWatcher.watcher)
         }
     }
 
@@ -172,10 +181,10 @@ class FragModuloSecc04: Fragment() {
         val decimalFormat = DecimalFormat("#,###")
         with(bindingmod4) {
 
-            txtSecc046p1.text = mod4?.v6porcent1?.toEditable() ?: "".toEditable()
-            txtSecc046p2.text = mod4?.v6porcent2?.toEditable() ?: "".toEditable()
-            txtSecc046p3.text = mod4?.v6porcent3?.toEditable() ?: "".toEditable()
-            txtSecc046p4.text = mod4?.v6porcent4?.toEditable() ?: "".toEditable()
+            txtSecc046p1.text = mod4?.v6porcent1?.toEditable() ?: "0".toEditable()
+            txtSecc046p2.text = mod4?.v6porcent2?.toEditable() ?: "0".toEditable()
+            txtSecc046p3.text = mod4?.v6porcent3?.toEditable() ?: "0".toEditable()
+            txtSecc046p4.text = mod4?.v6porcent4?.toEditable() ?: "0".toEditable()
 
             when (mod4?.v7check) {
                 true -> rbtSecc047Si.isChecked = true
@@ -193,10 +202,10 @@ class FragModuloSecc04: Fragment() {
             txtSecc049.text = mod4?.v9txt?.toDouble()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
 
-            txtSecc04101.text = mod4?.v10porcent1?.toEditable() ?: "".toEditable()
-            txtSecc04102.text = mod4?.v10porcent2?.toEditable() ?: "".toEditable()
-            txtSecc04103.text = mod4?.v10porcent3?.toEditable() ?: "".toEditable()
-            txtSecc04104.text = mod4?.v10porcent4?.toEditable() ?: "".toEditable()
+            txtSecc04101.text = mod4?.v10porcent1?.toEditable() ?: "0".toEditable()
+            txtSecc04102.text = mod4?.v10porcent2?.toEditable() ?: "0".toEditable()
+            txtSecc04103.text = mod4?.v10porcent3?.toEditable() ?: "0".toEditable()
+            txtSecc04104.text = mod4?.v10porcent4?.toEditable() ?: "0".toEditable()
         }
         Mob.infoCap.find { it.indexCap == Mob.SEC4_P23 }?.capView = true
         onAction()

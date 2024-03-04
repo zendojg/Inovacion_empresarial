@@ -400,7 +400,7 @@ data class ModelMod(
     @SerializedName("procentVentaPorOtroMedioElectron")                         val v4check1ePorcent: String?,
     @SerializedName("descripVentaPorOtroMedioElectron")                         val v4check1eOther: String?,
     @SerializedName("totalEnVentasBienesYServicPorMedioElectron")               val v5txt: String?,
-    @SerializedName("porcentEnVentPorHogar")                                    var v6porcent1: String?,
+    @SerializedName("porcentEnVentPorHogar")                                    val v6porcent1: String?,
     @SerializedName("porcentEnVentPorEmpr")                                     val v6porcent2: String?,
     @SerializedName("porcentEnVentPorGob")                                      val v6porcent3: String?,
     @SerializedName("porcentEnVentOtro")                                        val v6porcent4: String?,
@@ -412,7 +412,7 @@ data class ModelMod(
     @SerializedName("porcentEnCostoOGastoSoftware")                             val v10porcent2: String?,
     @SerializedName("porcentEnCostoOGastoConsultoriaTIC")                       val v10porcent3: String?,
     @SerializedName("porcentEnCostoOGastoOtro")                                 val v10porcent4: String?,
-    @SerializedName("observaciones") var observaciones: String?,
+    @SerializedName("observaciones")                                            var observaciones: String?,
     @SerializedName("numControl")                                               val numControl: Int?)
 
 data class ModelCondicion(

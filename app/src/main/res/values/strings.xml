@@ -301,10 +301,10 @@
 
     <string name="hintDV"><b>DV:</b></string>
 
-    <string name="hints061"> 1. Hogares </string>
-    <string name="hints062"> 2. Empresas </string>
-    <string name="hints063"> 3. Gobierno </string>
-    <string name="hints064"> 4. Iglesias, ONG y otros </string>
+    <string name="hints061"><b>1. Hogares </b></string>
+    <string name="hints062"><b>2. Empresas </b></string>
+    <string name="hints063"><b>3. Gobierno </b></string>
+    <string name="hints064"><b>4. Iglesias, ONG y otros </b></string>
 
     <string name="hint_userx"><b>Usuario</b></string>
     <string name="hint_passx"><b>Contraseña</b></string>
@@ -647,16 +647,16 @@
     <string name="p2txtm1">1. Fijo (cable y/o inalámbrico)?</string>
     <string name="nopoint2">No....<b>2.(Pase al punto 2, de esta pregunta)</b></string>
     <string name="p2txtm1s1">1. a. seleccione el tipo de acceso a conexión:</string>
-    <string name="p2txtm1s1a">a. DSL (XDSL, ADSL y SDSL)</string>
-    <string name="p2txtm1s1b">b. Redes hibridas (fibra optica y/o cable)</string>
-    <string name="p2txtm1s1c">c. Satelital (WIMax, VSAT y otros)</string>
+    <string name="p2txtm1s1a">a. DSL <b>(XDSL, ADSL y SDSL)</b></string>
+    <string name="p2txtm1s1b">b. Redes hibridas <b>(fibra optica y/o cable)</b></string>
+    <string name="p2txtm1s1c">c. Satelital <b>(WIMax, VSAT y otros)</b></string>
     <string name="p2txtm1s1d">d. Otro tipo de acceso:</string>
     <string name="p2txtm1s1despec">Especifique</string>
-    <string name="p2txtm2">2. Móviles (USB Módem, Wifi vía celular)?</string>
+    <string name="p2txtm2">2. Móviles <b>(USB Módem, Wifi vía celular)?</b></string>
     <string name="p3txtm">¿Utiliza su empresa alguna de las siguientes medidas de seguridad TIC…\n\n<font color="#D8B18C">OPCIÓN MULTIPLE</font></string>
     <string name="p3txtm1">1. Autenticación mediante contraseña?</string>
-    <string name="p3txtm2">2. Copia de seguridad (backup) de datos en una ubicación separada (incluye copia de seguridad en la nube)?</string>
-    <string name="p3txtm3">3. Control de acceso a la red (gestión del acceso de disspositivos y usuarios a la red de la empresa)?</string>
+    <string name="p3txtm2">2. Copia de seguridad <b>(backup)</b> de datos en una ubicación separada (incluye copia de seguridad en la nube)?</string>
+    <string name="p3txtm3">3. Control de acceso a la red <b>(gestión del acceso de disspositivos y usuarios a la red de la empresa)</b>?</string>
     <string name="p3txtm4">4. Otras medidas de segurudad TIC?</string>
     <string name="p4txtm">¿Realizó su empresa ventas de bienes y/o servicios, a tráves de medios electrónicos?</string>
     <string name="nosecc4">No....<b>2.(Pase a la sección 4)</b></string>
@@ -674,8 +674,8 @@
     <string name="porc100">100</string>
     <string name="p6mdescend">La suma de todos los campos debe ser igual al 100%</string>
     <string name="p67no">No....<b>2.(Pase a la pregunta 9)</b></string>
-    <string name="p7txtm">¿Realizó su empresa ventas de bienes y/o servicios, a tráves de medios electrónicos?\n<font color="#705727">(Los mencionados en la Sección 3, pregunta 4.1)</font></string>
-    <string name="p8txtm">¿Cúal fue el total de las ventas de bienes y/o servicios realizadas a tráves de medios electrónicos?</string>
+    <string name="p7txtm">¿Realizó su empresa pedidos y/o reservas de bienes y/o servicios a tráves de medios electrónicos?\n<font color="#705727">(Los mencionados en la Sección 3, pregunta 4.1)</font></string>
+    <string name="p8txtm">Del total de los costos y/o gastos de la empresa en el 2022, ¿cúal es el valor de los costos y/o gastos, correspondiente a pedidos y/o reservas de bienes y/o servicios realizados por medios electrónicos?</string>
     <string name="p8hintm">Valor en Balboas, omita los centésimos</string>
     <string name="p9txtm">En el 2022, ¿realizó su empresa costos y/o gastos en Tecnologías de la Información y las Comunicaciones (TIC)?</string>
     <string name="p9mno">No....<b>2.(Finalizar la entrevista)</b></string>

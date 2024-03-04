@@ -43,6 +43,7 @@ class FragEncuestaCap09o2 : Fragment() {
 
     private fun onAction() {
         with(bindingcap9o2) {
+            scrollForm.smoothScrollTo(0,0)
             if (rbtCap962No.isChecked) layoutCap963.isVisible = false
 
             rgroupCap962.setOnCheckedChangeListener { _, id ->

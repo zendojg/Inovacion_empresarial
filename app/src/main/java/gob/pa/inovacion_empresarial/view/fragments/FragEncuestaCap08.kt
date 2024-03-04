@@ -59,6 +59,7 @@ class FragEncuestaCap08 : Fragment() {
 
     private fun onAction() {
         with(bindingcap8o1) {
+            scrollForm.smoothScrollTo(0,0)
             lowCap8o1.setOnClickListener { saveCap() }
             spinList.clear()
             spinList.add(ModelSpinLister(spinCap8571A, Mob.cap8?.v57num1a?.toIntOrNull() ?: 0))

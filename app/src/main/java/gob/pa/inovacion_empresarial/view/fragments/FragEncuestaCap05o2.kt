@@ -75,6 +75,7 @@ class FragEncuestaCap05o2 : Fragment() {
 
     private fun onAction() {
         with (bindingcap5o2) {
+            scrollForm.smoothScrollTo(0,0)
             
             row1EditTexts35 = listOf(
                 txtCap535AHNac, txtCap535BHNac, txtCap535CHNac, txtCap535DHNac,

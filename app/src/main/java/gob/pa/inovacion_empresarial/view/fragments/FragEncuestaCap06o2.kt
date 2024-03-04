@@ -48,6 +48,7 @@ class FragEncuestaCap06o2 : Fragment() {
     private fun onAction() {
         fun check42() {
             with(bindingcap6o2) {
+                scrollForm.smoothScrollTo(0,0)
                 layoutCap643.isVisible = !checkNo42.allTrue()
                 layoutCap644.isVisible = !checkNo42.allTrue()
                 layoutCap645.isVisible = !checkNo42.allTrue()

@@ -28,6 +28,7 @@ class FragEncuestaCap10 : Fragment() {
     override fun onResume() {
         super.onResume()
         Mob.indiceFormulario = Mob.CAPX_P19
+        bindingcap10.scrollForm.smoothScrollTo(0,0)
         val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAPX_P19 }
         if (infoCap?.capView == false) fillOut()
 //        else onAction()

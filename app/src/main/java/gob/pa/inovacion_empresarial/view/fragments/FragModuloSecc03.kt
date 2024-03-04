@@ -9,6 +9,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.google.android.material.textfield.TextInputLayout
 import gob.pa.inovacion_empresarial.databinding.ModuloSeccion03Binding
 import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.EdittextFormat
@@ -52,6 +53,7 @@ class FragModuloSecc03 : Fragment() {
     private fun onAction() {
         bindingmod3.apply {
             scrollForm.isVisible = Mob.capMod?.v1check != false
+            scrollForm.smoothScrollTo(0,0)
             if (rbtSecc034Si.isChecked) {
                 layoutSecc341.isVisible = true
                 layoutSecc35.isVisible = true
@@ -86,15 +88,33 @@ class FragModuloSecc03 : Fragment() {
 
             txtSecc035.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
                 if (hasFocus) textWatcherList.add(EdittextFormat.edittextMiles(txtSecc035))
-                else if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
-                    for (modelTextWatcher in textWatcherList) {
-                        modelTextWatcher.edittext.removeTextChangedListener(modelTextWatcher.watcher)
+                else if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS)
+                    deleteWatchers()
+            }
+            for (index in 0 until layoutSecc341.childCount) {
+                val view = layoutSecc341.getChildAt(index)
+                if (view is TextInputLayout) {
+                    val editText = view.editText
+//                    val foundItem = textWatcherList.find { it.edittext == editText }
+//                    if (foundItem == null)
+                    editText?.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                        if (hasFocus) {
+                            if (editText != null && editText != txtSecc034EOtro) {
+                                textWatcherList.add(EdittextFormat.edittext100(editText))
+                            }
+                        } else if (textWatcherList.size > Mob.MAX_TEXWATCHER_MANY_ROWS)
+                            deleteWatchers()
                     }
                 }
             }
         }
     }
 
+    private fun deleteWatchers() {
+        for (modelTextWatcher in textWatcherList) {
+            modelTextWatcher.edittext.removeTextChangedListener(modelTextWatcher.watcher)
+        }
+    }
     private fun RadioGroup.setOnCheckedListener(radioButton: RadioButton, view: View) {
         setOnCheckedChangeListener { _, id ->
             hideKeyboard()
@@ -107,7 +127,8 @@ class FragModuloSecc03 : Fragment() {
                     bindingmod3.layoutSecc341.isVisible = false
                     bindingmod3.layoutSecc35.isVisible = false
                 }
-                else -> view.visibility = if (id == radioButton.id) View.VISIBLE else View.GONE
+                else ->
+                    view.visibility = if (id == radioButton.id) View.VISIBLE else View.INVISIBLE
             }
         }
     }
@@ -241,6 +262,9 @@ class FragModuloSecc03 : Fragment() {
                         returnList.add(CreateIncon.inconsistencia(ctx, "299") ?: "")
                     else if (rbtSecc034ESi.isChecked && txtSecc034E.text.isNullOrEmpty())
                         returnList.add(CreateIncon.inconsistencia(ctx, "304") ?: "")
+                    else if (rbtSecc034ESi.isChecked && txtSecc034EOtro.text.isNullOrEmpty())
+                        returnList.add(CreateIncon.inconsistencia(ctx, "609") ?: "")
+
 
                     if (txtSecc035.text.isNullOrEmpty() || txtSecc035.text.toString() == "0")
                         returnList.add(CreateIncon.inconsistencia(ctx, "305") ?: "")

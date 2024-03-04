@@ -69,6 +69,7 @@ class MainFragmentForms : Fragment() {
     override fun onPause() {
         super.onPause()
         bindingForm.spinFormsType.onItemSelectedListener = null
+        //bindingForm.searchForms
         if (aDialog?.isShowing == true)  aDialog?.dismiss()
     }
     override fun onResume() {

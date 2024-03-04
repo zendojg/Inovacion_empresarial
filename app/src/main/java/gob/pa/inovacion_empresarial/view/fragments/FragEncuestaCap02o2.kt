@@ -41,6 +41,7 @@ class FragEncuestaCap02o2 : Fragment() {
     }
     private fun onAction() {
         with(bindingcap2o2) {
+            scrollForm.smoothScrollTo(0,0)
             frameCap219Tel2.isVisible = frameview
             btCap219tel1.setOnClickListener {
                 frameCap219Tel2.visibility = View.VISIBLE

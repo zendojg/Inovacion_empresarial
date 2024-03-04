@@ -40,6 +40,7 @@ class FragEncuestaCap09o1 : Fragment() {
 
     private fun onAction() {
         with(bindingcap9o1) {
+            scrollForm.smoothScrollTo(0,0)
             if (rbtCap959No.isChecked) {
                 txtCap959ly.isVisible = false
                 layoutCap960.isVisible = false

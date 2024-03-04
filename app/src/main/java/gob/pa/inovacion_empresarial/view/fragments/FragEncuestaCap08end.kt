@@ -42,6 +42,7 @@ class FragEncuestaCap08end : Fragment() {
 
     private fun onAction() {
         with(bindingcap8o2) {
+            scrollForm.smoothScrollTo(0,0)
             scrollForm.isVisible = Mob.cap8?.v56check != false
 
             if (Mob.cap8?.v56check == true) tb58.isVisible = true

@@ -75,6 +75,7 @@ class FragEncuestaCap03 : Fragment() {
         year22.setDropDownViewResource(R.layout.style_list)
 
         with(bindingcap3) {
+            scrollForm.smoothScrollTo(0,0)
             txtCap3239ly.isVisible = rbtCap3239.isChecked
             txtCap3256ly.isVisible = rbtCap3256.isChecked
             if (rbtCap324No.isChecked) linearCap324Continuar.isVisible = false

@@ -45,6 +45,7 @@ class FragEncuestaCap06o1 : Fragment() {
         }
         with(bindingcap6o1) {
 
+            scrollForm.smoothScrollTo(0,0)
             checkNo39[Mob.CHECK1Y2021] = rbtCap6391No2021.isChecked
             checkNo39[Mob.CHECK1Y2022] = rbtCap6391No2022.isChecked
             checkNo39[Mob.CHECK2Y2021] = rbtCap6392No2021.isChecked

@@ -7,21 +7,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Spinner
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.google.android.material.textfield.TextInputLayout
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo07Part1Binding
 import gob.pa.inovacion_empresarial.function.CreateIncon
+import gob.pa.inovacion_empresarial.function.EdittextFormat
 import gob.pa.inovacion_empresarial.function.Functions.allFalse
 import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap7
 import gob.pa.inovacion_empresarial.model.ModelSpinLister
-import gob.pa.inovacion_empresarial.view.FormActivity
+import gob.pa.inovacion_empresarial.model.ModelTexWatchers
 
 class FragEncuestaCap07o1 : Fragment() {
 
@@ -29,6 +32,8 @@ class FragEncuestaCap07o1 : Fragment() {
     private lateinit var ctx: Context
     private val spinList = mutableListOf<ModelSpinLister>()
     private var p52Enable = true
+    private var rowEditTexts: List<EditText> = emptyList()
+    private val textWatcherList = mutableListOf<ModelTexWatchers>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -36,6 +41,18 @@ class FragEncuestaCap07o1 : Fragment() {
         bindingcap7o1 = EncuestaCapitulo07Part1Binding.inflate(layoutInflater)
         ctx = requireContext()
         return bindingcap7o1.root
+    }
+
+    override fun onPause() {
+        super.onPause()
+        for (edittext in rowEditTexts)
+            edittext.onFocusChangeListener = null
+
+        for (modelTexWatcher in textWatcherList) {
+            modelTexWatcher.edittext.removeTextChangedListener(modelTexWatcher.watcher)
+        }
+        rowEditTexts = emptyList()
+        textWatcherList.clear()
     }
 
     override fun onResume() {
@@ -78,7 +95,8 @@ class FragEncuestaCap07o1 : Fragment() {
             }
         }
         with(bindingcap7o1) {
-
+            scrollForm.smoothScrollTo(0,0)
+            rowEditTexts = listOf(txtCap75112021, txtCap75112022, txtCap75122021, txtCap75122022)
             spinList.clear()
             spinList.add(ModelSpinLister(spinCap7521, Mob.cap7?.v52txt01?.toIntOrNull() ?: 0))
             spinList.add(ModelSpinLister(spinCap7522, Mob.cap7?.v52txt02?.toIntOrNull() ?: 0))
@@ -128,6 +146,25 @@ class FragEncuestaCap07o1 : Fragment() {
                 rbtCap7512No2022,
                 txtCap75122022ly
             )
+
+            for (index in 0 until tb51.childCount) {
+                val view = tb51.getChildAt(index)
+                if (view is TextInputLayout) {
+                    val editText = view.editText
+                    editText?.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+                        if (hasFocus) {
+                            if (rowEditTexts.contains(editText) && editText != null) {
+                                textWatcherList.add(EdittextFormat.edittext100(editText))
+                            }
+                        } else if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {
+                            for (modelTexWatcher in textWatcherList) {
+                                modelTexWatcher.edittext.removeTextChangedListener(
+                                    modelTexWatcher.watcher)
+                            }
+                        }
+                    }
+                }
+            }
 
 
             val imp52Adp = ArrayAdapter(ctx, R.layout.style_box, Mob.arrImp)

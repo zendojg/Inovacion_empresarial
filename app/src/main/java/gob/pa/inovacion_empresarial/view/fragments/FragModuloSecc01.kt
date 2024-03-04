@@ -37,6 +37,7 @@ class FragModuloSecc01 : Fragment() {
 
     private fun onAction() {
         bindingmod1.apply {
+            scrollForm.smoothScrollTo(0,0)
             if (rbtSecc011No.isChecked) linearSecc012.isVisible = false
             if (checkSecc012D.isChecked) txtSecc012DOtra.isVisible = true
 
