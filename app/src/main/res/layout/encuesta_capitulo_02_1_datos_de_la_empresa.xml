@@ -187,7 +187,8 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
-                        android:inputType="textCapWords"
+                        android:inputType="textCapCharacters"
+                        android:textSize="@dimen/text12"
                         tools:ignore="TouchTargetSizeCheck"
                         tools:text="Otras referencias" />
                 </com.google.android.material.textfield.TextInputLayout>

@@ -701,6 +701,20 @@
                     app:layout_constraintTop_toBottomOf="@+id/lb54txt"
                     tools:ignore="TextContrastCheck" />
 
+                <TextView
+                    android:id="@+id/lbdesc054"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/tb52descend"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/lb54txtdesctb"
+                    app:layout_constraintTop_toBottomOf="@+id/lb54txtdesctb" />
+
                 <GridLayout
                     android:id="@+id/tb54"
                     android:layout_width="0dp"
@@ -711,7 +725,7 @@
                     android:padding="1dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lb54txtdesctb">
+                    app:layout_constraintTop_toBottomOf="@+id/lbdesc054">
 
                     <TextView
                         android:layout_columnSpan="2"
@@ -1087,7 +1101,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start|top"
                         android:hint="@string/tb52desc15"
-                        android:inputType="text"
+                        android:inputType="textCapCharacters"
                         android:minHeight="48dp"
                         android:textSize="14sp" />
 
@@ -1104,19 +1118,6 @@
                         android:paddingEnd="0dp"
                         android:theme="@android:style/Theme.Holo.Light.DarkActionBar"/>
                 </GridLayout>
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:fontFamily="sans-serif-condensed"
-                    android:text="@string/tb52descend"
-                    android:textColor="@android:color/holo_blue_dark"
-                    android:textStyle="italic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tb54" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

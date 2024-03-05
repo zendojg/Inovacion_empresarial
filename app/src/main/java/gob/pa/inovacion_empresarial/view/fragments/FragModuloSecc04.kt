@@ -296,7 +296,7 @@ class FragModuloSecc04: Fragment() {
                     returnList.add(CreateIncon.inconsistencia(ctx, "311") ?: "")
 
             } else if (Mob.capMod?.v1check == null)
-                returnList.add(CreateIncon.inconsistencia(ctx, "289") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "620") ?: "")
 
             Mob.infoCap.find { it.indexCap == Mob.SEC4_P23 }?.incons = returnList.isNotEmpty()
             //println("Secc4: --${Mob.capMod}")

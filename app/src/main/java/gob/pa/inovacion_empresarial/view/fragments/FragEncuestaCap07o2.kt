@@ -324,11 +324,10 @@ class FragEncuestaCap07o2 : Fragment() {
             if (cap7?.v54txt14.isNullOrEmpty())
                 returnList.add(CreateIncon.inconsistencia(ctx, "129") ?: "")
 
-            if (cap7?.v54txt15.isNullOrEmpty())
+            if (bindingcap7o2.spinCap75415.selectedItemPosition > 1 &&
+                !cap7?.v54txt15desc.isNullOrEmpty())
                 returnList.add(CreateIncon.inconsistencia(ctx, "130") ?: "")
 
-            if (cap7?.v54txt15.isNullOrEmpty() && cap7?.v54txt15?.isNotEmpty() == true)
-                returnList.add(CreateIncon.inconsistencia(ctx, "130") ?: "")
 
             infoCap.find { it.indexCap == CAP7_P13 }?.incons = returnList.isNotEmpty()
             //println("Cap7_2: --$cap7")

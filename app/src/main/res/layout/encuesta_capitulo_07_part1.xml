@@ -938,7 +938,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="start|center_vertical"
                         android:hint="@string/tb52desc15"
-                        android:inputType="text"
+                        android:inputType="textCapCharacters"
                         android:minHeight="48dp"
                         android:paddingHorizontal="10dp"
                         android:textSize="14sp" />

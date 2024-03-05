@@ -288,7 +288,7 @@
                 android:gravity="center"
                 android:paddingHorizontal="27dp"
                 android:paddingVertical="7dp"
-                android:text="Para ingresar más Informantes debe agregarlos en observaciones con sus respectiva información del capítulo"
+                android:text="Si existe más de un informante anote los datos en observaciones con sus respectiva información del capítulo"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="12sp"
                 android:textStyle="italic"

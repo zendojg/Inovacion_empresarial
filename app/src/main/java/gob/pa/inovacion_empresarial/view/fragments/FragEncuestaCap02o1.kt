@@ -13,6 +13,7 @@ import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap2
+import java.util.Locale
 
 class FragEncuestaCap02o1 : Fragment() {
 
@@ -126,10 +127,27 @@ class FragEncuestaCap02o1 : Fragment() {
     private fun viewCap(): List<String> {
         with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
+            val tel = cap2?.v09tel1txt ?: "0"
+            val dir = cap2?.v08dirtxt?.lowercase(Locale.getDefault()) ?: ""
+            val dirRules = listOf(
+                "mall",
+                "centro",
+                "avenida",
+                "ave",
+                "calle",
+                "edificio",
+                "edif",
+                "casa",
+                "piso",
+                "local"
+            )
+            val regex = dirRules.joinToString("|").toRegex(RegexOption.IGNORE_CASE)
 
-            if (cap2?.v08dirtxt.isNullOrEmpty() || (cap2?.v08dirtxt?.length ?: 0) < MIN_LENGHTDIR)
+            if (!regex.containsMatchIn(dir))
+                returnList.add(CreateIncon.inconsistencia(ctx,"606") ?: "")
+            if (tel.toInt() == 0)
                 returnList.add(CreateIncon.inconsistencia(ctx,"607") ?: "")
-            if (cap2?.v09tel1txt.isNullOrEmpty() || (cap2?.v09tel1txt?.length ?: 0) < MIN_LENGHTTEL)
+            else if (tel.length < MIN_LENGHTTEL)
                 returnList.add(CreateIncon.inconsistencia(ctx,"608") ?: "")
 
             if (cap2?.v14nlNum.isNullOrEmpty() || cap2?.v14nlNum == "0") {
@@ -144,7 +162,7 @@ class FragEncuestaCap02o1 : Fragment() {
                 val p15 = p15a + p15b
 
                 if (p15 == 0) {
-                    returnList.add(CreateIncon.inconsistencia(ctx,"606") ?: "")
+                    returnList.add(CreateIncon.inconsistencia(ctx,"605") ?: "")
                 }
                 else if (p14 < p15) {
                     returnList.add(CreateIncon.inconsistencia(ctx,"4") ?: "")

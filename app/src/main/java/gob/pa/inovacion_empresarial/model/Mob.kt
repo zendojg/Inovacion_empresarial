@@ -62,7 +62,6 @@ object Mob {
     const val CERO_COUNTLEFT:Int = 4
     const val MAX_TEXWATCHER_4ROWS:Int = 6
     const val MAX_TEXWATCHER_MANY_ROWS:Int = 15
-    const val MIN_LENGHTDIR: Int = 8
     const val MIN_LENGHTTEL: Int = 7
     //-------
     const val JUMP_MODULE1:Int = 4
@@ -219,10 +218,11 @@ object Mob {
     )
 
     //------- Lista de las Condiciones
-    const val CONDICION_02:Int = 1
-    const val CONDICION_04:Int = 3
-    const val CONDICION_08:Int = 7
+    const val CONDICION_02:Int = 2
+    const val CONDICION_04:Int = 4
+    const val CONDICION_08:Int = 8
     val arrCondicion: Array<String> = arrayOf(
+        "Incompleta",
         "Completa",
         "Consolidada (Especifique)",
         "Cerró y no fue reemplazada",
@@ -230,8 +230,7 @@ object Mob {
         "Rehúsa",
         "No localizada",
         "No operó",
-        "Otra condición (Especifique)",
-        "Sin especificar"
+        "Otra condición (Especifique)"
     )
 
     const val GRADENOTSELECT:Int = 0

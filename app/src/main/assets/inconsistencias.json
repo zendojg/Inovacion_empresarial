@@ -1267,28 +1267,35 @@
   },
   {
     "PAUTA": 605,
-    "TEXTO": "Pregunta 15.1 y 15.2 La suma de locales no coinciden con la pregunta 14"
-  },
-  {
-    "PAUTA": 606,
     "TEXTO": "Pregunta 15.1 y 15.2 La cantidad de locales debe ser mayor a 0"
   },
+
   {
-    "PAUTA": 607,
+    "PAUTA": 606,
     "TEXTO": "Pregunta 8. Debe ingresar una dirección válida"
   },
   {
-    "PAUTA": 608,
+    "PAUTA": 607,
     "TEXTO": "Pregunta 9. Debe ingresar un número de teléfono"
+  },
+  {
+    "PAUTA": 608,
+    "TEXTO": "Pregunta 9. Debe ingresar un número de teléfono válido"
   },
   {
     "PAUTA": 609,
     "TEXTO": "Pregunta 4.1.   d).  Otro medio utilizado para realizar ventas en línea, no tiene descripción."
   },
-
   {
     "PAUTA": 610,
     "TEXTO": "Pregunta 58. Debe contestar la pregunta 56 del capítulo 8 parte 1 antes de seguir"
+  },
+  {
+    "PAUTA": 611,
+    "TEXTO": "Pregunta 16. Cuál es el nombre del Informante"
+  },
+  {
+    "PAUTA": 620,
+    "TEXTO": "Antes de continuar debe contestar la Sección 1, pregunta 1 del Módulo de comercio electrónico"
   }
-
 ]

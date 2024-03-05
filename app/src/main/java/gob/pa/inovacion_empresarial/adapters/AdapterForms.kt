@@ -32,11 +32,12 @@ class AdapterForms(
                 txtrucRC.text = form.cap2?.v07ructxt ?: "0-0-0"
                 lbnameLRC.text = form.cap2?.v05nameLtxt ?: "Desconocido"
 
-
-                if (form.cond != null) txtconditionRC.text = try {
-                    val indexCond = if (form.cond.toInt() > 0) form.cond.toInt().minus(1) else 8
-                    Mob.arrCondicion[indexCond]
-                } catch (e: java.lang.NumberFormatException) { "Valor desconocido" }
+                if (form.cond != null){
+                    val indexCond =
+                        if (form.cond.toInt() > Mob.arrCondicion.size || form.cond.toInt() < 0) 0
+                        else form.cond.toInt()
+                    txtconditionRC.text = Mob.arrCondicion[indexCond]
+                }
                 else txtconditionRC.text = "Sin condición asignada"
 
                 txtrazonRC.text = form.cap2?.v06razontxt ?: "No registrada"

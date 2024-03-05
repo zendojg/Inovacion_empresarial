@@ -97,7 +97,7 @@ class FragTotalInforme : Fragment() {
 
             if (lbcondicionID.text.isNullOrEmpty()) lbcondicionID.text = Mob.condicionID ?: ""
 
-            val idCondInt = Mob.condicionID?.toIntOrNull()?.takeIf { it > 0 }?.let { it - 1 }
+            val idCondInt = Mob.condicionID?.toIntOrNull()?.takeIf { it > 0 }
             txtCondicion.setText(Mob.arrCondicion.getOrElse(idCondInt ?: 0) { "" }, false)
 
             with(txtCondicion.text.toString()) {
@@ -125,7 +125,7 @@ class FragTotalInforme : Fragment() {
             txtCondicion.apply {
                 setAdapter(condicionAdapter)
                 setOnItemClickListener { _, _, pos, _ ->
-                    Mob.condicionID = "0" + (pos + 1)
+                    Mob.condicionID = "0$pos"
                     lbcondicionID.text = Mob.condicionID
                     when (pos) {
                         Mob.CONDICION_02, Mob.CONDICION_04  -> {

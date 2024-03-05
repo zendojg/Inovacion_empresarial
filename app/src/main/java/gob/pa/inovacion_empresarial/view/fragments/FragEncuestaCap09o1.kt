@@ -13,14 +13,12 @@ import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap9
-import gob.pa.inovacion_empresarial.view.FormActivity
 
 
 class FragEncuestaCap09o1 : Fragment() {
 
     private lateinit var bindingcap9o1: EncuestaCapitulo09Part1Binding
     private lateinit var ctx: Context
-    private var check60: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -61,39 +59,6 @@ class FragEncuestaCap09o1 : Fragment() {
                         layoutCap961.isVisible = false }
                 }
             }
-            rgroupCap960.setOnCheckedChangeListener { _, id ->
-                hideKeyboard()
-                when (id) {
-                    rbtCap9601.id -> {
-                        txtCap9606Otra.isEnabled = false
-                        check60 = "1"
-                    }
-                    rbtCap9602.id -> {
-                        txtCap9606Otra.isEnabled = false
-                        check60 = "2"
-                    }
-                    rbtCap9603.id -> {
-                        txtCap9606Otra.isEnabled = false
-                        check60 = "3"
-                    }
-                    rbtCap9604.id -> {
-                        txtCap9606Otra.isEnabled = false
-                        check60 = "4"
-                    }
-                    rbtCap9605.id -> {
-                        txtCap9606Otra.isEnabled = false
-                        check60 = "5"
-                    }
-                    rbtCap9606.id -> {
-                        txtCap9606Otra.isEnabled = true
-                        check60 = "6"
-                    }
-                    else -> {
-                        check60 = null
-                        txtCap9606Otra.isEnabled = false
-                    }
-                }
-            }
             lowCap9o1.setOnClickListener { saveCap() }
         }
     }
@@ -104,19 +69,26 @@ class FragEncuestaCap09o1 : Fragment() {
         with(bindingcap9o1) {
 
             txtCap959.text = cap9?.v59num?.toEditable() ?: blank
-            check60 = cap9?.v60num
-            when (cap9?.v60num) {
-                "1", "Panamá" -> rbtCap9601.isChecked = true
-                "2", "Centroamérica y el Caribe"  -> rbtCap9602.isChecked = true
-                "3", "Estados Unidos"  -> rbtCap9603.isChecked = true
-                "4", "Unión Europea"  -> rbtCap9604.isChecked = true
-                "5", "Japón"  -> rbtCap9605.isChecked = true
-                "6", "Otro"  -> rbtCap9606.isChecked = true
-                else -> rgroupCap960.clearCheck()
+
+            val buttonsMap60 = mapOf(
+                rbtCap9601 to cap9?.v60check1,
+                rbtCap9602 to cap9?.v60check2,
+                rbtCap9603 to cap9?.v60check3,
+                rbtCap9604 to cap9?.v60check4,
+                rbtCap9605 to cap9?.v60check5,
+                rbtCap9606 to cap9?.v60check6
+            )
+            for ((checkBt, isChecked) in buttonsMap60) {
+                when (isChecked) {
+                    true -> checkBt.isChecked = true
+                    false -> checkBt.isChecked = false
+                    else -> checkBt.isChecked = false
+                }
             }
+
             txtCap9606Otra.text = cap9?.v60txtotro?.toEditable() ?: blank
 
-            val radioButtonsMap = mapOf(
+            val buttonsMap61 = mapOf(
                 rgroupCap959 to cap9?.v59check,
                 rgroupCap9611 to cap9?.v61check1,
                 rgroupCap9612 to cap9?.v61check2,
@@ -127,7 +99,7 @@ class FragEncuestaCap09o1 : Fragment() {
                 rgroupCap9617 to cap9?.v61check7,
                 rgroupCap9618 to cap9?.v61check8
             )
-            for ((radioGroup, isChecked) in radioButtonsMap) {
+            for ((radioGroup, isChecked) in buttonsMap61) {
                 when (isChecked) {
                     true -> radioGroup.check(radioGroup.getChildAt(0).id)
                     false -> radioGroup.check(radioGroup.getChildAt(1).id)
@@ -147,9 +119,17 @@ class FragEncuestaCap09o1 : Fragment() {
                 Mob.cap9?.ncontrol,
                 if (rbtCap959Si.isChecked) true else if (rbtCap959No.isChecked) false else null,
                 if (rbtCap959Si.isChecked) txtCap959.text.toString().ifEmpty { null } else null,
-                if (rbtCap959Si.isChecked) check60 else null,
+
+                Mob.cap9?.v60num,
+                if (rbtCap959Si.isChecked) rbtCap9601.isChecked else null,
+                if (rbtCap959Si.isChecked) rbtCap9602.isChecked else null,
+                if (rbtCap959Si.isChecked) rbtCap9603.isChecked else null,
+                if (rbtCap959Si.isChecked) rbtCap9604.isChecked else null,
+                if (rbtCap959Si.isChecked) rbtCap9605.isChecked else null,
+                if (rbtCap959Si.isChecked) rbtCap9606.isChecked else null,
                 if (rbtCap959Si.isChecked && rbtCap9606.isChecked) txtCap9606Otra.text.toString()
                 else null,
+
                 if (rbtCap959Si.isChecked && rbtCap9611Si.isChecked) true else
                     if (rbtCap959Si.isChecked && rbtCap9611No.isChecked) false else null,
                 if (rbtCap959Si.isChecked && rbtCap9612Si.isChecked) true else
@@ -185,16 +165,24 @@ class FragEncuestaCap09o1 : Fragment() {
 
     private fun viewCap(): List<String> {
         with(bindingcap9o1) {
+            val p60 = listOf(
+                rbtCap9601.isChecked,
+                rbtCap9602.isChecked,
+                rbtCap9603.isChecked,
+                rbtCap9604.isChecked,
+                rbtCap9605.isChecked,
+                rbtCap9606.isChecked
+            )
             val returnList: ArrayList<String> = ArrayList()
             if (rgroupCap959.checkedRadioButtonId == -1)
                 returnList.add(CreateIncon.inconsistencia(ctx, "169") ?: "")
             if (rbtCap959Si.isChecked) {
-                if (txtCap959.text.toString() == "0" )
+                if (txtCap959.text.toString() == "0")
                     returnList.add(CreateIncon.inconsistencia(ctx, "170") ?: "")
-                else if (rbtCap959Si.isChecked && txtCap959.text.toString().isEmpty() )
+                else if (rbtCap959Si.isChecked && txtCap959.text.toString().isEmpty())
                     returnList.add(CreateIncon.inconsistencia(ctx, "170") ?: "")
 
-                if (rgroupCap960.checkedRadioButtonId == -1)
+                if (rbtCap959Si.isChecked && !p60.contains(true))
                     returnList.add(CreateIncon.inconsistencia(ctx, "171") ?: "")
 
                 if (rgroupCap9611.checkedRadioButtonId == -1)

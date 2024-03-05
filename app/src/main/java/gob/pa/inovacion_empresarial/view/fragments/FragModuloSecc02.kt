@@ -115,7 +115,7 @@ class FragModuloSecc02 : Fragment() {
             if (Mob.capMod?.v1check == true && allCheckSecc02.allFalse())
                 returnList.add(CreateIncon.inconsistencia(ctx, "293") ?: "")
             else if (Mob.capMod?.v1check == null)
-                returnList.add(CreateIncon.inconsistencia(ctx, "289") ?: "")
+                returnList.add(CreateIncon.inconsistencia(ctx, "620") ?: "")
 
             Mob.infoCap.find { it.indexCap == Mob.SEC2_P21 }?.incons = returnList.isNotEmpty()
             //println("Secc2: --${Mob.capMod}")

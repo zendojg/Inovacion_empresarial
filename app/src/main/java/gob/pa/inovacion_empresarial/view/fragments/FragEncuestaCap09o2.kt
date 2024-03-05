@@ -163,6 +163,14 @@ class FragEncuestaCap09o2 : Fragment() {
                 Mob.cap9?.v59check,
                 Mob.cap9?.v59num,
                 Mob.cap9?.v60num,
+
+                Mob.cap9?.v60check1,
+                Mob.cap9?.v60check2,
+                Mob.cap9?.v60check3,
+                Mob.cap9?.v60check4,
+                Mob.cap9?.v60check5,
+                Mob.cap9?.v60check6,
+
                 Mob.cap9?.v60txtotro,
                 Mob.cap9?.v61check1,
                 Mob.cap9?.v61check2,

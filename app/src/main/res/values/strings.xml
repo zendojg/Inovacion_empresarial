@@ -409,7 +409,7 @@
     <string name="p34_2">2. Nacional</string>
     <string name="p34_3">3. Exterior</string>
     <string name="cero">0</string>
-    <string name="p35txt">En el 2022, ¿cuál fue el número de personas que trabajan en la empresa, según nivel de educacion, sexo y origen <b><font color="#3C54BB">(nacional o extragero)</font></b>?\n\n<b><font color="#ff0099cc">LEA:</font></b></string>
+    <string name="p35txt">En el 2022, ¿cuál fue el número de personas que trabajan en la empresa, según nivel de educacion, sexo y origen <b><font color="#3C54BB">(nacional o extrajero)</font></b>?\n\n<b><font color="#ff0099cc">LEA:</font></b></string>
     <string name="p36txt">En el 2021 y 2022, ¿cuál fue el <u>promedio anual de empleados</u> que laboraron en la empresa, según su origen?\n<b><font color="#3C54BB">(Excluya personal subcontratado)</font></b></string>
     <string name="tb53desct1">Nivel académico</string>
     <string name="txtmen">Hombres</string>
@@ -497,7 +497,7 @@
     <string name="p49desc1">Incrementar o mantener la participación de mercado?</string>
     <string name="p49desc2">Introducir productos para un nuevo segmento de mercado?</string>
     <string name="p49desc3">Introducir productos para un mercado geográficamente nuevo?</string>
-    <string name="p50txt">¿La empresa tiene personal, oficinas, sección, departamento o laboratorio de investigación y desarrorrlo (I+D)?</string>
+    <string name="p50txt">¿La empresa tiene personal, oficina, sección, departamento o laboratorio de investigación y desarrollo (I+D)?</string>
     <string name="p59check1">Sí.....<b>1.(Continúe)</b></string>
     <string name="p59check2">No....<b>2.(Pase a la pregunta 52)</b></string>
     <string name="cap7tittle1">LAS ACTIVIDADES INNOVATIVAS SON TODAS LAS OPERACIONES CIENTÍFICAS, TECNOLÓGICAS, ORGANIZATIVAS, FINANCIERAS Y COMERCIALES QUE CONDUCEN A LA INTRODUCCIÓN DE INNOVACIÓN, Y A PESAR DE QUE NO SE HAYA CONCRETADO LA INNOVACIÓN, LAS ACTIVIDADES INNOVATIVAS FUERON EFECTUADAS</string>
@@ -511,7 +511,7 @@
     <string name="tb52desc2">2. Departamento de ingeniería o producción.</string>
     <string name="tb52desc3">3. Departamento de comercialización.</string>
     <string name="tb52desc4">4. Departamento de comercialización.</string>
-    <string name="tb52desc5">5. Empresarios - gerentes externos.</string>
+    <string name="tb52desc5">5. Empresarios - gerentes internos.</string>
     <string name="tb52desc6">6. Empresarios - gerentes externos.</string>
     <string name="tb52desc7">7. Planes estratégicos.</string>
     <string name="tb52desc8">8. Clientes.</string>
@@ -555,7 +555,7 @@
     <string name="tb55b1">Falta de financiamiento externo a la empresa</string>
     <string name="tb55c1">Costos de innovación muy altos</string>
     <string name="tb552">Factores vinculados al conocimiento:</string>
-    <string name="tb55a2">Falta de personal calicado</string>
+    <string name="tb55a2">Falta de personal calificado</string>
     <string name="tb55b2">Falta de información sobre tecnología</string>
     <string name="tb55c2">Falta de información sobre mercados</string>
     <string name="tb55d2">Dificultad en encontrar cooperación</string>
@@ -657,13 +657,13 @@
     <string name="p3txtm1">1. Autenticación mediante contraseña?</string>
     <string name="p3txtm2">2. Copia de seguridad <b>(backup)</b> de datos en una ubicación separada (incluye copia de seguridad en la nube)?</string>
     <string name="p3txtm3">3. Control de acceso a la red <b>(gestión del acceso de disspositivos y usuarios a la red de la empresa)</b>?</string>
-    <string name="p3txtm4">4. Otras medidas de segurudad TIC?</string>
+    <string name="p3txtm4">4. Otras medidas de seguridad TIC?</string>
     <string name="p4txtm">¿Realizó su empresa ventas de bienes y/o servicios, a tráves de medios electrónicos?</string>
     <string name="nosecc4">No....<b>2.(Pase a la sección 4)</b></string>
     <string name="porcentaje">porcentaje %</string>
     <string name="porcent">%</string>
     <string name="p4m1">¿Cómo <u>realizo las ventas</u> de bienes y/o servicios (pedidos y/o reservas) e indique el <u>porcentaje</u> de las ventas…</string>
-    <string name="p4m1a">a. Pagina Web <font color="black">(carrito de compra)</font>?</string>
+    <string name="p4m1a">a. Página Web <font color="black">(carrito de compra)</font>?</string>
     <string name="p4m1b">b. Correo electrónico?</string>
     <string name="p4m1c">c. Redes sociales <font color="black">(WhatsApp, Instagram y Facebook)</font>?</string>
     <string name="p4m1d">d. App <font color="black">(propia)</font>?</string>
@@ -741,4 +741,6 @@
     <string name="msgInforme500">Error en el servidor</string>
     <string name="msgInformeNoResp">Fuera de cobertura</string>
     <string name="msgInformeNoRed">Error de red</string>
+    <string name="descGradoImp">Escojer el <b>grado de importancia</b> entre: Alta, Media, Baja o Irrelevante</string>
+    <string name="descSolicitoAp">"Escojer la solicitud de apoyo entre: Sí solicitó, pero no obtuvo, Sí solicitó, si lo obtuvo o No solicitó apoyo"</string>
 </resources>

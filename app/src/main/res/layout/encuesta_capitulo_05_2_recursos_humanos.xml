@@ -1468,7 +1468,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/background_shadow_low"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="textMultiLine"
+                            android:inputType="textMultiLine|textCapCharacters"
                             android:textSize="14sp"
                             tools:ignore="TouchTargetSizeCheck"
                             tools:text="Otra especifique" />

@@ -135,6 +135,23 @@
                     app:layout_constraintTop_toTopOf="@+id/lb57np"
                     tools:ignore="TextContrastCheck" />
 
+                <TextView
+                    android:id="@+id/txtdesc57"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="7dp"
+                    android:textStyle="italic"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/descSolicitoAp"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb57txt"
+                    tools:ignore="TextContrastCheck" />
+
                 <GridLayout
                     android:id="@+id/tb57"
                     android:layout_width="0dp"
@@ -147,7 +164,7 @@
                     android:padding="1dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lb57txt">
+                    app:layout_constraintTop_toBottomOf="@+id/txtdesc57">
 
                     <TextView
                         android:layout_gravity="fill"

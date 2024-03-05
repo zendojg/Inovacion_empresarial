@@ -582,6 +582,24 @@
                     tools:ignore="TextContrastCheck" />
 
                 <TextView
+                    android:id="@+id/txtdesc49"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="7dp"
+                    android:textStyle="italic"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/descGradoImp"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/lb49txt"
+                    tools:ignore="TextContrastCheck" />
+
+
+                <TextView
                     android:id="@+id/txt49lbn1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -591,7 +609,7 @@
                     android:text="@string/n1"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/lb49txt" />
+                    app:layout_constraintTop_toBottomOf="@+id/txtdesc49" />
 
                 <TextView
                     android:id="@+id/txt49lbtxt1"
