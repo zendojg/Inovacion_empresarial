@@ -166,11 +166,20 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         pageSave()
+
+
+//        val moduloJump = Mob.capMod?.v1check
+//        val index = if (moduloJump == false && Mob.indiceFormulario < Mob.SEC1_P20) Mob.SEC1_P20
+//        else if (moduloJump == false && Mob.indiceFormulario >= Mob.SEC1_P20) Mob.OBSE_P24
+//        else item.itemId
+
         pagerIndex = Mob.menuToIndexMap[item.itemId] ?: Mob.MENU_P00
         drawerLayout.closeDrawer(GravityCompat.END, true)
         Mob.indiceFormulario = pagerIndex ?: Mob.MENU_P00
         if (pagerIndex == Mob.MENU_P00) onBackPressed()
         else form.viewpager.setCurrentItem(pagerIndex ?: Mob.MENU_P00, false)
+
+        println("----------${item.itemId}---$item")
         return super.onOptionsItemSelected(item)
     }
 

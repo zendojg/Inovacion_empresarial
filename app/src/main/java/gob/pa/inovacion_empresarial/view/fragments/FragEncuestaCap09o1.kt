@@ -46,6 +46,14 @@ class FragEncuestaCap09o1 : Fragment() {
             } else if (rbtCap959Si.isChecked) txtCap959ly.isVisible = true
 
             txtCap9606Otra.isEnabled = rbtCap9606.isChecked
+            if (rbtCap9606.isChecked) {
+                txtCap9606Otra.isEnabled
+                txtCap9606Otra
+            }
+            else {
+                txtCap9606Otra.text.clear()
+                txtCap9606Otra.isEnabled = false
+            }
             rgroupCap959.setOnCheckedChangeListener { _, id ->
                 hideKeyboard()
                 when (id) {
@@ -120,7 +128,7 @@ class FragEncuestaCap09o1 : Fragment() {
                 if (rbtCap959Si.isChecked) true else if (rbtCap959No.isChecked) false else null,
                 if (rbtCap959Si.isChecked) txtCap959.text.toString().ifEmpty { null } else null,
 
-                Mob.cap9?.v60num,
+                //Mob.cap9?.v60num,
                 if (rbtCap959Si.isChecked) rbtCap9601.isChecked else null,
                 if (rbtCap959Si.isChecked) rbtCap9602.isChecked else null,
                 if (rbtCap959Si.isChecked) rbtCap9603.isChecked else null,

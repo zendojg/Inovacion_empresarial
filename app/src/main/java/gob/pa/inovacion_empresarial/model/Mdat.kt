@@ -343,7 +343,7 @@ data class ModelCap9(
     @SerializedName("numControl")                               val ncontrol: Int?,
     @SerializedName("obtuvoEnPaisOExterior")                    val v59check: Boolean?,
     @SerializedName("cantEnPaisOExterior")                      val v59num: String?,
-    @SerializedName("paisDeAprobacion")                         val v60num: String?,
+    //@SerializedName("paisDeAprobacion")                         val v60num: String?,
 
     @SerializedName("paisDeAprobacionPanama")                   val v60check1: Boolean?,
     @SerializedName("paisDeAprobacionCentro")                   val v60check2: Boolean?,

@@ -187,6 +187,8 @@ class FragEncuestaCap07o2 : Fragment() {
                 ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
             txtCap753T2022.text = cap7?.v53num1T22?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
+
+            txtCap75415Otro.text = cap7?.v54txt15desc?.toEditable() ?: "".toEditable()
         }
         Mob.infoCap.find { it.indexCap == Mob.CAP7_P13 }?.capView = true
         onAction()
@@ -324,10 +326,10 @@ class FragEncuestaCap07o2 : Fragment() {
             if (cap7?.v54txt14.isNullOrEmpty())
                 returnList.add(CreateIncon.inconsistencia(ctx, "129") ?: "")
 
-            if (bindingcap7o2.spinCap75415.selectedItemPosition > 1 &&
-                !cap7?.v54txt15desc.isNullOrEmpty())
+            if ((cap7?.v54txt15?.toInt() ?: 0) > 1 && cap7?.v54txt15desc.isNullOrEmpty())
                 returnList.add(CreateIncon.inconsistencia(ctx, "130") ?: "")
-
+            else if (!cap7?.v54txt15desc.isNullOrEmpty() && cap7?.v54txt15.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "130") ?: "")
 
             infoCap.find { it.indexCap == CAP7_P13 }?.incons = returnList.isNotEmpty()
             //println("Cap7_2: --$cap7")

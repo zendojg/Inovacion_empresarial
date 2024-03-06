@@ -216,6 +216,8 @@ class FragEncuestaCap07o1 : Fragment() {
             txtCap75112022.text = cap7?.v51num22o1?.toEditable() ?: "".toEditable()
             txtCap75122021.text = cap7?.v51num21o2?.toEditable() ?: "".toEditable()
             txtCap75122022.text = cap7?.v51num22o2?.toEditable() ?: "".toEditable()
+
+            txtCap75215Otro.text = cap7?.v52txt15desc?.toEditable() ?: "".toEditable()
         }
 
         Mob.infoCap.find { it.indexCap == Mob.CAP7_P12 }?.capView = true
@@ -234,18 +236,29 @@ class FragEncuestaCap07o1 : Fragment() {
                     if (rbtCap7511No2021.isChecked && rbtCap750Si.isChecked) false else null,       //--51-1-2021
                 if (rbtCap7512Si2021.isChecked && rbtCap750Si.isChecked) true else
                     if (rbtCap7512No2021.isChecked && rbtCap750Si.isChecked) false else null,       //--51-2-2021
-                if (rbtCap7511Si2021.isChecked && rbtCap750Si.isChecked)
+                if (rbtCap7511Si2021.isChecked &&
+                    rbtCap750Si.isChecked &&
+                    txtCap75112021.text.toString() != "0")
                     txtCap75112021.text.toString() else null,           //--51-1-2021 %
-                if (rbtCap7512Si2021.isChecked && rbtCap750Si.isChecked)
+                if (rbtCap7512Si2021.isChecked &&
+                    rbtCap750Si.isChecked &&
+                    txtCap75122021.text.toString() != "0")
                     txtCap75122021.text.toString() else null,           //--51-2-2021 %
+
                 if (rbtCap7511Si2022.isChecked && rbtCap750Si.isChecked) true else
                     if (rbtCap7511No2022.isChecked && rbtCap750Si.isChecked) false else null,       //--51-1-2022
                 if (rbtCap7512Si2022.isChecked && rbtCap750Si.isChecked) true else
                     if (rbtCap7512No2022.isChecked && rbtCap750Si.isChecked) false else null,       //--51-2-2022
-                if (rbtCap7511Si2022.isChecked && rbtCap750Si.isChecked)
-                    txtCap75112021.text.toString() else null,           //--51-1-2022 %
-                if (rbtCap7512Si2022.isChecked && rbtCap750Si.isChecked)
-                    txtCap75122021.text.toString() else null,           //--51-2-2022 %
+
+                if (rbtCap7511Si2022.isChecked &&
+                    rbtCap750Si.isChecked &&
+                    txtCap75112022.text.toString() != "0")
+                    txtCap75112022.text.toString() else null,           //--51-1-2022 %
+
+                if (rbtCap7512Si2022.isChecked &&
+                    rbtCap750Si.isChecked &&
+                    txtCap75122022.text.toString() != "0")
+                    txtCap75122022.text.toString() else null,           //--51-2-2022 %
 
                 if (spinCap7521.selectedItemPosition == 0) null else
                     spinCap7521.selectedItemPosition.toString(),
@@ -330,34 +343,67 @@ class FragEncuestaCap07o1 : Fragment() {
     }
 
     private fun viewCap(): List<String> {
+
         with(Mob) {
+            val porce51x1x21 = cap7?.v51num21o1.isNullOrEmpty() || cap7?.v51num21o1 == "0"
+            val porce51x1x22 = cap7?.v51num22o1.isNullOrEmpty() || cap7?.v51num22o1 == "0"
+            val porce51x2x21 = cap7?.v51num21o2.isNullOrEmpty() || cap7?.v51num21o2 == "0"
+            val porce51x2x22 = cap7?.v51num22o2.isNullOrEmpty() || cap7?.v51num22o2 == "0"
+
             val returnList: ArrayList<String> = ArrayList()
             if (cap7?.v50check == null)
                 returnList.add(CreateIncon.inconsistencia(ctx, "90") ?: "")
-            if (cap7?.v50check == true && cap7?.v51check21o1 == null)
-                returnList.add(CreateIncon.inconsistencia(ctx, "91") ?: "")
-            if (cap7?.v50check == true && cap7?.v51check22o1 == null)
-                returnList.add(CreateIncon.inconsistencia(ctx, "92") ?: "")
-            if (cap7?.v50check == true && cap7?.v51check21o2 == null)
-                returnList.add(CreateIncon.inconsistencia(ctx, "93") ?: "")
-            if (cap7?.v50check == true && cap7?.v51check22o2 == null)
-                returnList.add(CreateIncon.inconsistencia(ctx, "94") ?: "")
-            if (cap7?.v50check == true &&
-                cap7?.v51check21o1 == true &&
-                cap7?.v51num21o1.isNullOrEmpty())
-                returnList.add(CreateIncon.inconsistencia(ctx, "95") ?: "")
-            if (cap7?.v50check == true &&
-                cap7?.v51check22o1 == true &&
-                cap7?.v51num22o1.isNullOrEmpty())
-                returnList.add(CreateIncon.inconsistencia(ctx, "96") ?: "")
-            if (cap7?.v50check == true &&
-                cap7?.v51check21o2 == true &&
-                cap7?.v51num21o2.isNullOrEmpty())
-                returnList.add(CreateIncon.inconsistencia(ctx, "97") ?: "")
-            if (cap7?.v50check == true &&
-                cap7?.v51check22o2 == true &&
-                cap7?.v51num22o2.isNullOrEmpty())
-                returnList.add(CreateIncon.inconsistencia(ctx, "98") ?: "")
+            else if (cap7?.v50check == true) {
+                if (cap7?.v51check21o1 == null)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "91") ?: "")
+                if (cap7?.v51check22o1 == null)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "92") ?: "")
+                if (cap7?.v51check21o2 == null)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "93") ?: "")
+                if (cap7?.v51check22o2 == null)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "94") ?: "")
+                if (cap7?.v51check21o1 == true && porce51x1x21)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "95") ?: "")
+                if (cap7?.v51check22o1 == true && porce51x1x22)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "96") ?: "")
+                if (cap7?.v51check21o2 == true && porce51x2x21)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "97") ?: "")
+                if (cap7?.v51check22o2 == true && porce51x2x22)
+                    returnList.add(CreateIncon.inconsistencia(ctx, "98") ?: "")
+            }
+            if (cap7?.v52txt01.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "99") ?: "")
+            if (cap7?.v52txt02.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "100") ?: "")
+            if (cap7?.v52txt03.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "101") ?: "")
+            if (cap7?.v52txt04.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "102") ?: "")
+            if (cap7?.v52txt05.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "103") ?: "")
+            if (cap7?.v52txt06.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "104") ?: "")
+            if (cap7?.v52txt07.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "105") ?: "")
+            if (cap7?.v52txt08.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "106") ?: "")
+            if (cap7?.v52txt09.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "107") ?: "")
+            if (cap7?.v52txt10.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "108") ?: "")
+            if (cap7?.v52txt11.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "109") ?: "")
+            if (cap7?.v52txt12.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "110") ?: "")
+            if (cap7?.v52txt13.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "111") ?: "")
+            if (cap7?.v52txt14.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "112") ?: "")
+            if ((cap7?.v52txt15?.toInt() ?: 0) > 1 && cap7?.v52txt15desc.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "113") ?: "")
+            else if (!cap7?.v52txt15desc.isNullOrEmpty() && cap7?.v52txt15.isNullOrEmpty())
+                returnList.add(CreateIncon.inconsistencia(ctx, "113") ?: "")
+
 
             infoCap.find { it.indexCap == CAP7_P12 }?.incons = returnList.isNotEmpty()
             //println("Cap7_1: --$cap7")

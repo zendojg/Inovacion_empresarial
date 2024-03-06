@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.SearchView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
@@ -69,7 +70,8 @@ class MainFragmentForms : Fragment() {
     override fun onPause() {
         super.onPause()
         bindingForm.spinFormsType.onItemSelectedListener = null
-        //bindingForm.searchForms
+        bindingForm.searchForms.setQuery("",false)
+        bindingForm.searchForms.clearFocus()
         if (aDialog?.isShowing == true)  aDialog?.dismiss()
     }
     override fun onResume() {
@@ -101,7 +103,18 @@ class MainFragmentForms : Fragment() {
             }
             searchForms.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(query: String?) = search(query)
-                override fun onQueryTextChange(newText: String?) = false
+                override fun onQueryTextChange(newText: String?) : Boolean {
+                    if (newText.isNullOrEmpty()) {
+                        try {
+                            val closeButton: ImageView =
+                                searchForms.findViewById(androidx.appcompat.R.id.search_close_btn)
+                            closeButton.performClick()
+                        } catch (e: Exception) {
+                            e.printStackTrace()
+                        }
+                    }
+                    return true
+                }
             })
             searchForms.setOnCloseListener {
                 searchForms.setQuery("", false)
@@ -145,6 +158,7 @@ class MainFragmentForms : Fragment() {
 //                    }
 //                }
 //            } //----- Agregar onItemClickListener para corregimientos
+            scrollUser.smoothScrollTo(0,0)
         }
     }
 
@@ -208,7 +222,7 @@ class MainFragmentForms : Fragment() {
                     }
 
                 } else {
-                    val listofRoom = RoomView(dvmForm, ctx).getFormsUser(user)
+                    val listofRoom = RoomView(dvmForm, ctx).getFormsUser(user).reversed()
                     val gson = Gson()
                     val type: Type = object : TypeToken<ModelForm?>() {}.type
                     for (i in listofRoom) {

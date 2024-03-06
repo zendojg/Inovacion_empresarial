@@ -87,11 +87,11 @@ class FragEncuestaCap08 : Fragment() {
                 val view = tb57.getChildAt(index)
                 if (view is Spinner) { view.adapter = solic57 }
                 else if (view is TextInputLayout) {
-                    val editText = view.editText
+                    val editText = if (view != txtCap8571COtraly && view != txtCap8572COtraly) view.editText else null
+
                     editText?.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-                        if (hasFocus) {
-                            if (editText != null)
-                                textWatcherList.add(EdittextFormat.edittextMiles(editText))
+                        if (hasFocus && editText != null) {
+                            textWatcherList.add(EdittextFormat.edittextMiles(editText))
                         }
                         else {
                             if (textWatcherList.size > Mob.MAX_TEXWATCHER_4ROWS) {

@@ -418,11 +418,11 @@
             android:id="@+id/img_senacytsearch"
             android:layout_width="wrap_content"
             android:layout_height="55dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginBottom="7dp"
             android:contentDescription="@string/senacyt"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guidelineSearch"
+            app:layout_constraintBottom_toTopOf="@+id/versionsearch"
             app:srcCompat="@drawable/logo_inec" />
 
         <TextView
@@ -436,7 +436,7 @@
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_senacytsearch" />
+            app:layout_constraintBottom_toTopOf="@+id/guidelineSearch" />
 
 
         <ProgressBar
@@ -458,7 +458,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_end="250dp" />
+            app:layout_constraintGuide_percent="0.85" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

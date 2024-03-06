@@ -162,7 +162,7 @@ class FragEncuestaCap09o2 : Fragment() {
                 Mob.cap9?.ncontrol,
                 Mob.cap9?.v59check,
                 Mob.cap9?.v59num,
-                Mob.cap9?.v60num,
+                //Mob.cap9?.v60num,
 
                 Mob.cap9?.v60check1,
                 Mob.cap9?.v60check2,
@@ -236,14 +236,13 @@ class FragEncuestaCap09o2 : Fragment() {
                 returnList.add(CreateIncon.inconsistencia(ctx, "187") ?: "")
             else if (rbtCap964Si.isChecked) {
                 if (txtCap9651.text.isNullOrEmpty() && txtCap9652.text.isNullOrEmpty()) {
-                    returnList.add(CreateIncon.inconsistencia(ctx, "191") ?: "")
-                    returnList.add(CreateIncon.inconsistencia(ctx, "192") ?: "")
+                    returnList.add(CreateIncon.inconsistencia(ctx, "188") ?: "")
                 } else
-                    if (txtCap9651Year.text.isNullOrEmpty() &&
-                        txtCap9652Year.text.isNullOrEmpty()) {
-                        returnList.add(CreateIncon.inconsistencia(ctx, "191") ?: "")
-                        returnList.add(CreateIncon.inconsistencia(ctx, "192") ?: "")
-                }
+                    if (txtCap9651Year.text.isNullOrEmpty() && !txtCap9651.text.isNullOrEmpty())
+                        returnList.add(CreateIncon.inconsistencia(ctx, "189") ?: "")
+                    else if (txtCap9652Year.text.isNullOrEmpty() && !txtCap9652.text.isNullOrEmpty())
+                        returnList.add(CreateIncon.inconsistencia(ctx, "190") ?: "")
+
             }
             Mob.infoCap.find { it.indexCap == Mob.CAP9_P18 }?.incons = returnList.isNotEmpty()
             //println("Cap9-part2: --${Mob.cap9}")

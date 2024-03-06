@@ -194,7 +194,7 @@
     <string name="tittleInno"><b>ENCUESTA DE INNOVACIÓN EN EMPRESAS</b></string>
     <string name="tittleMod"><b>COMERCIO ELECTRÓNICO EN LA EMPRESA</b></string>
 
-    <string name="subtittle2Main">La información solicitada está amparada por el secreto estadístico y es estrictamente confidencial</string>
+    <string name="subtittle2Main">La información solicitada está amparada por el secreto estadístico y es estrictamente confidencial\n\nLEY 10 DEL 22 DE ENERO DE 2009</string>
     <string name="subtittle3Main">LEY 10 DEL 22 DE ENERO DE 2009</string>
 
     <dimen name="toolsize">85dp</dimen>
@@ -742,5 +742,5 @@
     <string name="msgInformeNoResp">Fuera de cobertura</string>
     <string name="msgInformeNoRed">Error de red</string>
     <string name="descGradoImp">Escojer el <b>grado de importancia</b> entre: Alta, Media, Baja o Irrelevante</string>
-    <string name="descSolicitoAp">"Escojer la solicitud de apoyo entre: Sí solicitó, pero no obtuvo, Sí solicitó, si lo obtuvo o No solicitó apoyo"</string>
+    <string name="descSolicitoAp">"Escojer la solicitud de apoyo entre: \"Sí solicitó, pero no obtuvo\", \"Sí solicitó, si lo obtuvo\" o \"No solicitó apoyo\""</string>
 </resources>

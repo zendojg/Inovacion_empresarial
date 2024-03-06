@@ -102,7 +102,7 @@ class FragEncuestaCap02o1 : Fragment() {
                 v07ructxt = txtCap27.text.toString().ifEmpty { null },
                 v07dvtxt = txtCap27DV.text.toString().ifEmpty { null },
                 v08dirtxt = txtCap28.text.toString().ifEmpty { null },
-                v08dirreftxt = txtCap281.text.toString().ifEmpty { "Sin anotar" },
+                v08dirreftxt = txtCap281.text.toString().ifEmpty { null },
                 v09tel1txt = txtCap291.text.toString().ifEmpty { null },
                 v09tel2txt = if (frameview) txtCap292.text.toString().ifEmpty { null } else null,
                 v10celtxt = txtCap210.text.toString().ifEmpty { null },
