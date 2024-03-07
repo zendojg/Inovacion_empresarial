@@ -102,7 +102,8 @@ object  CreateForm {
                 )
                 infoCap.add(internalInfo)
             }
-            sendForm = false
+            viewIncon = false
+            inconsArray = null
 
             cap1 = null
             cap2 = null

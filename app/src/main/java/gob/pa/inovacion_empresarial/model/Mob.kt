@@ -66,7 +66,6 @@ object Mob {
     //-------
     const val JUMP_MODULE1:Int = 4
     const val INITIAL_YEAR:Int = 1900
-    var pass: String? = "eie2122" //---- Password para los accesos a delete y update
     //-------
     const val CHECK1Y2021:Int = 0
     const val CHECK1Y2022:Int = 1
@@ -254,6 +253,7 @@ object Mob {
 
 
     //------ Variables del formulario ------
+    var pass: String? = "eie2122"   //---- Password para los accesos a delete y update
     var mainWindow = 1              //-----Indice del Main
     var mainPrevWindow = 0
     var indiceFormulario = 0        //-----Indice de la encuesta dado desde el Menú
@@ -261,7 +261,9 @@ object Mob {
     var obsModulo: String? = ""     //-----Observaciones del Módulo
     var version: String = "0.0"
     var condicionID: String? = null
-    var sendForm: Boolean = false
+    var viewIncon: Boolean = false
+    var inconsArray: Array<String>? = null
+
 
     //----- Response de Token
     private var authToken: ModelAuthResult? = null

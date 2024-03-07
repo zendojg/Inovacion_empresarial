@@ -30,7 +30,6 @@ class FragEncuestaCap08 : Fragment() {
     private lateinit var ctx: Context
     private val spinList = mutableListOf<ModelSpinLister>()
     private val textWatcherList = mutableListOf<ModelTexWatchers>()
-    private var rowEditTexts: List<EditText> = emptyList()
     private val decimalFormat = DecimalFormat("#,###")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?

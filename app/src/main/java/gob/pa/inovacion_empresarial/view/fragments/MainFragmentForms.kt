@@ -456,6 +456,8 @@ class MainFragmentForms : Fragment() {
                      text = getString(R.string.btcarga)
                      setOnClickListener {
                          aDialog?.dismiss()
+                         Mob.viewIncon = true
+                         Mob.inconsArray = jsonModel.inconsistencias
                          chargeForm(item)
                      }
                  }

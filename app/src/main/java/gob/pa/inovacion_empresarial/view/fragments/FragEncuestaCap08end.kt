@@ -43,12 +43,12 @@ class FragEncuestaCap08end : Fragment() {
     private fun onAction() {
         with(bindingcap8o2) {
             scrollForm.smoothScrollTo(0,0)
-            scrollForm.isVisible = Mob.cap8?.v56check != false
+            //scrollForm.isVisible = Mob.cap8?.v56check != false
 
-            if (Mob.cap8?.v56check == true) tb58.isVisible = true
-            else if (Mob.cap8?.v56check == false) tb58.isVisible = false
+            if (Mob.cap8?.v56check == true) tb582.isVisible = true
+            else if (Mob.cap8?.v56check == false) tb582.isVisible = false
 
-
+            tb582.visibility = if (Mob.cap8?.v56check == false) View.GONE else View.VISIBLE
             val v58txtFields = listOf(
                 Mob.cap8?.v58num1a, Mob.cap8?.v58num1b, Mob.cap8?.v58num1c,
                 Mob.cap8?.v58num2a, Mob.cap8?.v58num2b, Mob.cap8?.v58num2c, Mob.cap8?.v58num2d,
@@ -72,6 +72,12 @@ class FragEncuestaCap08end : Fragment() {
 
             for (index in 0 until tb58.childCount) {
                 val view = tb58.getChildAt(index)
+                if (view is Spinner) {
+                    view.adapter = gradeImportance
+                }
+            }
+            for (index in 0 until tb582.childCount) {
+                val view = tb582.getChildAt(index)
                 if (view is Spinner) {
                     view.adapter = gradeImportance
                 }
@@ -124,11 +130,11 @@ class FragEncuestaCap08end : Fragment() {
                 Mob.cap8?.v57desc2c,
                 Mob.cap8?.v57num2c,
                 Mob.cap8?.v57monto2c,//
-                if (spinCap8581A.selectedItemPosition == 0 || Mob.cap8?.v56check == false) null else
+                if (spinCap8581A.selectedItemPosition == 0) null else
                     spinCap8581A.selectedItemPosition.toString(),
-                if (spinCap8581B.selectedItemPosition == 0 || Mob.cap8?.v56check == false) null else
+                if (spinCap8581B.selectedItemPosition == 0) null else
                     spinCap8581B.selectedItemPosition.toString(),
-                if (spinCap8581C.selectedItemPosition == 0 || Mob.cap8?.v56check == false) null else
+                if (spinCap8581C.selectedItemPosition == 0) null else
                     spinCap8581C.selectedItemPosition.toString(),
                 if (spinCap8582A.selectedItemPosition == 0 || Mob.cap8?.v56check == false) null else
                     spinCap8582A.selectedItemPosition.toString(),
@@ -160,15 +166,14 @@ class FragEncuestaCap08end : Fragment() {
     private fun viewCap8part2(): List<String> {
         with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
+            if (cap8?.v58num1a.isNullOrEmpty() || cap8?.v58num1a == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "156") ?: "")
+            if (cap8?.v58num1b.isNullOrEmpty() || cap8?.v58num1b == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "157") ?: "")
+            if (cap8?.v58num1c.isNullOrEmpty() || cap8?.v58num1c == "0")
+                returnList.add(CreateIncon.inconsistencia(ctx, "158") ?: "")
+
             if (cap8?.v56check == true) {
-
-                if (cap8?.v58num1a.isNullOrEmpty() || cap8?.v58num1a == "0")
-                    returnList.add(CreateIncon.inconsistencia(ctx, "156") ?: "")
-                if (cap8?.v58num1b.isNullOrEmpty() || cap8?.v58num1b == "0")
-                    returnList.add(CreateIncon.inconsistencia(ctx, "157") ?: "")
-                if (cap8?.v58num1c.isNullOrEmpty() || cap8?.v58num1c == "0")
-                    returnList.add(CreateIncon.inconsistencia(ctx, "158") ?: "")
-
                 if (cap8?.v58num2a.isNullOrEmpty() || cap8?.v58num2a == "0")
                     returnList.add(CreateIncon.inconsistencia(ctx, "159") ?: "")
                 if (cap8?.v58num2b.isNullOrEmpty() || cap8?.v58num2b == "0")

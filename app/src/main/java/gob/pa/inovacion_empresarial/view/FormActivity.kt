@@ -8,11 +8,10 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.InputType
 import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
-import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -22,6 +21,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.core.view.isVisible
+import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
@@ -62,7 +62,6 @@ import gob.pa.inovacion_empresarial.view.fragments.FragModuloSecc02
 import gob.pa.inovacion_empresarial.view.fragments.FragModuloSecc03
 import gob.pa.inovacion_empresarial.view.fragments.FragModuloSecc04
 import gob.pa.inovacion_empresarial.view.fragments.FragTotalInforme
-import kotlinx.android.synthetic.main.modulo_seccion_02.view.scrollForm
 import kotlinx.coroutines.launch
 
 class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -119,6 +118,14 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private fun onAction() {
         form.apply {
+
+            fun btMove(): Boolean {
+                return if (form.viewpager.currentItem != Mob.OBSE_P24 ||
+                    form.viewpager.currentItem != Mob.MENU_P00) {
+                    dialog?.isShowing != true
+                } else false
+            }
+            btinconpager.visibility = if (Mob.viewIncon) View.VISIBLE else View.INVISIBLE
             btDrawerpager.setOnClickListener {
                 if (drawerLayout.isDrawerOpen(GravityCompat.END)) {
                     drawerLayout.closeDrawer(GravityCompat.END, true)
@@ -142,8 +149,12 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             btinconpager.setOnClickListener { /* Para ver inconsistencias, el bt esta invisible */}
 
             viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                private fun setVisibility(view: View, isVisible: Boolean) {
+                    view.visibility = if (isVisible) View.VISIBLE else View.GONE
+                }
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
+                    btinconpager.visibility = if (Mob.viewIncon) View.VISIBLE else View.INVISIBLE
                     val shouldShowViews = (position != Mob.MENU_P00)
                     setVisibility(toolbarpager, shouldShowViews)
                     setVisibility(txvtitlepager2, shouldShowViews)
@@ -151,15 +162,9 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     setVisibility(frameLayoutNav, shouldShowViews)
                     spinPager(position)
                 }
-                private fun setVisibility(view: View, isVisible: Boolean) {
-                    view.visibility = if (isVisible) View.VISIBLE else View.GONE
-                }
             })
-            btobspager.setOnClickListener {
-                if (form.viewpager.currentItem != Mob.OBSE_P24 ||
-                    form.viewpager.currentItem != Mob.MENU_P00)
-                    if (dialog?.isShowing != true) observation(form.viewpager.currentItem)
-            }
+            btobspager.setOnClickListener { if (btMove()) observation(form.viewpager.currentItem) }
+            btinconpager.setOnClickListener { if (btMove()) viewIncon() }
             btsavepager.setOnClickListener { seeCaps(null) }
         }
     }
@@ -179,7 +184,6 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         if (pagerIndex == Mob.MENU_P00) onBackPressed()
         else form.viewpager.setCurrentItem(pagerIndex ?: Mob.MENU_P00, false)
 
-        println("----------${item.itemId}---$item")
         return super.onOptionsItemSelected(item)
     }
 
@@ -276,6 +280,36 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    private fun viewIncon() {
+        val msgSend = AlertDialog.Builder(ctx)
+        val bindSend: StyleMsgAlertBinding =
+            DataBindingUtil.inflate(
+                LayoutInflater.from(ctx),
+                R.layout.style_msg_alert, null, false)
+        msgSend.setView(bindSend.root)
+        bindSend.apply {
+            msg6.visibility = View.VISIBLE
+
+            btpositivo.text = getString(R.string.done)
+            btnegativo.visibility = View.GONE
+
+            msgtitle.text = getString(R.string.registerIncon)
+            msg2.text = getString(R.string.infoDesc)
+
+            msg6.text = try { Mob.inconsArray?.joinToString("\n\n")?.toEditable() }
+            catch (e: RuntimeException) { "".toEditable() }
+
+            dialog = msgSend.create()
+            dialog?.show()
+            dialog?.window?.setGravity(Gravity.CENTER)
+
+            btpositivo.setOnClickListener {
+                dialog?.dismiss()
+            }
+        }
+    }
+
+
     private fun pageSave(): List<String> {
         //when (val page = supportFragmentManager.fragments.find { it.isVisible }) { }
         return when (val page = Mob.arrEncuestas.find { it.isVisible }) {
@@ -363,20 +397,15 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             btobspager.isEnabled = false
             btsavepager.isEnabled = false
             if (move) {
-                if (viewpager.currentItem == Mob.CAP8_P15 && Mob.cap8?.v56check == false) {
-                    viewpager.setCurrentItem(viewpager.currentItem + 2, false)
-                } else
-                    if (viewpager.currentItem == Mob.SEC1_P20 && Mob.capMod?.v1check == false) {
-                        viewpager.setCurrentItem(
-                            viewpager.currentItem + Mob.JUMP_MODULE1, false
-                        )
-                    } else viewpager.setCurrentItem(
-                        viewpager.currentItem + 1, false
+                if (viewpager.currentItem == Mob.SEC1_P20 && Mob.capMod?.v1check == false) {
+                    viewpager.setCurrentItem(
+                        viewpager.currentItem + Mob.JUMP_MODULE1, false
                     )
+                } else viewpager.setCurrentItem(
+                    viewpager.currentItem + 1, false
+                )
             } else {
-                if (viewpager.currentItem == Mob.CAP9_P17 && Mob.cap8?.v56check == false) {
-                    viewpager.setCurrentItem(viewpager.currentItem - 2, false)
-                } else if (viewpager.currentItem == Mob.OBSE_P24 && Mob.capMod?.v1check == false) {
+                if (viewpager.currentItem == Mob.OBSE_P24 && Mob.capMod?.v1check == false) {
                     viewpager.setCurrentItem(
                         viewpager.currentItem - Mob.JUMP_MODULE1, false
                     )
@@ -406,6 +435,7 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     colorFondo = ContextCompat.getColor(ctx, R.color.holo_blue_dark)
                 }
                 position == Mob.OBSE_P24 -> {
+                    btinconpager.visibility = View.INVISIBLE
                     btobspager.visibility = View.INVISIBLE
                     colorLetras = (Color.WHITE)
                     colorFondo = ContextCompat.getColor(ctx, R.color.teal_700)

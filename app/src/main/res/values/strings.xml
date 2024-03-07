@@ -568,7 +568,7 @@
     <string name="tb55c4">Dificultad regulatoria</string>
     <string name="lb56txt">¿Conoce la empresa que existen instituciones públicas, privadas y organismos internacionales que prestan apoyo para realizar actividades de innovación?</string>
     <string name="check56si">Sí.....<b>1.(Continúe)</b></string>
-    <string name="check56no">No....<b>2.(Pase al capítulo IX, pregunta 59)</b></string>
+    <string name="check56no">No....<b>2.(Pase a la pregunta 58.1)</b></string>
     <string name="lb57txt">En el 2022, ¿la empresa solicitó subsidios, créditos o beneficios para financiar actividades de innovación a instituciones nacionales o internacionales?</string>
     <string name="monto">(4) Monto obtenido en balboas</string>
     <string name="tb571">Instituciones nacionales:</string>
@@ -729,6 +729,7 @@
     <string name="registerIncon">Inconsistencias registradas</string>
     <string name="buzqueda">Búzqueda avanzada</string>
     <string name="resumenForm">Resumen del formulario</string>
+    <string name="infoDesc">Estas son las incosistencias registradas por Capítulo y número de pregunta:</string>
 
 
     <string name="msgInfoIncoReg">Capítulos con incosistencias registradas:</string>

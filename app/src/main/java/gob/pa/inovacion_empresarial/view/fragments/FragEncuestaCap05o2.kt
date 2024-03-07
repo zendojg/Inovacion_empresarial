@@ -17,6 +17,8 @@ import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap5
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
 import java.text.DecimalFormat
+import kotlin.time.ExperimentalTime
+import kotlin.time.measureTime
 
 
 class FragEncuestaCap05o2 : Fragment() {
@@ -73,6 +75,7 @@ class FragEncuestaCap05o2 : Fragment() {
         textWatcherList.clear()
     }
 
+    @OptIn(ExperimentalTime::class)
     private fun onAction() {
         with (bindingcap5o2) {
             scrollForm.smoothScrollTo(0,0)
@@ -141,7 +144,7 @@ class FragEncuestaCap05o2 : Fragment() {
             }
 
 
-            for(i in 0 until tb35.childCount) {
+            for (i in 0 until tb35.childCount) {
                 val view = tb35.getChildAt(i)
                 if (view is EditText) {
                     view.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
@@ -152,28 +155,32 @@ class FragEncuestaCap05o2 : Fragment() {
                                     EdittextFormat.edittextBigSum(
                                         view,
                                         row1EditTexts35,
-                                        txtCap5351HNac)
+                                        txtCap5351HNac
+                                    )
                                 textWatcherList.add(modelTexWatchers)
                             } else if (row2EditTexts35.contains(view)) {
                                 val modelTexWatchers =
                                     EdittextFormat.edittextBigSum(
                                         view,
                                         row2EditTexts35,
-                                        txtCap5351HExt)
+                                        txtCap5351HExt
+                                    )
                                 textWatcherList.add(modelTexWatchers)
                             } else if (row3EditTexts35.contains(view)) {
                                 val modelTexWatchers =
                                     EdittextFormat.edittextBigSum(
                                         view,
                                         row3EditTexts35,
-                                        txtCap5351MNac)
+                                        txtCap5351MNac
+                                    )
                                 textWatcherList.add(modelTexWatchers)
                             } else if (row4EditTexts35.contains(view)) {
                                 val modelTexWatchers =
                                     EdittextFormat.edittextBigSum(
                                         view,
                                         row4EditTexts35,
-                                        txtCap5351MExt)
+                                        txtCap5351MExt
+                                    )
                                 textWatcherList.add(modelTexWatchers)
                             }
                         } else if (view.text.isNullOrEmpty()) { //---- CERO al cambiar y esta empty
@@ -182,7 +189,8 @@ class FragEncuestaCap05o2 : Fragment() {
                             if (textWatcherList.size > Mob.MAX_TEXWATCHER_MANY_ROWS) {
                                 for (modelTexWatcher in textWatcherList) {
                                     modelTexWatcher.edittext.removeTextChangedListener(
-                                        modelTexWatcher.watcher)
+                                        modelTexWatcher.watcher
+                                    )
                                 }
                             }
                         }

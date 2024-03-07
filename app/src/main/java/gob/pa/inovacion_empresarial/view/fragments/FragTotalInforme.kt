@@ -277,11 +277,14 @@ class FragTotalInforme : Fragment() {
         val jsonModel: ModelResponse? = Gson().fromJson<ModelResponse>(data, type)
 
         bindSend.txtmsgStyle.visibility = View.VISIBLE
-        if (jsonModel?.poseeIncon == "false"){
+        if (jsonModel?.poseeIncon == "false") {
+            Mob.viewIncon = false
             bindSend.txtmsgStyle.text = getString(R.string.sendSuccess)
             bindSend.txt2styleFly.visibility = View.GONE
-        } else bindSend.txtmsgStyle.text = getString(R.string.sendSuccessWithIncon)
-
+        } else  {
+            Mob.viewIncon = true
+            bindSend.txtmsgStyle.text = getString(R.string.sendSuccessWithIncon)
+        }
         val ncont = Functions.ceroLeft(jsonModel?.ncontrol?.toString() ?: "0", Mob.CERO_COUNTLEFT)
         bindSend.txt1styleF.text = try { ncont.toEditable() }
         catch (e: RuntimeException) { "00".toEditable() }
@@ -290,6 +293,7 @@ class FragTotalInforme : Fragment() {
             jsonModel?.inconsistencias?.joinToString("\n\n")?.toEditable() }
         catch (e: RuntimeException) { "".toEditable() }
 
+        Mob.inconsArray = jsonModel?.inconsistencias
         msgSend.setView(bindSend.root)
         aDialog = msgSend.create()
         aDialog?.setCancelable(false)

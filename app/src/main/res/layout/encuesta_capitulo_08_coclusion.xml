@@ -212,6 +212,25 @@
                         android:layout_gravity="fill"
                         android:background="#E7F0F7" />
 
+
+
+                </GridLayout>
+
+                <GridLayout
+                    android:id="@+id/tb582"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/background_shadow"
+                    android:columnCount="2"
+                    android:orientation="horizontal"
+                    android:padding="1dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tb58">
+
+
+
                     <TextView
                         android:layout_gravity="fill"
                         android:fontFamily="sans-serif-condensed"
@@ -599,8 +618,8 @@
                         android:gravity="center"
                         android:minHeight="48dp"
                         android:paddingHorizontal="9dp" />
-
                 </GridLayout>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
