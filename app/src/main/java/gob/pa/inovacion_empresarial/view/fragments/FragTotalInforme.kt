@@ -2,6 +2,7 @@ package gob.pa.inovacion_empresarial.view.fragments
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -150,7 +151,11 @@ class FragTotalInforme : Fragment() {
             btSendObs.setOnClickListener {
                 if (Mob.authData?.rol == "E" && Functions.isOnline(ctx)) {
                     saveCapInforme()
-                    sendFormulario(CreateForm.create())
+                    if (Mob.cap2?.v08dirtxt.isNullOrEmpty())
+                         msgBallom("Capítulo II incompleto, Dirección", Mob.WIDTH220DP, Color.RED)
+                    else if (Mob.cap2?.v09tel1txt.isNullOrEmpty())
+                         msgBallom("Capítulo II incompleto, Teléfono 1", Mob.WIDTH220DP, Color.RED)
+                    else sendFormulario(CreateForm.create())
                 } else if (!Functions.isOnline(ctx)){
                     val color = ContextCompat.getColor(ctx, R.color.teal_700)
                     msgBallom("Sin red disponible", Mob.WIDTH160DP, color)

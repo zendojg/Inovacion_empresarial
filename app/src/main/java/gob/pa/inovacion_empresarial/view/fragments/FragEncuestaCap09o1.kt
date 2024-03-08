@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo09Part1Binding
@@ -46,13 +47,14 @@ class FragEncuestaCap09o1 : Fragment() {
             } else if (rbtCap959Si.isChecked) txtCap959ly.isVisible = true
 
             txtCap9606Otra.isEnabled = rbtCap9606.isChecked
-            if (rbtCap9606.isChecked) {
-                txtCap9606Otra.isEnabled
-                txtCap9606Otra
-            }
-            else {
-                txtCap9606Otra.text.clear()
-                txtCap9606Otra.isEnabled = false
+            rbtCap9606.setOnCheckedChangeListener { _, isChecked ->
+                if (isChecked) {
+                    txtCap9606Otra.isEnabled = true
+                    txtCap9606Otra
+                } else {
+                    txtCap9606Otra.text.clear()
+                    txtCap9606Otra.isEnabled = false
+                }
             }
             rgroupCap959.setOnCheckedChangeListener { _, id ->
                 hideKeyboard()

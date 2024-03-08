@@ -376,11 +376,11 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 dialog?.show()
                 btpositivo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_close)
                 if (move) {
-                    btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_forward)
+                    btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_next)
                     btnegativo.text = getString(R.string.Go)
                 }
                 else {
-                    btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_backs)
+                    btnegativo.icon = ContextCompat.getDrawable(ctx, R.drawable.img_previous)
                     btnegativo.text = getString(R.string.Back)
                 }
                 btpositivo.setOnClickListener { dialog?.dismiss() }

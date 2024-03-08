@@ -127,7 +127,7 @@ class FragEncuestaCap02o1 : Fragment() {
     private fun viewCap(): List<String> {
         with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
-            val tel = cap2?.v09tel1txt ?: "0"
+            val tel = cap2?.v09tel1txt?.filter { it.isDigit() } ?: "0"
             val dir = cap2?.v08dirtxt?.lowercase(Locale.getDefault()) ?: ""
             val dirRules = listOf(
                 "mall",
@@ -145,7 +145,7 @@ class FragEncuestaCap02o1 : Fragment() {
 
             if (!regex.containsMatchIn(dir))
                 returnList.add(CreateIncon.inconsistencia(ctx,"606") ?: "")
-            if (tel.toInt() == 0)
+            if (tel.toLong() == 0L)
                 returnList.add(CreateIncon.inconsistencia(ctx,"607") ?: "")
             else if (tel.length < MIN_LENGHTTEL)
                 returnList.add(CreateIncon.inconsistencia(ctx,"608") ?: "")

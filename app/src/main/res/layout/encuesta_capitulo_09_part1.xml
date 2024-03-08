@@ -285,7 +285,7 @@
                     android:fontFamily="sans-serif-condensed"
                     android:gravity="center_vertical"
                     android:hint="@string/check60p6"
-                    android:inputType="textCapWords"
+                    android:inputType="textMultiLine|textCapSentences"
                     android:minHeight="48dp"
                     android:orientation="horizontal"
                     android:paddingHorizontal="10dp"

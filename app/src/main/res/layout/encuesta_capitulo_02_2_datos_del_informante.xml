@@ -160,7 +160,7 @@
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="phone"
-                        android:maxLength="11"
+                        android:maxLength="18"
                         tools:text="0000-0000" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -206,7 +206,7 @@
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
                         android:inputType="phone"
-                        android:maxLength="11"
+                        android:maxLength="18"
                         tools:text="0000-0000" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -247,7 +247,7 @@
                     android:backgroundTint="@color/white"
                     android:fontFamily="sans-serif-condensed"
                     android:inputType="phone"
-                    android:maxLength="11"
+                    android:maxLength="18"
                     tools:ignore="TouchTargetSizeCheck"
                     tools:text="0000-0000" />
             </com.google.android.material.textfield.TextInputLayout>

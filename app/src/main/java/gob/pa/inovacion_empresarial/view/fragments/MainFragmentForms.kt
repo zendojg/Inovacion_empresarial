@@ -212,7 +212,7 @@ class MainFragmentForms : Fragment() {
                                 )
                                 if (i.tieneIncon == true) conteoIncon += 1
                             }
-                        listofAllForms = listUpdate
+                        listofAllForms = listUpdate.reversed()
                         activity?.runOnUiThread {
                             txttotalInconForms.text = conteoIncon.toString()
                             txttotalForms.text = listofAllForms.size.toString()

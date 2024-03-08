@@ -225,7 +225,7 @@
                             android:layout_marginBottom="5dp"
                             android:backgroundTint="@color/white"
                             android:fontFamily="sans-serif-condensed"
-                            android:inputType="text"
+                            android:inputType="textCapCharacters"
                             android:maxLength="32"
                             android:textSize="14sp"
                             tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck"

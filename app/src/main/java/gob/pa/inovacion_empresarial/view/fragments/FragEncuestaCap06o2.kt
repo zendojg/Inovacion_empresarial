@@ -63,7 +63,7 @@ class FragEncuestaCap06o2 : Fragment() {
             spinList.add(ModelSpinLister(spinCap6453, Mob.cap6?.v45txtGrado3?.toIntOrNull() ?: 0))
             spinList.add(ModelSpinLister(spinCap6454, Mob.cap6?.v45txtGrado4?.toIntOrNull() ?: 0))
             spinList.add(ModelSpinLister(spinCap6455, Mob.cap6?.v45txtGrado5?.toIntOrNull() ?: 0))
-            spinList.add(ModelSpinLister(spinCap6456, Mob.cap6?.v45txtGrado5?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap6456, Mob.cap6?.v45txtGrado6?.toIntOrNull() ?: 0))
 
             checkNo42[Mob.CHECK1Y2021] = rbtCap6421No2021.isChecked
             checkNo42[Mob.CHECK1Y2022] = rbtCap6421No2022.isChecked

@@ -180,11 +180,16 @@ class FragModuloSecc04: Fragment() {
         val mod4 = Mob.formComp?.capMod
         val decimalFormat = DecimalFormat("#,###")
         with(bindingmod4) {
-
+            var valor1 = mod4?.v6porcent1?.toIntOrNull() ?: 0
+            var valor2 = mod4?.v6porcent2?.toIntOrNull() ?: 0
+            var valor3 = mod4?.v6porcent3?.toIntOrNull() ?: 0
+            var valor4 = mod4?.v6porcent4?.toIntOrNull() ?: 0
             txtSecc046p1.text = mod4?.v6porcent1?.toEditable() ?: "0".toEditable()
             txtSecc046p2.text = mod4?.v6porcent2?.toEditable() ?: "0".toEditable()
             txtSecc046p3.text = mod4?.v6porcent3?.toEditable() ?: "0".toEditable()
             txtSecc046p4.text = mod4?.v6porcent4?.toEditable() ?: "0".toEditable()
+            var sumaTotal = valor1 + valor2 + valor3 + valor4
+            lb6nm100.text = sumaTotal.toString().toEditable()
 
             when (mod4?.v7check) {
                 true -> rbtSecc047Si.isChecked = true
@@ -206,6 +211,13 @@ class FragModuloSecc04: Fragment() {
             txtSecc04102.text = mod4?.v10porcent2?.toEditable() ?: "0".toEditable()
             txtSecc04103.text = mod4?.v10porcent3?.toEditable() ?: "0".toEditable()
             txtSecc04104.text = mod4?.v10porcent4?.toEditable() ?: "0".toEditable()
+
+            valor1 = mod4?.v10porcent1?.toIntOrNull() ?: 0
+            valor2 = mod4?.v10porcent2?.toIntOrNull() ?: 0
+            valor3 = mod4?.v10porcent3?.toIntOrNull() ?: 0
+            valor4 = mod4?.v10porcent4?.toIntOrNull() ?: 0
+            sumaTotal = valor1 + valor2 + valor3 + valor4
+            txtSecc04105.text = sumaTotal.toString().toEditable()
         }
         Mob.infoCap.find { it.indexCap == Mob.SEC4_P23 }?.capView = true
         onAction()
