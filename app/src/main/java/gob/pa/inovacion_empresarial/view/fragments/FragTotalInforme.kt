@@ -73,6 +73,7 @@ class FragTotalInforme : Fragment() {
         val blank = "".toEditable()
         with(bindinginfo) {
 
+            scrollForm.smoothScrollTo(0,0)
             txtInfoObsEncuesta.text = Mob.obsEncuesta?.toEditable() ?: blank
             txtInfoObsModulo.text = Mob.obsModulo?.toEditable() ?: blank
             txtnewRazon.text = Mob.condicion?.newRazon?.toEditable() ?: blank

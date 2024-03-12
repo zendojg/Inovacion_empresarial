@@ -38,13 +38,13 @@ class FragModuloSecc02 : Fragment() {
     private fun onAction() {
         with(bindingmod2) {
             scrollForm.isVisible = Mob.capMod?.v1check != false
-            scrollForm.smoothScrollTo(0,0)
         }
     }
 
     private fun fillOut() {
         val mod2 = Mob.formComp?.capMod
         with(bindingmod2) {
+            scrollForm.smoothScrollTo(0,0)
             checkSecc231.isChecked = mod2?.v3check1 == true
             checkSecc232.isChecked = mod2?.v3check2 == true
             checkSecc233.isChecked = mod2?.v3check3 == true

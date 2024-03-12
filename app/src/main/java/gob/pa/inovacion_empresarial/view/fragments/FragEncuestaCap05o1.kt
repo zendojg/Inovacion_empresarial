@@ -56,7 +56,6 @@ class FragEncuestaCap05o1 : Fragment() {
 
     private fun onAction() {
         with(bindingcap5o1) {
-            scrollForm.smoothScrollTo(0,0)
             row1EditTexts = listOf(txtCap530A2021, txtCap530B2021)
             row2EditTexts = listOf(txtCap530A2022, txtCap530B2022)
             layoutCap5332021.isVisible = rbtCap532ASi.isChecked
@@ -110,6 +109,7 @@ class FragEncuestaCap05o1 : Fragment() {
     private fun fillOut() {
         val cap5 = Mob.formComp?.cap5
         with(bindingcap5o1) {
+            scrollForm.smoothScrollTo(0,0)
             val decimalFormat = DecimalFormat("#,###")
 
             txtCap53012021.text = cap5?.v30txt21T?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }

@@ -71,7 +71,6 @@ class FragEncuestaCap07o2 : Fragment() {
     }
     private fun onAction() {
         with(bindingcap7o2) {
-            scrollForm.smoothScrollTo(0,0)
             spinList.clear()
             spinList.add(ModelSpinLister(spinCap7541, Mob.cap7?.v54txt01?.toIntOrNull() ?: 0))
             spinList.add(ModelSpinLister(spinCap7542, Mob.cap7?.v54txt02?.toIntOrNull() ?: 0))
@@ -152,6 +151,7 @@ class FragEncuestaCap07o2 : Fragment() {
     private fun fillOut() {
         val cap7 = Mob.formComp?.cap7
         bindingcap7o2.apply {
+            scrollForm.smoothScrollTo(0,0)
             txtCap753A2021.text = cap7?.v53num21a?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
             txtCap753A2022.text = cap7?.v53num22a?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }

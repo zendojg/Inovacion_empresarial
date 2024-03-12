@@ -41,7 +41,6 @@ class FragEncuestaCap02o2 : Fragment() {
     }
     private fun onAction() {
         with(bindingcap2o2) {
-            scrollForm.smoothScrollTo(0,0)
             frameCap219Tel2.isVisible = frameview
             btCap219tel1.setOnClickListener {
                 frameCap219Tel2.visibility = View.VISIBLE
@@ -60,6 +59,7 @@ class FragEncuestaCap02o2 : Fragment() {
         val cap2 = Mob.formComp?.cap2
         val blank = "".toEditable()
         with(bindingcap2o2) {
+            scrollForm.smoothScrollTo(0,0)
             txtCap216.text = cap2?.v16infonametxt?.toEditable() ?: blank
             txtCap217.text = cap2?.v17cargotxt?.toEditable() ?: blank
             txtCap218.text = cap2?.v18dirtxt?.toEditable() ?: blank

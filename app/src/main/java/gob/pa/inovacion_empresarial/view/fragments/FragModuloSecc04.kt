@@ -62,7 +62,6 @@ class FragModuloSecc04: Fragment() {
     private fun onAction() {
         with(bindingmod4) {
             scrollForm.isVisible = Mob.capMod?.v1check != false
-            scrollForm.smoothScrollTo(0,0)
             row1EditTexts = listOf(txtSecc046p1, txtSecc046p2, txtSecc046p3, txtSecc046p4)
             row2EditTexts = listOf(txtSecc04101, txtSecc04102, txtSecc04103, txtSecc04104)
 
@@ -180,6 +179,7 @@ class FragModuloSecc04: Fragment() {
         val mod4 = Mob.formComp?.capMod
         val decimalFormat = DecimalFormat("#,###")
         with(bindingmod4) {
+            scrollForm.smoothScrollTo(0,0)
             var valor1 = mod4?.v6porcent1?.toIntOrNull() ?: 0
             var valor2 = mod4?.v6porcent2?.toIntOrNull() ?: 0
             var valor3 = mod4?.v6porcent3?.toIntOrNull() ?: 0

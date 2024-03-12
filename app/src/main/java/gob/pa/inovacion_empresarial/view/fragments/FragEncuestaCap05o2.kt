@@ -78,8 +78,6 @@ class FragEncuestaCap05o2 : Fragment() {
     @OptIn(ExperimentalTime::class)
     private fun onAction() {
         with (bindingcap5o2) {
-            scrollForm.smoothScrollTo(0,0)
-            
             row1EditTexts35 = listOf(
                 txtCap535AHNac, txtCap535BHNac, txtCap535CHNac, txtCap535DHNac,
                 txtCap535EHNac, txtCap535FHNac, txtCap535GHNac, txtCap535HHNac
@@ -240,6 +238,7 @@ class FragEncuestaCap05o2 : Fragment() {
     private fun fillOut() {
         val cap5 = Mob.formComp?.cap5
         with(bindingcap5o2) {
+            scrollForm.smoothScrollTo(0,0)
             fillOut35(cap5)
 
             txtCap536A2021.text = cap5?.v36txtempNac21?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }

@@ -44,8 +44,6 @@ class FragEncuestaCap06o1 : Fragment() {
             bindingcap6o1.layoutCap641.isVisible = !checkNo39.allTrue()
         }
         with(bindingcap6o1) {
-
-            scrollForm.smoothScrollTo(0,0)
             checkNo39[Mob.CHECK1Y2021] = rbtCap6391No2021.isChecked
             checkNo39[Mob.CHECK1Y2022] = rbtCap6391No2022.isChecked
             checkNo39[Mob.CHECK2Y2021] = rbtCap6392No2021.isChecked
@@ -75,6 +73,7 @@ class FragEncuestaCap06o1 : Fragment() {
     private fun fillOut() {
         val cap6 = Mob.formComp?.cap6
         with(bindingcap6o1) {
+            scrollForm.smoothScrollTo(0,0)
             setRBState(rbtCap6391Si2021, rbtCap6391No2021, rgroupCap63912021, cap6?.v39check21o1)
             setRBState(rbtCap6391Si2022, rbtCap6391No2022, rgroupCap63912022, cap6?.v39check22o1)
 

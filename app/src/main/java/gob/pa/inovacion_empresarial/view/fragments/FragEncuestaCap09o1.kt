@@ -39,7 +39,6 @@ class FragEncuestaCap09o1 : Fragment() {
 
     private fun onAction() {
         with(bindingcap9o1) {
-            scrollForm.smoothScrollTo(0,0)
             if (rbtCap959No.isChecked) {
                 txtCap959ly.isVisible = false
                 layoutCap960.isVisible = false
@@ -77,7 +76,7 @@ class FragEncuestaCap09o1 : Fragment() {
         val cap9 = Mob.formComp?.cap9
         val blank = "".toEditable()
         with(bindingcap9o1) {
-
+            scrollForm.smoothScrollTo(0,0)
             txtCap959.text = cap9?.v59num?.toEditable() ?: blank
 
             val buttonsMap60 = mapOf(

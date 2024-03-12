@@ -43,7 +43,6 @@ class FragEncuestaCap09o2 : Fragment() {
 
     private fun onAction() {
         with(bindingcap9o2) {
-            scrollForm.smoothScrollTo(0,0)
             if (rbtCap962No.isChecked) layoutCap963.isVisible = false
 
             rgroupCap962.setOnCheckedChangeListener { _, id ->
@@ -93,6 +92,7 @@ class FragEncuestaCap09o2 : Fragment() {
         val cap9 = Mob.formComp?.cap9
         val blank = "".toEditable()
         with(bindingcap9o2) {
+            scrollForm.smoothScrollTo(0,0)
             when (cap9?.v62check) {
                 true -> rbtCap962Si.isChecked = true
                 false -> rbtCap962No.isChecked = true

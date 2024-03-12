@@ -53,7 +53,6 @@ class FragModuloSecc03 : Fragment() {
     private fun onAction() {
         bindingmod3.apply {
             scrollForm.isVisible = Mob.capMod?.v1check != false
-            scrollForm.smoothScrollTo(0,0)
             if (rbtSecc034Si.isChecked) {
                 layoutSecc341.isVisible = true
                 layoutSecc35.isVisible = true
@@ -138,6 +137,7 @@ class FragModuloSecc03 : Fragment() {
         val blank = "".toEditable()
         with(bindingmod3) {
 
+            scrollForm.smoothScrollTo(0,0)
             val radioButtonsMap = mapOf(
                 rgroupSecc034 to mod3?.v4check,
                 rgroupSecc034A to mod3?.v4check1a,

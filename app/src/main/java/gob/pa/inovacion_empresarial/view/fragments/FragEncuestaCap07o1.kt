@@ -95,7 +95,6 @@ class FragEncuestaCap07o1 : Fragment() {
             }
         }
         with(bindingcap7o1) {
-            scrollForm.smoothScrollTo(0,0)
             rowEditTexts = listOf(txtCap75112021, txtCap75112022, txtCap75122021, txtCap75122022)
             spinList.clear()
             spinList.add(ModelSpinLister(spinCap7521, Mob.cap7?.v52txt01?.toIntOrNull() ?: 0))
@@ -198,6 +197,7 @@ class FragEncuestaCap07o1 : Fragment() {
     private fun fillOut() {
         val cap7 = Mob.formComp?.cap7
         with(bindingcap7o1) {
+            scrollForm.smoothScrollTo(0,0)
             val radioButtonsMap = mapOf(
                 rgroupCap750 to cap7?.v50check,
                 rgroupCap75112021 to cap7?.v51check21o1,
@@ -399,6 +399,7 @@ class FragEncuestaCap07o1 : Fragment() {
                 returnList.add(CreateIncon.inconsistencia(ctx, "111") ?: "")
             if (cap7?.v52txt14.isNullOrEmpty())
                 returnList.add(CreateIncon.inconsistencia(ctx, "112") ?: "")
+
             if ((cap7?.v52txt15?.toInt() ?: 0) > 1 && cap7?.v52txt15desc.isNullOrEmpty())
                 returnList.add(CreateIncon.inconsistencia(ctx, "113") ?: "")
             else if (!cap7?.v52txt15desc.isNullOrEmpty() && cap7?.v52txt15.isNullOrEmpty())

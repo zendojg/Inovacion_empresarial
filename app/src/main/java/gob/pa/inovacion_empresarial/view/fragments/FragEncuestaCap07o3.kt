@@ -40,7 +40,6 @@ class FragEncuestaCap07o3 : Fragment() {
 
     private fun onAction() {
         with(bindingcap7o3) {
-            scrollForm.smoothScrollTo(0,0)
             //val spinList = mutableListOf<ModelSpinLister>()
             val v55txtFields = listOf(
                 Mob.cap7?.v55txt1a, Mob.cap7?.v55txt1b, Mob.cap7?.v55txt1c,
@@ -90,6 +89,7 @@ class FragEncuestaCap07o3 : Fragment() {
     }
 
     private fun fillOut() {
+        bindingcap7o3.scrollForm.smoothScrollTo(0,0)
         Mob.infoCap.find { it.indexCap == Mob.CAP7_P14 }?.capView = true
         onAction()
     }

@@ -28,7 +28,6 @@ class FragEncuestaCap10 : Fragment() {
     override fun onResume() {
         super.onResume()
         Mob.indiceFormulario = Mob.CAPX_P19
-        bindingcap10.scrollForm.smoothScrollTo(0,0)
         val infoCap = Mob.infoCap.find { it.indexCap == Mob.CAPX_P19 }
         if (infoCap?.capView == false) fillOut()
 //        else onAction()
@@ -39,6 +38,7 @@ class FragEncuestaCap10 : Fragment() {
     private fun fillOut() {
         val cap10 = Mob.formComp?.capx
         with(bindingcap10) {
+            bindingcap10.scrollForm.smoothScrollTo(0,0)
             val radioButtonsMap = mapOf(
                 rgroupCap10661 to cap10?.v66check1,
                 rgroupCap10662 to cap10?.v66check2,

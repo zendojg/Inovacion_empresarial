@@ -43,7 +43,6 @@ class FragEncuestaCap04 : Fragment() {
     private fun onAction() {
         with(bindingcap4) {
 
-            scrollForm.smoothScrollTo(0,0)
             txtCap428.onFocusChangeListener = View.OnFocusChangeListener { _, _ ->
                 if (txtCap428.text.toString().isEmpty()) {
                     txtCap428.isEnabled = true
@@ -95,6 +94,7 @@ class FragEncuestaCap04 : Fragment() {
         val cap4 = Mob.formComp?.cap4
         val blank = "".toEditable()
         with(bindingcap4) {
+            scrollForm.smoothScrollTo(0,0)
             txtCap428.text = cap4?.v28acttxt?.toEditable() ?: blank
             txtCap4281.text = cap4?.v28cinutxt?.toEditable() ?: blank
             txtCap4291.text = cap4?.v29act1txt?.toEditable() ?: blank

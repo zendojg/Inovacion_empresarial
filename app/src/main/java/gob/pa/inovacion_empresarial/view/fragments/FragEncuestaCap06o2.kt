@@ -48,7 +48,6 @@ class FragEncuestaCap06o2 : Fragment() {
     private fun onAction() {
         fun check42() {
             with(bindingcap6o2) {
-                scrollForm.smoothScrollTo(0,0)
                 layoutCap643.isVisible = !checkNo42.allTrue()
                 layoutCap644.isVisible = !checkNo42.allTrue()
                 layoutCap645.isVisible = !checkNo42.allTrue()
@@ -128,6 +127,7 @@ class FragEncuestaCap06o2 : Fragment() {
     private fun fillOut() {
         val cap6 = Mob.formComp?.cap6
         with(bindingcap6o2) {
+            scrollForm.smoothScrollTo(0,0)
             setRBState(rbtCap6421Si2021, rbtCap6421No2021, rgroupCap64212021, cap6?.v42check21o1)
             setRBState(rbtCap6421Si2022, rbtCap6421No2022, rgroupCap64212022, cap6?.v42check22o1)
 

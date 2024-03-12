@@ -42,7 +42,6 @@ class FragEncuestaCap08end : Fragment() {
 
     private fun onAction() {
         with(bindingcap8o2) {
-            scrollForm.smoothScrollTo(0,0)
             //scrollForm.isVisible = Mob.cap8?.v56check != false
 
             if (Mob.cap8?.v56check == true) tb582.isVisible = true
@@ -105,6 +104,7 @@ class FragEncuestaCap08end : Fragment() {
 
     private fun fillOut() {
         val cap8 = Mob.formComp?.cap8
+        bindingcap8o2.scrollForm.smoothScrollTo(0,0)
         bindingcap8o2.txtCap8584DOtra.text = cap8?.v58desc4d?.toEditable() ?: "".toEditable()
         Mob.infoCap.find { it.indexCap == Mob.CAP8_P16 }?.capView = true
         onAction()

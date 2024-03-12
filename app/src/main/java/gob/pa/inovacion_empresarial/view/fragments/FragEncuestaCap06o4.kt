@@ -45,7 +45,6 @@ class FragEncuestaCap06o4 : Fragment() {
         fun check48() { bindingcap6o4.layoutCap649.isVisible = !checkNo48.allTrue() }
         with(bindingcap6o4) {
 
-            scrollForm.smoothScrollTo(0,0)
             spinList.add(ModelSpinLister(spinCap6491, Mob.cap6?.v45txtGrado1?.toIntOrNull() ?: 0))
             spinList.add(ModelSpinLister(spinCap6492, Mob.cap6?.v45txtGrado2?.toIntOrNull() ?: 0))
             spinList.add(ModelSpinLister(spinCap6493, Mob.cap6?.v45txtGrado3?.toIntOrNull() ?: 0))
@@ -124,6 +123,7 @@ class FragEncuestaCap06o4 : Fragment() {
     private fun fillOut() {
         val cap6 = Mob.formComp?.cap6
         with(bindingcap6o4) {
+            scrollForm.smoothScrollTo(0,0)
             val radioButtonsMap = mapOf(
                 rgroupCap64812021 to cap6?.v48check21o1,
                 rgroupCap64812022 to cap6?.v48check22o1,

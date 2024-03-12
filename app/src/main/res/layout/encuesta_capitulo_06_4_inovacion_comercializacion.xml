@@ -573,7 +573,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-condensed"
-                    android:text="@string/p45txt"
+                    android:text="@string/p49txt"
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"

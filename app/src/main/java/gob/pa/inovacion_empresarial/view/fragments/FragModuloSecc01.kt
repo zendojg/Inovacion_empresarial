@@ -37,7 +37,6 @@ class FragModuloSecc01 : Fragment() {
 
     private fun onAction() {
         bindingmod1.apply {
-            scrollForm.smoothScrollTo(0,0)
             if (rbtSecc011No.isChecked) linearSecc012.isVisible = false
             if (checkSecc012D.isChecked) txtSecc012DOtra.isVisible = true
 
@@ -65,6 +64,7 @@ class FragModuloSecc01 : Fragment() {
     private fun fillOut() {
         val mod1 = Mob.formComp?.capMod
         bindingmod1.apply {
+            scrollForm.smoothScrollTo(0,0)
             when (mod1?.v1check) {
                 true -> rbtSecc011Si.isChecked = true
                 false -> rbtSecc011No.isChecked = true
