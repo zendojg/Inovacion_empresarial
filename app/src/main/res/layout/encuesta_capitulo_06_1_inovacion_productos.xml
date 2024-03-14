@@ -376,7 +376,7 @@
                     <TextView
                         android:layout_gravity="fill"
                         android:fontFamily="sans-serif-condensed"
-                        android:paddingHorizontal="10dp"
+                        android:paddingHorizontal="7dp"
                         android:layout_margin="2dp"
                         android:textStyle="bold"
                         android:gravity="center_vertical"
@@ -385,7 +385,6 @@
                     <RadioGroup
                         android:id="@+id/rgroupCap6_40_1"
                         android:layout_gravity="fill"
-                        android:layout_margin="2dp"
                         android:orientation="horizontal">
 
                         <RadioButton
@@ -410,7 +409,7 @@
                     <TextView
                         android:layout_gravity="fill"
                         android:fontFamily="sans-serif-condensed"
-                        android:paddingHorizontal="10dp"
+                        android:paddingHorizontal="7dp"
                         android:layout_margin="2dp"
                         android:textStyle="bold"
                         android:gravity="center_vertical"
@@ -419,7 +418,6 @@
                     <RadioGroup
                         android:id="@+id/rgroupCap6_40_2"
                         android:layout_gravity="fill"
-                        android:layout_margin="2dp"
                         android:orientation="horizontal">
 
                         <RadioButton

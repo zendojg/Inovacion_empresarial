@@ -72,6 +72,7 @@ class FragEncuestaCap03 : Fragment() {
 
     private fun onAction() {
         val year22 = ArrayAdapter(ctx, R.layout.style_box, Functions.yearArray().reversed())
+        val paises = ArrayAdapter(ctx, R.layout.style_box, Mob.paises)
         year22.setDropDownViewResource(R.layout.style_list)
 
         with(bindingcap3) {
@@ -99,6 +100,7 @@ class FragEncuestaCap03 : Fragment() {
             rgroupCap325.setOnCheckedChangeListener { _, id ->
                 txtCap3256ly.isVisible = rbtCap3256.id == id
             }
+            txtCap327.setAdapter(paises)
         }
     }
 

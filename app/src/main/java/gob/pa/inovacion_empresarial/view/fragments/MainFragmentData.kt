@@ -30,7 +30,6 @@ import gob.pa.inovacion_empresarial.model.ModelForm
 import gob.pa.inovacion_empresarial.service.room.RoomView
 import kotlinx.coroutines.launch
 import java.lang.reflect.Type
-import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
@@ -51,6 +50,7 @@ class MainFragmentData : Fragment() {
         super.onPause()
         if (aDialog?.isShowing == true)  aDialog?.dismiss()
     }
+
     override fun onResume() {
         super.onResume()
         bindingUser.apply {
@@ -137,13 +137,22 @@ class MainFragmentData : Fragment() {
                     Handler(Looper.getMainLooper()).postDelayed({
                         aDialog?.dismiss()
                         lifecycleScope.launch {
-                            when (dvmUser.validate()) {
-                                true -> {
+
+                            val respServer = dvmUser.seeToken()
+                            if (!respServer.msg.isNullOrEmpty()) {
+                                msgBallon("No es posible actualizar")
+                            } else when (respServer?.code) {
+                                Mob.CODE200 -> {
                                     RoomView(dvmUser, ctx).viewRoom(true)
                                     msgBallon("Datos actualizados")
                                 }
-                                false ->  msgBallon("Sesión expirada")
-                                else  ->  msgBallon("No es posible actualizar")
+                                Mob.CODE401 -> {
+                                    msgBallon(getString(R.string.msgInforme401))
+                                }
+
+                                else -> {
+                                    msgBallon("No es posible actualizar")
+                                }
                             }
                             activity?.runOnUiThread { bindingUser.barUser.visibility = View.INVISIBLE }
                         }

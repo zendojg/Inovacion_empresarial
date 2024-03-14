@@ -16,31 +16,25 @@ import java.io.IOException
 
 class DVModel: ViewModel() {
     //---- PRUEBA DE TOKEN
-    suspend fun validate(): Boolean? {       //--- Validador de TOKEN
-        suspend fun seeToken(): ModelResp? { //--- VERIFICADOR DE TOKEN INVENTADO
-            val msg: String?
-            val retrofit = ApiBuilder.ServiceBuilder.buildService(ApiService::class.java)
-            val response = try {
-                retrofit.getProv()
-            } catch (e: IOException) {
-                Log.e("-- Response error: ", e.message.toString())
-                return null
-            }
-            msg = if (response.errorBody() != null)
-                (response.errorBody()!!.charStream().readText()) else null
-
+    suspend fun seeToken(): ModelResp { //--- VERIFICADOR DE TOKEN
+        val msg: String?
+        val retrofit = ApiBuilder.ServiceBuilder.buildService(ApiService::class.java)
+        val resp = try {
+            retrofit.getProv()
+        } catch (e: IOException) {
+            Log.e("-- Response error: ", e.message.toString())
             return ModelResp(
-                code = response.code(),
-                msg = msg)
+                code = null,
+                msg = e.message.toString())
         }
-        val resp = seeToken()
-        Log.i("RESP----", "\nCODE: ${resp?.code}\nMSG: ${resp?.msg}\n")
-        return when (resp?.code) {
-            Mob.CODE200 -> true
-            Mob.CODE401 -> false
-            else -> null
-        }
+        msg = if (resp.errorBody() != null)
+            (resp.errorBody()!!.charStream().readText()) else null
+        Log.i("Validate--------------", "\nCODE: ${resp.code()}\nMSG: $msg\n")
+        return ModelResp(
+            code = resp.code(),
+            msg = msg)
     }
+
 
     //---- ACCESS LOGIN
     suspend fun loginCall(login: ModelLog): ModelAuthResp? {

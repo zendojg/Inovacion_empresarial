@@ -168,7 +168,7 @@
                         android:background="@drawable/background_shadow"
                         android:drawableTint="@android:color/holo_blue_dark"
                         android:fontFamily="sans-serif-condensed"
-                        android:inputType="textCapCharacters"
+                        android:inputType="textCapCharacters|textMultiLine"
                         tools:ignore="TextContrastCheck"
                         tools:text="Dirección del local" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -187,7 +187,7 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
                         android:fontFamily="sans-serif-condensed"
-                        android:inputType="textCapCharacters"
+                        android:inputType="textCapCharacters|textMultiLine"
                         android:textSize="@dimen/text12"
                         tools:ignore="TouchTargetSizeCheck"
                         tools:text="Otras referencias" />

@@ -68,21 +68,34 @@ class MainActivity : AppCompatActivity() {
             if (remember) Mob.authData = AppCache.loginGET(this)
             if (Mob.authData?.result?.token.isNullOrEmpty()) moveByToken(false)
             else lifecycleScope.launch {
-                when (dvmMain.validate()) {
-                    true -> {
+                fun msgAlert(msg: String, msgWidth: Int) {
+                    val color = ContextCompat.getColor(ctx, R.color.dark_red)
+                    val alert = Functions.msgBallom(
+                        msg, msgWidth, ctx, color)
+                    alert.showAlignBottom(main.btMainTest)
+                    alert.dismissWithDelay(Mob.TIMELONG4SEG)
+                }
+                val respServer = dvmMain.seeToken()
+                if (!respServer.msg.isNullOrEmpty()) {
+                    val mensaje = respServer.msg
+                    msgAlert(mensaje, (mensaje.length * 7))
+                    moveByToken(true)
+                } else when (respServer.code){
+                    Mob.CODE200 -> {
                         RoomView(dvmMain, ctx).viewRoom(false)
                         moveByToken(true)
                     }
-                    false -> moveByToken(false)
-                    null -> {
-                        moveByToken(true)
-                        val color = ContextCompat.getColor(ctx, R.color.dark_red)
-                        val alert = Functions.msgBallom(
-                            "Fallo de conexión", Mob.WIDTH160DP, ctx, color)
-                        alert.showAlignBottom(main.btMainTest)
-                        alert.dismissWithDelay(Mob.TIMELONG4SEG)
+                    Mob.CODE401 -> {
+                        val mensaje = getString(R.string.msgInforme401)
+                        msgAlert(mensaje, (mensaje.length * 7))
+                        moveByToken(false)
+                    }
+                    else -> {
+                        val mensaje = "Error: ${respServer.code}"
+                        msgAlert(mensaje, (mensaje.length * 7))
                     }
                 }
+
             }
         }
         main.btMainTest.setOnClickListener { /* Para pruebas */ }

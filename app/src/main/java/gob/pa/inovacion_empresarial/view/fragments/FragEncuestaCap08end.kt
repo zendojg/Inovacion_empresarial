@@ -194,9 +194,10 @@ class FragEncuestaCap08end : Fragment() {
                     returnList.add(CreateIncon.inconsistencia(ctx, "166") ?: "")
                 if (cap8?.v58num4c.isNullOrEmpty() || cap8?.v58num4c == "0")
                     returnList.add(CreateIncon.inconsistencia(ctx, "167") ?: "")
-                if (cap8?.v58num4d.isNullOrEmpty() || cap8?.v58num4d == "0")
+
+                if ((cap8?.v58num4d?.toInt() ?: 0) > 0 && cap8?.v58desc4d.isNullOrEmpty())
                     returnList.add(CreateIncon.inconsistencia(ctx, "168") ?: "")
-                else if (cap8?.v58desc4d.isNullOrBlank() && !cap8?.v58num4d.isNullOrEmpty())
+                else if (!cap8?.v58desc4d.isNullOrEmpty() && cap8?.v58num4d.isNullOrEmpty())
                     returnList.add(CreateIncon.inconsistencia(ctx, "168") ?: "")
 
             } else if (cap8?.v56check == null) {

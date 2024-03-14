@@ -293,10 +293,6 @@ class FragEncuestaCap07o2 : Fragment() {
     private fun viewCap(): List<String> {
         with(Mob) {
             val returnList: ArrayList<String> = ArrayList()
-//            if (cap7?.v53num1T21.isNullOrEmpty())
-//                returnList.add(CreateIncon.inconsistencia(ctx, "114") ?: "")
-//            if (cap7?.v53num1T22.isNullOrEmpty())
-//                returnList.add(CreateIncon.inconsistencia(ctx, "115") ?: "")
             if (cap7?.v54txt01.isNullOrEmpty() || cap7?.v54txt01 == "0")
                 returnList.add(CreateIncon.inconsistencia(ctx, "116") ?: "")
             if (cap7?.v54txt02.isNullOrEmpty())
