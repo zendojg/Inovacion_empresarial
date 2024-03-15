@@ -263,24 +263,36 @@ class FragEncuestaCap05o2 : Fragment() {
             if (cap5?.v38check1 == true) {
                 checkCap5381.isChecked = true
                 txtCap5381.text = cap5.v38txt1?.toEditable() ?: "".toEditable()
-            } else checkCap5381.isChecked = false
+            } else {
+                checkCap5381.isChecked = false
+                txtCap5381.text.clear()
+            }
 
             if (cap5?.v38check2 == true) {
                 checkCap5382.isChecked = true
                 txtCap5382.text = cap5.v38txt2?.toEditable() ?: "".toEditable()
-            } else checkCap5382.isChecked = false
+            } else {
+                checkCap5382.isChecked = false
+                txtCap5382.text.clear()
+            }
 
             if (cap5?.v38check3 == true) {
                 checkCap5383.isChecked = true
                 txtCap5383.text = cap5.v38txt3?.toEditable() ?: "".toEditable()
-            } else checkCap5383.isChecked = false
+            } else {
+                checkCap5383.isChecked = false
+                txtCap5383.text.clear()
+            }
 
             if (cap5?.v38check4 == true) {
                 checkCap5384.isChecked = true
                 txtCap5384Otro.text = cap5.v38txt4desc?.toEditable() ?: "".toEditable()
                 txtCap5384.text = cap5.v38txt4?.toEditable() ?: "".toEditable()
-            } else checkCap5384.isChecked = false
-
+            } else {
+                txtCap5384.text.clear()
+                txtCap5384Otro.text?.clear()
+                checkCap5384.isChecked = false
+            }
         }
         Mob.infoCap.find { it.indexCap == Mob.CAP5_P07 }?.capView = true
         onAction()

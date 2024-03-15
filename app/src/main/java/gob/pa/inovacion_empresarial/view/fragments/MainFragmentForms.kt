@@ -46,7 +46,6 @@ import gob.pa.inovacion_empresarial.model.ModelResponse
 import gob.pa.inovacion_empresarial.service.room.RoomView
 import gob.pa.inovacion_empresarial.view.FormActivity
 import kotlinx.coroutines.launch
-import java.lang.reflect.Array
 import java.lang.reflect.Type
 import java.util.Locale
 
@@ -183,26 +182,31 @@ class MainFragmentForms : Fragment() {
         }
     }
 
+
+
     //---- Filtro de busqueda del recyclerview para lista cargada
     private fun search(query: String?): Boolean {
         if (!query.isNullOrEmpty()) {
             var inco = 0
+            val arrCondicion = Mob.arrCond.joinToString("|").toRegex(RegexOption.IGNORE_CASE)
+            val queryTxt = query.lowercase(Locale.getDefault())
+            val condSearch = Functions.ceroLeft(Mob.arrCond.indexOf(queryTxt).toString(), 1)
             val listUpdate: ArrayList<ModelForm> = ArrayList()
-            val search = query.lowercase(Locale.getDefault())
 
             val listFilter = adpForms.list.ifEmpty { listofAllForms }
             listUpdate.addAll(
-                if (search.contains("inconsistencia"))
-                     listFilter.filter { it.tieneIncon == true }
-
-                else listFilter.filter {
-                    it.ncontrol?.lowercase(Locale.getDefault())?.contains(search) == true ||
+                if (queryTxt.contains("inconsistencia"))
+                    listFilter.filter { it.tieneIncon == true }
+                else if (arrCondicion.containsMatchIn(queryTxt)) {
+                    listFilter.filter { it.cond == condSearch }
+                } else listFilter.filter {
+                    it.ncontrol?.lowercase(Locale.getDefault())?.contains(queryTxt) == true ||
                             it.cap2?.v05nameLtxt?.lowercase(Locale.getDefault())
-                                ?.contains(search) == true ||
+                                ?.contains(queryTxt) == true ||
                             it.cap2?.v06razontxt?.lowercase(Locale.getDefault())
-                                ?.contains(search) == true ||
+                                ?.contains(queryTxt) == true ||
                             it.cap2?.v07ructxt?.lowercase(Locale.getDefault())
-                                ?.contains(search) == true
+                                ?.contains(queryTxt) == true
                 }
             )
             for (i in listUpdate)

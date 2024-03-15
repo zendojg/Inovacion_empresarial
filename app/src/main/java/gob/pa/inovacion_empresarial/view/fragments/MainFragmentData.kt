@@ -141,7 +141,7 @@ class MainFragmentData : Fragment() {
                             val respServer = dvmUser.seeToken()
                             if (!respServer.msg.isNullOrEmpty()) {
                                 msgBallon("No es posible actualizar")
-                            } else when (respServer?.code) {
+                            } else when (respServer.code) {
                                 Mob.CODE200 -> {
                                     RoomView(dvmUser, ctx).viewRoom(true)
                                     msgBallon("Datos actualizados")

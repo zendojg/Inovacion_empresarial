@@ -128,7 +128,7 @@
                 android:layout_gravity="center|end"
                 android:background="?attr/selectableItemBackground"
                 android:contentDescription="@string/buzqueda"
-                android:src="@drawable/img_expand_more"
+                android:src="@drawable/img_outline_info"
                 android:visibility="gone"
                 tools:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="@+id/searchForms"

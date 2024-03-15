@@ -232,6 +232,19 @@ object Mob {
         "Otra condición (Especifique)"
     )
 
+    val arrCond: Array<String> = arrayOf(
+        "incompleta",
+        "completa",
+        "consolidada",
+        "cerro y no fue reemplazada",
+        "cerro y fue reemplazada",
+        "rehusa",
+        "no localizada",
+        "no opero",
+        "otra condicion"
+    )
+
+
     const val GRADENOTSELECT:Int = 0
     val arrGrade: Array<String> = arrayOf(
         "Grado de importancia",

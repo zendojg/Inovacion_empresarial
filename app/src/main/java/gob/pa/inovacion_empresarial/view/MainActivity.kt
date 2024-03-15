@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                 val respServer = dvmMain.seeToken()
                 if (!respServer.msg.isNullOrEmpty()) {
                     val mensaje = respServer.msg
-                    msgAlert(mensaje, (mensaje.length * 7))
+                    msgAlert(mensaje, (mensaje.length * Mob.SIZE_AUTOCONTROL))
                     moveByToken(true)
                 } else when (respServer.code){
                     Mob.CODE200 -> {
@@ -87,12 +87,12 @@ class MainActivity : AppCompatActivity() {
                     }
                     Mob.CODE401 -> {
                         val mensaje = getString(R.string.msgInforme401)
-                        msgAlert(mensaje, (mensaje.length * 7))
+                        msgAlert(mensaje, (mensaje.length * Mob.SIZE_AUTOCONTROL))
                         moveByToken(false)
                     }
                     else -> {
                         val mensaje = "Error: ${respServer.code}"
-                        msgAlert(mensaje, (mensaje.length * 7))
+                        msgAlert(mensaje, (mensaje.length * Mob.SIZE_AUTOCONTROL))
                     }
                 }
 

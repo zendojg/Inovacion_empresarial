@@ -202,7 +202,7 @@ class FragModuloSecc04: Fragment() {
             when (mod4?.v9check) {
                 true -> rbtSecc049Si.isChecked = true
                 false -> rbtSecc049No.isChecked = true
-                else -> rgroupSecc047.clearCheck()
+                else -> rgroupSecc049.clearCheck()
             }
             txtSecc049.text = mod4?.v9txt?.toDouble()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "".toEditable()
