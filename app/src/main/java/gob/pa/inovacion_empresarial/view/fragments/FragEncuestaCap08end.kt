@@ -17,7 +17,6 @@ import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap8
 import gob.pa.inovacion_empresarial.model.ModelSpinLister
-import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap08end : Fragment() {
 

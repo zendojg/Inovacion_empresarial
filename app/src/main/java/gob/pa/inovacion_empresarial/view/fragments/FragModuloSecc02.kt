@@ -12,7 +12,6 @@ import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.function.Functions.allFalse
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelMod
-import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragModuloSecc02 : Fragment() {
 

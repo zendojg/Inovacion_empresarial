@@ -10,7 +10,6 @@ import gob.pa.inovacion_empresarial.databinding.EncuestaCapitulo10Binding
 import gob.pa.inovacion_empresarial.function.CreateIncon
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap10
-import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap10 : Fragment() {
 

@@ -17,7 +17,6 @@ import gob.pa.inovacion_empresarial.function.Functions.allTrue
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap6
 import gob.pa.inovacion_empresarial.model.ModelSpinLister
-import gob.pa.inovacion_empresarial.view.FormActivity
 
 class FragEncuestaCap06o4 : Fragment() {
     private lateinit var bindingcap6o4: EncuestaCapitulo064InovacionComercializacionBinding

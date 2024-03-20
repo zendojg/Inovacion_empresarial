@@ -2,9 +2,6 @@ package gob.pa.inovacion_empresarial.service.room
 
 import android.content.Context
 import gob.pa.inovacion_empresarial.model.DVModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class RoomView(dvmModel: DVModel, context: Context) {
     private var dvm: DVModel

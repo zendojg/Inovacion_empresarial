@@ -18,7 +18,6 @@ import gob.pa.inovacion_empresarial.model.ModelCap5
 import gob.pa.inovacion_empresarial.model.ModelTexWatchers
 import java.text.DecimalFormat
 import kotlin.time.ExperimentalTime
-import kotlin.time.measureTime
 
 
 class FragEncuestaCap05o2 : Fragment() {

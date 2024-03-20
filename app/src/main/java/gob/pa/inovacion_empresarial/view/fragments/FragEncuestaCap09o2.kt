@@ -17,7 +17,6 @@ import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelCap9
-import gob.pa.inovacion_empresarial.view.FormActivity
 
 
 class FragEncuestaCap09o2 : Fragment() {

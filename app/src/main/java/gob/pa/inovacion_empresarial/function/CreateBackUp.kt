@@ -15,13 +15,18 @@ object CreateBackUp {
     //-- Genera un archivo con todos los formularios, llamado EIE+fecha de texto plano
     suspend fun saved(ctx: Context): Boolean = withContext(Dispatchers.IO) {
         try {
-            val sharedPreferences = ctx.getSharedPreferences(ctx.getString(R.string.sharedPreferencesKey), Context.MODE_PRIVATE)
+            val sharedPreferences = ctx.getSharedPreferences(
+                ctx.getString(R.string.sharedPreferencesKey),
+                Context.MODE_PRIVATE
+            )
             val sharedIds = sharedPreferences.all.map { it.key }
             val lista: ArrayList<String> = ArrayList()
             for (i in sharedIds) {
                 val data: String? = try {
                     AppCache.getAny(ctx, i).toString()
-                } catch (e: ClassCastException) { "" }
+                } catch (e: ClassCastException) {
+                    ""
+                }
                 if (i.contains("UserAPP") ||
                     i.contains("RememberCHECK") ||
                     i.contains("tokenData")
