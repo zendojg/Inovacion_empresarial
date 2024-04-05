@@ -659,7 +659,7 @@
     <string name="p3txtm3">3. Control de acceso a la red <b>(gestión del acceso de disspositivos y usuarios a la red de la empresa)</b>?</string>
     <string name="p3txtm4">4. Otras medidas de seguridad TIC?</string>
     <string name="p4txtm">¿Realizó su empresa ventas de bienes y/o servicios, a tráves de medios electrónicos?</string>
-    <string name="nosecc4">No....<b>2.(Pase a la sección 4)</b></string>
+    <string name="nosecc4">No....<b>2.(Pase a la sección 4, pregunta 7)</b></string>
     <string name="porcentaje">porcentaje %</string>
     <string name="porcent">%</string>
     <string name="p4m1">¿Cómo <u>realizo las ventas</u> de bienes y/o servicios (pedidos y/o reservas) e indique el <u>porcentaje</u> de las ventas…</string>

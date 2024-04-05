@@ -273,7 +273,7 @@ class FragModuloSecc03 : Fragment() {
                 returnList.add(CreateIncon.inconsistencia(ctx, "620") ?: "")
 
             Mob.infoCap.find { it.indexCap == Mob.SEC3_P22 }?.incons = returnList.isNotEmpty()
-            //println("Secc3: --${Mob.capMod}")
+            println("Secc3: --${Mob.capMod}")
             return returnList
         }
     }

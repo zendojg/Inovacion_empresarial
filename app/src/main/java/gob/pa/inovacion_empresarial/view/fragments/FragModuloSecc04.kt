@@ -62,6 +62,7 @@ class FragModuloSecc04: Fragment() {
     private fun onAction() {
         with(bindingmod4) {
             scrollForm.isVisible = Mob.capMod?.v1check != false
+            layoutSecc046.isVisible = Mob.capMod?.v4check != false
             row1EditTexts = listOf(txtSecc046p1, txtSecc046p2, txtSecc046p3, txtSecc046p4)
             row2EditTexts = listOf(txtSecc04101, txtSecc04102, txtSecc04103, txtSecc04104)
 
@@ -254,14 +255,15 @@ class FragModuloSecc04: Fragment() {
                 Mob.capMod?.v4check1ePorcent,
                 Mob.capMod?.v4check1eOther,
                 Mob.capMod?.v5txt,//--------------
-                if (Mob.capMod?.v1check != false)
+                if (Mob.capMod?.v1check != false && Mob.capMod?.v4check != false)
                     txtSecc046p1.text.toString().ifEmpty { null } else null,
-                if (Mob.capMod?.v1check != false)
+                if (Mob.capMod?.v1check != false && Mob.capMod?.v4check != false)
                     txtSecc046p2.text.toString().ifEmpty { null } else null,
-                if (Mob.capMod?.v1check != false)
+                if (Mob.capMod?.v1check != false && Mob.capMod?.v4check != false)
                     txtSecc046p3.text.toString().ifEmpty { null } else null,
-                if (Mob.capMod?.v1check != false)
+                if (Mob.capMod?.v1check != false && Mob.capMod?.v4check != false)
                     txtSecc046p4.text.toString().ifEmpty { null } else null,
+
                 if (Mob.capMod?.v1check != false && rbtSecc047Si.isChecked) true else
                     if (Mob.capMod?.v1check != false && rbtSecc047No.isChecked) false else null,
                 if (Mob.capMod?.v1check != false && rbtSecc047Si.isChecked)
@@ -294,10 +296,11 @@ class FragModuloSecc04: Fragment() {
                 txtSecc04105.text.toString().replace(",", "").toIntOrNull() ?: 0
 
             if (Mob.capMod?.v1check == true) {
-                if (porcentP6 == 0)
-                    returnList.add(CreateIncon.inconsistencia(ctx, "306") ?: "")
-                else if (porcentP6 != Mob.PORCENT100)
-                    returnList.add(CreateIncon.inconsistencia(ctx, "307") ?: "")
+                if (Mob.capMod?.v4check != false)
+                    if (porcentP6 == 0)
+                        returnList.add(CreateIncon.inconsistencia(ctx, "306") ?: "")
+                    else if (porcentP6 != Mob.PORCENT100)
+                        returnList.add(CreateIncon.inconsistencia(ctx, "307") ?: "")
                 if (rgroupSecc047.checkedRadioButtonId == -1)
                     returnList.add(CreateIncon.inconsistencia(ctx, "308") ?: "")
                 if (txtSecc048.text.isNullOrEmpty() || txtSecc048.text.toString() == "0")
@@ -311,7 +314,7 @@ class FragModuloSecc04: Fragment() {
                 returnList.add(CreateIncon.inconsistencia(ctx, "620") ?: "")
 
             Mob.infoCap.find { it.indexCap == Mob.SEC4_P23 }?.incons = returnList.isNotEmpty()
-            //println("Secc4: --${Mob.capMod}")
+            println("Secc4: --${Mob.capMod}")
             return returnList
         }
     }

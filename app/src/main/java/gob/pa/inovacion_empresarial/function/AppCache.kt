@@ -18,9 +18,7 @@ object AppCache {
     //-----// User del Encuestador
     fun userSAVE(ctx: Context, user: String) {
         val vPrefe: SharedPreferences = ctx.getSharedPreferences(
-            ctx.getString(
-                R.string.sharedPreferencesKey
-            ), Context.MODE_PRIVATE)
+            ctx.getString(R.string.sharedPreferencesKey), Context.MODE_PRIVATE)
         val vEditor: SharedPreferences.Editor = vPrefe.edit()
         vEditor.putString(userAPP, user)
         vEditor.apply()

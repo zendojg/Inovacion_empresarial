@@ -66,6 +66,7 @@ class FragEncuestaCap02o2 : Fragment() {
             txtCap2191.text = cap2?.v19tel1txt?.toEditable() ?: blank
             txtCap2192.text = cap2?.v19tel2txt?.toEditable() ?: blank
             txtCap220.text = cap2?.v20celtxt?.toEditable() ?: blank
+            txtCap221.text = cap2?.v21emailtxt?.toEditable() ?: blank
             frameview = !txtCap2192.text.isNullOrBlank()
         }
         Mob.infoCap.find { it.indexCap == Mob.CAP2_P03 }?.capView = true

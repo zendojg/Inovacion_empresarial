@@ -44,9 +44,9 @@ class FragEncuestaCap06o4 : Fragment() {
         fun check48() { bindingcap6o4.layoutCap649.isVisible = !checkNo48.allTrue() }
         with(bindingcap6o4) {
 
-            spinList.add(ModelSpinLister(spinCap6491, Mob.cap6?.v45txtGrado1?.toIntOrNull() ?: 0))
-            spinList.add(ModelSpinLister(spinCap6492, Mob.cap6?.v45txtGrado2?.toIntOrNull() ?: 0))
-            spinList.add(ModelSpinLister(spinCap6493, Mob.cap6?.v45txtGrado3?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap6491, Mob.cap6?.v49txtGrado1?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap6492, Mob.cap6?.v49txtGrado2?.toIntOrNull() ?: 0))
+            spinList.add(ModelSpinLister(spinCap6493, Mob.cap6?.v49txtGrado3?.toIntOrNull() ?: 0))
 
             checkNo48[Mob.CHECK1Y2021] = rbtCap6481No2021.isChecked
             checkNo48[Mob.CHECK1Y2022] = rbtCap6481No2022.isChecked
