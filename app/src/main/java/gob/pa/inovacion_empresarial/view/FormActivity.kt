@@ -70,10 +70,10 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var toggle: ActionBarDrawerToggle
 
+    private var pagerIndex: Int? = null
     private var dialog: AlertDialog? = null
     private val dvmForm: DVModel by viewModels()
     private val ctx: Context = this
-    private var pagerIndex: Int? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

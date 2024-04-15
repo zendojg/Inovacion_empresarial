@@ -303,13 +303,17 @@ class FragModuloSecc04: Fragment() {
                         returnList.add(CreateIncon.inconsistencia(ctx, "307") ?: "")
                 if (rgroupSecc047.checkedRadioButtonId == -1)
                     returnList.add(CreateIncon.inconsistencia(ctx, "308") ?: "")
-                if (txtSecc048.text.isNullOrEmpty() || txtSecc048.text.toString() == "0")
-                    returnList.add(CreateIncon.inconsistencia(ctx, "309") ?: "")
+                else if (rbtSecc047Si.isChecked)
+                    if (txtSecc048.text.isNullOrEmpty() || txtSecc048.text.toString() == "0")
+                        returnList.add(CreateIncon.inconsistencia(ctx, "309") ?: "")
                 if (rgroupSecc049.checkedRadioButtonId == -1)
                     returnList.add(CreateIncon.inconsistencia(ctx, "310") ?: "")
-                if (porcentP10 != Mob.PORCENT100)
-                    returnList.add(CreateIncon.inconsistencia(ctx, "311") ?: "")
-
+                else if (rbtSecc049Si.isChecked) {
+                    if (txtSecc049.text.isNullOrEmpty() || txtSecc048.text.toString() == "0")
+                        returnList.add(CreateIncon.inconsistencia(ctx, "312") ?: "")
+                    if (porcentP10 != Mob.PORCENT100)
+                        returnList.add(CreateIncon.inconsistencia(ctx, "311") ?: "")
+                }
             } else if (Mob.capMod?.v1check == null)
                 returnList.add(CreateIncon.inconsistencia(ctx, "620") ?: "")
 

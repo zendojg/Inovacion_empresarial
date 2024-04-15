@@ -299,6 +299,8 @@ class FragEncuestaCap05o2 : Fragment() {
 
     private fun fillOut35(cap5: ModelCap5?) {
         with(bindingcap5o2) {
+            txtCap535Otro.text = cap5?.v35txtOtro?.toEditable()?.ifEmpty { null }
+
             txtCap535AHNac.text = cap5?.v35txthomNaca?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }
                 ?.run { decimalFormat.format(this).toEditable() } ?: "0".toEditable() // A Hombres
             txtCap535AHExt.text = cap5?.v35txthomExta?.toDoubleOrNull()?.toInt()?.takeIf { it > 0 }

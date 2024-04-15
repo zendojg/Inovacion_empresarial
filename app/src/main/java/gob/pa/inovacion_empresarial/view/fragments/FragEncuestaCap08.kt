@@ -184,12 +184,14 @@ class FragEncuestaCap08 : Fragment() {
                 if (rbtCap856Si.isChecked && spinCap8571A.selectedItemPosition != 0)
                     spinCap8571A.selectedItemPosition.toString() else null,
                 if (rbtCap856Si.isChecked && spinCap8571A.selectedItemPosition == 2)
+                    if (txtCap8571AMonto.text.toString() == "0") null else
                     txtCap8571AMonto.text.toString().
                     replace(",", "").ifEmpty { null } else null,
 
                 if (rbtCap856Si.isChecked && spinCap8571B.selectedItemPosition != 0)
                     spinCap8571B.selectedItemPosition.toString() else null,
                 if (rbtCap856Si.isChecked && spinCap8571B.selectedItemPosition == 2)
+                    if (txtCap8571BMonto.text.toString() == "0") null else
                     txtCap8571BMonto.text.toString().
                     replace(",", "").ifEmpty { null } else null,
 
@@ -198,18 +200,21 @@ class FragEncuestaCap08 : Fragment() {
                 if (rbtCap856Si.isChecked && spinCap8571C.selectedItemPosition != 0)
                     spinCap8571C.selectedItemPosition.toString() else null,
                 if (rbtCap856Si.isChecked && spinCap8571C.selectedItemPosition == 2)
+                    if (txtCap8571CMonto.text.toString() == "0") null else
                     txtCap8571CMonto.text.toString().
                     replace(",", "").ifEmpty { null } else null,
 
                 if (rbtCap856Si.isChecked && spinCap8572A.selectedItemPosition != 0)
                     spinCap8572A.selectedItemPosition.toString() else null,
                 if (rbtCap856Si.isChecked && spinCap8572A.selectedItemPosition == 2)
+                    if (txtCap8572AMonto.text.toString() == "0") null else
                     txtCap8572AMonto.text.toString().
                     replace(",", "").ifEmpty { null } else null,
 
                 if (rbtCap856Si.isChecked && spinCap8572B.selectedItemPosition != 0)
                     spinCap8572B.selectedItemPosition.toString() else null,
                 if (rbtCap856Si.isChecked && spinCap8572B.selectedItemPosition == 2)
+                    if (txtCap8572BMonto.text.toString() == "0") null else
                     txtCap8572BMonto.text.toString().
                     replace(",", "").ifEmpty { null } else null,
 
@@ -218,6 +223,7 @@ class FragEncuestaCap08 : Fragment() {
                 if (rbtCap856Si.isChecked && spinCap8572C.selectedItemPosition != 0)
                     spinCap8572C.selectedItemPosition.toString() else null,
                 if (rbtCap856Si.isChecked && spinCap8572C.selectedItemPosition == 2)
+                    if (txtCap8572CMonto.text.toString() == "0") null else
                     txtCap8572CMonto.text.toString().
                     replace(",", "").ifEmpty { null } else null,
 
@@ -279,9 +285,9 @@ class FragEncuestaCap08 : Fragment() {
 
                 if (cap8?.v57num2a == "2" && cap8?.v57monto2a.isNullOrEmpty())
                     returnList.add(CreateIncon.inconsistencia(ctx, "153") ?: "")
-                if (cap8?.v57num2b == "2" && cap8?.v57monto2a.isNullOrEmpty())
+                if (cap8?.v57num2b == "2" && cap8?.v57monto2b.isNullOrEmpty())
                     returnList.add(CreateIncon.inconsistencia(ctx, "154") ?: "")
-                if (cap8?.v57num2c == "2" && cap8?.v57monto2a.isNullOrEmpty())
+                if (cap8?.v57num2c == "2" && cap8?.v57monto2c.isNullOrEmpty())
                     returnList.add(CreateIncon.inconsistencia(ctx, "155") ?: "")
                 infoCap.find { it.indexCap == CAP8_P15 }?.incons = returnList.isNotEmpty()
             }

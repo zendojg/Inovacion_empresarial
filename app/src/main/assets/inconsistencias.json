@@ -1243,6 +1243,10 @@
     "PAUTA": 311,
     "TEXTO": "Pregunta 10.  Porcentaje de Hardware + Software +  Servicios de consultoría de TIC + Otros gastos TIC, no suman 100%."
   },
+  {
+  "PAUTA": 312,
+  "TEXTO": "Pregunta 9.  En el 2022, sí realizó su empresa costos y\/o gastos en Tecnologías de la Información y las Comunicaciones (TIC) y no tiene el monto."
+},
 
 
   {
