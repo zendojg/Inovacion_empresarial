@@ -20,6 +20,8 @@ interface ApiService {
     suspend fun getForm(@Path("id") id:String): Response<ModelForm>
     @GET ("${Mob.APIFORMUSER}{id}") //--  Formulario GET
     suspend fun getFormsUser(@Path("id") id:String): Response<List<ModelForm>>
+    @GET ("${Mob.APIFORMSUPER}{id}") //--  Formulario GET Supervisor
+    suspend fun getFormsSuper(@Path("id") id:String): Response<List<ModelForm>>
     @GET ("${Mob.APIINCONSISTENCIAS}{nctrl}") //--  Inconsistencias GET
     suspend fun getIncon(@Path("nctrl") nctrl:String): Response<Any>
 

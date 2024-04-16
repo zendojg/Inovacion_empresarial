@@ -146,8 +146,6 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
             }
             btbackpager.setOnClickListener { if (dialog?.isShowing != true) seeCaps(false) }
-            btinconpager.setOnClickListener { /* Para ver inconsistencias, el bt esta invisible */}
-
             viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 private fun setVisibility(view: View, isVisible: Boolean) {
                     view.visibility = if (isVisible) View.VISIBLE else View.GONE
@@ -347,8 +345,9 @@ class FormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         else if (form.viewpager.currentItem == Mob.OBSE_P24) R.color.teal_700
         else  R.color.cream_darl
         val listFaltantes: List<String> = pageSave()
-        if (move != null && Mob.authData?.rol != "E")  moveTo(move) //--- No muestra inconsistencias
-        else if (move != null && listFaltantes.isEmpty())  moveTo(move) //-- mover por el form
+        //if (move != null && Mob.authData?.rol != Mob.CODE_EMP)  moveTo(move) //-- No muestra incons
+        //else
+        if (move != null && listFaltantes.isEmpty())  moveTo(move)      //-- mover por el form
         else if (move == null) { //-- Guardar
             lifecycleScope.launch {
                 val colorBallom = ContextCompat.getColor(ctx, colorlb)

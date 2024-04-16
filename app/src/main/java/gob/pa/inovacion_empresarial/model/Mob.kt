@@ -48,6 +48,7 @@ object Mob {
     const val APIGETFORM = "${URLapi}/Cuestionario/full/"
     const val APIUPDATEFORM = "${URLapi}/Cuestionario/update"
     const val APIFORMUSER = "${URLapi}/Cuestionario/enc/"
+    const val APIFORMSUPER = "${URLapi}/Supervisor/all/"
     const val APIINCONSISTENCIAS = "${URLapi}/Inconsistencia/"
 
     //------- Valores de UI
@@ -63,6 +64,9 @@ object Mob {
     const val MAX_TEXWATCHER_4ROWS:Int = 6
     const val MAX_TEXWATCHER_MANY_ROWS:Int = 15
     const val MIN_LENGHTTEL: Int = 7
+    const val CODE_SUP:String = "S"
+    const val CODE_EMP:String = "E"
+
     //-------
     const val JUMP_MODULE1:Int = 4
     const val INITIAL_YEAR:Int = 1900

@@ -16,6 +16,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.viewpager2.widget.ViewPager2
+import com.google.gson.Gson
+import com.google.gson.JsonParseException
+import com.google.gson.reflect.TypeToken
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.databinding.FragSearchMainBinding
 import gob.pa.inovacion_empresarial.function.CreateForm
@@ -24,8 +27,10 @@ import gob.pa.inovacion_empresarial.function.Functions.hideKeyboard
 import gob.pa.inovacion_empresarial.function.Functions.toEditable
 import gob.pa.inovacion_empresarial.model.DVModel
 import gob.pa.inovacion_empresarial.model.Mob
+import gob.pa.inovacion_empresarial.model.ModelResponse
 import gob.pa.inovacion_empresarial.view.FormActivity
 import kotlinx.coroutines.launch
+import java.lang.reflect.Type
 
 class MainFragmentSearch : Fragment() {
 
@@ -118,6 +123,7 @@ class MainFragmentSearch : Fragment() {
                 when (resp.code) {
                     Mob.CODE200 -> {
                         CreateForm.createLoad(resp.body)
+                        inconsistencias()
                         viewFind(false)
                     }
                     Mob.CODE401 -> activity?.runOnUiThread {
@@ -157,6 +163,19 @@ class MainFragmentSearch : Fragment() {
         alert.dismissWithDelay(Mob.TIMELONG4SEG)
     }
 
+    suspend fun inconsistencias() {
+        if (Mob.formComp?.tieneIncon == true) {
+            val resp = dvmSearch.getIncon(Mob.formComp?.ncontrol ?: "")
+            val respGson: String = try { Gson().toJson(resp.body) as String
+            } catch (e: JsonParseException) { "" }
+            val type: Type = object : TypeToken<ModelResponse?>() {}.type
+            val jsonModel: ModelResponse? = Gson().fromJson<ModelResponse>(respGson, type)
+            Mob.inconsArray = jsonModel?.inconsistencias
+        }
+
+    }
+
+
     private fun viewFind(check: Boolean) {
         with (fragSearch){
             lyContainer.isVisible = !check
@@ -188,6 +207,10 @@ class MainFragmentSearch : Fragment() {
                 }
             }
             btinitSearch.setOnClickListener {
+                if (Mob.authData?.rol == Mob.CODE_SUP && Mob.formComp?.tieneIncon == true) {
+                    Mob.viewIncon = true
+                }
+
                 Mob.indiceFormulario = Mob.CAP1_P01
                 activity?.finish()
                 val options = ActivityOptions.makeCustomAnimation(ctx,

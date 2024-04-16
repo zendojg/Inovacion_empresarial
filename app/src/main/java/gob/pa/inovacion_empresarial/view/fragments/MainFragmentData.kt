@@ -56,8 +56,8 @@ class MainFragmentData : Fragment() {
         bindingUser.apply {
             val expira = Mob.authData?.result?.infotoken?.expire?.split("T")
             val rol = when (Mob.authData?.rol) {
-                "E" -> "Empadronador"
-                "S" -> "Supervisor"
+                Mob.CODE_EMP -> "Empadronador"
+                Mob.CODE_SUP -> "Supervisor"
                 else -> "Usuario"
             }
             lbROLUser.text = rol
