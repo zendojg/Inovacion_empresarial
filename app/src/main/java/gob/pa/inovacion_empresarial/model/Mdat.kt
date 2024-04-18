@@ -460,10 +460,44 @@ data class ModelForm(
     @SerializedName("cap9Patentes")                             val cap9: ModelCap9?,
     @SerializedName("cap10PerspectivasInnovacionesFuturas")     val capx: ModelCap10?,
     @SerializedName("comercioElectronico")                      val capMod: ModelMod?, )
+
+
+data class ModelListSuper(
+    @SerializedName("numControl") val ncontrol: Int?,
+    @SerializedName("condicion") val condicionID: String?,
+    @SerializedName("condicionNombre") val condicion: String?,
+    @SerializedName("prov") val provID: String?,
+    @SerializedName("provNombre") val prov: String?,
+    @SerializedName("dist") val distID: String?,
+    @SerializedName("distNombre") val dist: String?,
+    @SerializedName("correg") val correID: String?,
+    @SerializedName("corregNombre") val corre: String?,
+    @SerializedName("nombComerc") val nameComer: String?,
+    @SerializedName("razSocial") val razon: String?,
+    @SerializedName("ruc") val ruc: String?,
+    @SerializedName("fechaModificacion") val datemod: String?,
+    @SerializedName("encuestador") val encuesyador: String?
+)
+
 data class ModelFormGet(
     val code: Int?,
     val resp: String?,
     val body: ModelForm?)
+
+
+//data class SuperForms(
+//
+//)
+
+
+data class ModelFormsGetSuper(
+    val code: Int?,
+    val resp: String?,
+    val body: List<ModelListSuper>?)
+
+
+
+
 
 data class ModelFormsGetUser(
     val code: Int?,

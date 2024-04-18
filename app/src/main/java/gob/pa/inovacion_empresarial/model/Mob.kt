@@ -48,8 +48,10 @@ object Mob {
     const val APIGETFORM = "${URLapi}/Cuestionario/full/"
     const val APIUPDATEFORM = "${URLapi}/Cuestionario/update"
     const val APIFORMUSER = "${URLapi}/Cuestionario/enc/"
-    const val APIFORMSUPER = "${URLapi}/Supervisor/all/"
     const val APIINCONSISTENCIAS = "${URLapi}/Inconsistencia/"
+
+    const val APIFORMSUPER = "${URLapi}/Supervisor/all/"
+    const val APIINCONSUPER = "${URLapi}/Supervisor/inc/"
 
     //------- Valores de UI
     const val USERTEST:String = "USUARIO SIN INDENTIFICADOR"

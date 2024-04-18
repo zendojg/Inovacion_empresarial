@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -56,8 +57,16 @@ class MainFragmentData : Fragment() {
         bindingUser.apply {
             val expira = Mob.authData?.result?.infotoken?.expire?.split("T")
             val rol = when (Mob.authData?.rol) {
-                Mob.CODE_EMP -> "Empadronador"
-                Mob.CODE_SUP -> "Supervisor"
+                Mob.CODE_EMP -> {
+                    "Empadronador"
+                }
+                Mob.CODE_SUP -> {
+                    layoutsends.isVisible = false
+                    layoutsaved.isVisible = false
+                    layoutweek.isVisible = false
+                    lblbnotsend2.text = "Con Inconsistencias: "
+                    "Supervisor"
+                }
                 else -> "Usuario"
             }
             lbROLUser.text = rol
@@ -92,7 +101,11 @@ class MainFragmentData : Fragment() {
 
             }
             bindingUser.barUser.visibility = View.VISIBLE
-            lifecycleScope.launch { actividad() }
+
+            if (Mob.authData?.user?.contains(Mob.CODE_EMP) == true)
+                lifecycleScope.launch { empResumen() }
+            else if (Mob.authData?.user?.contains(Mob.CODE_SUP) == true)
+                lifecycleScope.launch { supResumen() }
         }
     }
 
@@ -201,59 +214,99 @@ class MainFragmentData : Fragment() {
         }
     }
 
-    private suspend fun actividad() {
-        if (!Mob.authData?.user.isNullOrEmpty()) {
-            var sendForms = 0
-            var notsendForms = 0
+    private suspend fun empResumen() {
+        var sendForms = 0
+        var notsendForms = 0
+        val dateNow: MutableList<String?> = mutableListOf()
+        val dateWeek: MutableList<String?> = mutableListOf()
+        val dateToday = if (Build.VERSION.SDK_INT >= Mob.VERSION) LocalDate.now() else null
+        val roomDMC = RoomView(dvmUser, ctx).getFormsUser(Mob.authData?.user ?: "")
 
-            val dateNow: MutableList<String?> = mutableListOf()
-            val dateWeek: MutableList<String?> = mutableListOf()
-            val dateToday = if(Build.VERSION.SDK_INT >= Mob.VERSION) LocalDate.now() else null
+        val retroSERVER = dvmUser.formsGetUser(Mob.authData?.user ?: "") //-- getlist
+        val listAsign: Int = retroSERVER?.body?.size ?: 0
 
-            val roomDMC = RoomView(dvmUser, ctx).getFormsUser(Mob.authData?.user ?: "")
-            val retroSERVER = dvmUser.formsGetUser(Mob.authData?.user ?: "")
-            val listAsign: Int = retroSERVER?.body?.size ?: 0
+        if (!retroSERVER?.body.isNullOrEmpty()) /*-- contador de forms enviados --*/
+            for (i in retroSERVER?.body!!)
+                if (i.act == true)
+                    sendForms += 1
 
-
-            if (!retroSERVER?.body.isNullOrEmpty()) /*-- contador de forms enviados --*/
-                for (i in retroSERVER?.body!!) if (i.tieneIncon != null) sendForms += 1
-
-            for (i in roomDMC) { /*-- contador y enlistador de forms en el DMC --*/
-                val type: Type = object : TypeToken<ModelForm?>() {}.type
-                val listTest = Gson().fromJson<ModelForm>(i.saveForm, type)
-                val onlyDate = i.saveDate?.split(" ")?.get(0)
-
-
-                val dateForm = if(Build.VERSION.SDK_INT >= Mob.VERSION)
-                    LocalDate.parse(onlyDate ?: "0-0-0") else null
+        for (i in roomDMC) { /*-- contador y enlistador de forms en el DMC --*/
+            val type: Type = object : TypeToken<ModelForm?>() {}.type
+            val listTest = Gson().fromJson<ModelForm>(i.saveForm, type)
+            val onlyDate = i.saveDate?.split(" ")?.get(0)
 
 
-                /*--
-                val semanasDesdeUltimoLunes = if(Build.VERSION.SDK_INT >= Mob.VERSION)
-                    ChronoUnit.WEEKS.between(dateForm?.with(DayOfWeek.MONDAY), dateForm).toInt()
-                else null*/
+            val dateForm = if (Build.VERSION.SDK_INT >= Mob.VERSION)
+                LocalDate.parse(onlyDate ?: "0-0-0") else null
 
 
-                if (dateForm == dateToday && dateForm != null) dateNow += i.saveDate
+            /*--
+            val semanasDesdeUltimoLunes = if(Build.VERSION.SDK_INT >= Mob.VERSION)
+                ChronoUnit.WEEKS.between(dateForm?.with(DayOfWeek.MONDAY), dateForm).toInt()
+            else null*/
 
-                if(Build.VERSION.SDK_INT >= Mob.VERSION)
-                    if(dateForm?.isAfter(dateToday?.minus(7, ChronoUnit.DAYS)) == true)
-                        dateWeek += i.saveDate
-                if (listTest.tieneIncon == null) notsendForms += 1 //--- contar no editados
-            }
-            activity?.runOnUiThread {
-                Handler(Looper.getMainLooper()).postDelayed({
-                    bindingUser.apply {
-                        barUser.visibility = View.INVISIBLE
-                        txtnotsendUser.text = notsendForms.toString()
-                        txtsendUser.text = sendForms.toString()
-                        txtasignFormUser.text = listAsign.toString()
-                        txtsavedmUser.text = roomDMC.size.toString()
-                        txtcomplettoday.text = dateNow.size.toString()
-                        txtcompletweek.text = dateWeek.size.toString()
-                    }
-                }, (Mob.TIME500MS))
-            }
+
+            if (dateForm == dateToday && dateForm != null) dateNow += i.saveDate
+
+            if (Build.VERSION.SDK_INT >= Mob.VERSION)
+                if (dateForm?.isAfter(dateToday?.minus(7, ChronoUnit.DAYS)) == true)
+                    dateWeek += i.saveDate
+            if (listTest.tieneIncon == null) notsendForms += 1 //--- contar no editados
+        }
+        activity?.runOnUiThread {
+            Handler(Looper.getMainLooper()).postDelayed({
+                bindingUser.apply {
+                    barUser.visibility = View.INVISIBLE
+                    txtnotsendUser.text = notsendForms.toString()
+                    txtsendUser.text = sendForms.toString()
+                    txtasignFormUser.text = listAsign.toString()
+                    txtsavedmUser.text = roomDMC.size.toString()
+                    txtcomplettoday.text = dateNow.size.toString()
+                    txtcompletweek.text = dateWeek.size.toString()
+                }
+            }, (Mob.TIME500MS))
         }
     }
+
+    private suspend fun supResumen() {
+
+        val respAsign = dvmUser.asignGetSuper(Mob.authData?.user ?: "")  //-- getlist Asing
+        val respIncon = dvmUser.inconGetSuper(Mob.authData?.user ?: "")  //-- getlist Incon
+
+        val hashMapAssing = HashMap<String, Any>()
+        val hashMapIncon = HashMap<String, Any>()
+        if (respAsign != null) {
+            for ((key, value) in respAsign) {
+                hashMapAssing[key.toString()] = value
+            }
+        }
+        if (respIncon != null) {
+            for ((key, value) in respIncon) {
+                hashMapIncon[key.toString()] = value
+            }
+        }
+        val asignList = hashMapAssing["result"] as List<*>
+        val asignIncon = hashMapIncon["result"] as List<*>
+
+        val listAsign: Int =  asignList.size
+        val inconsForms = asignIncon.size
+
+
+        activity?.runOnUiThread {
+            Handler(Looper.getMainLooper()).postDelayed({
+                bindingUser.apply {
+                    barUser.visibility = View.INVISIBLE
+                    txtnotsendUser.text = inconsForms.toString()
+                    txtsendUser.text = "0"
+                    txtasignFormUser.text = listAsign.toString()
+                    txtsavedmUser.text = "0"
+                    txtcomplettoday.text = "0"
+                    txtcompletweek.text = "0"
+                }
+            }, (Mob.TIME500MS))
+        }
+    }
+
+
+
 }

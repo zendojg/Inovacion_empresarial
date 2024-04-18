@@ -2,6 +2,7 @@ package gob.pa.inovacion_empresarial.model
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.google.gson.internal.LinkedTreeMap
 import gob.pa.inovacion_empresarial.service.api.ApiBuilder
 import gob.pa.inovacion_empresarial.service.api.ApiService
 import gob.pa.inovacion_empresarial.service.room.DBcorregimiento
@@ -98,25 +99,24 @@ class DVModel: ViewModel() {
             body = body
         )
     }
-    suspend fun formsGetSuper(userID: String): ModelFormsGetUser? {
-        val code: Int
-        val error: String?
-        val body: List<ModelForm>? = try {
+
+    suspend fun asignGetSuper(userID: String): LinkedTreeMap<*, *>? {
+        return try {
             val resp =
-                ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getFormsSuper(userID)
-            error = if (resp.errorBody() != null) (resp.errorBody()!!.charStream().readText())
-            else null
-            code = resp.code()
+                ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getasignSuper(userID)
             resp.body()
         } catch (e: IOException) {
-            Log.e("-- Response error: ", e.message.toString())
             return null
         }
-        return ModelFormsGetUser(
-            code = code,
-            resp = error,
-            body = body
-        )
+    }
+    suspend fun inconGetSuper(userID: String): LinkedTreeMap<*, *>? {
+        return try {
+            val resp =
+                ApiBuilder.ServiceBuilder.buildService(ApiService::class.java).getinconSuper(userID)
+            resp.body()
+        } catch (e: IOException) {
+            return null
+        }
     }
 
     //---- DOWNLOAD PROVINCIAS

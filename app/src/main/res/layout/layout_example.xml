@@ -2,261 +2,665 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineTop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.07"
-            />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="220dp"
-            android:layout_height="100dp"
-            android:contentDescription="Secretaria Nacional de Ciencia, Tecnología e Innovación"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guidelineTop"
-            app:srcCompat="@drawable/logo_contraloria" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarpager"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/oswaldregular"
-            android:gravity="center"
-            android:text="ENCUESTA DE INNOVACIÓN EN EMPRESAS"
-            android:textColor="@color/blue_dark"
-            android:textSize="@dimen/text18"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            android:animateLayoutChanges="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:text="CONTRALORÍA GENERAL DE LA REPÚBLICA"
-            android:textColor="@color/blue_dark"
-            android:textStyle="bold"
-            android:textSize="@dimen/text12"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <TextView
+                    android:id="@+id/txvtitlepager"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:fontFamily="sans-serif-condensed"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/datUser"
+                    android:textColor="@color/blue_dark"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/lbROLUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:animateLayoutChanges="true"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="@string/rolExample"
+                    android:textColor="@color/blue_dark"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/txvtitlepager"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btbackUser"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginHorizontal="5dp"
+                    android:animateLayoutChanges="true"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="@string/back"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    app:tint="@color/blue_dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btsaveUser"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_backarr"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageView
+                    android:id="@+id/btsaveUser"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center|start"
+                    android:layout_marginHorizontal="5dp"
+                    android:animateLayoutChanges="true"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="@string/guardar"
+                    android:focusable="true"
+                    android:padding="5dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_save_black"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+                <ImageView
+                    android:id="@+id/btExitUserx"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="5dp"
+                    android:animateLayoutChanges="true"
+                    android:background="?selectableItemBackground"
+                    android:clickable="true"
+                    android:contentDescription="@string/menu"
+                    android:visibility="gone"
+                    android:focusable="true"
+                    android:padding="4dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/img_logout"
+                    tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
 
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineMiddle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.24"
-            />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:gravity="center"
-            android:paddingHorizontal="50dp"
-            android:paddingVertical="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/guidelineMiddle">
-            <!-- 15.55555555555555555 -->
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbarpager">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtuserlyLogin"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutinfo1User"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start|center_vertical"
-                android:hint="@string/hint_user"
-                android:textColorHint="#336E94"
-                app:endIconMode="clear_text"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="match_parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:startIconContentDescription="Empadronador"
-                app:startIconDrawable="@drawable/img_person">
+                app:layout_constraintEnd_toEndOf="parent">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtuserLogin"
-                    android:layout_width="match_parent"
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/lineLeftUser"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:fontFamily="sans-serif-condensed"
-                    android:inputType="textVisiblePassword|textCapCharacters"
-                    android:lines="1"
-                    android:maxLines="1"
-                    android:singleLine="true"
-                    android:textColor="@color/blue_dark"
-                    android:textSize="@dimen/text16"
-                    app:errorEnabled="true"
-                    tools:text="Usuario" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.05" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/txtpasslyLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start|center_vertical"
-                android:hint="@string/hint_pass"
-                android:textColorHint="#336E94"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtuserlyLogin"
-                app:startIconContentDescription="Contraseña"
-                app:startIconDrawable="@drawable/img_lock">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/txtpassLogin"
-                    android:layout_width="match_parent"
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/lineRightUser"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="5dp"
-                    android:background="@android:color/transparent"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.95" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/lineBottomUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.87" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/lineRightUser"
+                    app:layout_constraintStart_toStartOf="@+id/lineLeftUser"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/lbnamelbUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:animateLayoutChanges="true"
+                        android:layout_marginStart="7dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/name"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/lbnameUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:animateLayoutChanges="true"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/spam"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@+id/lbnamelbUser"
+                        app:layout_constraintTop_toTopOf="@+id/lbnamelbUser" />
+
+                    <TextView
+                        android:id="@+id/lbuserlbUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:animateLayoutChanges="true"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/user"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/lbnamelbUser"
+                        app:layout_constraintTop_toBottomOf="@+id/lbnamelbUser" />
+
+                    <TextView
+                        android:id="@+id/lbuserUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:animateLayoutChanges="true"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/spam"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@+id/lbuserlbUser"
+                        app:layout_constraintTop_toTopOf="@+id/lbuserlbUser" />
+
+                    <TextView
+                        android:id="@+id/lbfechalbUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:animateLayoutChanges="true"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/sessionexp"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="@+id/lbuserlbUser"
+                        app:layout_constraintTop_toBottomOf="@+id/lbuserlbUser" />
+
+                    <TextView
+                        android:id="@+id/lbfechaUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:animateLayoutChanges="true"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/spam"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toEndOf="@+id/lbfechalbUser"
+                        app:layout_constraintTop_toTopOf="@+id/lbfechalbUser" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutInfoFormsUser"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="37dp"
+                    app:layout_constraintEnd_toStartOf="@+id/lineRightUser"
+                    app:layout_constraintStart_toStartOf="@+id/lineLeftUser"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/lineMidUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.4" />
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layoutasig"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:padding="7dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageView1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/asignadas"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_assignment_48"
+                            app:tint="@android:color/holo_blue_dark" />
+
+                        <TextView
+                            android:id="@+id/lbasig1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/totaldeencuestas"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@+id/lbasig2"
+                            app:layout_constraintStart_toEndOf="@+id/imageView1"
+                            app:layout_constraintTop_toTopOf="@+id/imageView1" />
+
+                        <TextView
+                            android:id="@+id/lbasig2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/asignadas"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView1"
+                            app:layout_constraintStart_toStartOf="@+id/lbasig1"
+                            app:layout_constraintTop_toBottomOf="@+id/lbasig1" />
+
+                        <TextView
+                            android:id="@+id/txtasignFormUser"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/lbasig2"
+                            app:layout_constraintStart_toEndOf="@+id/lbasig2"
+                            app:layout_constraintTop_toTopOf="@+id/lbasig2"
+                            tools:text="0" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layoutsends"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:padding="7dp"
+                        app:layout_constraintStart_toStartOf="@+id/layoutasig"
+                        app:layout_constraintTop_toBottomOf="@+id/layoutasig">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/asignadas"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_send_48"
+                            app:tint="@android:color/holo_green_dark" />
+
+                        <TextView
+                            android:id="@+id/lbsend1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/totaldeencuestas"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@+id/lblbsend2"
+                            app:layout_constraintStart_toEndOf="@+id/imageView2"
+                            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+                        <TextView
+                            android:id="@+id/lblbsend2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/sending"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+                            app:layout_constraintStart_toStartOf="@+id/lbsend1"
+                            app:layout_constraintTop_toBottomOf="@+id/lbsend1" />
+
+                        <TextView
+                            android:id="@+id/txtsendUser"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/lblbsend2"
+                            app:layout_constraintStart_toEndOf="@+id/lblbsend2"
+                            app:layout_constraintTop_toTopOf="@+id/lblbsend2"
+                            tools:text="0" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layoutnosends"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:padding="7dp"
+                        app:layout_constraintStart_toStartOf="@+id/layoutsends"
+                        app:layout_constraintTop_toBottomOf="@+id/layoutsends">
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/asignadas"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_schedule_send_48"
+                            app:tint="@color/dark_red" />
+
+                        <TextView
+                            android:id="@+id/lbnotsend1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/totaldeencuestas"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@+id/lblbnotsend2"
+                            app:layout_constraintStart_toEndOf="@+id/imageView3"
+                            app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+                        <TextView
+                            android:id="@+id/lblbnotsend2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/notsending"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                            app:layout_constraintStart_toStartOf="@+id/lbnotsend1"
+                            app:layout_constraintTop_toBottomOf="@+id/lbnotsend1" />
+
+                        <TextView
+                            android:id="@+id/txtnotsendUser"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/lblbnotsend2"
+                            app:layout_constraintStart_toEndOf="@+id/lblbnotsend2"
+                            app:layout_constraintTop_toTopOf="@+id/lblbnotsend2"
+                            tools:text="0" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layoutsaved"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/lineMidUser"
+                        app:layout_constraintTop_toTopOf="@+id/layoutasig">
+
+                        <ImageView
+                            android:id="@+id/imageView5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="60dp"
+                            android:contentDescription="@string/guardadas"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_phone_android_48"
+                            app:tint="@color/blue_dark" />
+
+                        <TextView
+                            android:id="@+id/lblphone2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="14dp"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/dmcsaved"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="@+id/imageView5"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+                        <TextView
+                            android:id="@+id/lblphone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/guardadas"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="@+id/imageView5"
+                            app:layout_constraintTop_toBottomOf="@+id/lblphone2" />
+
+
+                        <TextView
+                            android:id="@+id/txtsavedmUser"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/lblphone"
+                            app:layout_constraintStart_toEndOf="@+id/lblphone"
+                            app:layout_constraintTop_toTopOf="@+id/lblphone"
+                            tools:text="0" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+                    <TextView
+                        android:id="@+id/lblcomplettoday"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="27dp"
+                        android:animateLayoutChanges="true"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Guardadas hoy:"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/lineMidUser"
+                        app:layout_constraintTop_toBottomOf="@+id/layoutnosends" />
+
+                    <TextView
+                        android:id="@+id/txtcomplettoday"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:animateLayoutChanges="true"
+                        android:fontFamily="sans-serif-condensed"
+                        tools:text="0"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/lblcomplettoday"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/lblcomplettoday"
+                        app:layout_constraintTop_toTopOf="@+id/lblcomplettoday" />
+
+                    <TextView
+                        android:id="@+id/lblcompletweek"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:animateLayoutChanges="true"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="Editadas en la semana:"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="@+id/lineMidUser"
+                        app:layout_constraintTop_toBottomOf="@+id/txtcomplettoday" />
+
+                    <TextView
+                        android:id="@+id/txtcompletweek"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:animateLayoutChanges="true"
+                        android:fontFamily="sans-serif-condensed"
+                        tools:text="0"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/lblcompletweek"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/lblcompletweek"
+                        app:layout_constraintTop_toTopOf="@+id/lblcompletweek" />
+
+                    <ProgressBar
+                        android:id="@+id/barUser"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="17dp"
+                        android:indeterminateOnly="true"
+                        android:visibility="invisible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lblcompletweek"
+                        tools:visibility="visible" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btBackUp"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_marginVertical="12dp"
+                    android:ellipsize="end"
                     android:fontFamily="sans-serif-condensed"
-                    android:imeOptions="actionDone"
-                    android:inputType="textPassword"
-                    android:lines="1"
+                    android:gravity="start|center_vertical"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:maxWidth="320dp"
                     android:maxLines="1"
-                    android:textColor="@color/blue_dark"
+                    android:text="@string/datrenew"
+                    android:textAllCaps="false"
                     android:textSize="@dimen/text16"
-                    app:errorEnabled="true"
-                    tools:text="Empadronador" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/teal_700"
+                    app:icon="@drawable/img_save_solid"
+                    app:iconPadding="15dp"
+                    app:layout_constraintBottom_toTopOf="@+id/lineBottomUser"
+                    app:layout_constraintEnd_toStartOf="@+id/lineRightUser"
+                    app:layout_constraintStart_toStartOf="@+id/lineLeftUser"
+                    app:strokeColor="@color/blue_dark"
+                    app:strokeWidth="1dp"
+                    tools:ignore="TouchTargetSizeCheck" />
 
-            <CheckBox
-                android:id="@+id/checkLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:fontFamily="sans-serif-condensed"
-                android:text="Recordarme"
-                android:textColor="#37799E"
-                android:textSize="@dimen/text12"
-                app:layout_constraintStart_toStartOf="@+id/txtpasslyLogin"
-                app:layout_constraintTop_toBottomOf="@+id/txtpasslyLogin" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btrenewUser"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:ellipsize="end"
+                    android:layout_marginVertical="12dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="start|center_vertical"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:maxLines="1"
+                    android:text="@string/internalDat"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/text16"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/holo_blue_dark"
+                    app:icon="@drawable/img_warning1"
+                    app:iconPadding="15dp"
+                    app:layout_constraintBottom_toTopOf="@+id/btBackUp"
+                    app:layout_constraintEnd_toStartOf="@+id/lineRightUser"
+                    app:layout_constraintStart_toStartOf="@+id/lineLeftUser"
+                    app:strokeColor="@color/blue_dark"
+                    app:strokeWidth="1dp"
+                    tools:ignore="TouchTargetSizeCheck" />
 
-            <ProgressBar
-                android:id="@+id/barLogin"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="gone"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtpasslyLogin"
-                tools:visibility="visible" />
-
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="2dp"
-                android:drawableEnd="@drawable/img_login"
-                android:ellipsize="end"
-                android:fontFamily="sans-serif-condensed"
-                android:maxLines="1"
-                android:text="Iniciar Sesión"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/text12"
-                android:textStyle="bold"
-                app:backgroundTint="@android:color/holo_blue_dark"
-                app:icon="@drawable/img_login"
-                app:iconPadding="-30dp"
-                app:iconTint="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkLogin" />
-
-            <TextView
-                android:id="@+id/lbversionLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:text="Version: 0.0.0"
-                android:textColor="#37799E"
-                android:textSize="@dimen/text12"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btLogin"
-                tools:ignore="SmallSp" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btExitUser"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:ellipsize="end"
+                    android:layout_marginVertical="12dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="start|center_vertical"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:maxLines="1"
+                    android:text="@string/exitUser"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/text16"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Widget.Button.Colored"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/dark_pink"
+                    app:icon="@drawable/img_logout"
+                    app:iconPadding="15dp"
+                    app:layout_constraintBottom_toTopOf="@+id/btrenewUser"
+                    app:layout_constraintEnd_toStartOf="@+id/lineRightUser"
+                    app:layout_constraintStart_toStartOf="@+id/lineLeftUser"
+                    app:strokeColor="@color/blue_dark"
+                    app:strokeWidth="1dp"
+                    tools:ignore="TouchTargetSizeCheck" />
 
 
+                <TextView
+                    android:id="@+id/txtwarningUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/blank"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/lineBottomUser" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineBottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.97"
-            />
-
-        <ImageView
-            android:id="@+id/img_Alogin"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginBottom="7dp"
-            android:contentDescription="Instituto Nacional de Estadística y Censo"
-            app:layout_constraintBottom_toTopOf="@+id/img_Alogin2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/logo_inec" />
-
-        <ImageView
-            android:id="@+id/img_Alogin2"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginBottom="17dp"
-            android:contentDescription="Instituto Nacional de Estadística y Censo"
-            app:layout_constraintBottom_toTopOf="@+id/textView9"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@drawable/logo_senacyt" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:paddingHorizontal="30dp"
-            android:text="@string/subtittle2Main"
-            android:textSize="@dimen/text10"
-            app:layout_constraintBottom_toTopOf="@+id/textView10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center"
-            android:text="@string/subtittle3Main"
-            android:textSize="@dimen/text10"
-            app:layout_constraintBottom_toTopOf="@+id/guidelineBottom" />
-
-
-
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>

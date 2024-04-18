@@ -148,7 +148,7 @@ class MainFragmentForms : Fragment() {
                         }
                     } else { //-- position == 2
                         for (i in retroData?.body ?: ArrayList())
-                            if (i.tieneIncon != null) {
+                            if (i.act == true) {
                                 listUpdate.add(i)
                                 if (i.tieneIncon == true) conteoIncon += 1
                             }

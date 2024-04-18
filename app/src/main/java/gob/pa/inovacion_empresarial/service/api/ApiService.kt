@@ -1,5 +1,6 @@
 package gob.pa.inovacion_empresarial.service.api
 
+import com.google.gson.internal.LinkedTreeMap
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelAuth
 import gob.pa.inovacion_empresarial.model.ModelForm
@@ -20,10 +21,14 @@ interface ApiService {
     suspend fun getForm(@Path("id") id:String): Response<ModelForm>
     @GET ("${Mob.APIFORMUSER}{id}") //--  Formulario GET
     suspend fun getFormsUser(@Path("id") id:String): Response<List<ModelForm>>
-    @GET ("${Mob.APIFORMSUPER}{id}") //--  Formulario GET Supervisor
-    suspend fun getFormsSuper(@Path("id") id:String): Response<List<ModelForm>>
     @GET ("${Mob.APIINCONSISTENCIAS}{nctrl}") //--  Inconsistencias GET
     suspend fun getIncon(@Path("nctrl") nctrl:String): Response<Any>
+
+
+    @GET ("${Mob.APIFORMSUPER}{id}") //--  Formulario GET Supervisor
+    suspend fun getasignSuper(@Path("id") id:String): Response<LinkedTreeMap<*, *>>
+    @GET ("${Mob.APIINCONSUPER}{id}") //--  Formulario GET Supervisor
+    suspend fun getinconSuper(@Path("id") id:String): Response<LinkedTreeMap<*, *>>
 
     //--------------------------  DESCARGA PARA DB
     @GET (Mob.APIPROV) suspend fun getProv(): Response<List<DBprovincia>> //---------  Provincia
