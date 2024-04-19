@@ -114,6 +114,11 @@
         <item>Formularios enviados al servidor</item>
     </string-array>
 
+    <string-array name="arr_superForms">
+        <item>Formularios asignados</item>
+        <item>Formularios con inconsistencias</item>
+    </string-array>
+
     <string-array name="arr_condiciones">
         <item>Completa</item>
         <item>Consolidada</item>
@@ -706,6 +711,7 @@
     <string name="city">city</string>
     <string name="rolExample">:Rol del Usuario:</string>
     <string name="dmcsaved">Encuestas en el DMC</string>
+    <string name="encInc">Encuestas registradas con</string>
     <string name="warningRenew">La siguiente acción actualizara los datos internos de la aplicación desde el servidor</string>
     <string name="todo">TODO</string>
     <string name="textTest">XXXxxxxxxx XXxxxxxxxx</string>
@@ -744,4 +750,5 @@
     <string name="msgInformeNoRed">Error de red</string>
     <string name="descGradoImp">Escojer el <b>grado de importancia</b> entre: Alta, Media, Baja o Irrelevante</string>
     <string name="descSolicitoAp">"Escojer la solicitud de apoyo entre: \"Sí solicitó, pero no obtuvo\", \"Sí solicitó, si lo obtuvo\" o \"No solicitó apoyo\""</string>
+    <string name="withIncon">"Inconsistencias:"</string>
 </resources>

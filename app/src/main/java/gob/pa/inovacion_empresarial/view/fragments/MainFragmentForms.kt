@@ -31,6 +31,7 @@ import com.google.gson.JsonParseException
 import com.google.gson.reflect.TypeToken
 import gob.pa.inovacion_empresarial.R
 import gob.pa.inovacion_empresarial.adapters.AdapterForms
+import gob.pa.inovacion_empresarial.adapters.AdapterSuper
 import gob.pa.inovacion_empresarial.databinding.FragFormsMainBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgAlertBinding
 import gob.pa.inovacion_empresarial.databinding.StyleMsgFormBinding
@@ -53,11 +54,14 @@ class MainFragmentForms : Fragment() {
     private lateinit var bindingForm: FragFormsMainBinding
     private lateinit var ctx: Context
     private lateinit var adpForms: AdapterForms
+    private lateinit var adpSuper: AdapterSuper
     private lateinit var room: RoomView
     private var listofAllForms: List<ModelForm> = emptyList()
+    private var listofAllSuper: List<Map<*, *>> = emptyList()
     //private var listofsuggestions = arrayOf("Inconsistencia","inconsistencia")
     private val dvmForm: DVModel by viewModels()
     private var aDialog: AlertDialog? = null
+    private var rol = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -77,10 +81,22 @@ class MainFragmentForms : Fragment() {
     override fun onResume() {
         super.onResume()
         room = RoomView(dvmForm, ctx)
+        rol = Mob.authData?.rol ?: ""
         with (bindingForm){
-            adpForms = AdapterForms(listofAllForms) { popupBottom(it) }
-            recyclerdata.layoutManager = LinearLayoutManager(ctx)
-            recyclerdata.adapter = adpForms
+            if (rol == Mob.CODE_SUP) {
+                adpSuper = AdapterSuper(listofAllSuper) {
+                    lifecycleScope.launch {
+                        val ncontol = ((it["numControl"] as? Double ?: 0).toInt()).toString()
+                        chargeForm(ncontol)
+                    }
+                }
+                recyclerdata.layoutManager = LinearLayoutManager(ctx)
+                recyclerdata.adapter = adpSuper
+            } else {
+                adpForms = AdapterForms(listofAllForms) { popupBottom(it) }
+                recyclerdata.layoutManager = LinearLayoutManager(ctx)
+                recyclerdata.adapter = adpForms
+            }
         }
         onAction()
     }
@@ -91,13 +107,17 @@ class MainFragmentForms : Fragment() {
                 val pager = activity?.findViewById<ViewPager2>(R.id.viewpagerMain)
                 pager?.setCurrentItem(Mob.INIT01, true)
             }
-            val arrAdptSpin = ArrayAdapter(ctx, R.layout.style_box,
-                resources.getStringArray(R.array.arr_typeForms))
+            val array = if (rol == Mob.CODE_SUP) resources.getStringArray(R.array.arr_superForms)
+            else resources.getStringArray(R.array.arr_typeForms)
+            val arrAdptSpin = ArrayAdapter(ctx, R.layout.style_box, array)
+
             arrAdptSpin.setDropDownViewResource(R.layout.style_list)
+
+
             spinFormsType.adapter = arrAdptSpin
             spinFormsType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(adp: AdapterView<*>?, view: View?, pos: Int, id: Long) {
-                    spinnerSelection(pos)
+                    spinnerSelection(pos, rol)
                 }
                 override fun onNothingSelected(adp: AdapterView<*>?) { /* Nothing */ }
             }
@@ -127,57 +147,91 @@ class MainFragmentForms : Fragment() {
 
 
     //---- Selector de formularios, room o servidor
-    private fun spinnerSelection(position: Int) {
+    private fun spinnerSelection(position: Int, rol: String) {
         with (bindingForm) {
             barForms.visibility = View.VISIBLE
             var conteoIncon = 0
             val user: String = Mob.authData?.user ?: ""
             val listUpdate: ArrayList<ModelForm> = ArrayList()
             lifecycleScope.launch {
-                if (position > 0) {
-                    val retroData = dvmForm.formsGetUser(user)
-                    if (position == 1) {
-                        listofAllForms = retroData?.body?.reversed() ?: ArrayList()
-                        for (i in listofAllForms) {
-                            if (i.tieneIncon == true) conteoIncon += 1
-                        }
-                        activity?.runOnUiThread {
-                            txttotalInconForms.text = conteoIncon.toString()
-                            txttotalForms.text = listofAllForms.size.toString()
-                            adpForms.updateList(listofAllForms)
-                        }
-                    } else { //-- position == 2
-                        for (i in retroData?.body ?: ArrayList())
-                            if (i.act == true) {
-                                listUpdate.add(i)
+                if (rol == Mob.CODE_EMP) {
+                    if (position > 0) {
+                        val retroData = dvmForm.formsGetUser(user)
+                        if (position == 1) {
+                            listofAllForms = retroData?.body?.reversed() ?: ArrayList()
+                            for (i in listofAllForms) {
                                 if (i.tieneIncon == true) conteoIncon += 1
                             }
+                            activity?.runOnUiThread {
+                                txttotalInconForms.text = conteoIncon.toString()
+                                txttotalForms.text = listofAllForms.size.toString()
+                                adpForms.updateList(listofAllForms)
+                            }
+                        } else { //-- position == 2
+                            for (i in retroData?.body ?: ArrayList())
+                                if (i.act == true) {
+                                    listUpdate.add(i)
+                                    if (i.tieneIncon == true) conteoIncon += 1
+                                }
+                            listofAllForms = listUpdate
+                            activity?.runOnUiThread {
+                                txttotalInconForms.text = conteoIncon.toString()
+                                txttotalForms.text = listofAllForms.size.toString()
+                                adpForms.updateList(listofAllForms)
+                            }
+                        }
+
+                    } else {
+                        val listofRoom = RoomView(dvmForm, ctx).getFormsUser(user).reversed()
+                        val gson = Gson()
+                        val type: Type = object : TypeToken<ModelForm?>() {}.type
+                        for (i in listofRoom) {
+                            val listTest = gson.fromJson<ModelForm>(i.saveForm, type)
+                            listUpdate.add(listTest)
+                        }
+                        for (i in listUpdate) {
+                            if (i.tieneIncon == true) conteoIncon += 1
+                        }
                         listofAllForms = listUpdate
-                        activity?.runOnUiThread {
-                            txttotalInconForms.text = conteoIncon.toString()
-                            txttotalForms.text = listofAllForms.size.toString()
-                            adpForms.updateList(listofAllForms)
+                        txttotalInconForms.text = conteoIncon.toString()
+                        txttotalForms.text = listofAllForms.size.toString()
+                        adpForms.updateList(listofAllForms)
+                    }
+                } else if (rol == Mob.CODE_SUP) {
+                    val respAsign = dvmForm.asignGetSuper(user) //-- getlist Asing
+                    val hashMapAssing = HashMap<String, Any>()
+                    if (respAsign != null) {
+                        for ((key, value) in respAsign) {
+                            hashMapAssing[key.toString()] = value
                         }
                     }
+                    val asignList = hashMapAssing["result"] as List<*> //------- asignList
 
-                } else {
-                    val listofRoom = RoomView(dvmForm, ctx).getFormsUser(user).reversed()
-                    val gson = Gson()
-                    val type: Type = object : TypeToken<ModelForm?>() {}.type
-                    for (i in listofRoom) {
-                        val listTest = gson.fromJson<ModelForm>(i.saveForm, type)
-                        listUpdate.add(listTest)
+                    val respIncon = dvmForm.inconGetSuper(user)  //-- getlist Incon
+                    val hashMapIncon = HashMap<String, Any>()
+                    if (respIncon != null) {
+                        for ((key, value) in respIncon) {
+                            hashMapIncon[key.toString()] = value
+                        }
                     }
-                    for (i in listUpdate) {
-                        if (i.tieneIncon == true) conteoIncon += 1
+                    val asignIncon = hashMapIncon["result"] as List<*> //------- asignIncon
+
+
+                    if (position == 0) {
+                        listofAllForms = listUpdate
+                        adpSuper.updateList(asignList as List<Map<*, *>>)
+                        txttotalForms.text = asignList.size.toString()
+                        txttotalInconForms.text = asignIncon.size.toString()
+
                     }
-                    listofAllForms = listUpdate
-                    txttotalInconForms.text = conteoIncon.toString()
-                    txttotalForms.text = listofAllForms.size.toString()
-                    adpForms.updateList(listofAllForms)
+                    else {
+                        listofAllForms = listUpdate
+                        adpSuper.updateList(asignIncon as List<Map<*, *>>)
+                        txttotalForms.text = asignIncon.size.toString()
+                        txttotalInconForms.text = asignIncon.size.toString()
+                    }
                 }
                 barForms.visibility = View.INVISIBLE
-
             }
         }
     }
@@ -267,6 +321,11 @@ class MainFragmentForms : Fragment() {
                 }
             }
             if (selection == 1 || selection == 2) bt4.isEnabled = false
+            if (rol == Mob.CODE_SUP) {
+                bt2.isEnabled = false
+                bt3.isEnabled = false
+                bt4.isEnabled = false
+            }
             //if (item.tieneIncon != true) bt3.isEnabled = false
             aDialog = msgOpcions.create()
             aDialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
@@ -280,26 +339,6 @@ class MainFragmentForms : Fragment() {
 
     //---- Carga del fomulario completa
     private fun chargeForm(item: ModelForm) {
-        fun charge(form: ModelForm) {
-            CreateForm.createLoad(form)
-            Mob.indiceFormulario = Mob.CAP1_P01
-            Handler(Looper.getMainLooper()).postDelayed({
-                aDialog?.dismiss()
-                activity?.finish()
-                val options = ActivityOptions.makeCustomAnimation(
-                    ctx,
-                    R.animator.slide_in_from_right,
-                    R.animator.slide_out_to_left
-                )
-                val intent = Intent(ctx, FormActivity::class.java)
-                intent.addFlags(
-                    Intent.FLAG_ACTIVITY_CLEAR_TOP or
-                            Intent.FLAG_ACTIVITY_CLEAR_TASK or
-                            Intent.FLAG_ACTIVITY_NEW_TASK
-                )
-                startActivity(intent, options.toBundle())
-            }, (Mob.TIME1S))
-        }
         val selection = bindingForm.spinFormsType.selectedItemPosition
         val win = AlertDialog.Builder(ctx)
         aDialog = win.create()
@@ -308,13 +347,37 @@ class MainFragmentForms : Fragment() {
         bindingForm.barForms.isVisible = true
         lifecycleScope.launch {
             if (selection == 1 || selection == 2) {
-                val callForm = dvmForm.formGet(item.ncontrol ?: "0")
-                if (callForm?.code == Mob.CODE200 && callForm.body != null) {
-                    //--------------------------- Agregar mas controles de errores con el server
-                    charge(callForm.body)
-                }
+                chargeForm(item.ncontrol ?: "0")
             } else charge(item)
         }
+    }
+
+    private suspend fun chargeForm(ncontrol: String) {
+        val callForm = dvmForm.formGet(ncontrol)
+        if (callForm?.code == Mob.CODE200 && callForm.body != null) {
+            //--------------------------- Agregar mas controles de errores con el server
+            charge(callForm.body)
+        }
+    }
+    private fun charge(form: ModelForm) {
+        CreateForm.createLoad(form)
+        Mob.indiceFormulario = Mob.CAP1_P01
+        Handler(Looper.getMainLooper()).postDelayed({
+            aDialog?.dismiss()
+            activity?.finish()
+            val options = ActivityOptions.makeCustomAnimation(
+                ctx,
+                R.animator.slide_in_from_right,
+                R.animator.slide_out_to_left
+            )
+            val intent = Intent(ctx, FormActivity::class.java)
+            intent.addFlags(
+                Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK or
+                        Intent.FLAG_ACTIVITY_NEW_TASK
+            )
+            startActivity(intent, options.toBundle())
+        }, (Mob.TIME1S))
     }
 
     //---- Previsualización del formulario

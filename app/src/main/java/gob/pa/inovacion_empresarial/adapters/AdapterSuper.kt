@@ -11,10 +11,10 @@ import gob.pa.inovacion_empresarial.function.Functions
 import gob.pa.inovacion_empresarial.model.Mob
 import gob.pa.inovacion_empresarial.model.ModelForm
 
-class AdapterForms(
-    var list: List<ModelForm>,
-    private val onItemClick:(ModelForm) -> Unit):
-    RecyclerView.Adapter<AdapterForms.FormViewHolder>() {
+class AdapterSuper(
+    var list: List<Map<*, *>>,
+    private val onItemClick:(Map<*, *>) -> Unit):
+    RecyclerView.Adapter<AdapterSuper.FormViewHolder>() {
 
     override fun getItemCount() = list.size
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FormViewHolder {
@@ -26,48 +26,44 @@ class AdapterForms(
     }
     class FormViewHolder(val binding: StyleItemFormsBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun render(form: ModelForm, onItemClick:(ModelForm) -> Unit) {
+        fun render(item: Map<*, *>, onItemClick:(Map<*, *>) -> Unit) {
             with(binding) {
-                txtncontrolRC.text = Functions.ceroLeft(form.ncontrol.toString(),4)
-                txtrucRC.text = form.cap2?.v07ructxt ?: "0-0-0"
-                lbnameLRC.text = form.cap2?.v05nameLtxt ?: "Desconocido"
+                val ncontol = (item["numControl"] as? Double ?: 0).toInt()
+                val cond = item["condicion"] as? String
 
-                if (form.cond != null){
+                val comer = item["nombComerc"] as? String ?: "Desconocido"
+                val razon = item["razSocial"] as? String ?: "No registrada"
+                val ruc = item["ruc"] as? String ?: "0-0-0"
+
+                txtncontrolRC.text = Functions.ceroLeft(ncontol.toString(),4)
+                txtrucRC.text = ruc
+                lbnameLRC.text = comer
+
+                if (cond != null){
                     val indexCond =
-                        if (form.cond.toInt() > Mob.arrCondicion.size || form.cond.toInt() < 0) 0
-                        else form.cond.toInt()
+                        if (cond.toInt() > Mob.arrCondicion.size || cond.toInt() < 0) 0
+                        else cond.toInt()
                     txtconditionRC.text = Mob.arrCondicion[indexCond]
                 }
                 else txtconditionRC.text = "Sin condición asignada"
 
-                txtrazonRC.text = form.cap2?.v06razontxt ?: "No registrada"
-
+                txtrazonRC.text = razon
                 lbinconsistenciasRC.apply {
-                    when (form.tieneIncon) {
-                        false -> isVisible = false
-                        true -> {
-                            text = "con Inconsistencias"
-                            setTextColor(Color.parseColor("#873945")) // rojo
-                            isVisible = true
-                        }
-                        null -> {
-                            text = "Sin modificar"
-                            setTextColor(Color.parseColor("#4d6b73")) // azul
-                            isVisible = true
-                        }
-                    }
+                    text = item["encuestador"] as? String ?: "No registrada"
+                    setTextColor(Color.parseColor("#4d6b73")) // azul
+                    isVisible = true
                 }
 
                 layoutItemForm.setOnClickListener {
                     //layoutItemForm.setBackgroundResource(R.drawable.background_shadow_holoblue2)
-                    onItemClick(form)
+                    onItemClick(item)
                 }
             }
         }
 
     }
-    fun updateList(newList: List<ModelForm>) {
-        val diffUtilForms = DiffUtilForms(list, newList)
+    fun updateList(newList: List<Map<*, *>>) {
+        val diffUtilForms = DiffUtilSuper(list, newList)
         val calculated = DiffUtil.calculateDiff(diffUtilForms)
         list = newList
         calculated.dispatchUpdatesTo(this)

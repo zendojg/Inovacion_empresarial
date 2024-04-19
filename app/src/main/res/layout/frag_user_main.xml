@@ -242,7 +242,7 @@
                     android:id="@+id/layoutInfoFormsUser"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="37dp"
+                    android:layout_marginTop="27dp"
                     app:layout_constraintEnd_toStartOf="@+id/lineRightUser"
                     app:layout_constraintStart_toStartOf="@+id/lineLeftUser"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
@@ -252,7 +252,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        app:layout_constraintGuide_percent="0.4" />
+                        app:layout_constraintGuide_percent="0.5" />
 
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -439,6 +439,69 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/layoutwithIncon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:padding="7dp"
+                        app:layout_constraintStart_toStartOf="@+id/layoutsends"
+                        app:layout_constraintTop_toBottomOf="@+id/layoutnosends">
+
+                        <ImageView
+                            android:id="@+id/imgu5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="@string/asignadas"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/img_quiz48"
+                            app:tint="@color/azul25" />
+
+                        <TextView
+                            android:id="@+id/lbinconu1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/encInc"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toTopOf="@+id/lblbincon2"
+                            app:layout_constraintStart_toEndOf="@+id/imgu5"
+                            app:layout_constraintTop_toTopOf="@+id/imgu5" />
+
+                        <TextView
+                            android:id="@+id/lblbincon2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:text="@string/withIncon"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/imgu5"
+                            app:layout_constraintStart_toStartOf="@+id/lbinconu1"
+                            app:layout_constraintTop_toBottomOf="@+id/lbinconu1" />
+
+                        <TextView
+                            android:id="@+id/txtinconUser"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:animateLayoutChanges="true"
+                            android:fontFamily="sans-serif-condensed"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/lblbincon2"
+                            app:layout_constraintStart_toEndOf="@+id/lblbincon2"
+                            app:layout_constraintTop_toTopOf="@+id/lblbincon2"
+                            tools:text="0" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/layoutsaved"
                         android:layout_width="0dp"
@@ -451,6 +514,7 @@
                             android:id="@+id/imageView5"
                             android:layout_width="wrap_content"
                             android:layout_height="60dp"
+                            android:layout_marginEnd="47dp"
                             android:contentDescription="@string/guardadas"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -498,27 +562,18 @@
                             app:layout_constraintStart_toEndOf="@+id/lblphone"
                             app:layout_constraintTop_toTopOf="@+id/lblphone"
                             tools:text="0" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/layoutweek"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="27dp"
-                        app:layout_constraintStart_toStartOf="@+id/lineMidUser"
-                        app:layout_constraintTop_toBottomOf="@+id/layoutnosends">
 
                         <TextView
                             android:id="@+id/lblcomplettoday"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:animateLayoutChanges="true"
+                            android:layout_marginTop="37dp"
                             android:fontFamily="sans-serif-condensed"
                             android:text="Guardadas hoy:"
-                            android:textSize="14sp"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            android:textSize="@dimen/text12"
+                            app:layout_constraintStart_toStartOf="@+id/lblphone"
+                            app:layout_constraintTop_toBottomOf="@+id/lblphone" />
 
                         <TextView
                             android:id="@+id/txtcomplettoday"
@@ -527,7 +582,7 @@
                             android:layout_marginStart="5dp"
                             android:animateLayoutChanges="true"
                             android:fontFamily="sans-serif-condensed"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/text12"
                             app:layout_constraintBottom_toBottomOf="@+id/lblcomplettoday"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/lblcomplettoday"
@@ -541,8 +596,8 @@
                             android:animateLayoutChanges="true"
                             android:fontFamily="sans-serif-condensed"
                             android:text="Editadas en la semana:"
-                            android:textSize="14sp"
-                            app:layout_constraintStart_toStartOf="parent"
+                            android:textSize="@dimen/text12"
+                            app:layout_constraintStart_toStartOf="@+id/lblcomplettoday"
                             app:layout_constraintTop_toBottomOf="@+id/txtcomplettoday" />
 
                         <TextView
@@ -552,14 +607,16 @@
                             android:layout_marginStart="5dp"
                             android:animateLayoutChanges="true"
                             android:fontFamily="sans-serif-condensed"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/text12"
                             app:layout_constraintBottom_toBottomOf="@+id/lblcompletweek"
-                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/lblcompletweek"
                             app:layout_constraintTop_toTopOf="@+id/lblcompletweek"
                             tools:text="0" />
 
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
                     <ProgressBar
@@ -572,7 +629,7 @@
                         android:visibility="invisible"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/layoutweek"
+                        app:layout_constraintTop_toBottomOf="@+id/layoutwithIncon"
                         tools:visibility="visible" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

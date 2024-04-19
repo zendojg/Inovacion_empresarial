@@ -58,13 +58,15 @@ class MainFragmentData : Fragment() {
             val expira = Mob.authData?.result?.infotoken?.expire?.split("T")
             val rol = when (Mob.authData?.rol) {
                 Mob.CODE_EMP -> {
+                    layoutsends.isVisible = true
+                    layoutsaved.isVisible = true
+                    layoutnosends.isVisible = true
                     "Empadronador"
                 }
                 Mob.CODE_SUP -> {
                     layoutsends.isVisible = false
                     layoutsaved.isVisible = false
-                    layoutweek.isVisible = false
-                    lblbnotsend2.text = "Con Inconsistencias: "
+                    layoutnosends.isVisible = false
                     "Supervisor"
                 }
                 else -> "Usuario"
@@ -216,6 +218,7 @@ class MainFragmentData : Fragment() {
 
     private suspend fun empResumen() {
         var sendForms = 0
+        var inconForms = 0
         var notsendForms = 0
         val dateNow: MutableList<String?> = mutableListOf()
         val dateWeek: MutableList<String?> = mutableListOf()
@@ -226,9 +229,12 @@ class MainFragmentData : Fragment() {
         val listAsign: Int = retroSERVER?.body?.size ?: 0
 
         if (!retroSERVER?.body.isNullOrEmpty()) /*-- contador de forms enviados --*/
-            for (i in retroSERVER?.body!!)
+            for (i in retroSERVER?.body!!) {
                 if (i.act == true)
                     sendForms += 1
+                if (i.tieneIncon == true)
+                    inconForms += 1
+            }
 
         for (i in roomDMC) { /*-- contador y enlistador de forms en el DMC --*/
             val type: Type = object : TypeToken<ModelForm?>() {}.type
@@ -263,6 +269,7 @@ class MainFragmentData : Fragment() {
                     txtsavedmUser.text = roomDMC.size.toString()
                     txtcomplettoday.text = dateNow.size.toString()
                     txtcompletweek.text = dateWeek.size.toString()
+                    txtinconUser.text = inconForms.toString()
                 }
             }, (Mob.TIME500MS))
         }
@@ -296,9 +303,10 @@ class MainFragmentData : Fragment() {
             Handler(Looper.getMainLooper()).postDelayed({
                 bindingUser.apply {
                     barUser.visibility = View.INVISIBLE
-                    txtnotsendUser.text = inconsForms.toString()
+                    txtnotsendUser.text = "0"
                     txtsendUser.text = "0"
                     txtasignFormUser.text = listAsign.toString()
+                    txtinconUser.text = inconsForms.toString()
                     txtsavedmUser.text = "0"
                     txtcomplettoday.text = "0"
                     txtcompletweek.text = "0"
