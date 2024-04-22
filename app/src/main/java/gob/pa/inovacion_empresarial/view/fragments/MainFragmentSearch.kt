@@ -168,6 +168,7 @@ class MainFragmentSearch : Fragment() {
             val resp = dvmSearch.getIncon(Mob.formComp?.ncontrol ?: "")
             val respGson: String = try { Gson().toJson(resp.body) as String
             } catch (e: JsonParseException) { "" }
+
             val type: Type = object : TypeToken<ModelResponse?>() {}.type
             val jsonModel: ModelResponse? = Gson().fromJson<ModelResponse>(respGson, type)
             Mob.inconsArray = jsonModel?.inconsistencias

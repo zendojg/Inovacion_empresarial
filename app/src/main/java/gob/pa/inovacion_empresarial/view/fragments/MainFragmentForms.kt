@@ -85,9 +85,11 @@ class MainFragmentForms : Fragment() {
         with (bindingForm){
             if (rol == Mob.CODE_SUP) {
                 adpSuper = AdapterSuper(listofAllSuper) {
+                    barForms.visibility = View.VISIBLE
+
                     lifecycleScope.launch {
                         val ncontol = ((it["numControl"] as? Double ?: 0).toInt()).toString()
-                        chargeForm(ncontol)
+                        getCompleteForm(ncontol)
                     }
                 }
                 recyclerdata.layoutManager = LinearLayoutManager(ctx)
@@ -138,7 +140,8 @@ class MainFragmentForms : Fragment() {
             })
             searchForms.setOnCloseListener {
                 searchForms.setQuery("", false)
-                adpForms.updateList(listofAllForms)
+                if (rol == Mob.CODE_EMP)      adpForms.updateList(listofAllForms)
+                else if (rol == Mob.CODE_SUP) adpSuper.updateList(listofAllSuper)
                 false
             }
             scrollUser.smoothScrollTo(0,0)
@@ -245,29 +248,55 @@ class MainFragmentForms : Fragment() {
             val arrCondicion = Mob.arrCond.joinToString("|").toRegex(RegexOption.IGNORE_CASE)
             val queryTxt = query.lowercase(Locale.getDefault())
             val condSearch = Functions.ceroLeft(Mob.arrCond.indexOf(queryTxt).toString(), 1)
-            val listUpdate: ArrayList<ModelForm> = ArrayList()
 
-            val listFilter = adpForms.list.ifEmpty { listofAllForms }
-            listUpdate.addAll(
-                if (queryTxt.contains("inconsistencia"))
-                    listFilter.filter { it.tieneIncon == true }
-                else if (arrCondicion.containsMatchIn(queryTxt)) {
-                    listFilter.filter { it.cond == condSearch }
-                } else listFilter.filter {
-                    it.ncontrol?.lowercase(Locale.getDefault())?.contains(queryTxt) == true ||
-                            it.cap2?.v05nameLtxt?.lowercase(Locale.getDefault())
-                                ?.contains(queryTxt) == true ||
-                            it.cap2?.v06razontxt?.lowercase(Locale.getDefault())
-                                ?.contains(queryTxt) == true ||
-                            it.cap2?.v07ructxt?.lowercase(Locale.getDefault())
-                                ?.contains(queryTxt) == true
-                }
-            )
-            for (i in listUpdate)
-                if (i.tieneIncon == true) inco += 1
-            bindingForm.txttotalInconForms.text = inco.toString()
-            bindingForm.txttotalForms.text = listUpdate.size.toString()
-            adpForms.updateList(listUpdate)
+            if (rol == Mob.CODE_EMP) {
+                val listUpdate: ArrayList<ModelForm> = ArrayList()
+                val listFilter = adpForms.list.ifEmpty { listofAllForms }
+                listUpdate.addAll(
+                    if (queryTxt.contains("inconsistencia"))
+                        listFilter.filter { it.tieneIncon == true }
+                    else if (arrCondicion.containsMatchIn(queryTxt)) {
+                        listFilter.filter { it.cond == condSearch }
+                    } else listFilter.filter {
+                        it.ncontrol?.lowercase(Locale.getDefault())?.contains(queryTxt) == true ||
+                                it.cap2?.v05nameLtxt?.lowercase(Locale.getDefault())
+                                    ?.contains(queryTxt) == true ||
+                                it.cap2?.v06razontxt?.lowercase(Locale.getDefault())
+                                    ?.contains(queryTxt) == true ||
+                                it.cap2?.v07ructxt?.lowercase(Locale.getDefault())
+                                    ?.contains(queryTxt) == true
+                    }
+                )
+                for (i in listUpdate)
+                    if (i.tieneIncon == true) inco += 1
+                bindingForm.txttotalInconForms.text = inco.toString()
+                bindingForm.txttotalForms.text = listUpdate.size.toString()
+                adpForms.updateList(listUpdate)
+            } else {
+
+                val listUpdate: ArrayList<Map<*, *>> = ArrayList()
+                val listFilter = adpSuper.list.ifEmpty { listofAllSuper }
+
+
+                listUpdate.addAll(
+                    listFilter.filter { map ->
+                                (map["condicionNombre"] as? String)?.lowercase(Locale.getDefault())?.
+                                contains(queryTxt) == true ||
+                                (map["nombComerc"] as? String)?.lowercase(Locale.getDefault())?.
+                                contains(queryTxt) == true ||
+                                (map["razSocial"] as? String)?.lowercase(Locale.getDefault())?.
+                                contains(queryTxt) == true ||
+                                (map["ruc"] as? String)?.lowercase(Locale.getDefault())?.
+                                contains(queryTxt) == true ||
+                                (map["encuestador"] as? String)?.lowercase(Locale.getDefault())?.
+                                contains(queryTxt) == true ||
+                                ((map["numControl"] as? Double)?.toInt()).toString() == queryTxt
+                    }
+                )
+                adpSuper.updateList(listUpdate)
+            }
+
+
         }
         return true
     }
@@ -346,17 +375,25 @@ class MainFragmentForms : Fragment() {
         aDialog?.show()
         bindingForm.barForms.isVisible = true
         lifecycleScope.launch {
+            if (rol == Mob.CODE_EMP) {
             if (selection == 1 || selection == 2) {
-                chargeForm(item.ncontrol ?: "0")
+                getCompleteForm(item.ncontrol ?: "0")
+            } else charge(item)
             } else charge(item)
         }
     }
 
-    private suspend fun chargeForm(ncontrol: String) {
+    private suspend fun getCompleteForm(ncontrol: String) {
+        val screen = AlertDialog.Builder(ctx)
+        aDialog = screen.create()
+        aDialog?.setCancelable(false)
+        aDialog?.show()
         val callForm = dvmForm.formGet(ncontrol)
         if (callForm?.code == Mob.CODE200 && callForm.body != null) {
             //--------------------------- Agregar mas controles de errores con el server
-            charge(callForm.body)
+            if (callForm.body.tieneIncon == true) {
+                iconForm(callForm.body)
+            } else charge(callForm.body)
         }
     }
     private fun charge(form: ModelForm) {
@@ -463,6 +500,7 @@ class MainFragmentForms : Fragment() {
                      setOnClickListener { aDialog?.dismiss() }
                  }
              }
+             aDialog?.dismiss()
              aDialog = msgSend.create()
              aDialog?.show()
          }
