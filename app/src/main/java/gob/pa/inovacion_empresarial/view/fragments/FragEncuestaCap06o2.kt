@@ -67,8 +67,8 @@ class FragEncuestaCap06o2 : Fragment() {
             checkNo42[Mob.CHECK1Y2022] = rbtCap6421No2022.isChecked
             checkNo42[Mob.CHECK2Y2021] = rbtCap6422No2021.isChecked
             checkNo42[Mob.CHECK2Y2022] = rbtCap6422No2022.isChecked
-            checkNo42[Mob.CHECK3Y2021] = rbtCap6422No2021.isChecked
-            checkNo42[Mob.CHECK3Y2022] = rbtCap6422No2022.isChecked
+            checkNo42[Mob.CHECK3Y2021] = rbtCap6423No2021.isChecked
+            checkNo42[Mob.CHECK3Y2022] = rbtCap6423No2022.isChecked
             check42()
 
             rgroupCap64212021.setOnCheckedChangeListener { _, id ->

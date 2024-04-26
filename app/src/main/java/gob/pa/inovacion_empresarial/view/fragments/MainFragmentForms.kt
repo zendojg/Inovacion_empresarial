@@ -391,7 +391,7 @@ class MainFragmentForms : Fragment() {
         val callForm = dvmForm.formGet(ncontrol)
         if (callForm?.code == Mob.CODE200 && callForm.body != null) {
             //--------------------------- Agregar mas controles de errores con el server
-            if (callForm.body.tieneIncon == true) {
+            if (callForm.body.tieneIncon == true && rol == Mob.CODE_SUP) {
                 iconForm(callForm.body)
             } else charge(callForm.body)
         }
@@ -497,7 +497,9 @@ class MainFragmentForms : Fragment() {
                  btpositivo.apply {
                      icon = ContextCompat.getDrawable(ctx, R.drawable.img_close)
                      text = getString(R.string.cancel)
-                     setOnClickListener { aDialog?.dismiss() }
+                     setOnClickListener {
+                         aDialog?.dismiss()
+                     }
                  }
              }
              aDialog?.dismiss()

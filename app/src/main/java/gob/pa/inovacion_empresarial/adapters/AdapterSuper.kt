@@ -63,7 +63,7 @@ class AdapterSuper(
 
     }
     fun updateList(newList: List<Map<*, *>>) {
-        val diffUtilForms = DiffUtilSuper(list, newList)
+        val diffUtilForms = DiffUtilForms(list, newList)
         val calculated = DiffUtil.calculateDiff(diffUtilForms)
         list = newList
         calculated.dispatchUpdatesTo(this)
